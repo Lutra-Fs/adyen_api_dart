@@ -1,6 +1,6 @@
 name: adyen_api
 description: Adyen API library for Dart.
-version: 0.0.1
+version: 0.0.2
 repository: https://github.com/Lutra-Fs/adyen_api_dart
 issue_tracker: https://github.com/Lutra-Fs/adyen_api_dart/issues
 
