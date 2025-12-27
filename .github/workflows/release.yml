@@ -1,4 +1,5 @@
 name: release
+# Updated: 2025-12-27 to fix tag trigger
 
 on:
   push:
