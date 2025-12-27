@@ -19,7 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Added post-processing script to `tool/codegen/generate.sh` to automatically fix webhook imports during code generation.
 
-- **CI/CD**: Fixed YAML indentation in `.github/workflows/release.yml` to ensure GitHub Actions workflow triggers correctly on version tags.
+- **CI/CD**: Fixed YAML indentation in `.github/workflows/release.yml` to ensure GitHub Actions workflow triggers correctly on version tags, and added `environment: pub.dev` protection for the publish job.
 
 ### Changed
 
