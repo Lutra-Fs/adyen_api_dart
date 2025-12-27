@@ -55,3 +55,5 @@ jobs:
       contents: read
       id-token: write  # Required for OIDC authentication
     uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
+    with:
+      environment: pub.dev
