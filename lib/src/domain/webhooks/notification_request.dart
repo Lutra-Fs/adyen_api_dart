@@ -141,6 +141,7 @@ enum NotificationEventCode {
   unknown('UNKNOWN');
 
   const NotificationEventCode(this.value);
+
   /// String value of the enum.
   final String value;
 
@@ -169,6 +170,7 @@ enum NotificationSuccess {
   unknown('unknown');
 
   const NotificationSuccess(this.value);
+
   /// String value of the enum.
   final String value;
 

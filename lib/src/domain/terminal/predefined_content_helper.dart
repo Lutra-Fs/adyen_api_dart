@@ -50,6 +50,7 @@ enum DisplayNotificationEvent {
   waitForPin('WAIT_FOR_PIN');
 
   const DisplayNotificationEvent(this.value);
+
   /// String value of the enum.
   final String value;
 

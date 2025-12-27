@@ -279,14 +279,18 @@ class ReversalRequest implements Serializable {
 enum MessageCategoryType {
   /// Payment transaction.
   payment('Payment'),
+
   /// Reversal transaction.
   reversal('Reversal'),
+
   /// Event notification.
   event('Event'),
+
   /// Unknown category.
   unknown('Unknown');
 
   const MessageCategoryType(this.value);
+
   /// String value of the enum.
   final String value;
 
@@ -303,12 +307,15 @@ enum MessageCategoryType {
 enum MessageClassType {
   /// Service class message.
   service('Service'),
+
   /// Event class message.
   event('Event'),
+
   /// Unknown class.
   unknown('Unknown');
 
   const MessageClassType(this.value);
+
   /// String value of the enum.
   final String value;
 
@@ -325,14 +332,18 @@ enum MessageClassType {
 enum MessageType {
   /// Request message.
   request('Request'),
+
   /// Response message.
   response('Response'),
+
   /// Notification message.
   notification('Notification'),
+
   /// Unknown type.
   unknown('Unknown');
 
   const MessageType(this.value);
+
   /// String value of the enum.
   final String value;
 
@@ -349,10 +360,12 @@ enum MessageType {
 enum ReversalReasonType {
   /// Merchant cancelled the transaction.
   merchantCancel('MerchantCancel'),
+
   /// Unknown reason.
   unknown('Unknown');
 
   const ReversalReasonType(this.value);
+
   /// String value of the enum.
   final String value;
 }

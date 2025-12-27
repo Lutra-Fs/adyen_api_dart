@@ -25,16 +25,22 @@ class RequestOptions {
 
   /// Additional HTTP headers to include with the request.
   final Map<String, String> headers;
+
   /// Query parameters to add to the request URL.
   final Map<String, dynamic>? params;
+
   /// Key to ensure exactly-once processing of the request.
   final String? idempotencyKey;
+
   /// HTTP method for the request (defaults to POST).
   final String? method;
+
   /// Request timeout in milliseconds.
   final int? timeoutMillis;
+
   /// Configuration for Terminal Local API connections.
   final TerminalLocalConnectionOptions? terminalLocalConnection;
+
   /// Whether to use legacy hostname for terminal connections.
   final bool useLegacyTerminalHost;
 
@@ -87,10 +93,13 @@ class TerminalLocalConnectionOptions {
 
   /// Terminal's IP address or hostname.
   final String physicalHost;
+
   /// Terminal's TLS port (typically 8443).
   final int port;
+
   /// Primary SNI hostname in POIID format.
   final String primaryHost;
+
   /// Legacy hostname for older terminals.
   final String fallbackHost;
 

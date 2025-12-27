@@ -22,6 +22,7 @@ enum EnvironmentEnum {
   test("TEST");
 
   const EnvironmentEnum(this.value);
+
   /// String value of the enum.
   final String value;
 
@@ -46,6 +47,7 @@ enum RegionEnum {
   apse("APSE");
 
   const RegionEnum(this.value);
+
   /// String value of the enum.
   final String value;
 

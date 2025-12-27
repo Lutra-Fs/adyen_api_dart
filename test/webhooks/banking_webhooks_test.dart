@@ -133,7 +133,11 @@ void main() {
       final handler = ConfigurationWebhooksHandler(jsonEncode(json));
       final request = handler.getBalanceAccountNotificationRequest();
       expect(request.environment, 'test');
-      expect(request.type, BalanceAccountNotificationRequestTypeEnum.balancePlatformPeriodBalanceAccountPeriodCreated);
+      expect(
+        request.type,
+        BalanceAccountNotificationRequestTypeEnum
+            .balancePlatformPeriodBalanceAccountPeriodCreated,
+      );
       expect(request.data.balancePlatform, 'YOUR_BALANCE_PLATFORM');
       expect(request.data.balanceAccount?.id, 'BA00000000000000000001');
       final generic = handler.getGenericWebhook();

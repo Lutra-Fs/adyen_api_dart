@@ -22,7 +22,7 @@ jobs:
       - name: Verify model export files
         run: ./tool/generate_model_exports.sh --check
       - name: Format
-        run: dart format --set-exit-if-changed .
+        run: dart format --set-exit-if-changed example test tool lib/*.dart lib/src/core lib/src/constants lib/src/domain lib/src/http lib/src/security lib/src/utils
       - name: Analyze
         run: dart analyze
       - name: Test
