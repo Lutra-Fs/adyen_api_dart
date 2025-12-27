@@ -1,4 +1,13 @@
+# Include .gitignore rules
+.dart_tool/
+build/
+coverage/
+doc/api/
+.cache/
+
+# Additional exclusions for pub.dev
 AGENTS.md
 analysis_options.yaml
 .github/
 tool/
+test/
