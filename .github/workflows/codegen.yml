@@ -1,0 +1,58 @@
+name: openapi-codegen
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 3 * * 1'
+
+permissions:
+  contents: write
+  pull-requests: write
+  actions: read
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+
+      - name: Resolve OpenAPI commit
+        id: openapi
+        run: |
+          latest=$(git ls-remote https://github.com/Adyen/adyen-openapi refs/heads/main | awk '{print $1}')
+          current=$(grep '"commit"' tool/openapi.lock.json | awk -F'"' '{print $4}')
+          echo "latest=$latest" >> "$GITHUB_OUTPUT"
+          echo "current=$current" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout OpenAPI repo
+        if: steps.openapi.outputs.latest != steps.openapi.outputs.current
+        run: |
+          git clone https://github.com/Adyen/adyen-openapi .openapi
+          git -C .openapi checkout "${{ steps.openapi.outputs.latest }}"
+
+      - name: Update lock file
+        if: steps.openapi.outputs.latest != steps.openapi.outputs.current
+        run: |
+          sed -i 's/"commit": "[^"]*"/"commit": "${{ steps.openapi.outputs.latest }}"/' tool/openapi.lock.json
+
+      - name: Run codegen
+        if: steps.openapi.outputs.latest != steps.openapi.outputs.current
+        env:
+          OPENAPI_ROOT: ${{ github.workspace }}/.openapi
+          OPENAPI_GENERATOR_CLI: >-
+            docker run --rm -v ${{ github.workspace }}:${{ github.workspace }} -w ${{ github.workspace }}
+            openapitools/openapi-generator-cli:v7.18.0
+        run: ./tool/codegen/generate.sh
+
+      - name: Create pull request
+        if: steps.openapi.outputs.latest != steps.openapi.outputs.current
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: 'chore: update openapi specs'
+          title: 'chore: update openapi specs'
+          body: 'Auto-generated update from Adyen OpenAPI.'
+          branch: 'automation/openapi-update'
+          delete-branch: true
+          sign-commits: true

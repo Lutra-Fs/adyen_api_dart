@@ -1,0 +1,181 @@
+{
+  "repo": "https://github.com/Adyen/adyen-openapi",
+  "commit": "033c5fc461be21fed1ba2336f050a42228dd8d10",
+  "specs": [
+    {
+      "name": "binlookup",
+      "path": "yaml/BinLookupService-v54.yaml",
+      "output": "lib/src/gen/binlookup"
+    },
+    {
+      "name": "checkout",
+      "path": "yaml/CheckoutService-v71.yaml",
+      "output": "lib/src/gen/checkout"
+    },
+    {
+      "name": "payment",
+      "path": "yaml/PaymentService-v68.yaml",
+      "output": "lib/src/gen/payment"
+    },
+    {
+      "name": "recurring",
+      "path": "yaml/RecurringService-v68.yaml",
+      "output": "lib/src/gen/recurring"
+    },
+    {
+      "name": "payout",
+      "path": "yaml/PayoutService-v68.yaml",
+      "output": "lib/src/gen/payout"
+    },
+    {
+      "name": "stored_value",
+      "path": "yaml/StoredValueService-v46.yaml",
+      "output": "lib/src/gen/stored_value"
+    },
+    {
+      "name": "balance_platform",
+      "path": "yaml/BalancePlatformService-v2.yaml",
+      "output": "lib/src/gen/balance_platform"
+    },
+    {
+      "name": "balance_control",
+      "path": "yaml/BalanceControlService-v1.yaml",
+      "output": "lib/src/gen/balance_control"
+    },
+    {
+      "name": "transfers",
+      "path": "yaml/TransferService-v4.yaml",
+      "output": "lib/src/gen/transfers"
+    },
+    {
+      "name": "disputes",
+      "path": "yaml/DisputeService-v30.yaml",
+      "output": "lib/src/gen/disputes"
+    },
+    {
+      "name": "management",
+      "path": "yaml/ManagementService-v3.yaml",
+      "output": "lib/src/gen/management"
+    },
+    {
+      "name": "legal_entity",
+      "path": "yaml/LegalEntityService-v3.yaml",
+      "output": "lib/src/gen/legal_entity"
+    },
+    {
+      "name": "data_protection",
+      "path": "yaml/DataProtectionService-v1.yaml",
+      "output": "lib/src/gen/data_protection"
+    },
+    {
+      "name": "open_banking",
+      "path": "yaml/OpenBankingService-v1.yaml",
+      "output": "lib/src/gen/open_banking"
+    },
+    {
+      "name": "session_authentication",
+      "path": "yaml/SessionAuthenticationService-v1.yaml",
+      "output": "lib/src/gen/session_authentication"
+    },
+    {
+      "name": "payments_app",
+      "path": "yaml/PaymentsAppService-v1.yaml",
+      "output": "lib/src/gen/payments_app"
+    },
+    {
+      "name": "pos_mobile",
+      "path": "yaml/SessionService-v68.yaml",
+      "output": "lib/src/gen/pos_mobile"
+    },
+    {
+      "name": "terminal_management",
+      "path": "yaml/TfmAPIService-v1.yaml",
+      "output": "lib/src/gen/terminal_management"
+    },
+    {
+      "name": "terminal_api",
+      "path": "yaml/TerminalAPI-v1.yaml",
+      "output": "lib/src/gen/terminal_api"
+    },
+    {
+      "name": "platforms_account",
+      "path": "yaml/AccountService-v6.yaml",
+      "output": "lib/src/gen/platforms_account"
+    },
+    {
+      "name": "platforms_fund",
+      "path": "yaml/FundService-v6.yaml",
+      "output": "lib/src/gen/platforms_fund"
+    },
+    {
+      "name": "platforms_hop",
+      "path": "yaml/HopService-v6.yaml",
+      "output": "lib/src/gen/platforms_hop"
+    },
+    {
+      "name": "platforms_notification_configuration",
+      "path": "yaml/NotificationConfigurationService-v6.yaml",
+      "output": "lib/src/gen/platforms_notification_configuration"
+    },
+    {
+      "name": "webhook_notification",
+      "path": "yaml/Webhooks-v1.yaml",
+      "output": "lib/src/gen/webhook_notification"
+    },
+    {
+      "name": "webhook_management",
+      "path": "yaml/ManagementNotificationService-v3.yaml",
+      "output": "lib/src/gen/webhook_management"
+    },
+    {
+      "name": "webhook_tokenization",
+      "path": "yaml/TokenizationNotification-v1.yaml",
+      "output": "lib/src/gen/webhook_tokenization"
+    },
+    {
+      "name": "webhook_configuration",
+      "path": "yaml/BalancePlatformConfigurationNotification-v2.yaml",
+      "output": "lib/src/gen/webhook_configuration"
+    },
+    {
+      "name": "webhook_transfer",
+      "path": "yaml/BalancePlatformTransferNotification-v4.yaml",
+      "output": "lib/src/gen/webhook_transfer"
+    },
+    {
+      "name": "webhook_transaction",
+      "path": "yaml/BalancePlatformTransactionNotification-v4.yaml",
+      "output": "lib/src/gen/webhook_transaction"
+    },
+    {
+      "name": "webhook_balance",
+      "path": "yaml/BalancePlatformBalanceNotification-v1.yaml",
+      "output": "lib/src/gen/webhook_balance"
+    },
+    {
+      "name": "webhook_report",
+      "path": "yaml/BalancePlatformReportNotification-v1.yaml",
+      "output": "lib/src/gen/webhook_report"
+    },
+    {
+      "name": "webhook_dispute",
+      "path": "yaml/BalancePlatformDisputeNotification-v1.yaml",
+      "output": "lib/src/gen/webhook_dispute"
+    },
+    {
+      "name": "webhook_negative_balance",
+      "path": "yaml/BalancePlatformNegativeBalanceCompensationWarningNotification-v1.yaml",
+      "output": "lib/src/gen/webhook_negative_balance"
+    },
+    {
+      "name": "webhook_acs",
+      "path": "yaml/BalancePlatformAcsNotification-v1.yaml",
+      "output": "lib/src/gen/webhook_acs"
+    },
+    {
+      "name": "webhook_platforms_notifications",
+      "path": "yaml/MarketPayNotificationService-v6.yaml",
+      "output": "lib/src/gen/webhook_platforms_notifications"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: 3.10.3
+      - name: Install dependencies
+        run: dart pub get
+      - name: Verify model export files
+        run: ./tool/generate_model_exports.sh --check
+      - name: Format
+        run: dart format --set-exit-if-changed .
+      - name: Analyze
+        run: dart analyze
+      - name: Test
+        run: dart test

@@ -1,0 +1,57 @@
+name: release
+
+on:
+  push:
+    tags:
+    # Tag pattern on pub.dev: 'v{{version}}'
+    - 'v[0-9]+.[0-9]+.[0-9]+.*' # matches v1.0.0, v1.2.3, v1.2.3-beta, etc.
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Extract version from tag
+        id: version
+        run: echo "version=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
+      - name: Extract release notes from CHANGELOG
+        id: changelog
+        run: |
+          # Extract content between version header and next version header
+          awk "
+            /^## \[?${{ steps.version.outputs.version }}\]?/ { in_section=1; next }
+            /^## / && in_section { exit }
+            in_section { print }
+          " CHANGELOG.md > release_notes.txt
+          # Remove first line (the version header itself)
+          tail -n +2 release_notes.txt > release_notes_body.txt || true
+          echo "notes<<EOF" >> "$GITHUB_OUTPUT"
+          cat release_notes_body.txt >> "$GITHUB_OUTPUT" 2>/dev/null || echo "See CHANGELOG.md for details" >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: ${{ github.ref_name }}
+          body: |
+            ${{ steps.changelog.outputs.notes }}
+
+            ---
+            **Pub.dev**: Published at https://pub.dev/packages/adyen_api
+          target_commitish: ${{ github.sha }}
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  publish:
+    needs: release
+    # Skip for first release (v0.0.1) - must be published manually via `dart pub publish`
+    # After first publication, automation on pub.dev must be configured
+    if: github.ref_name != 'v0.0.1'
+    permissions:
+      contents: read
+      id-token: write  # Required for OIDC authentication
+    uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
