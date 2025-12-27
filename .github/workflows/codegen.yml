@@ -48,7 +48,7 @@ jobs:
 
       - name: Create pull request
         if: steps.openapi.outputs.latest != steps.openapi.outputs.current
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           commit-message: 'chore: update openapi specs'
           title: 'chore: update openapi specs'
