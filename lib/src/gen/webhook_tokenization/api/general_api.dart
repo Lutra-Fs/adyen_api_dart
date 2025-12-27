@@ -8,11 +8,11 @@ import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import '{import&#x3D;model.TokenizationAlreadyExistingDetailsNotificationRequest, classname&#x3D;TokenizationAlreadyExistingDetailsNotificationRequest}';
-import '{import&#x3D;model.TokenizationCreatedDetailsNotificationRequest, classname&#x3D;TokenizationCreatedDetailsNotificationRequest}';
-import '{import&#x3D;model.TokenizationDisabledDetailsNotificationRequest, classname&#x3D;TokenizationDisabledDetailsNotificationRequest}';
-import '{import&#x3D;model.TokenizationNotificationResponse, classname&#x3D;TokenizationNotificationResponse}';
-import '{import&#x3D;model.TokenizationUpdatedDetailsNotificationRequest, classname&#x3D;TokenizationUpdatedDetailsNotificationRequest}';
+import 'package:adyen_api/src/gen/webhook_tokenization/model/tokenization_already_existing_details_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_tokenization/model/tokenization_created_details_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_tokenization/model/tokenization_disabled_details_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_tokenization/model/tokenization_notification_response.dart';
+import 'package:adyen_api/src/gen/webhook_tokenization/model/tokenization_updated_details_notification_request.dart';
 
 class GeneralApi {
 

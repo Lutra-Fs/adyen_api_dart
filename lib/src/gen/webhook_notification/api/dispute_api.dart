@@ -8,22 +8,22 @@ import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import '{import&#x3D;model.ChargebackNotificationRequest, classname&#x3D;ChargebackNotificationRequest}';
-import '{import&#x3D;model.ChargebackReversedNotificationRequest, classname&#x3D;ChargebackReversedNotificationRequest}';
-import '{import&#x3D;model.DisputeDefensePeriodEndedNotificationRequest, classname&#x3D;DisputeDefensePeriodEndedNotificationRequest}';
-import '{import&#x3D;model.InformationSuppliedNotificationRequest, classname&#x3D;InformationSuppliedNotificationRequest}';
-import '{import&#x3D;model.IssuerCommentsNotificationRequest, classname&#x3D;IssuerCommentsNotificationRequest}';
-import '{import&#x3D;model.IssuerResponseTimeframeExpiredNotificationRequest, classname&#x3D;IssuerResponseTimeframeExpiredNotificationRequest}';
-import '{import&#x3D;model.NotificationOfChargebackNotificationRequest, classname&#x3D;NotificationOfChargebackNotificationRequest}';
-import '{import&#x3D;model.NotificationOfFraudNotificationRequest, classname&#x3D;NotificationOfFraudNotificationRequest}';
-import '{import&#x3D;model.PrearbitrationAcceptedNotificationRequest, classname&#x3D;PrearbitrationAcceptedNotificationRequest}';
-import '{import&#x3D;model.PrearbitrationDeclineNotificationRequest, classname&#x3D;PrearbitrationDeclineNotificationRequest}';
-import '{import&#x3D;model.PrearbitrationIssuerWithdrawnNotificationRequest, classname&#x3D;PrearbitrationIssuerWithdrawnNotificationRequest}';
-import '{import&#x3D;model.PrearbitrationLostNotificationRequest, classname&#x3D;PrearbitrationLostNotificationRequest}';
-import '{import&#x3D;model.PrearbitrationOpenNotificationRequest, classname&#x3D;PrearbitrationOpenNotificationRequest}';
-import '{import&#x3D;model.PrearbitrationWonNotificationRequest, classname&#x3D;PrearbitrationWonNotificationRequest}';
-import '{import&#x3D;model.RequestForInformationNotificationRequest, classname&#x3D;RequestForInformationNotificationRequest}';
-import '{import&#x3D;model.SecondChargebackNotificationRequest, classname&#x3D;SecondChargebackNotificationRequest}';
+import 'package:adyen_api/src/gen/webhook_notification/model/chargeback_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/chargeback_reversed_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/dispute_defense_period_ended_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/information_supplied_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/issuer_comments_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/issuer_response_timeframe_expired_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/notification_of_chargeback_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/notification_of_fraud_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/prearbitration_accepted_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/prearbitration_decline_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/prearbitration_issuer_withdrawn_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/prearbitration_lost_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/prearbitration_open_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/prearbitration_won_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/request_for_information_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/second_chargeback_notification_request.dart';
 
 class DisputeApi {
 

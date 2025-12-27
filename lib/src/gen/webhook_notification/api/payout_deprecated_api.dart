@@ -8,8 +8,8 @@ import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import '{import&#x3D;model.PaidoutReversedNotificationRequest, classname&#x3D;PaidoutReversedNotificationRequest}';
-import '{import&#x3D;model.PayoutNotificationRequest, classname&#x3D;PayoutNotificationRequest}';
+import 'package:adyen_api/src/gen/webhook_notification/model/paidout_reversed_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/payout_notification_request.dart';
 
 class PayoutDeprecatedApi {
 

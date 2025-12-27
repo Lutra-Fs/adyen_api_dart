@@ -8,18 +8,18 @@ import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import '{import&#x3D;model.AuthorisationAdjustmentNotificationRequest, classname&#x3D;AuthorisationAdjustmentNotificationRequest}';
-import '{import&#x3D;model.AuthorisationNotificationRequest, classname&#x3D;AuthorisationNotificationRequest}';
-import '{import&#x3D;model.CancelOrRefundNotificationRequest, classname&#x3D;CancelOrRefundNotificationRequest}';
-import '{import&#x3D;model.CancellationNotificationRequest, classname&#x3D;CancellationNotificationRequest}';
-import '{import&#x3D;model.CaptureNotificationRequest, classname&#x3D;CaptureNotificationRequest}';
-import '{import&#x3D;model.ExpireNotificationRequest, classname&#x3D;ExpireNotificationRequest}';
-import '{import&#x3D;model.ModificationNotificationRequest, classname&#x3D;ModificationNotificationRequest}';
-import '{import&#x3D;model.NotificationRequest, classname&#x3D;NotificationRequest}';
-import '{import&#x3D;model.RefundCaptureFailedNotificationRequest, classname&#x3D;RefundCaptureFailedNotificationRequest}';
-import '{import&#x3D;model.RefundNotificationRequest, classname&#x3D;RefundNotificationRequest}';
-import '{import&#x3D;model.RefundWithDataNotificationRequest, classname&#x3D;RefundWithDataNotificationRequest}';
-import '{import&#x3D;model.ReportAvailableNotificationRequest, classname&#x3D;ReportAvailableNotificationRequest}';
+import 'package:adyen_api/src/gen/webhook_notification/model/authorisation_adjustment_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/authorisation_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/cancel_or_refund_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/cancellation_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/capture_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/expire_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/modification_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/refund_capture_failed_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/refund_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/refund_with_data_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/report_available_notification_request.dart';
 
 class StandardApi {
 

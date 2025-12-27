@@ -8,7 +8,7 @@ import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import '{import&#x3D;model.NegativeBalanceCompensationWarningNotificationRequest, classname&#x3D;NegativeBalanceCompensationWarningNotificationRequest}';
+import 'package:adyen_api/src/gen/webhook_negative_balance/model/negative_balance_compensation_warning_notification_request.dart';
 
 class GeneralApi {
 

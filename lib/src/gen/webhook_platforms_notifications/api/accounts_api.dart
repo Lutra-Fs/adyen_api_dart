@@ -8,10 +8,10 @@ import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import '{import&#x3D;model.AccountCloseNotification, classname&#x3D;AccountCloseNotification}';
-import '{import&#x3D;model.AccountCreateNotification, classname&#x3D;AccountCreateNotification}';
-import '{import&#x3D;model.AccountUpdateNotification, classname&#x3D;AccountUpdateNotification}';
-import '{import&#x3D;model.NotificationResponse, classname&#x3D;NotificationResponse}';
+import 'package:adyen_api/src/gen/webhook_platforms_notifications/model/account_close_notification.dart';
+import 'package:adyen_api/src/gen/webhook_platforms_notifications/model/account_create_notification.dart';
+import 'package:adyen_api/src/gen/webhook_platforms_notifications/model/account_update_notification.dart';
+import 'package:adyen_api/src/gen/webhook_platforms_notifications/model/notification_response.dart';
 
 class AccountsApi {
 

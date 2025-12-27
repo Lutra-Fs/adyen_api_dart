@@ -8,9 +8,9 @@ import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import '{import&#x3D;model.BalanceAccountBalanceNotificationRequest, classname&#x3D;BalanceAccountBalanceNotificationRequest}';
-import '{import&#x3D;model.BalancePlatformNotificationResponse, classname&#x3D;BalancePlatformNotificationResponse}';
-import '{import&#x3D;model.ReleasedBlockedBalanceNotificationRequest, classname&#x3D;ReleasedBlockedBalanceNotificationRequest}';
+import 'package:adyen_api/src/gen/webhook_balance/model/balance_account_balance_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_balance/model/balance_platform_notification_response.dart';
+import 'package:adyen_api/src/gen/webhook_balance/model/released_blocked_balance_notification_request.dart';
 
 class BalancesApi {
 

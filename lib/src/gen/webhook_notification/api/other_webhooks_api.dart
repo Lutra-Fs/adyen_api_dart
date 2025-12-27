@@ -8,8 +8,8 @@ import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import '{import&#x3D;model.AchNotificationOfChangeNotificationRequest, classname&#x3D;AchNotificationOfChangeNotificationRequest}';
-import '{import&#x3D;model.DirectDebitNoticeOfChangeNotificationRequest, classname&#x3D;DirectDebitNoticeOfChangeNotificationRequest}';
+import 'package:adyen_api/src/gen/webhook_notification/model/ach_notification_of_change_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/direct_debit_notice_of_change_notification_request.dart';
 
 class OtherWebhooksApi {
 

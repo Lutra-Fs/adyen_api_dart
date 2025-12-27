@@ -8,9 +8,9 @@ import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import '{import&#x3D;model.RelayedAuthenticationRequest, classname&#x3D;RelayedAuthenticationRequest}';
-import '{import&#x3D;model.RelayedAuthenticationResponse, classname&#x3D;RelayedAuthenticationResponse}';
-import '{import&#x3D;model.ServiceError, classname&#x3D;ServiceError}';
+import 'package:adyen_api/src/gen/webhook_acs/model/relayed_authentication_request.dart';
+import 'package:adyen_api/src/gen/webhook_acs/model/relayed_authentication_response.dart';
+import 'package:adyen_api/src/gen/webhook_acs/model/service_error.dart';
 
 class OutOfBandApi {
 

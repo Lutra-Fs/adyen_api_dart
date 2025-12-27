@@ -8,15 +8,15 @@ import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import '{import&#x3D;model.AccountFundsBelowThresholdNotification, classname&#x3D;AccountFundsBelowThresholdNotification}';
-import '{import&#x3D;model.AccountHolderPayoutNotification, classname&#x3D;AccountHolderPayoutNotification}';
-import '{import&#x3D;model.BeneficiarySetupNotification, classname&#x3D;BeneficiarySetupNotification}';
-import '{import&#x3D;model.CompensateNegativeBalanceNotification, classname&#x3D;CompensateNegativeBalanceNotification}';
-import '{import&#x3D;model.DirectDebitInitiatedNotification, classname&#x3D;DirectDebitInitiatedNotification}';
-import '{import&#x3D;model.NotificationResponse, classname&#x3D;NotificationResponse}';
-import '{import&#x3D;model.RefundFundsTransferNotification, classname&#x3D;RefundFundsTransferNotification}';
-import '{import&#x3D;model.ScheduledRefundsNotification, classname&#x3D;ScheduledRefundsNotification}';
-import '{import&#x3D;model.TransferFundsNotification, classname&#x3D;TransferFundsNotification}';
+import 'package:adyen_api/src/gen/webhook_platforms_notifications/model/account_funds_below_threshold_notification.dart';
+import 'package:adyen_api/src/gen/webhook_platforms_notifications/model/account_holder_payout_notification.dart';
+import 'package:adyen_api/src/gen/webhook_platforms_notifications/model/beneficiary_setup_notification.dart';
+import 'package:adyen_api/src/gen/webhook_platforms_notifications/model/compensate_negative_balance_notification.dart';
+import 'package:adyen_api/src/gen/webhook_platforms_notifications/model/direct_debit_initiated_notification.dart';
+import 'package:adyen_api/src/gen/webhook_platforms_notifications/model/notification_response.dart';
+import 'package:adyen_api/src/gen/webhook_platforms_notifications/model/refund_funds_transfer_notification.dart';
+import 'package:adyen_api/src/gen/webhook_platforms_notifications/model/scheduled_refunds_notification.dart';
+import 'package:adyen_api/src/gen/webhook_platforms_notifications/model/transfer_funds_notification.dart';
 
 class FundManagementApi {
 

@@ -8,9 +8,9 @@ import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import '{import&#x3D;model.AccountNotificationResponse, classname&#x3D;AccountNotificationResponse}';
-import '{import&#x3D;model.MerchantCreatedNotificationRequest, classname&#x3D;MerchantCreatedNotificationRequest}';
-import '{import&#x3D;model.MerchantUpdatedNotificationRequest, classname&#x3D;MerchantUpdatedNotificationRequest}';
+import 'package:adyen_api/src/gen/webhook_management/model/account_notification_response.dart';
+import 'package:adyen_api/src/gen/webhook_management/model/merchant_created_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_management/model/merchant_updated_notification_request.dart';
 
 class MerchantAccountApi {
 

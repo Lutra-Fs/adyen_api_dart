@@ -8,9 +8,9 @@ import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import '{import&#x3D;model.NotificationResponse, classname&#x3D;NotificationResponse}';
-import '{import&#x3D;model.PaymentFailureNotification, classname&#x3D;PaymentFailureNotification}';
-import '{import&#x3D;model.ReportAvailableNotification, classname&#x3D;ReportAvailableNotification}';
+import 'package:adyen_api/src/gen/webhook_platforms_notifications/model/notification_response.dart';
+import 'package:adyen_api/src/gen/webhook_platforms_notifications/model/payment_failure_notification.dart';
+import 'package:adyen_api/src/gen/webhook_platforms_notifications/model/report_available_notification.dart';
 
 class OtherApi {
 

@@ -8,9 +8,9 @@ import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import '{import&#x3D;model.AutoRescueNotificationRequest, classname&#x3D;AutoRescueNotificationRequest}';
-import '{import&#x3D;model.NotificationRequest, classname&#x3D;NotificationRequest}';
-import '{import&#x3D;model.RecurringContractNotificationRequest, classname&#x3D;RecurringContractNotificationRequest}';
+import 'package:adyen_api/src/gen/webhook_notification/model/auto_rescue_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/recurring_contract_notification_request.dart';
 
 class AdditionalConfigurationApi {
 

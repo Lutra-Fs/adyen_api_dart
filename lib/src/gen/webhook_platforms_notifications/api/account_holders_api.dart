@@ -8,13 +8,13 @@ import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import '{import&#x3D;model.AccountHolderCreateNotification, classname&#x3D;AccountHolderCreateNotification}';
-import '{import&#x3D;model.AccountHolderStatusChangeNotification, classname&#x3D;AccountHolderStatusChangeNotification}';
-import '{import&#x3D;model.AccountHolderStoreStatusChangeNotification, classname&#x3D;AccountHolderStoreStatusChangeNotification}';
-import '{import&#x3D;model.AccountHolderUpcomingDeadlineNotification, classname&#x3D;AccountHolderUpcomingDeadlineNotification}';
-import '{import&#x3D;model.AccountHolderUpdateNotification, classname&#x3D;AccountHolderUpdateNotification}';
-import '{import&#x3D;model.AccountHolderVerificationNotification, classname&#x3D;AccountHolderVerificationNotification}';
-import '{import&#x3D;model.NotificationResponse, classname&#x3D;NotificationResponse}';
+import 'package:adyen_api/src/gen/webhook_platforms_notifications/model/account_holder_create_notification.dart';
+import 'package:adyen_api/src/gen/webhook_platforms_notifications/model/account_holder_status_change_notification.dart';
+import 'package:adyen_api/src/gen/webhook_platforms_notifications/model/account_holder_store_status_change_notification.dart';
+import 'package:adyen_api/src/gen/webhook_platforms_notifications/model/account_holder_upcoming_deadline_notification.dart';
+import 'package:adyen_api/src/gen/webhook_platforms_notifications/model/account_holder_update_notification.dart';
+import 'package:adyen_api/src/gen/webhook_platforms_notifications/model/account_holder_verification_notification.dart';
+import 'package:adyen_api/src/gen/webhook_platforms_notifications/model/notification_response.dart';
 
 class AccountHoldersApi {
 

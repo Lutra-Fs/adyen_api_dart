@@ -8,12 +8,12 @@ import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import '{import&#x3D;model.TerminalAssignmentNotificationRequest, classname&#x3D;TerminalAssignmentNotificationRequest}';
-import '{import&#x3D;model.TerminalAssignmentNotificationResponse, classname&#x3D;TerminalAssignmentNotificationResponse}';
-import '{import&#x3D;model.TerminalBoardingNotificationRequest, classname&#x3D;TerminalBoardingNotificationRequest}';
-import '{import&#x3D;model.TerminalBoardingNotificationResponse, classname&#x3D;TerminalBoardingNotificationResponse}';
-import '{import&#x3D;model.TerminalSettingsNotificationRequest, classname&#x3D;TerminalSettingsNotificationRequest}';
-import '{import&#x3D;model.TerminalSettingsNotificationResponse, classname&#x3D;TerminalSettingsNotificationResponse}';
+import 'package:adyen_api/src/gen/webhook_management/model/terminal_assignment_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_management/model/terminal_assignment_notification_response.dart';
+import 'package:adyen_api/src/gen/webhook_management/model/terminal_boarding_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_management/model/terminal_boarding_notification_response.dart';
+import 'package:adyen_api/src/gen/webhook_management/model/terminal_settings_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_management/model/terminal_settings_notification_response.dart';
 
 class TerminalManagementApi {
 

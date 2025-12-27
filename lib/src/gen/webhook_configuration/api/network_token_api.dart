@@ -8,8 +8,8 @@ import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import '{import&#x3D;model.BalancePlatformNotificationResponse, classname&#x3D;BalancePlatformNotificationResponse}';
-import '{import&#x3D;model.NetworkTokenNotificationRequest, classname&#x3D;NetworkTokenNotificationRequest}';
+import 'package:adyen_api/src/gen/webhook_configuration/model/balance_platform_notification_response.dart';
+import 'package:adyen_api/src/gen/webhook_configuration/model/network_token_notification_request.dart';
 
 class NetworkTokenApi {
 

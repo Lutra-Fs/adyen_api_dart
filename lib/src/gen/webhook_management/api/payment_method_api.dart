@@ -8,10 +8,10 @@ import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import '{import&#x3D;model.PaymentMethodCreatedNotificationRequest, classname&#x3D;PaymentMethodCreatedNotificationRequest}';
-import '{import&#x3D;model.PaymentMethodNotificationResponse, classname&#x3D;PaymentMethodNotificationResponse}';
-import '{import&#x3D;model.PaymentMethodRequestRemovedNotificationRequest, classname&#x3D;PaymentMethodRequestRemovedNotificationRequest}';
-import '{import&#x3D;model.PaymentMethodScheduledForRemovalNotificationRequest, classname&#x3D;PaymentMethodScheduledForRemovalNotificationRequest}';
+import 'package:adyen_api/src/gen/webhook_management/model/payment_method_created_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_management/model/payment_method_notification_response.dart';
+import 'package:adyen_api/src/gen/webhook_management/model/payment_method_request_removed_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_management/model/payment_method_scheduled_for_removal_notification_request.dart';
 
 class PaymentMethodApi {
 
