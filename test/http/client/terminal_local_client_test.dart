@@ -32,15 +32,18 @@ void main() {
           true,
           null,
         ),
-        throwsA(isA<ArgumentError>()
-            .having((e) => e.message, 'message', contains('terminalLocalConnection'))),
+        throwsA(
+          isA<ArgumentError>().having(
+            (e) => e.message,
+            'message',
+            contains('terminalLocalConnection'),
+          ),
+        ),
       );
     });
 
     test('throws ApiException when apiKey is required but missing', () async {
-      config = Config(
-        environment: EnvironmentEnum.test,
-      );
+      config = Config(environment: EnvironmentEnum.test);
 
       final requestOptions = AdyenRequestOptions(
         terminalLocalConnection: options,
@@ -54,8 +57,9 @@ void main() {
           true,
           requestOptions,
         ),
-        throwsA(isA<ApiException>()
-            .having((e) => e.statusCode, 'statusCode', 401)),
+        throwsA(
+          isA<ApiException>().having((e) => e.statusCode, 'statusCode', 401),
+        ),
       );
     });
 

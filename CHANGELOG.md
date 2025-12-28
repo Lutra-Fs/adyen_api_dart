@@ -50,6 +50,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **Testing**: Unified test assertion style (replaced `try-catch-fail` with `expectLater` + `throwsA`)
 
+- **Project**: Updated project rules and documentation
+  - Updated dart version requirement to target latest version using fvm
+  - Clarified dart command execution using `fvm dart <command>`
+  - Added verification requirements for `dart format`, `dart analyze`, and `dart test`
+  - Added CHANGELOG.md update requirement using "Keep a Changelog" format
+
 ## [0.0.2] - 2025-12-27
 
 ### Fixed
