@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:adyen_api/adyen_api.dart';
 import 'package:adyen_api/src/http/terminal_local/connection_options.dart';
 import 'package:dio/dio.dart';
