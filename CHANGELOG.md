@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- **CI**: Fixed release workflow tag trigger pattern
+  - Corrected tag filter from `'v[0-9]+.[0-9]+.[0-9]+.*'` to `'v[0-9]+.[0-9]+.[0-9]+*'` to properly match semantic version tags (e.g., v1.0.0, v1.2.3-beta)
+
 ## [0.1.0] - 2025-12-27
 
 ### Added
