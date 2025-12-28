@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 
-import '../http/api_exception.dart';
-import '../http/dio_client.dart';
-import '../http/http_client_exception.dart';
+import '../http/exceptions/api_exception.dart';
+import '../http/dio/dio_factory.dart';
+import '../http/exceptions/http_exception.dart';
 import 'service.dart';
 
 /// Abstract base class for API services using Dio for HTTP requests.

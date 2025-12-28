@@ -14,6 +14,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Removed `@TestOn('vm')` platform restrictions, enabling tests to run on both VM and Chrome
   - Deleted obsolete fixture files from `test/fixtures/notification/`
 
+- **Code Organization**: Refactored HTTP module structure for improved maintainability
+  - Reorganized into subdirectories: `client/`, `exceptions/`, `headers/`, `models/`, `terminal_local/`, `dio/`
+  - Renamed `RequestOptions` to `AdyenRequestOptions` to avoid naming conflicts with Dio
+
 - **CI**: Added ripgrep installation to resolve `rg: command not found` warnings in `generate_model_exports.sh`
 
 ### Added

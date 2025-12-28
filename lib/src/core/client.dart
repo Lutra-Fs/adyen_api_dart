@@ -1,7 +1,7 @@
 import 'config.dart';
-import '../http/client_interface.dart';
-import '../http/default_http_client.dart';
-import '../http/terminal_local_http_client.dart';
+import '../http/client/client_interface.dart';
+import '../http/client/default_client.dart';
+import '../http/client/terminal_local_client.dart';
 
 /// Adyen API client managing config, HTTP clients, and endpoints.
 ///

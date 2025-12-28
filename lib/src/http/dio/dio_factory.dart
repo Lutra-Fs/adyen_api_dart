@@ -1,8 +1,9 @@
 import 'package:dio/dio.dart';
 
-import '../core/config.dart';
-import 'api_exception.dart';
-import 'http_shared.dart';
+import '../../core/config.dart';
+import '../exceptions/api_exception.dart';
+import '../exceptions/exception_parser.dart';
+import '../headers/header_builder.dart';
 
 /// Factory for creating configured Dio HTTP clients for Adyen API requests.
 ///

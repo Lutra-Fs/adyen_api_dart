@@ -1,4 +1,4 @@
-import 'package:adyen_api/adyen_api.dart' hide RequestOptions;
+import 'package:adyen_api/adyen_api.dart';
 import 'package:adyen_api/src/gen/binlookup/model/three_ds_availability_request.dart';
 import 'package:adyen_api/src/gen/binlookup/serializers.dart'
     as binlookup_serializers;

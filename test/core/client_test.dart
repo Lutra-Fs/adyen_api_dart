@@ -8,7 +8,7 @@ class FakeHttpClient implements ClientInterface {
     String json,
     Config config,
     bool isApiKeyRequired,
-    RequestOptions? requestOptions,
+    AdyenRequestOptions? requestOptions,
   ) async {
     return '';
   }
@@ -280,7 +280,7 @@ void main() {
     });
 
     test('RequestOptions builder pattern', () {
-      final requestOptions = RequestOptions(
+      final requestOptions = AdyenRequestOptions(
         idempotencyKey: 'idempotency',
         headers: {'thing': 'thing'},
       );
@@ -290,7 +290,7 @@ void main() {
     });
 
     test('RequestOptions with multiple headers', () {
-      final requestOptions = RequestOptions(
+      final requestOptions = AdyenRequestOptions(
         headers: {'key1': 'value1', 'key2': 'value2', 'key3': 'value3'},
       );
 
@@ -301,7 +301,7 @@ void main() {
     });
 
     test('RequestOptions copyWith preserves unchanged values', () {
-      final original = RequestOptions(
+      final original = AdyenRequestOptions(
         idempotencyKey: 'original',
         headers: {'key1': 'value1'},
         timeoutMillis: 5000,

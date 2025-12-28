@@ -1,5 +1,5 @@
-import '../core/config.dart';
-import 'request_options.dart';
+import '../../core/config.dart';
+import '../models/adyen_request_options.dart';
 
 /// Abstract interface for HTTP clients used to communicate with Adyen APIs.
 ///
@@ -7,7 +7,7 @@ import 'request_options.dart';
 /// a consistent way to make API requests with proper authentication and
 /// configuration handling.
 abstract class ClientInterface {
-  /// Sends an HTTP request to the specified endpoint.
+  /// Sends an HTTP request to specified endpoint.
   ///
   /// The [endpoint] is the URL to send the request to.
   /// The [json] is the request body as a JSON string.
@@ -23,6 +23,6 @@ abstract class ClientInterface {
     String json,
     Config config,
     bool isApiKeyRequired,
-    RequestOptions? requestOptions,
+    AdyenRequestOptions? requestOptions,
   );
 }

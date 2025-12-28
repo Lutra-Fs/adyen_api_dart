@@ -1,11 +1,12 @@
 import 'package:dio/dio.dart';
 
-import '../core/config.dart';
-import '../constants/api_constants.dart';
-import 'api_exception.dart';
+import '../../core/config.dart';
+import '../../constants/api_constants.dart';
+import '../exceptions/api_exception.dart';
+import '../exceptions/exception_parser.dart';
+import '../headers/header_builder.dart';
+import '../models/adyen_request_options.dart';
 import 'client_interface.dart';
-import 'http_shared.dart';
-import 'request_options.dart' as client_options;
 
 /// Default HTTP client implementation for Adyen API requests.
 ///
@@ -66,14 +67,8 @@ class DefaultHttpClient implements ClientInterface {
     String json,
     Config config,
     bool isApiKeyRequired,
-    client_options.RequestOptions? requestOptions,
+    AdyenRequestOptions? requestOptions,
   ) async {
-    final options = requestOptions ?? client_options.RequestOptions();
-    if (options.terminalLocalConnection != null) {
-      throw ArgumentError(
-        'Terminal Local requests require TerminalLocalHttpClient.',
-      );
-    }
     if (isApiKeyRequired && (config.apiKey == null || config.apiKey!.isEmpty)) {
       throw ApiException('Invalid X-API-Key was used', statusCode: 401);
     }
@@ -83,7 +78,7 @@ class DefaultHttpClient implements ClientInterface {
       endpoint: endpoint,
       json: json,
       config: config,
-      requestOptions: options,
+      requestOptions: requestOptions,
       allowRedirect: allowRedirect,
     );
 
@@ -94,20 +89,20 @@ class DefaultHttpClient implements ClientInterface {
     required String endpoint,
     required String json,
     required Config config,
-    required client_options.RequestOptions requestOptions,
+    required AdyenRequestOptions? requestOptions,
     required bool allowRedirect,
   }) async {
     final dio = _buildDio(config);
     final headers = buildHeaders(
       config,
-      headers: requestOptions.headers,
-      idempotencyKey: requestOptions.idempotencyKey,
+      headers: requestOptions?.headers,
+      idempotencyKey: requestOptions?.idempotencyKey,
     );
-    final method = requestOptions.method ?? ApiConstants.methodPost;
+    final method = requestOptions?.method ?? ApiConstants.methodPost;
     final endpointUri = Uri.parse(endpoint);
     final mergedParams = <String, dynamic>{
       ...endpointUri.queryParameters,
-      ...?requestOptions.params,
+      ...?requestOptions?.params,
     };
     final resolvedEndpoint = endpointUri.hasQuery
         ? _stripQuery(endpointUri)

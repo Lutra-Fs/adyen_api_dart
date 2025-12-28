@@ -2,7 +2,8 @@ import 'dart:convert';
 
 import '../../core/service.dart';
 import '../../core/config.dart';
-import '../../http/request_options.dart';
+import '../../http/models/adyen_request_options.dart';
+import '../../http/terminal_local/connection_options.dart';
 import 'models.dart';
 import '../../security/nexo_crypto.dart';
 
@@ -55,7 +56,7 @@ class TerminalLocalAPI extends Service {
     final primaryHost = _buildTerminalHost(poiId, environment);
     final fallbackHost = _buildLegacyTerminalHost(environment);
     final endpoint = _buildLocalEndpoint(primaryHost, port);
-    final requestOptions = RequestOptions(
+    final requestOptions = AdyenRequestOptions(
       terminalLocalConnection: TerminalLocalConnectionOptions(
         physicalHost: physicalHost,
         port: port,

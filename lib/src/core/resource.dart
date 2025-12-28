@@ -1,6 +1,6 @@
 import 'config.dart';
-import '../http/client_interface.dart';
-import '../http/request_options.dart';
+import '../http/client/client_interface.dart';
+import '../http/models/adyen_request_options.dart';
 import 'service.dart';
 
 /// Represents a REST API resource/endpoint.
@@ -31,7 +31,7 @@ class Resource {
   /// [requestOptions] allows customization of the request.
   ///
   /// Returns response body as string.
-  Future<String> request(String json, [RequestOptions? requestOptions]) {
+  Future<String> request(String json, [AdyenRequestOptions? requestOptions]) {
     final ClientInterface clientInterface = service.client.httpClient;
     final Config config = service.client.config;
     return clientInterface.request(

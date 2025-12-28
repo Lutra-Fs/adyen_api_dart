@@ -2,12 +2,14 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 
-import '../core/config.dart';
-import '../constants/api_constants.dart';
-import 'api_exception.dart';
+import '../../core/config.dart';
+import '../../constants/api_constants.dart';
+import '../exceptions/api_exception.dart';
+import '../exceptions/exception_parser.dart';
+import '../headers/header_builder.dart';
+import '../models/adyen_request_options.dart';
+import '../terminal_local/sni_config.dart';
 import 'client_interface.dart';
-import 'http_shared.dart';
-import 'request_options.dart' as client_options;
 
 /// HTTP client for Adyen Terminal Local API.
 ///
@@ -30,7 +32,7 @@ class TerminalLocalHttpClient implements ClientInterface {
 
   /// Sends an HTTP request to a Terminal Local API endpoint.
   ///
-  /// This method requires [RequestOptions.terminalLocalConnection] to be set.
+  /// This method requires [AdyenRequestOptions.terminalLocalConnection] to be set.
   /// Terminal Local requests establish direct TLS connections to payment
   /// terminals using custom SNI configuration.
   ///
@@ -42,9 +44,9 @@ class TerminalLocalHttpClient implements ClientInterface {
     String json,
     Config config,
     bool isApiKeyRequired,
-    client_options.RequestOptions? requestOptions,
+    AdyenRequestOptions? requestOptions,
   ) async {
-    final options = requestOptions ?? client_options.RequestOptions();
+    final options = requestOptions ?? AdyenRequestOptions();
     final localOptions = options.terminalLocalConnection;
     if (localOptions == null) {
       throw ArgumentError(
@@ -69,7 +71,7 @@ class TerminalLocalHttpClient implements ClientInterface {
     required String endpoint,
     required String json,
     required Config config,
-    required client_options.RequestOptions requestOptions,
+    required AdyenRequestOptions requestOptions,
   }) async {
     final localOptions = requestOptions.terminalLocalConnection;
     if (localOptions == null) {
@@ -109,7 +111,7 @@ class TerminalLocalHttpClient implements ClientInterface {
       );
     } on DioException catch (e) {
       if (!requestOptions.useLegacyTerminalHost && _isHandshakeError(e.error)) {
-        // Retry with the legacy hostname format if the terminal uses the
+        // Retry with legacy hostname format if the terminal uses
         // legacy certificate CN instead of the POIID-based CN.
         final legacyEndpoint = _replaceEndpointHost(
           endpoint,
@@ -137,7 +139,7 @@ class TerminalLocalHttpClient implements ClientInterface {
     return response;
   }
 
-  Dio _buildDio(Config config, client_options.RequestOptions requestOptions) {
+  Dio _buildDio(Config config, AdyenRequestOptions requestOptions) {
     final dioOverride = _dioOverride;
     if (dioOverride != null) {
       return dioOverride;
