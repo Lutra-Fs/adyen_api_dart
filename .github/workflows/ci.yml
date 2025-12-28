@@ -14,8 +14,8 @@ jobs:
     if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v6
-      - name: Install jq
-        run: sudo apt-get update && sudo apt-get install -y jq
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y jq ripgrep
       - uses: dart-lang/setup-dart@v1
         with:
           sdk: 3.10.3

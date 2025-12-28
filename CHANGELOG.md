@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- **CI**: Added ripgrep installation to resolve `rg: command not found` warnings in `generate_model_exports.sh`
+
 ### Added
 
 - **Testing**: Added 160+ tests across all domains based on Java codebase reference
