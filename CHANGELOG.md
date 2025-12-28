@@ -28,6 +28,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Added `codecov.yml` configuration with ignore rules for generated code
   - Added coverage badge to README.md
 - **Testing**: Added 160+ tests across all domains based on Java codebase reference
+- **Testing**: Enhanced test coverage for HTTP module
+  - Added `test/http/terminal_local/connection_options_test.dart` - 6 tests for TerminalLocalConnectionOptions
+  - Added `test/http/terminal_local/connection_factory_test.dart` - 7 tests for connection factory
+  - Added `test/http/terminal_local/sni_config_test.dart` - 5 tests for SNI configuration
+  - Added `test/http/client/default_client_test.dart` - 10 tests for DefaultHttpClient (including redirect hostname validation)
+  - Added `test/http/client/terminal_local_client_test.dart` - 3 tests for TerminalLocalHttpClient
+  - Added `test/http/exceptions/exception_parser_test.dart` - 36 tests for exception parsing
+  - Total: 67 new tests improving coverage across `terminal_local` (from 3.57%), `client` (from 54.70%), and `exceptions` (from 70.97%)
   - `test/security/nexo_crypto_test.dart` - NEXO cryptographic operations
   - `test/mocks/` - Reusable mock data templates (common responses, errors, terminal)
   - Balance Platform: +31 tests
