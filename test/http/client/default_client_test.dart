@@ -6,11 +6,9 @@ void main() {
   group('DefaultHttpClient', () {
     late DefaultHttpClient client;
     late Config config;
-    late Dio dio;
 
     setUp(() {
-      dio = Dio();
-      client = DefaultHttpClient(dio: dio);
+      client = DefaultHttpClient();
       config = Config(
         apiKey: 'test_api_key',
         environment: EnvironmentEnum.test,
@@ -88,6 +86,14 @@ void main() {
 
       test('returns false for empty location', () {
         expect(client.verifyLocation(''), isFalse);
+      });
+    });
+
+    group('dependency injection', () {
+      test('accepts Dio dependency injection', () {
+        final dio = Dio();
+        final customClient = DefaultHttpClient(dio: dio);
+        expect(customClient, isNotNull);
       });
     });
   });

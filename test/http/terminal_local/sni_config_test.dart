@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:adyen_api/adyen_api.dart';
 import 'package:adyen_api/src/http/terminal_local/connection_options.dart';
+import 'package:adyen_api/src/http/terminal_local/connection_factory.dart';
 import 'package:adyen_api/src/http/terminal_local/sni_config.dart';
 import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
@@ -70,9 +73,116 @@ void main() {
 
       configureTerminalLocalSni(dio, config, options, useLegacyHost: false);
 
-      // The timeout is applied via Dio's BaseOptions, not the adapter
-      // But we can verify the adapter was set
       expect(dio.httpClientAdapter, isA<IOHttpClientAdapter>());
+    });
+
+    group('buildTerminalLocalConnectionFactory', () {
+      test('throws UnsupportedError when proxy host is provided', () async {
+        final factory = buildTerminalLocalConnectionFactory(
+          options,
+          null,
+          false,
+          allowBadCertificate: false,
+        );
+
+        await expectLater(
+          () => factory(
+            Uri.parse('https://example.com'),
+            'proxy.example.com',
+            8080,
+          ),
+          throwsA(
+            isA<UnsupportedError>().having(
+              (e) => e.message,
+              'message',
+              contains('Proxy is not supported'),
+            ),
+          ),
+        );
+      });
+
+      test('throws UnsupportedError when proxy port is provided', () async {
+        final factory = buildTerminalLocalConnectionFactory(
+          options,
+          null,
+          false,
+          allowBadCertificate: false,
+        );
+
+        await expectLater(
+          () => factory(Uri.parse('https://example.com'), null, 8080),
+          throwsA(
+            isA<UnsupportedError>().having(
+              (e) => e.message,
+              'message',
+              contains('Proxy is not supported'),
+            ),
+          ),
+        );
+      });
+
+      test('returns connection task when no proxy is provided', () async {
+        final factory = buildTerminalLocalConnectionFactory(
+          options,
+          null,
+          false,
+          allowBadCertificate: false,
+        );
+
+        final task = factory(Uri.parse('https://example.com'), null, null);
+        expect(task, isNotNull);
+      });
+
+      test('returns connection task with allowBadCertificate', () async {
+        final factory = buildTerminalLocalConnectionFactory(
+          options,
+          null,
+          false,
+          allowBadCertificate: true,
+        );
+
+        final task = factory(Uri.parse('https://example.com'), null, null);
+        expect(task, isNotNull);
+      });
+
+      test('returns connection task with security context', () async {
+        final context = SecurityContext(withTrustedRoots: true);
+        final factory = buildTerminalLocalConnectionFactory(
+          options,
+          context,
+          false,
+          allowBadCertificate: false,
+        );
+
+        final task = factory(Uri.parse('https://example.com'), null, null);
+        expect(task, isNotNull);
+      });
+    });
+
+    group('certificate handling', () {
+      test('with valid certificate path', () async {
+        final tempDir = Directory.systemTemp.createTempSync('adyen_test_');
+        try {
+          final certFile = File('${tempDir.path}/certificate.pem');
+          await certFile.writeAsString(
+            '-----BEGIN CERTIFICATE-----\n'
+            'MIICpQIBAzCCB8wGCSqGSIb3DQEBCjCBrzCBnDELMAkGA1UEBhMCVVMxFjAUBgNV\n'
+            '-----END CERTIFICATE-----\n',
+          );
+
+          config = Config(
+            apiKey: 'test_api_key',
+            environment: EnvironmentEnum.test,
+            certificatePath: certFile.path,
+          );
+
+          configureTerminalLocalSni(dio, config, options, useLegacyHost: false);
+
+          expect(dio.httpClientAdapter, isA<IOHttpClientAdapter>());
+        } finally {
+          await tempDir.delete(recursive: true);
+        }
+      });
     });
   });
 }

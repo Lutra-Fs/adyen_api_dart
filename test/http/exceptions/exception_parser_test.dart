@@ -1,9 +1,31 @@
+import 'package:adyen_api/adyen_api.dart';
 import 'package:adyen_api/src/http/exceptions/exception_parser.dart';
-import 'package:adyen_api/src/http/exceptions/http_exception.dart';
 import 'package:dio/dio.dart';
 import 'package:test/test.dart';
 
 void main() {
+  group('HttpClientException', () {
+    test('toString returns message', () {
+      final exception = HttpClientException(
+        message: 'Error occurred',
+        statusCode: 500,
+        responseBody: 'Internal server error',
+        errorCode: 'ERR001',
+        responseHeaders: {
+          'content-type': ['application/json'],
+        },
+        apiError: ApiError(status: 500, message: 'API Error'),
+      );
+
+      expect(exception.toString(), 'Error occurred');
+    });
+
+    test('toString returns message even with null fields', () {
+      final exception = HttpClientException(message: 'Simple error');
+      expect(exception.toString(), 'Simple error');
+    });
+  });
+
   group('httpExceptionFromResponse', () {
     late Response response;
 

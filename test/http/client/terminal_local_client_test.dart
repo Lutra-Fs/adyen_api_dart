@@ -68,5 +68,49 @@ void main() {
       final customClient = TerminalLocalHttpClient(dio: dio);
       expect(customClient, isNotNull);
     });
+
+    group('DioException handling', () {
+      test('throws ApiException on network error', () async {
+        final dio = Dio(
+          BaseOptions(connectTimeout: const Duration(milliseconds: 100)),
+        );
+        client = TerminalLocalHttpClient(dio: dio);
+
+        await expectLater(
+          () => client.request(
+            'https://192.168.1.100:8443/nexo',
+            '{"test": "data"}',
+            config,
+            false,
+            AdyenRequestOptions(terminalLocalConnection: options),
+          ),
+          throwsA(isA<ApiException>()),
+        );
+      });
+
+      test('throws ApiException with DioException details', () async {
+        final dio = Dio(
+          BaseOptions(connectTimeout: const Duration(milliseconds: 100)),
+        );
+        client = TerminalLocalHttpClient(dio: dio);
+
+        await expectLater(
+          () => client.request(
+            'https://192.168.1.100:8443/nexo',
+            '{"test": "data"}',
+            config,
+            false,
+            AdyenRequestOptions(terminalLocalConnection: options),
+          ),
+          throwsA(
+            isA<ApiException>().having(
+              (e) => e.message,
+              'message',
+              contains('DioType'),
+            ),
+          ),
+        );
+      });
+    });
   });
 }
