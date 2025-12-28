@@ -6,6 +6,7 @@ on:
 
 permissions:
   contents: read
+  pull-requests: write
 
 jobs:
   test:
@@ -27,5 +28,15 @@ jobs:
         run: dart format --set-exit-if-changed example test tool lib/*.dart lib/src/core lib/src/constants lib/src/domain lib/src/http lib/src/security lib/src/utils
       - name: Analyze
         run: dart analyze
-      - name: Test
-        run: dart test
+      - name: Test with coverage
+        run: dart test --coverage=coverage
+      - name: Activate coverage
+        run: dart pub global activate coverage
+      - name: Format coverage
+        run: dart pub global run coverage:format_coverage --lcov --in=coverage --out=coverage/lcov.info --packages=.dart_tool/package_config.json --report-on=lib
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          files: ./coverage/lcov.info
+          fail_ci_if_error: false
+          token: ${{ secrets.CODECOV_TOKEN }}

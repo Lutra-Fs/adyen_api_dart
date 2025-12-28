@@ -13,6 +13,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **CI**: Integrated Codecov for test coverage tracking
+  - Added coverage collection to CI workflow (`dart test --coverage`)
+  - Added automatic upload to Codecov with `codecov-action@v5`
+  - Added `codecov.yml` configuration with ignore rules for generated code
+  - Added coverage badge to README.md
 - **Testing**: Added 160+ tests across all domains based on Java codebase reference
   - `test/security/nexo_crypto_test.dart` - NEXO cryptographic operations
   - `test/mocks/` - Reusable mock data templates (common responses, errors, terminal)
