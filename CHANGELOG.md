@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- **Testing**: Fixed browser compatibility for HMAC validator and notification webhook tests
+  - Inlined JSON fixture data to remove `dart:io` file system dependencies
+  - Removed `@TestOn('vm')` platform restrictions, enabling tests to run on both VM and Chrome
+  - Deleted obsolete fixture files from `test/fixtures/notification/`
+
 - **CI**: Added ripgrep installation to resolve `rg: command not found` warnings in `generate_model_exports.sh`
 
 ### Added

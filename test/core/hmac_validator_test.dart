@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:adyen_api/adyen_api.dart';
 import 'package:test/test.dart';
 
@@ -7,6 +5,69 @@ void main() {
   const key =
       'DFB1EB5485895CFA84146406857104ABB4CBCABDC8AAF103A624C8F6A3EAAB00';
   const expectedSign = 'ZNBPtI+oDyyRrLyD1XirkKnQgIAlFc07Vj27TeHsDRE=';
+
+  const accountHolderCreatedJson = '''
+{
+    "data": {
+      "balancePlatform": "YOUR_BALANCE_PLATFORM",
+      "accountHolder": {
+        "contactDetails": {
+          "email": "test@adyen.com",
+          "phone": {
+            "number": "0612345678",
+            "type": "mobile"
+          },
+          "address": {
+            "houseNumberOrName": "23",
+            "city": "Amsterdam",
+            "country": "NL",
+            "postalCode": "12345",
+            "street": "Main Street 1"
+          }
+        },
+        "description": "Shelly Eller",
+        "legalEntityId": "LE00000000000000000001",
+        "reference": "YOUR_REFERENCE-2412C",
+        "capabilities": {
+          "issueCard": {
+            "enabled": true,
+            "requested": true,
+            "allowed": false,
+            "verificationStatus": "pending"
+          },
+          "receiveFromTransferInstrument": {
+            "enabled": true,
+            "requested": true,
+            "allowed": false,
+            "verificationStatus": "pending"
+          },
+          "sendToTransferInstrument": {
+            "enabled": true,
+            "requested": true,
+            "allowed": false,
+            "verificationStatus": "pending"
+          },
+          "sendToBalanceAccount": {
+            "enabled": true,
+            "requested": true,
+            "allowed": false,
+            "verificationStatus": "pending"
+          },
+          "receiveFromBalanceAccount": {
+            "enabled": true,
+            "requested": true,
+            "allowed": false,
+            "verificationStatus": "pending"
+          }
+        },
+        "id": "AH00000000000000000001",
+        "status": "active"
+      }
+    },
+    "environment": "test",
+    "timestamp": "2024-12-15T15:42:03+01:00",
+    "type": "balancePlatform.accountHolder.created"
+  }''';
 
   group('HmacValidator', () {
     late HmacValidator validator;
@@ -104,10 +165,8 @@ void main() {
       expect(() => validator.validateHMAC(item, key), throwsException);
     });
 
-    test('calculate hmac for banking webhook payload', () async {
-      final payload = await File(
-        'test/fixtures/notification/accountHolderCreated.json',
-      ).readAsString();
+    test('calculate hmac for banking webhook payload', () {
+      final payload = accountHolderCreatedJson;
 
       final encrypted = validator.calculateHmac(
         payload,
@@ -117,13 +176,11 @@ void main() {
       expect(encrypted, 'UVBzHbDayhfT1XgaRGAkuKvxwoxrLoVCBdfi3WZU8lI=');
     });
 
-    test('validate banking webhook signature', () async {
+    test('validate banking webhook signature', () {
       final hmacKey =
           '11223344D785FBAE710E7F943F307971BB61B21281C98C9129B3D4018A57B2EB';
       const hmacSignature = 'UVBzHbDayhfT1XgaRGAkuKvxwoxrLoVCBdfi3WZU8lI=';
-      final payload = await File(
-        'test/fixtures/notification/accountHolderCreated.json',
-      ).readAsString();
+      final payload = accountHolderCreatedJson;
 
       final isValid = validator.validateHMACSignature(
         hmacKey,
