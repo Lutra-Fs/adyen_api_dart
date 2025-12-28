@@ -86,8 +86,8 @@ void main() {
                   'assumeLevel3Data': true,
                   'assume3DSecureAuthenticated': true,
                 },
-                'cardNumber': '411111111111',
-                'merchantAccount': 'merchant',
+                'cardNumber': '4111111111111111',
+                'merchantAccount': 'merchantAccount',
                 'merchantDetails': {
                   'countryCode': 'NL',
                   'mcc': '7411',
@@ -108,8 +108,8 @@ void main() {
             'payoutEligible': 'Y',
             'summary': '',
           },
-          'costEstimateAmount': {'currency': 'EUR', 'value': 10},
-          'resultCode': 'Unsupported',
+          'costEstimateAmount': {'currency': 'EUR', 'value': 12},
+          'resultCode': 'Success',
         });
       });
 
@@ -119,6 +119,123 @@ void main() {
         ),
       );
       expect(response, isNotNull);
+      expect(response!.resultCode, 'Success');
+      expect(response.costEstimateAmount!.currency, 'EUR');
+      expect(response.costEstimateAmount!.value, 12);
+    });
+
+    test('fails with invalid merchant account on cost estimate', () async {
+      final request =
+          serializers.deserialize({
+                'amount': {'currency': 'EUR', 'value': 1000},
+                'assumptions': {
+                  'assumeLevel3Data': true,
+                  'assume3DSecureAuthenticated': true,
+                },
+                'cardNumber': '4111111111111111',
+                'merchantAccount': 'invalid_merchant',
+                'merchantDetails': {
+                  'countryCode': 'NL',
+                  'mcc': '7411',
+                  'enrolledIn3DSecure': true,
+                },
+                'shopperInteraction': 'Ecommerce',
+              }, specifiedType: const FullType(CostEstimateRequest))
+              as CostEstimateRequest;
+
+      adapter.onPost('/getCostEstimate', (server) {
+        server.reply(500, {
+          'status': 500,
+          'errorCode': '901',
+          'message': 'Invalid Merchant Account',
+          'errorType': 'security',
+        });
+      });
+
+      expect(
+        () => binLookupService.unwrap(
+          binLookupService.binLookupApi.postGetCostEstimate(
+            costEstimateRequest: request,
+          ),
+        ),
+        throwsA(isA<HttpClientException>()),
+      );
+    });
+
+    test('fails with invalid card number on cost estimate', () async {
+      final request =
+          serializers.deserialize({
+                'amount': {'currency': 'EUR', 'value': 1000},
+                'assumptions': {
+                  'assumeLevel3Data': true,
+                  'assume3DSecureAuthenticated': true,
+                },
+                'cardNumber': 'invalid',
+                'merchantAccount': 'merchantAccount',
+                'merchantDetails': {
+                  'countryCode': 'NL',
+                  'mcc': '7411',
+                  'enrolledIn3DSecure': true,
+                },
+                'shopperInteraction': 'Ecommerce',
+              }, specifiedType: const FullType(CostEstimateRequest))
+              as CostEstimateRequest;
+
+      adapter.onPost('/getCostEstimate', (server) {
+        server.reply(422, {
+          'status': 422,
+          'errorCode': '192',
+          'message': 'Field \'cardNumber\' is not valid.',
+          'errorType': 'validation',
+        });
+      });
+
+      expect(
+        () => binLookupService.unwrap(
+          binLookupService.binLookupApi.postGetCostEstimate(
+            costEstimateRequest: request,
+          ),
+        ),
+        throwsA(isA<HttpClientException>()),
+      );
+    });
+
+    test('fails with invalid amount on cost estimate', () async {
+      final request =
+          serializers.deserialize({
+                'amount': {'currency': 'EUR', 'value': -1},
+                'assumptions': {
+                  'assumeLevel3Data': true,
+                  'assume3DSecureAuthenticated': true,
+                },
+                'cardNumber': '4111111111111111',
+                'merchantAccount': 'merchantAccount',
+                'merchantDetails': {
+                  'countryCode': 'NL',
+                  'mcc': '7411',
+                  'enrolledIn3DSecure': true,
+                },
+                'shopperInteraction': 'Ecommerce',
+              }, specifiedType: const FullType(CostEstimateRequest))
+              as CostEstimateRequest;
+
+      adapter.onPost('/getCostEstimate', (server) {
+        server.reply(422, {
+          'status': 422,
+          'errorCode': '192',
+          'message': 'Field \'amount\' is not valid.',
+          'errorType': 'validation',
+        });
+      });
+
+      expect(
+        () => binLookupService.unwrap(
+          binLookupService.binLookupApi.postGetCostEstimate(
+            costEstimateRequest: request,
+          ),
+        ),
+        throwsA(isA<HttpClientException>()),
+      );
     });
   });
 }

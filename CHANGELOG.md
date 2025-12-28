@@ -7,6 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- **Testing**: Added 160+ tests across all domains based on Java codebase reference
+  - `test/security/nexo_crypto_test.dart` - NEXO cryptographic operations
+  - `test/mocks/` - Reusable mock data templates (common responses, errors, terminal)
+  - Balance Platform: +31 tests
+  - Checkout/Payment: +32 tests
+  - Terminal & POS: +20+ tests
+  - Management/Legal Entity: +13 tests
+  - Webhooks: +12 tests
+  - Data Services: +6 tests
+  - Specialized Services: +10 tests
+
+### Changed
+
+- **Testing**: Unified test assertion style (replaced `try-catch-fail` with `expectLater` + `throwsA`)
+
 ## [0.0.2] - 2025-12-27
 
 ### Fixed

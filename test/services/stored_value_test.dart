@@ -1,5 +1,6 @@
 import 'package:adyen_api/adyen_api.dart';
 import 'package:adyen_api/src/gen/stored_value/model/stored_value_balance_merge_response.dart';
+import 'package:adyen_api/src/gen/stored_value/model/stored_value_issue_response.dart';
 import 'package:adyen_api/src/gen/stored_value/model/stored_value_void_response.dart';
 import 'package:http_mock_adapter/http_mock_adapter.dart';
 import 'package:test/test.dart';
@@ -20,13 +21,9 @@ void main() {
       adapter.onPost('/issue', (server) {
         server.reply(200, {
           'currentBalance': {'currency': 'EUR', 'value': 1000},
-          'pspReference': '851564651069192J',
+          'pspReference': '851591622730873A',
           'resultCode': 'Success',
-          'paymentMethod': {
-            'number': '7219627091701347',
-            'securityCode': '0140',
-            'type': 'givex',
-          },
+          'paymentMethod': {'number': '6036280000000000000', 'type': 'givex'},
         });
       });
 
@@ -34,15 +31,24 @@ void main() {
         storedValue.storedValueApi.postIssue(),
       );
 
-      expect(response!.pspReference, '851564651069192J');
+      expect(response!.pspReference, '851591622730873A');
+      expect(response.currentBalance!.currency, 'EUR');
+      expect(response.currentBalance!.value, 1000);
+      expect(
+        response.resultCode,
+        StoredValueIssueResponseResultCodeEnum.success,
+      );
+      expect(response.paymentMethod!['number'], '6036280000000000000');
+      expect(response.paymentMethod!['type'], 'givex');
     });
 
     test('changes status', () async {
       adapter.onPost('/changeStatus', (server) {
         server.reply(200, {
-          'currentBalance': {'currency': 'USD', 'value': 1000},
-          'pspReference': '851564652149588K',
+          'currentBalance': {'currency': 'EUR', 'value': 1000},
+          'pspReference': '851591629631298F',
           'resultCode': 'Success',
+          'authCode': '123456',
         });
       });
 
@@ -50,15 +56,19 @@ void main() {
         storedValue.storedValueApi.postChangeStatus(),
       );
 
-      expect(response!.pspReference, '851564652149588K');
+      expect(response!.pspReference, '851591629631298F');
+      expect(response.currentBalance!.currency, 'EUR');
+      expect(response.currentBalance!.value, 1000);
+      expect(response.authCode, '123456');
     });
 
     test('loads funds', () async {
       adapter.onPost('/load', (server) {
         server.reply(200, {
-          'currentBalance': {'currency': 'USD', 'value': 30000},
-          'pspReference': '851564654294247B',
+          'currentBalance': {'currency': 'EUR', 'value': 1001999},
+          'pspReference': '881591686892740H',
           'resultCode': 'Success',
+          'authCode': '123456',
         });
       });
 
@@ -66,14 +76,17 @@ void main() {
         storedValue.storedValueApi.postLoad(),
       );
 
-      expect(response!.pspReference, '851564654294247B');
+      expect(response!.pspReference, '881591686892740H');
+      expect(response.currentBalance!.currency, 'EUR');
+      expect(response.currentBalance!.value, 1001999);
+      expect(response.authCode, '123456');
     });
 
     test('checks balance', () async {
       adapter.onPost('/checkBalance', (server) {
         server.reply(200, {
-          'currentBalance': {'currency': 'EUR', 'value': 5600},
-          'pspReference': '881564657480267D',
+          'currentBalance': {'currency': 'EUR', 'value': 999999},
+          'pspReference': '851591688783359H',
           'resultCode': 'Success',
         });
       });
@@ -82,7 +95,9 @@ void main() {
         storedValue.storedValueApi.postCheckBalance(),
       );
 
-      expect(response!.pspReference, '881564657480267D');
+      expect(response!.pspReference, '851591688783359H');
+      expect(response.currentBalance!.currency, 'EUR');
+      expect(response.currentBalance!.value, 999999);
     });
 
     test('merges balance', () async {
@@ -98,8 +113,11 @@ void main() {
         storedValue.storedValueApi.postMergeBalance(),
       );
 
+      expect(response!.pspReference, '881564657480267D');
+      expect(response.currentBalance!.currency, 'EUR');
+      expect(response.currentBalance!.value, 5600);
       expect(
-        response!.resultCode,
+        response.resultCode,
         StoredValueBalanceMergeResponseResultCodeEnum.success,
       );
     });
@@ -107,8 +125,8 @@ void main() {
     test('voids transaction', () async {
       adapter.onPost('/voidTransaction', (server) {
         server.reply(200, {
-          'currentBalance': {'currency': 'EUR', 'value': 5600},
-          'pspReference': '881564657480267D',
+          'currentBalance': {'currency': 'EUR', 'value': 999999},
+          'pspReference': '851591692895398C',
           'resultCode': 'Success',
         });
       });
@@ -117,8 +135,11 @@ void main() {
         storedValue.storedValueApi.postVoidTransaction(),
       );
 
+      expect(response!.pspReference, '851591692895398C');
+      expect(response.currentBalance!.currency, 'EUR');
+      expect(response.currentBalance!.value, 999999);
       expect(
-        response!.resultCode,
+        response.resultCode,
         StoredValueVoidResponseResultCodeEnum.success,
       );
     });

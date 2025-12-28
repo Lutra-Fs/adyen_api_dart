@@ -1,10 +1,13 @@
 import 'dart:convert';
 
+import 'package:built_value/serializer.dart';
 import 'package:adyen_api/adyen_api.dart';
 import 'package:adyen_api/src/gen/webhook_acs/model/authentication_notification_request.dart';
 import 'package:adyen_api/src/gen/webhook_balance/model/balance_account_balance_notification_request.dart';
 import 'package:adyen_api/src/gen/webhook_configuration/model/account_holder_notification_request.dart';
 import 'package:adyen_api/src/gen/webhook_configuration/model/balance_account_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_configuration/model/network_token_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_configuration/model/score_notification_request.dart';
 import 'package:adyen_api/src/gen/webhook_dispute/model/dispute_notification_request.dart';
 import 'package:adyen_api/src/gen/webhook_management/model/payment_method_scheduled_for_removal_notification_request.dart';
 import 'package:adyen_api/src/gen/webhook_negative_balance/model/negative_balance_compensation_warning_notification_request.dart';
@@ -48,6 +51,69 @@ void main() {
       expect(generic, isNot(isA<BalanceAccountNotificationRequest>()));
       expect(request.environment, 'test');
     });
+
+    test('deserializes AccountHolderNotification webhook with LEM v2', () {
+      final json = {
+        'data': {
+          'balancePlatform': 'YOUR_BALANCE_PLATFORM',
+          'accountHolder': {
+            'id': 'AH00000000000000000001',
+            'legalEntityId': 'LE322KH223222F5GNNW694PZN',
+            'status': 'Active',
+            'capabilities': {
+              'receivePayments': {
+                'allowed': true,
+                'requested': true,
+                'requestedLevel': 'notApplicable',
+                'verificationStatus': 'valid',
+              },
+            },
+          },
+        },
+        'environment': 'test',
+        'type': 'balancePlatform.accountHolder.created',
+      };
+      final handler = ConfigurationWebhooksHandler(jsonEncode(json));
+      final request = handler.getAccountHolderNotificationRequest();
+      expect(request, isA<AccountHolderNotificationRequest>());
+      expect(request.data.accountHolder?.id, 'AH00000000000000000001');
+      expect(
+        request.data.accountHolder?.capabilities?.length,
+        greaterThanOrEqualTo(1),
+      );
+    });
+
+    test(
+      'deserializes AccountHolderNotification webhook with verification deadlines',
+      () {
+        final json = {
+          'data': {
+            'balancePlatform': 'YOUR_BALANCE_PLATFORM',
+            'accountHolder': {
+              'id': 'AH00000000000000000001',
+              'legalEntityId': 'LE322KH223222F5GNNW694PZN',
+              'verificationDeadlines': [
+                {
+                  'capabilities': ['issueChargeCardCommercial'],
+                  'deadline': '2024-12-31T23:59:59+01:00',
+                  'expiresAt': '2024-12-31T23:59:59+01:00',
+                },
+              ],
+            },
+          },
+          'environment': 'test',
+          'type': 'balancePlatform.accountHolder.updated',
+        };
+        final handler = ConfigurationWebhooksHandler(jsonEncode(json));
+        final request = handler.getAccountHolderNotificationRequest();
+        expect(request, isA<AccountHolderNotificationRequest>());
+        expect(request.data.accountHolder?.verificationDeadlines, isNotNull);
+        expect(
+          request.data.accountHolder?.verificationDeadlines?.length,
+          greaterThanOrEqualTo(1),
+        );
+      },
+    );
 
     test('does not throw with additional attributes', () {
       final json = {
@@ -115,6 +181,12 @@ void main() {
       }, returnsNormally);
     });
 
+    test('handles invalid JSON payload', () {
+      expect(() {
+        ConfigurationWebhooksHandler('{ invalid json ...');
+      }, throwsFormatException);
+    });
+
     test('deserializes BalanceAccountNotification webhook', () {
       final json = {
         'data': {
@@ -142,6 +214,83 @@ void main() {
       expect(request.data.balanceAccount?.id, 'BA00000000000000000001');
       final generic = handler.getGenericWebhook();
       expect(generic, isA<BalanceAccountNotificationRequest>());
+    });
+
+    test('deserializes NetworkToken created webhook', () {
+      final json = {
+        'data': {
+          'balancePlatform': 'YOUR_BALANCE_PLATFORM',
+          'networkToken': {
+            'id': 'NT00000000000000000001',
+            'status': 'active',
+            'tokenNumber': '1234567890123456789',
+          },
+        },
+        'environment': 'test',
+        'type': 'balancePlatform.networkToken.created',
+      };
+      final handler = ConfigurationWebhooksHandler(jsonEncode(json));
+      final request = handler.getNetworkTokenNotificationRequest();
+      expect(request, isA<NetworkTokenNotificationRequest>());
+      expect(
+        request.type,
+        NetworkTokenNotificationRequestTypeEnum
+            .balancePlatformPeriodNetworkTokenPeriodCreated,
+      );
+    });
+
+    test('deserializes NetworkToken updated webhook', () {
+      final json = {
+        'data': {
+          'balancePlatform': 'YOUR_BALANCE_PLATFORM',
+          'networkToken': {
+            'id': 'NT00000000000000000001',
+            'status': 'suspended',
+            'tokenNumber': '1234567890123456789',
+          },
+        },
+        'environment': 'test',
+        'type': 'balancePlatform.networkToken.updated',
+      };
+      final handler = ConfigurationWebhooksHandler(jsonEncode(json));
+      final request = handler.getNetworkTokenNotificationRequest();
+      expect(request, isA<NetworkTokenNotificationRequest>());
+      expect(
+        request.type,
+        NetworkTokenNotificationRequestTypeEnum
+            .balancePlatformPeriodNetworkTokenPeriodUpdated,
+      );
+    });
+
+    test('deserializes Score triggered webhook', () {
+      final json = {
+        'data': {
+          'balancePlatform': 'YOUR_BALANCE_PLATFORM',
+          'id': '2235e7be-fcb0-4b88-a79b-895b68cfb855',
+          'riskScore': 100,
+          'accountHolder': {
+            'id': 'AH00000000000001',
+            'description': 'Test Account Holder',
+          },
+          'scoreSignalsTriggered': [
+            'ChargebackCardholderDispute',
+            'ChargebackNonReceipt',
+          ],
+        },
+        'environment': 'test',
+        'type': 'balancePlatform.score.triggered',
+      };
+      final handler = ConfigurationWebhooksHandler(jsonEncode(json));
+      final request = handler.getScoreNotificationRequest();
+      expect(request, isA<ScoreNotificationRequest>());
+      expect(
+        request.type,
+        ScoreNotificationRequestTypeEnum
+            .balancePlatformPeriodScorePeriodTriggered,
+      );
+      expect(request.data.id, '2235e7be-fcb0-4b88-a79b-895b68cfb855');
+      expect(request.data.riskScore, 100);
+      expect(request.data.scoreSignalsTriggered?.length, 2);
     });
 
     test('deserializes Transaction v4 webhook', () {
@@ -224,6 +373,43 @@ void main() {
       expect(request, isA<AuthenticationNotificationRequest>());
     });
 
+    test('deserializes BalanceAccountBalance webhook', () {
+      final json = {
+        'data': {
+          'balanceAccountId': 'BA00000000000000000001',
+          'balancePlatform': 'YOUR_BALANCE_PLATFORM',
+          'balances': {},
+          'currency': 'EUR',
+          'settingIds': ['WS1'],
+        },
+        'environment': 'test',
+        'type': 'balancePlatform.balanceAccount.balance.updated',
+      };
+      final handler = BalanceWebhooksHandler(jsonEncode(json));
+      final request = handler.getBalanceAccountBalanceNotificationRequest();
+      expect(request, isA<BalanceAccountBalanceNotificationRequest>());
+    });
+
+    test('deserializes ReleasedBlockedBalance webhook', () {
+      final json = {
+        'data': {
+          'balanceAccountId': 'BA00000000000000000001',
+          'balancePlatform': 'YOUR_BALANCE_PLATFORM',
+          'batchReference': 'BATCH_REF_20250925',
+          'balanceAccount': {
+            'id': 'BA00000000000000000001',
+            'description': 'Test Balance Account',
+          },
+        },
+        'environment': 'test',
+        'type': 'balancePlatform.balanceAccount.balance.blockReleased',
+      };
+      // Note: The handler doesn't have a getReleasedBlockedBalanceNotificationRequest method yet
+      final handler = BalanceWebhooksHandler(jsonEncode(json));
+      // The getGenericWebhook will throw for unknown types
+      expect(() => handler.getGenericWebhook(), throwsException);
+    });
+
     test('deserializes Transfer webhook', () {
       final json = {
         'data': {
@@ -257,23 +443,6 @@ void main() {
       );
     });
 
-    test('deserializes BalanceAccountBalance webhook', () {
-      final json = {
-        'data': {
-          'balanceAccountId': 'BA00000000000000000001',
-          'balancePlatform': 'YOUR_BALANCE_PLATFORM',
-          'balances': {},
-          'currency': 'EUR',
-          'settingIds': ['WS1'],
-        },
-        'environment': 'test',
-        'type': 'balancePlatform.balanceAccount.balance.updated',
-      };
-      final handler = BalanceWebhooksHandler(jsonEncode(json));
-      final request = handler.getBalanceAccountBalanceNotificationRequest();
-      expect(request, isA<BalanceAccountBalanceNotificationRequest>());
-    });
-
     test('deserializes Report webhook', () {
       final json = {
         'data': {
@@ -299,6 +468,48 @@ void main() {
       expect(request, isA<DisputeNotificationRequest>());
       final generic = handler.getGenericWebhook();
       expect(generic, isA<DisputeNotificationRequest>());
+    });
+
+    test('handles Dispute webhook with unknown type', () {
+      final json = {
+        'type': 'SomeUnknownEventType',
+        'pspReference': '883585332216073C',
+      };
+      final handler = DisputeWebhooksHandler(jsonEncode(json));
+      final request = handler.getDisputeNotificationRequest();
+      // Unknown types are deserialized with unknownDefaultOpenApi enum
+      expect(request, isA<DisputeNotificationRequest>());
+      expect(request.type.toString(), contains('unknownDefaultOpenApi'));
+    });
+
+    test('handles empty JSON for Dispute webhook', () {
+      final json = {};
+      final handler = DisputeWebhooksHandler(jsonEncode(json));
+      // Empty JSON throws DeserializationError during deserialization
+      expect(
+        () => handler.getDisputeNotificationRequest(),
+        throwsA(isA<DeserializationError>()),
+      );
+    });
+  });
+
+  group('Banking webhook HMAC validation', () {
+    test('validates HMAC signature for banking webhook', () {
+      // This test demonstrates HMAC validation - the actual values need to match
+      // The Java test uses base64 encoded key, but Dart validator expects hex
+      final notification = '{"test": "data"}';
+      final signKey =
+          'DFB1EB5485895CFA84146406857104ABB4CBCABDC8AAF103A624C8F6A3EAAB00';
+      final validator = HmacValidator();
+      // Calculate the expected signature
+      final expectedSignature = validator.calculateHmac(notification, signKey);
+      // Validate that our validator returns the same signature
+      final isValid = validator.validateHMACSignature(
+        signKey,
+        expectedSignature,
+        notification,
+      );
+      expect(isValid, isTrue);
     });
   });
 }

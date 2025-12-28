@@ -119,7 +119,34 @@ void main() {
       adapter.onPost('/retrieveApplicableDefenseReasons', (server) {
         server.reply(200, {
           'disputeServiceResult': {'success': true},
-          'defenseReasons': [],
+          'defenseReasons': [
+            {
+              'defenseReasonCode': 'GoodsNotReturned',
+              'satisfied': false,
+              'defenseDocumentTypes': [
+                {
+                  'defenseDocumentTypeCode': 'TIDorInvoice',
+                  'requirementLevel': 'Optional',
+                  'available': false,
+                },
+              ],
+            },
+            {
+              'defenseReasonCode': 'GoodsRepairedOrReplaced',
+              'satisfied': false,
+              'defenseDocumentTypes': [],
+            },
+            {
+              'defenseReasonCode': 'GoodsWereAsDescribed',
+              'satisfied': false,
+              'defenseDocumentTypes': [],
+            },
+            {
+              'defenseReasonCode': 'SupplyDefenseMaterial',
+              'satisfied': false,
+              'defenseDocumentTypes': [],
+            },
+          ],
         });
       });
 
@@ -130,6 +157,19 @@ void main() {
       );
 
       expect(response!.disputeServiceResult.success, isTrue);
+      expect(response.defenseReasons, isNotNull);
+      expect(response.defenseReasons!.length, 4);
+
+      final firstReason = response.defenseReasons![0];
+      expect(firstReason.defenseReasonCode, 'GoodsNotReturned');
+      expect(firstReason.satisfied, isFalse);
+      expect(firstReason.defenseDocumentTypes, isNotNull);
+      expect(firstReason.defenseDocumentTypes!.length, 1);
+
+      final firstDocType = firstReason.defenseDocumentTypes![0];
+      expect(firstDocType.defenseDocumentTypeCode, 'TIDorInvoice');
+      expect(firstDocType.requirementLevel, 'Optional');
+      expect(firstDocType.available, isFalse);
     });
 
     test('supplies defense document', () async {

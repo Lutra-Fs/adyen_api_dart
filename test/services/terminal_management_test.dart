@@ -73,6 +73,28 @@ void main() {
       expect(response!.results['P400Plus-275479597'], 'RemoveConfigScheduled');
     });
 
+    test('finds terminal with full details', () async {
+      adapter.onPost('/findTerminal', (server) {
+        server.reply(200, {
+          'companyAccount': 'DemoCompany',
+          'merchantAccount': 'TestMerchant',
+          'store': 'MyStore',
+          'terminal': 'P400Plus-375039202',
+        });
+      });
+
+      final response = await terminalManagement.unwrap(
+        terminalManagement.generalApi.postFindTerminal(
+          findTerminalRequest: buildFindRequest(),
+        ),
+      );
+
+      expect(response!.companyAccount, 'DemoCompany');
+      expect(response.merchantAccount, 'TestMerchant');
+      expect(response.store, 'MyStore');
+      expect(response.terminal, 'P400Plus-375039202');
+    });
+
     test('finds terminal', () async {
       adapter.onPost('/findTerminal', (server) {
         server.reply(200, {
@@ -97,16 +119,16 @@ void main() {
         server.reply(200, {
           'stores': [
             {
-              'store': 'YOUR_STORE',
-              'description': 'YOUR_STORE',
+              'store': 'DemoStore',
+              'description': 'DemoStore',
               'address': {
-                'city': 'The City',
+                'city': 'Amsterdam',
                 'countryCode': 'NL',
-                'postalCode': '1234',
-                'streetAddress': 'The Street',
+                'postalCode': '1011',
+                'streetAddress': 'test street',
               },
               'status': 'Active',
-              'merchantAccountCode': 'YOUR_MERCHANT_ACCOUNT',
+              'merchantAccountCode': 'TestMerchant',
             },
           ],
         });
@@ -119,18 +141,29 @@ void main() {
       );
 
       expect(response!.stores?.length, 1);
-      expect(response.stores?.first.status, 'Active');
+      final store = response.stores!.first;
+      expect(store.store, 'DemoStore');
+      expect(store.description, 'DemoStore');
+      expect(store.status, 'Active');
+      expect(store.merchantAccountCode, 'TestMerchant');
+      expect(store.address?.city, 'Amsterdam');
+      expect(store.address?.countryCode, 'NL');
+      expect(store.address?.postalCode, '1011');
+      expect(store.address?.streetAddress, 'test street');
     });
 
     test('gets terminal details', () async {
       adapter.onPost('/getTerminalDetails', (server) {
         server.reply(200, {
-          'companyAccount': 'YOUR_COMPANY_ACCOUNT',
-          'merchantAccount': 'YOUR_MERCHANT_ACCOUNT',
-          'merchantInventory': false,
-          'terminal': 'P400Plus-275479597',
+          'companyAccount': 'DemoCompany',
+          'country': 'NETHERLANDS',
           'deviceModel': 'P400Plus',
+          'ethernetMac': '61:c7:98:a6:55:7a',
+          'merchantAccount': 'TestMerchant',
           'serialNumber': '275-479-597',
+          'storeDetails': {'store': 'MyStore'},
+          'terminal': 'P400Plus-375039202',
+          'wifiIp': '192.168.12.12',
         });
       });
 
@@ -140,21 +173,26 @@ void main() {
         ),
       );
 
-      expect(response!.deviceModel, 'P400Plus');
+      expect(response!.companyAccount, 'DemoCompany');
+      expect(response.country, 'NETHERLANDS');
+      expect(response.deviceModel, 'P400Plus');
+      expect(response.ethernetMac, '61:c7:98:a6:55:7a');
+      expect(response.terminal, 'P400Plus-375039202');
+      expect(response.wifiIp, '192.168.12.12');
+      expect(response.storeDetails?.store, 'MyStore');
     });
 
     test('gets terminals under account', () async {
       adapter.onPost('/getTerminalsUnderAccount', (server) {
         server.reply(200, {
-          'companyAccount': 'YOUR_COMPANY_ACCOUNT',
+          'companyAccount': 'DemoCompany',
           'merchantAccounts': [
             {
-              'merchantAccount': 'YOUR_MERCHANT_ACCOUNT',
-              'inStoreTerminals': ['P400Plus-275479597'],
+              'merchantAccount': 'TestMerchant',
               'stores': [
                 {
-                  'store': 'YOUR_STORE',
-                  'inStoreTerminals': ['M400-401972715'],
+                  'store': 'MyStore',
+                  'inStoreTerminals': ['P400Plus-375039202'],
                 },
               ],
             },
@@ -168,8 +206,14 @@ void main() {
         ),
       );
 
-      expect(response!.merchantAccounts?.length, 1);
-      expect(response.merchantAccounts?.first.stores?.length, 1);
+      expect(response!.companyAccount, 'DemoCompany');
+      expect(response.merchantAccounts?.length, 1);
+      final merchantAccount = response.merchantAccounts!.first;
+      expect(merchantAccount.merchantAccount, 'TestMerchant');
+      expect(merchantAccount.stores?.length, 1);
+      final store = merchantAccount.stores!.first;
+      expect(store.store, 'MyStore');
+      expect(store.inStoreTerminals?.first, 'P400Plus-375039202');
     });
   });
 }

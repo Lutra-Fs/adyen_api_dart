@@ -77,18 +77,24 @@ void main() {
     Future<void> expectInvalidModification(
       Future<void> Function() action,
     ) async {
-      try {
-        await action();
-        fail('Expected HttpClientException');
-      } on HttpClientException catch (error) {
-        expect(error.statusCode, 422);
-        expect(
-          error.message,
-          contains('Original pspReference required for this operation'),
-        );
-        expect(error.apiError, isNotNull);
-        expect(error.apiError?.errorCode, '167');
-      }
+      await expectLater(
+        action,
+        throwsA(
+          isA<HttpClientException>()
+              .having((e) => e.statusCode, 'statusCode', 422)
+              .having(
+                (e) => e.message,
+                'message',
+                contains('Original pspReference required for this operation'),
+              )
+              .having((e) => e.apiError, 'apiError', isNotNull)
+              .having(
+                (e) => e.apiError?.errorCode,
+                'apiError.errorCode',
+                '167',
+              ),
+        ),
+      );
     }
 
     setUp(() {

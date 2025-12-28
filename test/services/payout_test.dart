@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:adyen_api/adyen_api.dart';
 import 'package:adyen_api/src/gen/payout/model/modify_request.dart';
 import 'package:adyen_api/src/gen/payout/model/payout_response.dart';
@@ -126,6 +128,61 @@ void main() {
       );
 
       expect(response!.resultCode, PayoutResponseResultCodeEnum.received);
+    });
+
+    test('handles invalid merchant account errors', () async {
+      adapter.onPost('/payout', (server) {
+        server.reply(403, {
+          'status': 403,
+          'errorCode': '901',
+          'message': 'Invalid Merchant Account',
+          'errorType': 'security',
+        });
+      });
+
+      await expectLater(
+        () =>
+            payoutService.unwrap(payoutService.instantPayoutsApi.postPayout()),
+        throwsA(
+          isA<HttpClientException>()
+              .having((e) => e.statusCode, 'statusCode', 403)
+              .having(
+                (e) =>
+                    jsonDecode(e.responseBody ?? '{}') as Map<String, dynamic>,
+                'responseBody',
+                allOf([
+                  containsPair('errorCode', '901'),
+                  containsPair('errorType', 'security'),
+                ]),
+              ),
+        ),
+      );
+    });
+
+    test('handles missing reference errors', () async {
+      adapter.onPost('/payout', (server) {
+        server.reply(422, {
+          'status': 422,
+          'errorCode': '130',
+          'message': 'Reference Missing',
+          'errorType': 'validation',
+        });
+      });
+
+      await expectLater(
+        () =>
+            payoutService.unwrap(payoutService.instantPayoutsApi.postPayout()),
+        throwsA(
+          isA<HttpClientException>()
+              .having((e) => e.statusCode, 'statusCode', 422)
+              .having((e) => e.errorCode, 'errorCode', '130')
+              .having(
+                (e) => e.responseBody?.contains('130'),
+                'responseBody contains 130',
+                isTrue,
+              ),
+        ),
+      );
     });
   });
 }

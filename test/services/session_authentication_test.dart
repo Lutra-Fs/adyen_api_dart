@@ -14,16 +14,25 @@ void main() {
     late DioAdapter adapter;
     final serializers = session_auth_serializers.standardSerializers;
 
-    AuthenticationSessionRequest buildRequest() {
+    AuthenticationSessionRequest buildRequest({
+      String allowOrigin = 'https://your-merchant-website.com',
+      String product = 'platform',
+    }) {
       return deserialize(serializers, {
-        'allowOrigin': 'https://your-merchant-website.com',
+        'allowOrigin': allowOrigin,
         'policy': {
           'resources': [
-            {'type': 'accountHolder', 'accountHolderId': 'accountHolder1'},
+            {
+              'type': 'accountHolder',
+              'accountHolderId': 'AH00000000000000000000001',
+            },
           ],
-          'roles': ['role1', 'role2'],
+          'roles': [
+            'Transactions Overview Component: View',
+            'Payouts Overview Component: View',
+          ],
         },
-        'product': 'platform',
+        'product': product,
       }, const FullType(AuthenticationSessionRequest));
     }
 
@@ -34,16 +43,67 @@ void main() {
 
     test('creates an authentication session', () async {
       adapter.onPost('/sessions', (server) {
-        server.reply(200, {'id': '12345678', 'token': 'ABCDEFGHIJKLMNOP'});
+        server.reply(200, {
+          'id': '11a1e60a-18b0-4dda-9258-e0ae29e1e2a3',
+          'token': 'eyJraWQiOiJwbGF0Zm9ybWNvbGRlciI...',
+        });
       });
 
       final response = await sessionAuthentication.unwrap(
         sessionAuthentication.sessionAuthenticationApi.postSessions(
-          authenticationSessionRequest: buildRequest(),
+          authenticationSessionRequest: buildRequest(
+            allowOrigin: 'https://your-company.example.com',
+          ),
         ),
       );
 
-      expect(response!.token, 'ABCDEFGHIJKLMNOP');
+      expect(response!.id, '11a1e60a-18b0-4dda-9258-e0ae29e1e2a3');
+      expect(response.token, 'eyJraWQiOiJwbGF0Zm9ybWNvbGRlciI...');
     });
+
+    test('creates an authentication session with platform product', () async {
+      adapter.onPost('/sessions', (server) {
+        server.reply(200, {
+          'id': '11a1e60a-18b0-4dda-9258-e0ae29e1e2a3',
+          'token': 'eyJraWQiOiJwbGF0Zm9ybWNvbGRlciI...',
+        });
+      });
+
+      final response = await sessionAuthentication.unwrap(
+        sessionAuthentication.sessionAuthenticationApi.postSessions(
+          authenticationSessionRequest: buildRequest(
+            allowOrigin: 'https://your-company.example.com',
+            product: 'platform',
+          ),
+        ),
+      );
+
+      expect(response, isNotNull);
+      expect(response!.id, isNotEmpty);
+      expect(response.token, isNotEmpty);
+    });
+
+    test(
+      'creates an authentication session with account holder resource',
+      () async {
+        adapter.onPost('/sessions', (server) {
+          server.reply(200, {
+            'id': '22b2f71b-29c1-5aeb-0369-f1bf30f2f3b4',
+            'token': 'session_token_value',
+          });
+        });
+
+        final response = await sessionAuthentication.unwrap(
+          sessionAuthentication.sessionAuthenticationApi.postSessions(
+            authenticationSessionRequest: buildRequest(
+              allowOrigin: 'https://your-company.example.com',
+            ),
+          ),
+        );
+
+        expect(response, isNotNull);
+        expect(response!.id, '22b2f71b-29c1-5aeb-0369-f1bf30f2f3b4');
+      },
+    );
   });
 }

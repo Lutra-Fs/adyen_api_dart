@@ -7,31 +7,13 @@ import '../test_helpers.dart';
 
 void main() {
   group('TerminalCloudAPI', () {
-    late Client client;
     late TerminalCloudAPI terminalCloudApi;
-    late Dio dio;
     late DioAdapter adapter;
 
     setUp(() {
-      client = createClient(apiKey: 'API_KEY');
-      dio = Dio();
-      dio.interceptors.add(
-        InterceptorsWrapper(
-          onRequest: (options, handler) {
-            print(
-              'REQ path=${options.path} uri=${options.uri} query=${options.queryParameters}',
-            );
-            handler.next(options);
-          },
-        ),
-      );
-      adapter = DioAdapter(
-        dio: dio,
-        matcher: const FullHttpRequestMatcher(),
-        printLogs: true,
-      );
-      client.httpClient = DefaultHttpClient(dio: dio);
-      terminalCloudApi = TerminalCloudAPI(client);
+      final setup = createTerminalTestSetup();
+      adapter = setup.$3;
+      terminalCloudApi = TerminalCloudAPI(setup.$1);
     });
 
     test('makes async payment request', () async {
@@ -241,5 +223,97 @@ void main() {
         throwsA(isA<HttpClientException>()),
       );
     });
+
+    test('handles sync payment request with additional attributes', () async {
+      final syncResponse = {
+        'SaleToPOIResponse': {
+          'MessageHeader': {
+            'MessageCategory': 'Payment',
+            'MessageClass': 'Service',
+            'MessageType': 'Response',
+            'POIID': 'P400Plus-123456789',
+            'ProtocolVersion': '3.0',
+            'SaleID': '001',
+            'ServiceID': '001',
+            'AdditionalAttribute': 'This should be ignored',
+          },
+          'PaymentResponse': {
+            'POIData': {
+              'POITransactionID': {
+                'TimeStamp': '2019-04-29T00:00:00.000Z',
+                'TransactionID': '4r7i001556529591000.8515565295894301',
+              },
+              'AdditionalField': 'This is an additional field',
+            },
+          },
+          'UnknownField': 'This field is not in the model',
+        },
+      };
+
+      adapter.onPost(RegExp(r'/sync$'), (server) {
+        server.reply(200, syncResponse);
+      }, data: Matchers.any);
+
+      final request = createTerminalAPIPaymentRequest();
+      final response = await terminalCloudApi.sync(request);
+      expect(response.saleToPOIResponse?.paymentResponse, isNotNull);
+      expect(response.saleToPOIResponse?.messageHeader, isNotNull);
+    });
+
+    test('handles sync payment request with error response', () async {
+      // Simulates Java's syncPaymentRequestErrorEmptyBody test
+      // Server returns SaleToPOIRequest in response to indicate an error
+      final errorResponse = {
+        'SaleToPOIRequest': {
+          'MessageHeader': {
+            'DeviceID': '286881016',
+            'MessageCategory': 'Event',
+            'MessageClass': 'Event',
+            'MessageType': 'Notification',
+            'POIID': 'N/A',
+            'ProtocolVersion': '3.0',
+            'SaleID': 'N/A',
+          },
+          'EventNotification': {
+            'RejectedMessage': '',
+            'EventToNotify': 'Reject',
+            'TimeStamp': '2019-05-17T14:12:39.323Z',
+            'EventDetails':
+                'message=Empty input which would have resulted in a null result.',
+          },
+        },
+      };
+
+      adapter.onPost(RegExp(r'/sync$'), (server) {
+        server.reply(200, errorResponse);
+      }, data: Matchers.any);
+
+      final request = createTerminalAPIPaymentRequest();
+      final response = await terminalCloudApi.sync(request);
+      expect(response, isNotNull);
+      expect(response.saleToPOIResponse, isNull);
+      expect(response.saleToPOIRequest, isNotNull);
+    });
+
+    test('handles sync abort request with ok response', () async {
+      // Simulates Java's syncAbortRequestSuccess test
+      // Server returns "ok" for abort requests
+      adapter.onPost(RegExp(r'/sync$'), (server) {
+        server.reply(200, 'ok');
+      }, data: Matchers.any);
+
+      final request = createTerminalAPIPaymentRequest();
+      final response = await terminalCloudApi.sync(request);
+      // Note: Dart implementation returns empty TerminalApiResponse instead of null
+      // because the return type is non-nullable
+      expect(response, isNotNull);
+      expect(response.saleToPOIResponse, isNull);
+      expect(response.saleToPOIRequest, isNull);
+    });
+
+    // NOTE: Tests for 'InputRequest' and 'StoredValueRequest' functionality removed
+    // as these message types are not supported in the domain layer models.
+    // The domain models only support Payment, Reversal, and Event message categories.
+    // See: lib/src/domain/terminal/models.dart
   });
 }

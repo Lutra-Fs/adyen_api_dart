@@ -145,5 +145,133 @@ void main() {
             ),
       );
     });
+
+    test(
+      'handles 403 error when generating boarding token for merchant',
+      () async {
+        adapter.onPost(
+          '/merchants/testMerchant/generatePaymentsAppBoardingToken',
+          (server) {
+            server.reply(403, {
+              'status': 403,
+              'errorCode': 'PA001',
+              'message': 'Merchant not permitted for this action.',
+              'errorType': 'security',
+            });
+          },
+        );
+
+        await expectLater(
+          () => paymentsApp.unwrap(
+            paymentsApp.paymentsAppApi
+                .postMerchantsMerchantIdGeneratePaymentsAppBoardingToken(
+                  merchantId: 'testMerchant',
+                  boardingTokenRequest: buildBoardingRequest(
+                    'mockedRequestToken',
+                  ),
+                ),
+          ),
+          throwsA(
+            isA<HttpClientException>()
+                .having((e) => e.statusCode, 'statusCode', 403)
+                .having(
+                  (e) => e.message,
+                  'message',
+                  contains('Merchant not permitted'),
+                ),
+          ),
+        );
+      },
+    );
+
+    test('handles 403 error when generating boarding token for store', () async {
+      adapter.onPost(
+        '/merchants/testMerchant/stores/testStore/generatePaymentsAppBoardingToken',
+        (server) {
+          server.reply(403, {
+            'status': 403,
+            'errorCode': 'PA001',
+            'message': 'Merchant not permitted for this action.',
+            'errorType': 'security',
+          });
+        },
+      );
+
+      await expectLater(
+        () => paymentsApp.unwrap(
+          paymentsApp.paymentsAppApi
+              .postMerchantsMerchantIdStoresStoreIdGeneratePaymentsAppBoardingToken(
+                merchantId: 'testMerchant',
+                storeId: 'testStore',
+                boardingTokenRequest: buildBoardingRequest(
+                  'mockedRequestToken',
+                ),
+              ),
+        ),
+        throwsA(
+          isA<HttpClientException>()
+              .having((e) => e.statusCode, 'statusCode', 403)
+              .having(
+                (e) => e.message,
+                'message',
+                contains('Merchant not permitted'),
+              ),
+        ),
+      );
+    });
+
+    test('handles 500 error when listing payments apps for merchant', () async {
+      adapter.onGet('/merchants/testMerchant/paymentsApps', (server) {
+        server.reply(500, {
+          'status': 500,
+          'errorCode': 'PA002',
+          'message': 'An internal server error occurred.',
+          'errorType': 'api',
+        });
+      });
+
+      await expectLater(
+        () => paymentsApp.unwrap(
+          paymentsApp.paymentsAppApi.getMerchantsMerchantIdPaymentsApps(
+            merchantId: 'testMerchant',
+          ),
+        ),
+        throwsA(
+          isA<HttpClientException>()
+              .having((e) => e.statusCode, 'statusCode', 500)
+              .having(
+                (e) => e.message,
+                'message',
+                contains('internal server error'),
+              ),
+        ),
+      );
+    });
+
+    test('lists payments apps for merchant with parameters', () async {
+      adapter.onGet('/merchants/testMerchant/paymentsApps', (server) {
+        server.reply(200, {
+          'paymentsApps': [
+            {
+              'installationId': 'app1',
+              'merchantAccountCode': 'merchantAccountCode',
+              'status': 'BOARDED',
+            },
+          ],
+        });
+      });
+
+      final response = await paymentsApp.unwrap(
+        paymentsApp.paymentsAppApi.getMerchantsMerchantIdPaymentsApps(
+          merchantId: 'testMerchant',
+          statuses: 'BOARDED',
+          limit: 10,
+          offset: 0,
+        ),
+      );
+
+      expect(response!.paymentsApps.length, 1);
+      expect(response.paymentsApps.first.status, 'BOARDED');
+    });
   });
 }

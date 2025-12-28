@@ -22,6 +22,44 @@ void main() {
       expect(item.additionalData?['realtimeAccountUpdaterStatus'], 'status');
     });
 
+    test('authorisation success with additional attributes', () {
+      final json = {
+        'live': 'false',
+        'notificationItems': [
+          {
+            'NotificationRequestItem': {
+              'additionalData': {
+                'expiryDate': '12/2012',
+                'authCode': '1234',
+                'cardSummary': '7777',
+              },
+              'amount': {'currency': 'EUR', 'value': 10100},
+              'eventCode': 'AUTHORISATION',
+              'eventDate': '2017-01-19T16:42:03+01:00',
+              'merchantAccountCode': 'MagentoMerchantTest2',
+              'merchantReference': '8313842560770001',
+              'operations': ['CANCEL', 'CAPTURE', 'REFUND'],
+              'paymentMethod': 'visa',
+              'pspReference': '123456789',
+              'reason': '1234:7777:12/2012',
+              'success': 'true',
+              'newUnexpectedAttribute': 'something',
+            },
+          },
+        ],
+      };
+
+      final data = jsonDecode(jsonEncode(json)) as Map<String, dynamic>;
+      final notificationRequest = NotificationRequest.fromJson(data);
+
+      expect(notificationRequest.notificationItems, hasLength(1));
+      final item = notificationRequest.notificationItems.first;
+      expect(item.eventCode, NotificationEventCode.authorisation.value);
+      expect(item.success, NotificationSuccess.success.value);
+      expect(item.pspReference, '123456789');
+      expect(item.additionalData?['authCode'], '1234');
+    });
+
     test('capture success', () async {
       final payload = await File(
         'test/fixtures/notification/captureTrue.json',
@@ -82,6 +120,107 @@ void main() {
       expect(item.pspReference, 'PSP_REFERENCE');
       expect(item.originalReference, 'ORIGINAL_PSP');
       expect(item.eventDate, isNotNull);
+    });
+
+    test('chargeback', () {
+      final json = {
+        'live': 'false',
+        'notificationItems': [
+          {
+            'NotificationRequestItem': {
+              'amount': {'currency': 'EUR', 'value': 1000},
+              'eventCode': 'CHARGEBACK',
+              'eventDate': '2019-01-02T01:00:00+01:00',
+              'merchantAccountCode': 'TestMerchant',
+              'merchantReference': 'TestReference',
+              'originalReference': '9913333333333333',
+              'paymentMethod': 'visa',
+              'pspReference': '9915555555555555',
+              'reason': 'reason',
+              'success': 'true',
+            },
+          },
+        ],
+      };
+
+      final data = jsonDecode(jsonEncode(json)) as Map<String, dynamic>;
+      final notificationRequest = NotificationRequest.fromJson(data);
+
+      expect(notificationRequest.notificationItems, hasLength(1));
+      final item = notificationRequest.notificationItems.first;
+      expect(item.eventCode, 'CHARGEBACK');
+      expect(item.success, 'true');
+      expect(item.pspReference, '9915555555555555');
+      expect(item.originalReference, '9913333333333333');
+      expect(item.amount?['currency'], 'EUR');
+      expect(item.amount?['value'], 1000);
+    });
+
+    test('cancellation', () {
+      final json = {
+        'live': 'false',
+        'notificationItems': [
+          {
+            'NotificationRequestItem': {
+              'amount': {'currency': 'EUR', 'value': 500},
+              'eventCode': 'CANCELLATION',
+              'eventDate': '2019-01-02T01:00:00+01:00',
+              'merchantAccountCode': 'TestMerchant',
+              'merchantReference': 'TestReference',
+              'originalReference': '8313547924770610',
+              'paymentMethod': 'visa',
+              'pspReference': '8412534564722331',
+              'reason': 'reason',
+              'success': 'true',
+            },
+          },
+        ],
+      };
+
+      final data = jsonDecode(jsonEncode(json)) as Map<String, dynamic>;
+      final notificationRequest = NotificationRequest.fromJson(data);
+
+      expect(notificationRequest.notificationItems, hasLength(1));
+      final item = notificationRequest.notificationItems.first;
+      expect(item.eventCode, 'CANCELLATION');
+      expect(item.success, 'true');
+      expect(item.pspReference, '8412534564722331');
+      expect(item.originalReference, '8313547924770610');
+      expect(item.amount?['currency'], 'EUR');
+      expect(item.amount?['value'], 500);
+    });
+
+    test('offer closed', () {
+      final json = {
+        'live': 'false',
+        'notificationItems': [
+          {
+            'NotificationRequestItem': {
+              'amount': {'currency': 'EUR', 'value': 27211},
+              'eventCode': 'OFFER_CLOSED',
+              'eventDate': '2019-01-02T01:00:00+01:00',
+              'merchantAccountCode': 'TestMerchant',
+              'merchantReference': 'TestReference',
+              'paymentMethod': 'ideal',
+              'pspReference': '8532565401975321',
+              'reason': 'reason',
+              'success': 'true',
+            },
+          },
+        ],
+      };
+
+      final data = jsonDecode(jsonEncode(json)) as Map<String, dynamic>;
+      final notificationRequest = NotificationRequest.fromJson(data);
+
+      expect(notificationRequest.notificationItems, hasLength(1));
+      final item = notificationRequest.notificationItems.first;
+      expect(item.eventCode, 'OFFER_CLOSED');
+      expect(item.success, 'true');
+      expect(item.pspReference, '8532565401975321');
+      expect(item.paymentMethod, 'ideal');
+      expect(item.amount?['currency'], 'EUR');
+      expect(item.amount?['value'], 27211);
     });
   });
 

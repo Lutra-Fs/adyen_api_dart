@@ -46,19 +46,20 @@ void main() {
         });
       });
 
-      try {
-        await managementService.unwrap(
+      await expectLater(
+        () => managementService.unwrap(
           managementService.myApiCredentialApi.postMeAllowedOrigins(
             createAllowedOriginRequest: buildAllowedOriginRequest(),
           ),
-        );
-        fail('No exception was thrown');
-      } on HttpClientException catch (error) {
-        expect(error.responseBody, isNotNull);
-        final body =
-            jsonDecode(error.responseBody ?? '{}') as Map<String, dynamic>;
-        expect(body['requestId'], 'KQZ5LXK2VMPRMC82');
-      }
+        ),
+        throwsA(
+          isA<HttpClientException>().having(
+            (e) => jsonDecode(e.responseBody ?? '{}')['requestId'],
+            'requestId',
+            'KQZ5LXK2VMPRMC82',
+          ),
+        ),
+      );
     });
 
     test('gets API credential details', () async {
@@ -190,18 +191,23 @@ void main() {
         });
       });
 
-      try {
-        await managementService.unwrap(
+      await expectLater(
+        () => managementService.unwrap(
           managementService.usersMerchantLevelApi.postMerchantsMerchantIdUsers(
             merchantId: 'merchantId',
           ),
-        );
-        fail('Expected HttpClientException');
-      } on HttpClientException catch (error) {
-        expect(error.statusCode, 422);
-        expect(error.errorCode, '31_007');
-        expect(error.apiError?.title, 'Invalid user information provided.');
-      }
+        ),
+        throwsA(
+          isA<HttpClientException>()
+              .having((e) => e.statusCode, 'statusCode', 422)
+              .having((e) => e.errorCode, 'errorCode', '31_007')
+              .having(
+                (e) => e.apiError?.title,
+                'title',
+                'Invalid user information provided.',
+              ),
+        ),
+      );
     });
 
     test('lists webhooks and generates hmac', () async {
@@ -247,6 +253,45 @@ void main() {
       );
 
       expect(hmacResponse!.hmacKey, 'secret');
+    });
+
+    test('lists merchant accounts with pagination parameters', () async {
+      adapter.onGet('/merchants', (server) {
+        server.reply(200, {
+          'itemsTotal': 23,
+          'pagesTotal': 3,
+          'data': [
+            {
+              'id': 'YOUR_MERCHANT_ACCOUNT_1',
+              'name': 'YOUR_MERCHANT_NAME_1',
+              'merchantCity': 'Amsterdam',
+            },
+          ],
+        });
+      });
+
+      final response = await managementService.unwrap(
+        managementService.accountMerchantLevelApi.getMerchants(
+          pageNumber: 1,
+          pageSize: 25,
+        ),
+      );
+
+      expect(response!.itemsTotal, 23);
+      expect(response.pagesTotal, 3);
+      expect(response.data?.first.merchantCity, 'Amsterdam');
+    });
+
+    test('removes allowed origin with DELETE', () async {
+      adapter.onDelete('/me/allowedOrigins/ID', (server) {
+        server.reply(204, null);
+      });
+
+      await managementService.unwrap(
+        managementService.myApiCredentialApi.deleteMeAllowedOriginsOriginId(
+          originId: 'ID',
+        ),
+      );
     });
   });
 }

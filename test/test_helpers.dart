@@ -125,3 +125,26 @@ TerminalApiRequest createTerminalAPIRefundRequest(
 T deserialize<T>(Serializers serializers, Object data, FullType type) {
   return serializers.deserialize(data, specifiedType: type) as T;
 }
+
+/// Creates a Terminal API test setup with custom Dio instance.
+///
+/// This function sets up a Terminal API test with a custom Dio instance
+/// and returns the (client, dio, adapter) tuple for use in tests.
+///
+/// Example usage:
+/// ```dart
+/// late Client client;
+/// late Dio dio;
+/// late DioAdapter adapter;
+///
+/// setUp(() {
+///   (client, dio, adapter) = createTerminalTestSetup();
+/// });
+/// ```
+(Client, Dio, DioAdapter) createTerminalTestSetup() {
+  final client = createClient(apiKey: 'API_KEY');
+  final dio = Dio();
+  final adapter = DioAdapter(dio: dio);
+  client.httpClient = DefaultHttpClient(dio: dio);
+  return (client, dio, adapter);
+}

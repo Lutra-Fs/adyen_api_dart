@@ -56,5 +56,22 @@ void main() {
         throwsA(isA<HttpClientException>()),
       );
     });
+
+    test('returns PAYMENT_NOT_FOUND result for non-existent payment', () async {
+      adapter.onPost('/requestSubjectErasure', (server) {
+        server.reply(200, {'result': 'PAYMENT_NOT_FOUND'});
+      });
+
+      final response = await dataProtection.unwrap(
+        dataProtection.dataProtectionApi.postRequestSubjectErasure(
+          subjectErasureByPspReferenceRequest: buildRequest(),
+        ),
+      );
+
+      expect(
+        response!.result,
+        SubjectErasureResponseResultEnum.PAYMENT_NOT_FOUND,
+      );
+    });
   });
 }

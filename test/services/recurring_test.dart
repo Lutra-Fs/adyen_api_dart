@@ -178,5 +178,64 @@ void main() {
 
       expect(response!.status, 'disabled');
     });
+
+    test('handles payment detail not found errors', () async {
+      adapter.onPost('/disable', (server) {
+        server.reply(422, {
+          'status': 422,
+          'errorCode': '803',
+          'message': 'PaymentDetail not found',
+          'errorType': 'validation',
+        });
+      });
+
+      await expectLater(
+        () => recurringService.unwrap(
+          recurringService.generalApi.postDisable(
+            disableRequest: buildDisableRequest(),
+          ),
+        ),
+        throwsA(
+          isA<HttpClientException>()
+              .having((e) => e.statusCode, 'statusCode', 422)
+              .having(
+                (e) => e.responseBody?.contains('803'),
+                'responseBody contains 803',
+                isTrue,
+              ),
+        ),
+      );
+    });
+
+    test(
+      'handles missing reference errors on schedule account updater',
+      () async {
+        adapter.onPost('/scheduleAccountUpdater', (server) {
+          server.reply(422, {
+            'status': 422,
+            'errorCode': '130',
+            'message': 'Reference Missing',
+            'errorType': 'validation',
+          });
+        });
+
+        await expectLater(
+          () => recurringService.unwrap(
+            recurringService.generalApi.postScheduleAccountUpdater(
+              scheduleAccountUpdaterRequest: buildScheduleRequest(),
+            ),
+          ),
+          throwsA(
+            isA<HttpClientException>()
+                .having((e) => e.statusCode, 'statusCode', 422)
+                .having(
+                  (e) => e.responseBody?.contains('130'),
+                  'responseBody contains 130',
+                  isTrue,
+                ),
+          ),
+        );
+      },
+    );
   });
 }
