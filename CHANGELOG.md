@@ -12,6 +12,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **CI**: Fixed release workflow tag trigger pattern
   - Corrected tag filter from `'v[0-9]+.[0-9]+.[0-9]+.*'` to `'v[0-9]+.[0-9]+.[0-9]+*'` to properly match semantic version tags (e.g., v1.0.0, v1.2.3-beta)
 
+### Fixed
+
+- **CI**: Fixed OpenAPI codegen workflow to resolve config file path issue
+  - Changed Docker volume mapping from `host:workspace` to `host:/work` to match script's default `ROOT_DIR_DOCKER` path
+  - Resolves "Unable to deserialize config file: /work/tool/codegen/config.yaml" error in Docker container
+
 ## [0.1.0] - 2025-12-27
 
 ### Added
