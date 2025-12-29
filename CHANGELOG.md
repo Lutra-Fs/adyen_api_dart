@@ -14,9 +14,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- **CI**: Fixed OpenAPI codegen workflow to resolve config file path issue
+- **CI**: Fixed OpenAPI codegen workflow path issues
   - Changed Docker volume mapping from `host:workspace` to `host:/work` to match script's default `ROOT_DIR_DOCKER` path
-  - Resolves "Unable to deserialize config file: /work/tool/codegen/config.yaml" error in Docker container
+  - Changed clone directory from `.openapi` to `.cache/openapi` to align with script's `OPENAPI_ROOT_DOCKER` default
+  - Resolves spec file not found errors in Docker container
 
 ## [0.1.0] - 2025-12-27
 

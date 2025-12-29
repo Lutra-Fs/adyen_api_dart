@@ -29,8 +29,9 @@ jobs:
       - name: Checkout OpenAPI repo
         if: steps.openapi.outputs.latest != steps.openapi.outputs.current
         run: |
-          git clone https://github.com/Adyen/adyen-openapi .openapi
-          git -C .openapi checkout "${{ steps.openapi.outputs.latest }}"
+          mkdir -p .cache/openapi
+          git clone https://github.com/Adyen/adyen-openapi .cache/openapi
+          git -C .cache/openapi checkout "${{ steps.openapi.outputs.latest }}"
 
       - name: Update lock file
         if: steps.openapi.outputs.latest != steps.openapi.outputs.current
@@ -40,7 +41,7 @@ jobs:
       - name: Run codegen
         if: steps.openapi.outputs.latest != steps.openapi.outputs.current
         env:
-          OPENAPI_ROOT: ${{ github.workspace }}/.openapi
+          OPENAPI_ROOT: ${{ github.workspace }}/.cache/openapi
           OPENAPI_GENERATOR_CLI: >-
             docker run --rm -v ${{ github.workspace }}:/work -w /work
             openapitools/openapi-generator-cli:v7.18.0
