@@ -49,11 +49,6 @@ jobs:
           # Update commit hash
           sed -i 's/"commit": "[^"]*"/"commit": "${{ steps.openapi.outputs.latest }}"/' tool/openapi.lock.json
 
-      - name: Cleanup build directories
-        if: steps.openapi.outputs.latest != steps.openapi.outputs.current
-        run: |
-          sudo rm -rf build
-
       - name: Run codegen
         if: steps.openapi.outputs.latest != steps.openapi.outputs.current
         env:
