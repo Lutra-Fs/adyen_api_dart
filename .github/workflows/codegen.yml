@@ -54,7 +54,7 @@ jobs:
         env:
           OPENAPI_ROOT: ${{ github.workspace }}/.cache/openapi
           OPENAPI_GENERATOR_CLI: >-
-            docker run --rm -v ${{ github.workspace }}:/work -w /work
+            docker run --rm -v ${{ github.workspace }}:/work -w /work --user $(id -u):$(id -g)
             openapitools/openapi-generator-cli:v7.18.0
         run: ./tool/codegen/generate.sh
 
