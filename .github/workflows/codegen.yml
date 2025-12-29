@@ -63,6 +63,18 @@ jobs:
             openapitools/openapi-generator-cli:v7.18.0
         run: ./tool/codegen/generate.sh
 
+      - name: Run build_runner
+        if: steps.openapi.outputs.latest != steps.openapi.outputs.current
+        uses: dart-lang/setup-dart@v1
+        with:
+          sdk: 3.10.3
+
+      - name: Generate .g.dart files
+        if: steps.openapi.outputs.latest != steps.openapi.outputs.current
+        run: |
+          dart pub get
+          dart run build_runner build --delete-conflicting-outputs
+
       - name: Create pull request
         if: steps.openapi.outputs.latest != steps.openapi.outputs.current
         uses: peter-evans/create-pull-request@v8
