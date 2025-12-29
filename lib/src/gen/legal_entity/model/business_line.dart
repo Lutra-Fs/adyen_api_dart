@@ -16,24 +16,17 @@ part 'business_line.g.dart';
 /// BusinessLine
 ///
 /// Properties:
-/// * [capability] - The capability for which you are creating the business line.  Possible values: **receivePayments**, **receiveFromPlatformPayments**, **issueBankAccount**
 /// * [id] - The unique identifier of the business line.
 /// * [industryCode] - A code that represents the industry of the legal entity for [marketplaces](https://docs.adyen.com/marketplaces/verification-requirements/reference-additional-products/#list-industry-codes) or [platforms](https://docs.adyen.com/platforms/verification-requirements/reference-additional-products/#list-industry-codes). For example, **4431A** for computer software stores.
 /// * [legalEntityId] - Unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) that owns the business line.
 /// * [problems] - The verification errors related to capabilities for this supporting entity.
 /// * [salesChannels] - A list of channels where goods or services are sold.  Possible values: **pos**, **posMoto**, **eCommerce**, **ecomMoto**, **payByLink**.  Required only in combination with the `service` **paymentProcessing**.
-/// * [service] - The service for which you are creating the business line.    Possible values: *  **paymentProcessing** *  **banking**  
-/// * [sourceOfFunds] - Contains information about the source of your user's funds. Required only for the `service` **banking**.
+/// * [service] - The service for which you are creating the business line.    Possible values: *  **paymentProcessing** *  **issuing** *  **banking**  
+/// * [sourceOfFunds] - Contains information about the source of your user's funds. Required only if the `service` is **banking** or **issuing**.
 /// * [webData] - List of website URLs where your user's goods or services are sold. When this is required for a service but your user does not have an online presence, provide the reason in the `webDataExemption` object.
 /// * [webDataExemption] - The reason why the web data is not provided.
 @BuiltValue()
 abstract class BusinessLine implements Built<BusinessLine, BusinessLineBuilder> {
-  /// The capability for which you are creating the business line.  Possible values: **receivePayments**, **receiveFromPlatformPayments**, **issueBankAccount**
-  @Deprecated('capability has been deprecated')
-  @BuiltValueField(wireName: r'capability')
-  BusinessLineCapabilityEnum? get capability;
-  // enum capabilityEnum {  receivePayments,  receiveFromPlatformPayments,  issueBankAccount,  };
-
   /// The unique identifier of the business line.
   @BuiltValueField(wireName: r'id')
   String get id;
@@ -54,12 +47,12 @@ abstract class BusinessLine implements Built<BusinessLine, BusinessLineBuilder> 
   @BuiltValueField(wireName: r'salesChannels')
   BuiltList<String>? get salesChannels;
 
-  /// The service for which you are creating the business line.    Possible values: *  **paymentProcessing** *  **banking**  
+  /// The service for which you are creating the business line.    Possible values: *  **paymentProcessing** *  **issuing** *  **banking**  
   @BuiltValueField(wireName: r'service')
   BusinessLineServiceEnum get service;
-  // enum serviceEnum {  paymentProcessing,  banking,  };
+  // enum serviceEnum {  paymentProcessing,  issuing,  banking,  };
 
-  /// Contains information about the source of your user's funds. Required only for the `service` **banking**.
+  /// Contains information about the source of your user's funds. Required only if the `service` is **banking** or **issuing**.
   @BuiltValueField(wireName: r'sourceOfFunds')
   SourceOfFunds? get sourceOfFunds;
 
@@ -94,13 +87,6 @@ class _$BusinessLineSerializer implements PrimitiveSerializer<BusinessLine> {
     BusinessLine object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    if (object.capability != null) {
-      yield r'capability';
-      yield serializers.serialize(
-        object.capability,
-        specifiedType: const FullType(BusinessLineCapabilityEnum),
-      );
-    }
     yield r'id';
     yield serializers.serialize(
       object.id,
@@ -179,13 +165,6 @@ class _$BusinessLineSerializer implements PrimitiveSerializer<BusinessLine> {
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'capability':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(BusinessLineCapabilityEnum),
-          ) as BusinessLineCapabilityEnum;
-          result.capability = valueDes;
-          break;
         case r'id':
           final valueDes = serializers.deserialize(
             value,
@@ -278,38 +257,18 @@ class _$BusinessLineSerializer implements PrimitiveSerializer<BusinessLine> {
   }
 }
 
-class BusinessLineCapabilityEnum extends EnumClass {
-
-  /// The capability for which you are creating the business line.  Possible values: **receivePayments**, **receiveFromPlatformPayments**, **issueBankAccount**
-  @BuiltValueEnumConst(wireName: r'receivePayments')
-  static const BusinessLineCapabilityEnum receivePayments = _$businessLineCapabilityEnum_receivePayments;
-  /// The capability for which you are creating the business line.  Possible values: **receivePayments**, **receiveFromPlatformPayments**, **issueBankAccount**
-  @BuiltValueEnumConst(wireName: r'receiveFromPlatformPayments')
-  static const BusinessLineCapabilityEnum receiveFromPlatformPayments = _$businessLineCapabilityEnum_receiveFromPlatformPayments;
-  /// The capability for which you are creating the business line.  Possible values: **receivePayments**, **receiveFromPlatformPayments**, **issueBankAccount**
-  @BuiltValueEnumConst(wireName: r'issueBankAccount')
-  static const BusinessLineCapabilityEnum issueBankAccount = _$businessLineCapabilityEnum_issueBankAccount;
-  /// The capability for which you are creating the business line.  Possible values: **receivePayments**, **receiveFromPlatformPayments**, **issueBankAccount**
-  @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
-  static const BusinessLineCapabilityEnum unknownDefaultOpenApi = _$businessLineCapabilityEnum_unknownDefaultOpenApi;
-
-  static Serializer<BusinessLineCapabilityEnum> get serializer => _$businessLineCapabilityEnumSerializer;
-
-  const BusinessLineCapabilityEnum._(String name): super(name);
-
-  static BuiltSet<BusinessLineCapabilityEnum> get values => _$businessLineCapabilityEnumValues;
-  static BusinessLineCapabilityEnum valueOf(String name) => _$businessLineCapabilityEnumValueOf(name);
-}
-
 class BusinessLineServiceEnum extends EnumClass {
 
-  /// The service for which you are creating the business line.    Possible values: *  **paymentProcessing** *  **banking**  
+  /// The service for which you are creating the business line.    Possible values: *  **paymentProcessing** *  **issuing** *  **banking**  
   @BuiltValueEnumConst(wireName: r'paymentProcessing')
   static const BusinessLineServiceEnum paymentProcessing = _$businessLineServiceEnum_paymentProcessing;
-  /// The service for which you are creating the business line.    Possible values: *  **paymentProcessing** *  **banking**  
+  /// The service for which you are creating the business line.    Possible values: *  **paymentProcessing** *  **issuing** *  **banking**  
+  @BuiltValueEnumConst(wireName: r'issuing')
+  static const BusinessLineServiceEnum issuing = _$businessLineServiceEnum_issuing;
+  /// The service for which you are creating the business line.    Possible values: *  **paymentProcessing** *  **issuing** *  **banking**  
   @BuiltValueEnumConst(wireName: r'banking')
   static const BusinessLineServiceEnum banking = _$businessLineServiceEnum_banking;
-  /// The service for which you are creating the business line.    Possible values: *  **paymentProcessing** *  **banking**  
+  /// The service for which you are creating the business line.    Possible values: *  **paymentProcessing** *  **issuing** *  **banking**  
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const BusinessLineServiceEnum unknownDefaultOpenApi = _$businessLineServiceEnum_unknownDefaultOpenApi;
 

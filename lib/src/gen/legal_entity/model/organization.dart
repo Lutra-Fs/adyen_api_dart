@@ -7,6 +7,7 @@ import 'package:adyen_api/src/gen/legal_entity/model/address.dart';
 import 'package:adyen_api/src/gen/legal_entity/model/financial_report.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:adyen_api/src/gen/legal_entity/model/phone_number.dart';
+import 'package:adyen_api/src/gen/legal_entity/model/support.dart';
 import 'package:adyen_api/src/gen/legal_entity/model/tax_reporting_classification.dart';
 import 'package:adyen_api/src/gen/legal_entity/model/stock_data.dart';
 import 'package:adyen_api/src/gen/legal_entity/model/tax_information.dart';
@@ -24,6 +25,7 @@ part 'organization.g.dart';
 /// * [dateOfInitiationOfLegalProceeding] - Required if the value of `statusOfLegalProceeding` is one of the following:  **underJudicialAdministration**, **bankruptcyInsolvency**, **otherLegalMeasures**  The date at which a legal proceeding was initiated, in **YYYY-MM-DD** format. Example: **2000-02-12** 
 /// * [description] - Your description for the organization.
 /// * [doingBusinessAs] - The organization's trading name, if different from the registered legal name.
+/// * [doingBusinessAsAbsent] - Set this to **true** if the organization or legal arrangement does not have a `Doing business as` name.
 /// * [economicSector] - The sector of the economy the legal entity operates within, represented by a 2-4 digit code that may include a \".\". Example: 45.11  You can locate economic sector codes for your area by referencing codes defined by the NACE (Nomenclature of Economic Activities) used in the European Union. 
 /// * [email] - The email address of the legal entity.
 /// * [financialReports] - The financial report information of the organization.
@@ -36,8 +38,10 @@ part 'organization.g.dart';
 /// * [principalPlaceOfBusiness] - The address where the organization operates from. Provide this if the principal place of business is different from the `registeredAddress`.
 /// * [registeredAddress] - The address of the organization registered at their registrar (such as the Chamber of Commerce).
 /// * [registrationNumber] - The organization's registration number.
+/// * [registrationNumberAbsent] - Set this to **true** if the organization does not have a registration number available. Only applicable for organizations in New Zealand, and incorporated partnerships and government organizations in Australia.
 /// * [statusOfLegalProceeding] - The status of any current or past legal action taken against the legal entity.  Possible values: **noLegalActionsTaken**, **underJudicialAdministration**, **bankruptcyInsolvency**, **otherLegalMeasures**  If the value of this field is **noLegalActionsTaken**, then `dateOfInitiationOfLegalProceeding` is not required. Otherwise, it is required. 
 /// * [stockData] - Information about the organization's publicly traded stock. Provide this object only if `type` is **listedPublicCompany**.
+/// * [support] - Support information for the legal entity. Required if you have a platform setup.
 /// * [taxInformation] - The tax information of the organization.
 /// * [taxReportingClassification] - The tax reporting classification (FATCA/CRS self-certification) of the organization.
 /// * [type] - Type of organization.  Possible values: **associationIncorporated**, **governmentalOrganization**, **listedPublicCompany**, **nonProfit**, **partnershipIncorporated**, **privateCompany**.
@@ -65,6 +69,10 @@ abstract class Organization implements Built<Organization, OrganizationBuilder> 
   /// The organization's trading name, if different from the registered legal name.
   @BuiltValueField(wireName: r'doingBusinessAs')
   String? get doingBusinessAs;
+
+  /// Set this to **true** if the organization or legal arrangement does not have a `Doing business as` name.
+  @BuiltValueField(wireName: r'doingBusinessAsAbsent')
+  bool? get doingBusinessAsAbsent;
 
   /// The sector of the economy the legal entity operates within, represented by a 2-4 digit code that may include a \".\". Example: 45.11  You can locate economic sector codes for your area by referencing codes defined by the NACE (Nomenclature of Economic Activities) used in the European Union. 
   @BuiltValueField(wireName: r'economicSector')
@@ -115,6 +123,10 @@ abstract class Organization implements Built<Organization, OrganizationBuilder> 
   @BuiltValueField(wireName: r'registrationNumber')
   String? get registrationNumber;
 
+  /// Set this to **true** if the organization does not have a registration number available. Only applicable for organizations in New Zealand, and incorporated partnerships and government organizations in Australia.
+  @BuiltValueField(wireName: r'registrationNumberAbsent')
+  bool? get registrationNumberAbsent;
+
   /// The status of any current or past legal action taken against the legal entity.  Possible values: **noLegalActionsTaken**, **underJudicialAdministration**, **bankruptcyInsolvency**, **otherLegalMeasures**  If the value of this field is **noLegalActionsTaken**, then `dateOfInitiationOfLegalProceeding` is not required. Otherwise, it is required. 
   @BuiltValueField(wireName: r'statusOfLegalProceeding')
   OrganizationStatusOfLegalProceedingEnum? get statusOfLegalProceeding;
@@ -123,6 +135,10 @@ abstract class Organization implements Built<Organization, OrganizationBuilder> 
   /// Information about the organization's publicly traded stock. Provide this object only if `type` is **listedPublicCompany**.
   @BuiltValueField(wireName: r'stockData')
   StockData? get stockData;
+
+  /// Support information for the legal entity. Required if you have a platform setup.
+  @BuiltValueField(wireName: r'support')
+  Support? get support;
 
   /// The tax information of the organization.
   @BuiltValueField(wireName: r'taxInformation')
@@ -209,6 +225,13 @@ class _$OrganizationSerializer implements PrimitiveSerializer<Organization> {
         specifiedType: const FullType(String),
       );
     }
+    if (object.doingBusinessAsAbsent != null) {
+      yield r'doingBusinessAsAbsent';
+      yield serializers.serialize(
+        object.doingBusinessAsAbsent,
+        specifiedType: const FullType(bool),
+      );
+    }
     if (object.economicSector != null) {
       yield r'economicSector';
       yield serializers.serialize(
@@ -289,6 +312,13 @@ class _$OrganizationSerializer implements PrimitiveSerializer<Organization> {
         specifiedType: const FullType(String),
       );
     }
+    if (object.registrationNumberAbsent != null) {
+      yield r'registrationNumberAbsent';
+      yield serializers.serialize(
+        object.registrationNumberAbsent,
+        specifiedType: const FullType(bool),
+      );
+    }
     if (object.statusOfLegalProceeding != null) {
       yield r'statusOfLegalProceeding';
       yield serializers.serialize(
@@ -301,6 +331,13 @@ class _$OrganizationSerializer implements PrimitiveSerializer<Organization> {
       yield serializers.serialize(
         object.stockData,
         specifiedType: const FullType(StockData),
+      );
+    }
+    if (object.support != null) {
+      yield r'support';
+      yield serializers.serialize(
+        object.support,
+        specifiedType: const FullType(Support),
       );
     }
     if (object.taxInformation != null) {
@@ -403,6 +440,13 @@ class _$OrganizationSerializer implements PrimitiveSerializer<Organization> {
           ) as String;
           result.doingBusinessAs = valueDes;
           break;
+        case r'doingBusinessAsAbsent':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.doingBusinessAsAbsent = valueDes;
+          break;
         case r'economicSector':
           final valueDes = serializers.deserialize(
             value,
@@ -487,6 +531,13 @@ class _$OrganizationSerializer implements PrimitiveSerializer<Organization> {
           ) as String;
           result.registrationNumber = valueDes;
           break;
+        case r'registrationNumberAbsent':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.registrationNumberAbsent = valueDes;
+          break;
         case r'statusOfLegalProceeding':
           final valueDes = serializers.deserialize(
             value,
@@ -500,6 +551,13 @@ class _$OrganizationSerializer implements PrimitiveSerializer<Organization> {
             specifiedType: const FullType(StockData),
           ) as StockData;
           result.stockData.replace(valueDes);
+          break;
+        case r'support':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(Support),
+          ) as Support;
+          result.support.replace(valueDes);
           break;
         case r'taxInformation':
           final valueDes = serializers.deserialize(

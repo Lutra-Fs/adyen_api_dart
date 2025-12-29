@@ -1,6 +1,6 @@
 {
   "repo": "https://github.com/Adyen/adyen-openapi",
-  "commit": "033c5fc461be21fed1ba2336f050a42228dd8d10",
+  "commit": "03fa73d70b7304a63290a35d492252b4e27b932b",
   "specs": [
     {
       "name": "binlookup",
@@ -59,7 +59,7 @@
     },
     {
       "name": "legal_entity",
-      "path": "yaml/LegalEntityService-v3.yaml",
+      "path": "yaml/LegalEntityService-v4.yaml",
       "output": "lib/src/gen/legal_entity"
     },
     {

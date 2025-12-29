@@ -18,6 +18,7 @@ part 'sole_proprietorship.g.dart';
 /// * [countryOfGoverningLaw] - The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
 /// * [dateOfIncorporation] - The date when the legal arrangement was incorporated in YYYY-MM-DD format.
 /// * [doingBusinessAs] - The registered name, if different from the `name`.
+/// * [doingBusinessAsAbsent] - Set this to **true** if the legal arrangement does not have a `Doing business as` name.
 /// * [financialReports] - The information from the financial report of the sole proprietorship.
 /// * [name_] - The legal name.
 /// * [principalPlaceOfBusiness] - The business address. Required if the principal place of business is different from the `registeredAddress`.
@@ -40,6 +41,10 @@ abstract class SoleProprietorship implements Built<SoleProprietorship, SolePropr
   /// The registered name, if different from the `name`.
   @BuiltValueField(wireName: r'doingBusinessAs')
   String? get doingBusinessAs;
+
+  /// Set this to **true** if the legal arrangement does not have a `Doing business as` name.
+  @BuiltValueField(wireName: r'doingBusinessAsAbsent')
+  bool? get doingBusinessAsAbsent;
 
   /// The information from the financial report of the sole proprietorship.
   @BuiltValueField(wireName: r'financialReports')
@@ -118,6 +123,13 @@ class _$SoleProprietorshipSerializer implements PrimitiveSerializer<SolePropriet
       yield serializers.serialize(
         object.doingBusinessAs,
         specifiedType: const FullType(String),
+      );
+    }
+    if (object.doingBusinessAsAbsent != null) {
+      yield r'doingBusinessAsAbsent';
+      yield serializers.serialize(
+        object.doingBusinessAsAbsent,
+        specifiedType: const FullType(bool),
       );
     }
     if (object.financialReports != null) {
@@ -222,6 +234,13 @@ class _$SoleProprietorshipSerializer implements PrimitiveSerializer<SolePropriet
             specifiedType: const FullType(String),
           ) as String;
           result.doingBusinessAs = valueDes;
+          break;
+        case r'doingBusinessAsAbsent':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.doingBusinessAsAbsent = valueDes;
           break;
         case r'financialReports':
           final valueDes = serializers.deserialize(
