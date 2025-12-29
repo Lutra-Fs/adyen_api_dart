@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- **Documentation**: Added project badges to README
+  - Added CI status badge for GitHub Actions workflow
+  - Added Pub.dev package version badge
+  - Added Pub.dev points and popularity badges
+
 ### Changed
 
 - **CI**: Fixed release workflow tag trigger pattern

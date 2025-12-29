@@ -6,7 +6,11 @@ A type-safe Dart library for Adyen's payment APIs, generated from official OpenA
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Dart](https://img.shields.io/badge/Dart-3.10.3+-blue.svg)](https://dart.dev)
+[![CI](https://github.com/Lutra-Fs/adyen_api_dart/actions/workflows/ci.yml/badge.svg)](https://github.com/Lutra-Fs/adyen_api_dart/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/Lutra-Fs/adyen_api_dart/branch/main/graph/badge.svg)](https://codecov.io/gh/Lutra-Fs/adyen_api_dart)
+[![pub package](https://img.shields.io/pub/v/adyen_api)](https://pub.dev/packages/adyen_api)
+[![pub points](https://img.shields.io/pub/points/adyen_api)](https://pub.dev/packages/adyen_api/score)
+[![pub popularity](https://img.shields.io/pub/popularity/adyen_api)](https://pub.dev/packages/adyen_api/score)
 
 ## Why This Over Native SDKs?
 
@@ -30,7 +34,7 @@ A type-safe Dart library for Adyen's payment APIs, generated from official OpenA
 
 ```yaml
 dependencies:
-  adyen_api: ^0.0.1
+  adyen_api: ^0.1.0
 ```
 
 ```bash
