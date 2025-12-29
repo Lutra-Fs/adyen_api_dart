@@ -33,9 +33,20 @@ jobs:
           git clone https://github.com/Adyen/adyen-openapi .cache/openapi
           git -C .cache/openapi checkout "${{ steps.openapi.outputs.latest }}"
 
+      - name: Detect yaml version bumps
+        if: steps.openapi.outputs.latest != steps.openapi.outputs.current
+        env:
+          OPENAPI_ROOT: ${{ github.workspace }}/.cache/openapi
+        run: |
+          ./tool/codegen/detect_yaml_versions.sh
+
       - name: Update lock file
         if: steps.openapi.outputs.latest != steps.openapi.outputs.current
+        env:
+          OPENAPI_ROOT: ${{ github.workspace }}/.cache/openapi
         run: |
+          ./tool/codegen/update_lock_file.sh
+          # Update commit hash
           sed -i 's/"commit": "[^"]*"/"commit": "${{ steps.openapi.outputs.latest }}"/' tool/openapi.lock.json
 
       - name: Run codegen

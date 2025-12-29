@@ -19,6 +19,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Changed clone directory from `.openapi` to `.cache/openapi` to align with script's `OPENAPI_ROOT_DOCKER` default
   - Resolves spec file not found errors in Docker container
 
+### Added
+
+- **Code Generation**: Automatic yaml version bump detection
+  - Added `tool/codegen/detect_yaml_versions.sh` to detect latest yaml versions from Adyen OpenAPI repo
+  - Added `tool/codegen/update_lock_file.sh` to automatically update `openapi.lock.json` specs with new versions
+  - Updated workflow to detect and update yaml version bumps automatically
+  - Supports both versioned files (e.g., `CheckoutService-v71.yaml`) and non-versioned files
+
 ## [0.1.0] - 2025-12-27
 
 ### Added
