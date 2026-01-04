@@ -1,4 +1,5 @@
 import 'package:adyen_api/adyen_api.dart';
+import 'package:adyen_api/terminal_models.dart';
 import 'package:dio/dio.dart';
 import 'package:http_mock_adapter/http_mock_adapter.dart';
 import 'package:test/test.dart';

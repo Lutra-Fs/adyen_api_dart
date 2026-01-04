@@ -1,7 +1,6 @@
 import 'dart:convert';
 
-import 'package:adyen_api/adyen_api.dart';
-import 'package:adyen_api/src/domain/terminal/models.dart' as terminal_models;
+import 'package:adyen_api/terminal_models.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -123,7 +122,7 @@ TerminalApiRequest newTerminalApiPaymentRequest() {
     saleToAcquirerData: saleToAcquirerData,
   );
 
-  final paymentRequest = terminal_models.PaymentRequest(
+  final paymentRequest = PaymentRequest(
     paymentTransaction: PaymentTransaction(
       amountsReq: AmountsReq(currency: 'EUR', requestedAmount: 1000),
     ),
@@ -161,7 +160,7 @@ TerminalApiRequest newTerminalApiPaymentRequestWithAdditionalData() {
     saleToAcquirerData: saleToAcquirerData,
   );
 
-  final paymentRequest = terminal_models.PaymentRequest(
+  final paymentRequest = PaymentRequest(
     paymentTransaction: PaymentTransaction(
       amountsReq: AmountsReq(currency: 'EUR', requestedAmount: 1000),
     ),

@@ -102,7 +102,10 @@ expected_files+=("$terminal_out")
 tmp_terminal=$(mktemp)
 {
   echo "// Generated file. Do not edit by hand."
+  # Terminal models are hand-written (not OpenAPI-generated), so we keep
+  # a stable entry point here to avoid them being pruned as extra exports.
   echo "export 'src/domain/terminal/models.dart';"
+  echo "export 'src/domain/terminal/terminal_settings.dart';"
 } > "$tmp_terminal"
 
 write_or_check "$terminal_out" "$tmp_terminal"

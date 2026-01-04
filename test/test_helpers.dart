@@ -1,5 +1,5 @@
 import 'package:adyen_api/adyen_api.dart';
-import 'package:adyen_api/src/domain/terminal/models.dart' as terminal_models;
+import 'package:adyen_api/terminal_models.dart';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 import 'package:http_mock_adapter/http_mock_adapter.dart';
@@ -64,7 +64,7 @@ TerminalApiRequest createTerminalAPIPaymentRequest() {
 
   final amountsReq = AmountsReq(currency: 'EUR', requestedAmount: 1);
   final paymentTransaction = PaymentTransaction(amountsReq: amountsReq);
-  final paymentRequest = terminal_models.PaymentRequest(
+  final paymentRequest = PaymentRequest(
     paymentTransaction: paymentTransaction,
     saleData: saleData,
   );

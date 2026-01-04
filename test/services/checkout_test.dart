@@ -3,7 +3,7 @@
 
 import 'dart:convert';
 
-import 'package:adyen_api/adyen_api.dart' hide PaymentRequest;
+import 'package:adyen_api/adyen_api.dart';
 import 'package:adyen_api/src/gen/checkout/model/amount.dart';
 import 'package:adyen_api/src/gen/checkout/model/apple_pay_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/balance_check_request.dart';

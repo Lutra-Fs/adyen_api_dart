@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:adyen_api/adyen_api.dart';
+import 'package:adyen_api/terminal_models.dart';
 import 'package:test/test.dart';
 
 import '../test_helpers.dart';

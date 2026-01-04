@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- **Public API (Breaking)**: Narrowed exports from `adyen_api.dart`; terminal and model types are now exposed via `*_models.dart` (e.g. `terminal_models.dart`).
 - **CI**: Fixed release workflow tag trigger pattern
   - Corrected tag filter from `'v[0-9]+.[0-9]+.[0-9]+.*'` to `'v[0-9]+.[0-9]+.[0-9]+*'` to properly match semantic version tags (e.g., v1.0.0, v1.2.3-beta)
 
