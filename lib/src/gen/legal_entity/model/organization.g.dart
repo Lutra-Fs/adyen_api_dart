@@ -478,6 +478,8 @@ class _$Organization extends Organization {
   @override
   final String? doingBusinessAs;
   @override
+  final bool? doingBusinessAsAbsent;
+  @override
   final String? economicSector;
   @override
   final String? email;
@@ -502,9 +504,13 @@ class _$Organization extends Organization {
   @override
   final String? registrationNumber;
   @override
+  final bool? registrationNumberAbsent;
+  @override
   final OrganizationStatusOfLegalProceedingEnum? statusOfLegalProceeding;
   @override
   final StockData? stockData;
+  @override
+  final Support? support;
   @override
   final BuiltList<TaxInformation>? taxInformation;
   @override
@@ -527,6 +533,7 @@ class _$Organization extends Organization {
     this.dateOfInitiationOfLegalProceeding,
     this.description,
     this.doingBusinessAs,
+    this.doingBusinessAsAbsent,
     this.economicSector,
     this.email,
     this.financialReports,
@@ -539,8 +546,10 @@ class _$Organization extends Organization {
     this.principalPlaceOfBusiness,
     required this.registeredAddress,
     this.registrationNumber,
+    this.registrationNumberAbsent,
     this.statusOfLegalProceeding,
     this.stockData,
+    this.support,
     this.taxInformation,
     this.taxReportingClassification,
     this.type,
@@ -565,6 +574,7 @@ class _$Organization extends Organization {
             other.dateOfInitiationOfLegalProceeding &&
         description == other.description &&
         doingBusinessAs == other.doingBusinessAs &&
+        doingBusinessAsAbsent == other.doingBusinessAsAbsent &&
         economicSector == other.economicSector &&
         email == other.email &&
         financialReports == other.financialReports &&
@@ -577,8 +587,10 @@ class _$Organization extends Organization {
         principalPlaceOfBusiness == other.principalPlaceOfBusiness &&
         registeredAddress == other.registeredAddress &&
         registrationNumber == other.registrationNumber &&
+        registrationNumberAbsent == other.registrationNumberAbsent &&
         statusOfLegalProceeding == other.statusOfLegalProceeding &&
         stockData == other.stockData &&
+        support == other.support &&
         taxInformation == other.taxInformation &&
         taxReportingClassification == other.taxReportingClassification &&
         type == other.type &&
@@ -595,6 +607,7 @@ class _$Organization extends Organization {
     _$hash = $jc(_$hash, dateOfInitiationOfLegalProceeding.hashCode);
     _$hash = $jc(_$hash, description.hashCode);
     _$hash = $jc(_$hash, doingBusinessAs.hashCode);
+    _$hash = $jc(_$hash, doingBusinessAsAbsent.hashCode);
     _$hash = $jc(_$hash, economicSector.hashCode);
     _$hash = $jc(_$hash, email.hashCode);
     _$hash = $jc(_$hash, financialReports.hashCode);
@@ -607,8 +620,10 @@ class _$Organization extends Organization {
     _$hash = $jc(_$hash, principalPlaceOfBusiness.hashCode);
     _$hash = $jc(_$hash, registeredAddress.hashCode);
     _$hash = $jc(_$hash, registrationNumber.hashCode);
+    _$hash = $jc(_$hash, registrationNumberAbsent.hashCode);
     _$hash = $jc(_$hash, statusOfLegalProceeding.hashCode);
     _$hash = $jc(_$hash, stockData.hashCode);
+    _$hash = $jc(_$hash, support.hashCode);
     _$hash = $jc(_$hash, taxInformation.hashCode);
     _$hash = $jc(_$hash, taxReportingClassification.hashCode);
     _$hash = $jc(_$hash, type.hashCode);
@@ -630,6 +645,7 @@ class _$Organization extends Organization {
           )
           ..add('description', description)
           ..add('doingBusinessAs', doingBusinessAs)
+          ..add('doingBusinessAsAbsent', doingBusinessAsAbsent)
           ..add('economicSector', economicSector)
           ..add('email', email)
           ..add('financialReports', financialReports)
@@ -642,8 +658,10 @@ class _$Organization extends Organization {
           ..add('principalPlaceOfBusiness', principalPlaceOfBusiness)
           ..add('registeredAddress', registeredAddress)
           ..add('registrationNumber', registrationNumber)
+          ..add('registrationNumberAbsent', registrationNumberAbsent)
           ..add('statusOfLegalProceeding', statusOfLegalProceeding)
           ..add('stockData', stockData)
+          ..add('support', support)
           ..add('taxInformation', taxInformation)
           ..add('taxReportingClassification', taxReportingClassification)
           ..add('type', type)
@@ -684,6 +702,11 @@ class OrganizationBuilder
   String? get doingBusinessAs => _$this._doingBusinessAs;
   set doingBusinessAs(String? doingBusinessAs) =>
       _$this._doingBusinessAs = doingBusinessAs;
+
+  bool? _doingBusinessAsAbsent;
+  bool? get doingBusinessAsAbsent => _$this._doingBusinessAsAbsent;
+  set doingBusinessAsAbsent(bool? doingBusinessAsAbsent) =>
+      _$this._doingBusinessAsAbsent = doingBusinessAsAbsent;
 
   String? _economicSector;
   String? get economicSector => _$this._economicSector;
@@ -747,6 +770,11 @@ class OrganizationBuilder
   set registrationNumber(String? registrationNumber) =>
       _$this._registrationNumber = registrationNumber;
 
+  bool? _registrationNumberAbsent;
+  bool? get registrationNumberAbsent => _$this._registrationNumberAbsent;
+  set registrationNumberAbsent(bool? registrationNumberAbsent) =>
+      _$this._registrationNumberAbsent = registrationNumberAbsent;
+
   OrganizationStatusOfLegalProceedingEnum? _statusOfLegalProceeding;
   OrganizationStatusOfLegalProceedingEnum? get statusOfLegalProceeding =>
       _$this._statusOfLegalProceeding;
@@ -757,6 +785,10 @@ class OrganizationBuilder
   StockDataBuilder? _stockData;
   StockDataBuilder get stockData => _$this._stockData ??= StockDataBuilder();
   set stockData(StockDataBuilder? stockData) => _$this._stockData = stockData;
+
+  SupportBuilder? _support;
+  SupportBuilder get support => _$this._support ??= SupportBuilder();
+  set support(SupportBuilder? support) => _$this._support = support;
 
   ListBuilder<TaxInformation>? _taxInformation;
   ListBuilder<TaxInformation> get taxInformation =>
@@ -802,6 +834,7 @@ class OrganizationBuilder
       _dateOfInitiationOfLegalProceeding = $v.dateOfInitiationOfLegalProceeding;
       _description = $v.description;
       _doingBusinessAs = $v.doingBusinessAs;
+      _doingBusinessAsAbsent = $v.doingBusinessAsAbsent;
       _economicSector = $v.economicSector;
       _email = $v.email;
       _financialReports = $v.financialReports?.toBuilder();
@@ -814,8 +847,10 @@ class OrganizationBuilder
       _principalPlaceOfBusiness = $v.principalPlaceOfBusiness?.toBuilder();
       _registeredAddress = $v.registeredAddress.toBuilder();
       _registrationNumber = $v.registrationNumber;
+      _registrationNumberAbsent = $v.registrationNumberAbsent;
       _statusOfLegalProceeding = $v.statusOfLegalProceeding;
       _stockData = $v.stockData?.toBuilder();
+      _support = $v.support?.toBuilder();
       _taxInformation = $v.taxInformation?.toBuilder();
       _taxReportingClassification = $v.taxReportingClassification?.toBuilder();
       _type = $v.type;
@@ -852,6 +887,7 @@ class OrganizationBuilder
                 dateOfInitiationOfLegalProceeding,
             description: description,
             doingBusinessAs: doingBusinessAs,
+            doingBusinessAsAbsent: doingBusinessAsAbsent,
             economicSector: economicSector,
             email: email,
             financialReports: _financialReports?.build(),
@@ -868,8 +904,10 @@ class OrganizationBuilder
             principalPlaceOfBusiness: _principalPlaceOfBusiness?.build(),
             registeredAddress: registeredAddress.build(),
             registrationNumber: registrationNumber,
+            registrationNumberAbsent: registrationNumberAbsent,
             statusOfLegalProceeding: statusOfLegalProceeding,
             stockData: _stockData?.build(),
+            support: _support?.build(),
             taxInformation: _taxInformation?.build(),
             taxReportingClassification: _taxReportingClassification?.build(),
             type: type,
@@ -892,6 +930,8 @@ class OrganizationBuilder
 
         _$failedField = 'stockData';
         _stockData?.build();
+        _$failedField = 'support';
+        _support?.build();
         _$failedField = 'taxInformation';
         _taxInformation?.build();
         _$failedField = 'taxReportingClassification';

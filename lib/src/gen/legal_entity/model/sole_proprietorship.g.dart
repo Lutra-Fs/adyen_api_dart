@@ -89,6 +89,8 @@ class _$SoleProprietorship extends SoleProprietorship {
   @override
   final String? doingBusinessAs;
   @override
+  final bool? doingBusinessAsAbsent;
+  @override
   final BuiltList<FinancialReport>? financialReports;
   @override
   final String name_;
@@ -115,6 +117,7 @@ class _$SoleProprietorship extends SoleProprietorship {
     required this.countryOfGoverningLaw,
     this.dateOfIncorporation,
     this.doingBusinessAs,
+    this.doingBusinessAsAbsent,
     this.financialReports,
     required this.name_,
     this.principalPlaceOfBusiness,
@@ -141,6 +144,7 @@ class _$SoleProprietorship extends SoleProprietorship {
         countryOfGoverningLaw == other.countryOfGoverningLaw &&
         dateOfIncorporation == other.dateOfIncorporation &&
         doingBusinessAs == other.doingBusinessAs &&
+        doingBusinessAsAbsent == other.doingBusinessAsAbsent &&
         financialReports == other.financialReports &&
         name_ == other.name_ &&
         principalPlaceOfBusiness == other.principalPlaceOfBusiness &&
@@ -158,6 +162,7 @@ class _$SoleProprietorship extends SoleProprietorship {
     _$hash = $jc(_$hash, countryOfGoverningLaw.hashCode);
     _$hash = $jc(_$hash, dateOfIncorporation.hashCode);
     _$hash = $jc(_$hash, doingBusinessAs.hashCode);
+    _$hash = $jc(_$hash, doingBusinessAsAbsent.hashCode);
     _$hash = $jc(_$hash, financialReports.hashCode);
     _$hash = $jc(_$hash, name_.hashCode);
     _$hash = $jc(_$hash, principalPlaceOfBusiness.hashCode);
@@ -177,6 +182,7 @@ class _$SoleProprietorship extends SoleProprietorship {
           ..add('countryOfGoverningLaw', countryOfGoverningLaw)
           ..add('dateOfIncorporation', dateOfIncorporation)
           ..add('doingBusinessAs', doingBusinessAs)
+          ..add('doingBusinessAsAbsent', doingBusinessAsAbsent)
           ..add('financialReports', financialReports)
           ..add('name_', name_)
           ..add('principalPlaceOfBusiness', principalPlaceOfBusiness)
@@ -208,6 +214,11 @@ class SoleProprietorshipBuilder
   String? get doingBusinessAs => _$this._doingBusinessAs;
   set doingBusinessAs(String? doingBusinessAs) =>
       _$this._doingBusinessAs = doingBusinessAs;
+
+  bool? _doingBusinessAsAbsent;
+  bool? get doingBusinessAsAbsent => _$this._doingBusinessAsAbsent;
+  set doingBusinessAsAbsent(bool? doingBusinessAsAbsent) =>
+      _$this._doingBusinessAsAbsent = doingBusinessAsAbsent;
 
   ListBuilder<FinancialReport>? _financialReports;
   ListBuilder<FinancialReport> get financialReports =>
@@ -267,6 +278,7 @@ class SoleProprietorshipBuilder
       _countryOfGoverningLaw = $v.countryOfGoverningLaw;
       _dateOfIncorporation = $v.dateOfIncorporation;
       _doingBusinessAs = $v.doingBusinessAs;
+      _doingBusinessAsAbsent = $v.doingBusinessAsAbsent;
       _financialReports = $v.financialReports?.toBuilder();
       _name_ = $v.name_;
       _principalPlaceOfBusiness = $v.principalPlaceOfBusiness?.toBuilder();
@@ -307,6 +319,7 @@ class SoleProprietorshipBuilder
             ),
             dateOfIncorporation: dateOfIncorporation,
             doingBusinessAs: doingBusinessAs,
+            doingBusinessAsAbsent: doingBusinessAsAbsent,
             financialReports: _financialReports?.build(),
             name_: BuiltValueNullFieldError.checkNotNull(
               name_,

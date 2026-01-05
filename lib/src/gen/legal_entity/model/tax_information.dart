@@ -13,6 +13,7 @@ part 'tax_information.g.dart';
 /// Properties:
 /// * [country] - The two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
 /// * [number] - The tax ID number (TIN) of the organization or individual.
+/// * [numberAbsent] - Set this to **true** if the legal entity or legal arrangement does not have a tax ID number (TIN). Only applicable in Australia.
 /// * [type] - The TIN type depending on the country where it was issued. Only provide if the country has multiple tax IDs: Singapore, Sweden, the UK, or the US. For example, provide **SSN**, **EIN**, or **ITIN** for the US.
 @BuiltValue()
 abstract class TaxInformation implements Built<TaxInformation, TaxInformationBuilder> {
@@ -23,6 +24,10 @@ abstract class TaxInformation implements Built<TaxInformation, TaxInformationBui
   /// The tax ID number (TIN) of the organization or individual.
   @BuiltValueField(wireName: r'number')
   String? get number;
+
+  /// Set this to **true** if the legal entity or legal arrangement does not have a tax ID number (TIN). Only applicable in Australia.
+  @BuiltValueField(wireName: r'numberAbsent')
+  bool? get numberAbsent;
 
   /// The TIN type depending on the country where it was issued. Only provide if the country has multiple tax IDs: Singapore, Sweden, the UK, or the US. For example, provide **SSN**, **EIN**, or **ITIN** for the US.
   @BuiltValueField(wireName: r'type')
@@ -63,6 +68,13 @@ class _$TaxInformationSerializer implements PrimitiveSerializer<TaxInformation> 
       yield serializers.serialize(
         object.number,
         specifiedType: const FullType(String),
+      );
+    }
+    if (object.numberAbsent != null) {
+      yield r'numberAbsent';
+      yield serializers.serialize(
+        object.numberAbsent,
+        specifiedType: const FullType(bool),
       );
     }
     if (object.type != null) {
@@ -108,6 +120,13 @@ class _$TaxInformationSerializer implements PrimitiveSerializer<TaxInformation> 
             specifiedType: const FullType(String),
           ) as String;
           result.number = valueDes;
+          break;
+        case r'numberAbsent':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.numberAbsent = valueDes;
           break;
         case r'type':
           final valueDes = serializers.deserialize(

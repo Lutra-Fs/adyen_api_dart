@@ -17,7 +17,7 @@ part 'business_line_info_update.g.dart';
 /// Properties:
 /// * [industryCode] - A code that represents the industry of your legal entity. For example, **4431A** for computer software stores.
 /// * [salesChannels] - A list of channels where goods or services are sold.  Possible values: **pos**, **posMoto**, **eCommerce**, **ecomMoto**, **payByLink**.  Required only in combination with the `service` **paymentProcessing**.
-/// * [sourceOfFunds] - Contains information about the source of your user's funds. Required only for the `service` **banking**.
+/// * [sourceOfFunds] - Contains information about the source of your user's funds. Required only if the `service` is **banking** or **issuing**.
 /// * [webData] - List of website URLs where your user's goods or services are sold. When this is required for a service but your user does not have an online presence, provide the reason in the `webDataExemption` object.
 /// * [webDataExemption] - The reason why the web data is not provided.
 @BuiltValue()
@@ -30,7 +30,7 @@ abstract class BusinessLineInfoUpdate implements Built<BusinessLineInfoUpdate, B
   @BuiltValueField(wireName: r'salesChannels')
   BuiltList<String>? get salesChannels;
 
-  /// Contains information about the source of your user's funds. Required only for the `service` **banking**.
+  /// Contains information about the source of your user's funds. Required only if the `service` is **banking** or **issuing**.
   @BuiltValueField(wireName: r'sourceOfFunds')
   SourceOfFunds? get sourceOfFunds;
 

@@ -45,6 +45,7 @@ import 'package:adyen_api/src/gen/legal_entity/model/document_page.dart';
 import 'package:adyen_api/src/gen/legal_entity/model/document_reference.dart';
 import 'package:adyen_api/src/gen/legal_entity/model/entity_reference.dart';
 import 'package:adyen_api/src/gen/legal_entity/model/financial_report.dart';
+import 'package:adyen_api/src/gen/legal_entity/model/financier.dart';
 import 'package:adyen_api/src/gen/legal_entity/model/generate_pci_description_request.dart';
 import 'package:adyen_api/src/gen/legal_entity/model/generate_pci_description_response.dart';
 import 'package:adyen_api/src/gen/legal_entity/model/get_accepted_terms_of_service_document_response.dart';
@@ -87,6 +88,7 @@ import 'package:adyen_api/src/gen/legal_entity/model/set_tax_electronic_delivery
 import 'package:adyen_api/src/gen/legal_entity/model/sole_proprietorship.dart';
 import 'package:adyen_api/src/gen/legal_entity/model/source_of_funds.dart';
 import 'package:adyen_api/src/gen/legal_entity/model/stock_data.dart';
+import 'package:adyen_api/src/gen/legal_entity/model/support.dart';
 import 'package:adyen_api/src/gen/legal_entity/model/supporting_entity_capability.dart';
 import 'package:adyen_api/src/gen/legal_entity/model/tax_information.dart';
 import 'package:adyen_api/src/gen/legal_entity/model/tax_reporting_classification.dart';
@@ -140,6 +142,7 @@ part 'serializers.g.dart';
   DocumentReference,
   EntityReference,
   FinancialReport,
+  Financier,
   GeneratePciDescriptionRequest,
   GeneratePciDescriptionResponse,
   GetAcceptedTermsOfServiceDocumentResponse,
@@ -182,6 +185,7 @@ part 'serializers.g.dart';
   SoleProprietorship,
   SourceOfFunds,
   StockData,
+  Support,
   SupportingEntityCapability,
   TaxInformation,
   TaxReportingClassification,

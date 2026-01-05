@@ -372,6 +372,8 @@ class _$UnincorporatedPartnership extends UnincorporatedPartnership {
   @override
   final String? doingBusinessAs;
   @override
+  final bool? doingBusinessAsAbsent;
+  @override
   final String name_;
   @override
   final Address? principalPlaceOfBusiness;
@@ -397,6 +399,7 @@ class _$UnincorporatedPartnership extends UnincorporatedPartnership {
     this.dateOfIncorporation,
     this.description,
     this.doingBusinessAs,
+    this.doingBusinessAsAbsent,
     required this.name_,
     this.principalPlaceOfBusiness,
     required this.registeredAddress,
@@ -423,6 +426,7 @@ class _$UnincorporatedPartnership extends UnincorporatedPartnership {
         dateOfIncorporation == other.dateOfIncorporation &&
         description == other.description &&
         doingBusinessAs == other.doingBusinessAs &&
+        doingBusinessAsAbsent == other.doingBusinessAsAbsent &&
         name_ == other.name_ &&
         principalPlaceOfBusiness == other.principalPlaceOfBusiness &&
         registeredAddress == other.registeredAddress &&
@@ -440,6 +444,7 @@ class _$UnincorporatedPartnership extends UnincorporatedPartnership {
     _$hash = $jc(_$hash, dateOfIncorporation.hashCode);
     _$hash = $jc(_$hash, description.hashCode);
     _$hash = $jc(_$hash, doingBusinessAs.hashCode);
+    _$hash = $jc(_$hash, doingBusinessAsAbsent.hashCode);
     _$hash = $jc(_$hash, name_.hashCode);
     _$hash = $jc(_$hash, principalPlaceOfBusiness.hashCode);
     _$hash = $jc(_$hash, registeredAddress.hashCode);
@@ -459,6 +464,7 @@ class _$UnincorporatedPartnership extends UnincorporatedPartnership {
           ..add('dateOfIncorporation', dateOfIncorporation)
           ..add('description', description)
           ..add('doingBusinessAs', doingBusinessAs)
+          ..add('doingBusinessAsAbsent', doingBusinessAsAbsent)
           ..add('name_', name_)
           ..add('principalPlaceOfBusiness', principalPlaceOfBusiness)
           ..add('registeredAddress', registeredAddress)
@@ -494,6 +500,11 @@ class UnincorporatedPartnershipBuilder
   String? get doingBusinessAs => _$this._doingBusinessAs;
   set doingBusinessAs(String? doingBusinessAs) =>
       _$this._doingBusinessAs = doingBusinessAs;
+
+  bool? _doingBusinessAsAbsent;
+  bool? get doingBusinessAsAbsent => _$this._doingBusinessAsAbsent;
+  set doingBusinessAsAbsent(bool? doingBusinessAsAbsent) =>
+      _$this._doingBusinessAsAbsent = doingBusinessAsAbsent;
 
   String? _name_;
   String? get name_ => _$this._name_;
@@ -548,6 +559,7 @@ class UnincorporatedPartnershipBuilder
       _dateOfIncorporation = $v.dateOfIncorporation;
       _description = $v.description;
       _doingBusinessAs = $v.doingBusinessAs;
+      _doingBusinessAsAbsent = $v.doingBusinessAsAbsent;
       _name_ = $v.name_;
       _principalPlaceOfBusiness = $v.principalPlaceOfBusiness?.toBuilder();
       _registeredAddress = $v.registeredAddress.toBuilder();
@@ -588,6 +600,7 @@ class UnincorporatedPartnershipBuilder
             dateOfIncorporation: dateOfIncorporation,
             description: description,
             doingBusinessAs: doingBusinessAs,
+            doingBusinessAsAbsent: doingBusinessAsAbsent,
             name_: BuiltValueNullFieldError.checkNotNull(
               name_,
               r'UnincorporatedPartnership',

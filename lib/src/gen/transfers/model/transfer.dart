@@ -103,7 +103,7 @@ abstract class Transfer implements Built<Transfer, TransferBuilder> {
   /// Additional information about the status of the transfer.
   @BuiltValueField(wireName: r'reason')
   TransferReasonEnum? get reason;
-  // enum reasonEnum {  accountHierarchyNotActive,  amountLimitExceeded,  approvalExpired,  approved,  balanceAccountTemporarilyBlockedByTransactionRule,  counterpartyAccountBlocked,  counterpartyAccountClosed,  counterpartyAccountNotFound,  counterpartyAddressRequired,  counterpartyBankTimedOut,  counterpartyBankUnavailable,  declined,  declinedByTransactionRule,  directDebitNotSupported,  error,  notEnoughBalance,  pending,  pendingApproval,  pendingExecution,  refusedByCounterpartyBank,  refusedByCustomer,  routeNotFound,  scaFailed,  schemeAdvice,  transferInstrumentDoesNotExist,  unknown,  };
+  // enum reasonEnum {  accountHierarchyNotActive,  amountLimitExceeded,  approvalExpired,  approved,  avsDeclined,  balanceAccountTemporarilyBlockedByTransactionRule,  blockCard,  callReferral,  cancelled,  captureCard,  cardExpired,  cardholderAuthenticationRequired,  cashbackAmountExceedsLimit,  cavvDeclined,  contactlessFallback,  contactlessLimitReached,  counterpartyAccountBlocked,  counterpartyAccountClosed,  counterpartyAccountNotFound,  counterpartyAddressRequired,  counterpartyBankTimedOut,  counterpartyBankUnavailable,  cryptographicFailure,  cvcDeclined,  declined,  declinedByBapValidation,  declinedByTransactionRule,  declinedNonGeneric,  directDebitNotSupported,  doNotHonor,  domesticDebitTransactionNotAllowed,  duplicateTransmissionDetected,  error,  formatError,  fraud,  fraudCancelled,  honorWithId,  internalTimeout,  invalidAccount,  invalidAmount,  invalidAuthorizationLifeCycle,  invalidCard,  invalidExpiryDate,  invalidFromAccount,  invalidIssuer,  invalidMerchant,  invalidPin,  invalidToAccount,  invalidTransaction,  issuerSuspectedFraud,  lostCard,  mobilePinRequired,  noCheckingAccount,  noSavingsAccount,  not3dAuthenticated,  notEnoughBalance,  notSubmitted,  notSupported,  partiallyApproved,  pending,  pendingApproval,  pendingExecution,  pinNotChanged,  pinRequired,  pinTriesExceeded,  pinValidationNotPossible,  purchaseAmountOnlyNoCashBack,  refusedByCounterpartyBank,  refusedByCustomer,  restrictedCard,  revocationOfAuth,  routeNotFound,  scaAuthenticationRequired,  scaFailed,  schemeAdvice,  securityViolation,  shopperCancelled,  stolenCard,  threedsDynamicLinkingMismatch,  transactionNotPermitted,  transferInstrumentDoesNotExist,  unableToRouteTransaction,  unknown,  withdrawalAmountExceeded,  withdrawalCountExceeded,  };
 
   /// Your reference for the transfer, used internally within your platform. If you don't provide this in the request, Adyen generates a unique reference.
   @BuiltValueField(wireName: r'reference')
@@ -541,8 +541,41 @@ class TransferReasonEnum extends EnumClass {
   @BuiltValueEnumConst(wireName: r'approved')
   static const TransferReasonEnum approved = _$transferReasonEnum_approved;
   /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'avsDeclined')
+  static const TransferReasonEnum avsDeclined = _$transferReasonEnum_avsDeclined;
+  /// Additional information about the status of the transfer.
   @BuiltValueEnumConst(wireName: r'balanceAccountTemporarilyBlockedByTransactionRule')
   static const TransferReasonEnum balanceAccountTemporarilyBlockedByTransactionRule = _$transferReasonEnum_balanceAccountTemporarilyBlockedByTransactionRule;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'blockCard')
+  static const TransferReasonEnum blockCard = _$transferReasonEnum_blockCard;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'callReferral')
+  static const TransferReasonEnum callReferral = _$transferReasonEnum_callReferral;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'cancelled')
+  static const TransferReasonEnum cancelled = _$transferReasonEnum_cancelled;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'captureCard')
+  static const TransferReasonEnum captureCard = _$transferReasonEnum_captureCard;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'cardExpired')
+  static const TransferReasonEnum cardExpired = _$transferReasonEnum_cardExpired;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'cardholderAuthenticationRequired')
+  static const TransferReasonEnum cardholderAuthenticationRequired = _$transferReasonEnum_cardholderAuthenticationRequired;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'cashbackAmountExceedsLimit')
+  static const TransferReasonEnum cashbackAmountExceedsLimit = _$transferReasonEnum_cashbackAmountExceedsLimit;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'cavvDeclined')
+  static const TransferReasonEnum cavvDeclined = _$transferReasonEnum_cavvDeclined;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'contactlessFallback')
+  static const TransferReasonEnum contactlessFallback = _$transferReasonEnum_contactlessFallback;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'contactlessLimitReached')
+  static const TransferReasonEnum contactlessLimitReached = _$transferReasonEnum_contactlessLimitReached;
   /// Additional information about the status of the transfer.
   @BuiltValueEnumConst(wireName: r'counterpartyAccountBlocked')
   static const TransferReasonEnum counterpartyAccountBlocked = _$transferReasonEnum_counterpartyAccountBlocked;
@@ -562,20 +595,116 @@ class TransferReasonEnum extends EnumClass {
   @BuiltValueEnumConst(wireName: r'counterpartyBankUnavailable')
   static const TransferReasonEnum counterpartyBankUnavailable = _$transferReasonEnum_counterpartyBankUnavailable;
   /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'cryptographicFailure')
+  static const TransferReasonEnum cryptographicFailure = _$transferReasonEnum_cryptographicFailure;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'cvcDeclined')
+  static const TransferReasonEnum cvcDeclined = _$transferReasonEnum_cvcDeclined;
+  /// Additional information about the status of the transfer.
   @BuiltValueEnumConst(wireName: r'declined')
   static const TransferReasonEnum declined = _$transferReasonEnum_declined;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'declinedByBapValidation')
+  static const TransferReasonEnum declinedByBapValidation = _$transferReasonEnum_declinedByBapValidation;
   /// Additional information about the status of the transfer.
   @BuiltValueEnumConst(wireName: r'declinedByTransactionRule')
   static const TransferReasonEnum declinedByTransactionRule = _$transferReasonEnum_declinedByTransactionRule;
   /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'declinedNonGeneric')
+  static const TransferReasonEnum declinedNonGeneric = _$transferReasonEnum_declinedNonGeneric;
+  /// Additional information about the status of the transfer.
   @BuiltValueEnumConst(wireName: r'directDebitNotSupported')
   static const TransferReasonEnum directDebitNotSupported = _$transferReasonEnum_directDebitNotSupported;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'doNotHonor')
+  static const TransferReasonEnum doNotHonor = _$transferReasonEnum_doNotHonor;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'domesticDebitTransactionNotAllowed')
+  static const TransferReasonEnum domesticDebitTransactionNotAllowed = _$transferReasonEnum_domesticDebitTransactionNotAllowed;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'duplicateTransmissionDetected')
+  static const TransferReasonEnum duplicateTransmissionDetected = _$transferReasonEnum_duplicateTransmissionDetected;
   /// Additional information about the status of the transfer.
   @BuiltValueEnumConst(wireName: r'error')
   static const TransferReasonEnum error = _$transferReasonEnum_error;
   /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'formatError')
+  static const TransferReasonEnum formatError = _$transferReasonEnum_formatError;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'fraud')
+  static const TransferReasonEnum fraud = _$transferReasonEnum_fraud;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'fraudCancelled')
+  static const TransferReasonEnum fraudCancelled = _$transferReasonEnum_fraudCancelled;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'honorWithId')
+  static const TransferReasonEnum honorWithId = _$transferReasonEnum_honorWithId;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'internalTimeout')
+  static const TransferReasonEnum internalTimeout = _$transferReasonEnum_internalTimeout;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'invalidAccount')
+  static const TransferReasonEnum invalidAccount = _$transferReasonEnum_invalidAccount;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'invalidAmount')
+  static const TransferReasonEnum invalidAmount = _$transferReasonEnum_invalidAmount;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'invalidAuthorizationLifeCycle')
+  static const TransferReasonEnum invalidAuthorizationLifeCycle = _$transferReasonEnum_invalidAuthorizationLifeCycle;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'invalidCard')
+  static const TransferReasonEnum invalidCard = _$transferReasonEnum_invalidCard;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'invalidExpiryDate')
+  static const TransferReasonEnum invalidExpiryDate = _$transferReasonEnum_invalidExpiryDate;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'invalidFromAccount')
+  static const TransferReasonEnum invalidFromAccount = _$transferReasonEnum_invalidFromAccount;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'invalidIssuer')
+  static const TransferReasonEnum invalidIssuer = _$transferReasonEnum_invalidIssuer;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'invalidMerchant')
+  static const TransferReasonEnum invalidMerchant = _$transferReasonEnum_invalidMerchant;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'invalidPin')
+  static const TransferReasonEnum invalidPin = _$transferReasonEnum_invalidPin;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'invalidToAccount')
+  static const TransferReasonEnum invalidToAccount = _$transferReasonEnum_invalidToAccount;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'invalidTransaction')
+  static const TransferReasonEnum invalidTransaction = _$transferReasonEnum_invalidTransaction;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'issuerSuspectedFraud')
+  static const TransferReasonEnum issuerSuspectedFraud = _$transferReasonEnum_issuerSuspectedFraud;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'lostCard')
+  static const TransferReasonEnum lostCard = _$transferReasonEnum_lostCard;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'mobilePinRequired')
+  static const TransferReasonEnum mobilePinRequired = _$transferReasonEnum_mobilePinRequired;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'noCheckingAccount')
+  static const TransferReasonEnum noCheckingAccount = _$transferReasonEnum_noCheckingAccount;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'noSavingsAccount')
+  static const TransferReasonEnum noSavingsAccount = _$transferReasonEnum_noSavingsAccount;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'not3dAuthenticated')
+  static const TransferReasonEnum not3dAuthenticated = _$transferReasonEnum_not3dAuthenticated;
+  /// Additional information about the status of the transfer.
   @BuiltValueEnumConst(wireName: r'notEnoughBalance')
   static const TransferReasonEnum notEnoughBalance = _$transferReasonEnum_notEnoughBalance;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'notSubmitted')
+  static const TransferReasonEnum notSubmitted = _$transferReasonEnum_notSubmitted;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'notSupported')
+  static const TransferReasonEnum notSupported = _$transferReasonEnum_notSupported;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'partiallyApproved')
+  static const TransferReasonEnum partiallyApproved = _$transferReasonEnum_partiallyApproved;
   /// Additional information about the status of the transfer.
   @BuiltValueEnumConst(wireName: r'pending')
   static const TransferReasonEnum pending = _$transferReasonEnum_pending;
@@ -586,14 +715,38 @@ class TransferReasonEnum extends EnumClass {
   @BuiltValueEnumConst(wireName: r'pendingExecution')
   static const TransferReasonEnum pendingExecution = _$transferReasonEnum_pendingExecution;
   /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'pinNotChanged')
+  static const TransferReasonEnum pinNotChanged = _$transferReasonEnum_pinNotChanged;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'pinRequired')
+  static const TransferReasonEnum pinRequired = _$transferReasonEnum_pinRequired;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'pinTriesExceeded')
+  static const TransferReasonEnum pinTriesExceeded = _$transferReasonEnum_pinTriesExceeded;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'pinValidationNotPossible')
+  static const TransferReasonEnum pinValidationNotPossible = _$transferReasonEnum_pinValidationNotPossible;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'purchaseAmountOnlyNoCashBack')
+  static const TransferReasonEnum purchaseAmountOnlyNoCashBack = _$transferReasonEnum_purchaseAmountOnlyNoCashBack;
+  /// Additional information about the status of the transfer.
   @BuiltValueEnumConst(wireName: r'refusedByCounterpartyBank')
   static const TransferReasonEnum refusedByCounterpartyBank = _$transferReasonEnum_refusedByCounterpartyBank;
   /// Additional information about the status of the transfer.
   @BuiltValueEnumConst(wireName: r'refusedByCustomer')
   static const TransferReasonEnum refusedByCustomer = _$transferReasonEnum_refusedByCustomer;
   /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'restrictedCard')
+  static const TransferReasonEnum restrictedCard = _$transferReasonEnum_restrictedCard;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'revocationOfAuth')
+  static const TransferReasonEnum revocationOfAuth = _$transferReasonEnum_revocationOfAuth;
+  /// Additional information about the status of the transfer.
   @BuiltValueEnumConst(wireName: r'routeNotFound')
   static const TransferReasonEnum routeNotFound = _$transferReasonEnum_routeNotFound;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'scaAuthenticationRequired')
+  static const TransferReasonEnum scaAuthenticationRequired = _$transferReasonEnum_scaAuthenticationRequired;
   /// Additional information about the status of the transfer.
   @BuiltValueEnumConst(wireName: r'scaFailed')
   static const TransferReasonEnum scaFailed = _$transferReasonEnum_scaFailed;
@@ -601,11 +754,35 @@ class TransferReasonEnum extends EnumClass {
   @BuiltValueEnumConst(wireName: r'schemeAdvice')
   static const TransferReasonEnum schemeAdvice = _$transferReasonEnum_schemeAdvice;
   /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'securityViolation')
+  static const TransferReasonEnum securityViolation = _$transferReasonEnum_securityViolation;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'shopperCancelled')
+  static const TransferReasonEnum shopperCancelled = _$transferReasonEnum_shopperCancelled;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'stolenCard')
+  static const TransferReasonEnum stolenCard = _$transferReasonEnum_stolenCard;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'threedsDynamicLinkingMismatch')
+  static const TransferReasonEnum threedsDynamicLinkingMismatch = _$transferReasonEnum_threedsDynamicLinkingMismatch;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'transactionNotPermitted')
+  static const TransferReasonEnum transactionNotPermitted = _$transferReasonEnum_transactionNotPermitted;
+  /// Additional information about the status of the transfer.
   @BuiltValueEnumConst(wireName: r'transferInstrumentDoesNotExist')
   static const TransferReasonEnum transferInstrumentDoesNotExist = _$transferReasonEnum_transferInstrumentDoesNotExist;
   /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'unableToRouteTransaction')
+  static const TransferReasonEnum unableToRouteTransaction = _$transferReasonEnum_unableToRouteTransaction;
+  /// Additional information about the status of the transfer.
   @BuiltValueEnumConst(wireName: r'unknown')
   static const TransferReasonEnum unknown = _$transferReasonEnum_unknown;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'withdrawalAmountExceeded')
+  static const TransferReasonEnum withdrawalAmountExceeded = _$transferReasonEnum_withdrawalAmountExceeded;
+  /// Additional information about the status of the transfer.
+  @BuiltValueEnumConst(wireName: r'withdrawalCountExceeded')
+  static const TransferReasonEnum withdrawalCountExceeded = _$transferReasonEnum_withdrawalCountExceeded;
   /// Additional information about the status of the transfer.
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const TransferReasonEnum unknownDefaultOpenApi = _$transferReasonEnum_unknownDefaultOpenApi;
