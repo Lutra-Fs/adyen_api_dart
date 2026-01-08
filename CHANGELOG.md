@@ -11,7 +11,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-### Fixed
+- **CI**: Use Personal Access Token for automated PRs
+  - Configured openapi-codegen workflow to use AUTOMATION_PAT secret
+  - Automated PRs now properly trigger CI checks (required by branch ruleset)
+  - Tests run via normal CI workflow rather than codegen workflow
+  - Requires creating AUTOMATION_PAT secret with repo permissions
 
 ## [0.2.0] - 2026-01-04
 

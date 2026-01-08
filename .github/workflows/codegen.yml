@@ -80,3 +80,4 @@ jobs:
           branch: 'automation/openapi-update'
           delete-branch: true
           sign-commits: true
+          token: ${{ secrets.AUTOMATION_PAT }}
