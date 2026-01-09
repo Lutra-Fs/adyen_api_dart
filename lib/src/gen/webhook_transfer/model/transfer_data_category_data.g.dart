@@ -268,6 +268,9 @@ const TransferDataCategoryDataPlatformPaymentTypeEnum
 _$transferDataCategoryDataPlatformPaymentTypeEnum_commission =
     const TransferDataCategoryDataPlatformPaymentTypeEnum._('commission');
 const TransferDataCategoryDataPlatformPaymentTypeEnum
+_$transferDataCategoryDataPlatformPaymentTypeEnum_dCCMarkup =
+    const TransferDataCategoryDataPlatformPaymentTypeEnum._('dCCMarkup');
+const TransferDataCategoryDataPlatformPaymentTypeEnum
 _$transferDataCategoryDataPlatformPaymentTypeEnum_dCCPlatformCommission =
     const TransferDataCategoryDataPlatformPaymentTypeEnum._(
       'dCCPlatformCommission',
@@ -322,6 +325,8 @@ _$transferDataCategoryDataPlatformPaymentTypeEnumValueOf(String name) {
       return _$transferDataCategoryDataPlatformPaymentTypeEnum_chargebackRemainder;
     case 'commission':
       return _$transferDataCategoryDataPlatformPaymentTypeEnum_commission;
+    case 'dCCMarkup':
+      return _$transferDataCategoryDataPlatformPaymentTypeEnum_dCCMarkup;
     case 'dCCPlatformCommission':
       return _$transferDataCategoryDataPlatformPaymentTypeEnum_dCCPlatformCommission;
     case 'default_':
@@ -360,6 +365,7 @@ _$transferDataCategoryDataPlatformPaymentTypeEnumValues =
         _$transferDataCategoryDataPlatformPaymentTypeEnum_balanceAccount,
         _$transferDataCategoryDataPlatformPaymentTypeEnum_chargebackRemainder,
         _$transferDataCategoryDataPlatformPaymentTypeEnum_commission,
+        _$transferDataCategoryDataPlatformPaymentTypeEnum_dCCMarkup,
         _$transferDataCategoryDataPlatformPaymentTypeEnum_dCCPlatformCommission,
         _$transferDataCategoryDataPlatformPaymentTypeEnum_default_,
         _$transferDataCategoryDataPlatformPaymentTypeEnum_interchange,
@@ -581,6 +587,7 @@ class _$TransferDataCategoryDataPlatformPaymentTypeEnumSerializer
     'balanceAccount': 'BalanceAccount',
     'chargebackRemainder': 'ChargebackRemainder',
     'commission': 'Commission',
+    'dCCMarkup': 'DCCMarkup',
     'dCCPlatformCommission': 'DCCPlatformCommission',
     'default_': 'Default',
     'interchange': 'Interchange',
@@ -601,6 +608,7 @@ class _$TransferDataCategoryDataPlatformPaymentTypeEnumSerializer
     'BalanceAccount': 'balanceAccount',
     'ChargebackRemainder': 'chargebackRemainder',
     'Commission': 'commission',
+    'DCCMarkup': 'dCCMarkup',
     'DCCPlatformCommission': 'dCCPlatformCommission',
     'Default': 'default_',
     'Interchange': 'interchange',

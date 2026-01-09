@@ -88,11 +88,33 @@ const TransferReasonEnum _$transferReasonEnum_approvalExpired =
     const TransferReasonEnum._('approvalExpired');
 const TransferReasonEnum _$transferReasonEnum_approved =
     const TransferReasonEnum._('approved');
+const TransferReasonEnum _$transferReasonEnum_avsDeclined =
+    const TransferReasonEnum._('avsDeclined');
 const TransferReasonEnum
 _$transferReasonEnum_balanceAccountTemporarilyBlockedByTransactionRule =
     const TransferReasonEnum._(
       'balanceAccountTemporarilyBlockedByTransactionRule',
     );
+const TransferReasonEnum _$transferReasonEnum_blockCard =
+    const TransferReasonEnum._('blockCard');
+const TransferReasonEnum _$transferReasonEnum_callReferral =
+    const TransferReasonEnum._('callReferral');
+const TransferReasonEnum _$transferReasonEnum_cancelled =
+    const TransferReasonEnum._('cancelled');
+const TransferReasonEnum _$transferReasonEnum_captureCard =
+    const TransferReasonEnum._('captureCard');
+const TransferReasonEnum _$transferReasonEnum_cardExpired =
+    const TransferReasonEnum._('cardExpired');
+const TransferReasonEnum _$transferReasonEnum_cardholderAuthenticationRequired =
+    const TransferReasonEnum._('cardholderAuthenticationRequired');
+const TransferReasonEnum _$transferReasonEnum_cashbackAmountExceedsLimit =
+    const TransferReasonEnum._('cashbackAmountExceedsLimit');
+const TransferReasonEnum _$transferReasonEnum_cavvDeclined =
+    const TransferReasonEnum._('cavvDeclined');
+const TransferReasonEnum _$transferReasonEnum_contactlessFallback =
+    const TransferReasonEnum._('contactlessFallback');
+const TransferReasonEnum _$transferReasonEnum_contactlessLimitReached =
+    const TransferReasonEnum._('contactlessLimitReached');
 const TransferReasonEnum _$transferReasonEnum_counterpartyAccountBlocked =
     const TransferReasonEnum._('counterpartyAccountBlocked');
 const TransferReasonEnum _$transferReasonEnum_counterpartyAccountClosed =
@@ -105,36 +127,133 @@ const TransferReasonEnum _$transferReasonEnum_counterpartyBankTimedOut =
     const TransferReasonEnum._('counterpartyBankTimedOut');
 const TransferReasonEnum _$transferReasonEnum_counterpartyBankUnavailable =
     const TransferReasonEnum._('counterpartyBankUnavailable');
+const TransferReasonEnum _$transferReasonEnum_cryptographicFailure =
+    const TransferReasonEnum._('cryptographicFailure');
+const TransferReasonEnum _$transferReasonEnum_cvcDeclined =
+    const TransferReasonEnum._('cvcDeclined');
 const TransferReasonEnum _$transferReasonEnum_declined =
     const TransferReasonEnum._('declined');
+const TransferReasonEnum _$transferReasonEnum_declinedByBapValidation =
+    const TransferReasonEnum._('declinedByBapValidation');
 const TransferReasonEnum _$transferReasonEnum_declinedByTransactionRule =
     const TransferReasonEnum._('declinedByTransactionRule');
+const TransferReasonEnum _$transferReasonEnum_declinedNonGeneric =
+    const TransferReasonEnum._('declinedNonGeneric');
 const TransferReasonEnum _$transferReasonEnum_directDebitNotSupported =
     const TransferReasonEnum._('directDebitNotSupported');
+const TransferReasonEnum _$transferReasonEnum_doNotHonor =
+    const TransferReasonEnum._('doNotHonor');
+const TransferReasonEnum
+_$transferReasonEnum_domesticDebitTransactionNotAllowed =
+    const TransferReasonEnum._('domesticDebitTransactionNotAllowed');
+const TransferReasonEnum _$transferReasonEnum_duplicateTransmissionDetected =
+    const TransferReasonEnum._('duplicateTransmissionDetected');
 const TransferReasonEnum _$transferReasonEnum_error =
     const TransferReasonEnum._('error');
+const TransferReasonEnum _$transferReasonEnum_formatError =
+    const TransferReasonEnum._('formatError');
+const TransferReasonEnum _$transferReasonEnum_fraud =
+    const TransferReasonEnum._('fraud');
+const TransferReasonEnum _$transferReasonEnum_fraudCancelled =
+    const TransferReasonEnum._('fraudCancelled');
+const TransferReasonEnum _$transferReasonEnum_honorWithId =
+    const TransferReasonEnum._('honorWithId');
+const TransferReasonEnum _$transferReasonEnum_internalTimeout =
+    const TransferReasonEnum._('internalTimeout');
+const TransferReasonEnum _$transferReasonEnum_invalidAccount =
+    const TransferReasonEnum._('invalidAccount');
+const TransferReasonEnum _$transferReasonEnum_invalidAmount =
+    const TransferReasonEnum._('invalidAmount');
+const TransferReasonEnum _$transferReasonEnum_invalidAuthorizationLifeCycle =
+    const TransferReasonEnum._('invalidAuthorizationLifeCycle');
+const TransferReasonEnum _$transferReasonEnum_invalidCard =
+    const TransferReasonEnum._('invalidCard');
+const TransferReasonEnum _$transferReasonEnum_invalidExpiryDate =
+    const TransferReasonEnum._('invalidExpiryDate');
+const TransferReasonEnum _$transferReasonEnum_invalidFromAccount =
+    const TransferReasonEnum._('invalidFromAccount');
+const TransferReasonEnum _$transferReasonEnum_invalidIssuer =
+    const TransferReasonEnum._('invalidIssuer');
+const TransferReasonEnum _$transferReasonEnum_invalidMerchant =
+    const TransferReasonEnum._('invalidMerchant');
+const TransferReasonEnum _$transferReasonEnum_invalidPin =
+    const TransferReasonEnum._('invalidPin');
+const TransferReasonEnum _$transferReasonEnum_invalidToAccount =
+    const TransferReasonEnum._('invalidToAccount');
+const TransferReasonEnum _$transferReasonEnum_invalidTransaction =
+    const TransferReasonEnum._('invalidTransaction');
+const TransferReasonEnum _$transferReasonEnum_issuerSuspectedFraud =
+    const TransferReasonEnum._('issuerSuspectedFraud');
+const TransferReasonEnum _$transferReasonEnum_lostCard =
+    const TransferReasonEnum._('lostCard');
+const TransferReasonEnum _$transferReasonEnum_mobilePinRequired =
+    const TransferReasonEnum._('mobilePinRequired');
+const TransferReasonEnum _$transferReasonEnum_noCheckingAccount =
+    const TransferReasonEnum._('noCheckingAccount');
+const TransferReasonEnum _$transferReasonEnum_noSavingsAccount =
+    const TransferReasonEnum._('noSavingsAccount');
+const TransferReasonEnum _$transferReasonEnum_not3dAuthenticated =
+    const TransferReasonEnum._('not3dAuthenticated');
 const TransferReasonEnum _$transferReasonEnum_notEnoughBalance =
     const TransferReasonEnum._('notEnoughBalance');
+const TransferReasonEnum _$transferReasonEnum_notSubmitted =
+    const TransferReasonEnum._('notSubmitted');
+const TransferReasonEnum _$transferReasonEnum_notSupported =
+    const TransferReasonEnum._('notSupported');
+const TransferReasonEnum _$transferReasonEnum_partiallyApproved =
+    const TransferReasonEnum._('partiallyApproved');
 const TransferReasonEnum _$transferReasonEnum_pending =
     const TransferReasonEnum._('pending');
 const TransferReasonEnum _$transferReasonEnum_pendingApproval =
     const TransferReasonEnum._('pendingApproval');
 const TransferReasonEnum _$transferReasonEnum_pendingExecution =
     const TransferReasonEnum._('pendingExecution');
+const TransferReasonEnum _$transferReasonEnum_pinNotChanged =
+    const TransferReasonEnum._('pinNotChanged');
+const TransferReasonEnum _$transferReasonEnum_pinRequired =
+    const TransferReasonEnum._('pinRequired');
+const TransferReasonEnum _$transferReasonEnum_pinTriesExceeded =
+    const TransferReasonEnum._('pinTriesExceeded');
+const TransferReasonEnum _$transferReasonEnum_pinValidationNotPossible =
+    const TransferReasonEnum._('pinValidationNotPossible');
+const TransferReasonEnum _$transferReasonEnum_purchaseAmountOnlyNoCashBack =
+    const TransferReasonEnum._('purchaseAmountOnlyNoCashBack');
 const TransferReasonEnum _$transferReasonEnum_refusedByCounterpartyBank =
     const TransferReasonEnum._('refusedByCounterpartyBank');
 const TransferReasonEnum _$transferReasonEnum_refusedByCustomer =
     const TransferReasonEnum._('refusedByCustomer');
+const TransferReasonEnum _$transferReasonEnum_restrictedCard =
+    const TransferReasonEnum._('restrictedCard');
+const TransferReasonEnum _$transferReasonEnum_revocationOfAuth =
+    const TransferReasonEnum._('revocationOfAuth');
 const TransferReasonEnum _$transferReasonEnum_routeNotFound =
     const TransferReasonEnum._('routeNotFound');
+const TransferReasonEnum _$transferReasonEnum_scaAuthenticationRequired =
+    const TransferReasonEnum._('scaAuthenticationRequired');
 const TransferReasonEnum _$transferReasonEnum_scaFailed =
     const TransferReasonEnum._('scaFailed');
 const TransferReasonEnum _$transferReasonEnum_schemeAdvice =
     const TransferReasonEnum._('schemeAdvice');
+const TransferReasonEnum _$transferReasonEnum_securityViolation =
+    const TransferReasonEnum._('securityViolation');
+const TransferReasonEnum _$transferReasonEnum_shopperCancelled =
+    const TransferReasonEnum._('shopperCancelled');
+const TransferReasonEnum _$transferReasonEnum_stolenCard =
+    const TransferReasonEnum._('stolenCard');
+const TransferReasonEnum _$transferReasonEnum_threedsDynamicLinkingMismatch =
+    const TransferReasonEnum._('threedsDynamicLinkingMismatch');
+const TransferReasonEnum _$transferReasonEnum_transactionNotPermitted =
+    const TransferReasonEnum._('transactionNotPermitted');
 const TransferReasonEnum _$transferReasonEnum_transferInstrumentDoesNotExist =
     const TransferReasonEnum._('transferInstrumentDoesNotExist');
+const TransferReasonEnum _$transferReasonEnum_unableToRouteTransaction =
+    const TransferReasonEnum._('unableToRouteTransaction');
 const TransferReasonEnum _$transferReasonEnum_unknown =
     const TransferReasonEnum._('unknown');
+const TransferReasonEnum _$transferReasonEnum_withdrawalAmountExceeded =
+    const TransferReasonEnum._('withdrawalAmountExceeded');
+const TransferReasonEnum _$transferReasonEnum_withdrawalCountExceeded =
+    const TransferReasonEnum._('withdrawalCountExceeded');
 const TransferReasonEnum _$transferReasonEnum_unknownDefaultOpenApi =
     const TransferReasonEnum._('unknownDefaultOpenApi');
 
@@ -148,8 +267,30 @@ TransferReasonEnum _$transferReasonEnumValueOf(String name) {
       return _$transferReasonEnum_approvalExpired;
     case 'approved':
       return _$transferReasonEnum_approved;
+    case 'avsDeclined':
+      return _$transferReasonEnum_avsDeclined;
     case 'balanceAccountTemporarilyBlockedByTransactionRule':
       return _$transferReasonEnum_balanceAccountTemporarilyBlockedByTransactionRule;
+    case 'blockCard':
+      return _$transferReasonEnum_blockCard;
+    case 'callReferral':
+      return _$transferReasonEnum_callReferral;
+    case 'cancelled':
+      return _$transferReasonEnum_cancelled;
+    case 'captureCard':
+      return _$transferReasonEnum_captureCard;
+    case 'cardExpired':
+      return _$transferReasonEnum_cardExpired;
+    case 'cardholderAuthenticationRequired':
+      return _$transferReasonEnum_cardholderAuthenticationRequired;
+    case 'cashbackAmountExceedsLimit':
+      return _$transferReasonEnum_cashbackAmountExceedsLimit;
+    case 'cavvDeclined':
+      return _$transferReasonEnum_cavvDeclined;
+    case 'contactlessFallback':
+      return _$transferReasonEnum_contactlessFallback;
+    case 'contactlessLimitReached':
+      return _$transferReasonEnum_contactlessLimitReached;
     case 'counterpartyAccountBlocked':
       return _$transferReasonEnum_counterpartyAccountBlocked;
     case 'counterpartyAccountClosed':
@@ -162,36 +303,132 @@ TransferReasonEnum _$transferReasonEnumValueOf(String name) {
       return _$transferReasonEnum_counterpartyBankTimedOut;
     case 'counterpartyBankUnavailable':
       return _$transferReasonEnum_counterpartyBankUnavailable;
+    case 'cryptographicFailure':
+      return _$transferReasonEnum_cryptographicFailure;
+    case 'cvcDeclined':
+      return _$transferReasonEnum_cvcDeclined;
     case 'declined':
       return _$transferReasonEnum_declined;
+    case 'declinedByBapValidation':
+      return _$transferReasonEnum_declinedByBapValidation;
     case 'declinedByTransactionRule':
       return _$transferReasonEnum_declinedByTransactionRule;
+    case 'declinedNonGeneric':
+      return _$transferReasonEnum_declinedNonGeneric;
     case 'directDebitNotSupported':
       return _$transferReasonEnum_directDebitNotSupported;
+    case 'doNotHonor':
+      return _$transferReasonEnum_doNotHonor;
+    case 'domesticDebitTransactionNotAllowed':
+      return _$transferReasonEnum_domesticDebitTransactionNotAllowed;
+    case 'duplicateTransmissionDetected':
+      return _$transferReasonEnum_duplicateTransmissionDetected;
     case 'error':
       return _$transferReasonEnum_error;
+    case 'formatError':
+      return _$transferReasonEnum_formatError;
+    case 'fraud':
+      return _$transferReasonEnum_fraud;
+    case 'fraudCancelled':
+      return _$transferReasonEnum_fraudCancelled;
+    case 'honorWithId':
+      return _$transferReasonEnum_honorWithId;
+    case 'internalTimeout':
+      return _$transferReasonEnum_internalTimeout;
+    case 'invalidAccount':
+      return _$transferReasonEnum_invalidAccount;
+    case 'invalidAmount':
+      return _$transferReasonEnum_invalidAmount;
+    case 'invalidAuthorizationLifeCycle':
+      return _$transferReasonEnum_invalidAuthorizationLifeCycle;
+    case 'invalidCard':
+      return _$transferReasonEnum_invalidCard;
+    case 'invalidExpiryDate':
+      return _$transferReasonEnum_invalidExpiryDate;
+    case 'invalidFromAccount':
+      return _$transferReasonEnum_invalidFromAccount;
+    case 'invalidIssuer':
+      return _$transferReasonEnum_invalidIssuer;
+    case 'invalidMerchant':
+      return _$transferReasonEnum_invalidMerchant;
+    case 'invalidPin':
+      return _$transferReasonEnum_invalidPin;
+    case 'invalidToAccount':
+      return _$transferReasonEnum_invalidToAccount;
+    case 'invalidTransaction':
+      return _$transferReasonEnum_invalidTransaction;
+    case 'issuerSuspectedFraud':
+      return _$transferReasonEnum_issuerSuspectedFraud;
+    case 'lostCard':
+      return _$transferReasonEnum_lostCard;
+    case 'mobilePinRequired':
+      return _$transferReasonEnum_mobilePinRequired;
+    case 'noCheckingAccount':
+      return _$transferReasonEnum_noCheckingAccount;
+    case 'noSavingsAccount':
+      return _$transferReasonEnum_noSavingsAccount;
+    case 'not3dAuthenticated':
+      return _$transferReasonEnum_not3dAuthenticated;
     case 'notEnoughBalance':
       return _$transferReasonEnum_notEnoughBalance;
+    case 'notSubmitted':
+      return _$transferReasonEnum_notSubmitted;
+    case 'notSupported':
+      return _$transferReasonEnum_notSupported;
+    case 'partiallyApproved':
+      return _$transferReasonEnum_partiallyApproved;
     case 'pending':
       return _$transferReasonEnum_pending;
     case 'pendingApproval':
       return _$transferReasonEnum_pendingApproval;
     case 'pendingExecution':
       return _$transferReasonEnum_pendingExecution;
+    case 'pinNotChanged':
+      return _$transferReasonEnum_pinNotChanged;
+    case 'pinRequired':
+      return _$transferReasonEnum_pinRequired;
+    case 'pinTriesExceeded':
+      return _$transferReasonEnum_pinTriesExceeded;
+    case 'pinValidationNotPossible':
+      return _$transferReasonEnum_pinValidationNotPossible;
+    case 'purchaseAmountOnlyNoCashBack':
+      return _$transferReasonEnum_purchaseAmountOnlyNoCashBack;
     case 'refusedByCounterpartyBank':
       return _$transferReasonEnum_refusedByCounterpartyBank;
     case 'refusedByCustomer':
       return _$transferReasonEnum_refusedByCustomer;
+    case 'restrictedCard':
+      return _$transferReasonEnum_restrictedCard;
+    case 'revocationOfAuth':
+      return _$transferReasonEnum_revocationOfAuth;
     case 'routeNotFound':
       return _$transferReasonEnum_routeNotFound;
+    case 'scaAuthenticationRequired':
+      return _$transferReasonEnum_scaAuthenticationRequired;
     case 'scaFailed':
       return _$transferReasonEnum_scaFailed;
     case 'schemeAdvice':
       return _$transferReasonEnum_schemeAdvice;
+    case 'securityViolation':
+      return _$transferReasonEnum_securityViolation;
+    case 'shopperCancelled':
+      return _$transferReasonEnum_shopperCancelled;
+    case 'stolenCard':
+      return _$transferReasonEnum_stolenCard;
+    case 'threedsDynamicLinkingMismatch':
+      return _$transferReasonEnum_threedsDynamicLinkingMismatch;
+    case 'transactionNotPermitted':
+      return _$transferReasonEnum_transactionNotPermitted;
     case 'transferInstrumentDoesNotExist':
       return _$transferReasonEnum_transferInstrumentDoesNotExist;
+    case 'unableToRouteTransaction':
+      return _$transferReasonEnum_unableToRouteTransaction;
     case 'unknown':
       return _$transferReasonEnum_unknown;
+    case 'withdrawalAmountExceeded':
+      return _$transferReasonEnum_withdrawalAmountExceeded;
+    case 'withdrawalCountExceeded':
+      return _$transferReasonEnum_withdrawalCountExceeded;
     case 'unknownDefaultOpenApi':
       return _$transferReasonEnum_unknownDefaultOpenApi;
     default:
@@ -205,28 +442,87 @@ final BuiltSet<TransferReasonEnum> _$transferReasonEnumValues =
       _$transferReasonEnum_amountLimitExceeded,
       _$transferReasonEnum_approvalExpired,
       _$transferReasonEnum_approved,
+      _$transferReasonEnum_avsDeclined,
       _$transferReasonEnum_balanceAccountTemporarilyBlockedByTransactionRule,
+      _$transferReasonEnum_blockCard,
+      _$transferReasonEnum_callReferral,
+      _$transferReasonEnum_cancelled,
+      _$transferReasonEnum_captureCard,
+      _$transferReasonEnum_cardExpired,
+      _$transferReasonEnum_cardholderAuthenticationRequired,
+      _$transferReasonEnum_cashbackAmountExceedsLimit,
+      _$transferReasonEnum_cavvDeclined,
+      _$transferReasonEnum_contactlessFallback,
+      _$transferReasonEnum_contactlessLimitReached,
       _$transferReasonEnum_counterpartyAccountBlocked,
       _$transferReasonEnum_counterpartyAccountClosed,
       _$transferReasonEnum_counterpartyAccountNotFound,
       _$transferReasonEnum_counterpartyAddressRequired,
       _$transferReasonEnum_counterpartyBankTimedOut,
       _$transferReasonEnum_counterpartyBankUnavailable,
+      _$transferReasonEnum_cryptographicFailure,
+      _$transferReasonEnum_cvcDeclined,
       _$transferReasonEnum_declined,
+      _$transferReasonEnum_declinedByBapValidation,
       _$transferReasonEnum_declinedByTransactionRule,
+      _$transferReasonEnum_declinedNonGeneric,
       _$transferReasonEnum_directDebitNotSupported,
+      _$transferReasonEnum_doNotHonor,
+      _$transferReasonEnum_domesticDebitTransactionNotAllowed,
+      _$transferReasonEnum_duplicateTransmissionDetected,
       _$transferReasonEnum_error,
+      _$transferReasonEnum_formatError,
+      _$transferReasonEnum_fraud,
+      _$transferReasonEnum_fraudCancelled,
+      _$transferReasonEnum_honorWithId,
+      _$transferReasonEnum_internalTimeout,
+      _$transferReasonEnum_invalidAccount,
+      _$transferReasonEnum_invalidAmount,
+      _$transferReasonEnum_invalidAuthorizationLifeCycle,
+      _$transferReasonEnum_invalidCard,
+      _$transferReasonEnum_invalidExpiryDate,
+      _$transferReasonEnum_invalidFromAccount,
+      _$transferReasonEnum_invalidIssuer,
+      _$transferReasonEnum_invalidMerchant,
+      _$transferReasonEnum_invalidPin,
+      _$transferReasonEnum_invalidToAccount,
+      _$transferReasonEnum_invalidTransaction,
+      _$transferReasonEnum_issuerSuspectedFraud,
+      _$transferReasonEnum_lostCard,
+      _$transferReasonEnum_mobilePinRequired,
+      _$transferReasonEnum_noCheckingAccount,
+      _$transferReasonEnum_noSavingsAccount,
+      _$transferReasonEnum_not3dAuthenticated,
       _$transferReasonEnum_notEnoughBalance,
+      _$transferReasonEnum_notSubmitted,
+      _$transferReasonEnum_notSupported,
+      _$transferReasonEnum_partiallyApproved,
       _$transferReasonEnum_pending,
       _$transferReasonEnum_pendingApproval,
       _$transferReasonEnum_pendingExecution,
+      _$transferReasonEnum_pinNotChanged,
+      _$transferReasonEnum_pinRequired,
+      _$transferReasonEnum_pinTriesExceeded,
+      _$transferReasonEnum_pinValidationNotPossible,
+      _$transferReasonEnum_purchaseAmountOnlyNoCashBack,
       _$transferReasonEnum_refusedByCounterpartyBank,
       _$transferReasonEnum_refusedByCustomer,
+      _$transferReasonEnum_restrictedCard,
+      _$transferReasonEnum_revocationOfAuth,
       _$transferReasonEnum_routeNotFound,
+      _$transferReasonEnum_scaAuthenticationRequired,
       _$transferReasonEnum_scaFailed,
       _$transferReasonEnum_schemeAdvice,
+      _$transferReasonEnum_securityViolation,
+      _$transferReasonEnum_shopperCancelled,
+      _$transferReasonEnum_stolenCard,
+      _$transferReasonEnum_threedsDynamicLinkingMismatch,
+      _$transferReasonEnum_transactionNotPermitted,
       _$transferReasonEnum_transferInstrumentDoesNotExist,
+      _$transferReasonEnum_unableToRouteTransaction,
       _$transferReasonEnum_unknown,
+      _$transferReasonEnum_withdrawalAmountExceeded,
+      _$transferReasonEnum_withdrawalCountExceeded,
       _$transferReasonEnum_unknownDefaultOpenApi,
     ]);
 
@@ -894,29 +1190,88 @@ class _$TransferReasonEnumSerializer
     'amountLimitExceeded': 'amountLimitExceeded',
     'approvalExpired': 'approvalExpired',
     'approved': 'approved',
+    'avsDeclined': 'avsDeclined',
     'balanceAccountTemporarilyBlockedByTransactionRule':
         'balanceAccountTemporarilyBlockedByTransactionRule',
+    'blockCard': 'blockCard',
+    'callReferral': 'callReferral',
+    'cancelled': 'cancelled',
+    'captureCard': 'captureCard',
+    'cardExpired': 'cardExpired',
+    'cardholderAuthenticationRequired': 'cardholderAuthenticationRequired',
+    'cashbackAmountExceedsLimit': 'cashbackAmountExceedsLimit',
+    'cavvDeclined': 'cavvDeclined',
+    'contactlessFallback': 'contactlessFallback',
+    'contactlessLimitReached': 'contactlessLimitReached',
     'counterpartyAccountBlocked': 'counterpartyAccountBlocked',
     'counterpartyAccountClosed': 'counterpartyAccountClosed',
     'counterpartyAccountNotFound': 'counterpartyAccountNotFound',
     'counterpartyAddressRequired': 'counterpartyAddressRequired',
     'counterpartyBankTimedOut': 'counterpartyBankTimedOut',
     'counterpartyBankUnavailable': 'counterpartyBankUnavailable',
+    'cryptographicFailure': 'cryptographicFailure',
+    'cvcDeclined': 'cvcDeclined',
     'declined': 'declined',
+    'declinedByBapValidation': 'declinedByBapValidation',
     'declinedByTransactionRule': 'declinedByTransactionRule',
+    'declinedNonGeneric': 'declinedNonGeneric',
     'directDebitNotSupported': 'directDebitNotSupported',
+    'doNotHonor': 'doNotHonor',
+    'domesticDebitTransactionNotAllowed': 'domesticDebitTransactionNotAllowed',
+    'duplicateTransmissionDetected': 'duplicateTransmissionDetected',
     'error': 'error',
+    'formatError': 'formatError',
+    'fraud': 'fraud',
+    'fraudCancelled': 'fraudCancelled',
+    'honorWithId': 'honorWithId',
+    'internalTimeout': 'internalTimeout',
+    'invalidAccount': 'invalidAccount',
+    'invalidAmount': 'invalidAmount',
+    'invalidAuthorizationLifeCycle': 'invalidAuthorizationLifeCycle',
+    'invalidCard': 'invalidCard',
+    'invalidExpiryDate': 'invalidExpiryDate',
+    'invalidFromAccount': 'invalidFromAccount',
+    'invalidIssuer': 'invalidIssuer',
+    'invalidMerchant': 'invalidMerchant',
+    'invalidPin': 'invalidPin',
+    'invalidToAccount': 'invalidToAccount',
+    'invalidTransaction': 'invalidTransaction',
+    'issuerSuspectedFraud': 'issuerSuspectedFraud',
+    'lostCard': 'lostCard',
+    'mobilePinRequired': 'mobilePinRequired',
+    'noCheckingAccount': 'noCheckingAccount',
+    'noSavingsAccount': 'noSavingsAccount',
+    'not3dAuthenticated': 'not3dAuthenticated',
     'notEnoughBalance': 'notEnoughBalance',
+    'notSubmitted': 'notSubmitted',
+    'notSupported': 'notSupported',
+    'partiallyApproved': 'partiallyApproved',
     'pending': 'pending',
     'pendingApproval': 'pendingApproval',
     'pendingExecution': 'pendingExecution',
+    'pinNotChanged': 'pinNotChanged',
+    'pinRequired': 'pinRequired',
+    'pinTriesExceeded': 'pinTriesExceeded',
+    'pinValidationNotPossible': 'pinValidationNotPossible',
+    'purchaseAmountOnlyNoCashBack': 'purchaseAmountOnlyNoCashBack',
     'refusedByCounterpartyBank': 'refusedByCounterpartyBank',
     'refusedByCustomer': 'refusedByCustomer',
+    'restrictedCard': 'restrictedCard',
+    'revocationOfAuth': 'revocationOfAuth',
     'routeNotFound': 'routeNotFound',
+    'scaAuthenticationRequired': 'scaAuthenticationRequired',
     'scaFailed': 'scaFailed',
     'schemeAdvice': 'schemeAdvice',
+    'securityViolation': 'securityViolation',
+    'shopperCancelled': 'shopperCancelled',
+    'stolenCard': 'stolenCard',
+    'threedsDynamicLinkingMismatch': 'threedsDynamicLinkingMismatch',
+    'transactionNotPermitted': 'transactionNotPermitted',
     'transferInstrumentDoesNotExist': 'transferInstrumentDoesNotExist',
+    'unableToRouteTransaction': 'unableToRouteTransaction',
     'unknown': 'unknown',
+    'withdrawalAmountExceeded': 'withdrawalAmountExceeded',
+    'withdrawalCountExceeded': 'withdrawalCountExceeded',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
@@ -924,29 +1279,88 @@ class _$TransferReasonEnumSerializer
     'amountLimitExceeded': 'amountLimitExceeded',
     'approvalExpired': 'approvalExpired',
     'approved': 'approved',
+    'avsDeclined': 'avsDeclined',
     'balanceAccountTemporarilyBlockedByTransactionRule':
         'balanceAccountTemporarilyBlockedByTransactionRule',
+    'blockCard': 'blockCard',
+    'callReferral': 'callReferral',
+    'cancelled': 'cancelled',
+    'captureCard': 'captureCard',
+    'cardExpired': 'cardExpired',
+    'cardholderAuthenticationRequired': 'cardholderAuthenticationRequired',
+    'cashbackAmountExceedsLimit': 'cashbackAmountExceedsLimit',
+    'cavvDeclined': 'cavvDeclined',
+    'contactlessFallback': 'contactlessFallback',
+    'contactlessLimitReached': 'contactlessLimitReached',
     'counterpartyAccountBlocked': 'counterpartyAccountBlocked',
     'counterpartyAccountClosed': 'counterpartyAccountClosed',
     'counterpartyAccountNotFound': 'counterpartyAccountNotFound',
     'counterpartyAddressRequired': 'counterpartyAddressRequired',
     'counterpartyBankTimedOut': 'counterpartyBankTimedOut',
     'counterpartyBankUnavailable': 'counterpartyBankUnavailable',
+    'cryptographicFailure': 'cryptographicFailure',
+    'cvcDeclined': 'cvcDeclined',
     'declined': 'declined',
+    'declinedByBapValidation': 'declinedByBapValidation',
     'declinedByTransactionRule': 'declinedByTransactionRule',
+    'declinedNonGeneric': 'declinedNonGeneric',
     'directDebitNotSupported': 'directDebitNotSupported',
+    'doNotHonor': 'doNotHonor',
+    'domesticDebitTransactionNotAllowed': 'domesticDebitTransactionNotAllowed',
+    'duplicateTransmissionDetected': 'duplicateTransmissionDetected',
     'error': 'error',
+    'formatError': 'formatError',
+    'fraud': 'fraud',
+    'fraudCancelled': 'fraudCancelled',
+    'honorWithId': 'honorWithId',
+    'internalTimeout': 'internalTimeout',
+    'invalidAccount': 'invalidAccount',
+    'invalidAmount': 'invalidAmount',
+    'invalidAuthorizationLifeCycle': 'invalidAuthorizationLifeCycle',
+    'invalidCard': 'invalidCard',
+    'invalidExpiryDate': 'invalidExpiryDate',
+    'invalidFromAccount': 'invalidFromAccount',
+    'invalidIssuer': 'invalidIssuer',
+    'invalidMerchant': 'invalidMerchant',
+    'invalidPin': 'invalidPin',
+    'invalidToAccount': 'invalidToAccount',
+    'invalidTransaction': 'invalidTransaction',
+    'issuerSuspectedFraud': 'issuerSuspectedFraud',
+    'lostCard': 'lostCard',
+    'mobilePinRequired': 'mobilePinRequired',
+    'noCheckingAccount': 'noCheckingAccount',
+    'noSavingsAccount': 'noSavingsAccount',
+    'not3dAuthenticated': 'not3dAuthenticated',
     'notEnoughBalance': 'notEnoughBalance',
+    'notSubmitted': 'notSubmitted',
+    'notSupported': 'notSupported',
+    'partiallyApproved': 'partiallyApproved',
     'pending': 'pending',
     'pendingApproval': 'pendingApproval',
     'pendingExecution': 'pendingExecution',
+    'pinNotChanged': 'pinNotChanged',
+    'pinRequired': 'pinRequired',
+    'pinTriesExceeded': 'pinTriesExceeded',
+    'pinValidationNotPossible': 'pinValidationNotPossible',
+    'purchaseAmountOnlyNoCashBack': 'purchaseAmountOnlyNoCashBack',
     'refusedByCounterpartyBank': 'refusedByCounterpartyBank',
     'refusedByCustomer': 'refusedByCustomer',
+    'restrictedCard': 'restrictedCard',
+    'revocationOfAuth': 'revocationOfAuth',
     'routeNotFound': 'routeNotFound',
+    'scaAuthenticationRequired': 'scaAuthenticationRequired',
     'scaFailed': 'scaFailed',
     'schemeAdvice': 'schemeAdvice',
+    'securityViolation': 'securityViolation',
+    'shopperCancelled': 'shopperCancelled',
+    'stolenCard': 'stolenCard',
+    'threedsDynamicLinkingMismatch': 'threedsDynamicLinkingMismatch',
+    'transactionNotPermitted': 'transactionNotPermitted',
     'transferInstrumentDoesNotExist': 'transferInstrumentDoesNotExist',
+    'unableToRouteTransaction': 'unableToRouteTransaction',
     'unknown': 'unknown',
+    'withdrawalAmountExceeded': 'withdrawalAmountExceeded',
+    'withdrawalCountExceeded': 'withdrawalCountExceeded',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
 

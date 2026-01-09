@@ -28,6 +28,9 @@ const PlatformPaymentPlatformPaymentTypeEnum
 _$platformPaymentPlatformPaymentTypeEnum_commission =
     const PlatformPaymentPlatformPaymentTypeEnum._('commission');
 const PlatformPaymentPlatformPaymentTypeEnum
+_$platformPaymentPlatformPaymentTypeEnum_dCCMarkup =
+    const PlatformPaymentPlatformPaymentTypeEnum._('dCCMarkup');
+const PlatformPaymentPlatformPaymentTypeEnum
 _$platformPaymentPlatformPaymentTypeEnum_dCCPlatformCommission =
     const PlatformPaymentPlatformPaymentTypeEnum._('dCCPlatformCommission');
 const PlatformPaymentPlatformPaymentTypeEnum
@@ -78,6 +81,8 @@ _$platformPaymentPlatformPaymentTypeEnumValueOf(String name) {
       return _$platformPaymentPlatformPaymentTypeEnum_chargebackRemainder;
     case 'commission':
       return _$platformPaymentPlatformPaymentTypeEnum_commission;
+    case 'dCCMarkup':
+      return _$platformPaymentPlatformPaymentTypeEnum_dCCMarkup;
     case 'dCCPlatformCommission':
       return _$platformPaymentPlatformPaymentTypeEnum_dCCPlatformCommission;
     case 'default_':
@@ -116,6 +121,7 @@ _$platformPaymentPlatformPaymentTypeEnumValues =
         _$platformPaymentPlatformPaymentTypeEnum_balanceAccount,
         _$platformPaymentPlatformPaymentTypeEnum_chargebackRemainder,
         _$platformPaymentPlatformPaymentTypeEnum_commission,
+        _$platformPaymentPlatformPaymentTypeEnum_dCCMarkup,
         _$platformPaymentPlatformPaymentTypeEnum_dCCPlatformCommission,
         _$platformPaymentPlatformPaymentTypeEnum_default_,
         _$platformPaymentPlatformPaymentTypeEnum_interchange,
@@ -168,6 +174,7 @@ class _$PlatformPaymentPlatformPaymentTypeEnumSerializer
     'balanceAccount': 'BalanceAccount',
     'chargebackRemainder': 'ChargebackRemainder',
     'commission': 'Commission',
+    'dCCMarkup': 'DCCMarkup',
     'dCCPlatformCommission': 'DCCPlatformCommission',
     'default_': 'Default',
     'interchange': 'Interchange',
@@ -188,6 +195,7 @@ class _$PlatformPaymentPlatformPaymentTypeEnumSerializer
     'BalanceAccount': 'balanceAccount',
     'ChargebackRemainder': 'chargebackRemainder',
     'Commission': 'commission',
+    'DCCMarkup': 'dCCMarkup',
     'DCCPlatformCommission': 'dCCPlatformCommission',
     'Default': 'default_',
     'Interchange': 'interchange',

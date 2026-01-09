@@ -3,65 +3,70 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:adyen_api/src/gen/legal_entity/model/phone_number.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'amount.g.dart';
+part 'support.g.dart';
 
-/// Amount
+/// Support
 ///
 /// Properties:
-/// * [currency] - The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes#currency-codes) of the amount.
-/// * [value] - The numeric value of the amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes#minor-units).
+/// * [email] - The support email address of the legal entity. Required if you have a platform setup.
+/// * [phone] - The support phone number of the legal entity. Required if you have a platform setup.
 @BuiltValue()
-abstract class Amount implements Built<Amount, AmountBuilder> {
-  /// The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes#currency-codes) of the amount.
-  @BuiltValueField(wireName: r'currency')
-  String get currency;
+abstract class Support implements Built<Support, SupportBuilder> {
+  /// The support email address of the legal entity. Required if you have a platform setup.
+  @BuiltValueField(wireName: r'email')
+  String? get email;
 
-  /// The numeric value of the amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes#minor-units).
-  @BuiltValueField(wireName: r'value')
-  int get value;
+  /// The support phone number of the legal entity. Required if you have a platform setup.
+  @BuiltValueField(wireName: r'phone')
+  PhoneNumber? get phone;
 
-  Amount._();
+  Support._();
 
-  factory Amount([void updates(AmountBuilder b)]) = _$Amount;
+  factory Support([void updates(SupportBuilder b)]) = _$Support;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(AmountBuilder b) => b;
+  static void _defaults(SupportBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<Amount> get serializer => _$AmountSerializer();
+  static Serializer<Support> get serializer => _$SupportSerializer();
 }
 
-class _$AmountSerializer implements PrimitiveSerializer<Amount> {
+class _$SupportSerializer implements PrimitiveSerializer<Support> {
   @override
-  final Iterable<Type> types = const [Amount, _$Amount];
+  final Iterable<Type> types = const [Support, _$Support];
 
   @override
-  final String wireName = r'Amount';
+  final String wireName = r'Support';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    Amount object, {
+    Support object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    yield r'currency';
-    yield serializers.serialize(
-      object.currency,
-      specifiedType: const FullType(String),
-    );
-    yield r'value';
-    yield serializers.serialize(
-      object.value,
-      specifiedType: const FullType(int),
-    );
+    if (object.email != null) {
+      yield r'email';
+      yield serializers.serialize(
+        object.email,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.phone != null) {
+      yield r'phone';
+      yield serializers.serialize(
+        object.phone,
+        specifiedType: const FullType(PhoneNumber),
+      );
+    }
   }
 
   @override
   Object serialize(
     Serializers serializers,
-    Amount object, {
+    Support object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -72,26 +77,26 @@ class _$AmountSerializer implements PrimitiveSerializer<Amount> {
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required AmountBuilder result,
+    required SupportBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'currency':
+        case r'email':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(String),
           ) as String;
-          result.currency = valueDes;
+          result.email = valueDes;
           break;
-        case r'value':
+        case r'phone':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(int),
-          ) as int;
-          result.value = valueDes;
+            specifiedType: const FullType(PhoneNumber),
+          ) as PhoneNumber;
+          result.phone.replace(valueDes);
           break;
         default:
           unhandled.add(key);
@@ -102,12 +107,12 @@ class _$AmountSerializer implements PrimitiveSerializer<Amount> {
   }
 
   @override
-  Amount deserialize(
+  Support deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = AmountBuilder();
+    final result = SupportBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

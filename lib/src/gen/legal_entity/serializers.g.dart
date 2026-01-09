@@ -22,9 +22,7 @@ Serializers _$serializers =
           ..add(BankAccountInfoAccountIdentification.serializer)
           ..add(BirthData.serializer)
           ..add(BusinessLine.serializer)
-          ..add(BusinessLineCapabilityEnum.serializer)
           ..add(BusinessLineInfo.serializer)
-          ..add(BusinessLineInfoCapabilityEnum.serializer)
           ..add(BusinessLineInfoServiceEnum.serializer)
           ..add(BusinessLineInfoUpdate.serializer)
           ..add(BusinessLineServiceEnum.serializer)
@@ -61,6 +59,7 @@ Serializers _$serializers =
           ..add(DocumentTypeEnum.serializer)
           ..add(EntityReference.serializer)
           ..add(FinancialReport.serializer)
+          ..add(Financier.serializer)
           ..add(GeneratePciDescriptionRequest.serializer)
           ..add(
             GeneratePciDescriptionRequestAdditionalSalesChannelsEnum.serializer,
@@ -134,6 +133,7 @@ Serializers _$serializers =
           ..add(SourceOfFunds.serializer)
           ..add(SourceOfFundsTypeEnum.serializer)
           ..add(StockData.serializer)
+          ..add(Support.serializer)
           ..add(SupportingEntityCapability.serializer)
           ..add(TaxInformation.serializer)
           ..add(TaxReportingClassification.serializer)
@@ -240,6 +240,10 @@ Serializers _$serializers =
           ..addBuilderFactory(
             const FullType(BuiltList, const [const FullType(TaxInformation)]),
             () => ListBuilder<TaxInformation>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(Financier)]),
+            () => ListBuilder<Financier>(),
           )
           ..addBuilderFactory(
             const FullType(BuiltList, const [

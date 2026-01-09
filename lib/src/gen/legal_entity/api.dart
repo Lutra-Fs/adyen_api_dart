@@ -19,7 +19,7 @@ import 'package:adyen_api/src/gen/legal_entity/api/terms_of_service_api.dart';
 import 'package:adyen_api/src/gen/legal_entity/api/transfer_instruments_api.dart';
 
 class AdyenApi {
-  static const String basePath = r'https://kyc-test.adyen.com/lem/v3';
+  static const String basePath = r'https://kyc-test.adyen.com/lem/v4';
 
   final Dio dio;
   final Serializers serializers;

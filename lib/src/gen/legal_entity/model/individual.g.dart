@@ -22,6 +22,8 @@ class _$Individual extends Individual {
   @override
   final Address residentialAddress;
   @override
+  final Support? support;
+  @override
   final BuiltList<TaxInformation>? taxInformation;
   @override
   final WebData? webData;
@@ -37,6 +39,7 @@ class _$Individual extends Individual {
     this.nationality,
     this.phone,
     required this.residentialAddress,
+    this.support,
     this.taxInformation,
     this.webData,
   }) : super._();
@@ -58,6 +61,7 @@ class _$Individual extends Individual {
         nationality == other.nationality &&
         phone == other.phone &&
         residentialAddress == other.residentialAddress &&
+        support == other.support &&
         taxInformation == other.taxInformation &&
         webData == other.webData;
   }
@@ -72,6 +76,7 @@ class _$Individual extends Individual {
     _$hash = $jc(_$hash, nationality.hashCode);
     _$hash = $jc(_$hash, phone.hashCode);
     _$hash = $jc(_$hash, residentialAddress.hashCode);
+    _$hash = $jc(_$hash, support.hashCode);
     _$hash = $jc(_$hash, taxInformation.hashCode);
     _$hash = $jc(_$hash, webData.hashCode);
     _$hash = $jf(_$hash);
@@ -88,6 +93,7 @@ class _$Individual extends Individual {
           ..add('nationality', nationality)
           ..add('phone', phone)
           ..add('residentialAddress', residentialAddress)
+          ..add('support', support)
           ..add('taxInformation', taxInformation)
           ..add('webData', webData))
         .toString();
@@ -129,6 +135,10 @@ class IndividualBuilder implements Builder<Individual, IndividualBuilder> {
   set residentialAddress(AddressBuilder? residentialAddress) =>
       _$this._residentialAddress = residentialAddress;
 
+  SupportBuilder? _support;
+  SupportBuilder get support => _$this._support ??= SupportBuilder();
+  set support(SupportBuilder? support) => _$this._support = support;
+
   ListBuilder<TaxInformation>? _taxInformation;
   ListBuilder<TaxInformation> get taxInformation =>
       _$this._taxInformation ??= ListBuilder<TaxInformation>();
@@ -153,6 +163,7 @@ class IndividualBuilder implements Builder<Individual, IndividualBuilder> {
       _nationality = $v.nationality;
       _phone = $v.phone?.toBuilder();
       _residentialAddress = $v.residentialAddress.toBuilder();
+      _support = $v.support?.toBuilder();
       _taxInformation = $v.taxInformation?.toBuilder();
       _webData = $v.webData?.toBuilder();
       _$v = null;
@@ -186,6 +197,7 @@ class IndividualBuilder implements Builder<Individual, IndividualBuilder> {
             nationality: nationality,
             phone: _phone?.build(),
             residentialAddress: residentialAddress.build(),
+            support: _support?.build(),
             taxInformation: _taxInformation?.build(),
             webData: _webData?.build(),
           );
@@ -204,6 +216,8 @@ class IndividualBuilder implements Builder<Individual, IndividualBuilder> {
         _phone?.build();
         _$failedField = 'residentialAddress';
         residentialAddress.build();
+        _$failedField = 'support';
+        _support?.build();
         _$failedField = 'taxInformation';
         _taxInformation?.build();
         _$failedField = 'webData';

@@ -12,12 +12,15 @@ class _$TaxInformation extends TaxInformation {
   @override
   final String? number;
   @override
+  final bool? numberAbsent;
+  @override
   final String? type;
 
   factory _$TaxInformation([void Function(TaxInformationBuilder)? updates]) =>
       (TaxInformationBuilder()..update(updates))._build();
 
-  _$TaxInformation._({this.country, this.number, this.type}) : super._();
+  _$TaxInformation._({this.country, this.number, this.numberAbsent, this.type})
+    : super._();
   @override
   TaxInformation rebuild(void Function(TaxInformationBuilder) updates) =>
       (toBuilder()..update(updates)).build();
@@ -31,6 +34,7 @@ class _$TaxInformation extends TaxInformation {
     return other is TaxInformation &&
         country == other.country &&
         number == other.number &&
+        numberAbsent == other.numberAbsent &&
         type == other.type;
   }
 
@@ -39,6 +43,7 @@ class _$TaxInformation extends TaxInformation {
     var _$hash = 0;
     _$hash = $jc(_$hash, country.hashCode);
     _$hash = $jc(_$hash, number.hashCode);
+    _$hash = $jc(_$hash, numberAbsent.hashCode);
     _$hash = $jc(_$hash, type.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -49,6 +54,7 @@ class _$TaxInformation extends TaxInformation {
     return (newBuiltValueToStringHelper(r'TaxInformation')
           ..add('country', country)
           ..add('number', number)
+          ..add('numberAbsent', numberAbsent)
           ..add('type', type))
         .toString();
   }
@@ -66,6 +72,10 @@ class TaxInformationBuilder
   String? get number => _$this._number;
   set number(String? number) => _$this._number = number;
 
+  bool? _numberAbsent;
+  bool? get numberAbsent => _$this._numberAbsent;
+  set numberAbsent(bool? numberAbsent) => _$this._numberAbsent = numberAbsent;
+
   String? _type;
   String? get type => _$this._type;
   set type(String? type) => _$this._type = type;
@@ -79,6 +89,7 @@ class TaxInformationBuilder
     if ($v != null) {
       _country = $v.country;
       _number = $v.number;
+      _numberAbsent = $v.numberAbsent;
       _type = $v.type;
       _$v = null;
     }
@@ -100,7 +111,13 @@ class TaxInformationBuilder
 
   _$TaxInformation _build() {
     final _$result =
-        _$v ?? _$TaxInformation._(country: country, number: number, type: type);
+        _$v ??
+        _$TaxInformation._(
+          country: country,
+          number: number,
+          numberAbsent: numberAbsent,
+          type: type,
+        );
     replace(_$result);
     return _$result;
   }

@@ -46,6 +46,8 @@ const DocumentTypeEnum _$documentTypeEnum_proofOfFundingOrWealthSource =
     const DocumentTypeEnum._('proofOfFundingOrWealthSource');
 const DocumentTypeEnum _$documentTypeEnum_proofOfRelationship =
     const DocumentTypeEnum._('proofOfRelationship');
+const DocumentTypeEnum _$documentTypeEnum_proofOfDirector =
+    const DocumentTypeEnum._('proofOfDirector');
 const DocumentTypeEnum _$documentTypeEnum_unknownDefaultOpenApi =
     const DocumentTypeEnum._('unknownDefaultOpenApi');
 
@@ -89,6 +91,8 @@ DocumentTypeEnum _$documentTypeEnumValueOf(String name) {
       return _$documentTypeEnum_proofOfFundingOrWealthSource;
     case 'proofOfRelationship':
       return _$documentTypeEnum_proofOfRelationship;
+    case 'proofOfDirector':
+      return _$documentTypeEnum_proofOfDirector;
     case 'unknownDefaultOpenApi':
       return _$documentTypeEnum_unknownDefaultOpenApi;
     default:
@@ -117,6 +121,7 @@ final BuiltSet<DocumentTypeEnum> _$documentTypeEnumValues =
       _$documentTypeEnum_constitutionalDocument,
       _$documentTypeEnum_proofOfFundingOrWealthSource,
       _$documentTypeEnum_proofOfRelationship,
+      _$documentTypeEnum_proofOfDirector,
       _$documentTypeEnum_unknownDefaultOpenApi,
     ]);
 
@@ -145,6 +150,7 @@ class _$DocumentTypeEnumSerializer
     'constitutionalDocument': 'constitutionalDocument',
     'proofOfFundingOrWealthSource': 'proofOfFundingOrWealthSource',
     'proofOfRelationship': 'proofOfRelationship',
+    'proofOfDirector': 'proofOfDirector',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
@@ -167,6 +173,7 @@ class _$DocumentTypeEnumSerializer
     'constitutionalDocument': 'constitutionalDocument',
     'proofOfFundingOrWealthSource': 'proofOfFundingOrWealthSource',
     'proofOfRelationship': 'proofOfRelationship',
+    'proofOfDirector': 'proofOfDirector',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
 

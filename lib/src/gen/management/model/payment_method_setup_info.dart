@@ -70,7 +70,7 @@ part 'payment_method_setup_info.g.dart';
 /// * [ideal] - Details to provide if `type` is **ideal**.
 /// * [interacCard] - Details to provide if `type` is **interac_card**.
 /// * [jcb] - Details to provide if `type` is **jcb**. For merchants operating in Japan, `midNumber`, `reuseMidNumber`, and `serviceLevel` fields are required. For merchants operating outside of Japan, these fields are not required.
-/// * [klarna] - Details to provide if `type` is **klarna**.
+/// * [klarna] - Details to provide if `type` is **klarna** or its variant.  You can use the following payment method `type` values for Klarna: * **klarna**: Klarna Pay Later * **klarna_account**: Klarna Pay over time * **klarna_paynow**: Klarna Pay now * **klarna_b2b**: [Billie via Klarna](https://docs.adyen.com/payment-methods/klarna/billie) 
 /// * [maestro] - Details to provide if `type` is **maestro**. In the US, `maestro` is not supported; use `maestro_usa` instead. 
 /// * [maestroUsa] - Details to provide if `type` is **maestro_usa**. Only for Maestro USA, otherwise use `maestro`.
 /// * [mc] - Details to provide if `type` is **mc**.
@@ -196,7 +196,7 @@ abstract class PaymentMethodSetupInfo implements Built<PaymentMethodSetupInfo, P
   @BuiltValueField(wireName: r'jcb')
   JCBInfo? get jcb;
 
-  /// Details to provide if `type` is **klarna**.
+  /// Details to provide if `type` is **klarna** or its variant.  You can use the following payment method `type` values for Klarna: * **klarna**: Klarna Pay Later * **klarna_account**: Klarna Pay over time * **klarna_paynow**: Klarna Pay now * **klarna_b2b**: [Billie via Klarna](https://docs.adyen.com/payment-methods/klarna/billie) 
   @BuiltValueField(wireName: r'klarna')
   KlarnaInfo? get klarna;
 

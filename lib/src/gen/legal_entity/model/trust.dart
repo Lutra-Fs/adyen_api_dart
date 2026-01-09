@@ -19,6 +19,7 @@ part 'trust.g.dart';
 /// * [dateOfIncorporation] - The date when the legal arrangement was incorporated in YYYY-MM-DD format.
 /// * [description] - A short description about the trust. Only applicable for charitable trusts in New Zealand.
 /// * [doingBusinessAs] - The registered name, if different from the `name`.
+/// * [doingBusinessAsAbsent] - Set this to **true** if the legal arrangement does not have a `Doing business as` name.
 /// * [name_] - The legal name.
 /// * [principalPlaceOfBusiness] - The business address. Required if the principal place of business is different from the `registeredAddress`.
 /// * [registeredAddress] - The address registered at the registrar, such as the Chamber of Commerce.
@@ -45,6 +46,10 @@ abstract class Trust implements Built<Trust, TrustBuilder> {
   /// The registered name, if different from the `name`.
   @BuiltValueField(wireName: r'doingBusinessAs')
   String? get doingBusinessAs;
+
+  /// Set this to **true** if the legal arrangement does not have a `Doing business as` name.
+  @BuiltValueField(wireName: r'doingBusinessAsAbsent')
+  bool? get doingBusinessAsAbsent;
 
   /// The legal name.
   @BuiltValueField(wireName: r'name')
@@ -131,6 +136,13 @@ class _$TrustSerializer implements PrimitiveSerializer<Trust> {
       yield serializers.serialize(
         object.doingBusinessAs,
         specifiedType: const FullType(String),
+      );
+    }
+    if (object.doingBusinessAsAbsent != null) {
+      yield r'doingBusinessAsAbsent';
+      yield serializers.serialize(
+        object.doingBusinessAsAbsent,
+        specifiedType: const FullType(bool),
       );
     }
     yield r'name';
@@ -240,6 +252,13 @@ class _$TrustSerializer implements PrimitiveSerializer<Trust> {
             specifiedType: const FullType(String),
           ) as String;
           result.doingBusinessAs = valueDes;
+          break;
+        case r'doingBusinessAsAbsent':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.doingBusinessAsAbsent = valueDes;
           break;
         case r'name':
           final valueDes = serializers.deserialize(

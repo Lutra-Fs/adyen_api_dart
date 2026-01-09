@@ -278,6 +278,8 @@ class _$Trust extends Trust {
   @override
   final String? doingBusinessAs;
   @override
+  final bool? doingBusinessAsAbsent;
+  @override
   final String name_;
   @override
   final Address? principalPlaceOfBusiness;
@@ -304,6 +306,7 @@ class _$Trust extends Trust {
     this.dateOfIncorporation,
     this.description,
     this.doingBusinessAs,
+    this.doingBusinessAsAbsent,
     required this.name_,
     this.principalPlaceOfBusiness,
     required this.registeredAddress,
@@ -329,6 +332,7 @@ class _$Trust extends Trust {
         dateOfIncorporation == other.dateOfIncorporation &&
         description == other.description &&
         doingBusinessAs == other.doingBusinessAs &&
+        doingBusinessAsAbsent == other.doingBusinessAsAbsent &&
         name_ == other.name_ &&
         principalPlaceOfBusiness == other.principalPlaceOfBusiness &&
         registeredAddress == other.registeredAddress &&
@@ -347,6 +351,7 @@ class _$Trust extends Trust {
     _$hash = $jc(_$hash, dateOfIncorporation.hashCode);
     _$hash = $jc(_$hash, description.hashCode);
     _$hash = $jc(_$hash, doingBusinessAs.hashCode);
+    _$hash = $jc(_$hash, doingBusinessAsAbsent.hashCode);
     _$hash = $jc(_$hash, name_.hashCode);
     _$hash = $jc(_$hash, principalPlaceOfBusiness.hashCode);
     _$hash = $jc(_$hash, registeredAddress.hashCode);
@@ -367,6 +372,7 @@ class _$Trust extends Trust {
           ..add('dateOfIncorporation', dateOfIncorporation)
           ..add('description', description)
           ..add('doingBusinessAs', doingBusinessAs)
+          ..add('doingBusinessAsAbsent', doingBusinessAsAbsent)
           ..add('name_', name_)
           ..add('principalPlaceOfBusiness', principalPlaceOfBusiness)
           ..add('registeredAddress', registeredAddress)
@@ -401,6 +407,11 @@ class TrustBuilder implements Builder<Trust, TrustBuilder> {
   String? get doingBusinessAs => _$this._doingBusinessAs;
   set doingBusinessAs(String? doingBusinessAs) =>
       _$this._doingBusinessAs = doingBusinessAs;
+
+  bool? _doingBusinessAsAbsent;
+  bool? get doingBusinessAsAbsent => _$this._doingBusinessAsAbsent;
+  set doingBusinessAsAbsent(bool? doingBusinessAsAbsent) =>
+      _$this._doingBusinessAsAbsent = doingBusinessAsAbsent;
 
   String? _name_;
   String? get name_ => _$this._name_;
@@ -460,6 +471,7 @@ class TrustBuilder implements Builder<Trust, TrustBuilder> {
       _dateOfIncorporation = $v.dateOfIncorporation;
       _description = $v.description;
       _doingBusinessAs = $v.doingBusinessAs;
+      _doingBusinessAsAbsent = $v.doingBusinessAsAbsent;
       _name_ = $v.name_;
       _principalPlaceOfBusiness = $v.principalPlaceOfBusiness?.toBuilder();
       _registeredAddress = $v.registeredAddress.toBuilder();
@@ -501,6 +513,7 @@ class TrustBuilder implements Builder<Trust, TrustBuilder> {
             dateOfIncorporation: dateOfIncorporation,
             description: description,
             doingBusinessAs: doingBusinessAs,
+            doingBusinessAsAbsent: doingBusinessAsAbsent,
             name_: BuiltValueNullFieldError.checkNotNull(
               name_,
               r'Trust',

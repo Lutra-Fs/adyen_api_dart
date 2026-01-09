@@ -6,42 +6,10 @@ part of 'business_line.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-const BusinessLineCapabilityEnum _$businessLineCapabilityEnum_receivePayments =
-    const BusinessLineCapabilityEnum._('receivePayments');
-const BusinessLineCapabilityEnum
-_$businessLineCapabilityEnum_receiveFromPlatformPayments =
-    const BusinessLineCapabilityEnum._('receiveFromPlatformPayments');
-const BusinessLineCapabilityEnum _$businessLineCapabilityEnum_issueBankAccount =
-    const BusinessLineCapabilityEnum._('issueBankAccount');
-const BusinessLineCapabilityEnum
-_$businessLineCapabilityEnum_unknownDefaultOpenApi =
-    const BusinessLineCapabilityEnum._('unknownDefaultOpenApi');
-
-BusinessLineCapabilityEnum _$businessLineCapabilityEnumValueOf(String name) {
-  switch (name) {
-    case 'receivePayments':
-      return _$businessLineCapabilityEnum_receivePayments;
-    case 'receiveFromPlatformPayments':
-      return _$businessLineCapabilityEnum_receiveFromPlatformPayments;
-    case 'issueBankAccount':
-      return _$businessLineCapabilityEnum_issueBankAccount;
-    case 'unknownDefaultOpenApi':
-      return _$businessLineCapabilityEnum_unknownDefaultOpenApi;
-    default:
-      return _$businessLineCapabilityEnum_unknownDefaultOpenApi;
-  }
-}
-
-final BuiltSet<BusinessLineCapabilityEnum> _$businessLineCapabilityEnumValues =
-    BuiltSet<BusinessLineCapabilityEnum>(const <BusinessLineCapabilityEnum>[
-      _$businessLineCapabilityEnum_receivePayments,
-      _$businessLineCapabilityEnum_receiveFromPlatformPayments,
-      _$businessLineCapabilityEnum_issueBankAccount,
-      _$businessLineCapabilityEnum_unknownDefaultOpenApi,
-    ]);
-
 const BusinessLineServiceEnum _$businessLineServiceEnum_paymentProcessing =
     const BusinessLineServiceEnum._('paymentProcessing');
+const BusinessLineServiceEnum _$businessLineServiceEnum_issuing =
+    const BusinessLineServiceEnum._('issuing');
 const BusinessLineServiceEnum _$businessLineServiceEnum_banking =
     const BusinessLineServiceEnum._('banking');
 const BusinessLineServiceEnum _$businessLineServiceEnum_unknownDefaultOpenApi =
@@ -51,6 +19,8 @@ BusinessLineServiceEnum _$businessLineServiceEnumValueOf(String name) {
   switch (name) {
     case 'paymentProcessing':
       return _$businessLineServiceEnum_paymentProcessing;
+    case 'issuing':
+      return _$businessLineServiceEnum_issuing;
     case 'banking':
       return _$businessLineServiceEnum_banking;
     case 'unknownDefaultOpenApi':
@@ -63,61 +33,25 @@ BusinessLineServiceEnum _$businessLineServiceEnumValueOf(String name) {
 final BuiltSet<BusinessLineServiceEnum> _$businessLineServiceEnumValues =
     BuiltSet<BusinessLineServiceEnum>(const <BusinessLineServiceEnum>[
       _$businessLineServiceEnum_paymentProcessing,
+      _$businessLineServiceEnum_issuing,
       _$businessLineServiceEnum_banking,
       _$businessLineServiceEnum_unknownDefaultOpenApi,
     ]);
 
-Serializer<BusinessLineCapabilityEnum> _$businessLineCapabilityEnumSerializer =
-    _$BusinessLineCapabilityEnumSerializer();
 Serializer<BusinessLineServiceEnum> _$businessLineServiceEnumSerializer =
     _$BusinessLineServiceEnumSerializer();
-
-class _$BusinessLineCapabilityEnumSerializer
-    implements PrimitiveSerializer<BusinessLineCapabilityEnum> {
-  static const Map<String, Object> _toWire = const <String, Object>{
-    'receivePayments': 'receivePayments',
-    'receiveFromPlatformPayments': 'receiveFromPlatformPayments',
-    'issueBankAccount': 'issueBankAccount',
-    'unknownDefaultOpenApi': 'unknown_default_open_api',
-  };
-  static const Map<Object, String> _fromWire = const <Object, String>{
-    'receivePayments': 'receivePayments',
-    'receiveFromPlatformPayments': 'receiveFromPlatformPayments',
-    'issueBankAccount': 'issueBankAccount',
-    'unknown_default_open_api': 'unknownDefaultOpenApi',
-  };
-
-  @override
-  final Iterable<Type> types = const <Type>[BusinessLineCapabilityEnum];
-  @override
-  final String wireName = 'BusinessLineCapabilityEnum';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    BusinessLineCapabilityEnum object, {
-    FullType specifiedType = FullType.unspecified,
-  }) => _toWire[object.name] ?? object.name;
-
-  @override
-  BusinessLineCapabilityEnum deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) => BusinessLineCapabilityEnum.valueOf(
-    _fromWire[serialized] ?? (serialized is String ? serialized : ''),
-  );
-}
 
 class _$BusinessLineServiceEnumSerializer
     implements PrimitiveSerializer<BusinessLineServiceEnum> {
   static const Map<String, Object> _toWire = const <String, Object>{
     'paymentProcessing': 'paymentProcessing',
+    'issuing': 'issuing',
     'banking': 'banking',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'paymentProcessing': 'paymentProcessing',
+    'issuing': 'issuing',
     'banking': 'banking',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
@@ -146,8 +80,6 @@ class _$BusinessLineServiceEnumSerializer
 
 class _$BusinessLine extends BusinessLine {
   @override
-  final BusinessLineCapabilityEnum? capability;
-  @override
   final String id;
   @override
   final String industryCode;
@@ -170,7 +102,6 @@ class _$BusinessLine extends BusinessLine {
       (BusinessLineBuilder()..update(updates))._build();
 
   _$BusinessLine._({
-    this.capability,
     required this.id,
     required this.industryCode,
     required this.legalEntityId,
@@ -192,7 +123,6 @@ class _$BusinessLine extends BusinessLine {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is BusinessLine &&
-        capability == other.capability &&
         id == other.id &&
         industryCode == other.industryCode &&
         legalEntityId == other.legalEntityId &&
@@ -207,7 +137,6 @@ class _$BusinessLine extends BusinessLine {
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, capability.hashCode);
     _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, industryCode.hashCode);
     _$hash = $jc(_$hash, legalEntityId.hashCode);
@@ -224,7 +153,6 @@ class _$BusinessLine extends BusinessLine {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'BusinessLine')
-          ..add('capability', capability)
           ..add('id', id)
           ..add('industryCode', industryCode)
           ..add('legalEntityId', legalEntityId)
@@ -241,11 +169,6 @@ class _$BusinessLine extends BusinessLine {
 class BusinessLineBuilder
     implements Builder<BusinessLine, BusinessLineBuilder> {
   _$BusinessLine? _$v;
-
-  BusinessLineCapabilityEnum? _capability;
-  BusinessLineCapabilityEnum? get capability => _$this._capability;
-  set capability(BusinessLineCapabilityEnum? capability) =>
-      _$this._capability = capability;
 
   String? _id;
   String? get id => _$this._id;
@@ -300,7 +223,6 @@ class BusinessLineBuilder
   BusinessLineBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _capability = $v.capability;
       _id = $v.id;
       _industryCode = $v.industryCode;
       _legalEntityId = $v.legalEntityId;
@@ -334,7 +256,6 @@ class BusinessLineBuilder
       _$result =
           _$v ??
           _$BusinessLine._(
-            capability: capability,
             id: BuiltValueNullFieldError.checkNotNull(
               id,
               r'BusinessLine',

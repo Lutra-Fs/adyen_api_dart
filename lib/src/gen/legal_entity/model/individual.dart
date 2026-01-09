@@ -7,6 +7,7 @@ import 'package:adyen_api/src/gen/legal_entity/model/address.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:adyen_api/src/gen/legal_entity/model/identification_data.dart';
 import 'package:adyen_api/src/gen/legal_entity/model/phone_number.dart';
+import 'package:adyen_api/src/gen/legal_entity/model/support.dart';
 import 'package:adyen_api/src/gen/legal_entity/model/tax_information.dart';
 import 'package:adyen_api/src/gen/legal_entity/model/web_data.dart';
 import 'package:adyen_api/src/gen/legal_entity/model/name.dart';
@@ -26,6 +27,7 @@ part 'individual.g.dart';
 /// * [nationality] - The individual's nationality.
 /// * [phone] - The phone number of the legal entity.
 /// * [residentialAddress] - The residential address of the individual.
+/// * [support] - Support information for the legal entity. Required if you have a platform setup.
 /// * [taxInformation] - The tax information of the individual.
 /// * [webData] - The website and app URL of the legal entity.
 @BuiltValue()
@@ -57,6 +59,10 @@ abstract class Individual implements Built<Individual, IndividualBuilder> {
   /// The residential address of the individual.
   @BuiltValueField(wireName: r'residentialAddress')
   Address get residentialAddress;
+
+  /// Support information for the legal entity. Required if you have a platform setup.
+  @BuiltValueField(wireName: r'support')
+  Support? get support;
 
   /// The tax information of the individual.
   @BuiltValueField(wireName: r'taxInformation')
@@ -135,6 +141,13 @@ class _$IndividualSerializer implements PrimitiveSerializer<Individual> {
       object.residentialAddress,
       specifiedType: const FullType(Address),
     );
+    if (object.support != null) {
+      yield r'support';
+      yield serializers.serialize(
+        object.support,
+        specifiedType: const FullType(Support),
+      );
+    }
     if (object.taxInformation != null) {
       yield r'taxInformation';
       yield serializers.serialize(
@@ -220,6 +233,13 @@ class _$IndividualSerializer implements PrimitiveSerializer<Individual> {
             specifiedType: const FullType(Address),
           ) as Address;
           result.residentialAddress.replace(valueDes);
+          break;
+        case r'support':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(Support),
+          ) as Support;
+          result.support.replace(valueDes);
           break;
         case r'taxInformation':
           final valueDes = serializers.deserialize(
