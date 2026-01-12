@@ -784,6 +784,42 @@ class PaymentRequestPaymentMethodTypeEnum extends EnumClass {
   @BuiltValueEnumConst(wireName: r'sepadirectdebit_amazonpay')
   static const PaymentRequestPaymentMethodTypeEnum sepadirectdebitAmazonpay = _$paymentRequestPaymentMethodTypeEnum_sepadirectdebitAmazonpay;
   /// **ach**
+  @BuiltValueEnumConst(wireName: r'alipay_plus')
+  static const PaymentRequestPaymentMethodTypeEnum alipayPlus = _$paymentRequestPaymentMethodTypeEnum_alipayPlus;
+  /// **ach**
+  @BuiltValueEnumConst(wireName: r'alipay_plus_alipay_cn')
+  static const PaymentRequestPaymentMethodTypeEnum alipayPlusAlipayCn = _$paymentRequestPaymentMethodTypeEnum_alipayPlusAlipayCn;
+  /// **ach**
+  @BuiltValueEnumConst(wireName: r'alipay_plus_alipay_hk')
+  static const PaymentRequestPaymentMethodTypeEnum alipayPlusAlipayHk = _$paymentRequestPaymentMethodTypeEnum_alipayPlusAlipayHk;
+  /// **ach**
+  @BuiltValueEnumConst(wireName: r'alipay_plus_dana')
+  static const PaymentRequestPaymentMethodTypeEnum alipayPlusDana = _$paymentRequestPaymentMethodTypeEnum_alipayPlusDana;
+  /// **ach**
+  @BuiltValueEnumConst(wireName: r'alipay_plus_gcash')
+  static const PaymentRequestPaymentMethodTypeEnum alipayPlusGcash = _$paymentRequestPaymentMethodTypeEnum_alipayPlusGcash;
+  /// **ach**
+  @BuiltValueEnumConst(wireName: r'alipay_plus_kakaopay')
+  static const PaymentRequestPaymentMethodTypeEnum alipayPlusKakaopay = _$paymentRequestPaymentMethodTypeEnum_alipayPlusKakaopay;
+  /// **ach**
+  @BuiltValueEnumConst(wireName: r'alipay_plus_kplus')
+  static const PaymentRequestPaymentMethodTypeEnum alipayPlusKplus = _$paymentRequestPaymentMethodTypeEnum_alipayPlusKplus;
+  /// **ach**
+  @BuiltValueEnumConst(wireName: r'alipay_plus_naverpay')
+  static const PaymentRequestPaymentMethodTypeEnum alipayPlusNaverpay = _$paymentRequestPaymentMethodTypeEnum_alipayPlusNaverpay;
+  /// **ach**
+  @BuiltValueEnumConst(wireName: r'alipay_plus_rabbitlinepay')
+  static const PaymentRequestPaymentMethodTypeEnum alipayPlusRabbitlinepay = _$paymentRequestPaymentMethodTypeEnum_alipayPlusRabbitlinepay;
+  /// **ach**
+  @BuiltValueEnumConst(wireName: r'alipay_plus_tosspay')
+  static const PaymentRequestPaymentMethodTypeEnum alipayPlusTosspay = _$paymentRequestPaymentMethodTypeEnum_alipayPlusTosspay;
+  /// **ach**
+  @BuiltValueEnumConst(wireName: r'alipay_plus_touchngo')
+  static const PaymentRequestPaymentMethodTypeEnum alipayPlusTouchngo = _$paymentRequestPaymentMethodTypeEnum_alipayPlusTouchngo;
+  /// **ach**
+  @BuiltValueEnumConst(wireName: r'alipay_plus_truemoney')
+  static const PaymentRequestPaymentMethodTypeEnum alipayPlusTruemoney = _$paymentRequestPaymentMethodTypeEnum_alipayPlusTruemoney;
+  /// **ach**
   @BuiltValueEnumConst(wireName: r'bcmc_mobile')
   static const PaymentRequestPaymentMethodTypeEnum bcmcMobile = _$paymentRequestPaymentMethodTypeEnum_bcmcMobile;
   /// **ach**

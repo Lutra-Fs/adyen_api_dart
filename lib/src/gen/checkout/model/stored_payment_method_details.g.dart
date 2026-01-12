@@ -7,6 +7,42 @@ part of 'stored_payment_method_details.dart';
 // **************************************************************************
 
 const StoredPaymentMethodDetailsTypeEnum
+_$storedPaymentMethodDetailsTypeEnum_alipayPlus =
+    const StoredPaymentMethodDetailsTypeEnum._('alipayPlus');
+const StoredPaymentMethodDetailsTypeEnum
+_$storedPaymentMethodDetailsTypeEnum_alipayPlusAlipayCn =
+    const StoredPaymentMethodDetailsTypeEnum._('alipayPlusAlipayCn');
+const StoredPaymentMethodDetailsTypeEnum
+_$storedPaymentMethodDetailsTypeEnum_alipayPlusAlipayHk =
+    const StoredPaymentMethodDetailsTypeEnum._('alipayPlusAlipayHk');
+const StoredPaymentMethodDetailsTypeEnum
+_$storedPaymentMethodDetailsTypeEnum_alipayPlusDana =
+    const StoredPaymentMethodDetailsTypeEnum._('alipayPlusDana');
+const StoredPaymentMethodDetailsTypeEnum
+_$storedPaymentMethodDetailsTypeEnum_alipayPlusGcash =
+    const StoredPaymentMethodDetailsTypeEnum._('alipayPlusGcash');
+const StoredPaymentMethodDetailsTypeEnum
+_$storedPaymentMethodDetailsTypeEnum_alipayPlusKakaopay =
+    const StoredPaymentMethodDetailsTypeEnum._('alipayPlusKakaopay');
+const StoredPaymentMethodDetailsTypeEnum
+_$storedPaymentMethodDetailsTypeEnum_alipayPlusKplus =
+    const StoredPaymentMethodDetailsTypeEnum._('alipayPlusKplus');
+const StoredPaymentMethodDetailsTypeEnum
+_$storedPaymentMethodDetailsTypeEnum_alipayPlusNaverpay =
+    const StoredPaymentMethodDetailsTypeEnum._('alipayPlusNaverpay');
+const StoredPaymentMethodDetailsTypeEnum
+_$storedPaymentMethodDetailsTypeEnum_alipayPlusRabbitlinepay =
+    const StoredPaymentMethodDetailsTypeEnum._('alipayPlusRabbitlinepay');
+const StoredPaymentMethodDetailsTypeEnum
+_$storedPaymentMethodDetailsTypeEnum_alipayPlusTosspay =
+    const StoredPaymentMethodDetailsTypeEnum._('alipayPlusTosspay');
+const StoredPaymentMethodDetailsTypeEnum
+_$storedPaymentMethodDetailsTypeEnum_alipayPlusTouchngo =
+    const StoredPaymentMethodDetailsTypeEnum._('alipayPlusTouchngo');
+const StoredPaymentMethodDetailsTypeEnum
+_$storedPaymentMethodDetailsTypeEnum_alipayPlusTruemoney =
+    const StoredPaymentMethodDetailsTypeEnum._('alipayPlusTruemoney');
+const StoredPaymentMethodDetailsTypeEnum
 _$storedPaymentMethodDetailsTypeEnum_bcmcMobile =
     const StoredPaymentMethodDetailsTypeEnum._('bcmcMobile');
 const StoredPaymentMethodDetailsTypeEnum
@@ -68,6 +104,30 @@ StoredPaymentMethodDetailsTypeEnum _$storedPaymentMethodDetailsTypeEnumValueOf(
   String name,
 ) {
   switch (name) {
+    case 'alipayPlus':
+      return _$storedPaymentMethodDetailsTypeEnum_alipayPlus;
+    case 'alipayPlusAlipayCn':
+      return _$storedPaymentMethodDetailsTypeEnum_alipayPlusAlipayCn;
+    case 'alipayPlusAlipayHk':
+      return _$storedPaymentMethodDetailsTypeEnum_alipayPlusAlipayHk;
+    case 'alipayPlusDana':
+      return _$storedPaymentMethodDetailsTypeEnum_alipayPlusDana;
+    case 'alipayPlusGcash':
+      return _$storedPaymentMethodDetailsTypeEnum_alipayPlusGcash;
+    case 'alipayPlusKakaopay':
+      return _$storedPaymentMethodDetailsTypeEnum_alipayPlusKakaopay;
+    case 'alipayPlusKplus':
+      return _$storedPaymentMethodDetailsTypeEnum_alipayPlusKplus;
+    case 'alipayPlusNaverpay':
+      return _$storedPaymentMethodDetailsTypeEnum_alipayPlusNaverpay;
+    case 'alipayPlusRabbitlinepay':
+      return _$storedPaymentMethodDetailsTypeEnum_alipayPlusRabbitlinepay;
+    case 'alipayPlusTosspay':
+      return _$storedPaymentMethodDetailsTypeEnum_alipayPlusTosspay;
+    case 'alipayPlusTouchngo':
+      return _$storedPaymentMethodDetailsTypeEnum_alipayPlusTouchngo;
+    case 'alipayPlusTruemoney':
+      return _$storedPaymentMethodDetailsTypeEnum_alipayPlusTruemoney;
     case 'bcmcMobile':
       return _$storedPaymentMethodDetailsTypeEnum_bcmcMobile;
     case 'bcmcMobileQR':
@@ -115,6 +175,18 @@ final BuiltSet<StoredPaymentMethodDetailsTypeEnum>
 _$storedPaymentMethodDetailsTypeEnumValues =
     BuiltSet<StoredPaymentMethodDetailsTypeEnum>(
       const <StoredPaymentMethodDetailsTypeEnum>[
+        _$storedPaymentMethodDetailsTypeEnum_alipayPlus,
+        _$storedPaymentMethodDetailsTypeEnum_alipayPlusAlipayCn,
+        _$storedPaymentMethodDetailsTypeEnum_alipayPlusAlipayHk,
+        _$storedPaymentMethodDetailsTypeEnum_alipayPlusDana,
+        _$storedPaymentMethodDetailsTypeEnum_alipayPlusGcash,
+        _$storedPaymentMethodDetailsTypeEnum_alipayPlusKakaopay,
+        _$storedPaymentMethodDetailsTypeEnum_alipayPlusKplus,
+        _$storedPaymentMethodDetailsTypeEnum_alipayPlusNaverpay,
+        _$storedPaymentMethodDetailsTypeEnum_alipayPlusRabbitlinepay,
+        _$storedPaymentMethodDetailsTypeEnum_alipayPlusTosspay,
+        _$storedPaymentMethodDetailsTypeEnum_alipayPlusTouchngo,
+        _$storedPaymentMethodDetailsTypeEnum_alipayPlusTruemoney,
         _$storedPaymentMethodDetailsTypeEnum_bcmcMobile,
         _$storedPaymentMethodDetailsTypeEnum_bcmcMobileQR,
         _$storedPaymentMethodDetailsTypeEnum_bcmcMobileApp,
@@ -144,6 +216,18 @@ _$storedPaymentMethodDetailsTypeEnumSerializer =
 class _$StoredPaymentMethodDetailsTypeEnumSerializer
     implements PrimitiveSerializer<StoredPaymentMethodDetailsTypeEnum> {
   static const Map<String, Object> _toWire = const <String, Object>{
+    'alipayPlus': 'alipay_plus',
+    'alipayPlusAlipayCn': 'alipay_plus_alipay_cn',
+    'alipayPlusAlipayHk': 'alipay_plus_alipay_hk',
+    'alipayPlusDana': 'alipay_plus_dana',
+    'alipayPlusGcash': 'alipay_plus_gcash',
+    'alipayPlusKakaopay': 'alipay_plus_kakaopay',
+    'alipayPlusKplus': 'alipay_plus_kplus',
+    'alipayPlusNaverpay': 'alipay_plus_naverpay',
+    'alipayPlusRabbitlinepay': 'alipay_plus_rabbitlinepay',
+    'alipayPlusTosspay': 'alipay_plus_tosspay',
+    'alipayPlusTouchngo': 'alipay_plus_touchngo',
+    'alipayPlusTruemoney': 'alipay_plus_truemoney',
     'bcmcMobile': 'bcmc_mobile',
     'bcmcMobileQR': 'bcmc_mobile_QR',
     'bcmcMobileApp': 'bcmc_mobile_app',
@@ -165,6 +249,18 @@ class _$StoredPaymentMethodDetailsTypeEnumSerializer
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
+    'alipay_plus': 'alipayPlus',
+    'alipay_plus_alipay_cn': 'alipayPlusAlipayCn',
+    'alipay_plus_alipay_hk': 'alipayPlusAlipayHk',
+    'alipay_plus_dana': 'alipayPlusDana',
+    'alipay_plus_gcash': 'alipayPlusGcash',
+    'alipay_plus_kakaopay': 'alipayPlusKakaopay',
+    'alipay_plus_kplus': 'alipayPlusKplus',
+    'alipay_plus_naverpay': 'alipayPlusNaverpay',
+    'alipay_plus_rabbitlinepay': 'alipayPlusRabbitlinepay',
+    'alipay_plus_tosspay': 'alipayPlusTosspay',
+    'alipay_plus_touchngo': 'alipayPlusTouchngo',
+    'alipay_plus_truemoney': 'alipayPlusTruemoney',
     'bcmc_mobile': 'bcmcMobile',
     'bcmc_mobile_QR': 'bcmcMobileQR',
     'bcmc_mobile_app': 'bcmcMobileApp',

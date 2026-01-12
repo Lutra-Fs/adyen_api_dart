@@ -8,6 +8,8 @@ part of 'checkout_forward_response.dart';
 
 class _$CheckoutForwardResponse extends CheckoutForwardResponse {
   @override
+  final String? merchantReference;
+  @override
   final String? pspReference;
   @override
   final CheckoutForwardResponseFromUrl response;
@@ -19,6 +21,7 @@ class _$CheckoutForwardResponse extends CheckoutForwardResponse {
   ]) => (CheckoutForwardResponseBuilder()..update(updates))._build();
 
   _$CheckoutForwardResponse._({
+    this.merchantReference,
     this.pspReference,
     required this.response,
     this.storedPaymentMethodId,
@@ -36,6 +39,7 @@ class _$CheckoutForwardResponse extends CheckoutForwardResponse {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is CheckoutForwardResponse &&
+        merchantReference == other.merchantReference &&
         pspReference == other.pspReference &&
         response == other.response &&
         storedPaymentMethodId == other.storedPaymentMethodId;
@@ -44,6 +48,7 @@ class _$CheckoutForwardResponse extends CheckoutForwardResponse {
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, merchantReference.hashCode);
     _$hash = $jc(_$hash, pspReference.hashCode);
     _$hash = $jc(_$hash, response.hashCode);
     _$hash = $jc(_$hash, storedPaymentMethodId.hashCode);
@@ -54,6 +59,7 @@ class _$CheckoutForwardResponse extends CheckoutForwardResponse {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'CheckoutForwardResponse')
+          ..add('merchantReference', merchantReference)
           ..add('pspReference', pspReference)
           ..add('response', response)
           ..add('storedPaymentMethodId', storedPaymentMethodId))
@@ -65,6 +71,11 @@ class CheckoutForwardResponseBuilder
     implements
         Builder<CheckoutForwardResponse, CheckoutForwardResponseBuilder> {
   _$CheckoutForwardResponse? _$v;
+
+  String? _merchantReference;
+  String? get merchantReference => _$this._merchantReference;
+  set merchantReference(String? merchantReference) =>
+      _$this._merchantReference = merchantReference;
 
   String? _pspReference;
   String? get pspReference => _$this._pspReference;
@@ -88,6 +99,7 @@ class CheckoutForwardResponseBuilder
   CheckoutForwardResponseBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _merchantReference = $v.merchantReference;
       _pspReference = $v.pspReference;
       _response = $v.response.toBuilder();
       _storedPaymentMethodId = $v.storedPaymentMethodId;
@@ -115,6 +127,7 @@ class CheckoutForwardResponseBuilder
       _$result =
           _$v ??
           _$CheckoutForwardResponse._(
+            merchantReference: merchantReference,
             pspReference: pspReference,
             response: response.build(),
             storedPaymentMethodId: storedPaymentMethodId,

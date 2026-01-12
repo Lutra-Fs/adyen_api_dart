@@ -12,6 +12,8 @@ class _$CheckoutForwardRequest extends CheckoutForwardRequest {
   @override
   final String merchantAccount;
   @override
+  final String? merchantReference;
+  @override
   final CheckoutForwardRequestOptions? options;
   @override
   final CheckoutForwardRequestCard? paymentMethod;
@@ -29,6 +31,7 @@ class _$CheckoutForwardRequest extends CheckoutForwardRequest {
   _$CheckoutForwardRequest._({
     required this.baseUrl,
     required this.merchantAccount,
+    this.merchantReference,
     this.options,
     this.paymentMethod,
     required this.request,
@@ -50,6 +53,7 @@ class _$CheckoutForwardRequest extends CheckoutForwardRequest {
     return other is CheckoutForwardRequest &&
         baseUrl == other.baseUrl &&
         merchantAccount == other.merchantAccount &&
+        merchantReference == other.merchantReference &&
         options == other.options &&
         paymentMethod == other.paymentMethod &&
         request == other.request &&
@@ -62,6 +66,7 @@ class _$CheckoutForwardRequest extends CheckoutForwardRequest {
     var _$hash = 0;
     _$hash = $jc(_$hash, baseUrl.hashCode);
     _$hash = $jc(_$hash, merchantAccount.hashCode);
+    _$hash = $jc(_$hash, merchantReference.hashCode);
     _$hash = $jc(_$hash, options.hashCode);
     _$hash = $jc(_$hash, paymentMethod.hashCode);
     _$hash = $jc(_$hash, request.hashCode);
@@ -76,6 +81,7 @@ class _$CheckoutForwardRequest extends CheckoutForwardRequest {
     return (newBuiltValueToStringHelper(r'CheckoutForwardRequest')
           ..add('baseUrl', baseUrl)
           ..add('merchantAccount', merchantAccount)
+          ..add('merchantReference', merchantReference)
           ..add('options', options)
           ..add('paymentMethod', paymentMethod)
           ..add('request', request)
@@ -97,6 +103,11 @@ class CheckoutForwardRequestBuilder
   String? get merchantAccount => _$this._merchantAccount;
   set merchantAccount(String? merchantAccount) =>
       _$this._merchantAccount = merchantAccount;
+
+  String? _merchantReference;
+  String? get merchantReference => _$this._merchantReference;
+  set merchantReference(String? merchantReference) =>
+      _$this._merchantReference = merchantReference;
 
   CheckoutForwardRequestOptionsBuilder? _options;
   CheckoutForwardRequestOptionsBuilder get options =>
@@ -135,6 +146,7 @@ class CheckoutForwardRequestBuilder
     if ($v != null) {
       _baseUrl = $v.baseUrl;
       _merchantAccount = $v.merchantAccount;
+      _merchantReference = $v.merchantReference;
       _options = $v.options?.toBuilder();
       _paymentMethod = $v.paymentMethod?.toBuilder();
       _request = $v.request.toBuilder();
@@ -174,6 +186,7 @@ class CheckoutForwardRequestBuilder
               r'CheckoutForwardRequest',
               'merchantAccount',
             ),
+            merchantReference: merchantReference,
             options: _options?.build(),
             paymentMethod: _paymentMethod?.build(),
             request: request.build(),

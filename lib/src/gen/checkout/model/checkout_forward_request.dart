@@ -16,6 +16,7 @@ part 'checkout_forward_request.g.dart';
 /// Properties:
 /// * [baseUrl] - The base URL of the third party API, where Adyen will send the request to forward the payment details.
 /// * [merchantAccount] - Your merchant account.
+/// * [merchantReference] - Merchant defined payment reference.
 /// * [options] - The customizations that can be applied when making a forward request.
 /// * [paymentMethod] - The card details.
 /// * [request] - The [details of the request](https://docs.adyen.com/online-payments/tokenization/forward-payment-details#request-to-adyen-card) that you want to forward to the third-party.
@@ -30,6 +31,10 @@ abstract class CheckoutForwardRequest implements Built<CheckoutForwardRequest, C
   /// Your merchant account.
   @BuiltValueField(wireName: r'merchantAccount')
   String get merchantAccount;
+
+  /// Merchant defined payment reference.
+  @BuiltValueField(wireName: r'merchantReference')
+  String? get merchantReference;
 
   /// The customizations that can be applied when making a forward request.
   @BuiltValueField(wireName: r'options')
@@ -84,6 +89,13 @@ class _$CheckoutForwardRequestSerializer implements PrimitiveSerializer<Checkout
       object.merchantAccount,
       specifiedType: const FullType(String),
     );
+    if (object.merchantReference != null) {
+      yield r'merchantReference';
+      yield serializers.serialize(
+        object.merchantReference,
+        specifiedType: const FullType(String),
+      );
+    }
     if (object.options != null) {
       yield r'options';
       yield serializers.serialize(
@@ -151,6 +163,13 @@ class _$CheckoutForwardRequestSerializer implements PrimitiveSerializer<Checkout
             specifiedType: const FullType(String),
           ) as String;
           result.merchantAccount = valueDes;
+          break;
+        case r'merchantReference':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.merchantReference = valueDes;
           break;
         case r'options':
           final valueDes = serializers.deserialize(

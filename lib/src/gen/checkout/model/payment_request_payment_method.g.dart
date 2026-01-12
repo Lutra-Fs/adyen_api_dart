@@ -634,6 +634,42 @@ const PaymentRequestPaymentMethodTypeEnum
 _$paymentRequestPaymentMethodTypeEnum_sepadirectdebitAmazonpay =
     const PaymentRequestPaymentMethodTypeEnum._('sepadirectdebitAmazonpay');
 const PaymentRequestPaymentMethodTypeEnum
+_$paymentRequestPaymentMethodTypeEnum_alipayPlus =
+    const PaymentRequestPaymentMethodTypeEnum._('alipayPlus');
+const PaymentRequestPaymentMethodTypeEnum
+_$paymentRequestPaymentMethodTypeEnum_alipayPlusAlipayCn =
+    const PaymentRequestPaymentMethodTypeEnum._('alipayPlusAlipayCn');
+const PaymentRequestPaymentMethodTypeEnum
+_$paymentRequestPaymentMethodTypeEnum_alipayPlusAlipayHk =
+    const PaymentRequestPaymentMethodTypeEnum._('alipayPlusAlipayHk');
+const PaymentRequestPaymentMethodTypeEnum
+_$paymentRequestPaymentMethodTypeEnum_alipayPlusDana =
+    const PaymentRequestPaymentMethodTypeEnum._('alipayPlusDana');
+const PaymentRequestPaymentMethodTypeEnum
+_$paymentRequestPaymentMethodTypeEnum_alipayPlusGcash =
+    const PaymentRequestPaymentMethodTypeEnum._('alipayPlusGcash');
+const PaymentRequestPaymentMethodTypeEnum
+_$paymentRequestPaymentMethodTypeEnum_alipayPlusKakaopay =
+    const PaymentRequestPaymentMethodTypeEnum._('alipayPlusKakaopay');
+const PaymentRequestPaymentMethodTypeEnum
+_$paymentRequestPaymentMethodTypeEnum_alipayPlusKplus =
+    const PaymentRequestPaymentMethodTypeEnum._('alipayPlusKplus');
+const PaymentRequestPaymentMethodTypeEnum
+_$paymentRequestPaymentMethodTypeEnum_alipayPlusNaverpay =
+    const PaymentRequestPaymentMethodTypeEnum._('alipayPlusNaverpay');
+const PaymentRequestPaymentMethodTypeEnum
+_$paymentRequestPaymentMethodTypeEnum_alipayPlusRabbitlinepay =
+    const PaymentRequestPaymentMethodTypeEnum._('alipayPlusRabbitlinepay');
+const PaymentRequestPaymentMethodTypeEnum
+_$paymentRequestPaymentMethodTypeEnum_alipayPlusTosspay =
+    const PaymentRequestPaymentMethodTypeEnum._('alipayPlusTosspay');
+const PaymentRequestPaymentMethodTypeEnum
+_$paymentRequestPaymentMethodTypeEnum_alipayPlusTouchngo =
+    const PaymentRequestPaymentMethodTypeEnum._('alipayPlusTouchngo');
+const PaymentRequestPaymentMethodTypeEnum
+_$paymentRequestPaymentMethodTypeEnum_alipayPlusTruemoney =
+    const PaymentRequestPaymentMethodTypeEnum._('alipayPlusTruemoney');
+const PaymentRequestPaymentMethodTypeEnum
 _$paymentRequestPaymentMethodTypeEnum_bcmcMobile =
     const PaymentRequestPaymentMethodTypeEnum._('bcmcMobile');
 const PaymentRequestPaymentMethodTypeEnum
@@ -1077,6 +1113,30 @@ _$paymentRequestPaymentMethodTypeEnumValueOf(String name) {
       return _$paymentRequestPaymentMethodTypeEnum_sepadirectdebit;
     case 'sepadirectdebitAmazonpay':
       return _$paymentRequestPaymentMethodTypeEnum_sepadirectdebitAmazonpay;
+    case 'alipayPlus':
+      return _$paymentRequestPaymentMethodTypeEnum_alipayPlus;
+    case 'alipayPlusAlipayCn':
+      return _$paymentRequestPaymentMethodTypeEnum_alipayPlusAlipayCn;
+    case 'alipayPlusAlipayHk':
+      return _$paymentRequestPaymentMethodTypeEnum_alipayPlusAlipayHk;
+    case 'alipayPlusDana':
+      return _$paymentRequestPaymentMethodTypeEnum_alipayPlusDana;
+    case 'alipayPlusGcash':
+      return _$paymentRequestPaymentMethodTypeEnum_alipayPlusGcash;
+    case 'alipayPlusKakaopay':
+      return _$paymentRequestPaymentMethodTypeEnum_alipayPlusKakaopay;
+    case 'alipayPlusKplus':
+      return _$paymentRequestPaymentMethodTypeEnum_alipayPlusKplus;
+    case 'alipayPlusNaverpay':
+      return _$paymentRequestPaymentMethodTypeEnum_alipayPlusNaverpay;
+    case 'alipayPlusRabbitlinepay':
+      return _$paymentRequestPaymentMethodTypeEnum_alipayPlusRabbitlinepay;
+    case 'alipayPlusTosspay':
+      return _$paymentRequestPaymentMethodTypeEnum_alipayPlusTosspay;
+    case 'alipayPlusTouchngo':
+      return _$paymentRequestPaymentMethodTypeEnum_alipayPlusTouchngo;
+    case 'alipayPlusTruemoney':
+      return _$paymentRequestPaymentMethodTypeEnum_alipayPlusTruemoney;
     case 'bcmcMobile':
       return _$paymentRequestPaymentMethodTypeEnum_bcmcMobile;
     case 'bcmcMobileQR':
@@ -1321,6 +1381,18 @@ _$paymentRequestPaymentMethodTypeEnumValues =
         _$paymentRequestPaymentMethodTypeEnum_samsungpay,
         _$paymentRequestPaymentMethodTypeEnum_sepadirectdebit,
         _$paymentRequestPaymentMethodTypeEnum_sepadirectdebitAmazonpay,
+        _$paymentRequestPaymentMethodTypeEnum_alipayPlus,
+        _$paymentRequestPaymentMethodTypeEnum_alipayPlusAlipayCn,
+        _$paymentRequestPaymentMethodTypeEnum_alipayPlusAlipayHk,
+        _$paymentRequestPaymentMethodTypeEnum_alipayPlusDana,
+        _$paymentRequestPaymentMethodTypeEnum_alipayPlusGcash,
+        _$paymentRequestPaymentMethodTypeEnum_alipayPlusKakaopay,
+        _$paymentRequestPaymentMethodTypeEnum_alipayPlusKplus,
+        _$paymentRequestPaymentMethodTypeEnum_alipayPlusNaverpay,
+        _$paymentRequestPaymentMethodTypeEnum_alipayPlusRabbitlinepay,
+        _$paymentRequestPaymentMethodTypeEnum_alipayPlusTosspay,
+        _$paymentRequestPaymentMethodTypeEnum_alipayPlusTouchngo,
+        _$paymentRequestPaymentMethodTypeEnum_alipayPlusTruemoney,
         _$paymentRequestPaymentMethodTypeEnum_bcmcMobile,
         _$paymentRequestPaymentMethodTypeEnum_bcmcMobileQR,
         _$paymentRequestPaymentMethodTypeEnum_bcmcMobileApp,
@@ -1673,6 +1745,18 @@ class _$PaymentRequestPaymentMethodTypeEnumSerializer
     'samsungpay': 'samsungpay',
     'sepadirectdebit': 'sepadirectdebit',
     'sepadirectdebitAmazonpay': 'sepadirectdebit_amazonpay',
+    'alipayPlus': 'alipay_plus',
+    'alipayPlusAlipayCn': 'alipay_plus_alipay_cn',
+    'alipayPlusAlipayHk': 'alipay_plus_alipay_hk',
+    'alipayPlusDana': 'alipay_plus_dana',
+    'alipayPlusGcash': 'alipay_plus_gcash',
+    'alipayPlusKakaopay': 'alipay_plus_kakaopay',
+    'alipayPlusKplus': 'alipay_plus_kplus',
+    'alipayPlusNaverpay': 'alipay_plus_naverpay',
+    'alipayPlusRabbitlinepay': 'alipay_plus_rabbitlinepay',
+    'alipayPlusTosspay': 'alipay_plus_tosspay',
+    'alipayPlusTouchngo': 'alipay_plus_touchngo',
+    'alipayPlusTruemoney': 'alipay_plus_truemoney',
     'bcmcMobile': 'bcmc_mobile',
     'bcmcMobileQR': 'bcmc_mobile_QR',
     'bcmcMobileApp': 'bcmc_mobile_app',
@@ -1880,6 +1964,18 @@ class _$PaymentRequestPaymentMethodTypeEnumSerializer
     'samsungpay': 'samsungpay',
     'sepadirectdebit': 'sepadirectdebit',
     'sepadirectdebit_amazonpay': 'sepadirectdebitAmazonpay',
+    'alipay_plus': 'alipayPlus',
+    'alipay_plus_alipay_cn': 'alipayPlusAlipayCn',
+    'alipay_plus_alipay_hk': 'alipayPlusAlipayHk',
+    'alipay_plus_dana': 'alipayPlusDana',
+    'alipay_plus_gcash': 'alipayPlusGcash',
+    'alipay_plus_kakaopay': 'alipayPlusKakaopay',
+    'alipay_plus_kplus': 'alipayPlusKplus',
+    'alipay_plus_naverpay': 'alipayPlusNaverpay',
+    'alipay_plus_rabbitlinepay': 'alipayPlusRabbitlinepay',
+    'alipay_plus_tosspay': 'alipayPlusTosspay',
+    'alipay_plus_touchngo': 'alipayPlusTouchngo',
+    'alipay_plus_truemoney': 'alipayPlusTruemoney',
     'bcmc_mobile': 'bcmcMobile',
     'bcmc_mobile_QR': 'bcmcMobileQR',
     'bcmc_mobile_app': 'bcmcMobileApp',
