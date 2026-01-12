@@ -10,6 +10,8 @@ class _$StoredPaymentMethodResource extends StoredPaymentMethodResource {
   @override
   final String? brand;
   @override
+  final String? cardBin;
+  @override
   final String? expiryMonth;
   @override
   final String? expiryYear;
@@ -50,6 +52,7 @@ class _$StoredPaymentMethodResource extends StoredPaymentMethodResource {
 
   _$StoredPaymentMethodResource._({
     this.brand,
+    this.cardBin,
     this.expiryMonth,
     this.expiryYear,
     this.externalResponseCode,
@@ -82,6 +85,7 @@ class _$StoredPaymentMethodResource extends StoredPaymentMethodResource {
     if (identical(other, this)) return true;
     return other is StoredPaymentMethodResource &&
         brand == other.brand &&
+        cardBin == other.cardBin &&
         expiryMonth == other.expiryMonth &&
         expiryYear == other.expiryYear &&
         externalResponseCode == other.externalResponseCode &&
@@ -106,6 +110,7 @@ class _$StoredPaymentMethodResource extends StoredPaymentMethodResource {
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, brand.hashCode);
+    _$hash = $jc(_$hash, cardBin.hashCode);
     _$hash = $jc(_$hash, expiryMonth.hashCode);
     _$hash = $jc(_$hash, expiryYear.hashCode);
     _$hash = $jc(_$hash, externalResponseCode.hashCode);
@@ -131,6 +136,7 @@ class _$StoredPaymentMethodResource extends StoredPaymentMethodResource {
   String toString() {
     return (newBuiltValueToStringHelper(r'StoredPaymentMethodResource')
           ..add('brand', brand)
+          ..add('cardBin', cardBin)
           ..add('expiryMonth', expiryMonth)
           ..add('expiryYear', expiryYear)
           ..add('externalResponseCode', externalResponseCode)
@@ -166,6 +172,10 @@ class StoredPaymentMethodResourceBuilder
   String? _brand;
   String? get brand => _$this._brand;
   set brand(String? brand) => _$this._brand = brand;
+
+  String? _cardBin;
+  String? get cardBin => _$this._cardBin;
+  set cardBin(String? cardBin) => _$this._cardBin = cardBin;
 
   String? _expiryMonth;
   String? get expiryMonth => _$this._expiryMonth;
@@ -251,6 +261,7 @@ class StoredPaymentMethodResourceBuilder
     final $v = _$v;
     if ($v != null) {
       _brand = $v.brand;
+      _cardBin = $v.cardBin;
       _expiryMonth = $v.expiryMonth;
       _expiryYear = $v.expiryYear;
       _externalResponseCode = $v.externalResponseCode;
@@ -295,6 +306,7 @@ class StoredPaymentMethodResourceBuilder
           _$v ??
           _$StoredPaymentMethodResource._(
             brand: brand,
+            cardBin: cardBin,
             expiryMonth: expiryMonth,
             expiryYear: expiryYear,
             externalResponseCode: externalResponseCode,

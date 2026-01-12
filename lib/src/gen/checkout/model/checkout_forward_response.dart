@@ -12,11 +12,16 @@ part 'checkout_forward_response.g.dart';
 /// CheckoutForwardResponse
 ///
 /// Properties:
+/// * [merchantReference] - Merchant defined payment reference.
 /// * [pspReference] - Adyen's 16-character reference associated with the transaction/request. This value is globally unique. Use this reference when you communicate with us about this request.
 /// * [response] - The details of the response Adyen received from the third party.
 /// * [storedPaymentMethodId] - The unique identifier of the token.
 @BuiltValue()
 abstract class CheckoutForwardResponse implements Built<CheckoutForwardResponse, CheckoutForwardResponseBuilder> {
+  /// Merchant defined payment reference.
+  @BuiltValueField(wireName: r'merchantReference')
+  String? get merchantReference;
+
   /// Adyen's 16-character reference associated with the transaction/request. This value is globally unique. Use this reference when you communicate with us about this request.
   @BuiltValueField(wireName: r'pspReference')
   String? get pspReference;
@@ -52,6 +57,13 @@ class _$CheckoutForwardResponseSerializer implements PrimitiveSerializer<Checkou
     CheckoutForwardResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
+    if (object.merchantReference != null) {
+      yield r'merchantReference';
+      yield serializers.serialize(
+        object.merchantReference,
+        specifiedType: const FullType(String),
+      );
+    }
     if (object.pspReference != null) {
       yield r'pspReference';
       yield serializers.serialize(
@@ -94,6 +106,13 @@ class _$CheckoutForwardResponseSerializer implements PrimitiveSerializer<Checkou
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
+        case r'merchantReference':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.merchantReference = valueDes;
+          break;
         case r'pspReference':
           final valueDes = serializers.deserialize(
             value,

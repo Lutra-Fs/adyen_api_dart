@@ -14,6 +14,7 @@ part 'stored_payment_method_resource.g.dart';
 ///
 /// Properties:
 /// * [brand] - The brand of the card.
+/// * [cardBin] - The bank identification number (BIN) of the card.
 /// * [expiryMonth] - The month the card expires.
 /// * [expiryYear] - The last two digits of the year the card expires. For example, **22** for the year 2022.
 /// * [externalResponseCode] - The response code returned by an external system (for example after a provisioning operation).
@@ -36,6 +37,10 @@ abstract class StoredPaymentMethodResource implements Built<StoredPaymentMethodR
   /// The brand of the card.
   @BuiltValueField(wireName: r'brand')
   String? get brand;
+
+  /// The bank identification number (BIN) of the card.
+  @BuiltValueField(wireName: r'cardBin')
+  String? get cardBin;
 
   /// The month the card expires.
   @BuiltValueField(wireName: r'expiryMonth')
@@ -132,6 +137,13 @@ class _$StoredPaymentMethodResourceSerializer implements PrimitiveSerializer<Sto
       yield r'brand';
       yield serializers.serialize(
         object.brand,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.cardBin != null) {
+      yield r'cardBin';
+      yield serializers.serialize(
+        object.cardBin,
         specifiedType: const FullType(String),
       );
     }
@@ -283,6 +295,13 @@ class _$StoredPaymentMethodResourceSerializer implements PrimitiveSerializer<Sto
             specifiedType: const FullType(String),
           ) as String;
           result.brand = valueDes;
+          break;
+        case r'cardBin':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.cardBin = valueDes;
           break;
         case r'expiryMonth':
           final valueDes = serializers.deserialize(

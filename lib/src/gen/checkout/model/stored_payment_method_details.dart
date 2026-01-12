@@ -39,7 +39,7 @@ abstract class StoredPaymentMethodDetails implements Built<StoredPaymentMethodDe
   /// The payment method type.
   @BuiltValueField(wireName: r'type')
   StoredPaymentMethodDetailsTypeEnum? get type;
-  // enum typeEnum {  bcmc_mobile,  bcmc_mobile_QR,  bcmc_mobile_app,  momo_wallet,  momo_wallet_app,  paymaya_wallet,  grabpay_SG,  grabpay_MY,  grabpay_TH,  grabpay_ID,  grabpay_VN,  grabpay_PH,  oxxo,  gcash,  dana,  kakaopay,  truemoney,  paysafecard,  };
+  // enum typeEnum {  alipay_plus,  alipay_plus_alipay_cn,  alipay_plus_alipay_hk,  alipay_plus_dana,  alipay_plus_gcash,  alipay_plus_kakaopay,  alipay_plus_kplus,  alipay_plus_naverpay,  alipay_plus_rabbitlinepay,  alipay_plus_tosspay,  alipay_plus_touchngo,  alipay_plus_truemoney,  bcmc_mobile,  bcmc_mobile_QR,  bcmc_mobile_app,  momo_wallet,  momo_wallet_app,  paymaya_wallet,  grabpay_SG,  grabpay_MY,  grabpay_TH,  grabpay_ID,  grabpay_VN,  grabpay_PH,  oxxo,  gcash,  dana,  kakaopay,  truemoney,  paysafecard,  };
 
   StoredPaymentMethodDetails._();
 
@@ -188,6 +188,42 @@ class _$StoredPaymentMethodDetailsSerializer implements PrimitiveSerializer<Stor
 
 class StoredPaymentMethodDetailsTypeEnum extends EnumClass {
 
+  /// The payment method type.
+  @BuiltValueEnumConst(wireName: r'alipay_plus')
+  static const StoredPaymentMethodDetailsTypeEnum alipayPlus = _$storedPaymentMethodDetailsTypeEnum_alipayPlus;
+  /// The payment method type.
+  @BuiltValueEnumConst(wireName: r'alipay_plus_alipay_cn')
+  static const StoredPaymentMethodDetailsTypeEnum alipayPlusAlipayCn = _$storedPaymentMethodDetailsTypeEnum_alipayPlusAlipayCn;
+  /// The payment method type.
+  @BuiltValueEnumConst(wireName: r'alipay_plus_alipay_hk')
+  static const StoredPaymentMethodDetailsTypeEnum alipayPlusAlipayHk = _$storedPaymentMethodDetailsTypeEnum_alipayPlusAlipayHk;
+  /// The payment method type.
+  @BuiltValueEnumConst(wireName: r'alipay_plus_dana')
+  static const StoredPaymentMethodDetailsTypeEnum alipayPlusDana = _$storedPaymentMethodDetailsTypeEnum_alipayPlusDana;
+  /// The payment method type.
+  @BuiltValueEnumConst(wireName: r'alipay_plus_gcash')
+  static const StoredPaymentMethodDetailsTypeEnum alipayPlusGcash = _$storedPaymentMethodDetailsTypeEnum_alipayPlusGcash;
+  /// The payment method type.
+  @BuiltValueEnumConst(wireName: r'alipay_plus_kakaopay')
+  static const StoredPaymentMethodDetailsTypeEnum alipayPlusKakaopay = _$storedPaymentMethodDetailsTypeEnum_alipayPlusKakaopay;
+  /// The payment method type.
+  @BuiltValueEnumConst(wireName: r'alipay_plus_kplus')
+  static const StoredPaymentMethodDetailsTypeEnum alipayPlusKplus = _$storedPaymentMethodDetailsTypeEnum_alipayPlusKplus;
+  /// The payment method type.
+  @BuiltValueEnumConst(wireName: r'alipay_plus_naverpay')
+  static const StoredPaymentMethodDetailsTypeEnum alipayPlusNaverpay = _$storedPaymentMethodDetailsTypeEnum_alipayPlusNaverpay;
+  /// The payment method type.
+  @BuiltValueEnumConst(wireName: r'alipay_plus_rabbitlinepay')
+  static const StoredPaymentMethodDetailsTypeEnum alipayPlusRabbitlinepay = _$storedPaymentMethodDetailsTypeEnum_alipayPlusRabbitlinepay;
+  /// The payment method type.
+  @BuiltValueEnumConst(wireName: r'alipay_plus_tosspay')
+  static const StoredPaymentMethodDetailsTypeEnum alipayPlusTosspay = _$storedPaymentMethodDetailsTypeEnum_alipayPlusTosspay;
+  /// The payment method type.
+  @BuiltValueEnumConst(wireName: r'alipay_plus_touchngo')
+  static const StoredPaymentMethodDetailsTypeEnum alipayPlusTouchngo = _$storedPaymentMethodDetailsTypeEnum_alipayPlusTouchngo;
+  /// The payment method type.
+  @BuiltValueEnumConst(wireName: r'alipay_plus_truemoney')
+  static const StoredPaymentMethodDetailsTypeEnum alipayPlusTruemoney = _$storedPaymentMethodDetailsTypeEnum_alipayPlusTruemoney;
   /// The payment method type.
   @BuiltValueEnumConst(wireName: r'bcmc_mobile')
   static const StoredPaymentMethodDetailsTypeEnum bcmcMobile = _$storedPaymentMethodDetailsTypeEnum_bcmcMobile;
