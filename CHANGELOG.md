@@ -11,6 +11,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+## [0.3.0] - 2026-01-15
+
+### Added
+
+- **Checkout**: Added new models for checkout functionality
+  - `CheckoutForwardRequest` - Request model for checkout forward operations
+  - `CheckoutForwardResponse` - Response model for checkout forward operations
+  - `PaymentRequestPaymentMethod` - Payment method details for payment requests
+  - `StoredPaymentMethodResource` - Resource model for stored payment methods
+- **Legal Entity**: Added new models to support expanded legal entity management
+  - `Financier` - Financier entity details
+  - `Support` - Support contact information
+  - `TaxInformation` - Tax-related information model
+
+### Changed
+
+- **Adyen API Specs**: Updated OpenAPI specifications to latest versions
+  - Checkout API: Added forward payment models and enhanced stored payment method details
+  - Legal Entity API: Added support for new entity types (financier, trust, unincorporated partnership)
+  - Transfers API: Enhanced transfer data models with additional fields and category data
+  - Management API: Updated payment method models
+  - StoredValue API: Minor field updates to amount model
 - **CI**: Use Personal Access Token for automated PRs
   - Configured openapi-codegen workflow to use AUTOMATION_PAT secret
   - Automated PRs now properly trigger CI checks (required by branch ruleset)
