@@ -95,6 +95,8 @@ class _$Store extends Store {
   @override
   final String? id;
   @override
+  final LocalizedInformation? localizedInformation;
+  @override
   final String? merchantId;
   @override
   final String? phoneNumber;
@@ -119,6 +121,7 @@ class _$Store extends Store {
     this.description,
     this.externalReferenceId,
     this.id,
+    this.localizedInformation,
     this.merchantId,
     this.phoneNumber,
     this.reference,
@@ -144,6 +147,7 @@ class _$Store extends Store {
         description == other.description &&
         externalReferenceId == other.externalReferenceId &&
         id == other.id &&
+        localizedInformation == other.localizedInformation &&
         merchantId == other.merchantId &&
         phoneNumber == other.phoneNumber &&
         reference == other.reference &&
@@ -162,6 +166,7 @@ class _$Store extends Store {
     _$hash = $jc(_$hash, description.hashCode);
     _$hash = $jc(_$hash, externalReferenceId.hashCode);
     _$hash = $jc(_$hash, id.hashCode);
+    _$hash = $jc(_$hash, localizedInformation.hashCode);
     _$hash = $jc(_$hash, merchantId.hashCode);
     _$hash = $jc(_$hash, phoneNumber.hashCode);
     _$hash = $jc(_$hash, reference.hashCode);
@@ -182,6 +187,7 @@ class _$Store extends Store {
           ..add('description', description)
           ..add('externalReferenceId', externalReferenceId)
           ..add('id', id)
+          ..add('localizedInformation', localizedInformation)
           ..add('merchantId', merchantId)
           ..add('phoneNumber', phoneNumber)
           ..add('reference', reference)
@@ -223,6 +229,12 @@ class StoreBuilder implements Builder<Store, StoreBuilder> {
   String? _id;
   String? get id => _$this._id;
   set id(String? id) => _$this._id = id;
+
+  LocalizedInformationBuilder? _localizedInformation;
+  LocalizedInformationBuilder get localizedInformation =>
+      _$this._localizedInformation ??= LocalizedInformationBuilder();
+  set localizedInformation(LocalizedInformationBuilder? localizedInformation) =>
+      _$this._localizedInformation = localizedInformation;
 
   String? _merchantId;
   String? get merchantId => _$this._merchantId;
@@ -270,6 +282,7 @@ class StoreBuilder implements Builder<Store, StoreBuilder> {
       _description = $v.description;
       _externalReferenceId = $v.externalReferenceId;
       _id = $v.id;
+      _localizedInformation = $v.localizedInformation?.toBuilder();
       _merchantId = $v.merchantId;
       _phoneNumber = $v.phoneNumber;
       _reference = $v.reference;
@@ -307,6 +320,7 @@ class StoreBuilder implements Builder<Store, StoreBuilder> {
             description: description,
             externalReferenceId: externalReferenceId,
             id: id,
+            localizedInformation: _localizedInformation?.build(),
             merchantId: merchantId,
             phoneNumber: phoneNumber,
             reference: reference,
@@ -324,6 +338,9 @@ class StoreBuilder implements Builder<Store, StoreBuilder> {
         _address?.build();
         _$failedField = 'businessLineIds';
         _businessLineIds?.build();
+
+        _$failedField = 'localizedInformation';
+        _localizedInformation?.build();
 
         _$failedField = 'splitConfiguration';
         _splitConfiguration?.build();

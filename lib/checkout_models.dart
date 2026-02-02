@@ -206,6 +206,7 @@ export 'src/gen/checkout/model/session_result_response.dart';
 export 'src/gen/checkout/model/shopper_id_payment_method.dart';
 export 'src/gen/checkout/model/shopper_interaction_device.dart';
 export 'src/gen/checkout/model/shopper_name.dart';
+export 'src/gen/checkout/model/shopper_tax_info.dart';
 export 'src/gen/checkout/model/split.dart';
 export 'src/gen/checkout/model/split_amount.dart';
 export 'src/gen/checkout/model/standalone_payment_cancel_request.dart';

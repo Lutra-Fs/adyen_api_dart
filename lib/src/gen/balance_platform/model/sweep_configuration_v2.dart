@@ -62,7 +62,7 @@ abstract class SweepConfigurationV2 implements Built<SweepConfigurationV2, Sweep
   /// The reason for disabling the sweep.
   @BuiltValueField(wireName: r'reason')
   SweepConfigurationV2ReasonEnum? get reason;
-  // enum reasonEnum {  accountHierarchyNotActive,  amountLimitExceeded,  approvalExpired,  approved,  balanceAccountTemporarilyBlockedByTransactionRule,  counterpartyAccountBlocked,  counterpartyAccountClosed,  counterpartyAccountNotFound,  counterpartyAddressRequired,  counterpartyBankTimedOut,  counterpartyBankUnavailable,  declined,  declinedByTransactionRule,  directDebitNotSupported,  error,  notEnoughBalance,  pending,  pendingApproval,  pendingExecution,  refusedByCounterpartyBank,  refusedByCustomer,  routeNotFound,  scaFailed,  schemeAdvice,  transferInstrumentDoesNotExist,  unknown,  };
+  // enum reasonEnum {  accountHierarchyNotActive,  amountLimitExceeded,  approved,  counterpartyAccountBlocked,  counterpartyAccountClosed,  counterpartyAccountNotFound,  counterpartyAddressRequired,  counterpartyBankTimedOut,  counterpartyBankUnavailable,  directDebitNotSupported,  error,  notEnoughBalance,  refusedByCounterpartyBank,  routeNotFound,  transferInstrumentDoesNotExist,  unknown,  };
 
   /// The human readable reason for disabling the sweep.
   @BuiltValueField(wireName: r'reasonDetail')
@@ -451,14 +451,8 @@ class SweepConfigurationV2ReasonEnum extends EnumClass {
   @BuiltValueEnumConst(wireName: r'amountLimitExceeded')
   static const SweepConfigurationV2ReasonEnum amountLimitExceeded = _$sweepConfigurationV2ReasonEnum_amountLimitExceeded;
   /// The reason for disabling the sweep.
-  @BuiltValueEnumConst(wireName: r'approvalExpired')
-  static const SweepConfigurationV2ReasonEnum approvalExpired = _$sweepConfigurationV2ReasonEnum_approvalExpired;
-  /// The reason for disabling the sweep.
   @BuiltValueEnumConst(wireName: r'approved')
   static const SweepConfigurationV2ReasonEnum approved = _$sweepConfigurationV2ReasonEnum_approved;
-  /// The reason for disabling the sweep.
-  @BuiltValueEnumConst(wireName: r'balanceAccountTemporarilyBlockedByTransactionRule')
-  static const SweepConfigurationV2ReasonEnum balanceAccountTemporarilyBlockedByTransactionRule = _$sweepConfigurationV2ReasonEnum_balanceAccountTemporarilyBlockedByTransactionRule;
   /// The reason for disabling the sweep.
   @BuiltValueEnumConst(wireName: r'counterpartyAccountBlocked')
   static const SweepConfigurationV2ReasonEnum counterpartyAccountBlocked = _$sweepConfigurationV2ReasonEnum_counterpartyAccountBlocked;
@@ -478,12 +472,6 @@ class SweepConfigurationV2ReasonEnum extends EnumClass {
   @BuiltValueEnumConst(wireName: r'counterpartyBankUnavailable')
   static const SweepConfigurationV2ReasonEnum counterpartyBankUnavailable = _$sweepConfigurationV2ReasonEnum_counterpartyBankUnavailable;
   /// The reason for disabling the sweep.
-  @BuiltValueEnumConst(wireName: r'declined')
-  static const SweepConfigurationV2ReasonEnum declined = _$sweepConfigurationV2ReasonEnum_declined;
-  /// The reason for disabling the sweep.
-  @BuiltValueEnumConst(wireName: r'declinedByTransactionRule')
-  static const SweepConfigurationV2ReasonEnum declinedByTransactionRule = _$sweepConfigurationV2ReasonEnum_declinedByTransactionRule;
-  /// The reason for disabling the sweep.
   @BuiltValueEnumConst(wireName: r'directDebitNotSupported')
   static const SweepConfigurationV2ReasonEnum directDebitNotSupported = _$sweepConfigurationV2ReasonEnum_directDebitNotSupported;
   /// The reason for disabling the sweep.
@@ -493,29 +481,11 @@ class SweepConfigurationV2ReasonEnum extends EnumClass {
   @BuiltValueEnumConst(wireName: r'notEnoughBalance')
   static const SweepConfigurationV2ReasonEnum notEnoughBalance = _$sweepConfigurationV2ReasonEnum_notEnoughBalance;
   /// The reason for disabling the sweep.
-  @BuiltValueEnumConst(wireName: r'pending')
-  static const SweepConfigurationV2ReasonEnum pending = _$sweepConfigurationV2ReasonEnum_pending;
-  /// The reason for disabling the sweep.
-  @BuiltValueEnumConst(wireName: r'pendingApproval')
-  static const SweepConfigurationV2ReasonEnum pendingApproval = _$sweepConfigurationV2ReasonEnum_pendingApproval;
-  /// The reason for disabling the sweep.
-  @BuiltValueEnumConst(wireName: r'pendingExecution')
-  static const SweepConfigurationV2ReasonEnum pendingExecution = _$sweepConfigurationV2ReasonEnum_pendingExecution;
-  /// The reason for disabling the sweep.
   @BuiltValueEnumConst(wireName: r'refusedByCounterpartyBank')
   static const SweepConfigurationV2ReasonEnum refusedByCounterpartyBank = _$sweepConfigurationV2ReasonEnum_refusedByCounterpartyBank;
   /// The reason for disabling the sweep.
-  @BuiltValueEnumConst(wireName: r'refusedByCustomer')
-  static const SweepConfigurationV2ReasonEnum refusedByCustomer = _$sweepConfigurationV2ReasonEnum_refusedByCustomer;
-  /// The reason for disabling the sweep.
   @BuiltValueEnumConst(wireName: r'routeNotFound')
   static const SweepConfigurationV2ReasonEnum routeNotFound = _$sweepConfigurationV2ReasonEnum_routeNotFound;
-  /// The reason for disabling the sweep.
-  @BuiltValueEnumConst(wireName: r'scaFailed')
-  static const SweepConfigurationV2ReasonEnum scaFailed = _$sweepConfigurationV2ReasonEnum_scaFailed;
-  /// The reason for disabling the sweep.
-  @BuiltValueEnumConst(wireName: r'schemeAdvice')
-  static const SweepConfigurationV2ReasonEnum schemeAdvice = _$sweepConfigurationV2ReasonEnum_schemeAdvice;
   /// The reason for disabling the sweep.
   @BuiltValueEnumConst(wireName: r'transferInstrumentDoesNotExist')
   static const SweepConfigurationV2ReasonEnum transferInstrumentDoesNotExist = _$sweepConfigurationV2ReasonEnum_transferInstrumentDoesNotExist;

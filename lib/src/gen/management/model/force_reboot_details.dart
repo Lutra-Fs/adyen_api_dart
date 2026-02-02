@@ -12,10 +12,10 @@ part 'force_reboot_details.g.dart';
 /// ForceRebootDetails
 ///
 /// Properties:
-/// * [type] - Type of terminal action: Force Reboot.
+/// * [type] - The type of terminal action. The value **ForceReboot** triggers an immediate reboot of the specified terminal(s).
 @BuiltValue()
 abstract class ForceRebootDetails implements Built<ForceRebootDetails, ForceRebootDetailsBuilder> {
-  /// Type of terminal action: Force Reboot.
+  /// The type of terminal action. The value **ForceReboot** triggers an immediate reboot of the specified terminal(s).
   @BuiltValueField(wireName: r'type')
   ForceRebootDetailsTypeEnum? get type;
   // enum typeEnum {  ForceReboot,  };
@@ -112,10 +112,10 @@ class _$ForceRebootDetailsSerializer implements PrimitiveSerializer<ForceRebootD
 
 class ForceRebootDetailsTypeEnum extends EnumClass {
 
-  /// Type of terminal action: Force Reboot.
+  /// The type of terminal action. The value **ForceReboot** triggers an immediate reboot of the specified terminal(s).
   @BuiltValueEnumConst(wireName: r'ForceReboot')
   static const ForceRebootDetailsTypeEnum forceReboot = _$forceRebootDetailsTypeEnum_forceReboot;
-  /// Type of terminal action: Force Reboot.
+  /// The type of terminal action. The value **ForceReboot** triggers an immediate reboot of the specified terminal(s).
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const ForceRebootDetailsTypeEnum unknownDefaultOpenApi = _$forceRebootDetailsTypeEnum_unknownDefaultOpenApi;
 

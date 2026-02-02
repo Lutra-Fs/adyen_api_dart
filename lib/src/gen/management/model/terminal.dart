@@ -3,6 +3,8 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:built_collection/built_collection.dart';
+import 'package:adyen_api/src/gen/management/model/installed_apks.dart';
 import 'package:adyen_api/src/gen/management/model/terminal_connectivity.dart';
 import 'package:adyen_api/src/gen/management/model/terminal_assignment.dart';
 import 'package:built_value/built_value.dart';
@@ -17,6 +19,7 @@ part 'terminal.g.dart';
 /// * [connectivity] - Information about bluetooth, cellular, ethernet and wifi connectivity for the terminal.
 /// * [firmwareVersion] - The software release currently in use on the terminal.
 /// * [id] - The unique identifier of the terminal.
+/// * [installedAPKs] - A list of Android apps installed on the terminal.
 /// * [lastActivityAt] - Date and time of the last activity on the terminal. Not included when the last activity was more than 14 days ago.
 /// * [lastTransactionAt] - Date and time of the last transaction on the terminal. Not included when the last transaction was more than 14 days ago.
 /// * [model] - The model name of the terminal.
@@ -39,6 +42,10 @@ abstract class Terminal implements Built<Terminal, TerminalBuilder> {
   /// The unique identifier of the terminal.
   @BuiltValueField(wireName: r'id')
   String? get id;
+
+  /// A list of Android apps installed on the terminal.
+  @BuiltValueField(wireName: r'installedAPKs')
+  BuiltList<InstalledAPKs>? get installedAPKs;
 
   /// Date and time of the last activity on the terminal. Not included when the last activity was more than 14 days ago.
   @BuiltValueField(wireName: r'lastActivityAt')
@@ -109,6 +116,13 @@ class _$TerminalSerializer implements PrimitiveSerializer<Terminal> {
       yield serializers.serialize(
         object.id,
         specifiedType: const FullType(String),
+      );
+    }
+    if (object.installedAPKs != null) {
+      yield r'installedAPKs';
+      yield serializers.serialize(
+        object.installedAPKs,
+        specifiedType: const FullType(BuiltList, [FullType(InstalledAPKs)]),
       );
     }
     if (object.lastActivityAt != null) {
@@ -196,6 +210,13 @@ class _$TerminalSerializer implements PrimitiveSerializer<Terminal> {
             specifiedType: const FullType(String),
           ) as String;
           result.id = valueDes;
+          break;
+        case r'installedAPKs':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(BuiltList, [FullType(InstalledAPKs)]),
+          ) as BuiltList<InstalledAPKs>;
+          result.installedAPKs.replace(valueDes);
           break;
         case r'lastActivityAt':
           final valueDes = serializers.deserialize(

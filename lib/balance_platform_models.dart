@@ -133,6 +133,7 @@ export 'src/gen/balance_platform/model/payment_instrument_reveal_request.dart';
 export 'src/gen/balance_platform/model/payment_instrument_reveal_response.dart';
 export 'src/gen/balance_platform/model/payment_instrument_update_request.dart';
 export 'src/gen/balance_platform/model/phone.dart';
+export 'src/gen/balance_platform/model/phone_info.dart';
 export 'src/gen/balance_platform/model/phone_number.dart';
 export 'src/gen/balance_platform/model/pin_change_request.dart';
 export 'src/gen/balance_platform/model/pin_change_response.dart';

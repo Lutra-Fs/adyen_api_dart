@@ -3,6 +3,7 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:adyen_api/src/gen/balance_platform/model/phone_info.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -13,6 +14,7 @@ part 'device_info.g.dart';
 /// Properties:
 /// * [formFactor] - The type of device used to provision the network token.
 /// * [osName] - The operating system of the device used to provision the network token.
+/// * [phone] - The information about the phone number of the device used to provision the the network token. This object is conditionally returned and is available for up to 24 hours after the provisioning request (access to this field requires a specific user role, please contact your Adyen representative to request permission).
 @BuiltValue()
 abstract class DeviceInfo implements Built<DeviceInfo, DeviceInfoBuilder> {
   /// The type of device used to provision the network token.
@@ -22,6 +24,10 @@ abstract class DeviceInfo implements Built<DeviceInfo, DeviceInfoBuilder> {
   /// The operating system of the device used to provision the network token.
   @BuiltValueField(wireName: r'osName')
   String? get osName;
+
+  /// The information about the phone number of the device used to provision the the network token. This object is conditionally returned and is available for up to 24 hours after the provisioning request (access to this field requires a specific user role, please contact your Adyen representative to request permission).
+  @BuiltValueField(wireName: r'phone')
+  PhoneInfo? get phone;
 
   DeviceInfo._();
 
@@ -60,6 +66,13 @@ class _$DeviceInfoSerializer implements PrimitiveSerializer<DeviceInfo> {
         specifiedType: const FullType(String),
       );
     }
+    if (object.phone != null) {
+      yield r'phone';
+      yield serializers.serialize(
+        object.phone,
+        specifiedType: const FullType(PhoneInfo),
+      );
+    }
   }
 
   @override
@@ -96,6 +109,13 @@ class _$DeviceInfoSerializer implements PrimitiveSerializer<DeviceInfo> {
             specifiedType: const FullType(String),
           ) as String;
           result.osName = valueDes;
+          break;
+        case r'phone':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(PhoneInfo),
+          ) as PhoneInfo;
+          result.phone.replace(valueDes);
           break;
         default:
           unhandled.add(key);

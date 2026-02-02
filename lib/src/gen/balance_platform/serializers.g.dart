@@ -233,6 +233,7 @@ Serializers _$serializers =
           ..add(PaymentInstrumentUpdateRequestStatusEnum.serializer)
           ..add(PaymentInstrumentUpdateRequestStatusReasonEnum.serializer)
           ..add(Phone.serializer)
+          ..add(PhoneInfo.serializer)
           ..add(PhoneNumber.serializer)
           ..add(PhoneNumberPhoneTypeEnum.serializer)
           ..add(PhoneTypeEnum.serializer)

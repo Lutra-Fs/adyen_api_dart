@@ -17,6 +17,8 @@ class _$StoreCreationWithMerchantCodeRequest
   @override
   final String? externalReferenceId;
   @override
+  final LocalizedInformation? localizedInformation;
+  @override
   final String merchantId;
   @override
   final String phoneNumber;
@@ -39,6 +41,7 @@ class _$StoreCreationWithMerchantCodeRequest
     this.businessLineIds,
     required this.description,
     this.externalReferenceId,
+    this.localizedInformation,
     required this.merchantId,
     required this.phoneNumber,
     this.reference,
@@ -63,6 +66,7 @@ class _$StoreCreationWithMerchantCodeRequest
         businessLineIds == other.businessLineIds &&
         description == other.description &&
         externalReferenceId == other.externalReferenceId &&
+        localizedInformation == other.localizedInformation &&
         merchantId == other.merchantId &&
         phoneNumber == other.phoneNumber &&
         reference == other.reference &&
@@ -78,6 +82,7 @@ class _$StoreCreationWithMerchantCodeRequest
     _$hash = $jc(_$hash, businessLineIds.hashCode);
     _$hash = $jc(_$hash, description.hashCode);
     _$hash = $jc(_$hash, externalReferenceId.hashCode);
+    _$hash = $jc(_$hash, localizedInformation.hashCode);
     _$hash = $jc(_$hash, merchantId.hashCode);
     _$hash = $jc(_$hash, phoneNumber.hashCode);
     _$hash = $jc(_$hash, reference.hashCode);
@@ -95,6 +100,7 @@ class _$StoreCreationWithMerchantCodeRequest
           ..add('businessLineIds', businessLineIds)
           ..add('description', description)
           ..add('externalReferenceId', externalReferenceId)
+          ..add('localizedInformation', localizedInformation)
           ..add('merchantId', merchantId)
           ..add('phoneNumber', phoneNumber)
           ..add('reference', reference)
@@ -132,6 +138,12 @@ class StoreCreationWithMerchantCodeRequestBuilder
   String? get externalReferenceId => _$this._externalReferenceId;
   set externalReferenceId(String? externalReferenceId) =>
       _$this._externalReferenceId = externalReferenceId;
+
+  LocalizedInformationBuilder? _localizedInformation;
+  LocalizedInformationBuilder get localizedInformation =>
+      _$this._localizedInformation ??= LocalizedInformationBuilder();
+  set localizedInformation(LocalizedInformationBuilder? localizedInformation) =>
+      _$this._localizedInformation = localizedInformation;
 
   String? _merchantId;
   String? get merchantId => _$this._merchantId;
@@ -173,6 +185,7 @@ class StoreCreationWithMerchantCodeRequestBuilder
       _businessLineIds = $v.businessLineIds?.toBuilder();
       _description = $v.description;
       _externalReferenceId = $v.externalReferenceId;
+      _localizedInformation = $v.localizedInformation?.toBuilder();
       _merchantId = $v.merchantId;
       _phoneNumber = $v.phoneNumber;
       _reference = $v.reference;
@@ -213,6 +226,7 @@ class StoreCreationWithMerchantCodeRequestBuilder
               'description',
             ),
             externalReferenceId: externalReferenceId,
+            localizedInformation: _localizedInformation?.build(),
             merchantId: BuiltValueNullFieldError.checkNotNull(
               merchantId,
               r'StoreCreationWithMerchantCodeRequest',
@@ -239,6 +253,9 @@ class StoreCreationWithMerchantCodeRequestBuilder
         address.build();
         _$failedField = 'businessLineIds';
         _businessLineIds?.build();
+
+        _$failedField = 'localizedInformation';
+        _localizedInformation?.build();
 
         _$failedField = 'splitConfiguration';
         _splitConfiguration?.build();

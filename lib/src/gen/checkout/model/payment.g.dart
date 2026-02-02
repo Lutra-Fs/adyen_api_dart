@@ -8,6 +8,10 @@ part of 'payment.dart';
 
 const PaymentResultCodeEnum _$paymentResultCodeEnum_authorised =
     const PaymentResultCodeEnum._('authorised');
+const PaymentResultCodeEnum _$paymentResultCodeEnum_received =
+    const PaymentResultCodeEnum._('received');
+const PaymentResultCodeEnum _$paymentResultCodeEnum_pending =
+    const PaymentResultCodeEnum._('pending');
 const PaymentResultCodeEnum _$paymentResultCodeEnum_unknownDefaultOpenApi =
     const PaymentResultCodeEnum._('unknownDefaultOpenApi');
 
@@ -15,6 +19,10 @@ PaymentResultCodeEnum _$paymentResultCodeEnumValueOf(String name) {
   switch (name) {
     case 'authorised':
       return _$paymentResultCodeEnum_authorised;
+    case 'received':
+      return _$paymentResultCodeEnum_received;
+    case 'pending':
+      return _$paymentResultCodeEnum_pending;
     case 'unknownDefaultOpenApi':
       return _$paymentResultCodeEnum_unknownDefaultOpenApi;
     default:
@@ -25,6 +33,8 @@ PaymentResultCodeEnum _$paymentResultCodeEnumValueOf(String name) {
 final BuiltSet<PaymentResultCodeEnum> _$paymentResultCodeEnumValues =
     BuiltSet<PaymentResultCodeEnum>(const <PaymentResultCodeEnum>[
       _$paymentResultCodeEnum_authorised,
+      _$paymentResultCodeEnum_received,
+      _$paymentResultCodeEnum_pending,
       _$paymentResultCodeEnum_unknownDefaultOpenApi,
     ]);
 
@@ -35,10 +45,14 @@ class _$PaymentResultCodeEnumSerializer
     implements PrimitiveSerializer<PaymentResultCodeEnum> {
   static const Map<String, Object> _toWire = const <String, Object>{
     'authorised': 'Authorised',
+    'received': 'Received',
+    'pending': 'Pending',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'Authorised': 'authorised',
+    'Received': 'received',
+    'Pending': 'pending',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
 

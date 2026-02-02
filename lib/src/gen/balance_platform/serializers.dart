@@ -148,6 +148,7 @@ import 'package:adyen_api/src/gen/balance_platform/model/payment_instrument_reve
 import 'package:adyen_api/src/gen/balance_platform/model/payment_instrument_reveal_response.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/payment_instrument_update_request.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/phone.dart';
+import 'package:adyen_api/src/gen/balance_platform/model/phone_info.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/phone_number.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/pin_change_request.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/pin_change_response.dart';
@@ -362,6 +363,7 @@ part 'serializers.g.dart';
   PaymentInstrumentRevealResponse,
   PaymentInstrumentUpdateRequest,
   Phone,
+  PhoneInfo,
   PhoneNumber,
   PinChangeRequest,
   PinChangeResponse,

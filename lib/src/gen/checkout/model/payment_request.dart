@@ -20,6 +20,7 @@ import 'package:adyen_api/src/gen/checkout/model/delivery_address.dart';
 import 'package:adyen_api/src/gen/checkout/model/line_item.dart';
 import 'package:adyen_api/src/gen/checkout/model/browser_info.dart';
 import 'package:adyen_api/src/gen/checkout/model/fund_recipient.dart';
+import 'package:adyen_api/src/gen/checkout/model/shopper_tax_info.dart';
 import 'package:adyen_api/src/gen/checkout/model/fund_origin.dart';
 import 'package:adyen_api/src/gen/checkout/model/amount.dart';
 import 'package:adyen_api/src/gen/checkout/model/payment_validations.dart';
@@ -103,6 +104,7 @@ part 'payment_request.g.dart';
 /// * [shopperName] - The shopper's full name.
 /// * [shopperReference] - Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. > Your reference must not include personally identifiable information (PII), for example name or email address.
 /// * [shopperStatement] - The text to be shown on the shopper's bank statement.  We recommend sending a maximum of 22 characters, otherwise banks might truncate the string.  Allowed characters: **a-z**, **A-Z**, **0-9**, spaces, and special characters **. , ' _ - ? + * /_**.
+/// * [shopperTaxInfo] - The tax info of the shopper
 /// * [socialSecurityNumber] - The shopper's social security number.
 /// * [splits] - An array of objects specifying how to split a payment when using [Adyen for Platforms](https://docs.adyen.com/platforms/process-payments#providing-split-information), [Classic Platforms integration](https://docs.adyen.com/classic-platforms/processing-payments#providing-split-information), or [Issuing](https://docs.adyen.com/issuing/manage-funds#split).
 /// * [store] - Required for Adyen for Platforms integrations if you are a platform model. This is your [reference](https://docs.adyen.com/api-explorer/Management/3/post/merchants/(merchantId)/stores#request-reference) (on [balance platform](https://docs.adyen.com/platforms)) or the [storeReference](https://docs.adyen.com/api-explorer/Account/latest/post/updateAccountHolder#request-accountHolderDetails-storeDetails-storeReference) (in the [classic integration](https://docs.adyen.com/classic-platforms/processing-payments/route-payment-to-store/#route-a-payment-to-a-store)) for the ecommerce or point-of-sale store that is processing the payment.
@@ -372,6 +374,10 @@ abstract class PaymentRequest implements Built<PaymentRequest, PaymentRequestBui
   /// The text to be shown on the shopper's bank statement.  We recommend sending a maximum of 22 characters, otherwise banks might truncate the string.  Allowed characters: **a-z**, **A-Z**, **0-9**, spaces, and special characters **. , ' _ - ? + * /_**.
   @BuiltValueField(wireName: r'shopperStatement')
   String? get shopperStatement;
+
+  /// The tax info of the shopper
+  @BuiltValueField(wireName: r'shopperTaxInfo')
+  ShopperTaxInfo? get shopperTaxInfo;
 
   /// The shopper's social security number.
   @BuiltValueField(wireName: r'socialSecurityNumber')
@@ -867,6 +873,13 @@ class _$PaymentRequestSerializer implements PrimitiveSerializer<PaymentRequest> 
       yield serializers.serialize(
         object.shopperStatement,
         specifiedType: const FullType(String),
+      );
+    }
+    if (object.shopperTaxInfo != null) {
+      yield r'shopperTaxInfo';
+      yield serializers.serialize(
+        object.shopperTaxInfo,
+        specifiedType: const FullType(ShopperTaxInfo),
       );
     }
     if (object.socialSecurityNumber != null) {
@@ -1402,6 +1415,13 @@ class _$PaymentRequestSerializer implements PrimitiveSerializer<PaymentRequest> 
             specifiedType: const FullType(String),
           ) as String;
           result.shopperStatement = valueDes;
+          break;
+        case r'shopperTaxInfo':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(ShopperTaxInfo),
+          ) as ShopperTaxInfo;
+          result.shopperTaxInfo.replace(valueDes);
           break;
         case r'socialSecurityNumber':
           final valueDes = serializers.deserialize(

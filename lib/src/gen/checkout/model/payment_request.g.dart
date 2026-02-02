@@ -529,6 +529,8 @@ class _$PaymentRequest extends PaymentRequest {
   @override
   final String? shopperStatement;
   @override
+  final ShopperTaxInfo? shopperTaxInfo;
+  @override
   final String? socialSecurityNumber;
   @override
   final BuiltList<Split>? splits;
@@ -616,6 +618,7 @@ class _$PaymentRequest extends PaymentRequest {
     this.shopperName,
     this.shopperReference,
     this.shopperStatement,
+    this.shopperTaxInfo,
     this.socialSecurityNumber,
     this.splits,
     this.store,
@@ -701,6 +704,7 @@ class _$PaymentRequest extends PaymentRequest {
         shopperName == other.shopperName &&
         shopperReference == other.shopperReference &&
         shopperStatement == other.shopperStatement &&
+        shopperTaxInfo == other.shopperTaxInfo &&
         socialSecurityNumber == other.socialSecurityNumber &&
         splits == other.splits &&
         store == other.store &&
@@ -779,6 +783,7 @@ class _$PaymentRequest extends PaymentRequest {
     _$hash = $jc(_$hash, shopperName.hashCode);
     _$hash = $jc(_$hash, shopperReference.hashCode);
     _$hash = $jc(_$hash, shopperStatement.hashCode);
+    _$hash = $jc(_$hash, shopperTaxInfo.hashCode);
     _$hash = $jc(_$hash, socialSecurityNumber.hashCode);
     _$hash = $jc(_$hash, splits.hashCode);
     _$hash = $jc(_$hash, store.hashCode);
@@ -859,6 +864,7 @@ class _$PaymentRequest extends PaymentRequest {
           ..add('shopperName', shopperName)
           ..add('shopperReference', shopperReference)
           ..add('shopperStatement', shopperStatement)
+          ..add('shopperTaxInfo', shopperTaxInfo)
           ..add('socialSecurityNumber', socialSecurityNumber)
           ..add('splits', splits)
           ..add('store', store)
@@ -1202,6 +1208,12 @@ class PaymentRequestBuilder
   set shopperStatement(String? shopperStatement) =>
       _$this._shopperStatement = shopperStatement;
 
+  ShopperTaxInfoBuilder? _shopperTaxInfo;
+  ShopperTaxInfoBuilder get shopperTaxInfo =>
+      _$this._shopperTaxInfo ??= ShopperTaxInfoBuilder();
+  set shopperTaxInfo(ShopperTaxInfoBuilder? shopperTaxInfo) =>
+      _$this._shopperTaxInfo = shopperTaxInfo;
+
   String? _socialSecurityNumber;
   String? get socialSecurityNumber => _$this._socialSecurityNumber;
   set socialSecurityNumber(String? socialSecurityNumber) =>
@@ -1321,6 +1333,7 @@ class PaymentRequestBuilder
       _shopperName = $v.shopperName?.toBuilder();
       _shopperReference = $v.shopperReference;
       _shopperStatement = $v.shopperStatement;
+      _shopperTaxInfo = $v.shopperTaxInfo?.toBuilder();
       _socialSecurityNumber = $v.socialSecurityNumber;
       _splits = $v.splits?.toBuilder();
       _store = $v.store;
@@ -1430,6 +1443,7 @@ class PaymentRequestBuilder
             shopperName: _shopperName?.build(),
             shopperReference: shopperReference,
             shopperStatement: shopperStatement,
+            shopperTaxInfo: _shopperTaxInfo?.build(),
             socialSecurityNumber: socialSecurityNumber,
             splits: _splits?.build(),
             store: store,
@@ -1510,6 +1524,9 @@ class PaymentRequestBuilder
 
         _$failedField = 'shopperName';
         _shopperName?.build();
+
+        _$failedField = 'shopperTaxInfo';
+        _shopperTaxInfo?.build();
 
         _$failedField = 'splits';
         _splits?.build();

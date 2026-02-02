@@ -220,6 +220,7 @@ import 'package:adyen_api/src/gen/checkout/model/session_result_response.dart';
 import 'package:adyen_api/src/gen/checkout/model/shopper_id_payment_method.dart';
 import 'package:adyen_api/src/gen/checkout/model/shopper_interaction_device.dart';
 import 'package:adyen_api/src/gen/checkout/model/shopper_name.dart';
+import 'package:adyen_api/src/gen/checkout/model/shopper_tax_info.dart';
 import 'package:adyen_api/src/gen/checkout/model/split.dart';
 import 'package:adyen_api/src/gen/checkout/model/split_amount.dart';
 import 'package:adyen_api/src/gen/checkout/model/standalone_payment_cancel_request.dart';
@@ -469,6 +470,7 @@ part 'serializers.g.dart';
   ShopperIdPaymentMethod,$ShopperIdPaymentMethod,
   ShopperInteractionDevice,
   ShopperName,
+  ShopperTaxInfo,
   Split,
   SplitAmount,
   StandalonePaymentCancelRequest,

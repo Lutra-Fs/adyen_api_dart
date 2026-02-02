@@ -395,6 +395,7 @@ Serializers _$serializers =
           ..add(SessionResultResponseStatusEnum.serializer)
           ..add(ShopperInteractionDevice.serializer)
           ..add(ShopperName.serializer)
+          ..add(ShopperTaxInfo.serializer)
           ..add(Split.serializer)
           ..add(SplitAmount.serializer)
           ..add(SplitTypeEnum.serializer)

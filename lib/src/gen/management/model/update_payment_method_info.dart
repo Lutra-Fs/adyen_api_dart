@@ -23,7 +23,7 @@ part 'update_payment_method_info.g.dart';
 /// Properties:
 /// * [accel] - Details to provide if `type` is **accel**.
 /// * [bcmc] - Details to provide if `type` is **bcmc** (Bancontact).
-/// * [cartesBancaires] - Details to provide if `type` is **cartesbancaire**.
+/// * [cartesBancaires] - Details to provide if `type` is **cartebancaire**.
 /// * [countries] - The list of countries where a payment method is available. By default, all countries supported by the payment method.
 /// * [cup] - Details to provide if `type` is **cup** (China Union Pay).
 /// * [currencies] - The list of currencies that a payment method supports. By default, all currencies supported by the payment method.
@@ -58,7 +58,7 @@ abstract class UpdatePaymentMethodInfo implements Built<UpdatePaymentMethodInfo,
   @BuiltValueField(wireName: r'bcmc')
   BcmcInfo? get bcmc;
 
-  /// Details to provide if `type` is **cartesbancaire**.
+  /// Details to provide if `type` is **cartebancaire**.
   @BuiltValueField(wireName: r'cartesBancaires')
   CartesBancairesInfo? get cartesBancaires;
 

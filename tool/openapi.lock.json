@@ -1,6 +1,6 @@
 {
   "repo": "https://github.com/Adyen/adyen-openapi",
-  "commit": "0a007ceb09be11eda72b73930072c9f7c7e6571b",
+  "commit": "87ad29a236d338b93798baecd485aade51825d19",
   "specs": [
     {
       "name": "binlookup",

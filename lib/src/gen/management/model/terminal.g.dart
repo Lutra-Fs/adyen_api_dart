@@ -16,6 +16,8 @@ class _$Terminal extends Terminal {
   @override
   final String? id;
   @override
+  final BuiltList<InstalledAPKs>? installedAPKs;
+  @override
   final DateTime? lastActivityAt;
   @override
   final DateTime? lastTransactionAt;
@@ -34,6 +36,7 @@ class _$Terminal extends Terminal {
     this.connectivity,
     this.firmwareVersion,
     this.id,
+    this.installedAPKs,
     this.lastActivityAt,
     this.lastTransactionAt,
     this.model,
@@ -55,6 +58,7 @@ class _$Terminal extends Terminal {
         connectivity == other.connectivity &&
         firmwareVersion == other.firmwareVersion &&
         id == other.id &&
+        installedAPKs == other.installedAPKs &&
         lastActivityAt == other.lastActivityAt &&
         lastTransactionAt == other.lastTransactionAt &&
         model == other.model &&
@@ -69,6 +73,7 @@ class _$Terminal extends Terminal {
     _$hash = $jc(_$hash, connectivity.hashCode);
     _$hash = $jc(_$hash, firmwareVersion.hashCode);
     _$hash = $jc(_$hash, id.hashCode);
+    _$hash = $jc(_$hash, installedAPKs.hashCode);
     _$hash = $jc(_$hash, lastActivityAt.hashCode);
     _$hash = $jc(_$hash, lastTransactionAt.hashCode);
     _$hash = $jc(_$hash, model.hashCode);
@@ -85,6 +90,7 @@ class _$Terminal extends Terminal {
           ..add('connectivity', connectivity)
           ..add('firmwareVersion', firmwareVersion)
           ..add('id', id)
+          ..add('installedAPKs', installedAPKs)
           ..add('lastActivityAt', lastActivityAt)
           ..add('lastTransactionAt', lastTransactionAt)
           ..add('model', model)
@@ -117,6 +123,12 @@ class TerminalBuilder implements Builder<Terminal, TerminalBuilder> {
   String? _id;
   String? get id => _$this._id;
   set id(String? id) => _$this._id = id;
+
+  ListBuilder<InstalledAPKs>? _installedAPKs;
+  ListBuilder<InstalledAPKs> get installedAPKs =>
+      _$this._installedAPKs ??= ListBuilder<InstalledAPKs>();
+  set installedAPKs(ListBuilder<InstalledAPKs>? installedAPKs) =>
+      _$this._installedAPKs = installedAPKs;
 
   DateTime? _lastActivityAt;
   DateTime? get lastActivityAt => _$this._lastActivityAt;
@@ -152,6 +164,7 @@ class TerminalBuilder implements Builder<Terminal, TerminalBuilder> {
       _connectivity = $v.connectivity?.toBuilder();
       _firmwareVersion = $v.firmwareVersion;
       _id = $v.id;
+      _installedAPKs = $v.installedAPKs?.toBuilder();
       _lastActivityAt = $v.lastActivityAt;
       _lastTransactionAt = $v.lastTransactionAt;
       _model = $v.model;
@@ -185,6 +198,7 @@ class TerminalBuilder implements Builder<Terminal, TerminalBuilder> {
             connectivity: _connectivity?.build(),
             firmwareVersion: firmwareVersion,
             id: id,
+            installedAPKs: _installedAPKs?.build(),
             lastActivityAt: lastActivityAt,
             lastTransactionAt: lastTransactionAt,
             model: model,
@@ -198,6 +212,9 @@ class TerminalBuilder implements Builder<Terminal, TerminalBuilder> {
         _assignment?.build();
         _$failedField = 'connectivity';
         _connectivity?.build();
+
+        _$failedField = 'installedAPKs';
+        _installedAPKs?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
           r'Terminal',
