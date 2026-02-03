@@ -16,6 +16,8 @@ class _$StoreCreationRequest extends StoreCreationRequest {
   @override
   final String? externalReferenceId;
   @override
+  final LocalizedInformation? localizedInformation;
+  @override
   final String phoneNumber;
   @override
   final String? reference;
@@ -35,6 +37,7 @@ class _$StoreCreationRequest extends StoreCreationRequest {
     this.businessLineIds,
     required this.description,
     this.externalReferenceId,
+    this.localizedInformation,
     required this.phoneNumber,
     this.reference,
     required this.shopperStatement,
@@ -58,6 +61,7 @@ class _$StoreCreationRequest extends StoreCreationRequest {
         businessLineIds == other.businessLineIds &&
         description == other.description &&
         externalReferenceId == other.externalReferenceId &&
+        localizedInformation == other.localizedInformation &&
         phoneNumber == other.phoneNumber &&
         reference == other.reference &&
         shopperStatement == other.shopperStatement &&
@@ -72,6 +76,7 @@ class _$StoreCreationRequest extends StoreCreationRequest {
     _$hash = $jc(_$hash, businessLineIds.hashCode);
     _$hash = $jc(_$hash, description.hashCode);
     _$hash = $jc(_$hash, externalReferenceId.hashCode);
+    _$hash = $jc(_$hash, localizedInformation.hashCode);
     _$hash = $jc(_$hash, phoneNumber.hashCode);
     _$hash = $jc(_$hash, reference.hashCode);
     _$hash = $jc(_$hash, shopperStatement.hashCode);
@@ -88,6 +93,7 @@ class _$StoreCreationRequest extends StoreCreationRequest {
           ..add('businessLineIds', businessLineIds)
           ..add('description', description)
           ..add('externalReferenceId', externalReferenceId)
+          ..add('localizedInformation', localizedInformation)
           ..add('phoneNumber', phoneNumber)
           ..add('reference', reference)
           ..add('shopperStatement', shopperStatement)
@@ -120,6 +126,12 @@ class StoreCreationRequestBuilder
   String? get externalReferenceId => _$this._externalReferenceId;
   set externalReferenceId(String? externalReferenceId) =>
       _$this._externalReferenceId = externalReferenceId;
+
+  LocalizedInformationBuilder? _localizedInformation;
+  LocalizedInformationBuilder get localizedInformation =>
+      _$this._localizedInformation ??= LocalizedInformationBuilder();
+  set localizedInformation(LocalizedInformationBuilder? localizedInformation) =>
+      _$this._localizedInformation = localizedInformation;
 
   String? _phoneNumber;
   String? get phoneNumber => _$this._phoneNumber;
@@ -157,6 +169,7 @@ class StoreCreationRequestBuilder
       _businessLineIds = $v.businessLineIds?.toBuilder();
       _description = $v.description;
       _externalReferenceId = $v.externalReferenceId;
+      _localizedInformation = $v.localizedInformation?.toBuilder();
       _phoneNumber = $v.phoneNumber;
       _reference = $v.reference;
       _shopperStatement = $v.shopperStatement;
@@ -194,6 +207,7 @@ class StoreCreationRequestBuilder
               'description',
             ),
             externalReferenceId: externalReferenceId,
+            localizedInformation: _localizedInformation?.build(),
             phoneNumber: BuiltValueNullFieldError.checkNotNull(
               phoneNumber,
               r'StoreCreationRequest',
@@ -215,6 +229,9 @@ class StoreCreationRequestBuilder
         address.build();
         _$failedField = 'businessLineIds';
         _businessLineIds?.build();
+
+        _$failedField = 'localizedInformation';
+        _localizedInformation?.build();
 
         _$failedField = 'splitConfiguration';
         _splitConfiguration?.build();

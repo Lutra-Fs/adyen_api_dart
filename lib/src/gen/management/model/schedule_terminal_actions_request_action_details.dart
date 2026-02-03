@@ -19,7 +19,7 @@ part 'schedule_terminal_actions_request_action_details.g.dart';
 /// Information about the action to take.
 ///
 /// Properties:
-/// * [type] - Type of terminal action: Force Reboot.
+/// * [type] - The type of terminal action. The value **ForceReboot** triggers an immediate reboot of the specified terminal(s).
 /// * [appId] - The unique identifier of the app to be uninstalled.
 /// * [certificateId] - The unique identifier of the certificate to be uninstalled.
 /// * [updateAtFirstMaintenanceCall] - Boolean flag that tells if the terminal should update at the first next maintenance call. If false, terminal will update on its configured reboot time.
@@ -80,25 +80,25 @@ class _$ScheduleTerminalActionsRequestActionDetailsSerializer implements Primiti
 
 class ScheduleTerminalActionsRequestActionDetailsTypeEnum extends EnumClass {
 
-  /// Type of terminal action: Force Reboot.
+  /// The type of terminal action. The value **ForceReboot** triggers an immediate reboot of the specified terminal(s).
   @BuiltValueEnumConst(wireName: r'ForceReboot')
   static const ScheduleTerminalActionsRequestActionDetailsTypeEnum forceReboot = _$scheduleTerminalActionsRequestActionDetailsTypeEnum_forceReboot;
-  /// Type of terminal action: Force Reboot.
+  /// The type of terminal action. The value **ForceReboot** triggers an immediate reboot of the specified terminal(s).
   @BuiltValueEnumConst(wireName: r'InstallAndroidApp')
   static const ScheduleTerminalActionsRequestActionDetailsTypeEnum installAndroidApp = _$scheduleTerminalActionsRequestActionDetailsTypeEnum_installAndroidApp;
-  /// Type of terminal action: Force Reboot.
+  /// The type of terminal action. The value **ForceReboot** triggers an immediate reboot of the specified terminal(s).
   @BuiltValueEnumConst(wireName: r'InstallAndroidCertificate')
   static const ScheduleTerminalActionsRequestActionDetailsTypeEnum installAndroidCertificate = _$scheduleTerminalActionsRequestActionDetailsTypeEnum_installAndroidCertificate;
-  /// Type of terminal action: Force Reboot.
+  /// The type of terminal action. The value **ForceReboot** triggers an immediate reboot of the specified terminal(s).
   @BuiltValueEnumConst(wireName: r'ReleaseUpdate')
   static const ScheduleTerminalActionsRequestActionDetailsTypeEnum releaseUpdate = _$scheduleTerminalActionsRequestActionDetailsTypeEnum_releaseUpdate;
-  /// Type of terminal action: Force Reboot.
+  /// The type of terminal action. The value **ForceReboot** triggers an immediate reboot of the specified terminal(s).
   @BuiltValueEnumConst(wireName: r'UninstallAndroidApp')
   static const ScheduleTerminalActionsRequestActionDetailsTypeEnum uninstallAndroidApp = _$scheduleTerminalActionsRequestActionDetailsTypeEnum_uninstallAndroidApp;
-  /// Type of terminal action: Force Reboot.
+  /// The type of terminal action. The value **ForceReboot** triggers an immediate reboot of the specified terminal(s).
   @BuiltValueEnumConst(wireName: r'UninstallAndroidCertificate')
   static const ScheduleTerminalActionsRequestActionDetailsTypeEnum uninstallAndroidCertificate = _$scheduleTerminalActionsRequestActionDetailsTypeEnum_uninstallAndroidCertificate;
-  /// Type of terminal action: Force Reboot.
+  /// The type of terminal action. The value **ForceReboot** triggers an immediate reboot of the specified terminal(s).
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const ScheduleTerminalActionsRequestActionDetailsTypeEnum unknownDefaultOpenApi = _$scheduleTerminalActionsRequestActionDetailsTypeEnum_unknownDefaultOpenApi;
 

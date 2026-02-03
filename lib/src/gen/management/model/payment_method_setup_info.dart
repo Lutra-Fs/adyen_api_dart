@@ -54,7 +54,7 @@ part 'payment_method_setup_info.g.dart';
 /// * [applePay] - Details to provide if `type` is **applepay**.
 /// * [bcmc] - Details to provide if `type` is **bcmc** (Bancontact).
 /// * [businessLineId] - The unique identifier of the business line. Required if you are a [platform model](https://docs.adyen.com/platforms).
-/// * [cartesBancaires] - Details to provide if `type` is **cartesbancaire**.
+/// * [cartesBancaires] - Details to provide if `type` is **cartebancaire**.
 /// * [clearpay] - Details to provide if `type` is **clearpay**.
 /// * [countries] - The list of countries where a payment method is available. By default, all countries supported by the payment method.
 /// * [cup] - Details to provide if `type` is **cup** (China Union Pay).
@@ -132,7 +132,7 @@ abstract class PaymentMethodSetupInfo implements Built<PaymentMethodSetupInfo, P
   @BuiltValueField(wireName: r'businessLineId')
   String? get businessLineId;
 
-  /// Details to provide if `type` is **cartesbancaire**.
+  /// Details to provide if `type` is **cartebancaire**.
   @BuiltValueField(wireName: r'cartesBancaires')
   CartesBancairesInfo? get cartesBancaires;
 

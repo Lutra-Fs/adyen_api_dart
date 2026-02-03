@@ -11,11 +11,13 @@ class _$DeviceInfo extends DeviceInfo {
   final String? formFactor;
   @override
   final String? osName;
+  @override
+  final PhoneInfo? phone;
 
   factory _$DeviceInfo([void Function(DeviceInfoBuilder)? updates]) =>
       (DeviceInfoBuilder()..update(updates))._build();
 
-  _$DeviceInfo._({this.formFactor, this.osName}) : super._();
+  _$DeviceInfo._({this.formFactor, this.osName, this.phone}) : super._();
   @override
   DeviceInfo rebuild(void Function(DeviceInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
@@ -28,7 +30,8 @@ class _$DeviceInfo extends DeviceInfo {
     if (identical(other, this)) return true;
     return other is DeviceInfo &&
         formFactor == other.formFactor &&
-        osName == other.osName;
+        osName == other.osName &&
+        phone == other.phone;
   }
 
   @override
@@ -36,6 +39,7 @@ class _$DeviceInfo extends DeviceInfo {
     var _$hash = 0;
     _$hash = $jc(_$hash, formFactor.hashCode);
     _$hash = $jc(_$hash, osName.hashCode);
+    _$hash = $jc(_$hash, phone.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -44,7 +48,8 @@ class _$DeviceInfo extends DeviceInfo {
   String toString() {
     return (newBuiltValueToStringHelper(r'DeviceInfo')
           ..add('formFactor', formFactor)
-          ..add('osName', osName))
+          ..add('osName', osName)
+          ..add('phone', phone))
         .toString();
   }
 }
@@ -60,6 +65,10 @@ class DeviceInfoBuilder implements Builder<DeviceInfo, DeviceInfoBuilder> {
   String? get osName => _$this._osName;
   set osName(String? osName) => _$this._osName = osName;
 
+  PhoneInfoBuilder? _phone;
+  PhoneInfoBuilder get phone => _$this._phone ??= PhoneInfoBuilder();
+  set phone(PhoneInfoBuilder? phone) => _$this._phone = phone;
+
   DeviceInfoBuilder() {
     DeviceInfo._defaults(this);
   }
@@ -69,6 +78,7 @@ class DeviceInfoBuilder implements Builder<DeviceInfo, DeviceInfoBuilder> {
     if ($v != null) {
       _formFactor = $v.formFactor;
       _osName = $v.osName;
+      _phone = $v.phone?.toBuilder();
       _$v = null;
     }
     return this;
@@ -88,8 +98,29 @@ class DeviceInfoBuilder implements Builder<DeviceInfo, DeviceInfoBuilder> {
   DeviceInfo build() => _build();
 
   _$DeviceInfo _build() {
-    final _$result =
-        _$v ?? _$DeviceInfo._(formFactor: formFactor, osName: osName);
+    _$DeviceInfo _$result;
+    try {
+      _$result =
+          _$v ??
+          _$DeviceInfo._(
+            formFactor: formFactor,
+            osName: osName,
+            phone: _phone?.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'phone';
+        _phone?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+          r'DeviceInfo',
+          _$failedField,
+          e.toString(),
+        );
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

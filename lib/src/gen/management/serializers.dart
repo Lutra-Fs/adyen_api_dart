@@ -80,6 +80,7 @@ import 'package:adyen_api/src/gen/management/model/hardware.dart';
 import 'package:adyen_api/src/gen/management/model/id_name.dart';
 import 'package:adyen_api/src/gen/management/model/install_android_app_details.dart';
 import 'package:adyen_api/src/gen/management/model/install_android_certificate_details.dart';
+import 'package:adyen_api/src/gen/management/model/installed_apks.dart';
 import 'package:adyen_api/src/gen/management/model/invalid_field.dart';
 import 'package:adyen_api/src/gen/management/model/jcb_info.dart';
 import 'package:adyen_api/src/gen/management/model/key.dart';
@@ -96,7 +97,9 @@ import 'package:adyen_api/src/gen/management/model/list_merchant_users_response.
 import 'package:adyen_api/src/gen/management/model/list_stores_response.dart';
 import 'package:adyen_api/src/gen/management/model/list_terminals_response.dart';
 import 'package:adyen_api/src/gen/management/model/list_webhooks_response.dart';
+import 'package:adyen_api/src/gen/management/model/local_shopper_statement.dart';
 import 'package:adyen_api/src/gen/management/model/localization.dart';
+import 'package:adyen_api/src/gen/management/model/localized_information.dart';
 import 'package:adyen_api/src/gen/management/model/logo.dart';
 import 'package:adyen_api/src/gen/management/model/me_api_credential.dart';
 import 'package:adyen_api/src/gen/management/model/meal_voucher_fr_info.dart';
@@ -289,6 +292,7 @@ part 'serializers.g.dart';
   IdName,
   InstallAndroidAppDetails,
   InstallAndroidCertificateDetails,
+  InstalledAPKs,
   InvalidField,
   JCBInfo,
   Key,
@@ -305,7 +309,9 @@ part 'serializers.g.dart';
   ListStoresResponse,
   ListTerminalsResponse,
   ListWebhooksResponse,
+  LocalShopperStatement,
   Localization,
+  LocalizedInformation,
   Logo,
   MeApiCredential,
   MealVoucherFRInfo,

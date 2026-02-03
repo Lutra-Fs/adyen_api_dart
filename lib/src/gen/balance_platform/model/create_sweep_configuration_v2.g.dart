@@ -111,16 +111,8 @@ const CreateSweepConfigurationV2ReasonEnum
 _$createSweepConfigurationV2ReasonEnum_amountLimitExceeded =
     const CreateSweepConfigurationV2ReasonEnum._('amountLimitExceeded');
 const CreateSweepConfigurationV2ReasonEnum
-_$createSweepConfigurationV2ReasonEnum_approvalExpired =
-    const CreateSweepConfigurationV2ReasonEnum._('approvalExpired');
-const CreateSweepConfigurationV2ReasonEnum
 _$createSweepConfigurationV2ReasonEnum_approved =
     const CreateSweepConfigurationV2ReasonEnum._('approved');
-const CreateSweepConfigurationV2ReasonEnum
-_$createSweepConfigurationV2ReasonEnum_balanceAccountTemporarilyBlockedByTransactionRule =
-    const CreateSweepConfigurationV2ReasonEnum._(
-      'balanceAccountTemporarilyBlockedByTransactionRule',
-    );
 const CreateSweepConfigurationV2ReasonEnum
 _$createSweepConfigurationV2ReasonEnum_counterpartyAccountBlocked =
     const CreateSweepConfigurationV2ReasonEnum._('counterpartyAccountBlocked');
@@ -140,12 +132,6 @@ const CreateSweepConfigurationV2ReasonEnum
 _$createSweepConfigurationV2ReasonEnum_counterpartyBankUnavailable =
     const CreateSweepConfigurationV2ReasonEnum._('counterpartyBankUnavailable');
 const CreateSweepConfigurationV2ReasonEnum
-_$createSweepConfigurationV2ReasonEnum_declined =
-    const CreateSweepConfigurationV2ReasonEnum._('declined');
-const CreateSweepConfigurationV2ReasonEnum
-_$createSweepConfigurationV2ReasonEnum_declinedByTransactionRule =
-    const CreateSweepConfigurationV2ReasonEnum._('declinedByTransactionRule');
-const CreateSweepConfigurationV2ReasonEnum
 _$createSweepConfigurationV2ReasonEnum_directDebitNotSupported =
     const CreateSweepConfigurationV2ReasonEnum._('directDebitNotSupported');
 const CreateSweepConfigurationV2ReasonEnum
@@ -155,29 +141,11 @@ const CreateSweepConfigurationV2ReasonEnum
 _$createSweepConfigurationV2ReasonEnum_notEnoughBalance =
     const CreateSweepConfigurationV2ReasonEnum._('notEnoughBalance');
 const CreateSweepConfigurationV2ReasonEnum
-_$createSweepConfigurationV2ReasonEnum_pending =
-    const CreateSweepConfigurationV2ReasonEnum._('pending');
-const CreateSweepConfigurationV2ReasonEnum
-_$createSweepConfigurationV2ReasonEnum_pendingApproval =
-    const CreateSweepConfigurationV2ReasonEnum._('pendingApproval');
-const CreateSweepConfigurationV2ReasonEnum
-_$createSweepConfigurationV2ReasonEnum_pendingExecution =
-    const CreateSweepConfigurationV2ReasonEnum._('pendingExecution');
-const CreateSweepConfigurationV2ReasonEnum
 _$createSweepConfigurationV2ReasonEnum_refusedByCounterpartyBank =
     const CreateSweepConfigurationV2ReasonEnum._('refusedByCounterpartyBank');
 const CreateSweepConfigurationV2ReasonEnum
-_$createSweepConfigurationV2ReasonEnum_refusedByCustomer =
-    const CreateSweepConfigurationV2ReasonEnum._('refusedByCustomer');
-const CreateSweepConfigurationV2ReasonEnum
 _$createSweepConfigurationV2ReasonEnum_routeNotFound =
     const CreateSweepConfigurationV2ReasonEnum._('routeNotFound');
-const CreateSweepConfigurationV2ReasonEnum
-_$createSweepConfigurationV2ReasonEnum_scaFailed =
-    const CreateSweepConfigurationV2ReasonEnum._('scaFailed');
-const CreateSweepConfigurationV2ReasonEnum
-_$createSweepConfigurationV2ReasonEnum_schemeAdvice =
-    const CreateSweepConfigurationV2ReasonEnum._('schemeAdvice');
 const CreateSweepConfigurationV2ReasonEnum
 _$createSweepConfigurationV2ReasonEnum_transferInstrumentDoesNotExist =
     const CreateSweepConfigurationV2ReasonEnum._(
@@ -197,12 +165,8 @@ _$createSweepConfigurationV2ReasonEnumValueOf(String name) {
       return _$createSweepConfigurationV2ReasonEnum_accountHierarchyNotActive;
     case 'amountLimitExceeded':
       return _$createSweepConfigurationV2ReasonEnum_amountLimitExceeded;
-    case 'approvalExpired':
-      return _$createSweepConfigurationV2ReasonEnum_approvalExpired;
     case 'approved':
       return _$createSweepConfigurationV2ReasonEnum_approved;
-    case 'balanceAccountTemporarilyBlockedByTransactionRule':
-      return _$createSweepConfigurationV2ReasonEnum_balanceAccountTemporarilyBlockedByTransactionRule;
     case 'counterpartyAccountBlocked':
       return _$createSweepConfigurationV2ReasonEnum_counterpartyAccountBlocked;
     case 'counterpartyAccountClosed':
@@ -215,32 +179,16 @@ _$createSweepConfigurationV2ReasonEnumValueOf(String name) {
       return _$createSweepConfigurationV2ReasonEnum_counterpartyBankTimedOut;
     case 'counterpartyBankUnavailable':
       return _$createSweepConfigurationV2ReasonEnum_counterpartyBankUnavailable;
-    case 'declined':
-      return _$createSweepConfigurationV2ReasonEnum_declined;
-    case 'declinedByTransactionRule':
-      return _$createSweepConfigurationV2ReasonEnum_declinedByTransactionRule;
     case 'directDebitNotSupported':
       return _$createSweepConfigurationV2ReasonEnum_directDebitNotSupported;
     case 'error':
       return _$createSweepConfigurationV2ReasonEnum_error;
     case 'notEnoughBalance':
       return _$createSweepConfigurationV2ReasonEnum_notEnoughBalance;
-    case 'pending':
-      return _$createSweepConfigurationV2ReasonEnum_pending;
-    case 'pendingApproval':
-      return _$createSweepConfigurationV2ReasonEnum_pendingApproval;
-    case 'pendingExecution':
-      return _$createSweepConfigurationV2ReasonEnum_pendingExecution;
     case 'refusedByCounterpartyBank':
       return _$createSweepConfigurationV2ReasonEnum_refusedByCounterpartyBank;
-    case 'refusedByCustomer':
-      return _$createSweepConfigurationV2ReasonEnum_refusedByCustomer;
     case 'routeNotFound':
       return _$createSweepConfigurationV2ReasonEnum_routeNotFound;
-    case 'scaFailed':
-      return _$createSweepConfigurationV2ReasonEnum_scaFailed;
-    case 'schemeAdvice':
-      return _$createSweepConfigurationV2ReasonEnum_schemeAdvice;
     case 'transferInstrumentDoesNotExist':
       return _$createSweepConfigurationV2ReasonEnum_transferInstrumentDoesNotExist;
     case 'unknown':
@@ -254,37 +202,27 @@ _$createSweepConfigurationV2ReasonEnumValueOf(String name) {
 
 final BuiltSet<CreateSweepConfigurationV2ReasonEnum>
 _$createSweepConfigurationV2ReasonEnumValues =
-    BuiltSet<CreateSweepConfigurationV2ReasonEnum>(const <
-      CreateSweepConfigurationV2ReasonEnum
-    >[
-      _$createSweepConfigurationV2ReasonEnum_accountHierarchyNotActive,
-      _$createSweepConfigurationV2ReasonEnum_amountLimitExceeded,
-      _$createSweepConfigurationV2ReasonEnum_approvalExpired,
-      _$createSweepConfigurationV2ReasonEnum_approved,
-      _$createSweepConfigurationV2ReasonEnum_balanceAccountTemporarilyBlockedByTransactionRule,
-      _$createSweepConfigurationV2ReasonEnum_counterpartyAccountBlocked,
-      _$createSweepConfigurationV2ReasonEnum_counterpartyAccountClosed,
-      _$createSweepConfigurationV2ReasonEnum_counterpartyAccountNotFound,
-      _$createSweepConfigurationV2ReasonEnum_counterpartyAddressRequired,
-      _$createSweepConfigurationV2ReasonEnum_counterpartyBankTimedOut,
-      _$createSweepConfigurationV2ReasonEnum_counterpartyBankUnavailable,
-      _$createSweepConfigurationV2ReasonEnum_declined,
-      _$createSweepConfigurationV2ReasonEnum_declinedByTransactionRule,
-      _$createSweepConfigurationV2ReasonEnum_directDebitNotSupported,
-      _$createSweepConfigurationV2ReasonEnum_error,
-      _$createSweepConfigurationV2ReasonEnum_notEnoughBalance,
-      _$createSweepConfigurationV2ReasonEnum_pending,
-      _$createSweepConfigurationV2ReasonEnum_pendingApproval,
-      _$createSweepConfigurationV2ReasonEnum_pendingExecution,
-      _$createSweepConfigurationV2ReasonEnum_refusedByCounterpartyBank,
-      _$createSweepConfigurationV2ReasonEnum_refusedByCustomer,
-      _$createSweepConfigurationV2ReasonEnum_routeNotFound,
-      _$createSweepConfigurationV2ReasonEnum_scaFailed,
-      _$createSweepConfigurationV2ReasonEnum_schemeAdvice,
-      _$createSweepConfigurationV2ReasonEnum_transferInstrumentDoesNotExist,
-      _$createSweepConfigurationV2ReasonEnum_unknown,
-      _$createSweepConfigurationV2ReasonEnum_unknownDefaultOpenApi,
-    ]);
+    BuiltSet<CreateSweepConfigurationV2ReasonEnum>(
+      const <CreateSweepConfigurationV2ReasonEnum>[
+        _$createSweepConfigurationV2ReasonEnum_accountHierarchyNotActive,
+        _$createSweepConfigurationV2ReasonEnum_amountLimitExceeded,
+        _$createSweepConfigurationV2ReasonEnum_approved,
+        _$createSweepConfigurationV2ReasonEnum_counterpartyAccountBlocked,
+        _$createSweepConfigurationV2ReasonEnum_counterpartyAccountClosed,
+        _$createSweepConfigurationV2ReasonEnum_counterpartyAccountNotFound,
+        _$createSweepConfigurationV2ReasonEnum_counterpartyAddressRequired,
+        _$createSweepConfigurationV2ReasonEnum_counterpartyBankTimedOut,
+        _$createSweepConfigurationV2ReasonEnum_counterpartyBankUnavailable,
+        _$createSweepConfigurationV2ReasonEnum_directDebitNotSupported,
+        _$createSweepConfigurationV2ReasonEnum_error,
+        _$createSweepConfigurationV2ReasonEnum_notEnoughBalance,
+        _$createSweepConfigurationV2ReasonEnum_refusedByCounterpartyBank,
+        _$createSweepConfigurationV2ReasonEnum_routeNotFound,
+        _$createSweepConfigurationV2ReasonEnum_transferInstrumentDoesNotExist,
+        _$createSweepConfigurationV2ReasonEnum_unknown,
+        _$createSweepConfigurationV2ReasonEnum_unknownDefaultOpenApi,
+      ],
+    );
 
 const CreateSweepConfigurationV2StatusEnum
 _$createSweepConfigurationV2StatusEnum_active =
@@ -460,29 +398,18 @@ class _$CreateSweepConfigurationV2ReasonEnumSerializer
   static const Map<String, Object> _toWire = const <String, Object>{
     'accountHierarchyNotActive': 'accountHierarchyNotActive',
     'amountLimitExceeded': 'amountLimitExceeded',
-    'approvalExpired': 'approvalExpired',
     'approved': 'approved',
-    'balanceAccountTemporarilyBlockedByTransactionRule':
-        'balanceAccountTemporarilyBlockedByTransactionRule',
     'counterpartyAccountBlocked': 'counterpartyAccountBlocked',
     'counterpartyAccountClosed': 'counterpartyAccountClosed',
     'counterpartyAccountNotFound': 'counterpartyAccountNotFound',
     'counterpartyAddressRequired': 'counterpartyAddressRequired',
     'counterpartyBankTimedOut': 'counterpartyBankTimedOut',
     'counterpartyBankUnavailable': 'counterpartyBankUnavailable',
-    'declined': 'declined',
-    'declinedByTransactionRule': 'declinedByTransactionRule',
     'directDebitNotSupported': 'directDebitNotSupported',
     'error': 'error',
     'notEnoughBalance': 'notEnoughBalance',
-    'pending': 'pending',
-    'pendingApproval': 'pendingApproval',
-    'pendingExecution': 'pendingExecution',
     'refusedByCounterpartyBank': 'refusedByCounterpartyBank',
-    'refusedByCustomer': 'refusedByCustomer',
     'routeNotFound': 'routeNotFound',
-    'scaFailed': 'scaFailed',
-    'schemeAdvice': 'schemeAdvice',
     'transferInstrumentDoesNotExist': 'transferInstrumentDoesNotExist',
     'unknown': 'unknown',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
@@ -490,29 +417,18 @@ class _$CreateSweepConfigurationV2ReasonEnumSerializer
   static const Map<Object, String> _fromWire = const <Object, String>{
     'accountHierarchyNotActive': 'accountHierarchyNotActive',
     'amountLimitExceeded': 'amountLimitExceeded',
-    'approvalExpired': 'approvalExpired',
     'approved': 'approved',
-    'balanceAccountTemporarilyBlockedByTransactionRule':
-        'balanceAccountTemporarilyBlockedByTransactionRule',
     'counterpartyAccountBlocked': 'counterpartyAccountBlocked',
     'counterpartyAccountClosed': 'counterpartyAccountClosed',
     'counterpartyAccountNotFound': 'counterpartyAccountNotFound',
     'counterpartyAddressRequired': 'counterpartyAddressRequired',
     'counterpartyBankTimedOut': 'counterpartyBankTimedOut',
     'counterpartyBankUnavailable': 'counterpartyBankUnavailable',
-    'declined': 'declined',
-    'declinedByTransactionRule': 'declinedByTransactionRule',
     'directDebitNotSupported': 'directDebitNotSupported',
     'error': 'error',
     'notEnoughBalance': 'notEnoughBalance',
-    'pending': 'pending',
-    'pendingApproval': 'pendingApproval',
-    'pendingExecution': 'pendingExecution',
     'refusedByCounterpartyBank': 'refusedByCounterpartyBank',
-    'refusedByCustomer': 'refusedByCustomer',
     'routeNotFound': 'routeNotFound',
-    'scaFailed': 'scaFailed',
-    'schemeAdvice': 'schemeAdvice',
     'transferInstrumentDoesNotExist': 'transferInstrumentDoesNotExist',
     'unknown': 'unknown',
     'unknown_default_open_api': 'unknownDefaultOpenApi',

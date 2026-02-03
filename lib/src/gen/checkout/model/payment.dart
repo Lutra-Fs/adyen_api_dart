@@ -17,7 +17,7 @@ part 'payment.g.dart';
 /// * [amount] - Authorised amount in the transaction.
 /// * [paymentMethod] - Only returned for `resultCode`: **Authorised**.  Details about the payment method used in the transaction.
 /// * [pspReference] - Adyen's 16-character reference associated with the transaction/request. This value is globally unique. Use this reference when you communicate with us about this request.
-/// * [resultCode] - The result of the payment. For more information, see [Result codes](https://docs.adyen.com/online-payments/payment-result-codes).  Possible values:  * **Authorised** – The payment was successfully authorised. This state serves as an indicator to proceed with the delivery of goods and services. This is a final state. 
+/// * [resultCode] - The result of the payment. For more information, see [Result codes](https://docs.adyen.com/online-payments/payment-result-codes).  Possible values:  * **Authorised** – The payment was successfully authorised. This state serves as an indicator to proceed with the delivery of goods and services. This is a final state. * **Received** – Indicates the payment request was successfully received by Adyen, and will be processed. This is the initial state for all payments. * **Pending** – The payment order was successfully received but the final status of the payment is not available yet. This is common for payment methods with an asynchronous flow.
 @BuiltValue()
 abstract class Payment implements Built<Payment, PaymentBuilder> {
   /// Authorised amount in the transaction.
@@ -32,10 +32,10 @@ abstract class Payment implements Built<Payment, PaymentBuilder> {
   @BuiltValueField(wireName: r'pspReference')
   String? get pspReference;
 
-  /// The result of the payment. For more information, see [Result codes](https://docs.adyen.com/online-payments/payment-result-codes).  Possible values:  * **Authorised** – The payment was successfully authorised. This state serves as an indicator to proceed with the delivery of goods and services. This is a final state. 
+  /// The result of the payment. For more information, see [Result codes](https://docs.adyen.com/online-payments/payment-result-codes).  Possible values:  * **Authorised** – The payment was successfully authorised. This state serves as an indicator to proceed with the delivery of goods and services. This is a final state. * **Received** – Indicates the payment request was successfully received by Adyen, and will be processed. This is the initial state for all payments. * **Pending** – The payment order was successfully received but the final status of the payment is not available yet. This is common for payment methods with an asynchronous flow.
   @BuiltValueField(wireName: r'resultCode')
   PaymentResultCodeEnum? get resultCode;
-  // enum resultCodeEnum {  Authorised,  };
+  // enum resultCodeEnum {  Authorised,  Received,  Pending,  };
 
   Payment._();
 
@@ -170,10 +170,16 @@ class _$PaymentSerializer implements PrimitiveSerializer<Payment> {
 
 class PaymentResultCodeEnum extends EnumClass {
 
-  /// The result of the payment. For more information, see [Result codes](https://docs.adyen.com/online-payments/payment-result-codes).  Possible values:  * **Authorised** – The payment was successfully authorised. This state serves as an indicator to proceed with the delivery of goods and services. This is a final state. 
+  /// The result of the payment. For more information, see [Result codes](https://docs.adyen.com/online-payments/payment-result-codes).  Possible values:  * **Authorised** – The payment was successfully authorised. This state serves as an indicator to proceed with the delivery of goods and services. This is a final state. * **Received** – Indicates the payment request was successfully received by Adyen, and will be processed. This is the initial state for all payments. * **Pending** – The payment order was successfully received but the final status of the payment is not available yet. This is common for payment methods with an asynchronous flow.
   @BuiltValueEnumConst(wireName: r'Authorised')
   static const PaymentResultCodeEnum authorised = _$paymentResultCodeEnum_authorised;
-  /// The result of the payment. For more information, see [Result codes](https://docs.adyen.com/online-payments/payment-result-codes).  Possible values:  * **Authorised** – The payment was successfully authorised. This state serves as an indicator to proceed with the delivery of goods and services. This is a final state. 
+  /// The result of the payment. For more information, see [Result codes](https://docs.adyen.com/online-payments/payment-result-codes).  Possible values:  * **Authorised** – The payment was successfully authorised. This state serves as an indicator to proceed with the delivery of goods and services. This is a final state. * **Received** – Indicates the payment request was successfully received by Adyen, and will be processed. This is the initial state for all payments. * **Pending** – The payment order was successfully received but the final status of the payment is not available yet. This is common for payment methods with an asynchronous flow.
+  @BuiltValueEnumConst(wireName: r'Received')
+  static const PaymentResultCodeEnum received = _$paymentResultCodeEnum_received;
+  /// The result of the payment. For more information, see [Result codes](https://docs.adyen.com/online-payments/payment-result-codes).  Possible values:  * **Authorised** – The payment was successfully authorised. This state serves as an indicator to proceed with the delivery of goods and services. This is a final state. * **Received** – Indicates the payment request was successfully received by Adyen, and will be processed. This is the initial state for all payments. * **Pending** – The payment order was successfully received but the final status of the payment is not available yet. This is common for payment methods with an asynchronous flow.
+  @BuiltValueEnumConst(wireName: r'Pending')
+  static const PaymentResultCodeEnum pending = _$paymentResultCodeEnum_pending;
+  /// The result of the payment. For more information, see [Result codes](https://docs.adyen.com/online-payments/payment-result-codes).  Possible values:  * **Authorised** – The payment was successfully authorised. This state serves as an indicator to proceed with the delivery of goods and services. This is a final state. * **Received** – Indicates the payment request was successfully received by Adyen, and will be processed. This is the initial state for all payments. * **Pending** – The payment order was successfully received but the final status of the payment is not available yet. This is common for payment methods with an asynchronous flow.
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const PaymentResultCodeEnum unknownDefaultOpenApi = _$paymentResultCodeEnum_unknownDefaultOpenApi;
 

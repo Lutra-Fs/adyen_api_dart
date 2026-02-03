@@ -93,6 +93,7 @@ Serializers _$serializers =
           ..add(InstallAndroidAppDetailsTypeEnum.serializer)
           ..add(InstallAndroidCertificateDetails.serializer)
           ..add(InstallAndroidCertificateDetailsTypeEnum.serializer)
+          ..add(InstalledAPKs.serializer)
           ..add(InvalidField.serializer)
           ..add(JCBInfo.serializer)
           ..add(JCBInfoServiceLevelEnum.serializer)
@@ -111,7 +112,9 @@ Serializers _$serializers =
           ..add(ListStoresResponse.serializer)
           ..add(ListTerminalsResponse.serializer)
           ..add(ListWebhooksResponse.serializer)
+          ..add(LocalShopperStatement.serializer)
           ..add(Localization.serializer)
+          ..add(LocalizedInformation.serializer)
           ..add(Logo.serializer)
           ..add(MeApiCredential.serializer)
           ..add(MealVoucherFRInfo.serializer)
@@ -376,8 +379,18 @@ Serializers _$serializers =
             () => ListBuilder<IdName>(),
           )
           ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(InstalledAPKs)]),
+            () => ListBuilder<InstalledAPKs>(),
+          )
+          ..addBuilderFactory(
             const FullType(BuiltList, const [const FullType(InvalidField)]),
             () => ListBuilder<InvalidField>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [
+              const FullType(LocalShopperStatement),
+            ]),
+            () => ListBuilder<LocalShopperStatement>(),
           )
           ..addBuilderFactory(
             const FullType(BuiltList, const [const FullType(Merchant)]),
