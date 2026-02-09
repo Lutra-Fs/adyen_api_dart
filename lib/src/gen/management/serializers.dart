@@ -77,6 +77,7 @@ import 'package:adyen_api/src/gen/management/model/givex_info.dart';
 import 'package:adyen_api/src/gen/management/model/google_pay_info.dart';
 import 'package:adyen_api/src/gen/management/model/gratuity.dart';
 import 'package:adyen_api/src/gen/management/model/hardware.dart';
+import 'package:adyen_api/src/gen/management/model/home_screen_settings.dart';
 import 'package:adyen_api/src/gen/management/model/id_name.dart';
 import 'package:adyen_api/src/gen/management/model/install_android_app_details.dart';
 import 'package:adyen_api/src/gen/management/model/install_android_certificate_details.dart';
@@ -84,6 +85,7 @@ import 'package:adyen_api/src/gen/management/model/installed_apks.dart';
 import 'package:adyen_api/src/gen/management/model/invalid_field.dart';
 import 'package:adyen_api/src/gen/management/model/jcb_info.dart';
 import 'package:adyen_api/src/gen/management/model/key.dart';
+import 'package:adyen_api/src/gen/management/model/kiosk_mode_settings.dart';
 import 'package:adyen_api/src/gen/management/model/klarna_info.dart';
 import 'package:adyen_api/src/gen/management/model/links.dart';
 import 'package:adyen_api/src/gen/management/model/links_element.dart';
@@ -289,6 +291,7 @@ part 'serializers.g.dart';
   GooglePayInfo,
   Gratuity,
   Hardware,
+  HomeScreenSettings,
   IdName,
   InstallAndroidAppDetails,
   InstallAndroidCertificateDetails,
@@ -296,6 +299,7 @@ part 'serializers.g.dart';
   InvalidField,
   JCBInfo,
   Key,
+  KioskModeSettings,
   KlarnaInfo,
   Links,
   LinksElement,
