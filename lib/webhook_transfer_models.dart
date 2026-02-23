@@ -26,6 +26,7 @@ export 'src/gen/webhook_transfer/model/external_reason.dart';
 export 'src/gen/webhook_transfer/model/hk_local_account_identification.dart';
 export 'src/gen/webhook_transfer/model/hu_local_account_identification.dart';
 export 'src/gen/webhook_transfer/model/iban_account_identification.dart';
+export 'src/gen/webhook_transfer/model/interchange_data.dart';
 export 'src/gen/webhook_transfer/model/internal_category_data.dart';
 export 'src/gen/webhook_transfer/model/internal_review_tracking_data.dart';
 export 'src/gen/webhook_transfer/model/issued_card.dart';

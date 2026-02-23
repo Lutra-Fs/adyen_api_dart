@@ -7,11 +7,14 @@ part of 'response_additional_data_common.dart';
 // **************************************************************************
 
 const ResponseAdditionalDataCommonFraudResultTypeEnum
+_$responseAdditionalDataCommonFraudResultTypeEnum_AMBER =
+    const ResponseAdditionalDataCommonFraudResultTypeEnum._('AMBER');
+const ResponseAdditionalDataCommonFraudResultTypeEnum
 _$responseAdditionalDataCommonFraudResultTypeEnum_GREEN =
     const ResponseAdditionalDataCommonFraudResultTypeEnum._('GREEN');
 const ResponseAdditionalDataCommonFraudResultTypeEnum
-_$responseAdditionalDataCommonFraudResultTypeEnum_FRAUD =
-    const ResponseAdditionalDataCommonFraudResultTypeEnum._('FRAUD');
+_$responseAdditionalDataCommonFraudResultTypeEnum_RED =
+    const ResponseAdditionalDataCommonFraudResultTypeEnum._('RED');
 const ResponseAdditionalDataCommonFraudResultTypeEnum
 _$responseAdditionalDataCommonFraudResultTypeEnum_unknownDefaultOpenApi =
     const ResponseAdditionalDataCommonFraudResultTypeEnum._(
@@ -21,10 +24,12 @@ _$responseAdditionalDataCommonFraudResultTypeEnum_unknownDefaultOpenApi =
 ResponseAdditionalDataCommonFraudResultTypeEnum
 _$responseAdditionalDataCommonFraudResultTypeEnumValueOf(String name) {
   switch (name) {
+    case 'AMBER':
+      return _$responseAdditionalDataCommonFraudResultTypeEnum_AMBER;
     case 'GREEN':
       return _$responseAdditionalDataCommonFraudResultTypeEnum_GREEN;
-    case 'FRAUD':
-      return _$responseAdditionalDataCommonFraudResultTypeEnum_FRAUD;
+    case 'RED':
+      return _$responseAdditionalDataCommonFraudResultTypeEnum_RED;
     case 'unknownDefaultOpenApi':
       return _$responseAdditionalDataCommonFraudResultTypeEnum_unknownDefaultOpenApi;
     default:
@@ -36,8 +41,9 @@ final BuiltSet<ResponseAdditionalDataCommonFraudResultTypeEnum>
 _$responseAdditionalDataCommonFraudResultTypeEnumValues =
     BuiltSet<ResponseAdditionalDataCommonFraudResultTypeEnum>(
       const <ResponseAdditionalDataCommonFraudResultTypeEnum>[
+        _$responseAdditionalDataCommonFraudResultTypeEnum_AMBER,
         _$responseAdditionalDataCommonFraudResultTypeEnum_GREEN,
-        _$responseAdditionalDataCommonFraudResultTypeEnum_FRAUD,
+        _$responseAdditionalDataCommonFraudResultTypeEnum_RED,
         _$responseAdditionalDataCommonFraudResultTypeEnum_unknownDefaultOpenApi,
       ],
     );
@@ -217,13 +223,15 @@ class _$ResponseAdditionalDataCommonFraudResultTypeEnumSerializer
     implements
         PrimitiveSerializer<ResponseAdditionalDataCommonFraudResultTypeEnum> {
   static const Map<String, Object> _toWire = const <String, Object>{
+    'AMBER': 'AMBER',
     'GREEN': 'GREEN',
-    'FRAUD': 'FRAUD',
+    'RED': 'RED',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
+    'AMBER': 'AMBER',
     'GREEN': 'GREEN',
-    'FRAUD': 'FRAUD',
+    'RED': 'RED',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
 

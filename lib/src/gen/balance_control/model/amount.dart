@@ -11,15 +11,15 @@ part 'amount.g.dart';
 /// Amount
 ///
 /// Properties:
-/// * [currency] - The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes#currency-codes).
-/// * [value] - The amount of the transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes#minor-units).
+/// * [currency] - The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes#currency-codes) of the amount.
+/// * [value] - The numeric value of the amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes#minor-units).
 @BuiltValue()
 abstract class Amount implements Built<Amount, AmountBuilder> {
-  /// The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes#currency-codes).
+  /// The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes#currency-codes) of the amount.
   @BuiltValueField(wireName: r'currency')
   String get currency;
 
-  /// The amount of the transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes#minor-units).
+  /// The numeric value of the amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes#minor-units).
   @BuiltValueField(wireName: r'value')
   int get value;
 

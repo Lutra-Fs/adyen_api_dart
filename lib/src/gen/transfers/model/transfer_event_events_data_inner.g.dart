@@ -7,6 +7,9 @@ part of 'transfer_event_events_data_inner.dart';
 // **************************************************************************
 
 const TransferEventEventsDataInnerTypeEnum
+_$transferEventEventsDataInnerTypeEnum_interchangeData =
+    const TransferEventEventsDataInnerTypeEnum._('interchangeData');
+const TransferEventEventsDataInnerTypeEnum
 _$transferEventEventsDataInnerTypeEnum_issuingTransactionData =
     const TransferEventEventsDataInnerTypeEnum._('issuingTransactionData');
 const TransferEventEventsDataInnerTypeEnum
@@ -19,6 +22,8 @@ _$transferEventEventsDataInnerTypeEnum_unknownDefaultOpenApi =
 TransferEventEventsDataInnerTypeEnum
 _$transferEventEventsDataInnerTypeEnumValueOf(String name) {
   switch (name) {
+    case 'interchangeData':
+      return _$transferEventEventsDataInnerTypeEnum_interchangeData;
     case 'issuingTransactionData':
       return _$transferEventEventsDataInnerTypeEnum_issuingTransactionData;
     case 'merchantPurchaseData':
@@ -34,6 +39,7 @@ final BuiltSet<TransferEventEventsDataInnerTypeEnum>
 _$transferEventEventsDataInnerTypeEnumValues =
     BuiltSet<TransferEventEventsDataInnerTypeEnum>(
       const <TransferEventEventsDataInnerTypeEnum>[
+        _$transferEventEventsDataInnerTypeEnum_interchangeData,
         _$transferEventEventsDataInnerTypeEnum_issuingTransactionData,
         _$transferEventEventsDataInnerTypeEnum_merchantPurchaseData,
         _$transferEventEventsDataInnerTypeEnum_unknownDefaultOpenApi,
@@ -47,11 +53,13 @@ _$transferEventEventsDataInnerTypeEnumSerializer =
 class _$TransferEventEventsDataInnerTypeEnumSerializer
     implements PrimitiveSerializer<TransferEventEventsDataInnerTypeEnum> {
   static const Map<String, Object> _toWire = const <String, Object>{
+    'interchangeData': 'interchangeData',
     'issuingTransactionData': 'issuingTransactionData',
     'merchantPurchaseData': 'merchantPurchaseData',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
+    'interchangeData': 'interchangeData',
     'issuingTransactionData': 'issuingTransactionData',
     'merchantPurchaseData': 'merchantPurchaseData',
     'unknown_default_open_api': 'unknownDefaultOpenApi',

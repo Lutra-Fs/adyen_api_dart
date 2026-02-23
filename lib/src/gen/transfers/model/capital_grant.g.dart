@@ -105,7 +105,7 @@ class _$CapitalGrant extends CapitalGrant {
   @override
   final CapitalBalance balances;
   @override
-  final Counterparty? counterparty;
+  final GrantCounterparty? counterparty;
   @override
   final Fee? fee;
   @override
@@ -200,10 +200,10 @@ class CapitalGrantBuilder
       _$this._balances ??= CapitalBalanceBuilder();
   set balances(CapitalBalanceBuilder? balances) => _$this._balances = balances;
 
-  CounterpartyBuilder? _counterparty;
-  CounterpartyBuilder get counterparty =>
-      _$this._counterparty ??= CounterpartyBuilder();
-  set counterparty(CounterpartyBuilder? counterparty) =>
+  GrantCounterpartyBuilder? _counterparty;
+  GrantCounterpartyBuilder get counterparty =>
+      _$this._counterparty ??= GrantCounterpartyBuilder();
+  set counterparty(GrantCounterpartyBuilder? counterparty) =>
       _$this._counterparty = counterparty;
 
   FeeBuilder? _fee;

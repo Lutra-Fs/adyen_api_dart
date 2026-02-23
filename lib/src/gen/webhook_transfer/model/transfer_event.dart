@@ -91,7 +91,7 @@ abstract class TransferEvent implements Built<TransferEvent, TransferEventBuilde
   /// The status of the transfer event.
   @BuiltValueField(wireName: r'status')
   TransferEventStatusEnum? get status;
-  // enum statusEnum {  approvalPending,  atmWithdrawal,  atmWithdrawalReversalPending,  atmWithdrawalReversed,  authAdjustmentAuthorised,  authAdjustmentError,  authAdjustmentRefused,  authorised,  bankTransfer,  bankTransferPending,  booked,  bookingPending,  cancelled,  capturePending,  captureReversalPending,  captureReversed,  captured,  capturedExternally,  chargeback,  chargebackExternally,  chargebackPending,  chargebackReversalPending,  chargebackReversed,  credited,  depositCorrection,  depositCorrectionPending,  dispute,  disputeClosed,  disputeExpired,  disputeNeedsReview,  error,  expired,  failed,  fee,  feePending,  internalTransfer,  internalTransferPending,  invoiceDeduction,  invoiceDeductionPending,  manualCorrectionPending,  manuallyCorrected,  matchedStatement,  matchedStatementPending,  merchantPayin,  merchantPayinPending,  merchantPayinReversed,  merchantPayinReversedPending,  miscCost,  miscCostPending,  paymentCost,  paymentCostPending,  pendingApproval,  pendingExecution,  received,  refundPending,  refundReversalPending,  refundReversed,  refunded,  refundedExternally,  refused,  rejected,  reserveAdjustment,  reserveAdjustmentPending,  returned,  secondChargeback,  secondChargebackPending,  undefined,  };
+  // enum statusEnum {  approvalPending,  atmWithdrawal,  atmWithdrawalReversalPending,  atmWithdrawalReversed,  authAdjustmentAuthorised,  authAdjustmentError,  authAdjustmentRefused,  authorised,  bankTransfer,  bankTransferPending,  booked,  bookingPending,  cancelled,  capturePending,  captureReversalPending,  captureReversed,  captured,  capturedExternally,  chargeback,  chargebackExternally,  chargebackPending,  chargebackReversalPending,  chargebackReversed,  credited,  depositCorrection,  depositCorrectionPending,  dispute,  disputeClosed,  disputeExpired,  disputeNeedsReview,  error,  expired,  failed,  fee,  feePending,  interchangeAdjusted,  internalTransfer,  internalTransferPending,  invoiceDeduction,  invoiceDeductionPending,  manualCorrectionPending,  manuallyCorrected,  matchedStatement,  matchedStatementPending,  merchantPayin,  merchantPayinPending,  merchantPayinReversed,  merchantPayinReversedPending,  miscCost,  miscCostPending,  paymentCost,  paymentCostPending,  pendingApproval,  pendingExecution,  received,  refundPending,  refundReversalPending,  refundReversed,  refunded,  refundedExternally,  refused,  rejected,  reserveAdjustment,  reserveAdjustmentPending,  returned,  secondChargeback,  secondChargebackPending,  undefined,  };
 
   @BuiltValueField(wireName: r'trackingData')
   TransferEventTrackingData? get trackingData;
@@ -103,7 +103,7 @@ abstract class TransferEvent implements Built<TransferEvent, TransferEventBuilde
   /// The type of the transfer event. Possible values: **accounting**, **tracking**.
   @BuiltValueField(wireName: r'type')
   TransferEventTypeEnum? get type;
-  // enum typeEnum {  accounting,  tracking,  };
+  // enum typeEnum {  accounting,  tracing,  tracking,  };
 
   /// The date when the tracking status was updated.
   @BuiltValueField(wireName: r'updateDate')
@@ -817,6 +817,9 @@ class TransferEventStatusEnum extends EnumClass {
   @BuiltValueEnumConst(wireName: r'feePending')
   static const TransferEventStatusEnum feePending = _$transferEventStatusEnum_feePending;
   /// The status of the transfer event.
+  @BuiltValueEnumConst(wireName: r'interchangeAdjusted')
+  static const TransferEventStatusEnum interchangeAdjusted = _$transferEventStatusEnum_interchangeAdjusted;
+  /// The status of the transfer event.
   @BuiltValueEnumConst(wireName: r'internalTransfer')
   static const TransferEventStatusEnum internalTransfer = _$transferEventStatusEnum_internalTransfer;
   /// The status of the transfer event.
@@ -929,6 +932,9 @@ class TransferEventTypeEnum extends EnumClass {
   /// The type of the transfer event. Possible values: **accounting**, **tracking**.
   @BuiltValueEnumConst(wireName: r'accounting')
   static const TransferEventTypeEnum accounting = _$transferEventTypeEnum_accounting;
+  /// The type of the transfer event. Possible values: **accounting**, **tracking**.
+  @BuiltValueEnumConst(wireName: r'tracing')
+  static const TransferEventTypeEnum tracing = _$transferEventTypeEnum_tracing;
   /// The type of the transfer event. Possible values: **accounting**, **tracking**.
   @BuiltValueEnumConst(wireName: r'tracking')
   static const TransferEventTypeEnum tracking = _$transferEventTypeEnum_tracking;

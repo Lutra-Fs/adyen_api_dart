@@ -40,6 +40,7 @@ import 'package:adyen_api/src/gen/webhook_transfer/model/external_reason.dart';
 import 'package:adyen_api/src/gen/webhook_transfer/model/hk_local_account_identification.dart';
 import 'package:adyen_api/src/gen/webhook_transfer/model/hu_local_account_identification.dart';
 import 'package:adyen_api/src/gen/webhook_transfer/model/iban_account_identification.dart';
+import 'package:adyen_api/src/gen/webhook_transfer/model/interchange_data.dart';
 import 'package:adyen_api/src/gen/webhook_transfer/model/internal_category_data.dart';
 import 'package:adyen_api/src/gen/webhook_transfer/model/internal_review_tracking_data.dart';
 import 'package:adyen_api/src/gen/webhook_transfer/model/issued_card.dart';
@@ -110,6 +111,7 @@ part 'serializers.g.dart';
   HKLocalAccountIdentification,
   HULocalAccountIdentification,
   IbanAccountIdentification,
+  InterchangeData,
   InternalCategoryData,
   InternalReviewTrackingData,
   IssuedCard,

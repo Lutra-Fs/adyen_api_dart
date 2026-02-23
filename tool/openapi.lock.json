@@ -1,6 +1,6 @@
 {
   "repo": "https://github.com/Adyen/adyen-openapi",
-  "commit": "87ad29a236d338b93798baecd485aade51825d19",
+  "commit": "37c03ec682e4aeba38a186b077a25dc3be753144",
   "specs": [
     {
       "name": "binlookup",
@@ -39,7 +39,7 @@
     },
     {
       "name": "balance_control",
-      "path": "yaml/BalanceControlService-v1.yaml",
+      "path": "yaml/BalanceControlService-v2.yaml",
       "output": "lib/src/gen/balance_control"
     },
     {

@@ -28,7 +28,7 @@ abstract class ModificationResult implements Built<ModificationResult, Modificat
   /// Indicates if the modification request has been received for processing.
   @BuiltValueField(wireName: r'response')
   ModificationResultResponseEnum get response;
-  // enum responseEnum {  [capture-received],  [cancel-received],  [refund-received],  [cancelOrRefund-received],  [adjustAuthorisation-received],  [donation-received],  [technical-cancel-received],  [voidPendingRefund-received],  Authorised,  };
+  // enum responseEnum {  [capture-received],  [cancel-received],  [refund-received],  [cancelOrRefund-received],  [adjustAuthorisation-received],  [donation-received],  [technical-cancel-received],  [voidPendingRefund-received],  Authorised,  Refused,  Error,  };
 
   ModificationResult._();
 
@@ -172,6 +172,12 @@ class ModificationResultResponseEnum extends EnumClass {
   /// Indicates if the modification request has been received for processing.
   @BuiltValueEnumConst(wireName: r'Authorised')
   static const ModificationResultResponseEnum authorised = _$modificationResultResponseEnum_authorised;
+  /// Indicates if the modification request has been received for processing.
+  @BuiltValueEnumConst(wireName: r'Refused')
+  static const ModificationResultResponseEnum refused = _$modificationResultResponseEnum_refused;
+  /// Indicates if the modification request has been received for processing.
+  @BuiltValueEnumConst(wireName: r'Error')
+  static const ModificationResultResponseEnum error = _$modificationResultResponseEnum_error;
   /// Indicates if the modification request has been received for processing.
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const ModificationResultResponseEnum unknownDefaultOpenApi = _$modificationResultResponseEnum_unknownDefaultOpenApi;

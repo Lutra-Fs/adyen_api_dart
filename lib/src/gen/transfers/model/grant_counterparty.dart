@@ -6,17 +6,17 @@
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'counterparty.g.dart';
+part 'grant_counterparty.g.dart';
 
-/// Counterparty
+/// GrantCounterparty
 ///
 /// Properties:
-/// * [accountHolderId] - The identifier of the receiving account holder. The payout will default to the primary balance account of this account holder if no `balanceAccountId` is provided.
+/// * [accountHolderId] - The identifier of the receiving account holder.
 /// * [balanceAccountId] - The identifier of the balance account that belongs to the receiving account holder.
 /// * [transferInstrumentId] - The identifier of the transfer instrument that belongs to the legal entity of the account holder.
 @BuiltValue()
-abstract class Counterparty implements Built<Counterparty, CounterpartyBuilder> {
-  /// The identifier of the receiving account holder. The payout will default to the primary balance account of this account holder if no `balanceAccountId` is provided.
+abstract class GrantCounterparty implements Built<GrantCounterparty, GrantCounterpartyBuilder> {
+  /// The identifier of the receiving account holder.
   @BuiltValueField(wireName: r'accountHolderId')
   String? get accountHolderId;
 
@@ -28,27 +28,27 @@ abstract class Counterparty implements Built<Counterparty, CounterpartyBuilder> 
   @BuiltValueField(wireName: r'transferInstrumentId')
   String? get transferInstrumentId;
 
-  Counterparty._();
+  GrantCounterparty._();
 
-  factory Counterparty([void updates(CounterpartyBuilder b)]) = _$Counterparty;
+  factory GrantCounterparty([void updates(GrantCounterpartyBuilder b)]) = _$GrantCounterparty;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(CounterpartyBuilder b) => b;
+  static void _defaults(GrantCounterpartyBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<Counterparty> get serializer => _$CounterpartySerializer();
+  static Serializer<GrantCounterparty> get serializer => _$GrantCounterpartySerializer();
 }
 
-class _$CounterpartySerializer implements PrimitiveSerializer<Counterparty> {
+class _$GrantCounterpartySerializer implements PrimitiveSerializer<GrantCounterparty> {
   @override
-  final Iterable<Type> types = const [Counterparty, _$Counterparty];
+  final Iterable<Type> types = const [GrantCounterparty, _$GrantCounterparty];
 
   @override
-  final String wireName = r'Counterparty';
+  final String wireName = r'GrantCounterparty';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    Counterparty object, {
+    GrantCounterparty object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
     if (object.accountHolderId != null) {
@@ -77,7 +77,7 @@ class _$CounterpartySerializer implements PrimitiveSerializer<Counterparty> {
   @override
   Object serialize(
     Serializers serializers,
-    Counterparty object, {
+    GrantCounterparty object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -88,7 +88,7 @@ class _$CounterpartySerializer implements PrimitiveSerializer<Counterparty> {
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required CounterpartyBuilder result,
+    required GrantCounterpartyBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
@@ -125,12 +125,12 @@ class _$CounterpartySerializer implements PrimitiveSerializer<Counterparty> {
   }
 
   @override
-  Counterparty deserialize(
+  GrantCounterparty deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = CounterpartyBuilder();
+    final result = GrantCounterpartyBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

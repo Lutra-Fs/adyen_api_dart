@@ -16,6 +16,10 @@ class _$TerminalSettings extends TerminalSettings {
   @override
   final Hardware? hardware;
   @override
+  final HomeScreenSettings? homeScreen;
+  @override
+  final KioskModeSettings? kioskMode;
+  @override
   final Localization? localization;
   @override
   final Moto? moto;
@@ -63,6 +67,8 @@ class _$TerminalSettings extends TerminalSettings {
     this.connectivity,
     this.gratuities,
     this.hardware,
+    this.homeScreen,
+    this.kioskMode,
     this.localization,
     this.moto,
     this.nexo,
@@ -99,6 +105,8 @@ class _$TerminalSettings extends TerminalSettings {
         connectivity == other.connectivity &&
         gratuities == other.gratuities &&
         hardware == other.hardware &&
+        homeScreen == other.homeScreen &&
+        kioskMode == other.kioskMode &&
         localization == other.localization &&
         moto == other.moto &&
         nexo == other.nexo &&
@@ -127,6 +135,8 @@ class _$TerminalSettings extends TerminalSettings {
     _$hash = $jc(_$hash, connectivity.hashCode);
     _$hash = $jc(_$hash, gratuities.hashCode);
     _$hash = $jc(_$hash, hardware.hashCode);
+    _$hash = $jc(_$hash, homeScreen.hashCode);
+    _$hash = $jc(_$hash, kioskMode.hashCode);
     _$hash = $jc(_$hash, localization.hashCode);
     _$hash = $jc(_$hash, moto.hashCode);
     _$hash = $jc(_$hash, nexo.hashCode);
@@ -157,6 +167,8 @@ class _$TerminalSettings extends TerminalSettings {
           ..add('connectivity', connectivity)
           ..add('gratuities', gratuities)
           ..add('hardware', hardware)
+          ..add('homeScreen', homeScreen)
+          ..add('kioskMode', kioskMode)
           ..add('localization', localization)
           ..add('moto', moto)
           ..add('nexo', nexo)
@@ -205,6 +217,18 @@ class TerminalSettingsBuilder
   HardwareBuilder? _hardware;
   HardwareBuilder get hardware => _$this._hardware ??= HardwareBuilder();
   set hardware(HardwareBuilder? hardware) => _$this._hardware = hardware;
+
+  HomeScreenSettingsBuilder? _homeScreen;
+  HomeScreenSettingsBuilder get homeScreen =>
+      _$this._homeScreen ??= HomeScreenSettingsBuilder();
+  set homeScreen(HomeScreenSettingsBuilder? homeScreen) =>
+      _$this._homeScreen = homeScreen;
+
+  KioskModeSettingsBuilder? _kioskMode;
+  KioskModeSettingsBuilder get kioskMode =>
+      _$this._kioskMode ??= KioskModeSettingsBuilder();
+  set kioskMode(KioskModeSettingsBuilder? kioskMode) =>
+      _$this._kioskMode = kioskMode;
 
   LocalizationBuilder? _localization;
   LocalizationBuilder get localization =>
@@ -311,6 +335,8 @@ class TerminalSettingsBuilder
       _connectivity = $v.connectivity?.toBuilder();
       _gratuities = $v.gratuities?.toBuilder();
       _hardware = $v.hardware?.toBuilder();
+      _homeScreen = $v.homeScreen?.toBuilder();
+      _kioskMode = $v.kioskMode?.toBuilder();
       _localization = $v.localization?.toBuilder();
       _moto = $v.moto?.toBuilder();
       _nexo = $v.nexo?.toBuilder();
@@ -358,6 +384,8 @@ class TerminalSettingsBuilder
             connectivity: _connectivity?.build(),
             gratuities: _gratuities?.build(),
             hardware: _hardware?.build(),
+            homeScreen: _homeScreen?.build(),
+            kioskMode: _kioskMode?.build(),
             localization: _localization?.build(),
             moto: _moto?.build(),
             nexo: _nexo?.build(),
@@ -389,6 +417,10 @@ class TerminalSettingsBuilder
         _gratuities?.build();
         _$failedField = 'hardware';
         _hardware?.build();
+        _$failedField = 'homeScreen';
+        _homeScreen?.build();
+        _$failedField = 'kioskMode';
+        _kioskMode?.build();
         _$failedField = 'localization';
         _localization?.build();
         _$failedField = 'moto';

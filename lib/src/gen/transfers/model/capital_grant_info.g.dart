@@ -8,7 +8,7 @@ part of 'capital_grant_info.dart';
 
 class _$CapitalGrantInfo extends CapitalGrantInfo {
   @override
-  final Counterparty? counterparty;
+  final GrantInfoCounterparty? counterparty;
   @override
   final String grantAccountId;
   @override
@@ -64,10 +64,10 @@ class CapitalGrantInfoBuilder
     implements Builder<CapitalGrantInfo, CapitalGrantInfoBuilder> {
   _$CapitalGrantInfo? _$v;
 
-  CounterpartyBuilder? _counterparty;
-  CounterpartyBuilder get counterparty =>
-      _$this._counterparty ??= CounterpartyBuilder();
-  set counterparty(CounterpartyBuilder? counterparty) =>
+  GrantInfoCounterpartyBuilder? _counterparty;
+  GrantInfoCounterpartyBuilder get counterparty =>
+      _$this._counterparty ??= GrantInfoCounterpartyBuilder();
+  set counterparty(GrantInfoCounterpartyBuilder? counterparty) =>
       _$this._counterparty = counterparty;
 
   String? _grantAccountId;

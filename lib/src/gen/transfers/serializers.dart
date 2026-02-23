@@ -36,7 +36,6 @@ import 'package:adyen_api/src/gen/transfers/model/capital_grants.dart';
 import 'package:adyen_api/src/gen/transfers/model/card.dart';
 import 'package:adyen_api/src/gen/transfers/model/card_identification.dart';
 import 'package:adyen_api/src/gen/transfers/model/confirmation_tracking_data.dart';
-import 'package:adyen_api/src/gen/transfers/model/counterparty.dart';
 import 'package:adyen_api/src/gen/transfers/model/counterparty_info_v3.dart';
 import 'package:adyen_api/src/gen/transfers/model/counterparty_v3.dart';
 import 'package:adyen_api/src/gen/transfers/model/dk_local_account_identification.dart';
@@ -47,9 +46,12 @@ import 'package:adyen_api/src/gen/transfers/model/external_reason.dart';
 import 'package:adyen_api/src/gen/transfers/model/fee.dart';
 import 'package:adyen_api/src/gen/transfers/model/find_transfers_response.dart';
 import 'package:adyen_api/src/gen/transfers/model/funding_instrument.dart';
+import 'package:adyen_api/src/gen/transfers/model/grant_counterparty.dart';
+import 'package:adyen_api/src/gen/transfers/model/grant_info_counterparty.dart';
 import 'package:adyen_api/src/gen/transfers/model/hk_local_account_identification.dart';
 import 'package:adyen_api/src/gen/transfers/model/hu_local_account_identification.dart';
 import 'package:adyen_api/src/gen/transfers/model/iban_account_identification.dart';
+import 'package:adyen_api/src/gen/transfers/model/interchange_data.dart';
 import 'package:adyen_api/src/gen/transfers/model/internal_category_data.dart';
 import 'package:adyen_api/src/gen/transfers/model/internal_review_tracking_data.dart';
 import 'package:adyen_api/src/gen/transfers/model/invalid_field.dart';
@@ -133,7 +135,6 @@ part 'serializers.g.dart';
   Card,
   CardIdentification,
   ConfirmationTrackingData,
-  Counterparty,
   CounterpartyInfoV3,
   CounterpartyV3,
   DKLocalAccountIdentification,
@@ -144,9 +145,12 @@ part 'serializers.g.dart';
   Fee,
   FindTransfersResponse,
   FundingInstrument,
+  GrantCounterparty,
+  GrantInfoCounterparty,
   HKLocalAccountIdentification,
   HULocalAccountIdentification,
   IbanAccountIdentification,
+  InterchangeData,
   InternalCategoryData,
   InternalReviewTrackingData,
   InvalidField,

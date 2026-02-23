@@ -15,6 +15,7 @@ import 'package:adyen_api/src/gen/balance_platform/model/account_holder_update_r
 import 'package:adyen_api/src/gen/balance_platform/model/get_tax_form_response.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/paginated_balance_accounts_response.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/rest_service_error.dart';
+import 'package:adyen_api/src/gen/balance_platform/model/tax_form_summary_response.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/transaction_rules_response.dart';
 
 class AccountHoldersApi {
@@ -217,14 +218,96 @@ class AccountHoldersApi {
     );
   }
 
+  /// Get summary of tax forms for an account holder
+  /// Returns a summary of all tax forms for an account holder.
+  ///
+  /// Parameters:
+  /// * [id] - The unique identifier of the account holder.
+  /// * [formType] - The type of tax form you want a summary for. Accepted values are **US1099k** and **US1099nec**.
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future] containing a [Response] with a [TaxFormSummaryResponse] as data
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<TaxFormSummaryResponse>> getAccountHoldersIdTaxFormSummary({ 
+    required String id,
+    required String formType,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async {
+    final _path = r'/accountHolders/{id}/taxFormSummary'.replaceAll('{' r'id' '}', encodeQueryParameter(_serializers, id, const FullType(String)).toString());
+    final _options = Options(
+      method: r'GET',
+      headers: <String, dynamic>{
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
+    );
+
+    final _queryParameters = <String, dynamic>{
+      r'formType': encodeQueryParameter(_serializers, formType, const FullType(String)),
+    };
+
+    final _response = await _dio.request<Object>(
+      _path,
+      options: _options,
+      queryParameters: _queryParameters,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    TaxFormSummaryResponse? _responseData;
+
+    try {
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(TaxFormSummaryResponse),
+      ) as TaxFormSummaryResponse;
+
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _response.requestOptions,
+        response: _response,
+        type: DioExceptionType.unknown,
+        error: error,
+        stackTrace: stackTrace,
+      );
+    }
+
+    return Response<TaxFormSummaryResponse>(
+      data: _responseData,
+      headers: _response.headers,
+      isRedirect: _response.isRedirect,
+      requestOptions: _response.requestOptions,
+      redirects: _response.redirects,
+      statusCode: _response.statusCode,
+      statusMessage: _response.statusMessage,
+      extra: _response.extra,
+    );
+  }
+
   /// Get a tax form
   /// Generates a tax form for account holders operating in the US. For more information, refer to US tax forms for [marketplaces](https://docs.adyen.com/marketplaces/us-tax-forms/) or [platforms](https://docs.adyen.com/platforms/us-tax-forms/) .
   ///
   /// Parameters:
   /// * [id] - The unique identifier of the account holder.
-  /// * [formType] - The type of tax form you want to retrieve. Accepted values are **US1099k** and **US1099nec**
-  /// * [year] - The tax year in YYYY format for the tax form you want to retrieve
-  /// * [legalEntityId] - The legal entity reference whose tax form you want to retrieve
+  /// * [formType] - The type of tax form you want to retrieve. Accepted values are **US1099k** and **US1099nec**.
+  /// * [year] - The tax year in **YYYY** format for the tax form you want to retrieve.
+  /// * [legalEntityId] - The legal entity reference whose tax form you want to retrieve.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request

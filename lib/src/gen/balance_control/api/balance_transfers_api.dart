@@ -10,17 +10,18 @@ import 'package:dio/dio.dart';
 
 import 'package:adyen_api/src/gen/balance_control/model/balance_transfer_request.dart';
 import 'package:adyen_api/src/gen/balance_control/model/balance_transfer_response.dart';
+import 'package:adyen_api/src/gen/balance_control/model/default_error_response_entity.dart';
 
-class GeneralApi {
+class BalanceTransfersApi {
 
   final Dio _dio;
 
   final Serializers _serializers;
 
-  const GeneralApi(this._dio, this._serializers);
+  const BalanceTransfersApi(this._dio, this._serializers);
 
-  /// Start a balance transfer
-  /// Starts a balance transfer request between merchant accounts. The following conditions must be met before you can successfully transfer balances:  * The source and destination merchant accounts must be under the same company account and legal entity.  * The source merchant account must have sufficient funds.  * The source and destination merchant accounts must have at least one common processing currency.  When sending multiple API requests with the same source and destination merchant accounts, send the requests sequentially and *not* in parallel. Some requests may not be processed if the requests are sent in parallel. 
+  /// Performs a balance transfer
+  /// Performs a balance transfer between merchant accounts. The following conditions must be met before you can successfully transfer balances: * The source and destination merchant accounts must be under the same company account and legal entity. * The source merchant account must have sufficient funds. * The source and destination merchant accounts must have at least one common processing currency.\\n\\n When sending multiple API requests with the same source and destination merchant accounts, send the requests sequentially and *not* in parallel. Some requests may not be processed if the requests are sent in parallel. 
   ///
   /// Parameters:
   /// * [balanceTransferRequest] 
@@ -33,9 +34,8 @@ class GeneralApi {
   ///
   /// Returns a [Future] containing a [Response] with a [BalanceTransferResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  @Deprecated('This operation has been deprecated')
-  Future<Response<BalanceTransferResponse>> postBalanceTransfer({ 
-    BalanceTransferRequest? balanceTransferRequest,
+  Future<Response<BalanceTransferResponse>> postBalanceTransfers({ 
+    required BalanceTransferRequest balanceTransferRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -43,25 +43,14 @@ class GeneralApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/balanceTransfer';
+    final _path = r'/balanceTransfers';
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
         ...?headers,
       },
       extra: <String, dynamic>{
-        'secure': <Map<String, String>>[
-          {
-            'type': 'http',
-            'scheme': 'basic',
-            'name': 'BasicAuth',
-          },{
-            'type': 'apiKey',
-            'name': 'ApiKeyAuth',
-            'keyName': 'X-API-Key',
-            'where': 'header',
-          },
-        ],
+        'secure': <Map<String, String>>[],
         ...?extra,
       },
       contentType: 'application/json',
@@ -72,7 +61,7 @@ class GeneralApi {
 
     try {
       const _type = FullType(BalanceTransferRequest);
-      _bodyData = balanceTransferRequest == null ? null : _serializers.serialize(balanceTransferRequest, specifiedType: _type);
+      _bodyData = _serializers.serialize(balanceTransferRequest, specifiedType: _type);
 
     } catch(error, stackTrace) {
       throw DioException(

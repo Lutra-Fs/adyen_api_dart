@@ -17,6 +17,11 @@ import 'package:adyen_api/src/gen/balance_control/model/date.dart';
 import 'package:adyen_api/src/gen/balance_control/model/amount.dart';
 import 'package:adyen_api/src/gen/balance_control/model/balance_transfer_request.dart';
 import 'package:adyen_api/src/gen/balance_control/model/balance_transfer_response.dart';
+import 'package:adyen_api/src/gen/balance_control/model/balance_transfer_type.dart';
+import 'package:adyen_api/src/gen/balance_control/model/company_balances.dart';
+import 'package:adyen_api/src/gen/balance_control/model/default_error_response_entity.dart';
+import 'package:adyen_api/src/gen/balance_control/model/invalid_field.dart';
+import 'package:adyen_api/src/gen/balance_control/model/merchant_balance.dart';
 
 part 'serializers.g.dart';
 
@@ -24,6 +29,11 @@ part 'serializers.g.dart';
   Amount,
   BalanceTransferRequest,
   BalanceTransferResponse,
+  BalanceTransferType,
+  CompanyBalances,
+  DefaultErrorResponseEntity,
+  InvalidField,
+  MerchantBalance,
 ])
 Serializers serializers = (_$serializers.toBuilder()
       ..add(const OneOfSerializer())

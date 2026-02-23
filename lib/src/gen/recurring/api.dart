@@ -12,7 +12,7 @@ import 'package:adyen_api/src/gen/recurring/auth/oauth.dart';
 import 'package:adyen_api/src/gen/recurring/api/general_api.dart';
 
 class AdyenApi {
-  static const String basePath = r'https://paltokenization-test.adyen.com/pal/servlet/Recurring/v68';
+  static const String basePath = r'https://paltokenization-test.adyen.com/paltokenization/servlet/Recurring/v68';
 
   final Dio dio;
   final Serializers serializers;
