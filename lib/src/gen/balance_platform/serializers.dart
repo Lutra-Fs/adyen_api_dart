@@ -185,11 +185,13 @@ import 'package:adyen_api/src/gen/balance_platform/model/source_account_types_re
 import 'package:adyen_api/src/gen/balance_platform/model/string_match.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/submit_sca_association_request.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/submit_sca_association_response.dart';
+import 'package:adyen_api/src/gen/balance_platform/model/summary.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/sweep_configuration_v2.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/sweep_counterparty.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/sweep_schedule.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/target.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/target_update.dart';
+import 'package:adyen_api/src/gen/balance_platform/model/tax_form_summary_response.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/threshold_repayment.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/time_of_day.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/time_of_day_restriction.dart';
@@ -400,11 +402,13 @@ part 'serializers.g.dart';
   StringMatch,
   SubmitScaAssociationRequest,
   SubmitScaAssociationResponse,
+  Summary,
   SweepConfigurationV2,
   SweepCounterparty,
   SweepSchedule,
   Target,
   TargetUpdate,
+  TaxFormSummaryResponse,
   ThresholdRepayment,
   TimeOfDay,
   TimeOfDayRestriction,

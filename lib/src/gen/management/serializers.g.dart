@@ -88,6 +88,7 @@ Serializers _$serializers =
           ..add(GooglePayInfo.serializer)
           ..add(Gratuity.serializer)
           ..add(Hardware.serializer)
+          ..add(HomeScreenSettings.serializer)
           ..add(IdName.serializer)
           ..add(InstallAndroidAppDetails.serializer)
           ..add(InstallAndroidAppDetailsTypeEnum.serializer)
@@ -98,6 +99,7 @@ Serializers _$serializers =
           ..add(JCBInfo.serializer)
           ..add(JCBInfoServiceLevelEnum.serializer)
           ..add(Key.serializer)
+          ..add(KioskModeSettings.serializer)
           ..add(KlarnaInfo.serializer)
           ..add(KlarnaInfoRegionEnum.serializer)
           ..add(Links.serializer)
@@ -453,6 +455,10 @@ Serializers _$serializers =
           ..addBuilderFactory(
             const FullType(BuiltList, const [const FullType(Store)]),
             () => ListBuilder<Store>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(String)]),
+            () => ListBuilder<String>(),
           )
           ..addBuilderFactory(
             const FullType(BuiltList, const [const FullType(String)]),

@@ -278,6 +278,7 @@ Serializers _$serializers =
           ..add(StringMatchOperationEnum.serializer)
           ..add(SubmitScaAssociationRequest.serializer)
           ..add(SubmitScaAssociationResponse.serializer)
+          ..add(Summary.serializer)
           ..add(SweepConfigurationV2.serializer)
           ..add(SweepConfigurationV2CategoryEnum.serializer)
           ..add(SweepConfigurationV2PrioritiesEnum.serializer)
@@ -291,6 +292,7 @@ Serializers _$serializers =
           ..add(TargetTypeEnum.serializer)
           ..add(TargetUpdate.serializer)
           ..add(TargetUpdateTypeEnum.serializer)
+          ..add(TaxFormSummaryResponse.serializer)
           ..add(ThresholdRepayment.serializer)
           ..add(TimeOfDay.serializer)
           ..add(TimeOfDayRestriction.serializer)
@@ -613,6 +615,10 @@ Serializers _$serializers =
             () => ListBuilder<StringMatch>(),
           )
           ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(Summary)]),
+            () => ListBuilder<Summary>(),
+          )
+          ..addBuilderFactory(
             const FullType(BuiltList, const [
               const FullType(SweepConfigurationV2),
             ]),
@@ -709,6 +715,10 @@ Serializers _$serializers =
           ..addBuilderFactory(
             const FullType(BuiltList, const [const FullType(WebhookSetting)]),
             () => ListBuilder<WebhookSetting>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(int)]),
+            () => ListBuilder<int>(),
           )
           ..addBuilderFactory(
             const FullType(BuiltMap, const [

@@ -1,39 +1,36 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'counterparty.dart';
+part of 'grant_info_counterparty.dart';
 
 // **************************************************************************
 // BuiltValueGenerator
 // **************************************************************************
 
-class _$Counterparty extends Counterparty {
-  @override
-  final String? accountHolderId;
+class _$GrantInfoCounterparty extends GrantInfoCounterparty {
   @override
   final String? balanceAccountId;
   @override
   final String? transferInstrumentId;
 
-  factory _$Counterparty([void Function(CounterpartyBuilder)? updates]) =>
-      (CounterpartyBuilder()..update(updates))._build();
+  factory _$GrantInfoCounterparty([
+    void Function(GrantInfoCounterpartyBuilder)? updates,
+  ]) => (GrantInfoCounterpartyBuilder()..update(updates))._build();
 
-  _$Counterparty._({
-    this.accountHolderId,
-    this.balanceAccountId,
-    this.transferInstrumentId,
-  }) : super._();
+  _$GrantInfoCounterparty._({this.balanceAccountId, this.transferInstrumentId})
+    : super._();
   @override
-  Counterparty rebuild(void Function(CounterpartyBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  GrantInfoCounterparty rebuild(
+    void Function(GrantInfoCounterpartyBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
-  CounterpartyBuilder toBuilder() => CounterpartyBuilder()..replace(this);
+  GrantInfoCounterpartyBuilder toBuilder() =>
+      GrantInfoCounterpartyBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is Counterparty &&
-        accountHolderId == other.accountHolderId &&
+    return other is GrantInfoCounterparty &&
         balanceAccountId == other.balanceAccountId &&
         transferInstrumentId == other.transferInstrumentId;
   }
@@ -41,7 +38,6 @@ class _$Counterparty extends Counterparty {
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, accountHolderId.hashCode);
     _$hash = $jc(_$hash, balanceAccountId.hashCode);
     _$hash = $jc(_$hash, transferInstrumentId.hashCode);
     _$hash = $jf(_$hash);
@@ -50,22 +46,16 @@ class _$Counterparty extends Counterparty {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'Counterparty')
-          ..add('accountHolderId', accountHolderId)
+    return (newBuiltValueToStringHelper(r'GrantInfoCounterparty')
           ..add('balanceAccountId', balanceAccountId)
           ..add('transferInstrumentId', transferInstrumentId))
         .toString();
   }
 }
 
-class CounterpartyBuilder
-    implements Builder<Counterparty, CounterpartyBuilder> {
-  _$Counterparty? _$v;
-
-  String? _accountHolderId;
-  String? get accountHolderId => _$this._accountHolderId;
-  set accountHolderId(String? accountHolderId) =>
-      _$this._accountHolderId = accountHolderId;
+class GrantInfoCounterpartyBuilder
+    implements Builder<GrantInfoCounterparty, GrantInfoCounterpartyBuilder> {
+  _$GrantInfoCounterparty? _$v;
 
   String? _balanceAccountId;
   String? get balanceAccountId => _$this._balanceAccountId;
@@ -77,14 +67,13 @@ class CounterpartyBuilder
   set transferInstrumentId(String? transferInstrumentId) =>
       _$this._transferInstrumentId = transferInstrumentId;
 
-  CounterpartyBuilder() {
-    Counterparty._defaults(this);
+  GrantInfoCounterpartyBuilder() {
+    GrantInfoCounterparty._defaults(this);
   }
 
-  CounterpartyBuilder get _$this {
+  GrantInfoCounterpartyBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _accountHolderId = $v.accountHolderId;
       _balanceAccountId = $v.balanceAccountId;
       _transferInstrumentId = $v.transferInstrumentId;
       _$v = null;
@@ -93,23 +82,22 @@ class CounterpartyBuilder
   }
 
   @override
-  void replace(Counterparty other) {
-    _$v = other as _$Counterparty;
+  void replace(GrantInfoCounterparty other) {
+    _$v = other as _$GrantInfoCounterparty;
   }
 
   @override
-  void update(void Function(CounterpartyBuilder)? updates) {
+  void update(void Function(GrantInfoCounterpartyBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  Counterparty build() => _build();
+  GrantInfoCounterparty build() => _build();
 
-  _$Counterparty _build() {
+  _$GrantInfoCounterparty _build() {
     final _$result =
         _$v ??
-        _$Counterparty._(
-          accountHolderId: accountHolderId,
+        _$GrantInfoCounterparty._(
           balanceAccountId: balanceAccountId,
           transferInstrumentId: transferInstrumentId,
         );

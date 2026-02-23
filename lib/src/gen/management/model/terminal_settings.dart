@@ -3,30 +3,32 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:adyen_api/src/gen/management/model/gratuity.dart';
 import 'package:adyen_api/src/gen/management/model/localization.dart';
-import 'package:adyen_api/src/gen/management/model/moto.dart';
-import 'package:adyen_api/src/gen/management/model/nexo.dart';
 import 'package:adyen_api/src/gen/management/model/store_and_forward.dart';
-import 'package:adyen_api/src/gen/management/model/passcodes.dart';
 import 'package:adyen_api/src/gen/management/model/terminal_instructions.dart';
 import 'package:adyen_api/src/gen/management/model/refunds.dart';
-import 'package:adyen_api/src/gen/management/model/signature.dart';
 import 'package:adyen_api/src/gen/management/model/tap_to_pay.dart';
 import 'package:adyen_api/src/gen/management/model/receipt_printing.dart';
 import 'package:adyen_api/src/gen/management/model/cardholder_receipt.dart';
-import 'package:built_collection/built_collection.dart';
 import 'package:adyen_api/src/gen/management/model/wifi_profiles.dart';
-import 'package:adyen_api/src/gen/management/model/opi.dart';
 import 'package:adyen_api/src/gen/management/model/pay_at_table.dart';
 import 'package:adyen_api/src/gen/management/model/offline_processing.dart';
-import 'package:adyen_api/src/gen/management/model/connectivity.dart';
-import 'package:adyen_api/src/gen/management/model/receipt_options.dart';
 import 'package:adyen_api/src/gen/management/model/payment.dart';
-import 'package:adyen_api/src/gen/management/model/timeouts.dart';
 import 'package:adyen_api/src/gen/management/model/surcharge.dart';
 import 'package:adyen_api/src/gen/management/model/hardware.dart';
 import 'package:adyen_api/src/gen/management/model/standalone.dart';
+import 'package:adyen_api/src/gen/management/model/gratuity.dart';
+import 'package:adyen_api/src/gen/management/model/moto.dart';
+import 'package:adyen_api/src/gen/management/model/nexo.dart';
+import 'package:adyen_api/src/gen/management/model/passcodes.dart';
+import 'package:adyen_api/src/gen/management/model/signature.dart';
+import 'package:built_collection/built_collection.dart';
+import 'package:adyen_api/src/gen/management/model/kiosk_mode_settings.dart';
+import 'package:adyen_api/src/gen/management/model/opi.dart';
+import 'package:adyen_api/src/gen/management/model/home_screen_settings.dart';
+import 'package:adyen_api/src/gen/management/model/connectivity.dart';
+import 'package:adyen_api/src/gen/management/model/receipt_options.dart';
+import 'package:adyen_api/src/gen/management/model/timeouts.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -39,6 +41,8 @@ part 'terminal_settings.g.dart';
 /// * [connectivity] - Settings for terminal connectivity features.
 /// * [gratuities] - Settings for tipping with or without predefined options to choose from. The maximum number of predefined options is four, or three plus the option to enter a custom tip.
 /// * [hardware] - Settings for terminal hardware features.
+/// * [homeScreen] - Settings for the home screen.
+/// * [kioskMode] - Settings for kiosk mode.
 /// * [localization] - Settings for localization.
 /// * [moto] - Settings for Mail Order/Telephone Order transactions.
 /// * [nexo] - Settings for a Terminal API integration.
@@ -75,6 +79,14 @@ abstract class TerminalSettings implements Built<TerminalSettings, TerminalSetti
   /// Settings for terminal hardware features.
   @BuiltValueField(wireName: r'hardware')
   Hardware? get hardware;
+
+  /// Settings for the home screen.
+  @BuiltValueField(wireName: r'homeScreen')
+  HomeScreenSettings? get homeScreen;
+
+  /// Settings for kiosk mode.
+  @BuiltValueField(wireName: r'kioskMode')
+  KioskModeSettings? get kioskMode;
 
   /// Settings for localization.
   @BuiltValueField(wireName: r'localization')
@@ -201,6 +213,20 @@ class _$TerminalSettingsSerializer implements PrimitiveSerializer<TerminalSettin
       yield serializers.serialize(
         object.hardware,
         specifiedType: const FullType(Hardware),
+      );
+    }
+    if (object.homeScreen != null) {
+      yield r'homeScreen';
+      yield serializers.serialize(
+        object.homeScreen,
+        specifiedType: const FullType(HomeScreenSettings),
+      );
+    }
+    if (object.kioskMode != null) {
+      yield r'kioskMode';
+      yield serializers.serialize(
+        object.kioskMode,
+        specifiedType: const FullType(KioskModeSettings),
       );
     }
     if (object.localization != null) {
@@ -386,6 +412,20 @@ class _$TerminalSettingsSerializer implements PrimitiveSerializer<TerminalSettin
             specifiedType: const FullType(Hardware),
           ) as Hardware;
           result.hardware.replace(valueDes);
+          break;
+        case r'homeScreen':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(HomeScreenSettings),
+          ) as HomeScreenSettings;
+          result.homeScreen.replace(valueDes);
+          break;
+        case r'kioskMode':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(KioskModeSettings),
+          ) as KioskModeSettings;
+          result.kioskMode.replace(valueDes);
           break;
         case r'localization':
           final valueDes = serializers.deserialize(

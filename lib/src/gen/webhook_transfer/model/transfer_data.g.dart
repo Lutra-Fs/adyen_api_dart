@@ -618,6 +618,8 @@ const TransferDataStatusEnum _$transferDataStatusEnum_fee =
     const TransferDataStatusEnum._('fee');
 const TransferDataStatusEnum _$transferDataStatusEnum_feePending =
     const TransferDataStatusEnum._('feePending');
+const TransferDataStatusEnum _$transferDataStatusEnum_interchangeAdjusted =
+    const TransferDataStatusEnum._('interchangeAdjusted');
 const TransferDataStatusEnum _$transferDataStatusEnum_internalTransfer =
     const TransferDataStatusEnum._('internalTransfer');
 const TransferDataStatusEnum _$transferDataStatusEnum_internalTransferPending =
@@ -758,6 +760,8 @@ TransferDataStatusEnum _$transferDataStatusEnumValueOf(String name) {
       return _$transferDataStatusEnum_fee;
     case 'feePending':
       return _$transferDataStatusEnum_feePending;
+    case 'interchangeAdjusted':
+      return _$transferDataStatusEnum_interchangeAdjusted;
     case 'internalTransfer':
       return _$transferDataStatusEnum_internalTransfer;
     case 'internalTransferPending':
@@ -866,6 +870,7 @@ final BuiltSet<TransferDataStatusEnum> _$transferDataStatusEnumValues =
       _$transferDataStatusEnum_failed,
       _$transferDataStatusEnum_fee,
       _$transferDataStatusEnum_feePending,
+      _$transferDataStatusEnum_interchangeAdjusted,
       _$transferDataStatusEnum_internalTransfer,
       _$transferDataStatusEnum_internalTransferPending,
       _$transferDataStatusEnum_invoiceDeduction,
@@ -1438,6 +1443,7 @@ class _$TransferDataStatusEnumSerializer
     'failed': 'failed',
     'fee': 'fee',
     'feePending': 'feePending',
+    'interchangeAdjusted': 'interchangeAdjusted',
     'internalTransfer': 'internalTransfer',
     'internalTransferPending': 'internalTransferPending',
     'invoiceDeduction': 'invoiceDeduction',
@@ -1508,6 +1514,7 @@ class _$TransferDataStatusEnumSerializer
     'failed': 'failed',
     'fee': 'fee',
     'feePending': 'feePending',
+    'interchangeAdjusted': 'interchangeAdjusted',
     'internalTransfer': 'internalTransfer',
     'internalTransferPending': 'internalTransferPending',
     'invoiceDeduction': 'invoiceDeduction',

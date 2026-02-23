@@ -597,6 +597,8 @@ const TransferStatusEnum _$transferStatusEnum_fee = const TransferStatusEnum._(
 );
 const TransferStatusEnum _$transferStatusEnum_feePending =
     const TransferStatusEnum._('feePending');
+const TransferStatusEnum _$transferStatusEnum_interchangeAdjusted =
+    const TransferStatusEnum._('interchangeAdjusted');
 const TransferStatusEnum _$transferStatusEnum_internalTransfer =
     const TransferStatusEnum._('internalTransfer');
 const TransferStatusEnum _$transferStatusEnum_internalTransferPending =
@@ -736,6 +738,8 @@ TransferStatusEnum _$transferStatusEnumValueOf(String name) {
       return _$transferStatusEnum_fee;
     case 'feePending':
       return _$transferStatusEnum_feePending;
+    case 'interchangeAdjusted':
+      return _$transferStatusEnum_interchangeAdjusted;
     case 'internalTransfer':
       return _$transferStatusEnum_internalTransfer;
     case 'internalTransferPending':
@@ -844,6 +848,7 @@ final BuiltSet<TransferStatusEnum> _$transferStatusEnumValues =
       _$transferStatusEnum_failed,
       _$transferStatusEnum_fee,
       _$transferStatusEnum_feePending,
+      _$transferStatusEnum_interchangeAdjusted,
       _$transferStatusEnum_internalTransfer,
       _$transferStatusEnum_internalTransferPending,
       _$transferStatusEnum_invoiceDeduction,
@@ -1424,6 +1429,7 @@ class _$TransferStatusEnumSerializer
     'failed': 'failed',
     'fee': 'fee',
     'feePending': 'feePending',
+    'interchangeAdjusted': 'interchangeAdjusted',
     'internalTransfer': 'internalTransfer',
     'internalTransferPending': 'internalTransferPending',
     'invoiceDeduction': 'invoiceDeduction',
@@ -1494,6 +1500,7 @@ class _$TransferStatusEnumSerializer
     'failed': 'failed',
     'fee': 'fee',
     'feePending': 'feePending',
+    'interchangeAdjusted': 'interchangeAdjusted',
     'internalTransfer': 'internalTransfer',
     'internalTransferPending': 'internalTransferPending',
     'invoiceDeduction': 'invoiceDeduction',

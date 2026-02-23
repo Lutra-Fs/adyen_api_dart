@@ -34,8 +34,8 @@ part 'response_additional_data_common.g.dart';
 /// * [extraCostsValue] - The value of the extra amount charged due to additional amounts set in the skin used in the HPP payment request. The amount is in minor units.
 /// * [fraudCheckLeftSquareBracketItemNrRightSquareBracketLeftSquareBracketFraudChecknameRightSquareBracket] - The fraud score due to a particular fraud check. The fraud check name is found in the key of the key-value pair.
 /// * [fraudManualReview] - Indicates if the payment is sent to manual review.
-/// * [fraudResultType] - The fraud result properties of the payment.
-/// * [fraudRiskLevel] - The risk level of the transaction as classified by the [machine learning](https://docs.adyen.com/risk-management/configure-your-risk-profile/machine-learning-rules/) fraud risk rule. The risk level indicates the likelihood that a transaction will result in a fraudulent dispute. The possible return values are: * veryLow * low * medium * high * veryHigh 
+/// * [fraudResultType] - The fraud result properties of the payment. Possible values: * AMBER * GREEN * RED  
+/// * [fraudRiskLevel] - The risk level of the transaction as classified by the [machine learning](https://docs.adyen.com/risk-management/configure-your-risk-profile/machine-learning-rules/) fraud risk rule. The risk level indicates the likelihood that a transaction will result in a fraudulent dispute. Possible values: * veryLow * low * medium * high * veryHigh  
 /// * [fundingSource] - Information regarding the funding type of the card. The possible return values are: * CHARGE * CREDIT * DEBIT * PREPAID * PREPAID_RELOADABLE  * PREPAID_NONRELOADABLE * DEFFERED_DEBIT  > This functionality requires additional configuration on Adyen's end. To enable it, contact the Support Team.  For receiving this field in the notification, enable **Include Funding Source** in **Notifications** > **Additional settings**.
 /// * [fundsAvailability] - Indicates availability of funds.  Visa: * \"I\" (fast funds are supported) * \"N\" (otherwise)  Mastercard: * \"I\" (product type is Prepaid or Debit, or issuing country is in CEE/HGEM list) * \"N\" (otherwise)  > Returned when you verify a card BIN or estimate costs, and only if payoutEligible is \"Y\" or \"D\".
 /// * [inferredRefusalReason] - Provides the more granular indication of why a transaction was refused. When a transaction fails with either \"Refused\", \"Restricted Card\", \"Transaction Not Permitted\", \"Not supported\" or \"DeclinedNon Generic\" refusalReason from the issuer, Adyen cross references its PSP-wide data for extra insight into the refusal reason. If an inferred refusal reason is available, the `inferredRefusalReason`, field is populated and the `refusalReason`, is set to \"Not Supported\".  Possible values:  * 3D Secure Mandated * Closed Account * ContAuth Not Supported * CVC Mandated * Ecommerce Not Allowed * Crossborder Not Supported * Card Updated  * Low Authrate Bin * Non-reloadable prepaid card
@@ -165,12 +165,12 @@ abstract class ResponseAdditionalDataCommon implements Built<ResponseAdditionalD
   @BuiltValueField(wireName: r'fraudManualReview')
   String? get fraudManualReview;
 
-  /// The fraud result properties of the payment.
+  /// The fraud result properties of the payment. Possible values: * AMBER * GREEN * RED  
   @BuiltValueField(wireName: r'fraudResultType')
   ResponseAdditionalDataCommonFraudResultTypeEnum? get fraudResultType;
-  // enum fraudResultTypeEnum {  GREEN,  FRAUD,  };
+  // enum fraudResultTypeEnum {  AMBER,  GREEN,  RED,  };
 
-  /// The risk level of the transaction as classified by the [machine learning](https://docs.adyen.com/risk-management/configure-your-risk-profile/machine-learning-rules/) fraud risk rule. The risk level indicates the likelihood that a transaction will result in a fraudulent dispute. The possible return values are: * veryLow * low * medium * high * veryHigh 
+  /// The risk level of the transaction as classified by the [machine learning](https://docs.adyen.com/risk-management/configure-your-risk-profile/machine-learning-rules/) fraud risk rule. The risk level indicates the likelihood that a transaction will result in a fraudulent dispute. Possible values: * veryLow * low * medium * high * veryHigh  
   @BuiltValueField(wireName: r'fraudRiskLevel')
   ResponseAdditionalDataCommonFraudRiskLevelEnum? get fraudRiskLevel;
   // enum fraudRiskLevelEnum {  veryLow,  low,  medium,  high,  veryHigh,  };
@@ -1294,13 +1294,16 @@ class _$ResponseAdditionalDataCommonSerializer implements PrimitiveSerializer<Re
 
 class ResponseAdditionalDataCommonFraudResultTypeEnum extends EnumClass {
 
-  /// The fraud result properties of the payment.
+  /// The fraud result properties of the payment. Possible values: * AMBER * GREEN * RED  
+  @BuiltValueEnumConst(wireName: r'AMBER')
+  static const ResponseAdditionalDataCommonFraudResultTypeEnum AMBER = _$responseAdditionalDataCommonFraudResultTypeEnum_AMBER;
+  /// The fraud result properties of the payment. Possible values: * AMBER * GREEN * RED  
   @BuiltValueEnumConst(wireName: r'GREEN')
   static const ResponseAdditionalDataCommonFraudResultTypeEnum GREEN = _$responseAdditionalDataCommonFraudResultTypeEnum_GREEN;
-  /// The fraud result properties of the payment.
-  @BuiltValueEnumConst(wireName: r'FRAUD')
-  static const ResponseAdditionalDataCommonFraudResultTypeEnum FRAUD = _$responseAdditionalDataCommonFraudResultTypeEnum_FRAUD;
-  /// The fraud result properties of the payment.
+  /// The fraud result properties of the payment. Possible values: * AMBER * GREEN * RED  
+  @BuiltValueEnumConst(wireName: r'RED')
+  static const ResponseAdditionalDataCommonFraudResultTypeEnum RED = _$responseAdditionalDataCommonFraudResultTypeEnum_RED;
+  /// The fraud result properties of the payment. Possible values: * AMBER * GREEN * RED  
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const ResponseAdditionalDataCommonFraudResultTypeEnum unknownDefaultOpenApi = _$responseAdditionalDataCommonFraudResultTypeEnum_unknownDefaultOpenApi;
 
@@ -1314,22 +1317,22 @@ class ResponseAdditionalDataCommonFraudResultTypeEnum extends EnumClass {
 
 class ResponseAdditionalDataCommonFraudRiskLevelEnum extends EnumClass {
 
-  /// The risk level of the transaction as classified by the [machine learning](https://docs.adyen.com/risk-management/configure-your-risk-profile/machine-learning-rules/) fraud risk rule. The risk level indicates the likelihood that a transaction will result in a fraudulent dispute. The possible return values are: * veryLow * low * medium * high * veryHigh 
+  /// The risk level of the transaction as classified by the [machine learning](https://docs.adyen.com/risk-management/configure-your-risk-profile/machine-learning-rules/) fraud risk rule. The risk level indicates the likelihood that a transaction will result in a fraudulent dispute. Possible values: * veryLow * low * medium * high * veryHigh  
   @BuiltValueEnumConst(wireName: r'veryLow')
   static const ResponseAdditionalDataCommonFraudRiskLevelEnum veryLow = _$responseAdditionalDataCommonFraudRiskLevelEnum_veryLow;
-  /// The risk level of the transaction as classified by the [machine learning](https://docs.adyen.com/risk-management/configure-your-risk-profile/machine-learning-rules/) fraud risk rule. The risk level indicates the likelihood that a transaction will result in a fraudulent dispute. The possible return values are: * veryLow * low * medium * high * veryHigh 
+  /// The risk level of the transaction as classified by the [machine learning](https://docs.adyen.com/risk-management/configure-your-risk-profile/machine-learning-rules/) fraud risk rule. The risk level indicates the likelihood that a transaction will result in a fraudulent dispute. Possible values: * veryLow * low * medium * high * veryHigh  
   @BuiltValueEnumConst(wireName: r'low')
   static const ResponseAdditionalDataCommonFraudRiskLevelEnum low = _$responseAdditionalDataCommonFraudRiskLevelEnum_low;
-  /// The risk level of the transaction as classified by the [machine learning](https://docs.adyen.com/risk-management/configure-your-risk-profile/machine-learning-rules/) fraud risk rule. The risk level indicates the likelihood that a transaction will result in a fraudulent dispute. The possible return values are: * veryLow * low * medium * high * veryHigh 
+  /// The risk level of the transaction as classified by the [machine learning](https://docs.adyen.com/risk-management/configure-your-risk-profile/machine-learning-rules/) fraud risk rule. The risk level indicates the likelihood that a transaction will result in a fraudulent dispute. Possible values: * veryLow * low * medium * high * veryHigh  
   @BuiltValueEnumConst(wireName: r'medium')
   static const ResponseAdditionalDataCommonFraudRiskLevelEnum medium = _$responseAdditionalDataCommonFraudRiskLevelEnum_medium;
-  /// The risk level of the transaction as classified by the [machine learning](https://docs.adyen.com/risk-management/configure-your-risk-profile/machine-learning-rules/) fraud risk rule. The risk level indicates the likelihood that a transaction will result in a fraudulent dispute. The possible return values are: * veryLow * low * medium * high * veryHigh 
+  /// The risk level of the transaction as classified by the [machine learning](https://docs.adyen.com/risk-management/configure-your-risk-profile/machine-learning-rules/) fraud risk rule. The risk level indicates the likelihood that a transaction will result in a fraudulent dispute. Possible values: * veryLow * low * medium * high * veryHigh  
   @BuiltValueEnumConst(wireName: r'high')
   static const ResponseAdditionalDataCommonFraudRiskLevelEnum high = _$responseAdditionalDataCommonFraudRiskLevelEnum_high;
-  /// The risk level of the transaction as classified by the [machine learning](https://docs.adyen.com/risk-management/configure-your-risk-profile/machine-learning-rules/) fraud risk rule. The risk level indicates the likelihood that a transaction will result in a fraudulent dispute. The possible return values are: * veryLow * low * medium * high * veryHigh 
+  /// The risk level of the transaction as classified by the [machine learning](https://docs.adyen.com/risk-management/configure-your-risk-profile/machine-learning-rules/) fraud risk rule. The risk level indicates the likelihood that a transaction will result in a fraudulent dispute. Possible values: * veryLow * low * medium * high * veryHigh  
   @BuiltValueEnumConst(wireName: r'veryHigh')
   static const ResponseAdditionalDataCommonFraudRiskLevelEnum veryHigh = _$responseAdditionalDataCommonFraudRiskLevelEnum_veryHigh;
-  /// The risk level of the transaction as classified by the [machine learning](https://docs.adyen.com/risk-management/configure-your-risk-profile/machine-learning-rules/) fraud risk rule. The risk level indicates the likelihood that a transaction will result in a fraudulent dispute. The possible return values are: * veryLow * low * medium * high * veryHigh 
+  /// The risk level of the transaction as classified by the [machine learning](https://docs.adyen.com/risk-management/configure-your-risk-profile/machine-learning-rules/) fraud risk rule. The risk level indicates the likelihood that a transaction will result in a fraudulent dispute. Possible values: * veryLow * low * medium * high * veryHigh  
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const ResponseAdditionalDataCommonFraudRiskLevelEnum unknownDefaultOpenApi = _$responseAdditionalDataCommonFraudRiskLevelEnum_unknownDefaultOpenApi;
 

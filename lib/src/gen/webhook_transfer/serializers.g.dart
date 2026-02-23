@@ -50,6 +50,8 @@ Serializers _$serializers =
           ..add(HULocalAccountIdentificationTypeEnum.serializer)
           ..add(IbanAccountIdentification.serializer)
           ..add(IbanAccountIdentificationTypeEnum.serializer)
+          ..add(InterchangeData.serializer)
+          ..add(InterchangeDataTypeEnum.serializer)
           ..add(InternalCategoryData.serializer)
           ..add(InternalCategoryDataTypeEnum.serializer)
           ..add(InternalReviewTrackingData.serializer)

@@ -9,10 +9,11 @@ import 'package:adyen_api/src/gen/balance_control/auth/api_key_auth.dart';
 import 'package:adyen_api/src/gen/balance_control/auth/basic_auth.dart';
 import 'package:adyen_api/src/gen/balance_control/auth/bearer_auth.dart';
 import 'package:adyen_api/src/gen/balance_control/auth/oauth.dart';
-import 'package:adyen_api/src/gen/balance_control/api/general_api.dart';
+import 'package:adyen_api/src/gen/balance_control/api/balance_transfers_api.dart';
+import 'package:adyen_api/src/gen/balance_control/api/balances_overview_api.dart';
 
 class AdyenApi {
-  static const String basePath = r'https://pal-test.adyen.com/pal/servlet/BalanceControl/v1';
+  static const String basePath = r'https://balance-control-test.adyen.com/balance-control/api/v2';
 
   final Dio dio;
   final Serializers serializers;
@@ -65,9 +66,15 @@ class AdyenApi {
     }
   }
 
-  /// Get GeneralApi instance, base route and serializer can be overridden by a given but be careful,
+  /// Get BalanceTransfersApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
-  GeneralApi getGeneralApi() {
-    return GeneralApi(dio, serializers);
+  BalanceTransfersApi getBalanceTransfersApi() {
+    return BalanceTransfersApi(dio, serializers);
+  }
+
+  /// Get BalancesOverviewApi instance, base route and serializer can be overridden by a given but be careful,
+  /// by doing that all interceptors will not be executed
+  BalancesOverviewApi getBalancesOverviewApi() {
+    return BalancesOverviewApi(dio, serializers);
   }
 }
