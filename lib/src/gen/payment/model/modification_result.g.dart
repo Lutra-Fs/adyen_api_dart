@@ -49,6 +49,10 @@ _$modificationResultResponseEnum_leftSquareBracketVoidPendingRefundReceivedRight
 const ModificationResultResponseEnum
 _$modificationResultResponseEnum_authorised =
     const ModificationResultResponseEnum._('authorised');
+const ModificationResultResponseEnum _$modificationResultResponseEnum_refused =
+    const ModificationResultResponseEnum._('refused');
+const ModificationResultResponseEnum _$modificationResultResponseEnum_error =
+    const ModificationResultResponseEnum._('error');
 const ModificationResultResponseEnum
 _$modificationResultResponseEnum_unknownDefaultOpenApi =
     const ModificationResultResponseEnum._('unknownDefaultOpenApi');
@@ -75,6 +79,10 @@ ModificationResultResponseEnum _$modificationResultResponseEnumValueOf(
       return _$modificationResultResponseEnum_leftSquareBracketVoidPendingRefundReceivedRightSquareBracket;
     case 'authorised':
       return _$modificationResultResponseEnum_authorised;
+    case 'refused':
+      return _$modificationResultResponseEnum_refused;
+    case 'error':
+      return _$modificationResultResponseEnum_error;
     case 'unknownDefaultOpenApi':
       return _$modificationResultResponseEnum_unknownDefaultOpenApi;
     default:
@@ -95,6 +103,8 @@ _$modificationResultResponseEnumValues = BuiltSet<ModificationResultResponseEnum
   _$modificationResultResponseEnum_leftSquareBracketTechnicalCancelReceivedRightSquareBracket,
   _$modificationResultResponseEnum_leftSquareBracketVoidPendingRefundReceivedRightSquareBracket,
   _$modificationResultResponseEnum_authorised,
+  _$modificationResultResponseEnum_refused,
+  _$modificationResultResponseEnum_error,
   _$modificationResultResponseEnum_unknownDefaultOpenApi,
 ]);
 
@@ -119,6 +129,8 @@ class _$ModificationResultResponseEnumSerializer
     'leftSquareBracketVoidPendingRefundReceivedRightSquareBracket':
         '[voidPendingRefund-received]',
     'authorised': 'Authorised',
+    'refused': 'Refused',
+    'error': 'Error',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
@@ -136,6 +148,8 @@ class _$ModificationResultResponseEnumSerializer
     '[voidPendingRefund-received]':
         'leftSquareBracketVoidPendingRefundReceivedRightSquareBracket',
     'Authorised': 'authorised',
+    'Refused': 'refused',
+    'Error': 'error',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
 

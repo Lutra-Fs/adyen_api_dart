@@ -14,6 +14,7 @@ part 'donation_campaigns_request.g.dart';
 /// * [currency] - The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes/).
 /// * [locale] - Locale on the shopper interaction device.
 /// * [merchantAccount] - Your merchant account identifier.
+/// * [store] - Required for Adyen for Platforms integrations if you are a platform model. This is your [reference](https://docs.adyen.com/api-explorer/Management/3/post/merchants/(merchantId)/stores#request-reference) (on [balance platform](https://docs.adyen.com/platforms)) or the [storeReference](https://docs.adyen.com/api-explorer/Account/latest/post/updateAccountHolder#request-accountHolderDetails-storeDetails-storeReference) (in the [classic integration](https://docs.adyen.com/classic-platforms/processing-payments/route-payment-to-store/#route-a-payment-to-a-store)) for the ecommerce or point-of-sale store that is processing the payment.
 @BuiltValue()
 abstract class DonationCampaignsRequest implements Built<DonationCampaignsRequest, DonationCampaignsRequestBuilder> {
   /// The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes/).
@@ -27,6 +28,10 @@ abstract class DonationCampaignsRequest implements Built<DonationCampaignsReques
   /// Your merchant account identifier.
   @BuiltValueField(wireName: r'merchantAccount')
   String get merchantAccount;
+
+  /// Required for Adyen for Platforms integrations if you are a platform model. This is your [reference](https://docs.adyen.com/api-explorer/Management/3/post/merchants/(merchantId)/stores#request-reference) (on [balance platform](https://docs.adyen.com/platforms)) or the [storeReference](https://docs.adyen.com/api-explorer/Account/latest/post/updateAccountHolder#request-accountHolderDetails-storeDetails-storeReference) (in the [classic integration](https://docs.adyen.com/classic-platforms/processing-payments/route-payment-to-store/#route-a-payment-to-a-store)) for the ecommerce or point-of-sale store that is processing the payment.
+  @BuiltValueField(wireName: r'store')
+  String? get store;
 
   DonationCampaignsRequest._();
 
@@ -68,6 +73,13 @@ class _$DonationCampaignsRequestSerializer implements PrimitiveSerializer<Donati
       object.merchantAccount,
       specifiedType: const FullType(String),
     );
+    if (object.store != null) {
+      yield r'store';
+      yield serializers.serialize(
+        object.store,
+        specifiedType: const FullType(String),
+      );
+    }
   }
 
   @override
@@ -111,6 +123,13 @@ class _$DonationCampaignsRequestSerializer implements PrimitiveSerializer<Donati
             specifiedType: const FullType(String),
           ) as String;
           result.merchantAccount = valueDes;
+          break;
+        case r'store':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.store = valueDes;
           break;
         default:
           unhandled.add(key);

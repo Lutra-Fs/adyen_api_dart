@@ -8,19 +8,19 @@ part of 'invalid_field.dart';
 
 class _$InvalidField extends InvalidField {
   @override
+  final String message;
+  @override
   final String name_;
   @override
   final String value;
-  @override
-  final String message;
 
   factory _$InvalidField([void Function(InvalidFieldBuilder)? updates]) =>
       (InvalidFieldBuilder()..update(updates))._build();
 
   _$InvalidField._({
+    required this.message,
     required this.name_,
     required this.value,
-    required this.message,
   }) : super._();
   @override
   InvalidField rebuild(void Function(InvalidFieldBuilder) updates) =>
@@ -33,17 +33,17 @@ class _$InvalidField extends InvalidField {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is InvalidField &&
+        message == other.message &&
         name_ == other.name_ &&
-        value == other.value &&
-        message == other.message;
+        value == other.value;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, message.hashCode);
     _$hash = $jc(_$hash, name_.hashCode);
     _$hash = $jc(_$hash, value.hashCode);
-    _$hash = $jc(_$hash, message.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -51,9 +51,9 @@ class _$InvalidField extends InvalidField {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'InvalidField')
+          ..add('message', message)
           ..add('name_', name_)
-          ..add('value', value)
-          ..add('message', message))
+          ..add('value', value))
         .toString();
   }
 }
@@ -61,6 +61,10 @@ class _$InvalidField extends InvalidField {
 class InvalidFieldBuilder
     implements Builder<InvalidField, InvalidFieldBuilder> {
   _$InvalidField? _$v;
+
+  String? _message;
+  String? get message => _$this._message;
+  set message(String? message) => _$this._message = message;
 
   String? _name_;
   String? get name_ => _$this._name_;
@@ -70,10 +74,6 @@ class InvalidFieldBuilder
   String? get value => _$this._value;
   set value(String? value) => _$this._value = value;
 
-  String? _message;
-  String? get message => _$this._message;
-  set message(String? message) => _$this._message = message;
-
   InvalidFieldBuilder() {
     InvalidField._defaults(this);
   }
@@ -81,9 +81,9 @@ class InvalidFieldBuilder
   InvalidFieldBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _message = $v.message;
       _name_ = $v.name_;
       _value = $v.value;
-      _message = $v.message;
       _$v = null;
     }
     return this;
@@ -106,6 +106,11 @@ class InvalidFieldBuilder
     final _$result =
         _$v ??
         _$InvalidField._(
+          message: BuiltValueNullFieldError.checkNotNull(
+            message,
+            r'InvalidField',
+            'message',
+          ),
           name_: BuiltValueNullFieldError.checkNotNull(
             name_,
             r'InvalidField',
@@ -115,11 +120,6 @@ class InvalidFieldBuilder
             value,
             r'InvalidField',
             'value',
-          ),
-          message: BuiltValueNullFieldError.checkNotNull(
-            message,
-            r'InvalidField',
-            'message',
           ),
         );
     replace(_$result);

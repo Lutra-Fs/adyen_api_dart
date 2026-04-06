@@ -12,14 +12,14 @@ part 'platform_payment_configuration.g.dart';
 ///
 /// Properties:
 /// * [salesDayClosingTime] - Specifies at what time a sales day ends for this account.  Possible values: Time in **\"HH:MM\"** format. **HH** ranges from **00** to **07**. **MM** must be **00**.  Default value: **\"00:00\"**.
-/// * [settlementDelayDays] - Specifies after how many business days the funds in a settlement batch are made available in this balance account.  Possible values: **1** to **20**, or **null**.  Default value: **null**.
+/// * [settlementDelayDays] - Specifies after how many business days the funds in a settlement batch are made available in this balance account. Requires Custom Sales Day Payout to be enabled for your balance account. Contact your account manager or implementation manager to enable this.  Possible values: **1** to **20**, or **null**.  Default value: **null**.
 @BuiltValue()
 abstract class PlatformPaymentConfiguration implements Built<PlatformPaymentConfiguration, PlatformPaymentConfigurationBuilder> {
   /// Specifies at what time a sales day ends for this account.  Possible values: Time in **\"HH:MM\"** format. **HH** ranges from **00** to **07**. **MM** must be **00**.  Default value: **\"00:00\"**.
   @BuiltValueField(wireName: r'salesDayClosingTime')
   String? get salesDayClosingTime;
 
-  /// Specifies after how many business days the funds in a settlement batch are made available in this balance account.  Possible values: **1** to **20**, or **null**.  Default value: **null**.
+  /// Specifies after how many business days the funds in a settlement batch are made available in this balance account. Requires Custom Sales Day Payout to be enabled for your balance account. Contact your account manager or implementation manager to enable this.  Possible values: **1** to **20**, or **null**.  Default value: **null**.
   @BuiltValueField(wireName: r'settlementDelayDays')
   int? get settlementDelayDays;
 

@@ -11,11 +11,15 @@ part 'invalid_field.g.dart';
 /// InvalidField
 ///
 /// Properties:
+/// * [message] - Description of the validation error.
 /// * [name_] - The field that has an invalid value.
 /// * [value] - The invalid value.
-/// * [message] - Description of the validation error.
 @BuiltValue()
 abstract class InvalidField implements Built<InvalidField, InvalidFieldBuilder> {
+  /// Description of the validation error.
+  @BuiltValueField(wireName: r'message')
+  String get message;
+
   /// The field that has an invalid value.
   @BuiltValueField(wireName: r'name')
   String get name_;
@@ -23,10 +27,6 @@ abstract class InvalidField implements Built<InvalidField, InvalidFieldBuilder> 
   /// The invalid value.
   @BuiltValueField(wireName: r'value')
   String get value;
-
-  /// Description of the validation error.
-  @BuiltValueField(wireName: r'message')
-  String get message;
 
   InvalidField._();
 
@@ -51,6 +51,11 @@ class _$InvalidFieldSerializer implements PrimitiveSerializer<InvalidField> {
     InvalidField object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
+    yield r'message';
+    yield serializers.serialize(
+      object.message,
+      specifiedType: const FullType(String),
+    );
     yield r'name';
     yield serializers.serialize(
       object.name_,
@@ -59,11 +64,6 @@ class _$InvalidFieldSerializer implements PrimitiveSerializer<InvalidField> {
     yield r'value';
     yield serializers.serialize(
       object.value,
-      specifiedType: const FullType(String),
-    );
-    yield r'message';
-    yield serializers.serialize(
-      object.message,
       specifiedType: const FullType(String),
     );
   }
@@ -89,6 +89,13 @@ class _$InvalidFieldSerializer implements PrimitiveSerializer<InvalidField> {
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
+        case r'message':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.message = valueDes;
+          break;
         case r'name':
           final valueDes = serializers.deserialize(
             value,
@@ -102,13 +109,6 @@ class _$InvalidFieldSerializer implements PrimitiveSerializer<InvalidField> {
             specifiedType: const FullType(String),
           ) as String;
           result.value = valueDes;
-          break;
-        case r'message':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.message = valueDes;
           break;
         default:
           unhandled.add(key);

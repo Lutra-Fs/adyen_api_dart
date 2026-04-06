@@ -8,6 +8,8 @@ part of 'checkout_forward_request.dart';
 
 class _$CheckoutForwardRequest extends CheckoutForwardRequest {
   @override
+  final Amount? amount;
+  @override
   final String baseUrl;
   @override
   final String merchantAccount;
@@ -29,6 +31,7 @@ class _$CheckoutForwardRequest extends CheckoutForwardRequest {
   ]) => (CheckoutForwardRequestBuilder()..update(updates))._build();
 
   _$CheckoutForwardRequest._({
+    this.amount,
     required this.baseUrl,
     required this.merchantAccount,
     this.merchantReference,
@@ -51,6 +54,7 @@ class _$CheckoutForwardRequest extends CheckoutForwardRequest {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is CheckoutForwardRequest &&
+        amount == other.amount &&
         baseUrl == other.baseUrl &&
         merchantAccount == other.merchantAccount &&
         merchantReference == other.merchantReference &&
@@ -64,6 +68,7 @@ class _$CheckoutForwardRequest extends CheckoutForwardRequest {
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, amount.hashCode);
     _$hash = $jc(_$hash, baseUrl.hashCode);
     _$hash = $jc(_$hash, merchantAccount.hashCode);
     _$hash = $jc(_$hash, merchantReference.hashCode);
@@ -79,6 +84,7 @@ class _$CheckoutForwardRequest extends CheckoutForwardRequest {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'CheckoutForwardRequest')
+          ..add('amount', amount)
           ..add('baseUrl', baseUrl)
           ..add('merchantAccount', merchantAccount)
           ..add('merchantReference', merchantReference)
@@ -94,6 +100,10 @@ class _$CheckoutForwardRequest extends CheckoutForwardRequest {
 class CheckoutForwardRequestBuilder
     implements Builder<CheckoutForwardRequest, CheckoutForwardRequestBuilder> {
   _$CheckoutForwardRequest? _$v;
+
+  AmountBuilder? _amount;
+  AmountBuilder get amount => _$this._amount ??= AmountBuilder();
+  set amount(AmountBuilder? amount) => _$this._amount = amount;
 
   String? _baseUrl;
   String? get baseUrl => _$this._baseUrl;
@@ -144,6 +154,7 @@ class CheckoutForwardRequestBuilder
   CheckoutForwardRequestBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _amount = $v.amount?.toBuilder();
       _baseUrl = $v.baseUrl;
       _merchantAccount = $v.merchantAccount;
       _merchantReference = $v.merchantReference;
@@ -176,6 +187,7 @@ class CheckoutForwardRequestBuilder
       _$result =
           _$v ??
           _$CheckoutForwardRequest._(
+            amount: _amount?.build(),
             baseUrl: BuiltValueNullFieldError.checkNotNull(
               baseUrl,
               r'CheckoutForwardRequest',
@@ -200,6 +212,9 @@ class CheckoutForwardRequestBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'amount';
+        _amount?.build();
+
         _$failedField = 'options';
         _options?.build();
         _$failedField = 'paymentMethod';

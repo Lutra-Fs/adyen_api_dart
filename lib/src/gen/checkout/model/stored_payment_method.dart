@@ -17,7 +17,7 @@ part 'stored_payment_method.g.dart';
 /// * [brand] - The brand of the card.
 /// * [expiryMonth] - The two-digit month when the card expires
 /// * [expiryYear] - The last two digits of the year the card expires. For example, **22** for the year 2022.
-/// * [holderName] - The unique payment method code.
+/// * [holderName] - The name of the payment method holder.
 /// * [iban] - The IBAN of the bank account.
 /// * [id] - A unique identifier of this stored payment method.
 /// * [label] - The shopper’s issuer account label
@@ -51,7 +51,7 @@ abstract class StoredPaymentMethod implements Built<StoredPaymentMethod, StoredP
   @BuiltValueField(wireName: r'expiryYear')
   String? get expiryYear;
 
-  /// The unique payment method code.
+  /// The name of the payment method holder.
   @BuiltValueField(wireName: r'holderName')
   String? get holderName;
 

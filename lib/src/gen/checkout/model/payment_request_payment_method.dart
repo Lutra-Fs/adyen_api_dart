@@ -12,6 +12,7 @@ import 'package:adyen_api/src/gen/checkout/model/we_chat_pay_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/cash_app_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/affirm_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/mol_pay_details.dart';
+import 'package:adyen_api/src/gen/checkout/model/pix_pay_by_bank_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/open_invoice_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/pse_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/payment_details.dart';
@@ -30,6 +31,8 @@ import 'package:adyen_api/src/gen/checkout/model/upi_collect_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/card_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/econtext_voucher_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/mbway_details.dart';
+import 'package:adyen_api/src/gen/checkout/model/alma_details.dart';
+import 'package:adyen_api/src/gen/checkout/model/klarna_network_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/vipps_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/twint_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/e_banking_finland_details.dart';
@@ -41,9 +44,11 @@ import 'package:adyen_api/src/gen/checkout/model/pay_to_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/blik_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/masterpass_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/pay_by_bank_details.dart';
+import 'package:adyen_api/src/gen/checkout/model/direct_debit_au_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/rakuten_pay_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/ach_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/dragonpay_details.dart';
+import 'package:adyen_api/src/gen/checkout/model/pix_pay_by_bank_risk_signals.dart';
 import 'package:adyen_api/src/gen/checkout/model/ideal_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/bacs_direct_debit_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/bill_desk_details.dart';
@@ -84,13 +89,14 @@ part 'payment_request_payment_method.g.dart';
 /// * [billingAddress] - The address where to send the invoice.
 /// * [deliveryAddress] - The address where the goods should be delivered.
 /// * [personalDetails] - Shopper name, date of birth, phone number, and email address.
+/// * [feeType] - **Alma payment request fee type**
 /// * [amazonPayToken] - This is the `amazonPayToken` that you obtained from the [Get Checkout Session](https://amazon-pay-acquirer-guide.s3-eu-west-1.amazonaws.com/v1/amazon-pay-api-v2/checkout-session.html#get-checkout-session) response. This token is used for API only integration specifically.
 /// * [checkoutSessionId] - The `checkoutSessionId` is used to identify the checkout session at the Amazon Pay side. This field is required only for drop-in and components integration, where it replaces the amazonPayToken.
 /// * [beneficiaryId] - ANCV account identification (email or account number)
 /// * [applePayToken] - The stringified and base64 encoded `paymentData` you retrieved from the Apple framework.
 /// * [fundingSource] - The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**.
 /// * [holderName] - The name of the card holder.
-/// * [issuer] - The PayByBank issuer value of the shopper's selected bank.
+/// * [issuer] 
 /// * [blikCode] - BLIK code consisting of 6 digits.
 /// * [billingSequenceNumber] - The sequence number for the debit. For example, send **2** if this is the second debit for the subscription. The sequence number is included in the notification sent to the shopper.
 /// * [brand] - Secondary brand of the card. For example: **plastix**, **hmclub**.
@@ -119,6 +125,7 @@ part 'payment_request_payment_method.g.dart';
 /// * [onFileGrantId] - Cash App issued onFileGrantId for recurring payment
 /// * [requestId] - Cash App request id
 /// * [subtype] - The type of flow to initiate.
+/// * [bankBranchCode] - The shopper's BSB (their bank's branch code) number used to complete payment.
 /// * [firstName] - The shopper's first name.
 /// * [lastName] - The shopper's last name.
 /// * [shopperEmail] - 
@@ -126,6 +133,7 @@ part 'payment_request_payment_method.g.dart';
 /// * [bankCode] - The financial institution code.
 /// * [googlePayCardNetwork] - The selected payment card network. 
 /// * [googlePayToken] - The `token` that you obtained from the [Google Pay API](https://developers.google.com/pay/api/web/reference/response-objects#PaymentData) `PaymentData` response.
+/// * [klarnaNetworkData] - A string containing a structured JSON object. This is a passthrough field used to enable custom features or data exchange with Klarna.
 /// * [masterpassTransactionId] - The Masterpass transaction ID.
 /// * [orderID] - The unique ID associated with the order.
 /// * [payeePreferred] - IMMEDIATE_PAYMENT_REQUIRED or UNRESTRICTED
@@ -134,6 +142,8 @@ part 'payment_request_payment_method.g.dart';
 /// * [shopperAccountIdentifier] - The shopper's banking details or payId reference, used to complete payment.
 /// * [virtualPaymentAddress] - The virtual payment address for UPI.
 /// * [pixRecurring] 
+/// * [deviceId] 
+/// * [riskSignals] 
 /// * [bank] - The shopper's bank.
 /// * [clientType] - The client type.
 /// * [identification] - The identification code.
@@ -148,7 +158,7 @@ part 'payment_request_payment_method.g.dart';
 /// * [clickAndCollect] - Set this to **true** if the shopper would like to pick up and collect their order, instead of having the goods delivered to them.
 @BuiltValue()
 abstract class PaymentRequestPaymentMethod implements Built<PaymentRequestPaymentMethod, PaymentRequestPaymentMethodBuilder> {
-  /// One Of [AchDetails], [AffirmDetails], [AfterpayDetails], [AmazonPayDetails], [AncvDetails], [AndroidPayDetails], [ApplePayDetails], [BacsDirectDebitDetails], [BillDeskDetails], [BlikDetails], [CardDetails], [CashAppDetails], [CellulantDetails], [DokuDetails], [DragonpayDetails], [EBankingFinlandDetails], [EcontextVoucherDetails], [EftDetails], [ExternalTokenDetails], [FastlaneDetails], [GenericIssuerPaymentMethodDetails], [GooglePayDetails], [IdealDetails], [KlarnaDetails], [MasterpassDetails], [MbwayDetails], [MobilePayDetails], [MolPayDetails], [OpenInvoiceDetails], [PayByBankAISDirectDebitDetails], [PayByBankDetails], [PayPalDetails], [PayPayDetails], [PayToDetails], [PayUUpiDetails], [PayWithGoogleDetails], [PaymentDetails], [PixDetails], [PseDetails], [RakutenPayDetails], [RatepayDetails], [RivertyDetails], [SamsungPayDetails], [SepaDirectDebitDetails], [StoredPaymentMethodDetails], [TwintDetails], [UpiCollectDetails], [UpiIntentDetails], [UpiQrDetails], [VippsDetails], [VisaCheckoutDetails], [WeChatPayDetails], [WeChatPayMiniProgramDetails], [ZipDetails]
+  /// One Of [AchDetails], [AffirmDetails], [AfterpayDetails], [AlmaDetails], [AmazonPayDetails], [AncvDetails], [AndroidPayDetails], [ApplePayDetails], [BacsDirectDebitDetails], [BillDeskDetails], [BlikDetails], [CardDetails], [CashAppDetails], [CellulantDetails], [DirectDebitAuDetails], [DokuDetails], [DragonpayDetails], [EBankingFinlandDetails], [EcontextVoucherDetails], [EftDetails], [ExternalTokenDetails], [FastlaneDetails], [GenericIssuerPaymentMethodDetails], [GooglePayDetails], [IdealDetails], [KlarnaDetails], [KlarnaNetworkDetails], [MasterpassDetails], [MbwayDetails], [MobilePayDetails], [MolPayDetails], [OpenInvoiceDetails], [PayByBankAISDirectDebitDetails], [PayByBankDetails], [PayPalDetails], [PayPayDetails], [PayToDetails], [PayUUpiDetails], [PayWithGoogleDetails], [PaymentDetails], [PixDetails], [PixPayByBankDetails], [PseDetails], [RakutenPayDetails], [RatepayDetails], [RivertyDetails], [SamsungPayDetails], [SepaDirectDebitDetails], [StoredPaymentMethodDetails], [TwintDetails], [UpiCollectDetails], [UpiIntentDetails], [UpiQrDetails], [VippsDetails], [VisaCheckoutDetails], [WeChatPayDetails], [WeChatPayMiniProgramDetails], [ZipDetails]
   OneOf get oneOf;
 
   PaymentRequestPaymentMethod._();
@@ -194,7 +204,7 @@ class _$PaymentRequestPaymentMethodSerializer implements PrimitiveSerializer<Pay
   }) {
     final result = PaymentRequestPaymentMethodBuilder();
     Object? oneOfDataSrc;
-    final targetType = const FullType(OneOf, [FullType(AchDetails), FullType(AffirmDetails), FullType(AfterpayDetails), FullType(AmazonPayDetails), FullType(AncvDetails), FullType(AndroidPayDetails), FullType(ApplePayDetails), FullType(BacsDirectDebitDetails), FullType(BillDeskDetails), FullType(BlikDetails), FullType(CardDetails), FullType(CashAppDetails), FullType(CellulantDetails), FullType(DokuDetails), FullType(DragonpayDetails), FullType(EBankingFinlandDetails), FullType(EcontextVoucherDetails), FullType(EftDetails), FullType(ExternalTokenDetails), FullType(FastlaneDetails), FullType(GenericIssuerPaymentMethodDetails), FullType(GooglePayDetails), FullType(IdealDetails), FullType(KlarnaDetails), FullType(MasterpassDetails), FullType(MbwayDetails), FullType(MobilePayDetails), FullType(MolPayDetails), FullType(OpenInvoiceDetails), FullType(PayByBankAISDirectDebitDetails), FullType(PayByBankDetails), FullType(PayPalDetails), FullType(PayPayDetails), FullType(PayToDetails), FullType(PayUUpiDetails), FullType(PayWithGoogleDetails), FullType(PaymentDetails), FullType(PixDetails), FullType(PseDetails), FullType(RakutenPayDetails), FullType(RatepayDetails), FullType(RivertyDetails), FullType(SamsungPayDetails), FullType(SepaDirectDebitDetails), FullType(StoredPaymentMethodDetails), FullType(TwintDetails), FullType(UpiCollectDetails), FullType(UpiIntentDetails), FullType(UpiQrDetails), FullType(VippsDetails), FullType(VisaCheckoutDetails), FullType(WeChatPayDetails), FullType(WeChatPayMiniProgramDetails), FullType(ZipDetails), ]);
+    final targetType = const FullType(OneOf, [FullType(AchDetails), FullType(AffirmDetails), FullType(AfterpayDetails), FullType(AlmaDetails), FullType(AmazonPayDetails), FullType(AncvDetails), FullType(AndroidPayDetails), FullType(ApplePayDetails), FullType(BacsDirectDebitDetails), FullType(BillDeskDetails), FullType(BlikDetails), FullType(CardDetails), FullType(CashAppDetails), FullType(CellulantDetails), FullType(DirectDebitAuDetails), FullType(DokuDetails), FullType(DragonpayDetails), FullType(EBankingFinlandDetails), FullType(EcontextVoucherDetails), FullType(EftDetails), FullType(ExternalTokenDetails), FullType(FastlaneDetails), FullType(GenericIssuerPaymentMethodDetails), FullType(GooglePayDetails), FullType(IdealDetails), FullType(KlarnaDetails), FullType(KlarnaNetworkDetails), FullType(MasterpassDetails), FullType(MbwayDetails), FullType(MobilePayDetails), FullType(MolPayDetails), FullType(OpenInvoiceDetails), FullType(PayByBankAISDirectDebitDetails), FullType(PayByBankDetails), FullType(PayPalDetails), FullType(PayPayDetails), FullType(PayToDetails), FullType(PayUUpiDetails), FullType(PayWithGoogleDetails), FullType(PaymentDetails), FullType(PixDetails), FullType(PixPayByBankDetails), FullType(PseDetails), FullType(RakutenPayDetails), FullType(RatepayDetails), FullType(RivertyDetails), FullType(SamsungPayDetails), FullType(SepaDirectDebitDetails), FullType(StoredPaymentMethodDetails), FullType(TwintDetails), FullType(UpiCollectDetails), FullType(UpiIntentDetails), FullType(UpiQrDetails), FullType(VippsDetails), FullType(VisaCheckoutDetails), FullType(WeChatPayDetails), FullType(WeChatPayMiniProgramDetails), FullType(ZipDetails), ]);
     oneOfDataSrc = serialized;
     result.oneOf = serializers.deserialize(oneOfDataSrc, specifiedType: targetType) as OneOf;
     return result.build();
@@ -280,6 +290,9 @@ class PaymentRequestPaymentMethodTypeEnum extends EnumClass {
   @BuiltValueEnumConst(wireName: r'clearpay')
   static const PaymentRequestPaymentMethodTypeEnum clearpay = _$paymentRequestPaymentMethodTypeEnum_clearpay;
   /// **ach**
+  @BuiltValueEnumConst(wireName: r'alma')
+  static const PaymentRequestPaymentMethodTypeEnum alma = _$paymentRequestPaymentMethodTypeEnum_alma;
+  /// **ach**
   @BuiltValueEnumConst(wireName: r'amazonpay')
   static const PaymentRequestPaymentMethodTypeEnum amazonpay = _$paymentRequestPaymentMethodTypeEnum_amazonpay;
   /// **ach**
@@ -327,6 +340,9 @@ class PaymentRequestPaymentMethodTypeEnum extends EnumClass {
   /// **ach**
   @BuiltValueEnumConst(wireName: r'cellulant')
   static const PaymentRequestPaymentMethodTypeEnum cellulant = _$paymentRequestPaymentMethodTypeEnum_cellulant;
+  /// **ach**
+  @BuiltValueEnumConst(wireName: r'directdebit_AU')
+  static const PaymentRequestPaymentMethodTypeEnum directdebitAU = _$paymentRequestPaymentMethodTypeEnum_directdebitAU;
   /// **ach**
   @BuiltValueEnumConst(wireName: r'doku_mandiri_va')
   static const PaymentRequestPaymentMethodTypeEnum dokuMandiriVa = _$paymentRequestPaymentMethodTypeEnum_dokuMandiriVa;
@@ -442,6 +458,9 @@ class PaymentRequestPaymentMethodTypeEnum extends EnumClass {
   @BuiltValueEnumConst(wireName: r'klarna_b2b')
   static const PaymentRequestPaymentMethodTypeEnum klarnaB2b = _$paymentRequestPaymentMethodTypeEnum_klarnaB2b;
   /// **ach**
+  @BuiltValueEnumConst(wireName: r'klarna_network')
+  static const PaymentRequestPaymentMethodTypeEnum klarnaNetwork = _$paymentRequestPaymentMethodTypeEnum_klarnaNetwork;
+  /// **ach**
   @BuiltValueEnumConst(wireName: r'masterpass')
   static const PaymentRequestPaymentMethodTypeEnum masterpass = _$paymentRequestPaymentMethodTypeEnum_masterpass;
   /// **ach**
@@ -510,6 +529,9 @@ class PaymentRequestPaymentMethodTypeEnum extends EnumClass {
   /// **ach**
   @BuiltValueEnumConst(wireName: r'iris')
   static const PaymentRequestPaymentMethodTypeEnum iris = _$paymentRequestPaymentMethodTypeEnum_iris;
+  /// **ach**
+  @BuiltValueEnumConst(wireName: r'wero')
+  static const PaymentRequestPaymentMethodTypeEnum wero = _$paymentRequestPaymentMethodTypeEnum_wero;
   /// **ach**
   @BuiltValueEnumConst(wireName: r'trustly')
   static const PaymentRequestPaymentMethodTypeEnum trustly = _$paymentRequestPaymentMethodTypeEnum_trustly;
@@ -594,9 +616,6 @@ class PaymentRequestPaymentMethodTypeEnum extends EnumClass {
   /// **ach**
   @BuiltValueEnumConst(wireName: r'walley_b2b')
   static const PaymentRequestPaymentMethodTypeEnum walleyB2b = _$paymentRequestPaymentMethodTypeEnum_walleyB2b;
-  /// **ach**
-  @BuiltValueEnumConst(wireName: r'alma')
-  static const PaymentRequestPaymentMethodTypeEnum alma = _$paymentRequestPaymentMethodTypeEnum_alma;
   /// **ach**
   @BuiltValueEnumConst(wireName: r'paypo')
   static const PaymentRequestPaymentMethodTypeEnum paypo = _$paymentRequestPaymentMethodTypeEnum_paypo;
@@ -750,6 +769,9 @@ class PaymentRequestPaymentMethodTypeEnum extends EnumClass {
   /// **ach**
   @BuiltValueEnumConst(wireName: r'pix')
   static const PaymentRequestPaymentMethodTypeEnum pix = _$paymentRequestPaymentMethodTypeEnum_pix;
+  /// **ach**
+  @BuiltValueEnumConst(wireName: r'paybybank_pix')
+  static const PaymentRequestPaymentMethodTypeEnum paybybankPix = _$paymentRequestPaymentMethodTypeEnum_paybybankPix;
   /// **ach**
   @BuiltValueEnumConst(wireName: r'pse_payulatam')
   static const PaymentRequestPaymentMethodTypeEnum psePayulatam = _$paymentRequestPaymentMethodTypeEnum_psePayulatam;
@@ -916,6 +938,26 @@ class PaymentRequestPaymentMethodTypeEnum extends EnumClass {
 
   static BuiltSet<PaymentRequestPaymentMethodTypeEnum> get values => _$paymentRequestPaymentMethodTypeEnumValues;
   static PaymentRequestPaymentMethodTypeEnum valueOf(String name) => _$paymentRequestPaymentMethodTypeEnumValueOf(name);
+}
+
+class PaymentRequestPaymentMethodFeeTypeEnum extends EnumClass {
+
+  /// **Alma payment request fee type**
+  @BuiltValueEnumConst(wireName: r'merchantPays')
+  static const PaymentRequestPaymentMethodFeeTypeEnum merchantPays = _$paymentRequestPaymentMethodFeeTypeEnum_merchantPays;
+  /// **Alma payment request fee type**
+  @BuiltValueEnumConst(wireName: r'shopperPays')
+  static const PaymentRequestPaymentMethodFeeTypeEnum shopperPays = _$paymentRequestPaymentMethodFeeTypeEnum_shopperPays;
+  /// **Alma payment request fee type**
+  @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
+  static const PaymentRequestPaymentMethodFeeTypeEnum unknownDefaultOpenApi = _$paymentRequestPaymentMethodFeeTypeEnum_unknownDefaultOpenApi;
+
+  static Serializer<PaymentRequestPaymentMethodFeeTypeEnum> get serializer => _$paymentRequestPaymentMethodFeeTypeEnumSerializer;
+
+  const PaymentRequestPaymentMethodFeeTypeEnum._(String name): super(name);
+
+  static BuiltSet<PaymentRequestPaymentMethodFeeTypeEnum> get values => _$paymentRequestPaymentMethodFeeTypeEnumValues;
+  static PaymentRequestPaymentMethodFeeTypeEnum valueOf(String name) => _$paymentRequestPaymentMethodFeeTypeEnumValueOf(name);
 }
 
 class PaymentRequestPaymentMethodFundingSourceEnum extends EnumClass {

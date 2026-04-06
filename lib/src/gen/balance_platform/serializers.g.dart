@@ -8,6 +8,7 @@ part of 'serializers.dart';
 
 Serializers _$serializers =
     (Serializers().toBuilder()
+          ..add($MandateAccountIdentification.serializer)
           ..add($WebhookSetting.serializer)
           ..add(AULocalAccountIdentification.serializer)
           ..add(AULocalAccountIdentificationTypeEnum.serializer)
@@ -184,7 +185,13 @@ Serializers _$serializers =
           ..add(LimitStatus.serializer)
           ..add(Link.serializer)
           ..add(ListAssociationsResponse.serializer)
+          ..add(ListMandatesResponse.serializer)
           ..add(ListNetworkTokensResponse.serializer)
+          ..add(Mandate.serializer)
+          ..add(MandateBankAccount.serializer)
+          ..add(MandatePartyIdentification.serializer)
+          ..add(MandateStatus.serializer)
+          ..add(MandateType.serializer)
           ..add(MatchingTransactionsRestriction.serializer)
           ..add(MatchingValuesRestriction.serializer)
           ..add(MatchingValuesRestrictionValueEnum.serializer)
@@ -211,6 +218,7 @@ Serializers _$serializers =
           ..add(PaginatedGetCardOrderItemResponse.serializer)
           ..add(PaginatedGetCardOrderResponse.serializer)
           ..add(PaginatedPaymentInstrumentsResponse.serializer)
+          ..add(PatchableMandate.serializer)
           ..add(PaymentInstrument.serializer)
           ..add(PaymentInstrumentGroup.serializer)
           ..add(PaymentInstrumentGroupInfo.serializer)
@@ -278,6 +286,7 @@ Serializers _$serializers =
           ..add(StringMatchOperationEnum.serializer)
           ..add(SubmitScaAssociationRequest.serializer)
           ..add(SubmitScaAssociationResponse.serializer)
+          ..add(Summary.serializer)
           ..add(SweepConfigurationV2.serializer)
           ..add(SweepConfigurationV2CategoryEnum.serializer)
           ..add(SweepConfigurationV2PrioritiesEnum.serializer)
@@ -291,6 +300,7 @@ Serializers _$serializers =
           ..add(TargetTypeEnum.serializer)
           ..add(TargetUpdate.serializer)
           ..add(TargetUpdateTypeEnum.serializer)
+          ..add(TaxFormSummaryResponse.serializer)
           ..add(ThresholdRepayment.serializer)
           ..add(TimeOfDay.serializer)
           ..add(TimeOfDayRestriction.serializer)
@@ -300,6 +310,7 @@ Serializers _$serializers =
           ..add(TransactionRuleEntityKey.serializer)
           ..add(TransactionRuleInfo.serializer)
           ..add(TransactionRuleInfoOutcomeTypeEnum.serializer)
+          ..add(TransactionRuleInfoPurposeEnum.serializer)
           ..add(TransactionRuleInfoRequestTypeEnum.serializer)
           ..add(TransactionRuleInfoStatusEnum.serializer)
           ..add(TransactionRuleInfoTypeEnum.serializer)
@@ -307,6 +318,7 @@ Serializers _$serializers =
           ..add(TransactionRuleIntervalDayOfWeekEnum.serializer)
           ..add(TransactionRuleIntervalTypeEnum.serializer)
           ..add(TransactionRuleOutcomeTypeEnum.serializer)
+          ..add(TransactionRulePurposeEnum.serializer)
           ..add(TransactionRuleRequestTypeEnum.serializer)
           ..add(TransactionRuleResponse.serializer)
           ..add(TransactionRuleRestrictions.serializer)
@@ -326,6 +338,7 @@ Serializers _$serializers =
           ..add(TransferType.serializer)
           ..add(UKLocalAccountIdentification.serializer)
           ..add(UKLocalAccountIdentificationTypeEnum.serializer)
+          ..add(UKLocalMandateAccountIdentification.serializer)
           ..add(USInstantPayoutAddressRequirement.serializer)
           ..add(USInstantPayoutAddressRequirementTypeEnum.serializer)
           ..add(USInternationalAchAddressRequirement.serializer)
@@ -511,6 +524,10 @@ Serializers _$serializers =
             () => ListBuilder<InvalidField>(),
           )
           ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(Mandate)]),
+            () => ListBuilder<Mandate>(),
+          )
+          ..addBuilderFactory(
             const FullType(BuiltList, const [
               const FullType(MatchingValuesRestrictionValueEnum),
             ]),
@@ -613,6 +630,10 @@ Serializers _$serializers =
             () => ListBuilder<StringMatch>(),
           )
           ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(Summary)]),
+            () => ListBuilder<Summary>(),
+          )
+          ..addBuilderFactory(
             const FullType(BuiltList, const [
               const FullType(SweepConfigurationV2),
             ]),
@@ -709,6 +730,10 @@ Serializers _$serializers =
           ..addBuilderFactory(
             const FullType(BuiltList, const [const FullType(WebhookSetting)]),
             () => ListBuilder<WebhookSetting>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(int)]),
+            () => ListBuilder<int>(),
           )
           ..addBuilderFactory(
             const FullType(BuiltMap, const [

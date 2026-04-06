@@ -3,7 +3,7 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:adyen_api/src/gen/transfers/model/counterparty.dart';
+import 'package:adyen_api/src/gen/transfers/model/grant_info_counterparty.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -12,14 +12,14 @@ part 'capital_grant_info.g.dart';
 /// CapitalGrantInfo
 ///
 /// Properties:
-/// * [counterparty] - An object containing the details of the receiving party of the grant. Setting either an `accountHolderId`, `balanceAccountId`, or both is required.
+/// * [counterparty] - An object containing the details of the receiving party of the grant.
 /// * [grantAccountId] - The identifier of the grant account used for the grant.
 /// * [grantOfferId] - The identifier of the grant offer that has been selected and from which the grant details will be used.
 @BuiltValue()
 abstract class CapitalGrantInfo implements Built<CapitalGrantInfo, CapitalGrantInfoBuilder> {
-  /// An object containing the details of the receiving party of the grant. Setting either an `accountHolderId`, `balanceAccountId`, or both is required.
+  /// An object containing the details of the receiving party of the grant.
   @BuiltValueField(wireName: r'counterparty')
-  Counterparty? get counterparty;
+  GrantInfoCounterparty? get counterparty;
 
   /// The identifier of the grant account used for the grant.
   @BuiltValueField(wireName: r'grantAccountId')
@@ -56,7 +56,7 @@ class _$CapitalGrantInfoSerializer implements PrimitiveSerializer<CapitalGrantIn
       yield r'counterparty';
       yield serializers.serialize(
         object.counterparty,
-        specifiedType: const FullType(Counterparty),
+        specifiedType: const FullType(GrantInfoCounterparty),
       );
     }
     yield r'grantAccountId';
@@ -95,8 +95,8 @@ class _$CapitalGrantInfoSerializer implements PrimitiveSerializer<CapitalGrantIn
         case r'counterparty':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(Counterparty),
-          ) as Counterparty;
+            specifiedType: const FullType(GrantInfoCounterparty),
+          ) as GrantInfoCounterparty;
           result.counterparty.replace(valueDes);
           break;
         case r'grantAccountId':

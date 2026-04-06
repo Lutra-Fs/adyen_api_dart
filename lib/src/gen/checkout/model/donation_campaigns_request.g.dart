@@ -13,6 +13,8 @@ class _$DonationCampaignsRequest extends DonationCampaignsRequest {
   final String? locale;
   @override
   final String merchantAccount;
+  @override
+  final String? store;
 
   factory _$DonationCampaignsRequest([
     void Function(DonationCampaignsRequestBuilder)? updates,
@@ -22,6 +24,7 @@ class _$DonationCampaignsRequest extends DonationCampaignsRequest {
     required this.currency,
     this.locale,
     required this.merchantAccount,
+    this.store,
   }) : super._();
   @override
   DonationCampaignsRequest rebuild(
@@ -38,7 +41,8 @@ class _$DonationCampaignsRequest extends DonationCampaignsRequest {
     return other is DonationCampaignsRequest &&
         currency == other.currency &&
         locale == other.locale &&
-        merchantAccount == other.merchantAccount;
+        merchantAccount == other.merchantAccount &&
+        store == other.store;
   }
 
   @override
@@ -47,6 +51,7 @@ class _$DonationCampaignsRequest extends DonationCampaignsRequest {
     _$hash = $jc(_$hash, currency.hashCode);
     _$hash = $jc(_$hash, locale.hashCode);
     _$hash = $jc(_$hash, merchantAccount.hashCode);
+    _$hash = $jc(_$hash, store.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -56,7 +61,8 @@ class _$DonationCampaignsRequest extends DonationCampaignsRequest {
     return (newBuiltValueToStringHelper(r'DonationCampaignsRequest')
           ..add('currency', currency)
           ..add('locale', locale)
-          ..add('merchantAccount', merchantAccount))
+          ..add('merchantAccount', merchantAccount)
+          ..add('store', store))
         .toString();
   }
 }
@@ -79,6 +85,10 @@ class DonationCampaignsRequestBuilder
   set merchantAccount(String? merchantAccount) =>
       _$this._merchantAccount = merchantAccount;
 
+  String? _store;
+  String? get store => _$this._store;
+  set store(String? store) => _$this._store = store;
+
   DonationCampaignsRequestBuilder() {
     DonationCampaignsRequest._defaults(this);
   }
@@ -89,6 +99,7 @@ class DonationCampaignsRequestBuilder
       _currency = $v.currency;
       _locale = $v.locale;
       _merchantAccount = $v.merchantAccount;
+      _store = $v.store;
       _$v = null;
     }
     return this;
@@ -122,6 +133,7 @@ class DonationCampaignsRequestBuilder
             r'DonationCampaignsRequest',
             'merchantAccount',
           ),
+          store: store,
         );
     replace(_$result);
     return _$result;

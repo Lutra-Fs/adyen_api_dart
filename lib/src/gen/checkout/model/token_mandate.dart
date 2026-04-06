@@ -23,8 +23,12 @@ part 'token_mandate.g.dart';
 /// * [frequency] - The frequency with which a shopper should be charged.  Possible values: **adhoc**, **daily**, **weekly**, **biWeekly**, **monthly**, **quarterly**, **halfYearly**, **yearly**.
 /// * [mandateId] - The unique identifier of the mandate.
 /// * [maskedAccountId] - The masked account number associated with the mandate.
+/// * [minAmount] - For a billing plan where the payment amounts are variable, the minimum amount to charge the shopper for each recurring payment. When a shopper approves the billing plan, they can also specify a maximum amount in their banking app.
 /// * [providerId] - The provider-specific identifier for this mandate.
+/// * [recurringAmount] - For a billing plan where the payment amount is fixed, the amount the shopper will be charged for each recurring payment.
+/// * [recurringStatement] - The text that will be shown on the shopper's bank statement for the recurring payments. We recommend to add a descriptive text about the subscription to let your shoppers recognize your recurring payments. Maximum length: 35 characters.
 /// * [remarks] - Additional remarks or notes about the mandate.
+/// * [retryPolicy] - When set to true, you can retry for failed recurring payments. The default value is true.
 /// * [startsAt] - Start date of the billing plan, in YYYY-MM-DD format. By default, the transaction date.
 /// * [status] - The status of the mandate. Examples : active, revoked, completed, expired
 /// * [txVariant] - The transaction variant used for this mandate.
@@ -77,13 +81,30 @@ abstract class TokenMandate implements Built<TokenMandate, TokenMandateBuilder> 
   @BuiltValueField(wireName: r'maskedAccountId')
   String? get maskedAccountId;
 
+  /// For a billing plan where the payment amounts are variable, the minimum amount to charge the shopper for each recurring payment. When a shopper approves the billing plan, they can also specify a maximum amount in their banking app.
+  @BuiltValueField(wireName: r'minAmount')
+  String? get minAmount;
+
   /// The provider-specific identifier for this mandate.
   @BuiltValueField(wireName: r'providerId')
   String get providerId;
 
+  /// For a billing plan where the payment amount is fixed, the amount the shopper will be charged for each recurring payment.
+  @BuiltValueField(wireName: r'recurringAmount')
+  String? get recurringAmount;
+
+  /// The text that will be shown on the shopper's bank statement for the recurring payments. We recommend to add a descriptive text about the subscription to let your shoppers recognize your recurring payments. Maximum length: 35 characters.
+  @BuiltValueField(wireName: r'recurringStatement')
+  String? get recurringStatement;
+
   /// Additional remarks or notes about the mandate.
   @BuiltValueField(wireName: r'remarks')
   String? get remarks;
+
+  /// When set to true, you can retry for failed recurring payments. The default value is true.
+  @BuiltValueField(wireName: r'retryPolicy')
+  TokenMandateRetryPolicyEnum? get retryPolicy;
+  // enum retryPolicyEnum {  true,  false,  };
 
   /// Start date of the billing plan, in YYYY-MM-DD format. By default, the transaction date.
   @BuiltValueField(wireName: r'startsAt')
@@ -187,16 +208,44 @@ class _$TokenMandateSerializer implements PrimitiveSerializer<TokenMandate> {
         specifiedType: const FullType(String),
       );
     }
+    if (object.minAmount != null) {
+      yield r'minAmount';
+      yield serializers.serialize(
+        object.minAmount,
+        specifiedType: const FullType(String),
+      );
+    }
     yield r'providerId';
     yield serializers.serialize(
       object.providerId,
       specifiedType: const FullType(String),
     );
+    if (object.recurringAmount != null) {
+      yield r'recurringAmount';
+      yield serializers.serialize(
+        object.recurringAmount,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.recurringStatement != null) {
+      yield r'recurringStatement';
+      yield serializers.serialize(
+        object.recurringStatement,
+        specifiedType: const FullType(String),
+      );
+    }
     if (object.remarks != null) {
       yield r'remarks';
       yield serializers.serialize(
         object.remarks,
         specifiedType: const FullType(String),
+      );
+    }
+    if (object.retryPolicy != null) {
+      yield r'retryPolicy';
+      yield serializers.serialize(
+        object.retryPolicy,
+        specifiedType: const FullType(TokenMandateRetryPolicyEnum),
       );
     }
     if (object.startsAt != null) {
@@ -316,6 +365,13 @@ class _$TokenMandateSerializer implements PrimitiveSerializer<TokenMandate> {
           ) as String;
           result.maskedAccountId = valueDes;
           break;
+        case r'minAmount':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.minAmount = valueDes;
+          break;
         case r'providerId':
           final valueDes = serializers.deserialize(
             value,
@@ -323,12 +379,33 @@ class _$TokenMandateSerializer implements PrimitiveSerializer<TokenMandate> {
           ) as String;
           result.providerId = valueDes;
           break;
+        case r'recurringAmount':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.recurringAmount = valueDes;
+          break;
+        case r'recurringStatement':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.recurringStatement = valueDes;
+          break;
         case r'remarks':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(String),
           ) as String;
           result.remarks = valueDes;
+          break;
+        case r'retryPolicy':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(TokenMandateRetryPolicyEnum),
+          ) as TokenMandateRetryPolicyEnum;
+          result.retryPolicy = valueDes;
           break;
         case r'startsAt':
           final valueDes = serializers.deserialize(
@@ -459,5 +536,25 @@ class TokenMandateFrequencyEnum extends EnumClass {
 
   static BuiltSet<TokenMandateFrequencyEnum> get values => _$tokenMandateFrequencyEnumValues;
   static TokenMandateFrequencyEnum valueOf(String name) => _$tokenMandateFrequencyEnumValueOf(name);
+}
+
+class TokenMandateRetryPolicyEnum extends EnumClass {
+
+  /// When set to true, you can retry for failed recurring payments. The default value is true.
+  @BuiltValueEnumConst(wireName: r'true')
+  static const TokenMandateRetryPolicyEnum true_ = _$tokenMandateRetryPolicyEnum_true_;
+  /// When set to true, you can retry for failed recurring payments. The default value is true.
+  @BuiltValueEnumConst(wireName: r'false')
+  static const TokenMandateRetryPolicyEnum false_ = _$tokenMandateRetryPolicyEnum_false_;
+  /// When set to true, you can retry for failed recurring payments. The default value is true.
+  @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
+  static const TokenMandateRetryPolicyEnum unknownDefaultOpenApi = _$tokenMandateRetryPolicyEnum_unknownDefaultOpenApi;
+
+  static Serializer<TokenMandateRetryPolicyEnum> get serializer => _$tokenMandateRetryPolicyEnumSerializer;
+
+  const TokenMandateRetryPolicyEnum._(String name): super(name);
+
+  static BuiltSet<TokenMandateRetryPolicyEnum> get values => _$tokenMandateRetryPolicyEnumValues;
+  static TokenMandateRetryPolicyEnum valueOf(String name) => _$tokenMandateRetryPolicyEnumValueOf(name);
 }
 

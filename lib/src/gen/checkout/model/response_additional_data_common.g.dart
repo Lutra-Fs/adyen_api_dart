@@ -461,6 +461,8 @@ class _$ResponseAdditionalDataCommon extends ResponseAdditionalDataCommon {
   @override
   final String? merchantReference;
   @override
+  final String? networkProcessingMode;
+  @override
   final String? networkTxReference;
   @override
   final String? ownerName;
@@ -561,6 +563,7 @@ class _$ResponseAdditionalDataCommon extends ResponseAdditionalDataCommon {
     this.mcBankNetReferenceNumber,
     this.merchantAdviceCode,
     this.merchantReference,
+    this.networkProcessingMode,
     this.networkTxReference,
     this.ownerName,
     this.paymentAccountReference,
@@ -640,6 +643,7 @@ class _$ResponseAdditionalDataCommon extends ResponseAdditionalDataCommon {
         mcBankNetReferenceNumber == other.mcBankNetReferenceNumber &&
         merchantAdviceCode == other.merchantAdviceCode &&
         merchantReference == other.merchantReference &&
+        networkProcessingMode == other.networkProcessingMode &&
         networkTxReference == other.networkTxReference &&
         ownerName == other.ownerName &&
         paymentAccountReference == other.paymentAccountReference &&
@@ -718,6 +722,7 @@ class _$ResponseAdditionalDataCommon extends ResponseAdditionalDataCommon {
     _$hash = $jc(_$hash, mcBankNetReferenceNumber.hashCode);
     _$hash = $jc(_$hash, merchantAdviceCode.hashCode);
     _$hash = $jc(_$hash, merchantReference.hashCode);
+    _$hash = $jc(_$hash, networkProcessingMode.hashCode);
     _$hash = $jc(_$hash, networkTxReference.hashCode);
     _$hash = $jc(_$hash, ownerName.hashCode);
     _$hash = $jc(_$hash, paymentAccountReference.hashCode);
@@ -791,6 +796,7 @@ class _$ResponseAdditionalDataCommon extends ResponseAdditionalDataCommon {
           ..add('mcBankNetReferenceNumber', mcBankNetReferenceNumber)
           ..add('merchantAdviceCode', merchantAdviceCode)
           ..add('merchantReference', merchantReference)
+          ..add('networkProcessingMode', networkProcessingMode)
           ..add('networkTxReference', networkTxReference)
           ..add('ownerName', ownerName)
           ..add('paymentAccountReference', paymentAccountReference)
@@ -1015,6 +1021,11 @@ class ResponseAdditionalDataCommonBuilder
   set merchantReference(String? merchantReference) =>
       _$this._merchantReference = merchantReference;
 
+  String? _networkProcessingMode;
+  String? get networkProcessingMode => _$this._networkProcessingMode;
+  set networkProcessingMode(String? networkProcessingMode) =>
+      _$this._networkProcessingMode = networkProcessingMode;
+
   String? _networkTxReference;
   String? get networkTxReference => _$this._networkTxReference;
   set networkTxReference(String? networkTxReference) =>
@@ -1230,6 +1241,7 @@ class ResponseAdditionalDataCommonBuilder
       _mcBankNetReferenceNumber = $v.mcBankNetReferenceNumber;
       _merchantAdviceCode = $v.merchantAdviceCode;
       _merchantReference = $v.merchantReference;
+      _networkProcessingMode = $v.networkProcessingMode;
       _networkTxReference = $v.networkTxReference;
       _ownerName = $v.ownerName;
       _paymentAccountReference = $v.paymentAccountReference;
@@ -1320,6 +1332,7 @@ class ResponseAdditionalDataCommonBuilder
           mcBankNetReferenceNumber: mcBankNetReferenceNumber,
           merchantAdviceCode: merchantAdviceCode,
           merchantReference: merchantReference,
+          networkProcessingMode: networkProcessingMode,
           networkTxReference: networkTxReference,
           ownerName: ownerName,
           paymentAccountReference: paymentAccountReference,

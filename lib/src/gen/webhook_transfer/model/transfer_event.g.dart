@@ -553,6 +553,8 @@ const TransferEventStatusEnum _$transferEventStatusEnum_fee =
     const TransferEventStatusEnum._('fee');
 const TransferEventStatusEnum _$transferEventStatusEnum_feePending =
     const TransferEventStatusEnum._('feePending');
+const TransferEventStatusEnum _$transferEventStatusEnum_interchangeAdjusted =
+    const TransferEventStatusEnum._('interchangeAdjusted');
 const TransferEventStatusEnum _$transferEventStatusEnum_internalTransfer =
     const TransferEventStatusEnum._('internalTransfer');
 const TransferEventStatusEnum
@@ -699,6 +701,8 @@ TransferEventStatusEnum _$transferEventStatusEnumValueOf(String name) {
       return _$transferEventStatusEnum_fee;
     case 'feePending':
       return _$transferEventStatusEnum_feePending;
+    case 'interchangeAdjusted':
+      return _$transferEventStatusEnum_interchangeAdjusted;
     case 'internalTransfer':
       return _$transferEventStatusEnum_internalTransfer;
     case 'internalTransferPending':
@@ -807,6 +811,7 @@ final BuiltSet<TransferEventStatusEnum> _$transferEventStatusEnumValues =
       _$transferEventStatusEnum_failed,
       _$transferEventStatusEnum_fee,
       _$transferEventStatusEnum_feePending,
+      _$transferEventStatusEnum_interchangeAdjusted,
       _$transferEventStatusEnum_internalTransfer,
       _$transferEventStatusEnum_internalTransferPending,
       _$transferEventStatusEnum_invoiceDeduction,
@@ -844,6 +849,8 @@ final BuiltSet<TransferEventStatusEnum> _$transferEventStatusEnumValues =
 
 const TransferEventTypeEnum _$transferEventTypeEnum_accounting =
     const TransferEventTypeEnum._('accounting');
+const TransferEventTypeEnum _$transferEventTypeEnum_tracing =
+    const TransferEventTypeEnum._('tracing');
 const TransferEventTypeEnum _$transferEventTypeEnum_tracking =
     const TransferEventTypeEnum._('tracking');
 const TransferEventTypeEnum _$transferEventTypeEnum_unknownDefaultOpenApi =
@@ -853,6 +860,8 @@ TransferEventTypeEnum _$transferEventTypeEnumValueOf(String name) {
   switch (name) {
     case 'accounting':
       return _$transferEventTypeEnum_accounting;
+    case 'tracing':
+      return _$transferEventTypeEnum_tracing;
     case 'tracking':
       return _$transferEventTypeEnum_tracking;
     case 'unknownDefaultOpenApi':
@@ -865,6 +874,7 @@ TransferEventTypeEnum _$transferEventTypeEnumValueOf(String name) {
 final BuiltSet<TransferEventTypeEnum> _$transferEventTypeEnumValues =
     BuiltSet<TransferEventTypeEnum>(const <TransferEventTypeEnum>[
       _$transferEventTypeEnum_accounting,
+      _$transferEventTypeEnum_tracing,
       _$transferEventTypeEnum_tracking,
       _$transferEventTypeEnum_unknownDefaultOpenApi,
     ]);
@@ -1117,6 +1127,7 @@ class _$TransferEventStatusEnumSerializer
     'failed': 'failed',
     'fee': 'fee',
     'feePending': 'feePending',
+    'interchangeAdjusted': 'interchangeAdjusted',
     'internalTransfer': 'internalTransfer',
     'internalTransferPending': 'internalTransferPending',
     'invoiceDeduction': 'invoiceDeduction',
@@ -1187,6 +1198,7 @@ class _$TransferEventStatusEnumSerializer
     'failed': 'failed',
     'fee': 'fee',
     'feePending': 'feePending',
+    'interchangeAdjusted': 'interchangeAdjusted',
     'internalTransfer': 'internalTransfer',
     'internalTransferPending': 'internalTransferPending',
     'invoiceDeduction': 'invoiceDeduction',
@@ -1248,11 +1260,13 @@ class _$TransferEventTypeEnumSerializer
     implements PrimitiveSerializer<TransferEventTypeEnum> {
   static const Map<String, Object> _toWire = const <String, Object>{
     'accounting': 'accounting',
+    'tracing': 'tracing',
     'tracking': 'tracking',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'accounting': 'accounting',
+    'tracing': 'tracing',
     'tracking': 'tracking',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
