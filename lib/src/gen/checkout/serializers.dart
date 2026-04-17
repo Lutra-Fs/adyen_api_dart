@@ -37,6 +37,7 @@ import 'package:adyen_api/src/gen/checkout/model/affirm_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/afterpay_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/agency.dart';
 import 'package:adyen_api/src/gen/checkout/model/airline.dart';
+import 'package:adyen_api/src/gen/checkout/model/alma_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/amazon_pay_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/amount.dart';
 import 'package:adyen_api/src/gen/checkout/model/amounts.dart';
@@ -86,6 +87,7 @@ import 'package:adyen_api/src/gen/checkout/model/checkout_three_ds2_action.dart'
 import 'package:adyen_api/src/gen/checkout/model/checkout_voucher_action.dart';
 import 'package:adyen_api/src/gen/checkout/model/common_field.dart';
 import 'package:adyen_api/src/gen/checkout/model/company.dart';
+import 'package:adyen_api/src/gen/checkout/model/confidence_score.dart';
 import 'package:adyen_api/src/gen/checkout/model/create_checkout_session_request.dart';
 import 'package:adyen_api/src/gen/checkout/model/create_checkout_session_response.dart';
 import 'package:adyen_api/src/gen/checkout/model/create_order_request.dart';
@@ -96,6 +98,7 @@ import 'package:adyen_api/src/gen/checkout/model/delivery_method.dart';
 import 'package:adyen_api/src/gen/checkout/model/destination.dart';
 import 'package:adyen_api/src/gen/checkout/model/details_request_authentication_data.dart';
 import 'package:adyen_api/src/gen/checkout/model/device_render_options.dart';
+import 'package:adyen_api/src/gen/checkout/model/direct_debit_au_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/doku_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/donation.dart';
 import 'package:adyen_api/src/gen/checkout/model/donation_campaign.dart';
@@ -130,6 +133,7 @@ import 'package:adyen_api/src/gen/checkout/model/invalid_field.dart';
 import 'package:adyen_api/src/gen/checkout/model/item.dart';
 import 'package:adyen_api/src/gen/checkout/model/item_detail_line.dart';
 import 'package:adyen_api/src/gen/checkout/model/klarna_details.dart';
+import 'package:adyen_api/src/gen/checkout/model/klarna_network_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/leg.dart';
 import 'package:adyen_api/src/gen/checkout/model/level_two_three.dart';
 import 'package:adyen_api/src/gen/checkout/model/line_item.dart';
@@ -192,6 +196,8 @@ import 'package:adyen_api/src/gen/checkout/model/paypal_update_order_request.dar
 import 'package:adyen_api/src/gen/checkout/model/paypal_update_order_response.dart';
 import 'package:adyen_api/src/gen/checkout/model/phone.dart';
 import 'package:adyen_api/src/gen/checkout/model/pix_details.dart';
+import 'package:adyen_api/src/gen/checkout/model/pix_pay_by_bank_details.dart';
+import 'package:adyen_api/src/gen/checkout/model/pix_pay_by_bank_risk_signals.dart';
 import 'package:adyen_api/src/gen/checkout/model/pix_recurring.dart';
 import 'package:adyen_api/src/gen/checkout/model/platform_chargeback_logic.dart';
 import 'package:adyen_api/src/gen/checkout/model/pse_details.dart';
@@ -214,6 +220,7 @@ import 'package:adyen_api/src/gen/checkout/model/risk_data.dart';
 import 'package:adyen_api/src/gen/checkout/model/riverty_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/sdk_ephem_pub_key.dart';
 import 'package:adyen_api/src/gen/checkout/model/samsung_pay_details.dart';
+import 'package:adyen_api/src/gen/checkout/model/screen_dimensions.dart';
 import 'package:adyen_api/src/gen/checkout/model/sepa_direct_debit_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/service_error.dart';
 import 'package:adyen_api/src/gen/checkout/model/session_result_response.dart';
@@ -287,6 +294,7 @@ part 'serializers.g.dart';
   AfterpayDetails,
   Agency,
   Airline,
+  AlmaDetails,
   AmazonPayDetails,
   Amount,
   Amounts,
@@ -336,6 +344,7 @@ part 'serializers.g.dart';
   CheckoutVoucherAction,
   CommonField,
   Company,
+  ConfidenceScore,
   CreateCheckoutSessionRequest,
   CreateCheckoutSessionResponse,
   CreateOrderRequest,
@@ -346,6 +355,7 @@ part 'serializers.g.dart';
   Destination,
   DetailsRequestAuthenticationData,
   DeviceRenderOptions,
+  DirectDebitAuDetails,
   DokuDetails,
   Donation,
   DonationCampaign,
@@ -380,6 +390,7 @@ part 'serializers.g.dart';
   Item,
   ItemDetailLine,
   KlarnaDetails,
+  KlarnaNetworkDetails,
   Leg,
   LevelTwoThree,
   LineItem,
@@ -442,6 +453,8 @@ part 'serializers.g.dart';
   PaypalUpdateOrderResponse,
   Phone,
   PixDetails,
+  PixPayByBankDetails,
+  PixPayByBankRiskSignals,
   PixRecurring,
   PlatformChargebackLogic,
   PseDetails,
@@ -464,6 +477,7 @@ part 'serializers.g.dart';
   RivertyDetails,
   SDKEphemPubKey,
   SamsungPayDetails,
+  ScreenDimensions,
   SepaDirectDebitDetails,
   ServiceError,
   SessionResultResponse,

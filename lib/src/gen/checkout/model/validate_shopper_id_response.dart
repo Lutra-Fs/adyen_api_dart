@@ -23,7 +23,7 @@ abstract class ValidateShopperIdResponse implements Built<ValidateShopperIdRespo
   /// Result of the validation. Ex: valid, invalid, unknown
   @BuiltValueField(wireName: r'result')
   Result? get result;
-  // enum resultEnum {  VALID,  INVALID,  UNKNOWN,  };
+  // enum resultEnum {  VALID,  INVALID,  UNKNOWN,  NOT_REQUIRED,  };
 
   ValidateShopperIdResponse._();
 

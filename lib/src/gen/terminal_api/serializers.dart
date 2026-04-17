@@ -138,6 +138,8 @@ import 'package:adyen_api/src/gen/terminal_api/model/sale_data.dart';
 import 'package:adyen_api/src/gen/terminal_api/model/sale_software.dart';
 import 'package:adyen_api/src/gen/terminal_api/model/sale_terminal_data.dart';
 import 'package:adyen_api/src/gen/terminal_api/model/sale_to_issuer_data.dart';
+import 'package:adyen_api/src/gen/terminal_api/model/sale_to_poi_request.dart';
+import 'package:adyen_api/src/gen/terminal_api/model/sale_to_poi_response.dart';
 import 'package:adyen_api/src/gen/terminal_api/model/security_trailer.dart';
 import 'package:adyen_api/src/gen/terminal_api/model/sensitive_card_data.dart';
 import 'package:adyen_api/src/gen/terminal_api/model/sensitive_mobile_data.dart';
@@ -152,6 +154,8 @@ import 'package:adyen_api/src/gen/terminal_api/model/stored_value_request.dart';
 import 'package:adyen_api/src/gen/terminal_api/model/stored_value_response.dart';
 import 'package:adyen_api/src/gen/terminal_api/model/stored_value_result.dart';
 import 'package:adyen_api/src/gen/terminal_api/model/stored_value_transaction_type.dart';
+import 'package:adyen_api/src/gen/terminal_api/model/terminal_api_request.dart';
+import 'package:adyen_api/src/gen/terminal_api/model/terminal_api_response.dart';
 import 'package:adyen_api/src/gen/terminal_api/model/token_requested_type.dart';
 import 'package:adyen_api/src/gen/terminal_api/model/total_filter.dart';
 import 'package:adyen_api/src/gen/terminal_api/model/track_data.dart';
@@ -293,6 +297,8 @@ part 'serializers.g.dart';
   SaleSoftware,
   SaleTerminalData,
   SaleToIssuerData,
+  SaleToPOIRequest,
+  SaleToPOIResponse,
   SecurityTrailer,
   SensitiveCardData,
   SensitiveMobileData,
@@ -307,6 +313,8 @@ part 'serializers.g.dart';
   StoredValueResponse,
   StoredValueResult,
   StoredValueTransactionType,
+  TerminalAPIRequest,
+  TerminalAPIResponse,
   TokenRequestedType,
   TotalFilter,
   TrackData,

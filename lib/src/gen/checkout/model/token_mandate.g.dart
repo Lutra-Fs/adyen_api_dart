@@ -132,6 +132,35 @@ final BuiltSet<TokenMandateFrequencyEnum> _$tokenMandateFrequencyEnumValues =
       _$tokenMandateFrequencyEnum_unknownDefaultOpenApi,
     ]);
 
+const TokenMandateRetryPolicyEnum _$tokenMandateRetryPolicyEnum_true_ =
+    const TokenMandateRetryPolicyEnum._('true_');
+const TokenMandateRetryPolicyEnum _$tokenMandateRetryPolicyEnum_false_ =
+    const TokenMandateRetryPolicyEnum._('false_');
+const TokenMandateRetryPolicyEnum
+_$tokenMandateRetryPolicyEnum_unknownDefaultOpenApi =
+    const TokenMandateRetryPolicyEnum._('unknownDefaultOpenApi');
+
+TokenMandateRetryPolicyEnum _$tokenMandateRetryPolicyEnumValueOf(String name) {
+  switch (name) {
+    case 'true_':
+      return _$tokenMandateRetryPolicyEnum_true_;
+    case 'false_':
+      return _$tokenMandateRetryPolicyEnum_false_;
+    case 'unknownDefaultOpenApi':
+      return _$tokenMandateRetryPolicyEnum_unknownDefaultOpenApi;
+    default:
+      return _$tokenMandateRetryPolicyEnum_unknownDefaultOpenApi;
+  }
+}
+
+final BuiltSet<TokenMandateRetryPolicyEnum>
+_$tokenMandateRetryPolicyEnumValues =
+    BuiltSet<TokenMandateRetryPolicyEnum>(const <TokenMandateRetryPolicyEnum>[
+      _$tokenMandateRetryPolicyEnum_true_,
+      _$tokenMandateRetryPolicyEnum_false_,
+      _$tokenMandateRetryPolicyEnum_unknownDefaultOpenApi,
+    ]);
+
 Serializer<TokenMandateAmountRuleEnum> _$tokenMandateAmountRuleEnumSerializer =
     _$TokenMandateAmountRuleEnumSerializer();
 Serializer<TokenMandateBillingAttemptsRuleEnum>
@@ -139,6 +168,9 @@ _$tokenMandateBillingAttemptsRuleEnumSerializer =
     _$TokenMandateBillingAttemptsRuleEnumSerializer();
 Serializer<TokenMandateFrequencyEnum> _$tokenMandateFrequencyEnumSerializer =
     _$TokenMandateFrequencyEnumSerializer();
+Serializer<TokenMandateRetryPolicyEnum>
+_$tokenMandateRetryPolicyEnumSerializer =
+    _$TokenMandateRetryPolicyEnumSerializer();
 
 class _$TokenMandateAmountRuleEnumSerializer
     implements PrimitiveSerializer<TokenMandateAmountRuleEnum> {
@@ -261,6 +293,41 @@ class _$TokenMandateFrequencyEnumSerializer
   );
 }
 
+class _$TokenMandateRetryPolicyEnumSerializer
+    implements PrimitiveSerializer<TokenMandateRetryPolicyEnum> {
+  static const Map<String, Object> _toWire = const <String, Object>{
+    'true_': 'true',
+    'false_': 'false',
+    'unknownDefaultOpenApi': 'unknown_default_open_api',
+  };
+  static const Map<Object, String> _fromWire = const <Object, String>{
+    'true': 'true_',
+    'false': 'false_',
+    'unknown_default_open_api': 'unknownDefaultOpenApi',
+  };
+
+  @override
+  final Iterable<Type> types = const <Type>[TokenMandateRetryPolicyEnum];
+  @override
+  final String wireName = 'TokenMandateRetryPolicyEnum';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    TokenMandateRetryPolicyEnum object, {
+    FullType specifiedType = FullType.unspecified,
+  }) => _toWire[object.name] ?? object.name;
+
+  @override
+  TokenMandateRetryPolicyEnum deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) => TokenMandateRetryPolicyEnum.valueOf(
+    _fromWire[serialized] ?? (serialized is String ? serialized : ''),
+  );
+}
+
 class _$TokenMandate extends TokenMandate {
   @override
   final String? accountIdType;
@@ -285,9 +352,17 @@ class _$TokenMandate extends TokenMandate {
   @override
   final String? maskedAccountId;
   @override
+  final String? minAmount;
+  @override
   final String providerId;
   @override
+  final String? recurringAmount;
+  @override
+  final String? recurringStatement;
+  @override
   final String? remarks;
+  @override
+  final TokenMandateRetryPolicyEnum? retryPolicy;
   @override
   final String? startsAt;
   @override
@@ -310,8 +385,12 @@ class _$TokenMandate extends TokenMandate {
     required this.frequency,
     required this.mandateId,
     this.maskedAccountId,
+    this.minAmount,
     required this.providerId,
+    this.recurringAmount,
+    this.recurringStatement,
     this.remarks,
+    this.retryPolicy,
     this.startsAt,
     required this.status,
     required this.txVariant,
@@ -338,8 +417,12 @@ class _$TokenMandate extends TokenMandate {
         frequency == other.frequency &&
         mandateId == other.mandateId &&
         maskedAccountId == other.maskedAccountId &&
+        minAmount == other.minAmount &&
         providerId == other.providerId &&
+        recurringAmount == other.recurringAmount &&
+        recurringStatement == other.recurringStatement &&
         remarks == other.remarks &&
+        retryPolicy == other.retryPolicy &&
         startsAt == other.startsAt &&
         status == other.status &&
         txVariant == other.txVariant;
@@ -359,8 +442,12 @@ class _$TokenMandate extends TokenMandate {
     _$hash = $jc(_$hash, frequency.hashCode);
     _$hash = $jc(_$hash, mandateId.hashCode);
     _$hash = $jc(_$hash, maskedAccountId.hashCode);
+    _$hash = $jc(_$hash, minAmount.hashCode);
     _$hash = $jc(_$hash, providerId.hashCode);
+    _$hash = $jc(_$hash, recurringAmount.hashCode);
+    _$hash = $jc(_$hash, recurringStatement.hashCode);
     _$hash = $jc(_$hash, remarks.hashCode);
+    _$hash = $jc(_$hash, retryPolicy.hashCode);
     _$hash = $jc(_$hash, startsAt.hashCode);
     _$hash = $jc(_$hash, status.hashCode);
     _$hash = $jc(_$hash, txVariant.hashCode);
@@ -382,8 +469,12 @@ class _$TokenMandate extends TokenMandate {
           ..add('frequency', frequency)
           ..add('mandateId', mandateId)
           ..add('maskedAccountId', maskedAccountId)
+          ..add('minAmount', minAmount)
           ..add('providerId', providerId)
+          ..add('recurringAmount', recurringAmount)
+          ..add('recurringStatement', recurringStatement)
           ..add('remarks', remarks)
+          ..add('retryPolicy', retryPolicy)
           ..add('startsAt', startsAt)
           ..add('status', status)
           ..add('txVariant', txVariant))
@@ -446,13 +537,32 @@ class TokenMandateBuilder
   set maskedAccountId(String? maskedAccountId) =>
       _$this._maskedAccountId = maskedAccountId;
 
+  String? _minAmount;
+  String? get minAmount => _$this._minAmount;
+  set minAmount(String? minAmount) => _$this._minAmount = minAmount;
+
   String? _providerId;
   String? get providerId => _$this._providerId;
   set providerId(String? providerId) => _$this._providerId = providerId;
 
+  String? _recurringAmount;
+  String? get recurringAmount => _$this._recurringAmount;
+  set recurringAmount(String? recurringAmount) =>
+      _$this._recurringAmount = recurringAmount;
+
+  String? _recurringStatement;
+  String? get recurringStatement => _$this._recurringStatement;
+  set recurringStatement(String? recurringStatement) =>
+      _$this._recurringStatement = recurringStatement;
+
   String? _remarks;
   String? get remarks => _$this._remarks;
   set remarks(String? remarks) => _$this._remarks = remarks;
+
+  TokenMandateRetryPolicyEnum? _retryPolicy;
+  TokenMandateRetryPolicyEnum? get retryPolicy => _$this._retryPolicy;
+  set retryPolicy(TokenMandateRetryPolicyEnum? retryPolicy) =>
+      _$this._retryPolicy = retryPolicy;
 
   String? _startsAt;
   String? get startsAt => _$this._startsAt;
@@ -484,8 +594,12 @@ class TokenMandateBuilder
       _frequency = $v.frequency;
       _mandateId = $v.mandateId;
       _maskedAccountId = $v.maskedAccountId;
+      _minAmount = $v.minAmount;
       _providerId = $v.providerId;
+      _recurringAmount = $v.recurringAmount;
+      _recurringStatement = $v.recurringStatement;
       _remarks = $v.remarks;
+      _retryPolicy = $v.retryPolicy;
       _startsAt = $v.startsAt;
       _status = $v.status;
       _txVariant = $v.txVariant;
@@ -542,12 +656,16 @@ class TokenMandateBuilder
             'mandateId',
           ),
           maskedAccountId: maskedAccountId,
+          minAmount: minAmount,
           providerId: BuiltValueNullFieldError.checkNotNull(
             providerId,
             r'TokenMandate',
             'providerId',
           ),
+          recurringAmount: recurringAmount,
+          recurringStatement: recurringStatement,
           remarks: remarks,
+          retryPolicy: retryPolicy,
           startsAt: startsAt,
           status: BuiltValueNullFieldError.checkNotNull(
             status,

@@ -4,6 +4,7 @@
 
 // ignore_for_file: unused_element
 import 'package:adyen_api/src/gen/checkout/model/checkout_outgoing_forward_request.dart';
+import 'package:adyen_api/src/gen/checkout/model/amount.dart';
 import 'package:adyen_api/src/gen/checkout/model/checkout_forward_request_options.dart';
 import 'package:adyen_api/src/gen/checkout/model/checkout_forward_request_card.dart';
 import 'package:built_value/built_value.dart';
@@ -14,6 +15,7 @@ part 'checkout_forward_request.g.dart';
 /// CheckoutForwardRequest
 ///
 /// Properties:
+/// * [amount] - The amount of the forwarded payment.
 /// * [baseUrl] - The base URL of the third party API, where Adyen will send the request to forward the payment details.
 /// * [merchantAccount] - Your merchant account.
 /// * [merchantReference] - Merchant defined payment reference.
@@ -24,6 +26,10 @@ part 'checkout_forward_request.g.dart';
 /// * [storedPaymentMethodId] - The unique identifier of the token that you want to forward to the third party. This is the `storedPaymentMethodId` you received in the webhook after you created the token.
 @BuiltValue()
 abstract class CheckoutForwardRequest implements Built<CheckoutForwardRequest, CheckoutForwardRequestBuilder> {
+  /// The amount of the forwarded payment.
+  @BuiltValueField(wireName: r'amount')
+  Amount? get amount;
+
   /// The base URL of the third party API, where Adyen will send the request to forward the payment details.
   @BuiltValueField(wireName: r'baseUrl')
   String get baseUrl;
@@ -79,6 +85,13 @@ class _$CheckoutForwardRequestSerializer implements PrimitiveSerializer<Checkout
     CheckoutForwardRequest object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
+    if (object.amount != null) {
+      yield r'amount';
+      yield serializers.serialize(
+        object.amount,
+        specifiedType: const FullType(Amount),
+      );
+    }
     yield r'baseUrl';
     yield serializers.serialize(
       object.baseUrl,
@@ -150,6 +163,13 @@ class _$CheckoutForwardRequestSerializer implements PrimitiveSerializer<Checkout
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
+        case r'amount':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(Amount),
+          ) as Amount;
+          result.amount.replace(valueDes);
+          break;
         case r'baseUrl':
           final valueDes = serializers.deserialize(
             value,

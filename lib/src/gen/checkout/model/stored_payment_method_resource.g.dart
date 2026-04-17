@@ -8,6 +8,10 @@ part of 'stored_payment_method_resource.dart';
 
 class _$StoredPaymentMethodResource extends StoredPaymentMethodResource {
   @override
+  final String? alias;
+  @override
+  final String? aliasType;
+  @override
   final String? brand;
   @override
   final String? cardBin;
@@ -51,6 +55,8 @@ class _$StoredPaymentMethodResource extends StoredPaymentMethodResource {
   ]) => (StoredPaymentMethodResourceBuilder()..update(updates))._build();
 
   _$StoredPaymentMethodResource._({
+    this.alias,
+    this.aliasType,
     this.brand,
     this.cardBin,
     this.expiryMonth,
@@ -84,6 +90,8 @@ class _$StoredPaymentMethodResource extends StoredPaymentMethodResource {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is StoredPaymentMethodResource &&
+        alias == other.alias &&
+        aliasType == other.aliasType &&
         brand == other.brand &&
         cardBin == other.cardBin &&
         expiryMonth == other.expiryMonth &&
@@ -109,6 +117,8 @@ class _$StoredPaymentMethodResource extends StoredPaymentMethodResource {
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, alias.hashCode);
+    _$hash = $jc(_$hash, aliasType.hashCode);
     _$hash = $jc(_$hash, brand.hashCode);
     _$hash = $jc(_$hash, cardBin.hashCode);
     _$hash = $jc(_$hash, expiryMonth.hashCode);
@@ -135,6 +145,8 @@ class _$StoredPaymentMethodResource extends StoredPaymentMethodResource {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'StoredPaymentMethodResource')
+          ..add('alias', alias)
+          ..add('aliasType', aliasType)
           ..add('brand', brand)
           ..add('cardBin', cardBin)
           ..add('expiryMonth', expiryMonth)
@@ -168,6 +180,14 @@ class StoredPaymentMethodResourceBuilder
           StoredPaymentMethodResourceBuilder
         > {
   _$StoredPaymentMethodResource? _$v;
+
+  String? _alias;
+  String? get alias => _$this._alias;
+  set alias(String? alias) => _$this._alias = alias;
+
+  String? _aliasType;
+  String? get aliasType => _$this._aliasType;
+  set aliasType(String? aliasType) => _$this._aliasType = aliasType;
 
   String? _brand;
   String? get brand => _$this._brand;
@@ -260,6 +280,8 @@ class StoredPaymentMethodResourceBuilder
   StoredPaymentMethodResourceBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _alias = $v.alias;
+      _aliasType = $v.aliasType;
       _brand = $v.brand;
       _cardBin = $v.cardBin;
       _expiryMonth = $v.expiryMonth;
@@ -305,6 +327,8 @@ class StoredPaymentMethodResourceBuilder
       _$result =
           _$v ??
           _$StoredPaymentMethodResource._(
+            alias: alias,
+            aliasType: aliasType,
             brand: brand,
             cardBin: cardBin,
             expiryMonth: expiryMonth,

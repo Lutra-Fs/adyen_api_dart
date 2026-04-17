@@ -6,7 +6,9 @@
 import 'package:adyen_api/src/gen/transfers/model/airline.dart';
 import 'package:adyen_api/src/gen/transfers/model/issuing_transaction_data.dart';
 import 'package:adyen_api/src/gen/transfers/model/merchant_purchase_data.dart';
+import 'package:adyen_api/src/gen/transfers/model/interchange_data.dart';
 import 'package:built_collection/built_collection.dart';
+import 'package:adyen_api/src/gen/transfers/model/amount.dart';
 import 'package:adyen_api/src/gen/transfers/model/lodging.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -17,13 +19,15 @@ part 'transfer_event_events_data_inner.g.dart';
 /// TransferEventEventsDataInner
 ///
 /// Properties:
+/// * [interchangeAmount] - The currency and value of the adjusted interchange fee.
+/// * [interchangeRateIndicator] - A 3-character alphanumeric code assigned by Visa that identifies the specific interchange reimbursement program a transaction qualified for. The code is assigned based on the card type, entry mode, and security data provided.
+/// * [type] - The type of events data.   Possible values:    - **interchangeData**: information about the interchange fee applied to a transaction.
 /// * [captureCycleId] - captureCycleId associated with transfer event.
-/// * [type] - The type of events data.   Possible values:    - **issuingTransactionData**: issuing transaction data
 /// * [airline] - Airline information.
 /// * [lodging] - Lodging information.
 @BuiltValue()
 abstract class TransferEventEventsDataInner implements Built<TransferEventEventsDataInner, TransferEventEventsDataInnerBuilder> {
-  /// One Of [IssuingTransactionData], [MerchantPurchaseData]
+  /// One Of [InterchangeData], [IssuingTransactionData], [MerchantPurchaseData]
   OneOf get oneOf;
 
   TransferEventEventsDataInner._();
@@ -69,7 +73,7 @@ class _$TransferEventEventsDataInnerSerializer implements PrimitiveSerializer<Tr
   }) {
     final result = TransferEventEventsDataInnerBuilder();
     Object? oneOfDataSrc;
-    final targetType = const FullType(OneOf, [FullType(IssuingTransactionData), FullType(MerchantPurchaseData), ]);
+    final targetType = const FullType(OneOf, [FullType(InterchangeData), FullType(IssuingTransactionData), FullType(MerchantPurchaseData), ]);
     oneOfDataSrc = serialized;
     result.oneOf = serializers.deserialize(oneOfDataSrc, specifiedType: targetType) as OneOf;
     return result.build();
@@ -78,13 +82,16 @@ class _$TransferEventEventsDataInnerSerializer implements PrimitiveSerializer<Tr
 
 class TransferEventEventsDataInnerTypeEnum extends EnumClass {
 
-  /// The type of events data.   Possible values:    - **issuingTransactionData**: issuing transaction data
+  /// The type of events data.   Possible values:    - **interchangeData**: information about the interchange fee applied to a transaction.
+  @BuiltValueEnumConst(wireName: r'interchangeData')
+  static const TransferEventEventsDataInnerTypeEnum interchangeData = _$transferEventEventsDataInnerTypeEnum_interchangeData;
+  /// The type of events data.   Possible values:    - **interchangeData**: information about the interchange fee applied to a transaction.
   @BuiltValueEnumConst(wireName: r'issuingTransactionData')
   static const TransferEventEventsDataInnerTypeEnum issuingTransactionData = _$transferEventEventsDataInnerTypeEnum_issuingTransactionData;
-  /// The type of events data.   Possible values:    - **issuingTransactionData**: issuing transaction data
+  /// The type of events data.   Possible values:    - **interchangeData**: information about the interchange fee applied to a transaction.
   @BuiltValueEnumConst(wireName: r'merchantPurchaseData')
   static const TransferEventEventsDataInnerTypeEnum merchantPurchaseData = _$transferEventEventsDataInnerTypeEnum_merchantPurchaseData;
-  /// The type of events data.   Possible values:    - **issuingTransactionData**: issuing transaction data
+  /// The type of events data.   Possible values:    - **interchangeData**: information about the interchange fee applied to a transaction.
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const TransferEventEventsDataInnerTypeEnum unknownDefaultOpenApi = _$transferEventEventsDataInnerTypeEnum_unknownDefaultOpenApi;
 

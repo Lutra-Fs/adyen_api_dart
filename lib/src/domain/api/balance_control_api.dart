@@ -2,7 +2,10 @@ import 'package:built_value/serializer.dart';
 
 import '../../core/service.dart';
 import '../../core/api_service.dart';
-import '../../gen/balance_control/api/general_api.dart' as balance_control;
+import '../../gen/balance_control/api/balance_transfers_api.dart'
+    as balance_control;
+import '../../gen/balance_control/api/balances_overview_api.dart'
+    as balance_control;
 import '../../gen/balance_control/serializers.dart'
     as balance_control_serializers;
 
@@ -15,15 +18,24 @@ class BalanceControlAPI extends ApiService {
   BalanceControlAPI(super.client)
     : serializers = balance_control_serializers.standardSerializers,
       super(baseUrl: buildBaseUrl(client.config, _basePath)) {
-    balanceControlApi = balance_control.GeneralApi(dio, serializers);
+    balanceTransfersApi = balance_control.BalanceTransfersApi(dio, serializers);
+    balancesOverviewApi = balance_control.BalancesOverviewApi(dio, serializers);
   }
 
   static const _basePath =
-      'https://pal-test.adyen.com/pal/servlet/BalanceControl/v1';
+      'https://balance-control-test.adyen.com/balance-control/api/v2';
 
   /// Serializers for JSON serialization/deserialization of request/response data.
   final Serializers serializers;
 
-  /// General API for balance control operations.
-  late final balance_control.GeneralApi balanceControlApi;
+  /// API for balance transfer operations.
+  late final balance_control.BalanceTransfersApi balanceTransfersApi;
+
+  /// API for balance overview operations.
+  late final balance_control.BalancesOverviewApi balancesOverviewApi;
+
+  /// Backward-compatible alias for the balance transfers API.
+  @Deprecated('Use balanceTransfersApi instead.')
+  balance_control.BalanceTransfersApi get balanceControlApi =>
+      balanceTransfersApi;
 }

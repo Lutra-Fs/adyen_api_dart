@@ -15,6 +15,7 @@ import 'package:adyen_api/src/gen/balance_platform/api/balance_accounts_api.dart
 import 'package:adyen_api/src/gen/balance_platform/api/balances_api.dart';
 import 'package:adyen_api/src/gen/balance_platform/api/bank_account_validation_api.dart';
 import 'package:adyen_api/src/gen/balance_platform/api/card_orders_api.dart';
+import 'package:adyen_api/src/gen/balance_platform/api/direct_debit_mandates_api.dart';
 import 'package:adyen_api/src/gen/balance_platform/api/grant_accounts_api.dart';
 import 'package:adyen_api/src/gen/balance_platform/api/grant_offers_api.dart';
 import 'package:adyen_api/src/gen/balance_platform/api/manage_card_pin_api.dart';
@@ -118,6 +119,12 @@ class AdyenApi {
   /// by doing that all interceptors will not be executed
   CardOrdersApi getCardOrdersApi() {
     return CardOrdersApi(dio, serializers);
+  }
+
+  /// Get DirectDebitMandatesApi instance, base route and serializer can be overridden by a given but be careful,
+  /// by doing that all interceptors will not be executed
+  DirectDebitMandatesApi getDirectDebitMandatesApi() {
+    return DirectDebitMandatesApi(dio, serializers);
   }
 
   /// Get GrantAccountsApi instance, base route and serializer can be overridden by a given but be careful,

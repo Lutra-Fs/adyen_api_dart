@@ -8,15 +8,17 @@ part of 'shopper_tax_info.dart';
 
 class _$ShopperTaxInfo extends ShopperTaxInfo {
   @override
-  final String taxId;
+  final String taxCountryCode;
   @override
-  final String taxIdCountryCode;
+  final String taxIdentificationNumber;
 
   factory _$ShopperTaxInfo([void Function(ShopperTaxInfoBuilder)? updates]) =>
       (ShopperTaxInfoBuilder()..update(updates))._build();
 
-  _$ShopperTaxInfo._({required this.taxId, required this.taxIdCountryCode})
-    : super._();
+  _$ShopperTaxInfo._({
+    required this.taxCountryCode,
+    required this.taxIdentificationNumber,
+  }) : super._();
   @override
   ShopperTaxInfo rebuild(void Function(ShopperTaxInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
@@ -28,15 +30,15 @@ class _$ShopperTaxInfo extends ShopperTaxInfo {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is ShopperTaxInfo &&
-        taxId == other.taxId &&
-        taxIdCountryCode == other.taxIdCountryCode;
+        taxCountryCode == other.taxCountryCode &&
+        taxIdentificationNumber == other.taxIdentificationNumber;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, taxId.hashCode);
-    _$hash = $jc(_$hash, taxIdCountryCode.hashCode);
+    _$hash = $jc(_$hash, taxCountryCode.hashCode);
+    _$hash = $jc(_$hash, taxIdentificationNumber.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -44,8 +46,8 @@ class _$ShopperTaxInfo extends ShopperTaxInfo {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'ShopperTaxInfo')
-          ..add('taxId', taxId)
-          ..add('taxIdCountryCode', taxIdCountryCode))
+          ..add('taxCountryCode', taxCountryCode)
+          ..add('taxIdentificationNumber', taxIdentificationNumber))
         .toString();
   }
 }
@@ -54,14 +56,15 @@ class ShopperTaxInfoBuilder
     implements Builder<ShopperTaxInfo, ShopperTaxInfoBuilder> {
   _$ShopperTaxInfo? _$v;
 
-  String? _taxId;
-  String? get taxId => _$this._taxId;
-  set taxId(String? taxId) => _$this._taxId = taxId;
+  String? _taxCountryCode;
+  String? get taxCountryCode => _$this._taxCountryCode;
+  set taxCountryCode(String? taxCountryCode) =>
+      _$this._taxCountryCode = taxCountryCode;
 
-  String? _taxIdCountryCode;
-  String? get taxIdCountryCode => _$this._taxIdCountryCode;
-  set taxIdCountryCode(String? taxIdCountryCode) =>
-      _$this._taxIdCountryCode = taxIdCountryCode;
+  String? _taxIdentificationNumber;
+  String? get taxIdentificationNumber => _$this._taxIdentificationNumber;
+  set taxIdentificationNumber(String? taxIdentificationNumber) =>
+      _$this._taxIdentificationNumber = taxIdentificationNumber;
 
   ShopperTaxInfoBuilder() {
     ShopperTaxInfo._defaults(this);
@@ -70,8 +73,8 @@ class ShopperTaxInfoBuilder
   ShopperTaxInfoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _taxId = $v.taxId;
-      _taxIdCountryCode = $v.taxIdCountryCode;
+      _taxCountryCode = $v.taxCountryCode;
+      _taxIdentificationNumber = $v.taxIdentificationNumber;
       _$v = null;
     }
     return this;
@@ -94,15 +97,15 @@ class ShopperTaxInfoBuilder
     final _$result =
         _$v ??
         _$ShopperTaxInfo._(
-          taxId: BuiltValueNullFieldError.checkNotNull(
-            taxId,
+          taxCountryCode: BuiltValueNullFieldError.checkNotNull(
+            taxCountryCode,
             r'ShopperTaxInfo',
-            'taxId',
+            'taxCountryCode',
           ),
-          taxIdCountryCode: BuiltValueNullFieldError.checkNotNull(
-            taxIdCountryCode,
+          taxIdentificationNumber: BuiltValueNullFieldError.checkNotNull(
+            taxIdentificationNumber,
             r'ShopperTaxInfo',
-            'taxIdCountryCode',
+            'taxIdentificationNumber',
           ),
         );
     replace(_$result);

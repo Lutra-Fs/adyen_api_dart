@@ -7,11 +7,14 @@ part of 'response_additional_data_common.dart';
 // **************************************************************************
 
 const ResponseAdditionalDataCommonFraudResultTypeEnum
+_$responseAdditionalDataCommonFraudResultTypeEnum_AMBER =
+    const ResponseAdditionalDataCommonFraudResultTypeEnum._('AMBER');
+const ResponseAdditionalDataCommonFraudResultTypeEnum
 _$responseAdditionalDataCommonFraudResultTypeEnum_GREEN =
     const ResponseAdditionalDataCommonFraudResultTypeEnum._('GREEN');
 const ResponseAdditionalDataCommonFraudResultTypeEnum
-_$responseAdditionalDataCommonFraudResultTypeEnum_FRAUD =
-    const ResponseAdditionalDataCommonFraudResultTypeEnum._('FRAUD');
+_$responseAdditionalDataCommonFraudResultTypeEnum_RED =
+    const ResponseAdditionalDataCommonFraudResultTypeEnum._('RED');
 const ResponseAdditionalDataCommonFraudResultTypeEnum
 _$responseAdditionalDataCommonFraudResultTypeEnum_unknownDefaultOpenApi =
     const ResponseAdditionalDataCommonFraudResultTypeEnum._(
@@ -21,10 +24,12 @@ _$responseAdditionalDataCommonFraudResultTypeEnum_unknownDefaultOpenApi =
 ResponseAdditionalDataCommonFraudResultTypeEnum
 _$responseAdditionalDataCommonFraudResultTypeEnumValueOf(String name) {
   switch (name) {
+    case 'AMBER':
+      return _$responseAdditionalDataCommonFraudResultTypeEnum_AMBER;
     case 'GREEN':
       return _$responseAdditionalDataCommonFraudResultTypeEnum_GREEN;
-    case 'FRAUD':
-      return _$responseAdditionalDataCommonFraudResultTypeEnum_FRAUD;
+    case 'RED':
+      return _$responseAdditionalDataCommonFraudResultTypeEnum_RED;
     case 'unknownDefaultOpenApi':
       return _$responseAdditionalDataCommonFraudResultTypeEnum_unknownDefaultOpenApi;
     default:
@@ -36,8 +41,9 @@ final BuiltSet<ResponseAdditionalDataCommonFraudResultTypeEnum>
 _$responseAdditionalDataCommonFraudResultTypeEnumValues =
     BuiltSet<ResponseAdditionalDataCommonFraudResultTypeEnum>(
       const <ResponseAdditionalDataCommonFraudResultTypeEnum>[
+        _$responseAdditionalDataCommonFraudResultTypeEnum_AMBER,
         _$responseAdditionalDataCommonFraudResultTypeEnum_GREEN,
-        _$responseAdditionalDataCommonFraudResultTypeEnum_FRAUD,
+        _$responseAdditionalDataCommonFraudResultTypeEnum_RED,
         _$responseAdditionalDataCommonFraudResultTypeEnum_unknownDefaultOpenApi,
       ],
     );
@@ -217,13 +223,15 @@ class _$ResponseAdditionalDataCommonFraudResultTypeEnumSerializer
     implements
         PrimitiveSerializer<ResponseAdditionalDataCommonFraudResultTypeEnum> {
   static const Map<String, Object> _toWire = const <String, Object>{
+    'AMBER': 'AMBER',
     'GREEN': 'GREEN',
-    'FRAUD': 'FRAUD',
+    'RED': 'RED',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
+    'AMBER': 'AMBER',
     'GREEN': 'GREEN',
-    'FRAUD': 'FRAUD',
+    'RED': 'RED',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
 
@@ -453,6 +461,8 @@ class _$ResponseAdditionalDataCommon extends ResponseAdditionalDataCommon {
   @override
   final String? merchantReference;
   @override
+  final String? networkProcessingMode;
+  @override
   final String? networkTxReference;
   @override
   final String? ownerName;
@@ -553,6 +563,7 @@ class _$ResponseAdditionalDataCommon extends ResponseAdditionalDataCommon {
     this.mcBankNetReferenceNumber,
     this.merchantAdviceCode,
     this.merchantReference,
+    this.networkProcessingMode,
     this.networkTxReference,
     this.ownerName,
     this.paymentAccountReference,
@@ -632,6 +643,7 @@ class _$ResponseAdditionalDataCommon extends ResponseAdditionalDataCommon {
         mcBankNetReferenceNumber == other.mcBankNetReferenceNumber &&
         merchantAdviceCode == other.merchantAdviceCode &&
         merchantReference == other.merchantReference &&
+        networkProcessingMode == other.networkProcessingMode &&
         networkTxReference == other.networkTxReference &&
         ownerName == other.ownerName &&
         paymentAccountReference == other.paymentAccountReference &&
@@ -710,6 +722,7 @@ class _$ResponseAdditionalDataCommon extends ResponseAdditionalDataCommon {
     _$hash = $jc(_$hash, mcBankNetReferenceNumber.hashCode);
     _$hash = $jc(_$hash, merchantAdviceCode.hashCode);
     _$hash = $jc(_$hash, merchantReference.hashCode);
+    _$hash = $jc(_$hash, networkProcessingMode.hashCode);
     _$hash = $jc(_$hash, networkTxReference.hashCode);
     _$hash = $jc(_$hash, ownerName.hashCode);
     _$hash = $jc(_$hash, paymentAccountReference.hashCode);
@@ -783,6 +796,7 @@ class _$ResponseAdditionalDataCommon extends ResponseAdditionalDataCommon {
           ..add('mcBankNetReferenceNumber', mcBankNetReferenceNumber)
           ..add('merchantAdviceCode', merchantAdviceCode)
           ..add('merchantReference', merchantReference)
+          ..add('networkProcessingMode', networkProcessingMode)
           ..add('networkTxReference', networkTxReference)
           ..add('ownerName', ownerName)
           ..add('paymentAccountReference', paymentAccountReference)
@@ -1007,6 +1021,11 @@ class ResponseAdditionalDataCommonBuilder
   set merchantReference(String? merchantReference) =>
       _$this._merchantReference = merchantReference;
 
+  String? _networkProcessingMode;
+  String? get networkProcessingMode => _$this._networkProcessingMode;
+  set networkProcessingMode(String? networkProcessingMode) =>
+      _$this._networkProcessingMode = networkProcessingMode;
+
   String? _networkTxReference;
   String? get networkTxReference => _$this._networkTxReference;
   set networkTxReference(String? networkTxReference) =>
@@ -1222,6 +1241,7 @@ class ResponseAdditionalDataCommonBuilder
       _mcBankNetReferenceNumber = $v.mcBankNetReferenceNumber;
       _merchantAdviceCode = $v.merchantAdviceCode;
       _merchantReference = $v.merchantReference;
+      _networkProcessingMode = $v.networkProcessingMode;
       _networkTxReference = $v.networkTxReference;
       _ownerName = $v.ownerName;
       _paymentAccountReference = $v.paymentAccountReference;
@@ -1312,6 +1332,7 @@ class ResponseAdditionalDataCommonBuilder
           mcBankNetReferenceNumber: mcBankNetReferenceNumber,
           merchantAdviceCode: merchantAdviceCode,
           merchantReference: merchantReference,
+          networkProcessingMode: networkProcessingMode,
           networkTxReference: networkTxReference,
           ownerName: ownerName,
           paymentAccountReference: paymentAccountReference,

@@ -13,6 +13,8 @@ part 'stored_payment_method_resource.g.dart';
 /// StoredPaymentMethodResource
 ///
 /// Properties:
+/// * [alias] - The alias of the credit card number.  Applies only to recurring contracts storing credit card details
+/// * [aliasType] - The alias type of the credit card number.  Applies only to recurring contracts storing credit card details.
 /// * [brand] - The brand of the card.
 /// * [cardBin] - The bank identification number (BIN) of the card.
 /// * [expiryMonth] - The month the card expires.
@@ -34,6 +36,14 @@ part 'stored_payment_method_resource.g.dart';
 /// * [type] - The type of payment method.
 @BuiltValue()
 abstract class StoredPaymentMethodResource implements Built<StoredPaymentMethodResource, StoredPaymentMethodResourceBuilder> {
+  /// The alias of the credit card number.  Applies only to recurring contracts storing credit card details
+  @BuiltValueField(wireName: r'alias')
+  String? get alias;
+
+  /// The alias type of the credit card number.  Applies only to recurring contracts storing credit card details.
+  @BuiltValueField(wireName: r'aliasType')
+  String? get aliasType;
+
   /// The brand of the card.
   @BuiltValueField(wireName: r'brand')
   String? get brand;
@@ -133,6 +143,20 @@ class _$StoredPaymentMethodResourceSerializer implements PrimitiveSerializer<Sto
     StoredPaymentMethodResource object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
+    if (object.alias != null) {
+      yield r'alias';
+      yield serializers.serialize(
+        object.alias,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.aliasType != null) {
+      yield r'aliasType';
+      yield serializers.serialize(
+        object.aliasType,
+        specifiedType: const FullType(String),
+      );
+    }
     if (object.brand != null) {
       yield r'brand';
       yield serializers.serialize(
@@ -289,6 +313,20 @@ class _$StoredPaymentMethodResourceSerializer implements PrimitiveSerializer<Sto
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
+        case r'alias':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.alias = valueDes;
+          break;
+        case r'aliasType':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.aliasType = valueDes;
+          break;
         case r'brand':
           final valueDes = serializers.deserialize(
             value,

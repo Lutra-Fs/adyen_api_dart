@@ -158,6 +158,8 @@ class _$ResponseAdditionalDataCardCardProductIdEnumSerializer
 
 class _$ResponseAdditionalDataCard extends ResponseAdditionalDataCard {
   @override
+  final String? cardAltID;
+  @override
   final String? cardBin;
   @override
   final String? cardHolderName;
@@ -181,6 +183,7 @@ class _$ResponseAdditionalDataCard extends ResponseAdditionalDataCard {
   ]) => (ResponseAdditionalDataCardBuilder()..update(updates))._build();
 
   _$ResponseAdditionalDataCard._({
+    this.cardAltID,
     this.cardBin,
     this.cardHolderName,
     this.cardIssuingBank,
@@ -204,6 +207,7 @@ class _$ResponseAdditionalDataCard extends ResponseAdditionalDataCard {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is ResponseAdditionalDataCard &&
+        cardAltID == other.cardAltID &&
         cardBin == other.cardBin &&
         cardHolderName == other.cardHolderName &&
         cardIssuingBank == other.cardIssuingBank &&
@@ -218,6 +222,7 @@ class _$ResponseAdditionalDataCard extends ResponseAdditionalDataCard {
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, cardAltID.hashCode);
     _$hash = $jc(_$hash, cardBin.hashCode);
     _$hash = $jc(_$hash, cardHolderName.hashCode);
     _$hash = $jc(_$hash, cardIssuingBank.hashCode);
@@ -234,6 +239,7 @@ class _$ResponseAdditionalDataCard extends ResponseAdditionalDataCard {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'ResponseAdditionalDataCard')
+          ..add('cardAltID', cardAltID)
           ..add('cardBin', cardBin)
           ..add('cardHolderName', cardHolderName)
           ..add('cardIssuingBank', cardIssuingBank)
@@ -251,6 +257,10 @@ class ResponseAdditionalDataCardBuilder
     implements
         Builder<ResponseAdditionalDataCard, ResponseAdditionalDataCardBuilder> {
   _$ResponseAdditionalDataCard? _$v;
+
+  String? _cardAltID;
+  String? get cardAltID => _$this._cardAltID;
+  set cardAltID(String? cardAltID) => _$this._cardAltID = cardAltID;
 
   String? _cardBin;
   String? get cardBin => _$this._cardBin;
@@ -303,6 +313,7 @@ class ResponseAdditionalDataCardBuilder
   ResponseAdditionalDataCardBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _cardAltID = $v.cardAltID;
       _cardBin = $v.cardBin;
       _cardHolderName = $v.cardHolderName;
       _cardIssuingBank = $v.cardIssuingBank;
@@ -334,6 +345,7 @@ class ResponseAdditionalDataCardBuilder
     final _$result =
         _$v ??
         _$ResponseAdditionalDataCard._(
+          cardAltID: cardAltID,
           cardBin: cardBin,
           cardHolderName: cardHolderName,
           cardIssuingBank: cardIssuingBank,

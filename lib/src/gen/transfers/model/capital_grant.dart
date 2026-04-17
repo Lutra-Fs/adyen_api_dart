@@ -5,10 +5,10 @@
 // ignore_for_file: unused_element
 import 'package:built_collection/built_collection.dart';
 import 'package:adyen_api/src/gen/transfers/model/capital_balance.dart';
+import 'package:adyen_api/src/gen/transfers/model/grant_counterparty.dart';
 import 'package:adyen_api/src/gen/transfers/model/amount.dart';
 import 'package:adyen_api/src/gen/transfers/model/fee.dart';
 import 'package:adyen_api/src/gen/transfers/model/repayment.dart';
-import 'package:adyen_api/src/gen/transfers/model/counterparty.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -19,7 +19,7 @@ part 'capital_grant.g.dart';
 /// Properties:
 /// * [amount] - An object containing the amount of the grant, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
 /// * [balances] - An object containing the details of the existing grant.
-/// * [counterparty] - An object containing the details of the receiving party of the grant. Setting either an `accountHolderId`, `balanceAccountId`, or both is required.
+/// * [counterparty] - An object containing the details of the receiving party of the grant.
 /// * [fee] - An object containing the fee currency and value, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
 /// * [grantAccountId] - The identifier of the grant account used for the grant.
 /// * [grantOfferId] - The identifier of the grant offer that has been selected and from which the grant details will be used.
@@ -36,9 +36,9 @@ abstract class CapitalGrant implements Built<CapitalGrant, CapitalGrantBuilder> 
   @BuiltValueField(wireName: r'balances')
   CapitalBalance get balances;
 
-  /// An object containing the details of the receiving party of the grant. Setting either an `accountHolderId`, `balanceAccountId`, or both is required.
+  /// An object containing the details of the receiving party of the grant.
   @BuiltValueField(wireName: r'counterparty')
-  Counterparty? get counterparty;
+  GrantCounterparty? get counterparty;
 
   /// An object containing the fee currency and value, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
   @BuiltValueField(wireName: r'fee')
@@ -104,7 +104,7 @@ class _$CapitalGrantSerializer implements PrimitiveSerializer<CapitalGrant> {
       yield r'counterparty';
       yield serializers.serialize(
         object.counterparty,
-        specifiedType: const FullType(Counterparty),
+        specifiedType: const FullType(GrantCounterparty),
       );
     }
     if (object.fee != null) {
@@ -181,8 +181,8 @@ class _$CapitalGrantSerializer implements PrimitiveSerializer<CapitalGrant> {
         case r'counterparty':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(Counterparty),
-          ) as Counterparty;
+            specifiedType: const FullType(GrantCounterparty),
+          ) as GrantCounterparty;
           result.counterparty.replace(valueDes);
           break;
         case r'fee':

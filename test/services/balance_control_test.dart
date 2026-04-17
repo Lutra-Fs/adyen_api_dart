@@ -1,9 +1,5 @@
-// ignore_for_file: deprecated_member_use_from_same_package
-// Coverage for deprecated endpoints to ensure backward compatibility.
-
 import 'package:adyen_api/adyen_api.dart';
 import 'package:adyen_api/src/gen/balance_control/model/balance_transfer_request.dart';
-import 'package:adyen_api/src/gen/balance_control/model/balance_transfer_response.dart';
 import 'package:adyen_api/src/gen/balance_control/serializers.dart'
     as serializers_lib;
 import 'package:built_value/serializer.dart';
@@ -37,30 +33,24 @@ void main() {
     }
 
     test('posts balance transfer', () async {
-      adapter.onPost('/balanceTransfer', (server) {
+      adapter.onPost('/balanceTransfers', (server) {
         server.reply(200, {
-          'amount': {'value': 50000, 'currency': 'EUR'},
           'createdAt': '2022-01-24',
-          'description': 'Your description for the transfer',
-          'fromMerchant': 'MerchantAccount_NL',
-          'toMerchant': 'MerchantAccount_DE',
-          'type': 'debit',
-          'reference': 'Unique reference for the transfer',
           'pspReference': '8816080397613514',
-          'status': 'transferred',
         });
       });
 
       final response = await balanceService.unwrap(
-        balanceService.balanceControlApi.postBalanceTransfer(
+        balanceService.balanceTransfersApi.postBalanceTransfers(
           balanceTransferRequest: buildRequest(),
         ),
       );
-      expect(response!.status, BalanceTransferResponseStatusEnum.transferred);
+      expect(response!.pspReference, '8816080397613514');
+      expect(response.createdAt, isA<DateTime>());
     });
 
     test('returns validation error', () async {
-      adapter.onPost('/balanceTransfer', (server) {
+      adapter.onPost('/balanceTransfers', (server) {
         server.reply(422, {
           'status': 422,
           'errorCode': '30_004',
@@ -71,7 +61,7 @@ void main() {
 
       expect(
         () => balanceService.unwrap(
-          balanceService.balanceControlApi.postBalanceTransfer(
+          balanceService.balanceTransfersApi.postBalanceTransfers(
             balanceTransferRequest: buildRequest(),
           ),
         ),

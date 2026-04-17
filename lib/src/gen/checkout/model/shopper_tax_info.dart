@@ -11,17 +11,17 @@ part 'shopper_tax_info.g.dart';
 /// ShopperTaxInfo
 ///
 /// Properties:
-/// * [taxId] - The tax-id of the shopper doing the transaction.
-/// * [taxIdCountryCode] - The country to which the tax-id belongs to.
+/// * [taxCountryCode] - The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code associated with the provided tax identification number. Currently used only for Indian PA-CB tax verification, when applicable.
+/// * [taxIdentificationNumber] - The shopper’s tax identification number.
 @BuiltValue()
 abstract class ShopperTaxInfo implements Built<ShopperTaxInfo, ShopperTaxInfoBuilder> {
-  /// The tax-id of the shopper doing the transaction.
-  @BuiltValueField(wireName: r'taxId')
-  String get taxId;
+  /// The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code associated with the provided tax identification number. Currently used only for Indian PA-CB tax verification, when applicable.
+  @BuiltValueField(wireName: r'taxCountryCode')
+  String get taxCountryCode;
 
-  /// The country to which the tax-id belongs to.
-  @BuiltValueField(wireName: r'taxIdCountryCode')
-  String get taxIdCountryCode;
+  /// The shopper’s tax identification number.
+  @BuiltValueField(wireName: r'taxIdentificationNumber')
+  String get taxIdentificationNumber;
 
   ShopperTaxInfo._();
 
@@ -46,14 +46,14 @@ class _$ShopperTaxInfoSerializer implements PrimitiveSerializer<ShopperTaxInfo> 
     ShopperTaxInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    yield r'taxId';
+    yield r'taxCountryCode';
     yield serializers.serialize(
-      object.taxId,
+      object.taxCountryCode,
       specifiedType: const FullType(String),
     );
-    yield r'taxIdCountryCode';
+    yield r'taxIdentificationNumber';
     yield serializers.serialize(
-      object.taxIdCountryCode,
+      object.taxIdentificationNumber,
       specifiedType: const FullType(String),
     );
   }
@@ -79,19 +79,19 @@ class _$ShopperTaxInfoSerializer implements PrimitiveSerializer<ShopperTaxInfo> 
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'taxId':
+        case r'taxCountryCode':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(String),
           ) as String;
-          result.taxId = valueDes;
+          result.taxCountryCode = valueDes;
           break;
-        case r'taxIdCountryCode':
+        case r'taxIdentificationNumber':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(String),
           ) as String;
-          result.taxIdCountryCode = valueDes;
+          result.taxIdentificationNumber = valueDes;
           break;
         default:
           unhandled.add(key);

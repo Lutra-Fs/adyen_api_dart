@@ -7,14 +7,14 @@ part of 'platform_chargeback_logic.dart';
 // **************************************************************************
 
 const PlatformChargebackLogicBehaviorEnum
+_$platformChargebackLogicBehaviorEnum_deductFromOneBalanceAccount =
+    const PlatformChargebackLogicBehaviorEnum._('deductFromOneBalanceAccount');
+const PlatformChargebackLogicBehaviorEnum
 _$platformChargebackLogicBehaviorEnum_deductAccordingToSplitRatio =
     const PlatformChargebackLogicBehaviorEnum._('deductAccordingToSplitRatio');
 const PlatformChargebackLogicBehaviorEnum
 _$platformChargebackLogicBehaviorEnum_deductFromLiableAccount =
     const PlatformChargebackLogicBehaviorEnum._('deductFromLiableAccount');
-const PlatformChargebackLogicBehaviorEnum
-_$platformChargebackLogicBehaviorEnum_deductFromOneBalanceAccount =
-    const PlatformChargebackLogicBehaviorEnum._('deductFromOneBalanceAccount');
 const PlatformChargebackLogicBehaviorEnum
 _$platformChargebackLogicBehaviorEnum_unknownDefaultOpenApi =
     const PlatformChargebackLogicBehaviorEnum._('unknownDefaultOpenApi');
@@ -22,12 +22,12 @@ _$platformChargebackLogicBehaviorEnum_unknownDefaultOpenApi =
 PlatformChargebackLogicBehaviorEnum
 _$platformChargebackLogicBehaviorEnumValueOf(String name) {
   switch (name) {
+    case 'deductFromOneBalanceAccount':
+      return _$platformChargebackLogicBehaviorEnum_deductFromOneBalanceAccount;
     case 'deductAccordingToSplitRatio':
       return _$platformChargebackLogicBehaviorEnum_deductAccordingToSplitRatio;
     case 'deductFromLiableAccount':
       return _$platformChargebackLogicBehaviorEnum_deductFromLiableAccount;
-    case 'deductFromOneBalanceAccount':
-      return _$platformChargebackLogicBehaviorEnum_deductFromOneBalanceAccount;
     case 'unknownDefaultOpenApi':
       return _$platformChargebackLogicBehaviorEnum_unknownDefaultOpenApi;
     default:
@@ -39,9 +39,9 @@ final BuiltSet<PlatformChargebackLogicBehaviorEnum>
 _$platformChargebackLogicBehaviorEnumValues =
     BuiltSet<PlatformChargebackLogicBehaviorEnum>(
       const <PlatformChargebackLogicBehaviorEnum>[
+        _$platformChargebackLogicBehaviorEnum_deductFromOneBalanceAccount,
         _$platformChargebackLogicBehaviorEnum_deductAccordingToSplitRatio,
         _$platformChargebackLogicBehaviorEnum_deductFromLiableAccount,
-        _$platformChargebackLogicBehaviorEnum_deductFromOneBalanceAccount,
         _$platformChargebackLogicBehaviorEnum_unknownDefaultOpenApi,
       ],
     );
@@ -53,15 +53,15 @@ _$platformChargebackLogicBehaviorEnumSerializer =
 class _$PlatformChargebackLogicBehaviorEnumSerializer
     implements PrimitiveSerializer<PlatformChargebackLogicBehaviorEnum> {
   static const Map<String, Object> _toWire = const <String, Object>{
+    'deductFromOneBalanceAccount': 'deductFromOneBalanceAccount',
     'deductAccordingToSplitRatio': 'deductAccordingToSplitRatio',
     'deductFromLiableAccount': 'deductFromLiableAccount',
-    'deductFromOneBalanceAccount': 'deductFromOneBalanceAccount',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
+    'deductFromOneBalanceAccount': 'deductFromOneBalanceAccount',
     'deductAccordingToSplitRatio': 'deductAccordingToSplitRatio',
     'deductFromLiableAccount': 'deductFromLiableAccount',
-    'deductFromOneBalanceAccount': 'deductFromOneBalanceAccount',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
 

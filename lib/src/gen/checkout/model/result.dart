@@ -17,6 +17,8 @@ class Result extends EnumClass {
   static const Result INVALID = _$INVALID;
   @BuiltValueEnumConst(wireName: r'UNKNOWN')
   static const Result UNKNOWN = _$UNKNOWN;
+  @BuiltValueEnumConst(wireName: r'NOT_REQUIRED')
+  static const Result NOT_REQUIRED = _$NOT_REQUIRED;
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const Result unknownDefaultOpenApi = _$unknownDefaultOpenApi;
 

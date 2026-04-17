@@ -20,7 +20,7 @@ abstract class PlatformChargebackLogic implements Built<PlatformChargebackLogic,
   /// The method of handling the chargeback.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**, **deductAccordingToSplitRatio**.
   @BuiltValueField(wireName: r'behavior')
   PlatformChargebackLogicBehaviorEnum? get behavior;
-  // enum behaviorEnum {  deductAccordingToSplitRatio,  deductFromLiableAccount,  deductFromOneBalanceAccount,  };
+  // enum behaviorEnum {  deductFromOneBalanceAccount,  deductAccordingToSplitRatio,  deductFromLiableAccount,  };
 
   /// The unique identifier of the balance account to which the chargeback fees are booked. By default, the chargeback fees are booked to your liable balance account.
   @BuiltValueField(wireName: r'costAllocationAccount')
@@ -150,14 +150,14 @@ class _$PlatformChargebackLogicSerializer implements PrimitiveSerializer<Platfor
 class PlatformChargebackLogicBehaviorEnum extends EnumClass {
 
   /// The method of handling the chargeback.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**, **deductAccordingToSplitRatio**.
+  @BuiltValueEnumConst(wireName: r'deductFromOneBalanceAccount')
+  static const PlatformChargebackLogicBehaviorEnum deductFromOneBalanceAccount = _$platformChargebackLogicBehaviorEnum_deductFromOneBalanceAccount;
+  /// The method of handling the chargeback.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**, **deductAccordingToSplitRatio**.
   @BuiltValueEnumConst(wireName: r'deductAccordingToSplitRatio')
   static const PlatformChargebackLogicBehaviorEnum deductAccordingToSplitRatio = _$platformChargebackLogicBehaviorEnum_deductAccordingToSplitRatio;
   /// The method of handling the chargeback.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**, **deductAccordingToSplitRatio**.
   @BuiltValueEnumConst(wireName: r'deductFromLiableAccount')
   static const PlatformChargebackLogicBehaviorEnum deductFromLiableAccount = _$platformChargebackLogicBehaviorEnum_deductFromLiableAccount;
-  /// The method of handling the chargeback.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**, **deductAccordingToSplitRatio**.
-  @BuiltValueEnumConst(wireName: r'deductFromOneBalanceAccount')
-  static const PlatformChargebackLogicBehaviorEnum deductFromOneBalanceAccount = _$platformChargebackLogicBehaviorEnum_deductFromOneBalanceAccount;
   /// The method of handling the chargeback.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**, **deductAccordingToSplitRatio**.
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const PlatformChargebackLogicBehaviorEnum unknownDefaultOpenApi = _$platformChargebackLogicBehaviorEnum_unknownDefaultOpenApi;

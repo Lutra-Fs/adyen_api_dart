@@ -351,6 +351,8 @@ class _$DonationPaymentRequest extends DonationPaymentRequest {
   @override
   final String? socialSecurityNumber;
   @override
+  final String? store;
+  @override
   final String? telephoneNumber;
   @override
   final ThreeDS2RequestFields? threeDS2RequestData;
@@ -401,6 +403,7 @@ class _$DonationPaymentRequest extends DonationPaymentRequest {
     this.shopperName,
     this.shopperReference,
     this.socialSecurityNumber,
+    this.store,
     this.telephoneNumber,
     this.threeDS2RequestData,
     this.threeDSAuthenticationOnly,
@@ -457,6 +460,7 @@ class _$DonationPaymentRequest extends DonationPaymentRequest {
         shopperName == other.shopperName &&
         shopperReference == other.shopperReference &&
         socialSecurityNumber == other.socialSecurityNumber &&
+        store == other.store &&
         telephoneNumber == other.telephoneNumber &&
         threeDS2RequestData == other.threeDS2RequestData &&
         threeDSAuthenticationOnly == other.threeDSAuthenticationOnly;
@@ -504,6 +508,7 @@ class _$DonationPaymentRequest extends DonationPaymentRequest {
     _$hash = $jc(_$hash, shopperName.hashCode);
     _$hash = $jc(_$hash, shopperReference.hashCode);
     _$hash = $jc(_$hash, socialSecurityNumber.hashCode);
+    _$hash = $jc(_$hash, store.hashCode);
     _$hash = $jc(_$hash, telephoneNumber.hashCode);
     _$hash = $jc(_$hash, threeDS2RequestData.hashCode);
     _$hash = $jc(_$hash, threeDSAuthenticationOnly.hashCode);
@@ -553,6 +558,7 @@ class _$DonationPaymentRequest extends DonationPaymentRequest {
           ..add('shopperName', shopperName)
           ..add('shopperReference', shopperReference)
           ..add('socialSecurityNumber', socialSecurityNumber)
+          ..add('store', store)
           ..add('telephoneNumber', telephoneNumber)
           ..add('threeDS2RequestData', threeDS2RequestData)
           ..add('threeDSAuthenticationOnly', threeDSAuthenticationOnly))
@@ -769,6 +775,10 @@ class DonationPaymentRequestBuilder
   set socialSecurityNumber(String? socialSecurityNumber) =>
       _$this._socialSecurityNumber = socialSecurityNumber;
 
+  String? _store;
+  String? get store => _$this._store;
+  set store(String? store) => _$this._store = store;
+
   String? _telephoneNumber;
   String? get telephoneNumber => _$this._telephoneNumber;
   set telephoneNumber(String? telephoneNumber) =>
@@ -831,6 +841,7 @@ class DonationPaymentRequestBuilder
       _shopperName = $v.shopperName?.toBuilder();
       _shopperReference = $v.shopperReference;
       _socialSecurityNumber = $v.socialSecurityNumber;
+      _store = $v.store;
       _telephoneNumber = $v.telephoneNumber;
       _threeDS2RequestData = $v.threeDS2RequestData?.toBuilder();
       _threeDSAuthenticationOnly = $v.threeDSAuthenticationOnly;
@@ -909,6 +920,7 @@ class DonationPaymentRequestBuilder
             shopperName: _shopperName?.build(),
             shopperReference: shopperReference,
             socialSecurityNumber: socialSecurityNumber,
+            store: store,
             telephoneNumber: telephoneNumber,
             threeDS2RequestData: _threeDS2RequestData?.build(),
             threeDSAuthenticationOnly: threeDSAuthenticationOnly,

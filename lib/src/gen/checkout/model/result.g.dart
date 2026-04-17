@@ -9,6 +9,7 @@ part of 'result.dart';
 const Result _$VALID = const Result._('VALID');
 const Result _$INVALID = const Result._('INVALID');
 const Result _$UNKNOWN = const Result._('UNKNOWN');
+const Result _$NOT_REQUIRED = const Result._('NOT_REQUIRED');
 const Result _$unknownDefaultOpenApi = const Result._('unknownDefaultOpenApi');
 
 Result _$valueOf(String name) {
@@ -19,6 +20,8 @@ Result _$valueOf(String name) {
       return _$INVALID;
     case 'UNKNOWN':
       return _$UNKNOWN;
+    case 'NOT_REQUIRED':
+      return _$NOT_REQUIRED;
     case 'unknownDefaultOpenApi':
       return _$unknownDefaultOpenApi;
     default:
@@ -30,6 +33,7 @@ final BuiltSet<Result> _$values = BuiltSet<Result>(const <Result>[
   _$VALID,
   _$INVALID,
   _$UNKNOWN,
+  _$NOT_REQUIRED,
   _$unknownDefaultOpenApi,
 ]);
 
@@ -38,6 +42,7 @@ class _$ResultMeta {
   Result get VALID => _$VALID;
   Result get INVALID => _$INVALID;
   Result get UNKNOWN => _$UNKNOWN;
+  Result get NOT_REQUIRED => _$NOT_REQUIRED;
   Result get unknownDefaultOpenApi => _$unknownDefaultOpenApi;
   Result valueOf(String name) => _$valueOf(name);
   BuiltSet<Result> get values => _$values;
@@ -55,12 +60,14 @@ class _$ResultSerializer implements PrimitiveSerializer<Result> {
     'VALID': 'VALID',
     'INVALID': 'INVALID',
     'UNKNOWN': 'UNKNOWN',
+    'NOT_REQUIRED': 'NOT_REQUIRED',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'VALID': 'VALID',
     'INVALID': 'INVALID',
     'UNKNOWN': 'UNKNOWN',
+    'NOT_REQUIRED': 'NOT_REQUIRED',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
 

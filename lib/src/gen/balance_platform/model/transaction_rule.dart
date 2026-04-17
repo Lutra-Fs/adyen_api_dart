@@ -22,6 +22,7 @@ part 'transaction_rule.g.dart';
 /// * [id] - The unique identifier of the transaction rule.
 /// * [interval] - The [time interval](https://docs.adyen.com/issuing/transaction-rules#time-intervals) when the rule conditions apply.
 /// * [outcomeType] - The [outcome](https://docs.adyen.com/issuing/transaction-rules#outcome) that will be applied when a transaction meets the conditions of the rule.  Possible values: * **hardBlock** (default): the transaction is declined. * **scoreBased**: the transaction is assigned the `score` you specified. Adyen calculates the total score and if it exceeds 100, the transaction is declined. This value is not allowed when `requestType` is **bankTransfer**.  * **enforceSCA**: your user is prompted to verify their identity using [3D Secure authentication](https://docs.adyen.com/issuing/3d-secure/). If the authentication fails or times out, the transaction is declined. This value is only allowed when `requestType` is **authentication**.
+/// * [purpose] - Specifies the reason for creating the rule.  Possible values: * **fraud**: the rule is created to regulate fraudulent activity. * **policy**: the rule is created to ensure that the transaction adheres to your business' policies. For example, if your business has policies about the Merchant Category Codes (MCCs) allowed on a transaction, you can create a rule to block transactions that have specific MCCs.
 /// * [reference] - Your reference for the transaction rule.
 /// * [requestType] - Indicates the type of request to which the rule applies. If not provided, by default, this is set to **authorization**.  Possible values: **authorization**, **authentication**, **tokenization**, **bankTransfer**.
 /// * [ruleRestrictions] - Contains one or more objects that define the [rule conditions](https://docs.adyen.com/issuing/transaction-rules#conditions). Each object must have a value and an operation which determines how the values must be evaluated.  For example, a `countries` object can have a list of country codes **[\"US\", \"CA\"]** in the `value` field and **anyMatch** in the `operation` field.
@@ -59,6 +60,11 @@ abstract class TransactionRule implements Built<TransactionRule, TransactionRule
   @BuiltValueField(wireName: r'outcomeType')
   TransactionRuleOutcomeTypeEnum? get outcomeType;
   // enum outcomeTypeEnum {  enforceSCA,  hardBlock,  scoreBased,  timedBlock,  };
+
+  /// Specifies the reason for creating the rule.  Possible values: * **fraud**: the rule is created to regulate fraudulent activity. * **policy**: the rule is created to ensure that the transaction adheres to your business' policies. For example, if your business has policies about the Merchant Category Codes (MCCs) allowed on a transaction, you can create a rule to block transactions that have specific MCCs.
+  @BuiltValueField(wireName: r'purpose')
+  TransactionRulePurposeEnum? get purpose;
+  // enum purposeEnum {  compliance,  fraud,  internalPolicy,  policy,  system,  };
 
   /// Your reference for the transaction rule.
   @BuiltValueField(wireName: r'reference')
@@ -155,6 +161,13 @@ class _$TransactionRuleSerializer implements PrimitiveSerializer<TransactionRule
       yield serializers.serialize(
         object.outcomeType,
         specifiedType: const FullType(TransactionRuleOutcomeTypeEnum),
+      );
+    }
+    if (object.purpose != null) {
+      yield r'purpose';
+      yield serializers.serialize(
+        object.purpose,
+        specifiedType: const FullType(TransactionRulePurposeEnum),
       );
     }
     yield r'reference';
@@ -272,6 +285,13 @@ class _$TransactionRuleSerializer implements PrimitiveSerializer<TransactionRule
           ) as TransactionRuleOutcomeTypeEnum;
           result.outcomeType = valueDes;
           break;
+        case r'purpose':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(TransactionRulePurposeEnum),
+          ) as TransactionRulePurposeEnum;
+          result.purpose = valueDes;
+          break;
         case r'reference':
           final valueDes = serializers.deserialize(
             value,
@@ -374,6 +394,35 @@ class TransactionRuleOutcomeTypeEnum extends EnumClass {
 
   static BuiltSet<TransactionRuleOutcomeTypeEnum> get values => _$transactionRuleOutcomeTypeEnumValues;
   static TransactionRuleOutcomeTypeEnum valueOf(String name) => _$transactionRuleOutcomeTypeEnumValueOf(name);
+}
+
+class TransactionRulePurposeEnum extends EnumClass {
+
+  /// Specifies the reason for creating the rule.  Possible values: * **fraud**: the rule is created to regulate fraudulent activity. * **policy**: the rule is created to ensure that the transaction adheres to your business' policies. For example, if your business has policies about the Merchant Category Codes (MCCs) allowed on a transaction, you can create a rule to block transactions that have specific MCCs.
+  @BuiltValueEnumConst(wireName: r'compliance')
+  static const TransactionRulePurposeEnum compliance = _$transactionRulePurposeEnum_compliance;
+  /// Specifies the reason for creating the rule.  Possible values: * **fraud**: the rule is created to regulate fraudulent activity. * **policy**: the rule is created to ensure that the transaction adheres to your business' policies. For example, if your business has policies about the Merchant Category Codes (MCCs) allowed on a transaction, you can create a rule to block transactions that have specific MCCs.
+  @BuiltValueEnumConst(wireName: r'fraud')
+  static const TransactionRulePurposeEnum fraud = _$transactionRulePurposeEnum_fraud;
+  /// Specifies the reason for creating the rule.  Possible values: * **fraud**: the rule is created to regulate fraudulent activity. * **policy**: the rule is created to ensure that the transaction adheres to your business' policies. For example, if your business has policies about the Merchant Category Codes (MCCs) allowed on a transaction, you can create a rule to block transactions that have specific MCCs.
+  @BuiltValueEnumConst(wireName: r'internalPolicy')
+  static const TransactionRulePurposeEnum internalPolicy = _$transactionRulePurposeEnum_internalPolicy;
+  /// Specifies the reason for creating the rule.  Possible values: * **fraud**: the rule is created to regulate fraudulent activity. * **policy**: the rule is created to ensure that the transaction adheres to your business' policies. For example, if your business has policies about the Merchant Category Codes (MCCs) allowed on a transaction, you can create a rule to block transactions that have specific MCCs.
+  @BuiltValueEnumConst(wireName: r'policy')
+  static const TransactionRulePurposeEnum policy = _$transactionRulePurposeEnum_policy;
+  /// Specifies the reason for creating the rule.  Possible values: * **fraud**: the rule is created to regulate fraudulent activity. * **policy**: the rule is created to ensure that the transaction adheres to your business' policies. For example, if your business has policies about the Merchant Category Codes (MCCs) allowed on a transaction, you can create a rule to block transactions that have specific MCCs.
+  @BuiltValueEnumConst(wireName: r'system')
+  static const TransactionRulePurposeEnum system = _$transactionRulePurposeEnum_system;
+  /// Specifies the reason for creating the rule.  Possible values: * **fraud**: the rule is created to regulate fraudulent activity. * **policy**: the rule is created to ensure that the transaction adheres to your business' policies. For example, if your business has policies about the Merchant Category Codes (MCCs) allowed on a transaction, you can create a rule to block transactions that have specific MCCs.
+  @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
+  static const TransactionRulePurposeEnum unknownDefaultOpenApi = _$transactionRulePurposeEnum_unknownDefaultOpenApi;
+
+  static Serializer<TransactionRulePurposeEnum> get serializer => _$transactionRulePurposeEnumSerializer;
+
+  const TransactionRulePurposeEnum._(String name): super(name);
+
+  static BuiltSet<TransactionRulePurposeEnum> get values => _$transactionRulePurposeEnumValues;
+  static TransactionRulePurposeEnum valueOf(String name) => _$transactionRulePurposeEnumValueOf(name);
 }
 
 class TransactionRuleRequestTypeEnum extends EnumClass {

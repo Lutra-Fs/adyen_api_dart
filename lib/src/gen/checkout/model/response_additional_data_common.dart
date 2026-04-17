@@ -45,6 +45,7 @@ part 'response_additional_data_common.g.dart';
 /// * [mcBankNetReferenceNumber] - The `mcBankNetReferenceNumber`, is a minimum of six characters and a maximum of nine characters long.  > Contact Support Team to enable this field.
 /// * [merchantAdviceCode] - The Merchant Advice Code (MAC) can be returned by Mastercard issuers for refused payments. If present, the MAC contains information about why the payment failed, and whether it can be retried.  For more information see [Mastercard Merchant Advice Codes](https://docs.adyen.com/development-resources/raw-acquirer-responses#mastercard-merchant-advice-codes).
 /// * [merchantReference] - The reference provided for the transaction.
+/// * [networkProcessingMode] - Indicates the processing flow.  Possible values: * **sale**: You do not need to separately capture the funds, because capture happens automatically as part of the transaction.  * **auth**: If you have not [configured automatic capture for the transaction](https://docs.adyen.com/online-payments/capture#types-of-capture), you must manually capture the funds.
 /// * [networkTxReference] - Returned in the response if you are not tokenizing with Adyen and are using the Merchant-initiated transactions (MIT) framework from Mastercard or Visa.  This contains either the Mastercard Trace ID or the Visa Transaction ID.
 /// * [ownerName] - The owner name of a bank account.  Only relevant for SEPA Direct Debit transactions.
 /// * [paymentAccountReference] - The Payment Account Reference (PAR) value links a network token with the underlying primary account number (PAN). The PAR value consists of 29 uppercase alphanumeric characters.
@@ -210,6 +211,10 @@ abstract class ResponseAdditionalDataCommon implements Built<ResponseAdditionalD
   /// The reference provided for the transaction.
   @BuiltValueField(wireName: r'merchantReference')
   String? get merchantReference;
+
+  /// Indicates the processing flow.  Possible values: * **sale**: You do not need to separately capture the funds, because capture happens automatically as part of the transaction.  * **auth**: If you have not [configured automatic capture for the transaction](https://docs.adyen.com/online-payments/capture#types-of-capture), you must manually capture the funds.
+  @BuiltValueField(wireName: r'networkProcessingMode')
+  String? get networkProcessingMode;
 
   /// Returned in the response if you are not tokenizing with Adyen and are using the Merchant-initiated transactions (MIT) framework from Mastercard or Visa.  This contains either the Mastercard Trace ID or the Visa Transaction ID.
   @BuiltValueField(wireName: r'networkTxReference')
@@ -586,6 +591,13 @@ class _$ResponseAdditionalDataCommonSerializer implements PrimitiveSerializer<Re
       yield r'merchantReference';
       yield serializers.serialize(
         object.merchantReference,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.networkProcessingMode != null) {
+      yield r'networkProcessingMode';
+      yield serializers.serialize(
+        object.networkProcessingMode,
         specifiedType: const FullType(String),
       );
     }
@@ -1052,6 +1064,13 @@ class _$ResponseAdditionalDataCommonSerializer implements PrimitiveSerializer<Re
             specifiedType: const FullType(String),
           ) as String;
           result.merchantReference = valueDes;
+          break;
+        case r'networkProcessingMode':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.networkProcessingMode = valueDes;
           break;
         case r'networkTxReference':
           final valueDes = serializers.deserialize(

@@ -45,6 +45,11 @@ import 'package:adyen_api/src/gen/webhook_configuration/model/delivery_contact.d
 import 'package:adyen_api/src/gen/webhook_configuration/model/device.dart';
 import 'package:adyen_api/src/gen/webhook_configuration/model/expiry.dart';
 import 'package:adyen_api/src/gen/webhook_configuration/model/iban_account_identification.dart';
+import 'package:adyen_api/src/gen/webhook_configuration/model/mandate.dart';
+import 'package:adyen_api/src/gen/webhook_configuration/model/mandate_bank_account.dart';
+import 'package:adyen_api/src/gen/webhook_configuration/model/mandate_notification_data.dart';
+import 'package:adyen_api/src/gen/webhook_configuration/model/mandate_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_configuration/model/mandate_party_identification.dart';
 import 'package:adyen_api/src/gen/webhook_configuration/model/name.dart';
 import 'package:adyen_api/src/gen/webhook_configuration/model/network_token_notification_data_v2.dart';
 import 'package:adyen_api/src/gen/webhook_configuration/model/network_token_notification_request.dart';
@@ -69,6 +74,7 @@ import 'package:adyen_api/src/gen/webhook_configuration/model/sweep_configuratio
 import 'package:adyen_api/src/gen/webhook_configuration/model/sweep_counterparty.dart';
 import 'package:adyen_api/src/gen/webhook_configuration/model/sweep_schedule.dart';
 import 'package:adyen_api/src/gen/webhook_configuration/model/token_authentication.dart';
+import 'package:adyen_api/src/gen/webhook_configuration/model/uk_local_mandate_account_identification.dart';
 import 'package:adyen_api/src/gen/webhook_configuration/model/validation_facts.dart';
 import 'package:adyen_api/src/gen/webhook_configuration/model/verification_deadline.dart';
 import 'package:adyen_api/src/gen/webhook_configuration/model/verification_error.dart';
@@ -109,6 +115,11 @@ part 'serializers.g.dart';
   Device,
   Expiry,
   IbanAccountIdentification,
+  Mandate,
+  MandateBankAccount,
+  MandateNotificationData,
+  MandateNotificationRequest,
+  MandatePartyIdentification,
   Name,
   NetworkTokenNotificationDataV2,
   NetworkTokenNotificationRequest,
@@ -133,6 +144,7 @@ part 'serializers.g.dart';
   SweepCounterparty,
   SweepSchedule,
   TokenAuthentication,
+  UKLocalMandateAccountIdentification,
   ValidationFacts,
   VerificationDeadline,
   VerificationError,

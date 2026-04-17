@@ -22,6 +22,8 @@ const PaymentDetailsTypeEnum _$paymentDetailsTypeEnum_affirmPos =
     const PaymentDetailsTypeEnum._('affirmPos');
 const PaymentDetailsTypeEnum _$paymentDetailsTypeEnum_iris =
     const PaymentDetailsTypeEnum._('iris');
+const PaymentDetailsTypeEnum _$paymentDetailsTypeEnum_wero =
+    const PaymentDetailsTypeEnum._('wero');
 const PaymentDetailsTypeEnum _$paymentDetailsTypeEnum_trustly =
     const PaymentDetailsTypeEnum._('trustly');
 const PaymentDetailsTypeEnum _$paymentDetailsTypeEnum_trustlyvector =
@@ -78,8 +80,6 @@ const PaymentDetailsTypeEnum _$paymentDetailsTypeEnum_walley =
     const PaymentDetailsTypeEnum._('walley');
 const PaymentDetailsTypeEnum _$paymentDetailsTypeEnum_walleyB2b =
     const PaymentDetailsTypeEnum._('walleyB2b');
-const PaymentDetailsTypeEnum _$paymentDetailsTypeEnum_alma =
-    const PaymentDetailsTypeEnum._('alma');
 const PaymentDetailsTypeEnum _$paymentDetailsTypeEnum_paypo =
     const PaymentDetailsTypeEnum._('paypo');
 const PaymentDetailsTypeEnum _$paymentDetailsTypeEnum_scalapay =
@@ -202,6 +202,8 @@ PaymentDetailsTypeEnum _$paymentDetailsTypeEnumValueOf(String name) {
       return _$paymentDetailsTypeEnum_affirmPos;
     case 'iris':
       return _$paymentDetailsTypeEnum_iris;
+    case 'wero':
+      return _$paymentDetailsTypeEnum_wero;
     case 'trustly':
       return _$paymentDetailsTypeEnum_trustly;
     case 'trustlyvector':
@@ -258,8 +260,6 @@ PaymentDetailsTypeEnum _$paymentDetailsTypeEnumValueOf(String name) {
       return _$paymentDetailsTypeEnum_walley;
     case 'walleyB2b':
       return _$paymentDetailsTypeEnum_walleyB2b;
-    case 'alma':
-      return _$paymentDetailsTypeEnum_alma;
     case 'paypo':
       return _$paymentDetailsTypeEnum_paypo;
     case 'scalapay':
@@ -377,6 +377,7 @@ final BuiltSet<PaymentDetailsTypeEnum> _$paymentDetailsTypeEnumValues =
       _$paymentDetailsTypeEnum_paynow,
       _$paymentDetailsTypeEnum_affirmPos,
       _$paymentDetailsTypeEnum_iris,
+      _$paymentDetailsTypeEnum_wero,
       _$paymentDetailsTypeEnum_trustly,
       _$paymentDetailsTypeEnum_trustlyvector,
       _$paymentDetailsTypeEnum_oney,
@@ -405,7 +406,6 @@ final BuiltSet<PaymentDetailsTypeEnum> _$paymentDetailsTypeEnumValues =
       _$paymentDetailsTypeEnum_bizum,
       _$paymentDetailsTypeEnum_walley,
       _$paymentDetailsTypeEnum_walleyB2b,
-      _$paymentDetailsTypeEnum_alma,
       _$paymentDetailsTypeEnum_paypo,
       _$paymentDetailsTypeEnum_scalapay,
       _$paymentDetailsTypeEnum_scalapay3x,
@@ -473,6 +473,7 @@ class _$PaymentDetailsTypeEnumSerializer
     'paynow': 'paynow',
     'affirmPos': 'affirm_pos',
     'iris': 'iris',
+    'wero': 'wero',
     'trustly': 'trustly',
     'trustlyvector': 'trustlyvector',
     'oney': 'oney',
@@ -501,7 +502,6 @@ class _$PaymentDetailsTypeEnumSerializer
     'bizum': 'bizum',
     'walley': 'walley',
     'walleyB2b': 'walley_b2b',
-    'alma': 'alma',
     'paypo': 'paypo',
     'scalapay': 'scalapay',
     'scalapay3x': 'scalapay_3x',
@@ -563,6 +563,7 @@ class _$PaymentDetailsTypeEnumSerializer
     'paynow': 'paynow',
     'affirm_pos': 'affirmPos',
     'iris': 'iris',
+    'wero': 'wero',
     'trustly': 'trustly',
     'trustlyvector': 'trustlyvector',
     'oney': 'oney',
@@ -591,7 +592,6 @@ class _$PaymentDetailsTypeEnumSerializer
     'bizum': 'bizum',
     'walley': 'walley',
     'walley_b2b': 'walleyB2b',
-    'alma': 'alma',
     'paypo': 'paypo',
     'scalapay': 'scalapay',
     'scalapay_3x': 'scalapay3x',

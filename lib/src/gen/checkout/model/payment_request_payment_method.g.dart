@@ -130,6 +130,9 @@ const PaymentRequestPaymentMethodTypeEnum
 _$paymentRequestPaymentMethodTypeEnum_clearpay =
     const PaymentRequestPaymentMethodTypeEnum._('clearpay');
 const PaymentRequestPaymentMethodTypeEnum
+_$paymentRequestPaymentMethodTypeEnum_alma =
+    const PaymentRequestPaymentMethodTypeEnum._('alma');
+const PaymentRequestPaymentMethodTypeEnum
 _$paymentRequestPaymentMethodTypeEnum_amazonpay =
     const PaymentRequestPaymentMethodTypeEnum._('amazonpay');
 const PaymentRequestPaymentMethodTypeEnum
@@ -177,6 +180,9 @@ _$paymentRequestPaymentMethodTypeEnum_cashapp =
 const PaymentRequestPaymentMethodTypeEnum
 _$paymentRequestPaymentMethodTypeEnum_cellulant =
     const PaymentRequestPaymentMethodTypeEnum._('cellulant');
+const PaymentRequestPaymentMethodTypeEnum
+_$paymentRequestPaymentMethodTypeEnum_directdebitAU =
+    const PaymentRequestPaymentMethodTypeEnum._('directdebitAU');
 const PaymentRequestPaymentMethodTypeEnum
 _$paymentRequestPaymentMethodTypeEnum_dokuMandiriVa =
     const PaymentRequestPaymentMethodTypeEnum._('dokuMandiriVa');
@@ -292,6 +298,9 @@ const PaymentRequestPaymentMethodTypeEnum
 _$paymentRequestPaymentMethodTypeEnum_klarnaB2b =
     const PaymentRequestPaymentMethodTypeEnum._('klarnaB2b');
 const PaymentRequestPaymentMethodTypeEnum
+_$paymentRequestPaymentMethodTypeEnum_klarnaNetwork =
+    const PaymentRequestPaymentMethodTypeEnum._('klarnaNetwork');
+const PaymentRequestPaymentMethodTypeEnum
 _$paymentRequestPaymentMethodTypeEnum_masterpass =
     const PaymentRequestPaymentMethodTypeEnum._('masterpass');
 const PaymentRequestPaymentMethodTypeEnum
@@ -360,6 +369,9 @@ _$paymentRequestPaymentMethodTypeEnum_affirmPos =
 const PaymentRequestPaymentMethodTypeEnum
 _$paymentRequestPaymentMethodTypeEnum_iris =
     const PaymentRequestPaymentMethodTypeEnum._('iris');
+const PaymentRequestPaymentMethodTypeEnum
+_$paymentRequestPaymentMethodTypeEnum_wero =
+    const PaymentRequestPaymentMethodTypeEnum._('wero');
 const PaymentRequestPaymentMethodTypeEnum
 _$paymentRequestPaymentMethodTypeEnum_trustly =
     const PaymentRequestPaymentMethodTypeEnum._('trustly');
@@ -444,9 +456,6 @@ _$paymentRequestPaymentMethodTypeEnum_walley =
 const PaymentRequestPaymentMethodTypeEnum
 _$paymentRequestPaymentMethodTypeEnum_walleyB2b =
     const PaymentRequestPaymentMethodTypeEnum._('walleyB2b');
-const PaymentRequestPaymentMethodTypeEnum
-_$paymentRequestPaymentMethodTypeEnum_alma =
-    const PaymentRequestPaymentMethodTypeEnum._('alma');
 const PaymentRequestPaymentMethodTypeEnum
 _$paymentRequestPaymentMethodTypeEnum_paypo =
     const PaymentRequestPaymentMethodTypeEnum._('paypo');
@@ -600,6 +609,9 @@ _$paymentRequestPaymentMethodTypeEnum_balanceplatform =
 const PaymentRequestPaymentMethodTypeEnum
 _$paymentRequestPaymentMethodTypeEnum_pix =
     const PaymentRequestPaymentMethodTypeEnum._('pix');
+const PaymentRequestPaymentMethodTypeEnum
+_$paymentRequestPaymentMethodTypeEnum_paybybankPix =
+    const PaymentRequestPaymentMethodTypeEnum._('paybybankPix');
 const PaymentRequestPaymentMethodTypeEnum
 _$paymentRequestPaymentMethodTypeEnum_psePayulatam =
     const PaymentRequestPaymentMethodTypeEnum._('psePayulatam');
@@ -777,6 +789,8 @@ _$paymentRequestPaymentMethodTypeEnumValueOf(String name) {
       return _$paymentRequestPaymentMethodTypeEnum_afterpayB2b;
     case 'clearpay':
       return _$paymentRequestPaymentMethodTypeEnum_clearpay;
+    case 'alma':
+      return _$paymentRequestPaymentMethodTypeEnum_alma;
     case 'amazonpay':
       return _$paymentRequestPaymentMethodTypeEnum_amazonpay;
     case 'ancv':
@@ -809,6 +823,8 @@ _$paymentRequestPaymentMethodTypeEnumValueOf(String name) {
       return _$paymentRequestPaymentMethodTypeEnum_cashapp;
     case 'cellulant':
       return _$paymentRequestPaymentMethodTypeEnum_cellulant;
+    case 'directdebitAU':
+      return _$paymentRequestPaymentMethodTypeEnum_directdebitAU;
     case 'dokuMandiriVa':
       return _$paymentRequestPaymentMethodTypeEnum_dokuMandiriVa;
     case 'dokuCimbVa':
@@ -885,6 +901,8 @@ _$paymentRequestPaymentMethodTypeEnumValueOf(String name) {
       return _$paymentRequestPaymentMethodTypeEnum_klarnaAccount;
     case 'klarnaB2b':
       return _$paymentRequestPaymentMethodTypeEnum_klarnaB2b;
+    case 'klarnaNetwork':
+      return _$paymentRequestPaymentMethodTypeEnum_klarnaNetwork;
     case 'masterpass':
       return _$paymentRequestPaymentMethodTypeEnum_masterpass;
     case 'mbway':
@@ -931,6 +949,8 @@ _$paymentRequestPaymentMethodTypeEnumValueOf(String name) {
       return _$paymentRequestPaymentMethodTypeEnum_affirmPos;
     case 'iris':
       return _$paymentRequestPaymentMethodTypeEnum_iris;
+    case 'wero':
+      return _$paymentRequestPaymentMethodTypeEnum_wero;
     case 'trustly':
       return _$paymentRequestPaymentMethodTypeEnum_trustly;
     case 'trustlyvector':
@@ -987,8 +1007,6 @@ _$paymentRequestPaymentMethodTypeEnumValueOf(String name) {
       return _$paymentRequestPaymentMethodTypeEnum_walley;
     case 'walleyB2b':
       return _$paymentRequestPaymentMethodTypeEnum_walleyB2b;
-    case 'alma':
-      return _$paymentRequestPaymentMethodTypeEnum_alma;
     case 'paypo':
       return _$paymentRequestPaymentMethodTypeEnum_paypo;
     case 'scalapay':
@@ -1091,6 +1109,8 @@ _$paymentRequestPaymentMethodTypeEnumValueOf(String name) {
       return _$paymentRequestPaymentMethodTypeEnum_balanceplatform;
     case 'pix':
       return _$paymentRequestPaymentMethodTypeEnum_pix;
+    case 'paybybankPix':
+      return _$paymentRequestPaymentMethodTypeEnum_paybybankPix;
     case 'psePayulatam':
       return _$paymentRequestPaymentMethodTypeEnum_psePayulatam;
     case 'rakutenpay':
@@ -1213,6 +1233,7 @@ _$paymentRequestPaymentMethodTypeEnumValues =
         _$paymentRequestPaymentMethodTypeEnum_afterpaytouch,
         _$paymentRequestPaymentMethodTypeEnum_afterpayB2b,
         _$paymentRequestPaymentMethodTypeEnum_clearpay,
+        _$paymentRequestPaymentMethodTypeEnum_alma,
         _$paymentRequestPaymentMethodTypeEnum_amazonpay,
         _$paymentRequestPaymentMethodTypeEnum_ancv,
         _$paymentRequestPaymentMethodTypeEnum_androidpay,
@@ -1229,6 +1250,7 @@ _$paymentRequestPaymentMethodTypeEnumValues =
         _$paymentRequestPaymentMethodTypeEnum_clicktopay,
         _$paymentRequestPaymentMethodTypeEnum_cashapp,
         _$paymentRequestPaymentMethodTypeEnum_cellulant,
+        _$paymentRequestPaymentMethodTypeEnum_directdebitAU,
         _$paymentRequestPaymentMethodTypeEnum_dokuMandiriVa,
         _$paymentRequestPaymentMethodTypeEnum_dokuCimbVa,
         _$paymentRequestPaymentMethodTypeEnum_dokuDanamonVa,
@@ -1267,6 +1289,7 @@ _$paymentRequestPaymentMethodTypeEnumValues =
         _$paymentRequestPaymentMethodTypeEnum_klarnaPaynow,
         _$paymentRequestPaymentMethodTypeEnum_klarnaAccount,
         _$paymentRequestPaymentMethodTypeEnum_klarnaB2b,
+        _$paymentRequestPaymentMethodTypeEnum_klarnaNetwork,
         _$paymentRequestPaymentMethodTypeEnum_masterpass,
         _$paymentRequestPaymentMethodTypeEnum_mbway,
         _$paymentRequestPaymentMethodTypeEnum_mobilepay,
@@ -1290,6 +1313,7 @@ _$paymentRequestPaymentMethodTypeEnumValues =
         _$paymentRequestPaymentMethodTypeEnum_paynow,
         _$paymentRequestPaymentMethodTypeEnum_affirmPos,
         _$paymentRequestPaymentMethodTypeEnum_iris,
+        _$paymentRequestPaymentMethodTypeEnum_wero,
         _$paymentRequestPaymentMethodTypeEnum_trustly,
         _$paymentRequestPaymentMethodTypeEnum_trustlyvector,
         _$paymentRequestPaymentMethodTypeEnum_oney,
@@ -1318,7 +1342,6 @@ _$paymentRequestPaymentMethodTypeEnumValues =
         _$paymentRequestPaymentMethodTypeEnum_bizum,
         _$paymentRequestPaymentMethodTypeEnum_walley,
         _$paymentRequestPaymentMethodTypeEnum_walleyB2b,
-        _$paymentRequestPaymentMethodTypeEnum_alma,
         _$paymentRequestPaymentMethodTypeEnum_paypo,
         _$paymentRequestPaymentMethodTypeEnum_scalapay,
         _$paymentRequestPaymentMethodTypeEnum_scalapay3x,
@@ -1370,6 +1393,7 @@ _$paymentRequestPaymentMethodTypeEnumValues =
         _$paymentRequestPaymentMethodTypeEnum_alipayWap,
         _$paymentRequestPaymentMethodTypeEnum_balanceplatform,
         _$paymentRequestPaymentMethodTypeEnum_pix,
+        _$paymentRequestPaymentMethodTypeEnum_paybybankPix,
         _$paymentRequestPaymentMethodTypeEnum_psePayulatam,
         _$paymentRequestPaymentMethodTypeEnum_rakutenpay,
         _$paymentRequestPaymentMethodTypeEnum_ratepay,
@@ -1426,6 +1450,40 @@ _$paymentRequestPaymentMethodTypeEnumValues =
       ],
     );
 
+const PaymentRequestPaymentMethodFeeTypeEnum
+_$paymentRequestPaymentMethodFeeTypeEnum_merchantPays =
+    const PaymentRequestPaymentMethodFeeTypeEnum._('merchantPays');
+const PaymentRequestPaymentMethodFeeTypeEnum
+_$paymentRequestPaymentMethodFeeTypeEnum_shopperPays =
+    const PaymentRequestPaymentMethodFeeTypeEnum._('shopperPays');
+const PaymentRequestPaymentMethodFeeTypeEnum
+_$paymentRequestPaymentMethodFeeTypeEnum_unknownDefaultOpenApi =
+    const PaymentRequestPaymentMethodFeeTypeEnum._('unknownDefaultOpenApi');
+
+PaymentRequestPaymentMethodFeeTypeEnum
+_$paymentRequestPaymentMethodFeeTypeEnumValueOf(String name) {
+  switch (name) {
+    case 'merchantPays':
+      return _$paymentRequestPaymentMethodFeeTypeEnum_merchantPays;
+    case 'shopperPays':
+      return _$paymentRequestPaymentMethodFeeTypeEnum_shopperPays;
+    case 'unknownDefaultOpenApi':
+      return _$paymentRequestPaymentMethodFeeTypeEnum_unknownDefaultOpenApi;
+    default:
+      return _$paymentRequestPaymentMethodFeeTypeEnum_unknownDefaultOpenApi;
+  }
+}
+
+final BuiltSet<PaymentRequestPaymentMethodFeeTypeEnum>
+_$paymentRequestPaymentMethodFeeTypeEnumValues =
+    BuiltSet<PaymentRequestPaymentMethodFeeTypeEnum>(
+      const <PaymentRequestPaymentMethodFeeTypeEnum>[
+        _$paymentRequestPaymentMethodFeeTypeEnum_merchantPays,
+        _$paymentRequestPaymentMethodFeeTypeEnum_shopperPays,
+        _$paymentRequestPaymentMethodFeeTypeEnum_unknownDefaultOpenApi,
+      ],
+    );
+
 const PaymentRequestPaymentMethodFundingSourceEnum
 _$paymentRequestPaymentMethodFundingSourceEnum_credit =
     const PaymentRequestPaymentMethodFundingSourceEnum._('credit');
@@ -1477,6 +1535,9 @@ _$paymentRequestPaymentMethodBankAccountTypeEnumSerializer =
 Serializer<PaymentRequestPaymentMethodTypeEnum>
 _$paymentRequestPaymentMethodTypeEnumSerializer =
     _$PaymentRequestPaymentMethodTypeEnumSerializer();
+Serializer<PaymentRequestPaymentMethodFeeTypeEnum>
+_$paymentRequestPaymentMethodFeeTypeEnumSerializer =
+    _$PaymentRequestPaymentMethodFeeTypeEnumSerializer();
 Serializer<PaymentRequestPaymentMethodFundingSourceEnum>
 _$paymentRequestPaymentMethodFundingSourceEnumSerializer =
     _$PaymentRequestPaymentMethodFundingSourceEnumSerializer();
@@ -1577,6 +1638,7 @@ class _$PaymentRequestPaymentMethodTypeEnumSerializer
     'afterpaytouch': 'afterpaytouch',
     'afterpayB2b': 'afterpay_b2b',
     'clearpay': 'clearpay',
+    'alma': 'alma',
     'amazonpay': 'amazonpay',
     'ancv': 'ancv',
     'androidpay': 'androidpay',
@@ -1593,6 +1655,7 @@ class _$PaymentRequestPaymentMethodTypeEnumSerializer
     'clicktopay': 'clicktopay',
     'cashapp': 'cashapp',
     'cellulant': 'cellulant',
+    'directdebitAU': 'directdebit_AU',
     'dokuMandiriVa': 'doku_mandiri_va',
     'dokuCimbVa': 'doku_cimb_va',
     'dokuDanamonVa': 'doku_danamon_va',
@@ -1631,6 +1694,7 @@ class _$PaymentRequestPaymentMethodTypeEnumSerializer
     'klarnaPaynow': 'klarna_paynow',
     'klarnaAccount': 'klarna_account',
     'klarnaB2b': 'klarna_b2b',
+    'klarnaNetwork': 'klarna_network',
     'masterpass': 'masterpass',
     'mbway': 'mbway',
     'mobilepay': 'mobilepay',
@@ -1654,6 +1718,7 @@ class _$PaymentRequestPaymentMethodTypeEnumSerializer
     'paynow': 'paynow',
     'affirmPos': 'affirm_pos',
     'iris': 'iris',
+    'wero': 'wero',
     'trustly': 'trustly',
     'trustlyvector': 'trustlyvector',
     'oney': 'oney',
@@ -1682,7 +1747,6 @@ class _$PaymentRequestPaymentMethodTypeEnumSerializer
     'bizum': 'bizum',
     'walley': 'walley',
     'walleyB2b': 'walley_b2b',
-    'alma': 'alma',
     'paypo': 'paypo',
     'scalapay': 'scalapay',
     'scalapay3x': 'scalapay_3x',
@@ -1734,6 +1798,7 @@ class _$PaymentRequestPaymentMethodTypeEnumSerializer
     'alipayWap': 'alipay_wap',
     'balanceplatform': 'balanceplatform',
     'pix': 'pix',
+    'paybybankPix': 'paybybank_pix',
     'psePayulatam': 'pse_payulatam',
     'rakutenpay': 'rakutenpay',
     'ratepay': 'ratepay',
@@ -1796,6 +1861,7 @@ class _$PaymentRequestPaymentMethodTypeEnumSerializer
     'afterpaytouch': 'afterpaytouch',
     'afterpay_b2b': 'afterpayB2b',
     'clearpay': 'clearpay',
+    'alma': 'alma',
     'amazonpay': 'amazonpay',
     'ancv': 'ancv',
     'androidpay': 'androidpay',
@@ -1812,6 +1878,7 @@ class _$PaymentRequestPaymentMethodTypeEnumSerializer
     'clicktopay': 'clicktopay',
     'cashapp': 'cashapp',
     'cellulant': 'cellulant',
+    'directdebit_AU': 'directdebitAU',
     'doku_mandiri_va': 'dokuMandiriVa',
     'doku_cimb_va': 'dokuCimbVa',
     'doku_danamon_va': 'dokuDanamonVa',
@@ -1850,6 +1917,7 @@ class _$PaymentRequestPaymentMethodTypeEnumSerializer
     'klarna_paynow': 'klarnaPaynow',
     'klarna_account': 'klarnaAccount',
     'klarna_b2b': 'klarnaB2b',
+    'klarna_network': 'klarnaNetwork',
     'masterpass': 'masterpass',
     'mbway': 'mbway',
     'mobilepay': 'mobilepay',
@@ -1873,6 +1941,7 @@ class _$PaymentRequestPaymentMethodTypeEnumSerializer
     'paynow': 'paynow',
     'affirm_pos': 'affirmPos',
     'iris': 'iris',
+    'wero': 'wero',
     'trustly': 'trustly',
     'trustlyvector': 'trustlyvector',
     'oney': 'oney',
@@ -1901,7 +1970,6 @@ class _$PaymentRequestPaymentMethodTypeEnumSerializer
     'bizum': 'bizum',
     'walley': 'walley',
     'walley_b2b': 'walleyB2b',
-    'alma': 'alma',
     'paypo': 'paypo',
     'scalapay': 'scalapay',
     'scalapay_3x': 'scalapay3x',
@@ -1953,6 +2021,7 @@ class _$PaymentRequestPaymentMethodTypeEnumSerializer
     'alipay_wap': 'alipayWap',
     'balanceplatform': 'balanceplatform',
     'pix': 'pix',
+    'paybybank_pix': 'paybybankPix',
     'pse_payulatam': 'psePayulatam',
     'rakutenpay': 'rakutenpay',
     'ratepay': 'ratepay',
@@ -2028,6 +2097,43 @@ class _$PaymentRequestPaymentMethodTypeEnumSerializer
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) => PaymentRequestPaymentMethodTypeEnum.valueOf(
+    _fromWire[serialized] ?? (serialized is String ? serialized : ''),
+  );
+}
+
+class _$PaymentRequestPaymentMethodFeeTypeEnumSerializer
+    implements PrimitiveSerializer<PaymentRequestPaymentMethodFeeTypeEnum> {
+  static const Map<String, Object> _toWire = const <String, Object>{
+    'merchantPays': 'merchantPays',
+    'shopperPays': 'shopperPays',
+    'unknownDefaultOpenApi': 'unknown_default_open_api',
+  };
+  static const Map<Object, String> _fromWire = const <Object, String>{
+    'merchantPays': 'merchantPays',
+    'shopperPays': 'shopperPays',
+    'unknown_default_open_api': 'unknownDefaultOpenApi',
+  };
+
+  @override
+  final Iterable<Type> types = const <Type>[
+    PaymentRequestPaymentMethodFeeTypeEnum,
+  ];
+  @override
+  final String wireName = 'PaymentRequestPaymentMethodFeeTypeEnum';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    PaymentRequestPaymentMethodFeeTypeEnum object, {
+    FullType specifiedType = FullType.unspecified,
+  }) => _toWire[object.name] ?? object.name;
+
+  @override
+  PaymentRequestPaymentMethodFeeTypeEnum deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) => PaymentRequestPaymentMethodFeeTypeEnum.valueOf(
     _fromWire[serialized] ?? (serialized is String ? serialized : ''),
   );
 }

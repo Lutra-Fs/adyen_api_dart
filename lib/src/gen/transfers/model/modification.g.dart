@@ -78,6 +78,8 @@ const ModificationStatusEnum _$modificationStatusEnum_fee =
     const ModificationStatusEnum._('fee');
 const ModificationStatusEnum _$modificationStatusEnum_feePending =
     const ModificationStatusEnum._('feePending');
+const ModificationStatusEnum _$modificationStatusEnum_interchangeAdjusted =
+    const ModificationStatusEnum._('interchangeAdjusted');
 const ModificationStatusEnum _$modificationStatusEnum_internalTransfer =
     const ModificationStatusEnum._('internalTransfer');
 const ModificationStatusEnum _$modificationStatusEnum_internalTransferPending =
@@ -218,6 +220,8 @@ ModificationStatusEnum _$modificationStatusEnumValueOf(String name) {
       return _$modificationStatusEnum_fee;
     case 'feePending':
       return _$modificationStatusEnum_feePending;
+    case 'interchangeAdjusted':
+      return _$modificationStatusEnum_interchangeAdjusted;
     case 'internalTransfer':
       return _$modificationStatusEnum_internalTransfer;
     case 'internalTransferPending':
@@ -326,6 +330,7 @@ final BuiltSet<ModificationStatusEnum> _$modificationStatusEnumValues =
       _$modificationStatusEnum_failed,
       _$modificationStatusEnum_fee,
       _$modificationStatusEnum_feePending,
+      _$modificationStatusEnum_interchangeAdjusted,
       _$modificationStatusEnum_internalTransfer,
       _$modificationStatusEnum_internalTransferPending,
       _$modificationStatusEnum_invoiceDeduction,
@@ -402,6 +407,7 @@ class _$ModificationStatusEnumSerializer
     'failed': 'failed',
     'fee': 'fee',
     'feePending': 'feePending',
+    'interchangeAdjusted': 'interchangeAdjusted',
     'internalTransfer': 'internalTransfer',
     'internalTransferPending': 'internalTransferPending',
     'invoiceDeduction': 'invoiceDeduction',
@@ -472,6 +478,7 @@ class _$ModificationStatusEnumSerializer
     'failed': 'failed',
     'fee': 'fee',
     'feePending': 'feePending',
+    'interchangeAdjusted': 'interchangeAdjusted',
     'internalTransfer': 'internalTransfer',
     'internalTransferPending': 'internalTransferPending',
     'invoiceDeduction': 'invoiceDeduction',

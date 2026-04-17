@@ -52,6 +52,9 @@ Serializers _$serializers =
           ..add(AfterpayDetailsTypeEnum.serializer)
           ..add(Agency.serializer)
           ..add(Airline.serializer)
+          ..add(AlmaDetails.serializer)
+          ..add(AlmaDetailsFeeTypeEnum.serializer)
+          ..add(AlmaDetailsTypeEnum.serializer)
           ..add(AmazonPayDetails.serializer)
           ..add(AmazonPayDetailsTypeEnum.serializer)
           ..add(Amount.serializer)
@@ -139,6 +142,7 @@ Serializers _$serializers =
           ..add(CheckoutVoucherActionTypeEnum.serializer)
           ..add(CommonField.serializer)
           ..add(Company.serializer)
+          ..add(ConfidenceScore.serializer)
           ..add(CreateCheckoutSessionRequest.serializer)
           ..add(CreateCheckoutSessionRequestChannelEnum.serializer)
           ..add(CreateCheckoutSessionRequestModeEnum.serializer)
@@ -174,6 +178,8 @@ Serializers _$serializers =
           ..add(DeviceRenderOptions.serializer)
           ..add(DeviceRenderOptionsSdkInterfaceEnum.serializer)
           ..add(DeviceRenderOptionsSdkUiTypeEnum.serializer)
+          ..add(DirectDebitAuDetails.serializer)
+          ..add(DirectDebitAuDetailsTypeEnum.serializer)
           ..add(DokuDetails.serializer)
           ..add(DokuDetailsTypeEnum.serializer)
           ..add(Donation.serializer)
@@ -231,6 +237,8 @@ Serializers _$serializers =
           ..add(ItemDetailLine.serializer)
           ..add(KlarnaDetails.serializer)
           ..add(KlarnaDetailsTypeEnum.serializer)
+          ..add(KlarnaNetworkDetails.serializer)
+          ..add(KlarnaNetworkDetailsTypeEnum.serializer)
           ..add(Leg.serializer)
           ..add(LevelTwoThree.serializer)
           ..add(LineItem.serializer)
@@ -346,6 +354,9 @@ Serializers _$serializers =
           ..add(Phone.serializer)
           ..add(PixDetails.serializer)
           ..add(PixDetailsTypeEnum.serializer)
+          ..add(PixPayByBankDetails.serializer)
+          ..add(PixPayByBankDetailsTypeEnum.serializer)
+          ..add(PixPayByBankRiskSignals.serializer)
           ..add(PixRecurring.serializer)
           ..add(PixRecurringFrequencyEnum.serializer)
           ..add(PlatformChargebackLogic.serializer)
@@ -388,6 +399,7 @@ Serializers _$serializers =
           ..add(SamsungPayDetails.serializer)
           ..add(SamsungPayDetailsFundingSourceEnum.serializer)
           ..add(SamsungPayDetailsTypeEnum.serializer)
+          ..add(ScreenDimensions.serializer)
           ..add(SepaDirectDebitDetails.serializer)
           ..add(SepaDirectDebitDetailsTypeEnum.serializer)
           ..add(ServiceError.serializer)
@@ -460,6 +472,7 @@ Serializers _$serializers =
           ..add(TokenMandateAmountRuleEnum.serializer)
           ..add(TokenMandateBillingAttemptsRuleEnum.serializer)
           ..add(TokenMandateFrequencyEnum.serializer)
+          ..add(TokenMandateRetryPolicyEnum.serializer)
           ..add(TravelAgency.serializer)
           ..add(TwintDetails.serializer)
           ..add(TwintDetailsTypeEnum.serializer)
@@ -643,6 +656,10 @@ Serializers _$serializers =
               const FullType(StoredPaymentMethodResource),
             ]),
             () => ListBuilder<StoredPaymentMethodResource>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(String)]),
+            () => ListBuilder<String>(),
           )
           ..addBuilderFactory(
             const FullType(BuiltList, const [const FullType(String)]),

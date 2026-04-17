@@ -53,6 +53,56 @@ _$transactionRuleInfoOutcomeTypeEnumValues =
       ],
     );
 
+const TransactionRuleInfoPurposeEnum
+_$transactionRuleInfoPurposeEnum_compliance =
+    const TransactionRuleInfoPurposeEnum._('compliance');
+const TransactionRuleInfoPurposeEnum _$transactionRuleInfoPurposeEnum_fraud =
+    const TransactionRuleInfoPurposeEnum._('fraud');
+const TransactionRuleInfoPurposeEnum
+_$transactionRuleInfoPurposeEnum_internalPolicy =
+    const TransactionRuleInfoPurposeEnum._('internalPolicy');
+const TransactionRuleInfoPurposeEnum _$transactionRuleInfoPurposeEnum_policy =
+    const TransactionRuleInfoPurposeEnum._('policy');
+const TransactionRuleInfoPurposeEnum _$transactionRuleInfoPurposeEnum_system =
+    const TransactionRuleInfoPurposeEnum._('system');
+const TransactionRuleInfoPurposeEnum
+_$transactionRuleInfoPurposeEnum_unknownDefaultOpenApi =
+    const TransactionRuleInfoPurposeEnum._('unknownDefaultOpenApi');
+
+TransactionRuleInfoPurposeEnum _$transactionRuleInfoPurposeEnumValueOf(
+  String name,
+) {
+  switch (name) {
+    case 'compliance':
+      return _$transactionRuleInfoPurposeEnum_compliance;
+    case 'fraud':
+      return _$transactionRuleInfoPurposeEnum_fraud;
+    case 'internalPolicy':
+      return _$transactionRuleInfoPurposeEnum_internalPolicy;
+    case 'policy':
+      return _$transactionRuleInfoPurposeEnum_policy;
+    case 'system':
+      return _$transactionRuleInfoPurposeEnum_system;
+    case 'unknownDefaultOpenApi':
+      return _$transactionRuleInfoPurposeEnum_unknownDefaultOpenApi;
+    default:
+      return _$transactionRuleInfoPurposeEnum_unknownDefaultOpenApi;
+  }
+}
+
+final BuiltSet<TransactionRuleInfoPurposeEnum>
+_$transactionRuleInfoPurposeEnumValues =
+    BuiltSet<TransactionRuleInfoPurposeEnum>(
+      const <TransactionRuleInfoPurposeEnum>[
+        _$transactionRuleInfoPurposeEnum_compliance,
+        _$transactionRuleInfoPurposeEnum_fraud,
+        _$transactionRuleInfoPurposeEnum_internalPolicy,
+        _$transactionRuleInfoPurposeEnum_policy,
+        _$transactionRuleInfoPurposeEnum_system,
+        _$transactionRuleInfoPurposeEnum_unknownDefaultOpenApi,
+      ],
+    );
+
 const TransactionRuleInfoRequestTypeEnum
 _$transactionRuleInfoRequestTypeEnum_authentication =
     const TransactionRuleInfoRequestTypeEnum._('authentication');
@@ -174,6 +224,9 @@ _$transactionRuleInfoTypeEnumValues =
 Serializer<TransactionRuleInfoOutcomeTypeEnum>
 _$transactionRuleInfoOutcomeTypeEnumSerializer =
     _$TransactionRuleInfoOutcomeTypeEnumSerializer();
+Serializer<TransactionRuleInfoPurposeEnum>
+_$transactionRuleInfoPurposeEnumSerializer =
+    _$TransactionRuleInfoPurposeEnumSerializer();
 Serializer<TransactionRuleInfoRequestTypeEnum>
 _$transactionRuleInfoRequestTypeEnumSerializer =
     _$TransactionRuleInfoRequestTypeEnumSerializer();
@@ -219,6 +272,47 @@ class _$TransactionRuleInfoOutcomeTypeEnumSerializer
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) => TransactionRuleInfoOutcomeTypeEnum.valueOf(
+    _fromWire[serialized] ?? (serialized is String ? serialized : ''),
+  );
+}
+
+class _$TransactionRuleInfoPurposeEnumSerializer
+    implements PrimitiveSerializer<TransactionRuleInfoPurposeEnum> {
+  static const Map<String, Object> _toWire = const <String, Object>{
+    'compliance': 'compliance',
+    'fraud': 'fraud',
+    'internalPolicy': 'internalPolicy',
+    'policy': 'policy',
+    'system': 'system',
+    'unknownDefaultOpenApi': 'unknown_default_open_api',
+  };
+  static const Map<Object, String> _fromWire = const <Object, String>{
+    'compliance': 'compliance',
+    'fraud': 'fraud',
+    'internalPolicy': 'internalPolicy',
+    'policy': 'policy',
+    'system': 'system',
+    'unknown_default_open_api': 'unknownDefaultOpenApi',
+  };
+
+  @override
+  final Iterable<Type> types = const <Type>[TransactionRuleInfoPurposeEnum];
+  @override
+  final String wireName = 'TransactionRuleInfoPurposeEnum';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    TransactionRuleInfoPurposeEnum object, {
+    FullType specifiedType = FullType.unspecified,
+  }) => _toWire[object.name] ?? object.name;
+
+  @override
+  TransactionRuleInfoPurposeEnum deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) => TransactionRuleInfoPurposeEnum.valueOf(
     _fromWire[serialized] ?? (serialized is String ? serialized : ''),
   );
 }
@@ -350,6 +444,8 @@ class _$TransactionRuleInfo extends TransactionRuleInfo {
   @override
   final TransactionRuleInfoOutcomeTypeEnum? outcomeType;
   @override
+  final TransactionRuleInfoPurposeEnum? purpose;
+  @override
   final String reference;
   @override
   final TransactionRuleInfoRequestTypeEnum? requestType;
@@ -375,6 +471,7 @@ class _$TransactionRuleInfo extends TransactionRuleInfo {
     required this.entityKey,
     required this.interval,
     this.outcomeType,
+    this.purpose,
     required this.reference,
     this.requestType,
     required this.ruleRestrictions,
@@ -402,6 +499,7 @@ class _$TransactionRuleInfo extends TransactionRuleInfo {
         entityKey == other.entityKey &&
         interval == other.interval &&
         outcomeType == other.outcomeType &&
+        purpose == other.purpose &&
         reference == other.reference &&
         requestType == other.requestType &&
         ruleRestrictions == other.ruleRestrictions &&
@@ -420,6 +518,7 @@ class _$TransactionRuleInfo extends TransactionRuleInfo {
     _$hash = $jc(_$hash, entityKey.hashCode);
     _$hash = $jc(_$hash, interval.hashCode);
     _$hash = $jc(_$hash, outcomeType.hashCode);
+    _$hash = $jc(_$hash, purpose.hashCode);
     _$hash = $jc(_$hash, reference.hashCode);
     _$hash = $jc(_$hash, requestType.hashCode);
     _$hash = $jc(_$hash, ruleRestrictions.hashCode);
@@ -440,6 +539,7 @@ class _$TransactionRuleInfo extends TransactionRuleInfo {
           ..add('entityKey', entityKey)
           ..add('interval', interval)
           ..add('outcomeType', outcomeType)
+          ..add('purpose', purpose)
           ..add('reference', reference)
           ..add('requestType', requestType)
           ..add('ruleRestrictions', ruleRestrictions)
@@ -485,6 +585,11 @@ class TransactionRuleInfoBuilder
   set outcomeType(TransactionRuleInfoOutcomeTypeEnum? outcomeType) =>
       _$this._outcomeType = outcomeType;
 
+  TransactionRuleInfoPurposeEnum? _purpose;
+  TransactionRuleInfoPurposeEnum? get purpose => _$this._purpose;
+  set purpose(TransactionRuleInfoPurposeEnum? purpose) =>
+      _$this._purpose = purpose;
+
   String? _reference;
   String? get reference => _$this._reference;
   set reference(String? reference) => _$this._reference = reference;
@@ -529,6 +634,7 @@ class TransactionRuleInfoBuilder
       _entityKey = $v.entityKey.toBuilder();
       _interval = $v.interval.toBuilder();
       _outcomeType = $v.outcomeType;
+      _purpose = $v.purpose;
       _reference = $v.reference;
       _requestType = $v.requestType;
       _ruleRestrictions = $v.ruleRestrictions.toBuilder();
@@ -570,6 +676,7 @@ class TransactionRuleInfoBuilder
             entityKey: entityKey.build(),
             interval: interval.build(),
             outcomeType: outcomeType,
+            purpose: purpose,
             reference: BuiltValueNullFieldError.checkNotNull(
               reference,
               r'TransactionRuleInfo',
