@@ -11,6 +11,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+### Fixed
+
+- **Balance Control**: Updated the hand-written wrapper and service tests to use
+  the regenerated Balance Control v2 client surface, fixing CI on the OpenAPI
+  update branch.
+
 ## [0.3.0] - 2026-01-15
 
 ### Added
