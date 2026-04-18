@@ -33,7 +33,7 @@ jobs:
           cat release_notes_body.txt >> "$GITHUB_OUTPUT" 2>/dev/null || echo "See CHANGELOG.md for details" >> "$GITHUB_OUTPUT"
           echo "EOF" >> "$GITHUB_OUTPUT"
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           name: ${{ github.ref_name }}
           body: |
