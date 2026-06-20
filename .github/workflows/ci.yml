@@ -14,7 +14,7 @@ jobs:
     # Skip push events for PRs to avoid duplicate runs
     if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Install dependencies
         run: sudo apt-get update && sudo apt-get install -y jq ripgrep
       - uses: dart-lang/setup-dart@v1
