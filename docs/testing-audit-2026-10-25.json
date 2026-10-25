@@ -1,0 +1,109 @@
+{
+  "date": "2026-10-25",
+  "baseline_commit": "05c8d96ee74ab8e7fb9d2bf0ebb8b02bd0ae576e",
+  "dart_sdk": "3.13.7",
+  "test_counts": {
+    "baseline": 450,
+    "without_three_regressions": 447,
+    "after": 459
+  },
+  "new_test_sha256": "35c5dd7d5e010ab355f7962598a7bb13b451225977f65544ab8a894da2f22894",
+  "coverage": {
+    "baseline": {
+      "hit": 1088,
+      "total": 1303,
+      "percent": 83.5,
+      "files": 60
+    },
+    "after": {
+      "hit": 1088,
+      "total": 1303,
+      "percent": 83.5
+    },
+    "generated_after": {
+      "hit": 32859,
+      "total": 241034,
+      "percent": 13.63
+    }
+  },
+  "mutation_results": [
+    {
+      "mutation": "header-version",
+      "before_detected": true,
+      "before_failing_tests": 1,
+      "after_detected": true,
+      "after_failing_tests": 1,
+      "compile_error": false
+    },
+    {
+      "mutation": "checkout-v71",
+      "before_detected": true,
+      "before_failing_tests": 1,
+      "after_detected": true,
+      "after_failing_tests": 1,
+      "compile_error": false
+    },
+    {
+      "mutation": "cash-out-unwired",
+      "before_detected": false,
+      "before_failing_tests": 0,
+      "after_detected": true,
+      "after_failing_tests": 1,
+      "compile_error": false
+    },
+    {
+      "mutation": "managed-payout-unwired",
+      "before_detected": false,
+      "before_failing_tests": 0,
+      "after_detected": true,
+      "after_failing_tests": 1,
+      "compile_error": false
+    },
+    {
+      "mutation": "terminal-theme-unwired",
+      "before_detected": false,
+      "before_failing_tests": 0,
+      "after_detected": true,
+      "after_failing_tests": 1,
+      "compile_error": false
+    },
+    {
+      "mutation": "hmac-accept-all",
+      "before_detected": true,
+      "before_failing_tests": 3,
+      "after_detected": true,
+      "after_failing_tests": 3,
+      "compile_error": false
+    },
+    {
+      "mutation": "omit-api-key",
+      "before_detected": false,
+      "before_failing_tests": 0,
+      "after_detected": true,
+      "after_failing_tests": 9,
+      "compile_error": false
+    },
+    {
+      "mutation": "uk-empty-discriminator",
+      "before_detected": true,
+      "before_failing_tests": 1,
+      "after_detected": true,
+      "after_failing_tests": 1,
+      "compile_error": false
+    }
+  ],
+  "removed_regression_tests": [
+    {
+      "mutation": "header-version-without-new",
+      "exit_code": 0
+    },
+    {
+      "mutation": "checkout-v71-without-new",
+      "exit_code": 0
+    },
+    {
+      "mutation": "uk-empty-discriminator-without-new",
+      "exit_code": 0
+    }
+  ]
+}

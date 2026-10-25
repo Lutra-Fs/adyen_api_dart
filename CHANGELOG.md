@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **Testing**: Added nine request-level tests for newly exposed API groups,
+  including authentication headers, routing, and cash-out serialization. Recorded
+  a coverage audit and isolated test-removal/fault-injection experiments.
 - **APIs**: Exposed new Balance Platform payout schedule and recurring top-up
   clients, Management client certificate, donation campaign and terminal theme
   clients, and the Transfers cash-out client.
@@ -36,6 +39,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **CI**: Updated Checkout and Codecov actions to v7 and GitHub Release to v3.
 - **Documentation**: Updated the installation example to 0.3.0 and documented FVM,
   code generation, version metadata, and automation credential maintenance.
+- **Documentation**: Corrected contributor commands to exclude generated files
+  from formatting and use the current export script and test paths.
 
 ### Fixed
 
