@@ -1108,6 +1108,8 @@ class _$SplitConfigurationLogic extends SplitConfigurationLogic {
   @override
   final Commission commission;
   @override
+  final SplitDcc? dcc;
+  @override
   final SplitConfigurationLogicInterchangeEnum? interchange;
   @override
   final SplitConfigurationLogicPaymentFeeEnum? paymentFee;
@@ -1139,6 +1141,7 @@ class _$SplitConfigurationLogic extends SplitConfigurationLogic {
     this.chargeback,
     this.chargebackCostAllocation,
     required this.commission,
+    this.dcc,
     this.interchange,
     this.paymentFee,
     this.refund,
@@ -1170,6 +1173,7 @@ class _$SplitConfigurationLogic extends SplitConfigurationLogic {
         chargeback == other.chargeback &&
         chargebackCostAllocation == other.chargebackCostAllocation &&
         commission == other.commission &&
+        dcc == other.dcc &&
         interchange == other.interchange &&
         paymentFee == other.paymentFee &&
         refund == other.refund &&
@@ -1192,6 +1196,7 @@ class _$SplitConfigurationLogic extends SplitConfigurationLogic {
     _$hash = $jc(_$hash, chargeback.hashCode);
     _$hash = $jc(_$hash, chargebackCostAllocation.hashCode);
     _$hash = $jc(_$hash, commission.hashCode);
+    _$hash = $jc(_$hash, dcc.hashCode);
     _$hash = $jc(_$hash, interchange.hashCode);
     _$hash = $jc(_$hash, paymentFee.hashCode);
     _$hash = $jc(_$hash, refund.hashCode);
@@ -1216,6 +1221,7 @@ class _$SplitConfigurationLogic extends SplitConfigurationLogic {
           ..add('chargeback', chargeback)
           ..add('chargebackCostAllocation', chargebackCostAllocation)
           ..add('commission', commission)
+          ..add('dcc', dcc)
           ..add('interchange', interchange)
           ..add('paymentFee', paymentFee)
           ..add('refund', refund)
@@ -1284,6 +1290,10 @@ class SplitConfigurationLogicBuilder
   set commission(CommissionBuilder? commission) =>
       _$this._commission = commission;
 
+  SplitDccBuilder? _dcc;
+  SplitDccBuilder get dcc => _$this._dcc ??= SplitDccBuilder();
+  set dcc(SplitDccBuilder? dcc) => _$this._dcc = dcc;
+
   SplitConfigurationLogicInterchangeEnum? _interchange;
   SplitConfigurationLogicInterchangeEnum? get interchange =>
       _$this._interchange;
@@ -1345,6 +1355,7 @@ class SplitConfigurationLogicBuilder
       _chargeback = $v.chargeback;
       _chargebackCostAllocation = $v.chargebackCostAllocation;
       _commission = $v.commission.toBuilder();
+      _dcc = $v.dcc?.toBuilder();
       _interchange = $v.interchange;
       _paymentFee = $v.paymentFee;
       _refund = $v.refund;
@@ -1386,6 +1397,7 @@ class SplitConfigurationLogicBuilder
             chargeback: chargeback,
             chargebackCostAllocation: chargebackCostAllocation,
             commission: commission.build(),
+            dcc: _dcc?.build(),
             interchange: interchange,
             paymentFee: paymentFee,
             refund: refund,
@@ -1404,6 +1416,8 @@ class SplitConfigurationLogicBuilder
 
         _$failedField = 'commission';
         commission.build();
+        _$failedField = 'dcc';
+        _dcc?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
           r'SplitConfigurationLogic',

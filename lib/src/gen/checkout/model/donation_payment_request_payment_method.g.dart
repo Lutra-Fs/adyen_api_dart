@@ -79,6 +79,9 @@ const DonationPaymentRequestPaymentMethodTypeEnum
 _$donationPaymentRequestPaymentMethodTypeEnum_paywithgoogle =
     const DonationPaymentRequestPaymentMethodTypeEnum._('paywithgoogle');
 const DonationPaymentRequestPaymentMethodTypeEnum
+_$donationPaymentRequestPaymentMethodTypeEnum_sepadirectdebit =
+    const DonationPaymentRequestPaymentMethodTypeEnum._('sepadirectdebit');
+const DonationPaymentRequestPaymentMethodTypeEnum
 _$donationPaymentRequestPaymentMethodTypeEnum_unknownDefaultOpenApi =
     const DonationPaymentRequestPaymentMethodTypeEnum._(
       'unknownDefaultOpenApi',
@@ -107,6 +110,8 @@ _$donationPaymentRequestPaymentMethodTypeEnumValueOf(String name) {
       return _$donationPaymentRequestPaymentMethodTypeEnum_ideal;
     case 'paywithgoogle':
       return _$donationPaymentRequestPaymentMethodTypeEnum_paywithgoogle;
+    case 'sepadirectdebit':
+      return _$donationPaymentRequestPaymentMethodTypeEnum_sepadirectdebit;
     case 'unknownDefaultOpenApi':
       return _$donationPaymentRequestPaymentMethodTypeEnum_unknownDefaultOpenApi;
     default:
@@ -128,6 +133,7 @@ _$donationPaymentRequestPaymentMethodTypeEnumValues =
         _$donationPaymentRequestPaymentMethodTypeEnum_googlepay,
         _$donationPaymentRequestPaymentMethodTypeEnum_ideal,
         _$donationPaymentRequestPaymentMethodTypeEnum_paywithgoogle,
+        _$donationPaymentRequestPaymentMethodTypeEnum_sepadirectdebit,
         _$donationPaymentRequestPaymentMethodTypeEnum_unknownDefaultOpenApi,
       ],
     );
@@ -196,6 +202,7 @@ class _$DonationPaymentRequestPaymentMethodTypeEnumSerializer
     'googlepay': 'googlepay',
     'ideal': 'ideal',
     'paywithgoogle': 'paywithgoogle',
+    'sepadirectdebit': 'sepadirectdebit',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
@@ -209,6 +216,7 @@ class _$DonationPaymentRequestPaymentMethodTypeEnumSerializer
     'googlepay': 'googlepay',
     'ideal': 'ideal',
     'paywithgoogle': 'paywithgoogle',
+    'sepadirectdebit': 'sepadirectdebit',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
 

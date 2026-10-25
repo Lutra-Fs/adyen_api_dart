@@ -14,7 +14,7 @@ part 'stored_value_load_request.g.dart';
 ///
 /// Properties:
 /// * [amount] - The amount information for the transaction.
-/// * [loadType] - The type of load you are trying to do, when absent we default to 'Load'
+/// * [loadType] - The type of load you are trying to do, when absent we default to 'load'
 /// * [merchantAccount] - The merchant account identifier, with which you want to process the transaction.
 /// * [paymentMethod] - The collection that contains the type of the payment method and its specific information if available
 /// * [recurringDetailReference] 
@@ -28,7 +28,7 @@ abstract class StoredValueLoadRequest implements Built<StoredValueLoadRequest, S
   @BuiltValueField(wireName: r'amount')
   Amount get amount;
 
-  /// The type of load you are trying to do, when absent we default to 'Load'
+  /// The type of load you are trying to do, when absent we default to 'load'
   @BuiltValueField(wireName: r'loadType')
   StoredValueLoadRequestLoadTypeEnum? get loadType;
   // enum loadTypeEnum {  merchandiseReturn,  load,  };
@@ -255,13 +255,13 @@ class _$StoredValueLoadRequestSerializer implements PrimitiveSerializer<StoredVa
 
 class StoredValueLoadRequestLoadTypeEnum extends EnumClass {
 
-  /// The type of load you are trying to do, when absent we default to 'Load'
+  /// The type of load you are trying to do, when absent we default to 'load'
   @BuiltValueEnumConst(wireName: r'merchandiseReturn')
   static const StoredValueLoadRequestLoadTypeEnum merchandiseReturn = _$storedValueLoadRequestLoadTypeEnum_merchandiseReturn;
-  /// The type of load you are trying to do, when absent we default to 'Load'
+  /// The type of load you are trying to do, when absent we default to 'load'
   @BuiltValueEnumConst(wireName: r'load')
   static const StoredValueLoadRequestLoadTypeEnum load = _$storedValueLoadRequestLoadTypeEnum_load;
-  /// The type of load you are trying to do, when absent we default to 'Load'
+  /// The type of load you are trying to do, when absent we default to 'load'
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const StoredValueLoadRequestLoadTypeEnum unknownDefaultOpenApi = _$storedValueLoadRequestLoadTypeEnum_unknownDefaultOpenApi;
 

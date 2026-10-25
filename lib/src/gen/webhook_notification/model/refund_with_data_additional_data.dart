@@ -46,6 +46,8 @@ part 'refund_with_data_additional_data.g.dart';
 /// * [issuerCountry] 
 /// * [liabilityShift] 
 /// * [merchantOrderReference] 
+/// * [networkTxDate] - The network transaction date for Mastercard transactions processed by Bank of America Merchant Services (BAMS).
+/// * [networkTxReference] - The network transaction reference from the scheme, when available.
 /// * [paymentLinkId] 
 /// * [paymentMethodVariant] 
 /// * [refusalReasonRaw] 
@@ -166,6 +168,14 @@ abstract class RefundWithDataAdditionalData implements Built<RefundWithDataAddit
 
   @BuiltValueField(wireName: r'merchantOrderReference')
   String? get merchantOrderReference;
+
+  /// The network transaction date for Mastercard transactions processed by Bank of America Merchant Services (BAMS).
+  @BuiltValueField(wireName: r'networkTxDate')
+  String? get networkTxDate;
+
+  /// The network transaction reference from the scheme, when available.
+  @BuiltValueField(wireName: r'networkTxReference')
+  String? get networkTxReference;
 
   @BuiltValueField(wireName: r'paymentLinkId')
   String? get paymentLinkId;
@@ -474,6 +484,20 @@ class _$RefundWithDataAdditionalDataSerializer implements PrimitiveSerializer<Re
       yield r'merchantOrderReference';
       yield serializers.serialize(
         object.merchantOrderReference,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.networkTxDate != null) {
+      yield r'networkTxDate';
+      yield serializers.serialize(
+        object.networkTxDate,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.networkTxReference != null) {
+      yield r'networkTxReference';
+      yield serializers.serialize(
+        object.networkTxReference,
         specifiedType: const FullType(String),
       );
     }
@@ -842,6 +866,20 @@ class _$RefundWithDataAdditionalDataSerializer implements PrimitiveSerializer<Re
             specifiedType: const FullType(String),
           ) as String;
           result.merchantOrderReference = valueDes;
+          break;
+        case r'networkTxDate':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.networkTxDate = valueDes;
+          break;
+        case r'networkTxReference':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.networkTxReference = valueDes;
           break;
         case r'paymentLinkId':
           final valueDes = serializers.deserialize(

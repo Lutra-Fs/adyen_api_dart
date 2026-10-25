@@ -13,14 +13,15 @@ part 'checkout_forward_request_options.g.dart';
 /// CheckoutForwardRequestOptions
 ///
 /// Properties:
-/// * [accountUpdate] - Whether to check for a card account update (true) or not (false)
+/// * [accountUpdate] - Set to **true** to check if the account tied to the card has been updated.
 /// * [dryRun] - Set to **true** to receive a copy of the request Adyen is making to the third party in the response. Any sensitive information will be masked in the response you receive. This functionality is only available in the test environment.
 /// * [networkToken] - The object that contains the details for forwarding a network token.
-/// * [networkTxReferencePaths] - Set in tokenize:true case when forwarding PAN. Addresses to the possible location(s) of networkTxReference in the incoming 3rd party response
-/// * [tokenize] - Set to **true**, the payment details are [tokenized](https://docs.adyen.com/online-payments/tokenization).
+/// * [networkTxReferencePaths] - Only include when `tokenize` is set to **true**.<br><br>A list of addresses to possible location(s) of the `networkTxReference` that will be returned in the third party response.
+/// * [tokenize] - Set to **true** to [tokenize](https://docs.adyen.com/online-payments/tokenization) the payment details.
+/// * [transactionLinkIdPaths] - Only include when `tokenize` is set to **true**.<br><br>A list of addresses to possible location(s) of the `transactionLinkId` that will be returned in the third party response.
 @BuiltValue()
 abstract class CheckoutForwardRequestOptions implements Built<CheckoutForwardRequestOptions, CheckoutForwardRequestOptionsBuilder> {
-  /// Whether to check for a card account update (true) or not (false)
+  /// Set to **true** to check if the account tied to the card has been updated.
   @BuiltValueField(wireName: r'accountUpdate')
   bool? get accountUpdate;
 
@@ -32,13 +33,17 @@ abstract class CheckoutForwardRequestOptions implements Built<CheckoutForwardReq
   @BuiltValueField(wireName: r'networkToken')
   CheckoutNetworkTokenOption? get networkToken;
 
-  /// Set in tokenize:true case when forwarding PAN. Addresses to the possible location(s) of networkTxReference in the incoming 3rd party response
+  /// Only include when `tokenize` is set to **true**.<br><br>A list of addresses to possible location(s) of the `networkTxReference` that will be returned in the third party response.
   @BuiltValueField(wireName: r'networkTxReferencePaths')
   BuiltList<String>? get networkTxReferencePaths;
 
-  /// Set to **true**, the payment details are [tokenized](https://docs.adyen.com/online-payments/tokenization).
+  /// Set to **true** to [tokenize](https://docs.adyen.com/online-payments/tokenization) the payment details.
   @BuiltValueField(wireName: r'tokenize')
   bool? get tokenize;
+
+  /// Only include when `tokenize` is set to **true**.<br><br>A list of addresses to possible location(s) of the `transactionLinkId` that will be returned in the third party response.
+  @BuiltValueField(wireName: r'transactionLinkIdPaths')
+  BuiltList<String>? get transactionLinkIdPaths;
 
   CheckoutForwardRequestOptions._();
 
@@ -98,6 +103,13 @@ class _$CheckoutForwardRequestOptionsSerializer implements PrimitiveSerializer<C
         specifiedType: const FullType(bool),
       );
     }
+    if (object.transactionLinkIdPaths != null) {
+      yield r'transactionLinkIdPaths';
+      yield serializers.serialize(
+        object.transactionLinkIdPaths,
+        specifiedType: const FullType(BuiltList, [FullType(String)]),
+      );
+    }
   }
 
   @override
@@ -155,6 +167,13 @@ class _$CheckoutForwardRequestOptionsSerializer implements PrimitiveSerializer<C
             specifiedType: const FullType(bool),
           ) as bool;
           result.tokenize = valueDes;
+          break;
+        case r'transactionLinkIdPaths':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(BuiltList, [FullType(String)]),
+          ) as BuiltList<String>;
+          result.transactionLinkIdPaths.replace(valueDes);
           break;
         default:
           unhandled.add(key);

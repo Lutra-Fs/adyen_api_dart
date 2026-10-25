@@ -33,6 +33,7 @@ part 'additional_data_common.g.dart';
 /// * [subMerchantState] - This field is required if the transaction is performed by a registered payment facilitator, and if applicable to the country. This field must contain the state code of the actual merchant's address. * Format: alpha-numeric. * Maximum length: 3 characters.
 /// * [subMerchantStreet] - This field is required if the transaction is performed by a registered payment facilitator. This field must contain the street of the actual merchant's address. * Format: alpha-numeric. * Maximum length: 60 characters.
 /// * [subMerchantTaxId] - This field is required if the transaction is performed by a registered payment facilitator. This field must contain the tax ID of the actual merchant. * Format: alpha-numeric. * Fixed length: 11 or 14 characters.
+/// * [transactionLinkId] - Allows you to link the transaction to the original or previous one in a subscription/card-on-file chain For Mastercard payments. This field is required for token-based transactions where Adyen does not tokenize the card.  Transaction identifier from Mastercard.  Submit the original transaction ID of the contract in your payment request if you are not tokenizing card details with Adyen and are making a merchant-initiated transaction (MIT) for subsequent charges.  Make sure you are sending `shopperInteraction` **ContAuth** and `recurringProcessingModel` **Subscription** or **UnscheduledCardOnFile** to ensure that the transaction is classified as MIT.
 @BuiltValue()
 abstract class AdditionalDataCommon implements Built<AdditionalDataCommon, AdditionalDataCommonBuilder> {
   /// Triggers test scenarios that allow to replicate certain acquirer response codes. See [Testing result codes and refusal reasons](https://docs.adyen.com/development-resources/testing/result-codes/) to learn about the possible values, and the `refusalReason` values you can trigger. 
@@ -119,6 +120,10 @@ abstract class AdditionalDataCommon implements Built<AdditionalDataCommon, Addit
   /// This field is required if the transaction is performed by a registered payment facilitator. This field must contain the tax ID of the actual merchant. * Format: alpha-numeric. * Fixed length: 11 or 14 characters.
   @BuiltValueField(wireName: r'subMerchantTaxId')
   String? get subMerchantTaxId;
+
+  /// Allows you to link the transaction to the original or previous one in a subscription/card-on-file chain For Mastercard payments. This field is required for token-based transactions where Adyen does not tokenize the card.  Transaction identifier from Mastercard.  Submit the original transaction ID of the contract in your payment request if you are not tokenizing card details with Adyen and are making a merchant-initiated transaction (MIT) for subsequent charges.  Make sure you are sending `shopperInteraction` **ContAuth** and `recurringProcessingModel` **Subscription** or **UnscheduledCardOnFile** to ensure that the transaction is classified as MIT.
+  @BuiltValueField(wireName: r'transactionLinkId')
+  String? get transactionLinkId;
 
   AdditionalDataCommon._();
 
@@ -287,6 +292,13 @@ class _$AdditionalDataCommonSerializer implements PrimitiveSerializer<Additional
       yield r'subMerchantTaxId';
       yield serializers.serialize(
         object.subMerchantTaxId,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.transactionLinkId != null) {
+      yield r'transactionLinkId';
+      yield serializers.serialize(
+        object.transactionLinkId,
         specifiedType: const FullType(String),
       );
     }
@@ -459,6 +471,13 @@ class _$AdditionalDataCommonSerializer implements PrimitiveSerializer<Additional
             specifiedType: const FullType(String),
           ) as String;
           result.subMerchantTaxId = valueDes;
+          break;
+        case r'transactionLinkId':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.transactionLinkId = valueDes;
           break;
         default:
           unhandled.add(key);

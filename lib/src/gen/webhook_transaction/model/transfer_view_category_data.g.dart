@@ -110,6 +110,46 @@ _$transferViewCategoryDataTypeEnumValues =
       ],
     );
 
+const TransferViewCategoryDataNetworkVariantEnum
+_$transferViewCategoryDataNetworkVariantEnum_maestroUs =
+    const TransferViewCategoryDataNetworkVariantEnum._('maestroUs');
+const TransferViewCategoryDataNetworkVariantEnum
+_$transferViewCategoryDataNetworkVariantEnum_mastercard =
+    const TransferViewCategoryDataNetworkVariantEnum._('mastercard');
+const TransferViewCategoryDataNetworkVariantEnum
+_$transferViewCategoryDataNetworkVariantEnum_visa =
+    const TransferViewCategoryDataNetworkVariantEnum._('visa');
+const TransferViewCategoryDataNetworkVariantEnum
+_$transferViewCategoryDataNetworkVariantEnum_unknownDefaultOpenApi =
+    const TransferViewCategoryDataNetworkVariantEnum._('unknownDefaultOpenApi');
+
+TransferViewCategoryDataNetworkVariantEnum
+_$transferViewCategoryDataNetworkVariantEnumValueOf(String name) {
+  switch (name) {
+    case 'maestroUs':
+      return _$transferViewCategoryDataNetworkVariantEnum_maestroUs;
+    case 'mastercard':
+      return _$transferViewCategoryDataNetworkVariantEnum_mastercard;
+    case 'visa':
+      return _$transferViewCategoryDataNetworkVariantEnum_visa;
+    case 'unknownDefaultOpenApi':
+      return _$transferViewCategoryDataNetworkVariantEnum_unknownDefaultOpenApi;
+    default:
+      return _$transferViewCategoryDataNetworkVariantEnum_unknownDefaultOpenApi;
+  }
+}
+
+final BuiltSet<TransferViewCategoryDataNetworkVariantEnum>
+_$transferViewCategoryDataNetworkVariantEnumValues =
+    BuiltSet<TransferViewCategoryDataNetworkVariantEnum>(
+      const <TransferViewCategoryDataNetworkVariantEnum>[
+        _$transferViewCategoryDataNetworkVariantEnum_maestroUs,
+        _$transferViewCategoryDataNetworkVariantEnum_mastercard,
+        _$transferViewCategoryDataNetworkVariantEnum_visa,
+        _$transferViewCategoryDataNetworkVariantEnum_unknownDefaultOpenApi,
+      ],
+    );
+
 const TransferViewCategoryDataPanEntryModeEnum
 _$transferViewCategoryDataPanEntryModeEnum_chip =
     const TransferViewCategoryDataPanEntryModeEnum._('chip');
@@ -386,6 +426,9 @@ _$transferViewCategoryDataPriorityEnumSerializer =
 Serializer<TransferViewCategoryDataTypeEnum>
 _$transferViewCategoryDataTypeEnumSerializer =
     _$TransferViewCategoryDataTypeEnumSerializer();
+Serializer<TransferViewCategoryDataNetworkVariantEnum>
+_$transferViewCategoryDataNetworkVariantEnumSerializer =
+    _$TransferViewCategoryDataNetworkVariantEnumSerializer();
 Serializer<TransferViewCategoryDataPanEntryModeEnum>
 _$transferViewCategoryDataPanEntryModeEnumSerializer =
     _$TransferViewCategoryDataPanEntryModeEnumSerializer();
@@ -476,6 +519,45 @@ class _$TransferViewCategoryDataTypeEnumSerializer
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) => TransferViewCategoryDataTypeEnum.valueOf(
+    _fromWire[serialized] ?? (serialized is String ? serialized : ''),
+  );
+}
+
+class _$TransferViewCategoryDataNetworkVariantEnumSerializer
+    implements PrimitiveSerializer<TransferViewCategoryDataNetworkVariantEnum> {
+  static const Map<String, Object> _toWire = const <String, Object>{
+    'maestroUs': 'maestro_us',
+    'mastercard': 'mastercard',
+    'visa': 'visa',
+    'unknownDefaultOpenApi': 'unknown_default_open_api',
+  };
+  static const Map<Object, String> _fromWire = const <Object, String>{
+    'maestro_us': 'maestroUs',
+    'mastercard': 'mastercard',
+    'visa': 'visa',
+    'unknown_default_open_api': 'unknownDefaultOpenApi',
+  };
+
+  @override
+  final Iterable<Type> types = const <Type>[
+    TransferViewCategoryDataNetworkVariantEnum,
+  ];
+  @override
+  final String wireName = 'TransferViewCategoryDataNetworkVariantEnum';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    TransferViewCategoryDataNetworkVariantEnum object, {
+    FullType specifiedType = FullType.unspecified,
+  }) => _toWire[object.name] ?? object.name;
+
+  @override
+  TransferViewCategoryDataNetworkVariantEnum deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) => TransferViewCategoryDataNetworkVariantEnum.valueOf(
     _fromWire[serialized] ?? (serialized is String ? serialized : ''),
   );
 }

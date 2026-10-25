@@ -3,6 +3,7 @@ import 'package:built_value/serializer.dart';
 import '../../core/service.dart';
 import '../../core/api_service.dart';
 import '../../gen/transfers/api/capital_api.dart' as transfers;
+import '../../gen/transfers/api/cash_out_api.dart' as transfers;
 import '../../gen/transfers/api/transactions_api.dart' as transfers;
 import '../../gen/transfers/api/transfers_api.dart' as transfers;
 import '../../gen/transfers/serializers.dart' as transfers_serializers;
@@ -17,6 +18,7 @@ class TransfersAPI extends ApiService {
     : serializers = transfers_serializers.standardSerializers,
       super(baseUrl: buildBaseUrl(client.config, _basePath)) {
     capitalApi = transfers.CapitalApi(dio, serializers);
+    cashOutApi = transfers.CashOutApi(dio, serializers);
     transactionsApi = transfers.TransactionsApi(dio, serializers);
     transfersApi = transfers.TransfersApi(dio, serializers);
   }
@@ -28,6 +30,9 @@ class TransfersAPI extends ApiService {
 
   /// API for capital operations.
   late final transfers.CapitalApi capitalApi;
+
+  /// API for cash-out operations.
+  late final transfers.CashOutApi cashOutApi;
 
   /// API for retrieving transfer transaction history.
   late final transfers.TransactionsApi transactionsApi;

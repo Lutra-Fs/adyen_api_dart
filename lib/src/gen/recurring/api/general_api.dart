@@ -138,7 +138,7 @@ class GeneralApi {
   }
 
   /// Disable stored payment details
-  /// Disables stored payment details to stop charging a shopper with this particular recurring detail ID.  For more information, refer to [Disable stored details](https://docs.adyen.com/classic-integration/recurring-payments/disable-stored-details/).
+  /// Disables stored payment details to stop charging a shopper with this particular recurring detail ID.  For more information, refer to [Disable stored details](https://docs.adyen.com/online-payments/classic-integrations/classic-api-integration/tokenization/disable-stored-details).
   ///
   /// Parameters:
   /// * [disableRequest] 

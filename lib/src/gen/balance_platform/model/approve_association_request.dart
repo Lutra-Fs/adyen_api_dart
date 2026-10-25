@@ -15,7 +15,7 @@ part 'approve_association_request.g.dart';
 ///
 /// Properties:
 /// * [entityId] - The unique identifier of the entity.
-/// * [entityType] - The type of the entity.   Possible values: **accountHolder** or **paymentInstrument**.
+/// * [entityType] - The type of the entity.   Possible values: **accountHolder**, **legalEntity** or **paymentInstrument**.
 /// * [scaDeviceIds] - List of device ids associated to the entity that will be approved.
 /// * [status] - The status of the association.   Possible values: **active** or **pendingApproval**.
 @BuiltValue()
@@ -24,10 +24,10 @@ abstract class ApproveAssociationRequest implements Built<ApproveAssociationRequ
   @BuiltValueField(wireName: r'entityId')
   String get entityId;
 
-  /// The type of the entity.   Possible values: **accountHolder** or **paymentInstrument**.
+  /// The type of the entity.   Possible values: **accountHolder**, **legalEntity** or **paymentInstrument**.
   @BuiltValueField(wireName: r'entityType')
   ScaEntityType get entityType;
-  // enum entityTypeEnum {  accountHolder,  paymentInstrument,  };
+  // enum entityTypeEnum {  accountHolder,  legalEntity,  paymentInstrument,  };
 
   /// List of device ids associated to the entity that will be approved.
   @BuiltValueField(wireName: r'scaDeviceIds')

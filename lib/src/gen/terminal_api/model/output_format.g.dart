@@ -6,24 +6,24 @@ part of 'output_format.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-const OutputFormat _$barCode = const OutputFormat._('barCode');
 const OutputFormat _$messageRef = const OutputFormat._('messageRef');
 const OutputFormat _$text = const OutputFormat._('text');
 const OutputFormat _$XHTML = const OutputFormat._('XHTML');
+const OutputFormat _$barCode = const OutputFormat._('barCode');
 const OutputFormat _$unknownDefaultOpenApi = const OutputFormat._(
   'unknownDefaultOpenApi',
 );
 
 OutputFormat _$valueOf(String name) {
   switch (name) {
-    case 'barCode':
-      return _$barCode;
     case 'messageRef':
       return _$messageRef;
     case 'text':
       return _$text;
     case 'XHTML':
       return _$XHTML;
+    case 'barCode':
+      return _$barCode;
     case 'unknownDefaultOpenApi':
       return _$unknownDefaultOpenApi;
     default:
@@ -33,20 +33,20 @@ OutputFormat _$valueOf(String name) {
 
 final BuiltSet<OutputFormat> _$values = BuiltSet<OutputFormat>(
   const <OutputFormat>[
-    _$barCode,
     _$messageRef,
     _$text,
     _$XHTML,
+    _$barCode,
     _$unknownDefaultOpenApi,
   ],
 );
 
 class _$OutputFormatMeta {
   const _$OutputFormatMeta();
-  OutputFormat get barCode => _$barCode;
   OutputFormat get messageRef => _$messageRef;
   OutputFormat get text => _$text;
   OutputFormat get XHTML => _$XHTML;
+  OutputFormat get barCode => _$barCode;
   OutputFormat get unknownDefaultOpenApi => _$unknownDefaultOpenApi;
   OutputFormat valueOf(String name) => _$valueOf(name);
   BuiltSet<OutputFormat> get values => _$values;
@@ -61,17 +61,17 @@ Serializer<OutputFormat> _$outputFormatSerializer = _$OutputFormatSerializer();
 
 class _$OutputFormatSerializer implements PrimitiveSerializer<OutputFormat> {
   static const Map<String, Object> _toWire = const <String, Object>{
-    'barCode': 'BarCode',
     'messageRef': 'MessageRef',
     'text': 'Text',
     'XHTML': 'XHTML',
+    'barCode': 'BarCode',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
-    'BarCode': 'barCode',
     'MessageRef': 'messageRef',
     'Text': 'text',
     'XHTML': 'XHTML',
+    'BarCode': 'barCode',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
 

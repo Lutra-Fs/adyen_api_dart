@@ -14,7 +14,7 @@ part 'remove_association_request.g.dart';
 ///
 /// Properties:
 /// * [entityId] - The unique identifier of the entity.
-/// * [entityType] - The type of the entity.    Possible values: **accountHolder** or **paymentInstrument**.
+/// * [entityType] - The type of the entity.    Possible values: **accountHolder**, **legalEntity** or **paymentInstrument**.
 /// * [scaDeviceIds] - A list of device ids associated with the entity that should be removed.
 @BuiltValue()
 abstract class RemoveAssociationRequest implements Built<RemoveAssociationRequest, RemoveAssociationRequestBuilder> {
@@ -22,10 +22,10 @@ abstract class RemoveAssociationRequest implements Built<RemoveAssociationReques
   @BuiltValueField(wireName: r'entityId')
   String get entityId;
 
-  /// The type of the entity.    Possible values: **accountHolder** or **paymentInstrument**.
+  /// The type of the entity.    Possible values: **accountHolder**, **legalEntity** or **paymentInstrument**.
   @BuiltValueField(wireName: r'entityType')
   ScaEntityType get entityType;
-  // enum entityTypeEnum {  accountHolder,  paymentInstrument,  };
+  // enum entityTypeEnum {  accountHolder,  legalEntity,  paymentInstrument,  };
 
   /// A list of device ids associated with the entity that should be removed.
   @BuiltValueField(wireName: r'scaDeviceIds')

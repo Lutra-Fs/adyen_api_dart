@@ -3,7 +3,6 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -12,17 +11,22 @@ part 'response_additional_data_card.g.dart';
 /// ResponseAdditionalDataCard
 ///
 /// Properties:
+/// * [cardAltID] - This is an ALT ID (alternate ID) mapped to the Card PAN.  > Returned only in case of Ecommerce Card Payment in India
 /// * [cardBin] - The first six digits of the card number.  This is the [Bank Identification Number (BIN)](https://docs.adyen.com/get-started-with-adyen/payment-glossary#bank-identification-number-bin) for card numbers with a six-digit BIN.  Example: 521234
 /// * [cardHolderName] - The cardholder name passed in the payment request.
 /// * [cardIssuingBank] - The bank or the financial institution granting lines of credit through card association branded payment cards. This information can be included when available.
 /// * [cardIssuingCountry] - The country where the card was issued.  Example: US
 /// * [cardIssuingCurrency] - The currency in which the card is issued, if this information is available. Provided as the currency code or currency number from the ISO-4217 standard.   Example: USD
 /// * [cardPaymentMethod] - The card payment method used for the transaction.  Example: amex
-/// * [cardProductId] - The Card Product ID represents the type of card following card scheme product definitions and can be returned for Adyen Acquiring service level payments.  Possible values Visa: * **A** - Visa Traditional * **B** - Visa Traditional Rewards * **C** - Visa Signature * **D** - Visa Signature Preferred * **F** - Visa Classic  Possible values Mastercard: * **MCC** - Mastercard Card * **MCE** - Mastercard Electronic Card * **MCF** - Mastercard Corporate Fleet Card * **MCG** - Gold Mastercard Card * **MCH** - Mastercard Premium Charge * **MCI** - Mastercard Select Debit 
+/// * [cardProductId] - The Card Product ID represents the type of card following card scheme product definitions and can be returned for Adyen Acquiring service level payments.  Example values Visa: * **A** - Visa Traditional * **B** - Visa Traditional Rewards * **C** - Visa Signature * **D** - Visa Signature Preferred * **F** - Visa Classic  Example values Mastercard: * **MCC** - Mastercard Card * **MCE** - Mastercard Electronic Card * **MCF** - Mastercard Corporate Fleet Card * **MCG** - Gold Mastercard Card * **MCH** - Mastercard Premium Charge * **MCI** - Mastercard Select Debit 
 /// * [cardSummary] - The last four digits of a card number.  > Returned only in case of a card payment.
 /// * [issuerBin] - The first eight digits of the card number. Only returned if the card number is 16 digits or more.  This is the [Bank Identification Number (BIN)](https://docs.adyen.com/get-started-with-adyen/payment-glossary#bank-identification-number-bin) for card numbers with an eight-digit BIN.  Example: 52123423
 @BuiltValue()
 abstract class ResponseAdditionalDataCard implements Built<ResponseAdditionalDataCard, ResponseAdditionalDataCardBuilder> {
+  /// This is an ALT ID (alternate ID) mapped to the Card PAN.  > Returned only in case of Ecommerce Card Payment in India
+  @BuiltValueField(wireName: r'cardAltID')
+  String? get cardAltID;
+
   /// The first six digits of the card number.  This is the [Bank Identification Number (BIN)](https://docs.adyen.com/get-started-with-adyen/payment-glossary#bank-identification-number-bin) for card numbers with a six-digit BIN.  Example: 521234
   @BuiltValueField(wireName: r'cardBin')
   String? get cardBin;
@@ -47,10 +51,9 @@ abstract class ResponseAdditionalDataCard implements Built<ResponseAdditionalDat
   @BuiltValueField(wireName: r'cardPaymentMethod')
   String? get cardPaymentMethod;
 
-  /// The Card Product ID represents the type of card following card scheme product definitions and can be returned for Adyen Acquiring service level payments.  Possible values Visa: * **A** - Visa Traditional * **B** - Visa Traditional Rewards * **C** - Visa Signature * **D** - Visa Signature Preferred * **F** - Visa Classic  Possible values Mastercard: * **MCC** - Mastercard Card * **MCE** - Mastercard Electronic Card * **MCF** - Mastercard Corporate Fleet Card * **MCG** - Gold Mastercard Card * **MCH** - Mastercard Premium Charge * **MCI** - Mastercard Select Debit 
+  /// The Card Product ID represents the type of card following card scheme product definitions and can be returned for Adyen Acquiring service level payments.  Example values Visa: * **A** - Visa Traditional * **B** - Visa Traditional Rewards * **C** - Visa Signature * **D** - Visa Signature Preferred * **F** - Visa Classic  Example values Mastercard: * **MCC** - Mastercard Card * **MCE** - Mastercard Electronic Card * **MCF** - Mastercard Corporate Fleet Card * **MCG** - Gold Mastercard Card * **MCH** - Mastercard Premium Charge * **MCI** - Mastercard Select Debit 
   @BuiltValueField(wireName: r'cardProductId')
-  ResponseAdditionalDataCardCardProductIdEnum? get cardProductId;
-  // enum cardProductIdEnum {  A,  B,  C,  D,  F,  MCC,  MCE,  MCF,  MCG,  MCH,  MCI,  };
+  String? get cardProductId;
 
   /// The last four digits of a card number.  > Returned only in case of a card payment.
   @BuiltValueField(wireName: r'cardSummary')
@@ -83,6 +86,13 @@ class _$ResponseAdditionalDataCardSerializer implements PrimitiveSerializer<Resp
     ResponseAdditionalDataCard object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
+    if (object.cardAltID != null) {
+      yield r'cardAltID';
+      yield serializers.serialize(
+        object.cardAltID,
+        specifiedType: const FullType(String),
+      );
+    }
     if (object.cardBin != null) {
       yield r'cardBin';
       yield serializers.serialize(
@@ -129,7 +139,7 @@ class _$ResponseAdditionalDataCardSerializer implements PrimitiveSerializer<Resp
       yield r'cardProductId';
       yield serializers.serialize(
         object.cardProductId,
-        specifiedType: const FullType(ResponseAdditionalDataCardCardProductIdEnum),
+        specifiedType: const FullType(String),
       );
     }
     if (object.cardSummary != null) {
@@ -169,6 +179,13 @@ class _$ResponseAdditionalDataCardSerializer implements PrimitiveSerializer<Resp
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
+        case r'cardAltID':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.cardAltID = valueDes;
+          break;
         case r'cardBin':
           final valueDes = serializers.deserialize(
             value,
@@ -214,8 +231,8 @@ class _$ResponseAdditionalDataCardSerializer implements PrimitiveSerializer<Resp
         case r'cardProductId':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(ResponseAdditionalDataCardCardProductIdEnum),
-          ) as ResponseAdditionalDataCardCardProductIdEnum;
+            specifiedType: const FullType(String),
+          ) as String;
           result.cardProductId = valueDes;
           break;
         case r'cardSummary':
@@ -259,52 +276,5 @@ class _$ResponseAdditionalDataCardSerializer implements PrimitiveSerializer<Resp
     );
     return result.build();
   }
-}
-
-class ResponseAdditionalDataCardCardProductIdEnum extends EnumClass {
-
-  /// The Card Product ID represents the type of card following card scheme product definitions and can be returned for Adyen Acquiring service level payments.  Possible values Visa: * **A** - Visa Traditional * **B** - Visa Traditional Rewards * **C** - Visa Signature * **D** - Visa Signature Preferred * **F** - Visa Classic  Possible values Mastercard: * **MCC** - Mastercard Card * **MCE** - Mastercard Electronic Card * **MCF** - Mastercard Corporate Fleet Card * **MCG** - Gold Mastercard Card * **MCH** - Mastercard Premium Charge * **MCI** - Mastercard Select Debit 
-  @BuiltValueEnumConst(wireName: r'A')
-  static const ResponseAdditionalDataCardCardProductIdEnum A = _$responseAdditionalDataCardCardProductIdEnum_A;
-  /// The Card Product ID represents the type of card following card scheme product definitions and can be returned for Adyen Acquiring service level payments.  Possible values Visa: * **A** - Visa Traditional * **B** - Visa Traditional Rewards * **C** - Visa Signature * **D** - Visa Signature Preferred * **F** - Visa Classic  Possible values Mastercard: * **MCC** - Mastercard Card * **MCE** - Mastercard Electronic Card * **MCF** - Mastercard Corporate Fleet Card * **MCG** - Gold Mastercard Card * **MCH** - Mastercard Premium Charge * **MCI** - Mastercard Select Debit 
-  @BuiltValueEnumConst(wireName: r'B')
-  static const ResponseAdditionalDataCardCardProductIdEnum B = _$responseAdditionalDataCardCardProductIdEnum_B;
-  /// The Card Product ID represents the type of card following card scheme product definitions and can be returned for Adyen Acquiring service level payments.  Possible values Visa: * **A** - Visa Traditional * **B** - Visa Traditional Rewards * **C** - Visa Signature * **D** - Visa Signature Preferred * **F** - Visa Classic  Possible values Mastercard: * **MCC** - Mastercard Card * **MCE** - Mastercard Electronic Card * **MCF** - Mastercard Corporate Fleet Card * **MCG** - Gold Mastercard Card * **MCH** - Mastercard Premium Charge * **MCI** - Mastercard Select Debit 
-  @BuiltValueEnumConst(wireName: r'C')
-  static const ResponseAdditionalDataCardCardProductIdEnum C = _$responseAdditionalDataCardCardProductIdEnum_C;
-  /// The Card Product ID represents the type of card following card scheme product definitions and can be returned for Adyen Acquiring service level payments.  Possible values Visa: * **A** - Visa Traditional * **B** - Visa Traditional Rewards * **C** - Visa Signature * **D** - Visa Signature Preferred * **F** - Visa Classic  Possible values Mastercard: * **MCC** - Mastercard Card * **MCE** - Mastercard Electronic Card * **MCF** - Mastercard Corporate Fleet Card * **MCG** - Gold Mastercard Card * **MCH** - Mastercard Premium Charge * **MCI** - Mastercard Select Debit 
-  @BuiltValueEnumConst(wireName: r'D')
-  static const ResponseAdditionalDataCardCardProductIdEnum D = _$responseAdditionalDataCardCardProductIdEnum_D;
-  /// The Card Product ID represents the type of card following card scheme product definitions and can be returned for Adyen Acquiring service level payments.  Possible values Visa: * **A** - Visa Traditional * **B** - Visa Traditional Rewards * **C** - Visa Signature * **D** - Visa Signature Preferred * **F** - Visa Classic  Possible values Mastercard: * **MCC** - Mastercard Card * **MCE** - Mastercard Electronic Card * **MCF** - Mastercard Corporate Fleet Card * **MCG** - Gold Mastercard Card * **MCH** - Mastercard Premium Charge * **MCI** - Mastercard Select Debit 
-  @BuiltValueEnumConst(wireName: r'F')
-  static const ResponseAdditionalDataCardCardProductIdEnum F = _$responseAdditionalDataCardCardProductIdEnum_F;
-  /// The Card Product ID represents the type of card following card scheme product definitions and can be returned for Adyen Acquiring service level payments.  Possible values Visa: * **A** - Visa Traditional * **B** - Visa Traditional Rewards * **C** - Visa Signature * **D** - Visa Signature Preferred * **F** - Visa Classic  Possible values Mastercard: * **MCC** - Mastercard Card * **MCE** - Mastercard Electronic Card * **MCF** - Mastercard Corporate Fleet Card * **MCG** - Gold Mastercard Card * **MCH** - Mastercard Premium Charge * **MCI** - Mastercard Select Debit 
-  @BuiltValueEnumConst(wireName: r'MCC')
-  static const ResponseAdditionalDataCardCardProductIdEnum MCC = _$responseAdditionalDataCardCardProductIdEnum_MCC;
-  /// The Card Product ID represents the type of card following card scheme product definitions and can be returned for Adyen Acquiring service level payments.  Possible values Visa: * **A** - Visa Traditional * **B** - Visa Traditional Rewards * **C** - Visa Signature * **D** - Visa Signature Preferred * **F** - Visa Classic  Possible values Mastercard: * **MCC** - Mastercard Card * **MCE** - Mastercard Electronic Card * **MCF** - Mastercard Corporate Fleet Card * **MCG** - Gold Mastercard Card * **MCH** - Mastercard Premium Charge * **MCI** - Mastercard Select Debit 
-  @BuiltValueEnumConst(wireName: r'MCE')
-  static const ResponseAdditionalDataCardCardProductIdEnum MCE = _$responseAdditionalDataCardCardProductIdEnum_MCE;
-  /// The Card Product ID represents the type of card following card scheme product definitions and can be returned for Adyen Acquiring service level payments.  Possible values Visa: * **A** - Visa Traditional * **B** - Visa Traditional Rewards * **C** - Visa Signature * **D** - Visa Signature Preferred * **F** - Visa Classic  Possible values Mastercard: * **MCC** - Mastercard Card * **MCE** - Mastercard Electronic Card * **MCF** - Mastercard Corporate Fleet Card * **MCG** - Gold Mastercard Card * **MCH** - Mastercard Premium Charge * **MCI** - Mastercard Select Debit 
-  @BuiltValueEnumConst(wireName: r'MCF')
-  static const ResponseAdditionalDataCardCardProductIdEnum MCF = _$responseAdditionalDataCardCardProductIdEnum_MCF;
-  /// The Card Product ID represents the type of card following card scheme product definitions and can be returned for Adyen Acquiring service level payments.  Possible values Visa: * **A** - Visa Traditional * **B** - Visa Traditional Rewards * **C** - Visa Signature * **D** - Visa Signature Preferred * **F** - Visa Classic  Possible values Mastercard: * **MCC** - Mastercard Card * **MCE** - Mastercard Electronic Card * **MCF** - Mastercard Corporate Fleet Card * **MCG** - Gold Mastercard Card * **MCH** - Mastercard Premium Charge * **MCI** - Mastercard Select Debit 
-  @BuiltValueEnumConst(wireName: r'MCG')
-  static const ResponseAdditionalDataCardCardProductIdEnum MCG = _$responseAdditionalDataCardCardProductIdEnum_MCG;
-  /// The Card Product ID represents the type of card following card scheme product definitions and can be returned for Adyen Acquiring service level payments.  Possible values Visa: * **A** - Visa Traditional * **B** - Visa Traditional Rewards * **C** - Visa Signature * **D** - Visa Signature Preferred * **F** - Visa Classic  Possible values Mastercard: * **MCC** - Mastercard Card * **MCE** - Mastercard Electronic Card * **MCF** - Mastercard Corporate Fleet Card * **MCG** - Gold Mastercard Card * **MCH** - Mastercard Premium Charge * **MCI** - Mastercard Select Debit 
-  @BuiltValueEnumConst(wireName: r'MCH')
-  static const ResponseAdditionalDataCardCardProductIdEnum MCH = _$responseAdditionalDataCardCardProductIdEnum_MCH;
-  /// The Card Product ID represents the type of card following card scheme product definitions and can be returned for Adyen Acquiring service level payments.  Possible values Visa: * **A** - Visa Traditional * **B** - Visa Traditional Rewards * **C** - Visa Signature * **D** - Visa Signature Preferred * **F** - Visa Classic  Possible values Mastercard: * **MCC** - Mastercard Card * **MCE** - Mastercard Electronic Card * **MCF** - Mastercard Corporate Fleet Card * **MCG** - Gold Mastercard Card * **MCH** - Mastercard Premium Charge * **MCI** - Mastercard Select Debit 
-  @BuiltValueEnumConst(wireName: r'MCI')
-  static const ResponseAdditionalDataCardCardProductIdEnum MCI = _$responseAdditionalDataCardCardProductIdEnum_MCI;
-  /// The Card Product ID represents the type of card following card scheme product definitions and can be returned for Adyen Acquiring service level payments.  Possible values Visa: * **A** - Visa Traditional * **B** - Visa Traditional Rewards * **C** - Visa Signature * **D** - Visa Signature Preferred * **F** - Visa Classic  Possible values Mastercard: * **MCC** - Mastercard Card * **MCE** - Mastercard Electronic Card * **MCF** - Mastercard Corporate Fleet Card * **MCG** - Gold Mastercard Card * **MCH** - Mastercard Premium Charge * **MCI** - Mastercard Select Debit 
-  @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
-  static const ResponseAdditionalDataCardCardProductIdEnum unknownDefaultOpenApi = _$responseAdditionalDataCardCardProductIdEnum_unknownDefaultOpenApi;
-
-  static Serializer<ResponseAdditionalDataCardCardProductIdEnum> get serializer => _$responseAdditionalDataCardCardProductIdEnumSerializer;
-
-  const ResponseAdditionalDataCardCardProductIdEnum._(String name): super(name);
-
-  static BuiltSet<ResponseAdditionalDataCardCardProductIdEnum> get values => _$responseAdditionalDataCardCardProductIdEnumValues;
-  static ResponseAdditionalDataCardCardProductIdEnum valueOf(String name) => _$responseAdditionalDataCardCardProductIdEnumValueOf(name);
 }
 

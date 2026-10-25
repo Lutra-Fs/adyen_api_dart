@@ -17,6 +17,8 @@ class _$CheckoutForwardRequestOptions extends CheckoutForwardRequestOptions {
   final BuiltList<String>? networkTxReferencePaths;
   @override
   final bool? tokenize;
+  @override
+  final BuiltList<String>? transactionLinkIdPaths;
 
   factory _$CheckoutForwardRequestOptions([
     void Function(CheckoutForwardRequestOptionsBuilder)? updates,
@@ -28,6 +30,7 @@ class _$CheckoutForwardRequestOptions extends CheckoutForwardRequestOptions {
     this.networkToken,
     this.networkTxReferencePaths,
     this.tokenize,
+    this.transactionLinkIdPaths,
   }) : super._();
   @override
   CheckoutForwardRequestOptions rebuild(
@@ -46,7 +49,8 @@ class _$CheckoutForwardRequestOptions extends CheckoutForwardRequestOptions {
         dryRun == other.dryRun &&
         networkToken == other.networkToken &&
         networkTxReferencePaths == other.networkTxReferencePaths &&
-        tokenize == other.tokenize;
+        tokenize == other.tokenize &&
+        transactionLinkIdPaths == other.transactionLinkIdPaths;
   }
 
   @override
@@ -57,6 +61,7 @@ class _$CheckoutForwardRequestOptions extends CheckoutForwardRequestOptions {
     _$hash = $jc(_$hash, networkToken.hashCode);
     _$hash = $jc(_$hash, networkTxReferencePaths.hashCode);
     _$hash = $jc(_$hash, tokenize.hashCode);
+    _$hash = $jc(_$hash, transactionLinkIdPaths.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -68,7 +73,8 @@ class _$CheckoutForwardRequestOptions extends CheckoutForwardRequestOptions {
           ..add('dryRun', dryRun)
           ..add('networkToken', networkToken)
           ..add('networkTxReferencePaths', networkTxReferencePaths)
-          ..add('tokenize', tokenize))
+          ..add('tokenize', tokenize)
+          ..add('transactionLinkIdPaths', transactionLinkIdPaths))
         .toString();
   }
 }
@@ -106,6 +112,12 @@ class CheckoutForwardRequestOptionsBuilder
   bool? get tokenize => _$this._tokenize;
   set tokenize(bool? tokenize) => _$this._tokenize = tokenize;
 
+  ListBuilder<String>? _transactionLinkIdPaths;
+  ListBuilder<String> get transactionLinkIdPaths =>
+      _$this._transactionLinkIdPaths ??= ListBuilder<String>();
+  set transactionLinkIdPaths(ListBuilder<String>? transactionLinkIdPaths) =>
+      _$this._transactionLinkIdPaths = transactionLinkIdPaths;
+
   CheckoutForwardRequestOptionsBuilder() {
     CheckoutForwardRequestOptions._defaults(this);
   }
@@ -118,6 +130,7 @@ class CheckoutForwardRequestOptionsBuilder
       _networkToken = $v.networkToken?.toBuilder();
       _networkTxReferencePaths = $v.networkTxReferencePaths?.toBuilder();
       _tokenize = $v.tokenize;
+      _transactionLinkIdPaths = $v.transactionLinkIdPaths?.toBuilder();
       _$v = null;
     }
     return this;
@@ -147,6 +160,7 @@ class CheckoutForwardRequestOptionsBuilder
             networkToken: _networkToken?.build(),
             networkTxReferencePaths: _networkTxReferencePaths?.build(),
             tokenize: tokenize,
+            transactionLinkIdPaths: _transactionLinkIdPaths?.build(),
           );
     } catch (_) {
       late String _$failedField;
@@ -155,6 +169,9 @@ class CheckoutForwardRequestOptionsBuilder
         _networkToken?.build();
         _$failedField = 'networkTxReferencePaths';
         _networkTxReferencePaths?.build();
+
+        _$failedField = 'transactionLinkIdPaths';
+        _transactionLinkIdPaths?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
           r'CheckoutForwardRequestOptions',

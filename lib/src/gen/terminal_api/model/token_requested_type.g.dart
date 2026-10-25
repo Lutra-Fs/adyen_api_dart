@@ -6,20 +6,20 @@ part of 'token_requested_type.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-const TokenRequestedType _$customer = const TokenRequestedType._('customer');
 const TokenRequestedType _$transaction = const TokenRequestedType._(
   'transaction',
 );
+const TokenRequestedType _$customer = const TokenRequestedType._('customer');
 const TokenRequestedType _$unknownDefaultOpenApi = const TokenRequestedType._(
   'unknownDefaultOpenApi',
 );
 
 TokenRequestedType _$valueOf(String name) {
   switch (name) {
-    case 'customer':
-      return _$customer;
     case 'transaction':
       return _$transaction;
+    case 'customer':
+      return _$customer;
     case 'unknownDefaultOpenApi':
       return _$unknownDefaultOpenApi;
     default:
@@ -29,16 +29,16 @@ TokenRequestedType _$valueOf(String name) {
 
 final BuiltSet<TokenRequestedType> _$values = BuiltSet<TokenRequestedType>(
   const <TokenRequestedType>[
-    _$customer,
     _$transaction,
+    _$customer,
     _$unknownDefaultOpenApi,
   ],
 );
 
 class _$TokenRequestedTypeMeta {
   const _$TokenRequestedTypeMeta();
-  TokenRequestedType get customer => _$customer;
   TokenRequestedType get transaction => _$transaction;
+  TokenRequestedType get customer => _$customer;
   TokenRequestedType get unknownDefaultOpenApi => _$unknownDefaultOpenApi;
   TokenRequestedType valueOf(String name) => _$valueOf(name);
   BuiltSet<TokenRequestedType> get values => _$values;
@@ -56,13 +56,13 @@ Serializer<TokenRequestedType> _$tokenRequestedTypeSerializer =
 class _$TokenRequestedTypeSerializer
     implements PrimitiveSerializer<TokenRequestedType> {
   static const Map<String, Object> _toWire = const <String, Object>{
-    'customer': 'Customer',
     'transaction': 'Transaction',
+    'customer': 'Customer',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
-    'Customer': 'customer',
     'Transaction': 'transaction',
+    'Customer': 'customer',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
 

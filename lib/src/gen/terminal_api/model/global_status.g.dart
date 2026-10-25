@@ -6,9 +6,9 @@ part of 'global_status.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+const GlobalStatus _$OK = const GlobalStatus._('OK');
 const GlobalStatus _$busy = const GlobalStatus._('busy');
 const GlobalStatus _$maintenance = const GlobalStatus._('maintenance');
-const GlobalStatus _$OK = const GlobalStatus._('OK');
 const GlobalStatus _$unreachable = const GlobalStatus._('unreachable');
 const GlobalStatus _$unknownDefaultOpenApi = const GlobalStatus._(
   'unknownDefaultOpenApi',
@@ -16,12 +16,12 @@ const GlobalStatus _$unknownDefaultOpenApi = const GlobalStatus._(
 
 GlobalStatus _$valueOf(String name) {
   switch (name) {
+    case 'OK':
+      return _$OK;
     case 'busy':
       return _$busy;
     case 'maintenance':
       return _$maintenance;
-    case 'OK':
-      return _$OK;
     case 'unreachable':
       return _$unreachable;
     case 'unknownDefaultOpenApi':
@@ -33,9 +33,9 @@ GlobalStatus _$valueOf(String name) {
 
 final BuiltSet<GlobalStatus> _$values = BuiltSet<GlobalStatus>(
   const <GlobalStatus>[
+    _$OK,
     _$busy,
     _$maintenance,
-    _$OK,
     _$unreachable,
     _$unknownDefaultOpenApi,
   ],
@@ -43,9 +43,9 @@ final BuiltSet<GlobalStatus> _$values = BuiltSet<GlobalStatus>(
 
 class _$GlobalStatusMeta {
   const _$GlobalStatusMeta();
+  GlobalStatus get OK => _$OK;
   GlobalStatus get busy => _$busy;
   GlobalStatus get maintenance => _$maintenance;
-  GlobalStatus get OK => _$OK;
   GlobalStatus get unreachable => _$unreachable;
   GlobalStatus get unknownDefaultOpenApi => _$unknownDefaultOpenApi;
   GlobalStatus valueOf(String name) => _$valueOf(name);
@@ -61,16 +61,16 @@ Serializer<GlobalStatus> _$globalStatusSerializer = _$GlobalStatusSerializer();
 
 class _$GlobalStatusSerializer implements PrimitiveSerializer<GlobalStatus> {
   static const Map<String, Object> _toWire = const <String, Object>{
+    'OK': 'OK',
     'busy': 'Busy',
     'maintenance': 'Maintenance',
-    'OK': 'OK',
     'unreachable': 'Unreachable',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
+    'OK': 'OK',
     'Busy': 'busy',
     'Maintenance': 'maintenance',
-    'OK': 'OK',
     'Unreachable': 'unreachable',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };

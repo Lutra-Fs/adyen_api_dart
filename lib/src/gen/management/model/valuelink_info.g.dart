@@ -76,11 +76,11 @@ class _$ValuelinkInfoPinSupportEnumSerializer
 
 class _$ValuelinkInfo extends ValuelinkInfo {
   @override
+  final String? alternateMerchantNumber;
+  @override
   final String authorisationMid;
   @override
   final ValuelinkInfoPinSupportEnum pinSupport;
-  @override
-  final String? submitterId;
   @override
   final String? terminalId;
 
@@ -88,9 +88,9 @@ class _$ValuelinkInfo extends ValuelinkInfo {
       (ValuelinkInfoBuilder()..update(updates))._build();
 
   _$ValuelinkInfo._({
+    this.alternateMerchantNumber,
     required this.authorisationMid,
     required this.pinSupport,
-    this.submitterId,
     this.terminalId,
   }) : super._();
   @override
@@ -104,18 +104,18 @@ class _$ValuelinkInfo extends ValuelinkInfo {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is ValuelinkInfo &&
+        alternateMerchantNumber == other.alternateMerchantNumber &&
         authorisationMid == other.authorisationMid &&
         pinSupport == other.pinSupport &&
-        submitterId == other.submitterId &&
         terminalId == other.terminalId;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, alternateMerchantNumber.hashCode);
     _$hash = $jc(_$hash, authorisationMid.hashCode);
     _$hash = $jc(_$hash, pinSupport.hashCode);
-    _$hash = $jc(_$hash, submitterId.hashCode);
     _$hash = $jc(_$hash, terminalId.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -124,9 +124,9 @@ class _$ValuelinkInfo extends ValuelinkInfo {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'ValuelinkInfo')
+          ..add('alternateMerchantNumber', alternateMerchantNumber)
           ..add('authorisationMid', authorisationMid)
           ..add('pinSupport', pinSupport)
-          ..add('submitterId', submitterId)
           ..add('terminalId', terminalId))
         .toString();
   }
@@ -135,6 +135,11 @@ class _$ValuelinkInfo extends ValuelinkInfo {
 class ValuelinkInfoBuilder
     implements Builder<ValuelinkInfo, ValuelinkInfoBuilder> {
   _$ValuelinkInfo? _$v;
+
+  String? _alternateMerchantNumber;
+  String? get alternateMerchantNumber => _$this._alternateMerchantNumber;
+  set alternateMerchantNumber(String? alternateMerchantNumber) =>
+      _$this._alternateMerchantNumber = alternateMerchantNumber;
 
   String? _authorisationMid;
   String? get authorisationMid => _$this._authorisationMid;
@@ -145,10 +150,6 @@ class ValuelinkInfoBuilder
   ValuelinkInfoPinSupportEnum? get pinSupport => _$this._pinSupport;
   set pinSupport(ValuelinkInfoPinSupportEnum? pinSupport) =>
       _$this._pinSupport = pinSupport;
-
-  String? _submitterId;
-  String? get submitterId => _$this._submitterId;
-  set submitterId(String? submitterId) => _$this._submitterId = submitterId;
 
   String? _terminalId;
   String? get terminalId => _$this._terminalId;
@@ -161,9 +162,9 @@ class ValuelinkInfoBuilder
   ValuelinkInfoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _alternateMerchantNumber = $v.alternateMerchantNumber;
       _authorisationMid = $v.authorisationMid;
       _pinSupport = $v.pinSupport;
-      _submitterId = $v.submitterId;
       _terminalId = $v.terminalId;
       _$v = null;
     }
@@ -187,6 +188,7 @@ class ValuelinkInfoBuilder
     final _$result =
         _$v ??
         _$ValuelinkInfo._(
+          alternateMerchantNumber: alternateMerchantNumber,
           authorisationMid: BuiltValueNullFieldError.checkNotNull(
             authorisationMid,
             r'ValuelinkInfo',
@@ -197,7 +199,6 @@ class ValuelinkInfoBuilder
             r'ValuelinkInfo',
             'pinSupport',
           ),
-          submitterId: submitterId,
           terminalId: terminalId,
         );
     replace(_$result);

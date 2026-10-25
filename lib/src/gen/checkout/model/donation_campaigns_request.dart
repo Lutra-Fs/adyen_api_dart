@@ -12,6 +12,7 @@ part 'donation_campaigns_request.g.dart';
 ///
 /// Properties:
 /// * [currency] - The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes/).
+/// * [label] - The label that is assigned to the donation campaign.
 /// * [locale] - Locale on the shopper interaction device.
 /// * [merchantAccount] - Your merchant account identifier.
 /// * [store] - Required for Adyen for Platforms integrations if you are a platform model. This is your [reference](https://docs.adyen.com/api-explorer/Management/3/post/merchants/(merchantId)/stores#request-reference) (on [balance platform](https://docs.adyen.com/platforms)) or the [storeReference](https://docs.adyen.com/api-explorer/Account/latest/post/updateAccountHolder#request-accountHolderDetails-storeDetails-storeReference) (in the [classic integration](https://docs.adyen.com/classic-platforms/processing-payments/route-payment-to-store/#route-a-payment-to-a-store)) for the ecommerce or point-of-sale store that is processing the payment.
@@ -20,6 +21,10 @@ abstract class DonationCampaignsRequest implements Built<DonationCampaignsReques
   /// The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes/).
   @BuiltValueField(wireName: r'currency')
   String get currency;
+
+  /// The label that is assigned to the donation campaign.
+  @BuiltValueField(wireName: r'label')
+  String? get label;
 
   /// Locale on the shopper interaction device.
   @BuiltValueField(wireName: r'locale')
@@ -61,6 +66,13 @@ class _$DonationCampaignsRequestSerializer implements PrimitiveSerializer<Donati
       object.currency,
       specifiedType: const FullType(String),
     );
+    if (object.label != null) {
+      yield r'label';
+      yield serializers.serialize(
+        object.label,
+        specifiedType: const FullType(String),
+      );
+    }
     if (object.locale != null) {
       yield r'locale';
       yield serializers.serialize(
@@ -109,6 +121,13 @@ class _$DonationCampaignsRequestSerializer implements PrimitiveSerializer<Donati
             specifiedType: const FullType(String),
           ) as String;
           result.currency = valueDes;
+          break;
+        case r'label':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.label = valueDes;
           break;
         case r'locale':
           final valueDes = serializers.deserialize(

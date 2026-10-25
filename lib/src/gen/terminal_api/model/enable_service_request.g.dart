@@ -10,11 +10,11 @@ const EnableServiceRequestServicesEnabledEnum
 _$enableServiceRequestServicesEnabledEnum_cardAcquisition =
     const EnableServiceRequestServicesEnabledEnum._('cardAcquisition');
 const EnableServiceRequestServicesEnabledEnum
-_$enableServiceRequestServicesEnabledEnum_loyalty =
-    const EnableServiceRequestServicesEnabledEnum._('loyalty');
-const EnableServiceRequestServicesEnabledEnum
 _$enableServiceRequestServicesEnabledEnum_payment =
     const EnableServiceRequestServicesEnabledEnum._('payment');
+const EnableServiceRequestServicesEnabledEnum
+_$enableServiceRequestServicesEnabledEnum_loyalty =
+    const EnableServiceRequestServicesEnabledEnum._('loyalty');
 const EnableServiceRequestServicesEnabledEnum
 _$enableServiceRequestServicesEnabledEnum_unknownDefaultOpenApi =
     const EnableServiceRequestServicesEnabledEnum._('unknownDefaultOpenApi');
@@ -24,10 +24,10 @@ _$enableServiceRequestServicesEnabledEnumValueOf(String name) {
   switch (name) {
     case 'cardAcquisition':
       return _$enableServiceRequestServicesEnabledEnum_cardAcquisition;
-    case 'loyalty':
-      return _$enableServiceRequestServicesEnabledEnum_loyalty;
     case 'payment':
       return _$enableServiceRequestServicesEnabledEnum_payment;
+    case 'loyalty':
+      return _$enableServiceRequestServicesEnabledEnum_loyalty;
     case 'unknownDefaultOpenApi':
       return _$enableServiceRequestServicesEnabledEnum_unknownDefaultOpenApi;
     default:
@@ -40,8 +40,8 @@ _$enableServiceRequestServicesEnabledEnumValues =
     BuiltSet<EnableServiceRequestServicesEnabledEnum>(
       const <EnableServiceRequestServicesEnabledEnum>[
         _$enableServiceRequestServicesEnabledEnum_cardAcquisition,
-        _$enableServiceRequestServicesEnabledEnum_loyalty,
         _$enableServiceRequestServicesEnabledEnum_payment,
+        _$enableServiceRequestServicesEnabledEnum_loyalty,
         _$enableServiceRequestServicesEnabledEnum_unknownDefaultOpenApi,
       ],
     );
@@ -54,14 +54,14 @@ class _$EnableServiceRequestServicesEnabledEnumSerializer
     implements PrimitiveSerializer<EnableServiceRequestServicesEnabledEnum> {
   static const Map<String, Object> _toWire = const <String, Object>{
     'cardAcquisition': 'CardAcquisition',
-    'loyalty': 'Loyalty',
     'payment': 'Payment',
+    'loyalty': 'Loyalty',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'CardAcquisition': 'cardAcquisition',
-    'Loyalty': 'loyalty',
     'Payment': 'payment',
+    'Loyalty': 'loyalty',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
 

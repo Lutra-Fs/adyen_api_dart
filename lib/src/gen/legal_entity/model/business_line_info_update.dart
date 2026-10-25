@@ -16,6 +16,7 @@ part 'business_line_info_update.g.dart';
 ///
 /// Properties:
 /// * [industryCode] - A code that represents the industry of your legal entity. For example, **4431A** for computer software stores.
+/// * [industryCodeDescription] - The description of the industry code.
 /// * [salesChannels] - A list of channels where goods or services are sold.  Possible values: **pos**, **posMoto**, **eCommerce**, **ecomMoto**, **payByLink**.  Required only in combination with the `service` **paymentProcessing**.
 /// * [sourceOfFunds] - Contains information about the source of your user's funds. Required only if the `service` is **banking** or **issuing**.
 /// * [webData] - List of website URLs where your user's goods or services are sold. When this is required for a service but your user does not have an online presence, provide the reason in the `webDataExemption` object.
@@ -25,6 +26,10 @@ abstract class BusinessLineInfoUpdate implements Built<BusinessLineInfoUpdate, B
   /// A code that represents the industry of your legal entity. For example, **4431A** for computer software stores.
   @BuiltValueField(wireName: r'industryCode')
   String? get industryCode;
+
+  /// The description of the industry code.
+  @BuiltValueField(wireName: r'industryCodeDescription')
+  String? get industryCodeDescription;
 
   /// A list of channels where goods or services are sold.  Possible values: **pos**, **posMoto**, **eCommerce**, **ecomMoto**, **payByLink**.  Required only in combination with the `service` **paymentProcessing**.
   @BuiltValueField(wireName: r'salesChannels')
@@ -69,6 +74,13 @@ class _$BusinessLineInfoUpdateSerializer implements PrimitiveSerializer<Business
       yield r'industryCode';
       yield serializers.serialize(
         object.industryCode,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.industryCodeDescription != null) {
+      yield r'industryCodeDescription';
+      yield serializers.serialize(
+        object.industryCodeDescription,
         specifiedType: const FullType(String),
       );
     }
@@ -129,6 +141,13 @@ class _$BusinessLineInfoUpdateSerializer implements PrimitiveSerializer<Business
             specifiedType: const FullType(String),
           ) as String;
           result.industryCode = valueDes;
+          break;
+        case r'industryCodeDescription':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.industryCodeDescription = valueDes;
           break;
         case r'salesChannels':
           final valueDes = serializers.deserialize(

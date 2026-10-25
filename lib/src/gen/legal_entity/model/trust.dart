@@ -20,10 +20,11 @@ part 'trust.g.dart';
 /// * [description] - A short description about the trust. Only applicable for charitable trusts in New Zealand.
 /// * [doingBusinessAs] - The registered name, if different from the `name`.
 /// * [doingBusinessAsAbsent] - Set this to **true** if the legal arrangement does not have a `Doing business as` name.
-/// * [name_] - The legal name.
+/// * [name_] - The legal name. Must be at least 3 characters.  Only the following special characters are allowed: **,**, **-**, **—**, **.**, **;**, **:**, **&**, **?**, **@**, **(**, **)**, **\"**, **'**, **!**, **\\**, **+**, **_/_**. Accents and non-Latin scripts are allowed.  The field cannot contain emojis, only one repeated character (unless two characters long), only symbols, only numbers, only spaces, or **fictitious names** such as **John Doe** or **N/A**.  For more information, see [validations on fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
 /// * [principalPlaceOfBusiness] - The business address. Required if the principal place of business is different from the `registeredAddress`.
-/// * [registeredAddress] - The address registered at the registrar, such as the Chamber of Commerce.
+/// * [registeredAddress] - The address registered at the registrar, such as the Chamber of Commerce. If you use a PO box, you must also provide a `principalPlaceOfBusiness`. The principal place of business cannot be a PO box.  Address fields cannot contain emojis, only one repeated character (unless two characters long), only symbols, only numbers, only spaces, or **fictitious values** such as **John Doe** or **N/A**. All parts of the address must be different. For example, Spain, Spain, Spain is not allowed.  For more information, see [validations on fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
 /// * [registrationNumber] - The registration number.
+/// * [residentialAddressIndicator] - Indicates if the `registeredAddress` is a place of residence, instead of a business address.  Set to **true** if the address is a place of residence. The default value is **false**.
 /// * [taxInformation] - The tax information of the entity.
 /// * [type] - Type of trust.  See possible values for trusts in [Australia](https://docs.adyen.com/platforms/verification-requirements/?tab=trust_3_4#trust-types-in-australia) and [New Zealand](https://docs.adyen.com/platforms/verification-requirements/?tab=trust_3_4#trust-types-in-new-zealand).
 /// * [undefinedBeneficiaryInfo] - The undefined beneficiary information of the entity.
@@ -51,7 +52,7 @@ abstract class Trust implements Built<Trust, TrustBuilder> {
   @BuiltValueField(wireName: r'doingBusinessAsAbsent')
   bool? get doingBusinessAsAbsent;
 
-  /// The legal name.
+  /// The legal name. Must be at least 3 characters.  Only the following special characters are allowed: **,**, **-**, **—**, **.**, **;**, **:**, **&**, **?**, **@**, **(**, **)**, **\"**, **'**, **!**, **\\**, **+**, **_/_**. Accents and non-Latin scripts are allowed.  The field cannot contain emojis, only one repeated character (unless two characters long), only symbols, only numbers, only spaces, or **fictitious names** such as **John Doe** or **N/A**.  For more information, see [validations on fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
   @BuiltValueField(wireName: r'name')
   String get name_;
 
@@ -59,13 +60,17 @@ abstract class Trust implements Built<Trust, TrustBuilder> {
   @BuiltValueField(wireName: r'principalPlaceOfBusiness')
   Address? get principalPlaceOfBusiness;
 
-  /// The address registered at the registrar, such as the Chamber of Commerce.
+  /// The address registered at the registrar, such as the Chamber of Commerce. If you use a PO box, you must also provide a `principalPlaceOfBusiness`. The principal place of business cannot be a PO box.  Address fields cannot contain emojis, only one repeated character (unless two characters long), only symbols, only numbers, only spaces, or **fictitious values** such as **John Doe** or **N/A**. All parts of the address must be different. For example, Spain, Spain, Spain is not allowed.  For more information, see [validations on fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
   @BuiltValueField(wireName: r'registeredAddress')
   Address get registeredAddress;
 
   /// The registration number.
   @BuiltValueField(wireName: r'registrationNumber')
   String? get registrationNumber;
+
+  /// Indicates if the `registeredAddress` is a place of residence, instead of a business address.  Set to **true** if the address is a place of residence. The default value is **false**.
+  @BuiltValueField(wireName: r'residentialAddressIndicator')
+  bool? get residentialAddressIndicator;
 
   /// The tax information of the entity.
   @BuiltValueField(wireName: r'taxInformation')
@@ -167,6 +172,13 @@ class _$TrustSerializer implements PrimitiveSerializer<Trust> {
       yield serializers.serialize(
         object.registrationNumber,
         specifiedType: const FullType(String),
+      );
+    }
+    if (object.residentialAddressIndicator != null) {
+      yield r'residentialAddressIndicator';
+      yield serializers.serialize(
+        object.residentialAddressIndicator,
+        specifiedType: const FullType(bool),
       );
     }
     if (object.taxInformation != null) {
@@ -287,6 +299,13 @@ class _$TrustSerializer implements PrimitiveSerializer<Trust> {
             specifiedType: const FullType(String),
           ) as String;
           result.registrationNumber = valueDes;
+          break;
+        case r'residentialAddressIndicator':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.residentialAddressIndicator = valueDes;
           break;
         case r'taxInformation':
           final valueDes = serializers.deserialize(

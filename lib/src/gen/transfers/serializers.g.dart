@@ -39,6 +39,11 @@ Serializers _$serializers =
           ..add(CapitalGrants.serializer)
           ..add(Card.serializer)
           ..add(CardIdentification.serializer)
+          ..add(CashOut.serializer)
+          ..add(CashOutInfo.serializer)
+          ..add(CashOutInfoCounterparty.serializer)
+          ..add(CashOutTransfer.serializer)
+          ..add(CashOutTransferTypeEnum.serializer)
           ..add(ConfirmationTrackingData.serializer)
           ..add(ConfirmationTrackingDataStatusEnum.serializer)
           ..add(ConfirmationTrackingDataTypeEnum.serializer)
@@ -46,6 +51,7 @@ Serializers _$serializers =
           ..add(CounterpartyV3.serializer)
           ..add(DKLocalAccountIdentification.serializer)
           ..add(DKLocalAccountIdentificationTypeEnum.serializer)
+          ..add(DefaultErrorResponseEntity.serializer)
           ..add(DirectDebitInformation.serializer)
           ..add(EstimationTrackingData.serializer)
           ..add(EstimationTrackingDataTypeEnum.serializer)
@@ -73,6 +79,7 @@ Serializers _$serializers =
           ..add(InternalReviewTrackingDataTypeEnum.serializer)
           ..add(InvalidField.serializer)
           ..add(IssuedCard.serializer)
+          ..add(IssuedCardNetworkVariantEnum.serializer)
           ..add(IssuedCardPanEntryModeEnum.serializer)
           ..add(IssuedCardProcessingTypeEnum.serializer)
           ..add(IssuedCardTypeEnum.serializer)
@@ -92,6 +99,8 @@ Serializers _$serializers =
           ..add(NZLocalAccountIdentification.serializer)
           ..add(NZLocalAccountIdentificationTypeEnum.serializer)
           ..add(NameLocation.serializer)
+          ..add(NetworkReason.serializer)
+          ..add(NetworkReasonNamespaceEnum.serializer)
           ..add(NumberAndBicAccountIdentification.serializer)
           ..add(NumberAndBicAccountIdentificationTypeEnum.serializer)
           ..add(PLLocalAccountIdentification.serializer)
@@ -134,6 +143,7 @@ Serializers _$serializers =
           ..add(TransferDataDirectionEnum.serializer)
           ..add(TransferDataReasonEnum.serializer)
           ..add(TransferDataStatusEnum.serializer)
+          ..add(TransferDataTracing.serializer)
           ..add(TransferDataTracking.serializer)
           ..add(TransferDataTypeEnum.serializer)
           ..add(TransferDirectionEnum.serializer)
@@ -141,6 +151,7 @@ Serializers _$serializers =
           ..add(TransferEventEventsDataInner.serializer)
           ..add(TransferEventReasonEnum.serializer)
           ..add(TransferEventStatusEnum.serializer)
+          ..add(TransferEventTracingData.serializer)
           ..add(TransferEventTrackingData.serializer)
           ..add(TransferEventTypeEnum.serializer)
           ..add(TransferInfo.serializer)
@@ -159,8 +170,12 @@ Serializers _$serializers =
           ..add(TransferStatusEnum.serializer)
           ..add(TransferTypeEnum.serializer)
           ..add(TransferView.serializer)
+          ..add(UKFpsTracingData.serializer)
+          ..add(UKFpsTracingDataTypeEnum.serializer)
           ..add(UKLocalAccountIdentification.serializer)
           ..add(UKLocalAccountIdentificationTypeEnum.serializer)
+          ..add(USAchTracingData.serializer)
+          ..add(USAchTracingDataTypeEnum.serializer)
           ..add(USLocalAccountIdentification.serializer)
           ..add(USLocalAccountIdentificationAccountTypeEnum.serializer)
           ..add(USLocalAccountIdentificationTypeEnum.serializer)
@@ -191,6 +206,14 @@ Serializers _$serializers =
           ..addBuilderFactory(
             const FullType(BuiltList, const [const FullType(CapitalGrant)]),
             () => ListBuilder<CapitalGrant>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(CashOutTransfer)]),
+            () => ListBuilder<CashOutTransfer>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(InvalidField)]),
+            () => ListBuilder<InvalidField>(),
           )
           ..addBuilderFactory(
             const FullType(BuiltList, const [const FullType(InvalidField)]),

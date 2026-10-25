@@ -4,6 +4,7 @@
 
 // ignore_for_file: unused_element
 import 'package:adyen_api/src/gen/checkout/model/billing_address.dart';
+import 'package:adyen_api/src/gen/checkout/model/third_party_token_redundancy_info.dart';
 import 'package:adyen_api/src/gen/checkout/model/line_item.dart';
 import 'package:adyen_api/src/gen/checkout/model/split.dart';
 import 'package:adyen_api/src/gen/checkout/model/company.dart';
@@ -14,6 +15,7 @@ import 'package:adyen_api/src/gen/checkout/model/checkout_session_installment_op
 import 'package:adyen_api/src/gen/checkout/model/shopper_name.dart';
 import 'package:adyen_api/src/gen/checkout/model/fund_origin.dart';
 import 'package:adyen_api/src/gen/checkout/model/amount.dart';
+import 'package:adyen_api/src/gen/checkout/model/enhanced_scheme_data.dart';
 import 'package:adyen_api/src/gen/checkout/model/mandate.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:adyen_api/src/gen/checkout/model/account_info.dart';
@@ -50,6 +52,7 @@ part 'create_checkout_session_request.g.dart';
 /// * [enableOneClick] - When true and `shopperReference` is provided, the shopper will be asked if the payment details should be stored for future [one-click payments](https://docs.adyen.com/get-started-with-adyen/payment-glossary/#one-click-payments-definition).
 /// * [enablePayOut] - When true and `shopperReference` is provided, the payment details will be tokenized for payouts.
 /// * [enableRecurring] - When true and `shopperReference` is provided, the payment details will be stored for [recurring payments](https://docs.adyen.com/online-payments/tokenization/#recurring-payment-types) where the shopper is not present, such as subscription or automatic top-up payments.
+/// * [enhancedSchemeData] - [Enhanced scheme data](https://docs.adyen.com/payment-methods/cards/enhanced-scheme-data/) that may be required for processing the payment and/or interchange savings can apply.
 /// * [expiresAt] - The date the session expires in [ISO8601](https://www.iso.org/iso-8601-date-and-time-format.html) format. When not specified, the expiry date is set to 1 hour after session creation. You cannot set the session expiry to more than 24 hours after session creation.
 /// * [fundOrigin] - The person or entity funding the money.
 /// * [fundRecipient] - the person or entity receiving the money
@@ -62,6 +65,7 @@ part 'create_checkout_session_request.g.dart';
 /// * [metadata] - Metadata consists of entries, each of which includes a key and a value. Limits: * Maximum 20 key-value pairs per request. * Maximum 20 characters per key. * Maximum 80 characters per value. 
 /// * [mode] - Indicates the type of front end integration. Possible values: * **embedded** (default): Drop-in or Components integration * **hosted**: Hosted Checkout integration
 /// * [mpiData] - Authentication data produced by an MPI (Mastercard SecureCode, Visa Secure, or Cartes Bancaires).
+/// * [payable] - Indicates if the session is payable. If the payment amount is final, set this to **true** to indicate that the session is payable, so that the shopper can proceed to submit the payment. When you set this to **true**, you can no longer update the session.  If you set this to **false**, you must make another request to update the session and set this to **true** before the shopper can submit the payment.  If not specified, this defaults to **true**. 
 /// * [platformChargebackLogic] - Defines how to book chargebacks when using [Adyen for Platforms](https://docs.adyen.com/adyen-for-platforms-model).
 /// * [recurringExpiry] - Date after which no further authorisations shall be performed. Only for 3D Secure 2.
 /// * [recurringFrequency] - Minimum number of days between authorisations. Only for 3D Secure 2.
@@ -69,12 +73,13 @@ part 'create_checkout_session_request.g.dart';
 /// * [redirectFromIssuerMethod] - Specifies the redirect method (GET or POST) when redirecting back from the issuer.
 /// * [redirectToIssuerMethod] - Specifies the redirect method (GET or POST) when redirecting to the issuer.
 /// * [reference] - The reference to uniquely identify a payment.
-/// * [returnUrl] - The URL to return to in case of a redirection. The format depends on the channel.  * For web, include the protocol `http://` or `https://`. You can also include your own additional query parameters, for example, shopper ID or order reference number. Example: `https://your-company.example.com/checkout?shopperOrder=12xy` * For iOS, use the custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple Developer documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app). Example: `my-app://` * For Android, use a custom URL handled by an Activity on your app. You can configure it with an [intent filter](https://developer.android.com/guide/components/intents-filters). Example: `my-app://your.package.name`  If the URL to return to includes non-ASCII characters, like spaces or special letters, URL encode the value.  We strongly recommend that you use a maximum of 1024 characters.  > The URL must not include personally identifiable information (PII), for example name or email address.
+/// * [returnUrl] - The URL to return to in case of a redirection. The format depends on the channel.  * For web, include the protocol `http://` or `https://`. You can also include your own additional query parameters, for example, shopper ID or order reference number. Example: `https://your-company.example.com/checkout?shopperOrder=12xy` * For iOS, use the custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple Developer documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app). Example: `my-app://` * For Android, use a custom URL handled by an Activity on your app. You can configure it with an [intent filter](https://developer.android.com/guide/components/intents-filters). Example: `my-app://your.package.name`  If the URL to return to includes non-ASCII characters, like spaces or special letters, URL encode the value. > The URL must not include personally identifiable information (PII), for example name or email address.
 /// * [riskData] - Any risk-related settings to apply to the payment.
+/// * [shopperConversionId] - Use this if you made a `/paymentMethods` request to get the payment methods for the shopper's checkout session.  A unique ID to [connect the shopper to a single checkout session](https://docs.adyen.com/online-payments/checkout-settings#checkout-shopper-conversion-id) that uses multiple API requests. You can use this to get insights into conversion rates.
 /// * [shopperEmail] - The shopper's email address.
 /// * [shopperIP] - The shopper's IP address. We recommend that you provide this data, as it is used in a number of risk checks (for instance, number of payment attempts or location-based checks). > Required for Visa and JCB transactions that require 3D Secure 2 authentication for all web and mobile integrations, if you did not include the `shopperEmail`. For native mobile integrations, the field is required to support cases where authentication is routed to the redirect flow. This field is also mandatory for some merchants depending on your business model. For more information, [contact Support](https://www.adyen.help/hc/en-us/requests/new).
 /// * [shopperInteraction] - Specifies the sales channel, through which the shopper gives their card details, and whether the shopper is a returning customer. For the web service API, Adyen assumes Ecommerce shopper interaction by default.  This field has the following possible values: * `Ecommerce` - Online transactions where the cardholder is present (online). For better authorisation rates, we recommend sending the card security code (CSC) along with the request. * `ContAuth` - Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). If the shopper is present (online), you can supply also the CSC to improve authorisation (one-click payment). * `Moto` - Mail-order and telephone-order transactions where the shopper is in contact with the merchant via email or telephone. * `POS` - Point-of-sale transactions where the shopper is physically present to make a payment using a secure payment terminal.
-/// * [shopperLocale] - The combination of a language code and a country code to specify the language to be used in the payment.
+/// * [shopperLocale] - The language for the payment. The value combines the two-letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes) language code with the [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes) country code. For example, **nl-NL**.  When using Drop-in/Components, the specified language appears if your front-end global configuration does not set the `locale`.
 /// * [shopperName] - The shopper's full name. This object is required for some payment methods such as AfterPay, Klarna, or if you're enrolled in the PayPal Seller Protection program.
 /// * [shopperReference] - Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. > Your reference must not include personally identifiable information (PII) such as name or email address.
 /// * [shopperStatement] - The text to be shown on the shopper's bank statement.  We recommend sending a maximum of 22 characters, otherwise banks might truncate the string.  Allowed characters: **a-z**, **A-Z**, **0-9**, spaces, and special characters **. , ' _ - ? + * /_**.
@@ -89,6 +94,7 @@ part 'create_checkout_session_request.g.dart';
 /// * [storePaymentMethodMode] - Indicates if the details of the payment method will be stored for the shopper. Possible values: * **disabled** – No details will be stored (default). * **askForConsent** – If the `shopperReference` is provided, the Drop-in/Component shows a checkbox where the shopper can select to store their payment details for card payments. * **enabled** – If the `shopperReference` is provided, the details will be stored without asking the shopper for consent.
 /// * [telephoneNumber] - The shopper's telephone number.  The phone number must include a plus sign (+) and a country code (1-3 digits), followed by the number (4-15 digits). If the value you provide does not follow the guidelines, we do not submit it for authentication. > Required for Visa and JCB transactions that require 3D Secure 2 authentication, if you did not include the `shopperEmail`.
 /// * [themeId] - Sets a custom theme for [Hosted Checkout](https://docs.adyen.com/online-payments/build-your-integration/?platform=Web&integration=Hosted+Checkout). The value can be any of the **Theme ID** values from your Customer Area.
+/// * [thirdPartyTokenRedundancyInfo] - Configuration for creating redundant payment tokens with third-party token vaults using the Adyen Forward API. This feature requires Forward API webhook integration and pre-configured templates in your Adyen account. Contact your Adyen account manager for setup and availability.
 /// * [threeDS2RequestData] - Request fields for 3D Secure 2. To check if any of the following fields are required for your integration, refer to [Online payments](https://docs.adyen.com/online-payments).
 /// * [threeDSAuthenticationOnly] - Required to trigger the [authentication-only flow](https://docs.adyen.com/online-payments/3d-secure/authentication-only/). If set to **true**, you will only perform the 3D Secure 2 authentication, and will not proceed to the payment authorization.Default: **false**.
 /// * [trustedShopper] - Set to true if the payment should be routed to a trusted MID.
@@ -171,6 +177,10 @@ abstract class CreateCheckoutSessionRequest implements Built<CreateCheckoutSessi
   @BuiltValueField(wireName: r'enableRecurring')
   bool? get enableRecurring;
 
+  /// [Enhanced scheme data](https://docs.adyen.com/payment-methods/cards/enhanced-scheme-data/) that may be required for processing the payment and/or interchange savings can apply.
+  @BuiltValueField(wireName: r'enhancedSchemeData')
+  EnhancedSchemeData? get enhancedSchemeData;
+
   /// The date the session expires in [ISO8601](https://www.iso.org/iso-8601-date-and-time-format.html) format. When not specified, the expiry date is set to 1 hour after session creation. You cannot set the session expiry to more than 24 hours after session creation.
   @BuiltValueField(wireName: r'expiresAt')
   DateTime? get expiresAt;
@@ -220,6 +230,10 @@ abstract class CreateCheckoutSessionRequest implements Built<CreateCheckoutSessi
   @BuiltValueField(wireName: r'mpiData')
   ThreeDSecureData? get mpiData;
 
+  /// Indicates if the session is payable. If the payment amount is final, set this to **true** to indicate that the session is payable, so that the shopper can proceed to submit the payment. When you set this to **true**, you can no longer update the session.  If you set this to **false**, you must make another request to update the session and set this to **true** before the shopper can submit the payment.  If not specified, this defaults to **true**. 
+  @BuiltValueField(wireName: r'payable')
+  bool? get payable;
+
   /// Defines how to book chargebacks when using [Adyen for Platforms](https://docs.adyen.com/adyen-for-platforms-model).
   @BuiltValueField(wireName: r'platformChargebackLogic')
   PlatformChargebackLogic? get platformChargebackLogic;
@@ -249,13 +263,17 @@ abstract class CreateCheckoutSessionRequest implements Built<CreateCheckoutSessi
   @BuiltValueField(wireName: r'reference')
   String get reference;
 
-  /// The URL to return to in case of a redirection. The format depends on the channel.  * For web, include the protocol `http://` or `https://`. You can also include your own additional query parameters, for example, shopper ID or order reference number. Example: `https://your-company.example.com/checkout?shopperOrder=12xy` * For iOS, use the custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple Developer documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app). Example: `my-app://` * For Android, use a custom URL handled by an Activity on your app. You can configure it with an [intent filter](https://developer.android.com/guide/components/intents-filters). Example: `my-app://your.package.name`  If the URL to return to includes non-ASCII characters, like spaces or special letters, URL encode the value.  We strongly recommend that you use a maximum of 1024 characters.  > The URL must not include personally identifiable information (PII), for example name or email address.
+  /// The URL to return to in case of a redirection. The format depends on the channel.  * For web, include the protocol `http://` or `https://`. You can also include your own additional query parameters, for example, shopper ID or order reference number. Example: `https://your-company.example.com/checkout?shopperOrder=12xy` * For iOS, use the custom URL for your app. To know more about setting custom URL schemes, refer to the [Apple Developer documentation](https://developer.apple.com/documentation/uikit/inter-process_communication/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app). Example: `my-app://` * For Android, use a custom URL handled by an Activity on your app. You can configure it with an [intent filter](https://developer.android.com/guide/components/intents-filters). Example: `my-app://your.package.name`  If the URL to return to includes non-ASCII characters, like spaces or special letters, URL encode the value. > The URL must not include personally identifiable information (PII), for example name or email address.
   @BuiltValueField(wireName: r'returnUrl')
   String get returnUrl;
 
   /// Any risk-related settings to apply to the payment.
   @BuiltValueField(wireName: r'riskData')
   RiskData? get riskData;
+
+  /// Use this if you made a `/paymentMethods` request to get the payment methods for the shopper's checkout session.  A unique ID to [connect the shopper to a single checkout session](https://docs.adyen.com/online-payments/checkout-settings#checkout-shopper-conversion-id) that uses multiple API requests. You can use this to get insights into conversion rates.
+  @BuiltValueField(wireName: r'shopperConversionId')
+  String? get shopperConversionId;
 
   /// The shopper's email address.
   @BuiltValueField(wireName: r'shopperEmail')
@@ -270,7 +288,7 @@ abstract class CreateCheckoutSessionRequest implements Built<CreateCheckoutSessi
   CreateCheckoutSessionRequestShopperInteractionEnum? get shopperInteraction;
   // enum shopperInteractionEnum {  Ecommerce,  ContAuth,  Moto,  POS,  };
 
-  /// The combination of a language code and a country code to specify the language to be used in the payment.
+  /// The language for the payment. The value combines the two-letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes) language code with the [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes) country code. For example, **nl-NL**.  When using Drop-in/Components, the specified language appears if your front-end global configuration does not set the `locale`.
   @BuiltValueField(wireName: r'shopperLocale')
   String? get shopperLocale;
 
@@ -331,6 +349,10 @@ abstract class CreateCheckoutSessionRequest implements Built<CreateCheckoutSessi
   /// Sets a custom theme for [Hosted Checkout](https://docs.adyen.com/online-payments/build-your-integration/?platform=Web&integration=Hosted+Checkout). The value can be any of the **Theme ID** values from your Customer Area.
   @BuiltValueField(wireName: r'themeId')
   String? get themeId;
+
+  /// Configuration for creating redundant payment tokens with third-party token vaults using the Adyen Forward API. This feature requires Forward API webhook integration and pre-configured templates in your Adyen account. Contact your Adyen account manager for setup and availability.
+  @BuiltValueField(wireName: r'thirdPartyTokenRedundancyInfo')
+  ThirdPartyTokenRedundancyInfo? get thirdPartyTokenRedundancyInfo;
 
   /// Request fields for 3D Secure 2. To check if any of the following fields are required for your integration, refer to [Online payments](https://docs.adyen.com/online-payments).
   @BuiltValueField(wireName: r'threeDS2RequestData')
@@ -502,6 +524,13 @@ class _$CreateCheckoutSessionRequestSerializer implements PrimitiveSerializer<Cr
         specifiedType: const FullType(bool),
       );
     }
+    if (object.enhancedSchemeData != null) {
+      yield r'enhancedSchemeData';
+      yield serializers.serialize(
+        object.enhancedSchemeData,
+        specifiedType: const FullType(EnhancedSchemeData),
+      );
+    }
     if (object.expiresAt != null) {
       yield r'expiresAt';
       yield serializers.serialize(
@@ -584,6 +613,13 @@ class _$CreateCheckoutSessionRequestSerializer implements PrimitiveSerializer<Cr
         specifiedType: const FullType(ThreeDSecureData),
       );
     }
+    if (object.payable != null) {
+      yield r'payable';
+      yield serializers.serialize(
+        object.payable,
+        specifiedType: const FullType(bool),
+      );
+    }
     if (object.platformChargebackLogic != null) {
       yield r'platformChargebackLogic';
       yield serializers.serialize(
@@ -641,6 +677,13 @@ class _$CreateCheckoutSessionRequestSerializer implements PrimitiveSerializer<Cr
       yield serializers.serialize(
         object.riskData,
         specifiedType: const FullType(RiskData),
+      );
+    }
+    if (object.shopperConversionId != null) {
+      yield r'shopperConversionId';
+      yield serializers.serialize(
+        object.shopperConversionId,
+        specifiedType: const FullType(String),
       );
     }
     if (object.shopperEmail != null) {
@@ -767,6 +810,13 @@ class _$CreateCheckoutSessionRequestSerializer implements PrimitiveSerializer<Cr
       yield serializers.serialize(
         object.themeId,
         specifiedType: const FullType(String),
+      );
+    }
+    if (object.thirdPartyTokenRedundancyInfo != null) {
+      yield r'thirdPartyTokenRedundancyInfo';
+      yield serializers.serialize(
+        object.thirdPartyTokenRedundancyInfo,
+        specifiedType: const FullType(ThirdPartyTokenRedundancyInfo),
       );
     }
     if (object.threeDS2RequestData != null) {
@@ -946,6 +996,13 @@ class _$CreateCheckoutSessionRequestSerializer implements PrimitiveSerializer<Cr
           ) as bool;
           result.enableRecurring = valueDes;
           break;
+        case r'enhancedSchemeData':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(EnhancedSchemeData),
+          ) as EnhancedSchemeData;
+          result.enhancedSchemeData.replace(valueDes);
+          break;
         case r'expiresAt':
           final valueDes = serializers.deserialize(
             value,
@@ -1030,6 +1087,13 @@ class _$CreateCheckoutSessionRequestSerializer implements PrimitiveSerializer<Cr
           ) as ThreeDSecureData;
           result.mpiData.replace(valueDes);
           break;
+        case r'payable':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.payable = valueDes;
+          break;
         case r'platformChargebackLogic':
           final valueDes = serializers.deserialize(
             value,
@@ -1092,6 +1156,13 @@ class _$CreateCheckoutSessionRequestSerializer implements PrimitiveSerializer<Cr
             specifiedType: const FullType(RiskData),
           ) as RiskData;
           result.riskData.replace(valueDes);
+          break;
+        case r'shopperConversionId':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.shopperConversionId = valueDes;
           break;
         case r'shopperEmail':
           final valueDes = serializers.deserialize(
@@ -1218,6 +1289,13 @@ class _$CreateCheckoutSessionRequestSerializer implements PrimitiveSerializer<Cr
             specifiedType: const FullType(String),
           ) as String;
           result.themeId = valueDes;
+          break;
+        case r'thirdPartyTokenRedundancyInfo':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(ThirdPartyTokenRedundancyInfo),
+          ) as ThirdPartyTokenRedundancyInfo;
+          result.thirdPartyTokenRedundancyInfo.replace(valueDes);
           break;
         case r'threeDS2RequestData':
           final valueDes = serializers.deserialize(

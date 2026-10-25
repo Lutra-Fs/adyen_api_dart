@@ -11,16 +11,16 @@ part 'pin_request_type.g.dart';
 
 class PINRequestType extends EnumClass {
 
-  /// Type of PIN Service. Possible values: * **PINEnter** * **PINVerify** * **PINVerifyOnly**
-  @BuiltValueEnumConst(wireName: r'PINEnter')
-  static const PINRequestType pINEnter = _$pINEnter;
-  /// Type of PIN Service. Possible values: * **PINEnter** * **PINVerify** * **PINVerifyOnly**
+  /// Type of PIN Service. Possible values: * **PINVerify** * **PINVerifyOnly** * **PINEnter**
   @BuiltValueEnumConst(wireName: r'PINVerify')
   static const PINRequestType pINVerify = _$pINVerify;
-  /// Type of PIN Service. Possible values: * **PINEnter** * **PINVerify** * **PINVerifyOnly**
+  /// Type of PIN Service. Possible values: * **PINVerify** * **PINVerifyOnly** * **PINEnter**
   @BuiltValueEnumConst(wireName: r'PINVerifyOnly')
   static const PINRequestType pINVerifyOnly = _$pINVerifyOnly;
-  /// Type of PIN Service. Possible values: * **PINEnter** * **PINVerify** * **PINVerifyOnly**
+  /// Type of PIN Service. Possible values: * **PINVerify** * **PINVerifyOnly** * **PINEnter**
+  @BuiltValueEnumConst(wireName: r'PINEnter')
+  static const PINRequestType pINEnter = _$pINEnter;
+  /// Type of PIN Service. Possible values: * **PINVerify** * **PINVerifyOnly** * **PINEnter**
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const PINRequestType unknownDefaultOpenApi = _$unknownDefaultOpenApi;
 

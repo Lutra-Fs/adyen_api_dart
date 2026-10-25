@@ -6,26 +6,26 @@ part of 'menu_entry_tag.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+const MenuEntryTag _$selectable = const MenuEntryTag._('selectable');
 const MenuEntryTag _$nonSelectable = const MenuEntryTag._('nonSelectable');
+const MenuEntryTag _$subMenu = const MenuEntryTag._('subMenu');
 const MenuEntryTag _$nonSelectableSubMenu = const MenuEntryTag._(
   'nonSelectableSubMenu',
 );
-const MenuEntryTag _$selectable = const MenuEntryTag._('selectable');
-const MenuEntryTag _$subMenu = const MenuEntryTag._('subMenu');
 const MenuEntryTag _$unknownDefaultOpenApi = const MenuEntryTag._(
   'unknownDefaultOpenApi',
 );
 
 MenuEntryTag _$valueOf(String name) {
   switch (name) {
-    case 'nonSelectable':
-      return _$nonSelectable;
-    case 'nonSelectableSubMenu':
-      return _$nonSelectableSubMenu;
     case 'selectable':
       return _$selectable;
+    case 'nonSelectable':
+      return _$nonSelectable;
     case 'subMenu':
       return _$subMenu;
+    case 'nonSelectableSubMenu':
+      return _$nonSelectableSubMenu;
     case 'unknownDefaultOpenApi':
       return _$unknownDefaultOpenApi;
     default:
@@ -35,19 +35,19 @@ MenuEntryTag _$valueOf(String name) {
 
 final BuiltSet<MenuEntryTag> _$values =
     BuiltSet<MenuEntryTag>(const <MenuEntryTag>[
-      _$nonSelectable,
-      _$nonSelectableSubMenu,
       _$selectable,
+      _$nonSelectable,
       _$subMenu,
+      _$nonSelectableSubMenu,
       _$unknownDefaultOpenApi,
     ]);
 
 class _$MenuEntryTagMeta {
   const _$MenuEntryTagMeta();
-  MenuEntryTag get nonSelectable => _$nonSelectable;
-  MenuEntryTag get nonSelectableSubMenu => _$nonSelectableSubMenu;
   MenuEntryTag get selectable => _$selectable;
+  MenuEntryTag get nonSelectable => _$nonSelectable;
   MenuEntryTag get subMenu => _$subMenu;
+  MenuEntryTag get nonSelectableSubMenu => _$nonSelectableSubMenu;
   MenuEntryTag get unknownDefaultOpenApi => _$unknownDefaultOpenApi;
   MenuEntryTag valueOf(String name) => _$valueOf(name);
   BuiltSet<MenuEntryTag> get values => _$values;
@@ -62,17 +62,17 @@ Serializer<MenuEntryTag> _$menuEntryTagSerializer = _$MenuEntryTagSerializer();
 
 class _$MenuEntryTagSerializer implements PrimitiveSerializer<MenuEntryTag> {
   static const Map<String, Object> _toWire = const <String, Object>{
-    'nonSelectable': 'NonSelectable',
-    'nonSelectableSubMenu': 'NonSelectableSubMenu',
     'selectable': 'Selectable',
+    'nonSelectable': 'NonSelectable',
     'subMenu': 'SubMenu',
+    'nonSelectableSubMenu': 'NonSelectableSubMenu',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
-    'NonSelectable': 'nonSelectable',
-    'NonSelectableSubMenu': 'nonSelectableSubMenu',
     'Selectable': 'selectable',
+    'NonSelectable': 'nonSelectable',
     'SubMenu': 'subMenu',
+    'NonSelectableSubMenu': 'nonSelectableSubMenu',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
 

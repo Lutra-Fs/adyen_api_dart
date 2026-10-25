@@ -11,14 +11,19 @@ part 'global_status.g.dart';
 
 class GlobalStatus extends EnumClass {
 
-  @BuiltValueEnumConst(wireName: r'Busy')
-  static const GlobalStatus busy = _$busy;
-  @BuiltValueEnumConst(wireName: r'Maintenance')
-  static const GlobalStatus maintenance = _$maintenance;
+  ///  Possible values: * **OK** * **Busy** * **Maintenance** * **Unreachable**
   @BuiltValueEnumConst(wireName: r'OK')
   static const GlobalStatus OK = _$OK;
+  ///  Possible values: * **OK** * **Busy** * **Maintenance** * **Unreachable**
+  @BuiltValueEnumConst(wireName: r'Busy')
+  static const GlobalStatus busy = _$busy;
+  ///  Possible values: * **OK** * **Busy** * **Maintenance** * **Unreachable**
+  @BuiltValueEnumConst(wireName: r'Maintenance')
+  static const GlobalStatus maintenance = _$maintenance;
+  ///  Possible values: * **OK** * **Busy** * **Maintenance** * **Unreachable**
   @BuiltValueEnumConst(wireName: r'Unreachable')
   static const GlobalStatus unreachable = _$unreachable;
+  ///  Possible values: * **OK** * **Busy** * **Maintenance** * **Unreachable**
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const GlobalStatus unknownDefaultOpenApi = _$unknownDefaultOpenApi;
 

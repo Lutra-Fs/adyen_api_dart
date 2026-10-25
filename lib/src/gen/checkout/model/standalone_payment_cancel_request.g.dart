@@ -10,8 +10,6 @@ class _$StandalonePaymentCancelRequest extends StandalonePaymentCancelRequest {
   @override
   final ApplicationInfo? applicationInfo;
   @override
-  final EnhancedSchemeData? enhancedSchemeData;
-  @override
   final String merchantAccount;
   @override
   final String paymentReference;
@@ -24,7 +22,6 @@ class _$StandalonePaymentCancelRequest extends StandalonePaymentCancelRequest {
 
   _$StandalonePaymentCancelRequest._({
     this.applicationInfo,
-    this.enhancedSchemeData,
     required this.merchantAccount,
     required this.paymentReference,
     this.reference,
@@ -43,7 +40,6 @@ class _$StandalonePaymentCancelRequest extends StandalonePaymentCancelRequest {
     if (identical(other, this)) return true;
     return other is StandalonePaymentCancelRequest &&
         applicationInfo == other.applicationInfo &&
-        enhancedSchemeData == other.enhancedSchemeData &&
         merchantAccount == other.merchantAccount &&
         paymentReference == other.paymentReference &&
         reference == other.reference;
@@ -53,7 +49,6 @@ class _$StandalonePaymentCancelRequest extends StandalonePaymentCancelRequest {
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, applicationInfo.hashCode);
-    _$hash = $jc(_$hash, enhancedSchemeData.hashCode);
     _$hash = $jc(_$hash, merchantAccount.hashCode);
     _$hash = $jc(_$hash, paymentReference.hashCode);
     _$hash = $jc(_$hash, reference.hashCode);
@@ -65,7 +60,6 @@ class _$StandalonePaymentCancelRequest extends StandalonePaymentCancelRequest {
   String toString() {
     return (newBuiltValueToStringHelper(r'StandalonePaymentCancelRequest')
           ..add('applicationInfo', applicationInfo)
-          ..add('enhancedSchemeData', enhancedSchemeData)
           ..add('merchantAccount', merchantAccount)
           ..add('paymentReference', paymentReference)
           ..add('reference', reference))
@@ -86,12 +80,6 @@ class StandalonePaymentCancelRequestBuilder
       _$this._applicationInfo ??= ApplicationInfoBuilder();
   set applicationInfo(ApplicationInfoBuilder? applicationInfo) =>
       _$this._applicationInfo = applicationInfo;
-
-  EnhancedSchemeDataBuilder? _enhancedSchemeData;
-  EnhancedSchemeDataBuilder get enhancedSchemeData =>
-      _$this._enhancedSchemeData ??= EnhancedSchemeDataBuilder();
-  set enhancedSchemeData(EnhancedSchemeDataBuilder? enhancedSchemeData) =>
-      _$this._enhancedSchemeData = enhancedSchemeData;
 
   String? _merchantAccount;
   String? get merchantAccount => _$this._merchantAccount;
@@ -115,7 +103,6 @@ class StandalonePaymentCancelRequestBuilder
     final $v = _$v;
     if ($v != null) {
       _applicationInfo = $v.applicationInfo?.toBuilder();
-      _enhancedSchemeData = $v.enhancedSchemeData?.toBuilder();
       _merchantAccount = $v.merchantAccount;
       _paymentReference = $v.paymentReference;
       _reference = $v.reference;
@@ -144,7 +131,6 @@ class StandalonePaymentCancelRequestBuilder
           _$v ??
           _$StandalonePaymentCancelRequest._(
             applicationInfo: _applicationInfo?.build(),
-            enhancedSchemeData: _enhancedSchemeData?.build(),
             merchantAccount: BuiltValueNullFieldError.checkNotNull(
               merchantAccount,
               r'StandalonePaymentCancelRequest',
@@ -162,8 +148,6 @@ class StandalonePaymentCancelRequestBuilder
       try {
         _$failedField = 'applicationInfo';
         _applicationInfo?.build();
-        _$failedField = 'enhancedSchemeData';
-        _enhancedSchemeData?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
           r'StandalonePaymentCancelRequest',

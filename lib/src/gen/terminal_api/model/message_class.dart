@@ -11,12 +11,16 @@ part 'message_class.g.dart';
 
 class MessageClass extends EnumClass {
 
-  @BuiltValueEnumConst(wireName: r'Device')
-  static const MessageClass device = _$device;
-  @BuiltValueEnumConst(wireName: r'Event')
-  static const MessageClass event = _$event;
+  ///  Possible values: * **Service** * **Device** * **Event**
   @BuiltValueEnumConst(wireName: r'Service')
   static const MessageClass service = _$service;
+  ///  Possible values: * **Service** * **Device** * **Event**
+  @BuiltValueEnumConst(wireName: r'Device')
+  static const MessageClass device = _$device;
+  ///  Possible values: * **Service** * **Device** * **Event**
+  @BuiltValueEnumConst(wireName: r'Event')
+  static const MessageClass event = _$event;
+  ///  Possible values: * **Service** * **Device** * **Event**
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const MessageClass unknownDefaultOpenApi = _$unknownDefaultOpenApi;
 

@@ -7,38 +7,38 @@ part of 'card_acquisition_transaction.dart';
 // **************************************************************************
 
 const CardAcquisitionTransactionForceEntryModeEnum
-_$cardAcquisitionTransactionForceEntryModeEnum_checkReader =
-    const CardAcquisitionTransactionForceEntryModeEnum._('checkReader');
-const CardAcquisitionTransactionForceEntryModeEnum
-_$cardAcquisitionTransactionForceEntryModeEnum_contactless =
-    const CardAcquisitionTransactionForceEntryModeEnum._('contactless');
-const CardAcquisitionTransactionForceEntryModeEnum
-_$cardAcquisitionTransactionForceEntryModeEnum_file =
-    const CardAcquisitionTransactionForceEntryModeEnum._('file');
-const CardAcquisitionTransactionForceEntryModeEnum
-_$cardAcquisitionTransactionForceEntryModeEnum_ICC =
-    const CardAcquisitionTransactionForceEntryModeEnum._('ICC');
+_$cardAcquisitionTransactionForceEntryModeEnum_RFID =
+    const CardAcquisitionTransactionForceEntryModeEnum._('RFID');
 const CardAcquisitionTransactionForceEntryModeEnum
 _$cardAcquisitionTransactionForceEntryModeEnum_keyed =
     const CardAcquisitionTransactionForceEntryModeEnum._('keyed');
 const CardAcquisitionTransactionForceEntryModeEnum
-_$cardAcquisitionTransactionForceEntryModeEnum_magStripe =
-    const CardAcquisitionTransactionForceEntryModeEnum._('magStripe');
-const CardAcquisitionTransactionForceEntryModeEnum
 _$cardAcquisitionTransactionForceEntryModeEnum_manual =
     const CardAcquisitionTransactionForceEntryModeEnum._('manual');
 const CardAcquisitionTransactionForceEntryModeEnum
-_$cardAcquisitionTransactionForceEntryModeEnum_RFID =
-    const CardAcquisitionTransactionForceEntryModeEnum._('RFID');
+_$cardAcquisitionTransactionForceEntryModeEnum_file =
+    const CardAcquisitionTransactionForceEntryModeEnum._('file');
 const CardAcquisitionTransactionForceEntryModeEnum
 _$cardAcquisitionTransactionForceEntryModeEnum_scanned =
     const CardAcquisitionTransactionForceEntryModeEnum._('scanned');
+const CardAcquisitionTransactionForceEntryModeEnum
+_$cardAcquisitionTransactionForceEntryModeEnum_magStripe =
+    const CardAcquisitionTransactionForceEntryModeEnum._('magStripe');
+const CardAcquisitionTransactionForceEntryModeEnum
+_$cardAcquisitionTransactionForceEntryModeEnum_ICC =
+    const CardAcquisitionTransactionForceEntryModeEnum._('ICC');
 const CardAcquisitionTransactionForceEntryModeEnum
 _$cardAcquisitionTransactionForceEntryModeEnum_synchronousICC =
     const CardAcquisitionTransactionForceEntryModeEnum._('synchronousICC');
 const CardAcquisitionTransactionForceEntryModeEnum
 _$cardAcquisitionTransactionForceEntryModeEnum_tapped =
     const CardAcquisitionTransactionForceEntryModeEnum._('tapped');
+const CardAcquisitionTransactionForceEntryModeEnum
+_$cardAcquisitionTransactionForceEntryModeEnum_contactless =
+    const CardAcquisitionTransactionForceEntryModeEnum._('contactless');
+const CardAcquisitionTransactionForceEntryModeEnum
+_$cardAcquisitionTransactionForceEntryModeEnum_checkReader =
+    const CardAcquisitionTransactionForceEntryModeEnum._('checkReader');
 const CardAcquisitionTransactionForceEntryModeEnum
 _$cardAcquisitionTransactionForceEntryModeEnum_unknownDefaultOpenApi =
     const CardAcquisitionTransactionForceEntryModeEnum._(
@@ -48,28 +48,28 @@ _$cardAcquisitionTransactionForceEntryModeEnum_unknownDefaultOpenApi =
 CardAcquisitionTransactionForceEntryModeEnum
 _$cardAcquisitionTransactionForceEntryModeEnumValueOf(String name) {
   switch (name) {
-    case 'checkReader':
-      return _$cardAcquisitionTransactionForceEntryModeEnum_checkReader;
-    case 'contactless':
-      return _$cardAcquisitionTransactionForceEntryModeEnum_contactless;
-    case 'file':
-      return _$cardAcquisitionTransactionForceEntryModeEnum_file;
-    case 'ICC':
-      return _$cardAcquisitionTransactionForceEntryModeEnum_ICC;
-    case 'keyed':
-      return _$cardAcquisitionTransactionForceEntryModeEnum_keyed;
-    case 'magStripe':
-      return _$cardAcquisitionTransactionForceEntryModeEnum_magStripe;
-    case 'manual':
-      return _$cardAcquisitionTransactionForceEntryModeEnum_manual;
     case 'RFID':
       return _$cardAcquisitionTransactionForceEntryModeEnum_RFID;
+    case 'keyed':
+      return _$cardAcquisitionTransactionForceEntryModeEnum_keyed;
+    case 'manual':
+      return _$cardAcquisitionTransactionForceEntryModeEnum_manual;
+    case 'file':
+      return _$cardAcquisitionTransactionForceEntryModeEnum_file;
     case 'scanned':
       return _$cardAcquisitionTransactionForceEntryModeEnum_scanned;
+    case 'magStripe':
+      return _$cardAcquisitionTransactionForceEntryModeEnum_magStripe;
+    case 'ICC':
+      return _$cardAcquisitionTransactionForceEntryModeEnum_ICC;
     case 'synchronousICC':
       return _$cardAcquisitionTransactionForceEntryModeEnum_synchronousICC;
     case 'tapped':
       return _$cardAcquisitionTransactionForceEntryModeEnum_tapped;
+    case 'contactless':
+      return _$cardAcquisitionTransactionForceEntryModeEnum_contactless;
+    case 'checkReader':
+      return _$cardAcquisitionTransactionForceEntryModeEnum_checkReader;
     case 'unknownDefaultOpenApi':
       return _$cardAcquisitionTransactionForceEntryModeEnum_unknownDefaultOpenApi;
     default:
@@ -81,17 +81,17 @@ final BuiltSet<CardAcquisitionTransactionForceEntryModeEnum>
 _$cardAcquisitionTransactionForceEntryModeEnumValues =
     BuiltSet<CardAcquisitionTransactionForceEntryModeEnum>(
       const <CardAcquisitionTransactionForceEntryModeEnum>[
-        _$cardAcquisitionTransactionForceEntryModeEnum_checkReader,
-        _$cardAcquisitionTransactionForceEntryModeEnum_contactless,
-        _$cardAcquisitionTransactionForceEntryModeEnum_file,
-        _$cardAcquisitionTransactionForceEntryModeEnum_ICC,
-        _$cardAcquisitionTransactionForceEntryModeEnum_keyed,
-        _$cardAcquisitionTransactionForceEntryModeEnum_magStripe,
-        _$cardAcquisitionTransactionForceEntryModeEnum_manual,
         _$cardAcquisitionTransactionForceEntryModeEnum_RFID,
+        _$cardAcquisitionTransactionForceEntryModeEnum_keyed,
+        _$cardAcquisitionTransactionForceEntryModeEnum_manual,
+        _$cardAcquisitionTransactionForceEntryModeEnum_file,
         _$cardAcquisitionTransactionForceEntryModeEnum_scanned,
+        _$cardAcquisitionTransactionForceEntryModeEnum_magStripe,
+        _$cardAcquisitionTransactionForceEntryModeEnum_ICC,
         _$cardAcquisitionTransactionForceEntryModeEnum_synchronousICC,
         _$cardAcquisitionTransactionForceEntryModeEnum_tapped,
+        _$cardAcquisitionTransactionForceEntryModeEnum_contactless,
+        _$cardAcquisitionTransactionForceEntryModeEnum_checkReader,
         _$cardAcquisitionTransactionForceEntryModeEnum_unknownDefaultOpenApi,
       ],
     );
@@ -104,31 +104,31 @@ class _$CardAcquisitionTransactionForceEntryModeEnumSerializer
     implements
         PrimitiveSerializer<CardAcquisitionTransactionForceEntryModeEnum> {
   static const Map<String, Object> _toWire = const <String, Object>{
-    'checkReader': 'CheckReader',
-    'contactless': 'Contactless',
-    'file': 'File',
-    'ICC': 'ICC',
-    'keyed': 'Keyed',
-    'magStripe': 'MagStripe',
-    'manual': 'Manual',
     'RFID': 'RFID',
+    'keyed': 'Keyed',
+    'manual': 'Manual',
+    'file': 'File',
     'scanned': 'Scanned',
+    'magStripe': 'MagStripe',
+    'ICC': 'ICC',
     'synchronousICC': 'SynchronousICC',
     'tapped': 'Tapped',
+    'contactless': 'Contactless',
+    'checkReader': 'CheckReader',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
-    'CheckReader': 'checkReader',
-    'Contactless': 'contactless',
-    'File': 'file',
-    'ICC': 'ICC',
-    'Keyed': 'keyed',
-    'MagStripe': 'magStripe',
-    'Manual': 'manual',
     'RFID': 'RFID',
+    'Keyed': 'keyed',
+    'Manual': 'manual',
+    'File': 'file',
     'Scanned': 'scanned',
+    'MagStripe': 'magStripe',
+    'ICC': 'ICC',
     'SynchronousICC': 'synchronousICC',
     'Tapped': 'tapped',
+    'Contactless': 'contactless',
+    'CheckReader': 'checkReader',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
 

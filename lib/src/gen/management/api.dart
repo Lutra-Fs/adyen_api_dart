@@ -19,8 +19,10 @@ import 'package:adyen_api/src/gen/management/api/account_store_level_api.dart';
 import 'package:adyen_api/src/gen/management/api/allowed_origins_company_level_api.dart';
 import 'package:adyen_api/src/gen/management/api/allowed_origins_merchant_level_api.dart';
 import 'package:adyen_api/src/gen/management/api/android_files_company_level_api.dart';
+import 'package:adyen_api/src/gen/management/api/client_certificates_company_level_api.dart';
 import 'package:adyen_api/src/gen/management/api/client_key_company_level_api.dart';
 import 'package:adyen_api/src/gen/management/api/client_key_merchant_level_api.dart';
+import 'package:adyen_api/src/gen/management/api/donation_campaigns_api.dart';
 import 'package:adyen_api/src/gen/management/api/my_api_credential_api.dart';
 import 'package:adyen_api/src/gen/management/api/payment_methods_merchant_level_api.dart';
 import 'package:adyen_api/src/gen/management/api/payout_settings_merchant_level_api.dart';
@@ -33,6 +35,10 @@ import 'package:adyen_api/src/gen/management/api/terminal_settings_company_level
 import 'package:adyen_api/src/gen/management/api/terminal_settings_merchant_level_api.dart';
 import 'package:adyen_api/src/gen/management/api/terminal_settings_store_level_api.dart';
 import 'package:adyen_api/src/gen/management/api/terminal_settings_terminal_level_api.dart';
+import 'package:adyen_api/src/gen/management/api/terminal_themes_company_level_api.dart';
+import 'package:adyen_api/src/gen/management/api/terminal_themes_merchant_level_api.dart';
+import 'package:adyen_api/src/gen/management/api/terminal_themes_store_level_api.dart';
+import 'package:adyen_api/src/gen/management/api/terminal_themes_terminal_level_api.dart';
 import 'package:adyen_api/src/gen/management/api/terminals_terminal_level_api.dart';
 import 'package:adyen_api/src/gen/management/api/users_company_level_api.dart';
 import 'package:adyen_api/src/gen/management/api/users_merchant_level_api.dart';
@@ -153,6 +159,12 @@ class AdyenApi {
     return AndroidFilesCompanyLevelApi(dio, serializers);
   }
 
+  /// Get ClientCertificatesCompanyLevelApi instance, base route and serializer can be overridden by a given but be careful,
+  /// by doing that all interceptors will not be executed
+  ClientCertificatesCompanyLevelApi getClientCertificatesCompanyLevelApi() {
+    return ClientCertificatesCompanyLevelApi(dio, serializers);
+  }
+
   /// Get ClientKeyCompanyLevelApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
   ClientKeyCompanyLevelApi getClientKeyCompanyLevelApi() {
@@ -163,6 +175,12 @@ class AdyenApi {
   /// by doing that all interceptors will not be executed
   ClientKeyMerchantLevelApi getClientKeyMerchantLevelApi() {
     return ClientKeyMerchantLevelApi(dio, serializers);
+  }
+
+  /// Get DonationCampaignsApi instance, base route and serializer can be overridden by a given but be careful,
+  /// by doing that all interceptors will not be executed
+  DonationCampaignsApi getDonationCampaignsApi() {
+    return DonationCampaignsApi(dio, serializers);
   }
 
   /// Get MyAPICredentialApi instance, base route and serializer can be overridden by a given but be careful,
@@ -235,6 +253,30 @@ class AdyenApi {
   /// by doing that all interceptors will not be executed
   TerminalSettingsTerminalLevelApi getTerminalSettingsTerminalLevelApi() {
     return TerminalSettingsTerminalLevelApi(dio, serializers);
+  }
+
+  /// Get TerminalThemesCompanyLevelApi instance, base route and serializer can be overridden by a given but be careful,
+  /// by doing that all interceptors will not be executed
+  TerminalThemesCompanyLevelApi getTerminalThemesCompanyLevelApi() {
+    return TerminalThemesCompanyLevelApi(dio, serializers);
+  }
+
+  /// Get TerminalThemesMerchantLevelApi instance, base route and serializer can be overridden by a given but be careful,
+  /// by doing that all interceptors will not be executed
+  TerminalThemesMerchantLevelApi getTerminalThemesMerchantLevelApi() {
+    return TerminalThemesMerchantLevelApi(dio, serializers);
+  }
+
+  /// Get TerminalThemesStoreLevelApi instance, base route and serializer can be overridden by a given but be careful,
+  /// by doing that all interceptors will not be executed
+  TerminalThemesStoreLevelApi getTerminalThemesStoreLevelApi() {
+    return TerminalThemesStoreLevelApi(dio, serializers);
+  }
+
+  /// Get TerminalThemesTerminalLevelApi instance, base route and serializer can be overridden by a given but be careful,
+  /// by doing that all interceptors will not be executed
+  TerminalThemesTerminalLevelApi getTerminalThemesTerminalLevelApi() {
+    return TerminalThemesTerminalLevelApi(dio, serializers);
   }
 
   /// Get TerminalsTerminalLevelApi instance, base route and serializer can be overridden by a given but be careful,

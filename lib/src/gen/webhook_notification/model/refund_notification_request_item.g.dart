@@ -120,6 +120,9 @@ const RefundNotificationRequestItemEventCodeEnum
 _$refundNotificationRequestItemEventCodeEnum_REFUND_FAILED =
     const RefundNotificationRequestItemEventCodeEnum._('REFUND_FAILED');
 const RefundNotificationRequestItemEventCodeEnum
+_$refundNotificationRequestItemEventCodeEnum_REFUND_NOT_CLEARED =
+    const RefundNotificationRequestItemEventCodeEnum._('REFUND_NOT_CLEARED');
+const RefundNotificationRequestItemEventCodeEnum
 _$refundNotificationRequestItemEventCodeEnum_REFUND_WITH_DATA =
     const RefundNotificationRequestItemEventCodeEnum._('REFUND_WITH_DATA');
 const RefundNotificationRequestItemEventCodeEnum
@@ -128,8 +131,14 @@ _$refundNotificationRequestItemEventCodeEnum_REQUEST_FOR_INFORMATION =
       'REQUEST_FOR_INFORMATION',
     );
 const RefundNotificationRequestItemEventCodeEnum
+_$refundNotificationRequestItemEventCodeEnum_REVERSAL =
+    const RefundNotificationRequestItemEventCodeEnum._('REVERSAL');
+const RefundNotificationRequestItemEventCodeEnum
 _$refundNotificationRequestItemEventCodeEnum_SECOND_CHARGEBACK =
     const RefundNotificationRequestItemEventCodeEnum._('SECOND_CHARGEBACK');
+const RefundNotificationRequestItemEventCodeEnum
+_$refundNotificationRequestItemEventCodeEnum_SETTLED_REVERSED =
+    const RefundNotificationRequestItemEventCodeEnum._('SETTLED_REVERSED');
 const RefundNotificationRequestItemEventCodeEnum
 _$refundNotificationRequestItemEventCodeEnum_TECHNICAL_CANCEL =
     const RefundNotificationRequestItemEventCodeEnum._('TECHNICAL_CANCEL');
@@ -213,12 +222,18 @@ _$refundNotificationRequestItemEventCodeEnumValueOf(String name) {
       return _$refundNotificationRequestItemEventCodeEnum_REFUNDED_REVERSED;
     case 'REFUND_FAILED':
       return _$refundNotificationRequestItemEventCodeEnum_REFUND_FAILED;
+    case 'REFUND_NOT_CLEARED':
+      return _$refundNotificationRequestItemEventCodeEnum_REFUND_NOT_CLEARED;
     case 'REFUND_WITH_DATA':
       return _$refundNotificationRequestItemEventCodeEnum_REFUND_WITH_DATA;
     case 'REQUEST_FOR_INFORMATION':
       return _$refundNotificationRequestItemEventCodeEnum_REQUEST_FOR_INFORMATION;
+    case 'REVERSAL':
+      return _$refundNotificationRequestItemEventCodeEnum_REVERSAL;
     case 'SECOND_CHARGEBACK':
       return _$refundNotificationRequestItemEventCodeEnum_SECOND_CHARGEBACK;
+    case 'SETTLED_REVERSED':
+      return _$refundNotificationRequestItemEventCodeEnum_SETTLED_REVERSED;
     case 'TECHNICAL_CANCEL':
       return _$refundNotificationRequestItemEventCodeEnum_TECHNICAL_CANCEL;
     case 'VOID_PENDING_REFUND':
@@ -270,9 +285,12 @@ _$refundNotificationRequestItemEventCodeEnumValues =
       _$refundNotificationRequestItemEventCodeEnum_REFUND,
       _$refundNotificationRequestItemEventCodeEnum_REFUNDED_REVERSED,
       _$refundNotificationRequestItemEventCodeEnum_REFUND_FAILED,
+      _$refundNotificationRequestItemEventCodeEnum_REFUND_NOT_CLEARED,
       _$refundNotificationRequestItemEventCodeEnum_REFUND_WITH_DATA,
       _$refundNotificationRequestItemEventCodeEnum_REQUEST_FOR_INFORMATION,
+      _$refundNotificationRequestItemEventCodeEnum_REVERSAL,
       _$refundNotificationRequestItemEventCodeEnum_SECOND_CHARGEBACK,
+      _$refundNotificationRequestItemEventCodeEnum_SETTLED_REVERSED,
       _$refundNotificationRequestItemEventCodeEnum_TECHNICAL_CANCEL,
       _$refundNotificationRequestItemEventCodeEnum_VOID_PENDING_REFUND,
       _$refundNotificationRequestItemEventCodeEnum_unknownDefaultOpenApi,
@@ -320,9 +338,12 @@ class _$RefundNotificationRequestItemEventCodeEnumSerializer
     'REFUND': 'REFUND',
     'REFUNDED_REVERSED': 'REFUNDED_REVERSED',
     'REFUND_FAILED': 'REFUND_FAILED',
+    'REFUND_NOT_CLEARED': 'REFUND_NOT_CLEARED',
     'REFUND_WITH_DATA': 'REFUND_WITH_DATA',
     'REQUEST_FOR_INFORMATION': 'REQUEST_FOR_INFORMATION',
+    'REVERSAL': 'REVERSAL',
     'SECOND_CHARGEBACK': 'SECOND_CHARGEBACK',
+    'SETTLED_REVERSED': 'SETTLED_REVERSED',
     'TECHNICAL_CANCEL': 'TECHNICAL_CANCEL',
     'VOID_PENDING_REFUND': 'VOID_PENDING_REFUND',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
@@ -363,9 +384,12 @@ class _$RefundNotificationRequestItemEventCodeEnumSerializer
     'REFUND': 'REFUND',
     'REFUNDED_REVERSED': 'REFUNDED_REVERSED',
     'REFUND_FAILED': 'REFUND_FAILED',
+    'REFUND_NOT_CLEARED': 'REFUND_NOT_CLEARED',
     'REFUND_WITH_DATA': 'REFUND_WITH_DATA',
     'REQUEST_FOR_INFORMATION': 'REQUEST_FOR_INFORMATION',
+    'REVERSAL': 'REVERSAL',
     'SECOND_CHARGEBACK': 'SECOND_CHARGEBACK',
+    'SETTLED_REVERSED': 'SETTLED_REVERSED',
     'TECHNICAL_CANCEL': 'TECHNICAL_CANCEL',
     'VOID_PENDING_REFUND': 'VOID_PENDING_REFUND',
     'unknown_default_open_api': 'unknownDefaultOpenApi',

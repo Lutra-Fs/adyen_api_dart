@@ -11,19 +11,19 @@ part 'identification_support.g.dart';
 
 class IdentificationSupport extends EnumClass {
 
-  /// Support of the loyalty account identification. Allows knowing where and how you have found the loyalty account identification. Possible values: * **HybridCard** * **LinkedCard** * **LoyaltyCard** * **NoCard**
-  @BuiltValueEnumConst(wireName: r'HybridCard')
-  static const IdentificationSupport hybridCard = _$hybridCard;
-  /// Support of the loyalty account identification. Allows knowing where and how you have found the loyalty account identification. Possible values: * **HybridCard** * **LinkedCard** * **LoyaltyCard** * **NoCard**
-  @BuiltValueEnumConst(wireName: r'LinkedCard')
-  static const IdentificationSupport linkedCard = _$linkedCard;
-  /// Support of the loyalty account identification. Allows knowing where and how you have found the loyalty account identification. Possible values: * **HybridCard** * **LinkedCard** * **LoyaltyCard** * **NoCard**
-  @BuiltValueEnumConst(wireName: r'LoyaltyCard')
-  static const IdentificationSupport loyaltyCard = _$loyaltyCard;
-  /// Support of the loyalty account identification. Allows knowing where and how you have found the loyalty account identification. Possible values: * **HybridCard** * **LinkedCard** * **LoyaltyCard** * **NoCard**
+  /// Support of the loyalty account identification. Allows knowing where and how you have found the loyalty account identification. Possible values: * **NoCard** * **LoyaltyCard** * **HybridCard** * **LinkedCard**
   @BuiltValueEnumConst(wireName: r'NoCard')
   static const IdentificationSupport noCard = _$noCard;
-  /// Support of the loyalty account identification. Allows knowing where and how you have found the loyalty account identification. Possible values: * **HybridCard** * **LinkedCard** * **LoyaltyCard** * **NoCard**
+  /// Support of the loyalty account identification. Allows knowing where and how you have found the loyalty account identification. Possible values: * **NoCard** * **LoyaltyCard** * **HybridCard** * **LinkedCard**
+  @BuiltValueEnumConst(wireName: r'LoyaltyCard')
+  static const IdentificationSupport loyaltyCard = _$loyaltyCard;
+  /// Support of the loyalty account identification. Allows knowing where and how you have found the loyalty account identification. Possible values: * **NoCard** * **LoyaltyCard** * **HybridCard** * **LinkedCard**
+  @BuiltValueEnumConst(wireName: r'HybridCard')
+  static const IdentificationSupport hybridCard = _$hybridCard;
+  /// Support of the loyalty account identification. Allows knowing where and how you have found the loyalty account identification. Possible values: * **NoCard** * **LoyaltyCard** * **HybridCard** * **LinkedCard**
+  @BuiltValueEnumConst(wireName: r'LinkedCard')
+  static const IdentificationSupport linkedCard = _$linkedCard;
+  /// Support of the loyalty account identification. Allows knowing where and how you have found the loyalty account identification. Possible values: * **NoCard** * **LoyaltyCard** * **HybridCard** * **LinkedCard**
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const IdentificationSupport unknownDefaultOpenApi = _$unknownDefaultOpenApi;
 

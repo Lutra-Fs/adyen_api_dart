@@ -128,6 +128,9 @@ const DisputesNotificationRequestItemEventCodeEnum
 _$disputesNotificationRequestItemEventCodeEnum_REFUND_FAILED =
     const DisputesNotificationRequestItemEventCodeEnum._('REFUND_FAILED');
 const DisputesNotificationRequestItemEventCodeEnum
+_$disputesNotificationRequestItemEventCodeEnum_REFUND_NOT_CLEARED =
+    const DisputesNotificationRequestItemEventCodeEnum._('REFUND_NOT_CLEARED');
+const DisputesNotificationRequestItemEventCodeEnum
 _$disputesNotificationRequestItemEventCodeEnum_REFUND_WITH_DATA =
     const DisputesNotificationRequestItemEventCodeEnum._('REFUND_WITH_DATA');
 const DisputesNotificationRequestItemEventCodeEnum
@@ -136,8 +139,14 @@ _$disputesNotificationRequestItemEventCodeEnum_REQUEST_FOR_INFORMATION =
       'REQUEST_FOR_INFORMATION',
     );
 const DisputesNotificationRequestItemEventCodeEnum
+_$disputesNotificationRequestItemEventCodeEnum_REVERSAL =
+    const DisputesNotificationRequestItemEventCodeEnum._('REVERSAL');
+const DisputesNotificationRequestItemEventCodeEnum
 _$disputesNotificationRequestItemEventCodeEnum_SECOND_CHARGEBACK =
     const DisputesNotificationRequestItemEventCodeEnum._('SECOND_CHARGEBACK');
+const DisputesNotificationRequestItemEventCodeEnum
+_$disputesNotificationRequestItemEventCodeEnum_SETTLED_REVERSED =
+    const DisputesNotificationRequestItemEventCodeEnum._('SETTLED_REVERSED');
 const DisputesNotificationRequestItemEventCodeEnum
 _$disputesNotificationRequestItemEventCodeEnum_TECHNICAL_CANCEL =
     const DisputesNotificationRequestItemEventCodeEnum._('TECHNICAL_CANCEL');
@@ -223,12 +232,18 @@ _$disputesNotificationRequestItemEventCodeEnumValueOf(String name) {
       return _$disputesNotificationRequestItemEventCodeEnum_REFUNDED_REVERSED;
     case 'REFUND_FAILED':
       return _$disputesNotificationRequestItemEventCodeEnum_REFUND_FAILED;
+    case 'REFUND_NOT_CLEARED':
+      return _$disputesNotificationRequestItemEventCodeEnum_REFUND_NOT_CLEARED;
     case 'REFUND_WITH_DATA':
       return _$disputesNotificationRequestItemEventCodeEnum_REFUND_WITH_DATA;
     case 'REQUEST_FOR_INFORMATION':
       return _$disputesNotificationRequestItemEventCodeEnum_REQUEST_FOR_INFORMATION;
+    case 'REVERSAL':
+      return _$disputesNotificationRequestItemEventCodeEnum_REVERSAL;
     case 'SECOND_CHARGEBACK':
       return _$disputesNotificationRequestItemEventCodeEnum_SECOND_CHARGEBACK;
+    case 'SETTLED_REVERSED':
+      return _$disputesNotificationRequestItemEventCodeEnum_SETTLED_REVERSED;
     case 'TECHNICAL_CANCEL':
       return _$disputesNotificationRequestItemEventCodeEnum_TECHNICAL_CANCEL;
     case 'VOID_PENDING_REFUND':
@@ -280,9 +295,12 @@ _$disputesNotificationRequestItemEventCodeEnumValues =
       _$disputesNotificationRequestItemEventCodeEnum_REFUND,
       _$disputesNotificationRequestItemEventCodeEnum_REFUNDED_REVERSED,
       _$disputesNotificationRequestItemEventCodeEnum_REFUND_FAILED,
+      _$disputesNotificationRequestItemEventCodeEnum_REFUND_NOT_CLEARED,
       _$disputesNotificationRequestItemEventCodeEnum_REFUND_WITH_DATA,
       _$disputesNotificationRequestItemEventCodeEnum_REQUEST_FOR_INFORMATION,
+      _$disputesNotificationRequestItemEventCodeEnum_REVERSAL,
       _$disputesNotificationRequestItemEventCodeEnum_SECOND_CHARGEBACK,
+      _$disputesNotificationRequestItemEventCodeEnum_SETTLED_REVERSED,
       _$disputesNotificationRequestItemEventCodeEnum_TECHNICAL_CANCEL,
       _$disputesNotificationRequestItemEventCodeEnum_VOID_PENDING_REFUND,
       _$disputesNotificationRequestItemEventCodeEnum_unknownDefaultOpenApi,
@@ -331,9 +349,12 @@ class _$DisputesNotificationRequestItemEventCodeEnumSerializer
     'REFUND': 'REFUND',
     'REFUNDED_REVERSED': 'REFUNDED_REVERSED',
     'REFUND_FAILED': 'REFUND_FAILED',
+    'REFUND_NOT_CLEARED': 'REFUND_NOT_CLEARED',
     'REFUND_WITH_DATA': 'REFUND_WITH_DATA',
     'REQUEST_FOR_INFORMATION': 'REQUEST_FOR_INFORMATION',
+    'REVERSAL': 'REVERSAL',
     'SECOND_CHARGEBACK': 'SECOND_CHARGEBACK',
+    'SETTLED_REVERSED': 'SETTLED_REVERSED',
     'TECHNICAL_CANCEL': 'TECHNICAL_CANCEL',
     'VOID_PENDING_REFUND': 'VOID_PENDING_REFUND',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
@@ -374,9 +395,12 @@ class _$DisputesNotificationRequestItemEventCodeEnumSerializer
     'REFUND': 'REFUND',
     'REFUNDED_REVERSED': 'REFUNDED_REVERSED',
     'REFUND_FAILED': 'REFUND_FAILED',
+    'REFUND_NOT_CLEARED': 'REFUND_NOT_CLEARED',
     'REFUND_WITH_DATA': 'REFUND_WITH_DATA',
     'REQUEST_FOR_INFORMATION': 'REQUEST_FOR_INFORMATION',
+    'REVERSAL': 'REVERSAL',
     'SECOND_CHARGEBACK': 'SECOND_CHARGEBACK',
+    'SETTLED_REVERSED': 'SETTLED_REVERSED',
     'TECHNICAL_CANCEL': 'TECHNICAL_CANCEL',
     'VOID_PENDING_REFUND': 'VOID_PENDING_REFUND',
     'unknown_default_open_api': 'unknownDefaultOpenApi',

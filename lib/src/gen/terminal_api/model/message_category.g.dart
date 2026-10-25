@@ -26,7 +26,6 @@ const MessageCategory _$inputUpdate = const MessageCategory._('inputUpdate');
 const MessageCategory _$login = const MessageCategory._('login');
 const MessageCategory _$logout = const MessageCategory._('logout');
 const MessageCategory _$loyalty = const MessageCategory._('loyalty');
-const MessageCategory _$none = const MessageCategory._('none');
 const MessageCategory _$payment = const MessageCategory._('payment');
 const MessageCategory _$print = const MessageCategory._('print');
 const MessageCategory _$reconciliation = const MessageCategory._(
@@ -37,6 +36,7 @@ const MessageCategory _$storedValue = const MessageCategory._('storedValue');
 const MessageCategory _$transactionStatus = const MessageCategory._(
   'transactionStatus',
 );
+const MessageCategory _$none = const MessageCategory._('none');
 const MessageCategory _$unknownDefaultOpenApi = const MessageCategory._(
   'unknownDefaultOpenApi',
 );
@@ -71,8 +71,6 @@ MessageCategory _$valueOf(String name) {
       return _$logout;
     case 'loyalty':
       return _$loyalty;
-    case 'none':
-      return _$none;
     case 'payment':
       return _$payment;
     case 'print':
@@ -85,6 +83,8 @@ MessageCategory _$valueOf(String name) {
       return _$storedValue;
     case 'transactionStatus':
       return _$transactionStatus;
+    case 'none':
+      return _$none;
     case 'unknownDefaultOpenApi':
       return _$unknownDefaultOpenApi;
     default:
@@ -108,13 +108,13 @@ final BuiltSet<MessageCategory> _$values =
       _$login,
       _$logout,
       _$loyalty,
-      _$none,
       _$payment,
       _$print,
       _$reconciliation,
       _$reversal,
       _$storedValue,
       _$transactionStatus,
+      _$none,
       _$unknownDefaultOpenApi,
     ]);
 
@@ -134,13 +134,13 @@ class _$MessageCategoryMeta {
   MessageCategory get login => _$login;
   MessageCategory get logout => _$logout;
   MessageCategory get loyalty => _$loyalty;
-  MessageCategory get none => _$none;
   MessageCategory get payment => _$payment;
   MessageCategory get print => _$print;
   MessageCategory get reconciliation => _$reconciliation;
   MessageCategory get reversal => _$reversal;
   MessageCategory get storedValue => _$storedValue;
   MessageCategory get transactionStatus => _$transactionStatus;
+  MessageCategory get none => _$none;
   MessageCategory get unknownDefaultOpenApi => _$unknownDefaultOpenApi;
   MessageCategory valueOf(String name) => _$valueOf(name);
   BuiltSet<MessageCategory> get values => _$values;
@@ -171,13 +171,13 @@ class _$MessageCategorySerializer
     'login': 'Login',
     'logout': 'Logout',
     'loyalty': 'Loyalty',
-    'none': 'None',
     'payment': 'Payment',
     'print': 'Print',
     'reconciliation': 'Reconciliation',
     'reversal': 'Reversal',
     'storedValue': 'StoredValue',
     'transactionStatus': 'TransactionStatus',
+    'none': 'None',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
@@ -195,13 +195,13 @@ class _$MessageCategorySerializer
     'Login': 'login',
     'Logout': 'logout',
     'Loyalty': 'loyalty',
-    'None': 'none',
     'Payment': 'payment',
     'Print': 'print',
     'Reconciliation': 'reconciliation',
     'Reversal': 'reversal',
     'StoredValue': 'storedValue',
     'TransactionStatus': 'transactionStatus',
+    'None': 'none',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
 

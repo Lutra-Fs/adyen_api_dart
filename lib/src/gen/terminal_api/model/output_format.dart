@@ -11,19 +11,19 @@ part 'output_format.g.dart';
 
 class OutputFormat extends EnumClass {
 
-  /// Format of the content to display or print. Display or print device function. Possible values: * **BarCode** * **MessageRef** * **Text** * **XHTML**
-  @BuiltValueEnumConst(wireName: r'BarCode')
-  static const OutputFormat barCode = _$barCode;
-  /// Format of the content to display or print. Display or print device function. Possible values: * **BarCode** * **MessageRef** * **Text** * **XHTML**
+  /// Format of the content to display or print. Display or print device function. Possible values: * **MessageRef** * **Text** * **XHTML** * **BarCode**
   @BuiltValueEnumConst(wireName: r'MessageRef')
   static const OutputFormat messageRef = _$messageRef;
-  /// Format of the content to display or print. Display or print device function. Possible values: * **BarCode** * **MessageRef** * **Text** * **XHTML**
+  /// Format of the content to display or print. Display or print device function. Possible values: * **MessageRef** * **Text** * **XHTML** * **BarCode**
   @BuiltValueEnumConst(wireName: r'Text')
   static const OutputFormat text = _$text;
-  /// Format of the content to display or print. Display or print device function. Possible values: * **BarCode** * **MessageRef** * **Text** * **XHTML**
+  /// Format of the content to display or print. Display or print device function. Possible values: * **MessageRef** * **Text** * **XHTML** * **BarCode**
   @BuiltValueEnumConst(wireName: r'XHTML')
   static const OutputFormat XHTML = _$XHTML;
-  /// Format of the content to display or print. Display or print device function. Possible values: * **BarCode** * **MessageRef** * **Text** * **XHTML**
+  /// Format of the content to display or print. Display or print device function. Possible values: * **MessageRef** * **Text** * **XHTML** * **BarCode**
+  @BuiltValueEnumConst(wireName: r'BarCode')
+  static const OutputFormat barCode = _$barCode;
+  /// Format of the content to display or print. Display or print device function. Possible values: * **MessageRef** * **Text** * **XHTML** * **BarCode**
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const OutputFormat unknownDefaultOpenApi = _$unknownDefaultOpenApi;
 

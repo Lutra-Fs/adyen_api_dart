@@ -6,21 +6,21 @@ part of 'message_class.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+const MessageClass _$service = const MessageClass._('service');
 const MessageClass _$device = const MessageClass._('device');
 const MessageClass _$event = const MessageClass._('event');
-const MessageClass _$service = const MessageClass._('service');
 const MessageClass _$unknownDefaultOpenApi = const MessageClass._(
   'unknownDefaultOpenApi',
 );
 
 MessageClass _$valueOf(String name) {
   switch (name) {
+    case 'service':
+      return _$service;
     case 'device':
       return _$device;
     case 'event':
       return _$event;
-    case 'service':
-      return _$service;
     case 'unknownDefaultOpenApi':
       return _$unknownDefaultOpenApi;
     default:
@@ -29,14 +29,14 @@ MessageClass _$valueOf(String name) {
 }
 
 final BuiltSet<MessageClass> _$values = BuiltSet<MessageClass>(
-  const <MessageClass>[_$device, _$event, _$service, _$unknownDefaultOpenApi],
+  const <MessageClass>[_$service, _$device, _$event, _$unknownDefaultOpenApi],
 );
 
 class _$MessageClassMeta {
   const _$MessageClassMeta();
+  MessageClass get service => _$service;
   MessageClass get device => _$device;
   MessageClass get event => _$event;
-  MessageClass get service => _$service;
   MessageClass get unknownDefaultOpenApi => _$unknownDefaultOpenApi;
   MessageClass valueOf(String name) => _$valueOf(name);
   BuiltSet<MessageClass> get values => _$values;
@@ -51,15 +51,15 @@ Serializer<MessageClass> _$messageClassSerializer = _$MessageClassSerializer();
 
 class _$MessageClassSerializer implements PrimitiveSerializer<MessageClass> {
   static const Map<String, Object> _toWire = const <String, Object>{
+    'service': 'Service',
     'device': 'Device',
     'event': 'Event',
-    'service': 'Service',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
+    'Service': 'service',
     'Device': 'device',
     'Event': 'event',
-    'Service': 'service',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
 

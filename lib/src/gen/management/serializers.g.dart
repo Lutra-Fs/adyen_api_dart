@@ -10,19 +10,28 @@ Serializers _$serializers =
     (Serializers().toBuilder()
           ..add(AccelInfo.serializer)
           ..add(AccelInfoProcessingTypeEnum.serializer)
+          ..add(AccelResponseInfo.serializer)
+          ..add(AccelResponseInfoProcessingTypeEnum.serializer)
+          ..add(AccelUpdateInfo.serializer)
           ..add(AdditionalCommission.serializer)
           ..add(AdditionalSettings.serializer)
           ..add(AdditionalSettingsResponse.serializer)
           ..add(Address.serializer)
           ..add(AffirmInfo.serializer)
-          ..add(AffirmInfoPricePlanEnum.serializer)
+          ..add(AffirmResponseInfo.serializer)
+          ..add(AffirmUpdateInfo.serializer)
           ..add(AfterpayTouchInfo.serializer)
+          ..add(AfterpayTouchResponseInfo.serializer)
           ..add(AlipayPlusInfo.serializer)
+          ..add(AlipayPlusResponseInfo.serializer)
           ..add(AllowedOrigin.serializer)
           ..add(AllowedOriginsResponse.serializer)
           ..add(AmexInfo.serializer)
           ..add(AmexInfoServiceLevelEnum.serializer)
+          ..add(AmexResponseInfo.serializer)
           ..add(Amount.serializer)
+          ..add(AncvInfo.serializer)
+          ..add(AncvResponseInfo.serializer)
           ..add(AndroidApp.serializer)
           ..add(AndroidAppError.serializer)
           ..add(AndroidAppStatusEnum.serializer)
@@ -32,12 +41,26 @@ Serializers _$serializers =
           ..add(ApiCredential.serializer)
           ..add(ApiCredentialLinks.serializer)
           ..add(ApplePayInfo.serializer)
+          ..add(ApplePayResponseInfo.serializer)
+          ..add(AssociatedPaymentMethod.serializer)
           ..add(BcmcInfo.serializer)
+          ..add(BcmcResponseInfo.serializer)
+          ..add(BcmcUpdateInfo.serializer)
           ..add(BillingEntitiesResponse.serializer)
           ..add(BillingEntity.serializer)
+          ..add(CampaignStatusTransition.serializer)
           ..add(CardholderReceipt.serializer)
+          ..add(CarnetInfo.serializer)
+          ..add(CarnetResponseInfo.serializer)
           ..add(CartesBancairesInfo.serializer)
+          ..add(CartesBancairesResponseInfo.serializer)
+          ..add(CartesBancairesUpdateInfo.serializer)
+          ..add(CashAppUpdateInfo.serializer)
+          ..add(CertificateSearchResponse.serializer)
           ..add(ClearpayInfo.serializer)
+          ..add(ClearpayResponseInfo.serializer)
+          ..add(ClientCertificateRequest.serializer)
+          ..add(ClientCertificateWithChain.serializer)
           ..add(Commission.serializer)
           ..add(Company.serializer)
           ..add(CompanyApiCredential.serializer)
@@ -68,12 +91,34 @@ Serializers _$serializers =
           ..add(CreateMerchantWebhookRequestCommunicationFormatEnum.serializer)
           ..add(CreateMerchantWebhookRequestEncryptionProtocolEnum.serializer)
           ..add(CreateMerchantWebhookRequestNetworkTypeEnum.serializer)
+          ..add(CreateThemeRequest.serializer)
+          ..add(CreateThemeResponse.serializer)
           ..add(CreateUserResponse.serializer)
+          ..add(CupResponseInfo.serializer)
           ..add(Currency.serializer)
           ..add(CustomNotification.serializer)
           ..add(DataCenter.serializer)
+          ..add(Dcc.serializer)
+          ..add(DefaultErrorResponseEntity.serializer)
           ..add(DinersInfo.serializer)
           ..add(DinersInfoServiceLevelEnum.serializer)
+          ..add(DinersResponseInfo.serializer)
+          ..add(DiscoverResponseInfo.serializer)
+          ..add(DisplayTextField.serializer)
+          ..add(DonationAmount.serializer)
+          ..add(DonationAmountUpdate.serializer)
+          ..add(DonationCampaign.serializer)
+          ..add(DonationCampaignNonprofitCause.serializer)
+          ..add(DonationCampaignRequest.serializer)
+          ..add(DonationCampaignStatus.serializer)
+          ..add(DonationCampaignUpdate.serializer)
+          ..add(DonationFlow.serializer)
+          ..add(DonationType.serializer)
+          ..add(EFTDirectDebitCAResponseInfo.serializer)
+          ..add(EbtInfo.serializer)
+          ..add(EbtResponseInfo.serializer)
+          ..add(EbtUpdateInfo.serializer)
+          ..add(EftPosAustraliaResponseInfo.serializer)
           ..add(EventUrl.serializer)
           ..add(ExternalTerminalAction.serializer)
           ..add(File.serializer)
@@ -83,43 +128,63 @@ Serializers _$serializers =
           ..add(GenerateClientKeyResponse.serializer)
           ..add(GenerateHmacKeyResponse.serializer)
           ..add(GenericPmWithTdiInfo.serializer)
+          ..add(GenericPmWithTdiUpdateInfo.serializer)
+          ..add(GirocardResponseInfo.serializer)
           ..add(GivexInfo.serializer)
           ..add(GivexInfoPaymentFlowEnum.serializer)
+          ..add(GivexResponseInfo.serializer)
           ..add(GooglePayInfo.serializer)
+          ..add(GooglePayResponseInfo.serializer)
           ..add(Gratuity.serializer)
           ..add(Hardware.serializer)
           ..add(HomeScreenSettings.serializer)
           ..add(IdName.serializer)
+          ..add(IdealResponseInfo.serializer)
+          ..add(InPersonDonationSettings.serializer)
+          ..add(InPersonDonationSettingsResponse.serializer)
+          ..add(InPersonDonationSettingsUpdate.serializer)
           ..add(InstallAndroidAppDetails.serializer)
           ..add(InstallAndroidAppDetailsTypeEnum.serializer)
           ..add(InstallAndroidCertificateDetails.serializer)
           ..add(InstallAndroidCertificateDetailsTypeEnum.serializer)
           ..add(InstalledAPKs.serializer)
+          ..add(InteracCardResponseInfo.serializer)
           ..add(InvalidField.serializer)
           ..add(JCBInfo.serializer)
           ..add(JCBInfoServiceLevelEnum.serializer)
+          ..add(JCBResponseInfo.serializer)
           ..add(Key.serializer)
           ..add(KioskModeSettings.serializer)
           ..add(KlarnaInfo.serializer)
           ..add(KlarnaInfoRegionEnum.serializer)
+          ..add(KlarnaResponseInfo.serializer)
+          ..add(KlarnaResponseInfoRegionEnum.serializer)
           ..add(Links.serializer)
           ..add(LinksElement.serializer)
           ..add(ListCompanyApiCredentialsResponse.serializer)
           ..add(ListCompanyResponse.serializer)
           ..add(ListCompanyUsersResponse.serializer)
+          ..add(ListDonationCampaignsResponse.serializer)
           ..add(ListExternalTerminalActionsResponse.serializer)
           ..add(ListMerchantApiCredentialsResponse.serializer)
           ..add(ListMerchantResponse.serializer)
           ..add(ListMerchantUsersResponse.serializer)
+          ..add(ListNonprofitsRequest.serializer)
+          ..add(ListNonprofitsResponse.serializer)
           ..add(ListStoresResponse.serializer)
           ..add(ListTerminalsResponse.serializer)
+          ..add(ListThemesResponse.serializer)
           ..add(ListWebhooksResponse.serializer)
           ..add(LocalShopperStatement.serializer)
           ..add(Localization.serializer)
           ..add(LocalizedInformation.serializer)
           ..add(Logo.serializer)
+          ..add(MCResponseInfo.serializer)
+          ..add(MaestroResponseInfo.serializer)
+          ..add(MaestroUSAResponseInfo.serializer)
           ..add(MeApiCredential.serializer)
           ..add(MealVoucherFRInfo.serializer)
+          ..add(MealVoucherFRResponseInfo.serializer)
           ..add(Merchant.serializer)
           ..add(MerchantLinks.serializer)
           ..add(MinorUnitsMonetaryValue.serializer)
@@ -127,12 +192,20 @@ Serializers _$serializers =
           ..add(Name.serializer)
           ..add(Name2.serializer)
           ..add(Nexo.serializer)
+          ..add(Nonprofit.serializer)
+          ..add(NonprofitCause.serializer)
           ..add(Notification.serializer)
           ..add(NotificationCategoryEnum.serializer)
           ..add(NotificationUrl.serializer)
           ..add(NyceInfo.serializer)
           ..add(NyceInfoProcessingTypeEnum.serializer)
+          ..add(NyceResponseInfo.serializer)
+          ..add(NyceResponseInfoProcessingTypeEnum.serializer)
+          ..add(NyceUpdateInfo.serializer)
           ..add(OfflineProcessing.serializer)
+          ..add(OnlineDonationSettings.serializer)
+          ..add(OnlineDonationSettingsResponse.serializer)
+          ..add(OnlineDonationSettingsUpdate.serializer)
           ..add(Opi.serializer)
           ..add(OrderItem.serializer)
           ..add(PaginationLinks.serializer)
@@ -141,9 +214,14 @@ Serializers _$serializers =
           ..add(PayAtTableAuthenticationMethodEnum.serializer)
           ..add(PayAtTablePaymentInstrumentEnum.serializer)
           ..add(PayByBankPlaidInfo.serializer)
+          ..add(PayByBankPlaidResponseInfo.serializer)
+          ..add(PayByBankPlaidUpdateInfo.serializer)
           ..add(PayMeInfo.serializer)
+          ..add(PayMeResponseInfo.serializer)
           ..add(PayPalInfo.serializer)
+          ..add(PayPalResponseInfo.serializer)
           ..add(PayToInfo.serializer)
+          ..add(PayToResponseInfo.serializer)
           ..add(Payment.serializer)
           ..add(PaymentMethod.serializer)
           ..add(PaymentMethodResponse.serializer)
@@ -160,6 +238,9 @@ Serializers _$serializers =
           ..add(Profile.serializer)
           ..add(PulseInfo.serializer)
           ..add(PulseInfoProcessingTypeEnum.serializer)
+          ..add(PulseResponseInfo.serializer)
+          ..add(PulseResponseInfoProcessingTypeEnum.serializer)
+          ..add(PulseUpdateInfo.serializer)
           ..add(ReceiptOptions.serializer)
           ..add(ReceiptPrinting.serializer)
           ..add(Referenced.serializer)
@@ -173,12 +254,16 @@ Serializers _$serializers =
           ..add(ScheduleTerminalActionsRequestActionDetails.serializer)
           ..add(ScheduleTerminalActionsResponse.serializer)
           ..add(SepaDirectDebitInfo.serializer)
+          ..add(SepaDirectDebitResponseInfo.serializer)
+          ..add(SepaDirectDebitUpdateInfo.serializer)
           ..add(Settings.serializer)
           ..add(ShippingLocation.serializer)
           ..add(ShippingLocationsResponse.serializer)
           ..add(Signature.serializer)
           ..add(SodexoInfo.serializer)
+          ..add(SodexoResponseInfo.serializer)
           ..add(SofortInfo.serializer)
+          ..add(SofortResponseInfo.serializer)
           ..add(SplitConfiguration.serializer)
           ..add(SplitConfigurationList.serializer)
           ..add(SplitConfigurationLogic.serializer)
@@ -198,11 +283,16 @@ Serializers _$serializers =
           ..add(SplitConfigurationLogicTipEnum.serializer)
           ..add(SplitConfigurationRule.serializer)
           ..add(SplitConfigurationRuleCardRegionEnum.serializer)
+          ..add(SplitConfigurationRuleCardUsageTypeEnum.serializer)
           ..add(SplitConfigurationRuleFundingSourceEnum.serializer)
           ..add(SplitConfigurationRuleShopperInteractionEnum.serializer)
+          ..add(SplitDcc.serializer)
           ..add(Standalone.serializer)
           ..add(StarInfo.serializer)
           ..add(StarInfoProcessingTypeEnum.serializer)
+          ..add(StarResponseInfo.serializer)
+          ..add(StarResponseInfoProcessingTypeEnum.serializer)
+          ..add(StarUpdateInfo.serializer)
           ..add(Store.serializer)
           ..add(StoreAndForward.serializer)
           ..add(StoreCreationRequest.serializer)
@@ -214,7 +304,9 @@ Serializers _$serializers =
           ..add(SupportedCardTypes.serializer)
           ..add(Surcharge.serializer)
           ..add(SvsInfo.serializer)
+          ..add(SvsResponseInfo.serializer)
           ..add(SwishInfo.serializer)
+          ..add(SwishResponseInfo.serializer)
           ..add(TapToPay.serializer)
           ..add(Terminal.serializer)
           ..add(TerminalActionScheduleDetail.serializer)
@@ -241,11 +333,21 @@ Serializers _$serializers =
           ..add(TestOutput.serializer)
           ..add(TestWebhookRequest.serializer)
           ..add(TestWebhookResponse.serializer)
+          ..add(ThemeAsset.serializer)
+          ..add(ThemeMode.serializer)
+          ..add(ThemeSummary.serializer)
+          ..add(ThemeUpdateRequest.serializer)
+          ..add(ThemeUpdateRequestModeEnum.serializer)
+          ..add(ThemeWithAssetDetails.serializer)
           ..add(TicketInfo.serializer)
+          ..add(TicketResponseInfo.serializer)
           ..add(Timeouts.serializer)
           ..add(TransactionDescriptionInfo.serializer)
           ..add(TransactionDescriptionInfoTypeEnum.serializer)
+          ..add(TransactionDescriptionResponseInfo.serializer)
+          ..add(TransactionDescriptionResponseInfoTypeEnum.serializer)
           ..add(TwintInfo.serializer)
+          ..add(TwintResponseInfo.serializer)
           ..add(UninstallAndroidAppDetails.serializer)
           ..add(UninstallAndroidAppDetailsTypeEnum.serializer)
           ..add(UninstallAndroidCertificateDetails.serializer)
@@ -296,17 +398,25 @@ Serializers _$serializers =
           ..add(UpdateSplitConfigurationLogicRequestTipEnum.serializer)
           ..add(UpdateSplitConfigurationRequest.serializer)
           ..add(UpdateSplitConfigurationRuleRequest.serializer)
+          ..add(UpdateSplitConfigurationRuleRequestCardUsageTypeEnum.serializer)
           ..add(UpdateStoreRequest.serializer)
           ..add(UpdateStoreRequestStatusEnum.serializer)
+          ..add(UpdateThemeResponse.serializer)
           ..add(UploadAndroidAppResponse.serializer)
           ..add(UploadAndroidCertificateResponse.serializer)
           ..add(Url.serializer)
           ..add(User.serializer)
           ..add(ValuelinkInfo.serializer)
           ..add(ValuelinkInfoPinSupportEnum.serializer)
+          ..add(ValuelinkResponseInfo.serializer)
+          ..add(ValuelinkResponseInfoPinSupportEnum.serializer)
           ..add(VippsInfo.serializer)
+          ..add(VippsResponseInfo.serializer)
+          ..add(VisaResponseInfo.serializer)
           ..add(WeChatPayInfo.serializer)
           ..add(WeChatPayPosInfo.serializer)
+          ..add(WeChatPayPosResponseInfo.serializer)
+          ..add(WeChatPayResponseInfo.serializer)
           ..add(Webhook.serializer)
           ..add(WebhookCommunicationFormatEnum.serializer)
           ..add(WebhookEncryptionProtocolEnum.serializer)
@@ -337,8 +447,36 @@ Serializers _$serializers =
             () => ListBuilder<ApiCredential>(),
           )
           ..addBuilderFactory(
+            const FullType(BuiltList, const [
+              const FullType(AssociatedPaymentMethod),
+            ]),
+            () => ListBuilder<AssociatedPaymentMethod>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(String)]),
+            () => ListBuilder<String>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(String)]),
+            () => ListBuilder<String>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(String)]),
+            () => ListBuilder<String>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(String)]),
+            () => ListBuilder<String>(),
+          )
+          ..addBuilderFactory(
             const FullType(BuiltList, const [const FullType(BillingEntity)]),
             () => ListBuilder<BillingEntity>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [
+              const FullType(ClientCertificateWithChain),
+            ]),
+            () => ListBuilder<ClientCertificateWithChain>(),
           )
           ..addBuilderFactory(
             const FullType(BuiltList, const [const FullType(Company)]),
@@ -367,6 +505,34 @@ Serializers _$serializers =
             () => ListBuilder<DataCenter>(),
           )
           ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(DonationAmount)]),
+            () => ListBuilder<DonationAmount>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(String)]),
+            () => ListBuilder<String>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(String)]),
+            () => ListBuilder<String>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(DonationAmount)]),
+            () => ListBuilder<DonationAmount>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(String)]),
+            () => ListBuilder<String>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(String)]),
+            () => ListBuilder<String>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(DonationCampaign)]),
+            () => ListBuilder<DonationCampaign>(),
+          )
+          ..addBuilderFactory(
             const FullType(BuiltList, const [
               const FullType(ExternalTerminalAction),
             ]),
@@ -389,6 +555,10 @@ Serializers _$serializers =
             () => ListBuilder<InvalidField>(),
           )
           ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(InvalidField)]),
+            () => ListBuilder<InvalidField>(),
+          )
+          ..addBuilderFactory(
             const FullType(BuiltList, const [
               const FullType(LocalShopperStatement),
             ]),
@@ -405,10 +575,24 @@ Serializers _$serializers =
             () => ListBuilder<MinorUnitsMonetaryValue>(),
           )
           ..addBuilderFactory(
-            const FullType(BuiltList, const [
-              const FullType(MinorUnitsMonetaryValue),
-            ]),
-            () => ListBuilder<MinorUnitsMonetaryValue>(),
+            const FullType(BuiltList, const [const FullType(Nonprofit)]),
+            () => ListBuilder<Nonprofit>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(NonprofitCause)]),
+            () => ListBuilder<NonprofitCause>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(String)]),
+            () => ListBuilder<String>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(String)]),
+            () => ListBuilder<String>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(String)]),
+            () => ListBuilder<String>(),
           )
           ..addBuilderFactory(
             const FullType(BuiltList, const [const FullType(OrderItem)]),
@@ -455,6 +639,42 @@ Serializers _$serializers =
           ..addBuilderFactory(
             const FullType(BuiltList, const [const FullType(Store)]),
             () => ListBuilder<Store>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(String)]),
+            () => ListBuilder<String>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(String)]),
+            () => ListBuilder<String>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(String)]),
+            () => ListBuilder<String>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(String)]),
+            () => ListBuilder<String>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(String)]),
+            () => ListBuilder<String>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(String)]),
+            () => ListBuilder<String>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(String)]),
+            () => ListBuilder<String>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(String)]),
+            () => ListBuilder<String>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(String)]),
+            () => ListBuilder<String>(),
           )
           ..addBuilderFactory(
             const FullType(BuiltList, const [const FullType(String)]),
@@ -809,6 +1029,22 @@ Serializers _$serializers =
             () => ListBuilder<String>(),
           )
           ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(String)]),
+            () => ListBuilder<String>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(String)]),
+            () => ListBuilder<String>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(String)]),
+            () => ListBuilder<String>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(String)]),
+            () => ListBuilder<String>(),
+          )
+          ..addBuilderFactory(
             const FullType(BuiltMap, const [
               const FullType(String),
               const FullType(bool),
@@ -856,6 +1092,14 @@ Serializers _$serializers =
             () => ListBuilder<TestOutput>(),
           )
           ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(ThemeAsset)]),
+            () => ListBuilder<ThemeAsset>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(ThemeSummary)]),
+            () => ListBuilder<ThemeSummary>(),
+          )
+          ..addBuilderFactory(
             const FullType(BuiltList, const [const FullType(Url)]),
             () => ListBuilder<Url>(),
           )
@@ -878,6 +1122,14 @@ Serializers _$serializers =
           ..addBuilderFactory(
             const FullType(BuiltList, const [const FullType(Webhook)]),
             () => ListBuilder<Webhook>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(int)]),
+            () => ListBuilder<int>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(int)]),
+            () => ListBuilder<int>(),
           ))
         .build();
 

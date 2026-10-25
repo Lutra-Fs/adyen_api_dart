@@ -13,12 +13,8 @@ class ResourceType extends EnumClass {
 
   @BuiltValueEnumConst(wireName: r'legalEntity')
   static const ResourceType legalEntity = _$legalEntity;
-  @BuiltValueEnumConst(wireName: r'balanceAccount')
-  static const ResourceType balanceAccount = _$balanceAccount;
   @BuiltValueEnumConst(wireName: r'accountHolder')
   static const ResourceType accountHolder = _$accountHolder;
-  @BuiltValueEnumConst(wireName: r'merchantAccount')
-  static const ResourceType merchantAccount = _$merchantAccount;
   @BuiltValueEnumConst(wireName: r'paymentInstrument')
   static const ResourceType paymentInstrument = _$paymentInstrument;
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)

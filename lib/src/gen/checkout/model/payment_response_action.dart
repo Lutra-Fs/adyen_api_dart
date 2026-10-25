@@ -65,6 +65,21 @@ abstract class PaymentResponseAction implements Built<PaymentResponseAction, Pay
   /// One Of [CheckoutAwaitAction], [CheckoutBankTransferAction], [CheckoutDelegatedAuthenticationAction], [CheckoutNativeRedirectAction], [CheckoutQrCodeAction], [CheckoutRedirectAction], [CheckoutSDKAction], [CheckoutThreeDS2Action], [CheckoutVoucherAction]
   OneOf get oneOf;
 
+  static const String discriminatorFieldName = r'type';
+
+  static const Map<String, Type> discriminatorMapping = {
+    r'await': CheckoutAwaitAction,
+    r'bankTransfer': CheckoutBankTransferAction,
+    r'delegatedAuthentication': CheckoutDelegatedAuthenticationAction,
+    r'nativeRedirect': CheckoutNativeRedirectAction,
+    r'qrCode': CheckoutQrCodeAction,
+    r'redirect': CheckoutRedirectAction,
+    r'sdk': CheckoutSDKAction,
+    r'threeDS2': CheckoutThreeDS2Action,
+    r'voucher': CheckoutVoucherAction,
+    r'wechatpaySDK': CheckoutSDKAction,
+  };
+
   PaymentResponseAction._();
 
   factory PaymentResponseAction([void updates(PaymentResponseActionBuilder b)]) = _$PaymentResponseAction;
@@ -74,6 +89,77 @@ abstract class PaymentResponseAction implements Built<PaymentResponseAction, Pay
 
   @BuiltValueSerializer(custom: true)
   static Serializer<PaymentResponseAction> get serializer => _$PaymentResponseActionSerializer();
+}
+
+extension PaymentResponseActionDiscriminatorExt on PaymentResponseAction {
+    String? get discriminatorValue {
+        if (this is CheckoutAwaitAction) {
+            return r'await';
+        }
+        if (this is CheckoutBankTransferAction) {
+            return r'bankTransfer';
+        }
+        if (this is CheckoutDelegatedAuthenticationAction) {
+            return r'delegatedAuthentication';
+        }
+        if (this is CheckoutNativeRedirectAction) {
+            return r'nativeRedirect';
+        }
+        if (this is CheckoutQrCodeAction) {
+            return r'qrCode';
+        }
+        if (this is CheckoutRedirectAction) {
+            return r'redirect';
+        }
+        if (this is CheckoutSDKAction) {
+            return r'sdk';
+        }
+        if (this is CheckoutThreeDS2Action) {
+            return r'threeDS2';
+        }
+        if (this is CheckoutVoucherAction) {
+            return r'voucher';
+        }
+        if (this is CheckoutSDKAction) {
+            return r'wechatpaySDK';
+        }
+        return null;
+    }
+}
+extension PaymentResponseActionBuilderDiscriminatorExt on PaymentResponseActionBuilder {
+    String? get discriminatorValue {
+        if (this is CheckoutAwaitActionBuilder) {
+            return r'await';
+        }
+        if (this is CheckoutBankTransferActionBuilder) {
+            return r'bankTransfer';
+        }
+        if (this is CheckoutDelegatedAuthenticationActionBuilder) {
+            return r'delegatedAuthentication';
+        }
+        if (this is CheckoutNativeRedirectActionBuilder) {
+            return r'nativeRedirect';
+        }
+        if (this is CheckoutQrCodeActionBuilder) {
+            return r'qrCode';
+        }
+        if (this is CheckoutRedirectActionBuilder) {
+            return r'redirect';
+        }
+        if (this is CheckoutSDKActionBuilder) {
+            return r'sdk';
+        }
+        if (this is CheckoutThreeDS2ActionBuilder) {
+            return r'threeDS2';
+        }
+        if (this is CheckoutVoucherActionBuilder) {
+            return r'voucher';
+        }
+        if (this is CheckoutSDKActionBuilder) {
+            return r'wechatpaySDK';
+        }
+        return null;
+    }
 }
 
 class _$PaymentResponseActionSerializer implements PrimitiveSerializer<PaymentResponseAction> {
@@ -108,9 +194,88 @@ class _$PaymentResponseActionSerializer implements PrimitiveSerializer<PaymentRe
   }) {
     final result = PaymentResponseActionBuilder();
     Object? oneOfDataSrc;
-    final targetType = const FullType(OneOf, [FullType(CheckoutAwaitAction), FullType(CheckoutBankTransferAction), FullType(CheckoutDelegatedAuthenticationAction), FullType(CheckoutNativeRedirectAction), FullType(CheckoutQrCodeAction), FullType(CheckoutRedirectAction), FullType(CheckoutSDKAction), FullType(CheckoutThreeDS2Action), FullType(CheckoutVoucherAction), ]);
+    final serializedList = (serialized as Iterable<Object?>).toList();
+    final discIndex = serializedList.indexOf(PaymentResponseAction.discriminatorFieldName) + 1;
+    final discValue = serializers.deserialize(serializedList[discIndex], specifiedType: FullType(String)) as String;
     oneOfDataSrc = serialized;
-    result.oneOf = serializers.deserialize(oneOfDataSrc, specifiedType: targetType) as OneOf;
+    final oneOfTypes = [CheckoutAwaitAction, CheckoutBankTransferAction, CheckoutDelegatedAuthenticationAction, CheckoutNativeRedirectAction, CheckoutQrCodeAction, CheckoutRedirectAction, CheckoutSDKAction, CheckoutThreeDS2Action, CheckoutVoucherAction, CheckoutSDKAction, ];
+    Object oneOfResult;
+    Type oneOfType;
+    switch (discValue) {
+      case r'await':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(CheckoutAwaitAction),
+        ) as CheckoutAwaitAction;
+        oneOfType = CheckoutAwaitAction;
+        break;
+      case r'bankTransfer':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(CheckoutBankTransferAction),
+        ) as CheckoutBankTransferAction;
+        oneOfType = CheckoutBankTransferAction;
+        break;
+      case r'delegatedAuthentication':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(CheckoutDelegatedAuthenticationAction),
+        ) as CheckoutDelegatedAuthenticationAction;
+        oneOfType = CheckoutDelegatedAuthenticationAction;
+        break;
+      case r'nativeRedirect':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(CheckoutNativeRedirectAction),
+        ) as CheckoutNativeRedirectAction;
+        oneOfType = CheckoutNativeRedirectAction;
+        break;
+      case r'qrCode':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(CheckoutQrCodeAction),
+        ) as CheckoutQrCodeAction;
+        oneOfType = CheckoutQrCodeAction;
+        break;
+      case r'redirect':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(CheckoutRedirectAction),
+        ) as CheckoutRedirectAction;
+        oneOfType = CheckoutRedirectAction;
+        break;
+      case r'sdk':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(CheckoutSDKAction),
+        ) as CheckoutSDKAction;
+        oneOfType = CheckoutSDKAction;
+        break;
+      case r'threeDS2':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(CheckoutThreeDS2Action),
+        ) as CheckoutThreeDS2Action;
+        oneOfType = CheckoutThreeDS2Action;
+        break;
+      case r'voucher':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(CheckoutVoucherAction),
+        ) as CheckoutVoucherAction;
+        oneOfType = CheckoutVoucherAction;
+        break;
+      case r'wechatpaySDK':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(CheckoutSDKAction),
+        ) as CheckoutSDKAction;
+        oneOfType = CheckoutSDKAction;
+        break;
+      default:
+        throw UnsupportedError("Couldn't deserialize oneOf for the discriminator value: ${discValue}");
+    }
+    result.oneOf = OneOfDynamic(typeIndex: oneOfTypes.indexOf(oneOfType), types: oneOfTypes, value: oneOfResult);
     return result.build();
   }
 }

@@ -18,7 +18,7 @@ part 'adjust_authorisation_request.g.dart';
 /// Properties:
 /// * [additionalData] - This field contains additional data, which may be required for a particular modification request.  The additionalData object consists of entries, each of which includes the key and value.
 /// * [merchantAccount] - The merchant account that is used to process the payment.
-/// * [modificationAmount] - The amount that needs to be adjusted. The `currency` must match the currency used in authorisation, the `value` must be smaller than or equal to the authorised amount.
+/// * [modificationAmount] - The currency and value of the new total amount in minor units. For example, to increase the amount, the value is the sum of the pre-authorized amount and the additional amount.
 /// * [mpiData] - Authentication data produced by an MPI (Mastercard SecureCode, Visa Secure, or Cartes Bancaires).
 /// * [originalMerchantReference] - The original merchant reference to cancel.
 /// * [originalReference] - The original pspReference of the payment to modify. This reference is returned in: * authorisation response * authorisation notification  
@@ -37,7 +37,7 @@ abstract class AdjustAuthorisationRequest implements Built<AdjustAuthorisationRe
   @BuiltValueField(wireName: r'merchantAccount')
   String get merchantAccount;
 
-  /// The amount that needs to be adjusted. The `currency` must match the currency used in authorisation, the `value` must be smaller than or equal to the authorised amount.
+  /// The currency and value of the new total amount in minor units. For example, to increase the amount, the value is the sum of the pre-authorized amount and the additional amount.
   @BuiltValueField(wireName: r'modificationAmount')
   Amount get modificationAmount;
 

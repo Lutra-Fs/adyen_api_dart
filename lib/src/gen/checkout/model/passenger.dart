@@ -12,30 +12,30 @@ part 'passenger.g.dart';
 /// Passenger
 ///
 /// Properties:
-/// * [dateOfBirth] - The passenger's date of birth. * Format `yyyy-MM-dd` * minLength: 10 * maxLength: 10
-/// * [firstName] - The passenger's first name. > This field is required if the airline data includes passenger details or leg details. * Encoding: ASCII
-/// * [lastName] - The passenger's last name. > This field is required if the airline data includes passenger details or leg details. * Encoding: ASCII
-/// * [phoneNumber] - The passenger's phone number, including country code. This is an alphanumeric field that can include the '+' and '-' signs. * Encoding: ASCII * minLength: 3 characters * maxLength: 30 characters
-/// * [travellerType] - The IATA passenger type code (PTC). * Encoding: ASCII * minLength: 3 characters * maxLength: 6 characters
+/// * [dateOfBirth] - The passenger's date of birth. * Format `yyyy-MM-dd` * minLength: 10 * maxLength: 10 * **additionalData key:** `airline.passenger[N].date_of_birth`
+/// * [firstName] - The passenger's first name. > This field is required if the airline data includes passenger details or leg details. * Encoding: ASCII * **additionalData key:** `airline.passenger[N].first_name`
+/// * [lastName] - The passenger's last name. > This field is required if the airline data includes passenger details or leg details. * Encoding: ASCII * **additionalData key:** `airline.passenger[N].last_name`
+/// * [phoneNumber] - The passenger's phone number, including country code. This is an alphanumeric field that can include the '+' and '-' signs. * Encoding: ASCII * minLength: 3 characters * maxLength: 30 characters * **additionalData key:** `airline.passenger[N].phone_number`
+/// * [travellerType] - The IATA passenger type code (PTC). * Encoding: ASCII * minLength: 3 characters * maxLength: 6 characters * **additionalData key:** `airline.passenger[N].traveller_type`
 @BuiltValue()
 abstract class Passenger implements Built<Passenger, PassengerBuilder> {
-  /// The passenger's date of birth. * Format `yyyy-MM-dd` * minLength: 10 * maxLength: 10
+  /// The passenger's date of birth. * Format `yyyy-MM-dd` * minLength: 10 * maxLength: 10 * **additionalData key:** `airline.passenger[N].date_of_birth`
   @BuiltValueField(wireName: r'dateOfBirth')
   Date? get dateOfBirth;
 
-  /// The passenger's first name. > This field is required if the airline data includes passenger details or leg details. * Encoding: ASCII
+  /// The passenger's first name. > This field is required if the airline data includes passenger details or leg details. * Encoding: ASCII * **additionalData key:** `airline.passenger[N].first_name`
   @BuiltValueField(wireName: r'firstName')
   String? get firstName;
 
-  /// The passenger's last name. > This field is required if the airline data includes passenger details or leg details. * Encoding: ASCII
+  /// The passenger's last name. > This field is required if the airline data includes passenger details or leg details. * Encoding: ASCII * **additionalData key:** `airline.passenger[N].last_name`
   @BuiltValueField(wireName: r'lastName')
   String? get lastName;
 
-  /// The passenger's phone number, including country code. This is an alphanumeric field that can include the '+' and '-' signs. * Encoding: ASCII * minLength: 3 characters * maxLength: 30 characters
+  /// The passenger's phone number, including country code. This is an alphanumeric field that can include the '+' and '-' signs. * Encoding: ASCII * minLength: 3 characters * maxLength: 30 characters * **additionalData key:** `airline.passenger[N].phone_number`
   @BuiltValueField(wireName: r'phoneNumber')
   String? get phoneNumber;
 
-  /// The IATA passenger type code (PTC). * Encoding: ASCII * minLength: 3 characters * maxLength: 6 characters
+  /// The IATA passenger type code (PTC). * Encoding: ASCII * minLength: 3 characters * maxLength: 6 characters * **additionalData key:** `airline.passenger[N].traveller_type`
   @BuiltValueField(wireName: r'travellerType')
   String? get travellerType;
 

@@ -10,7 +10,11 @@ class _$Terminal extends Terminal {
   @override
   final TerminalAssignment? assignment;
   @override
+  final String? cloudDeviceApiEndpoint;
+  @override
   final TerminalConnectivity? connectivity;
+  @override
+  final String? countryCode;
   @override
   final String? firmwareVersion;
   @override
@@ -33,7 +37,9 @@ class _$Terminal extends Terminal {
 
   _$Terminal._({
     this.assignment,
+    this.cloudDeviceApiEndpoint,
     this.connectivity,
+    this.countryCode,
     this.firmwareVersion,
     this.id,
     this.installedAPKs,
@@ -55,7 +61,9 @@ class _$Terminal extends Terminal {
     if (identical(other, this)) return true;
     return other is Terminal &&
         assignment == other.assignment &&
+        cloudDeviceApiEndpoint == other.cloudDeviceApiEndpoint &&
         connectivity == other.connectivity &&
+        countryCode == other.countryCode &&
         firmwareVersion == other.firmwareVersion &&
         id == other.id &&
         installedAPKs == other.installedAPKs &&
@@ -70,7 +78,9 @@ class _$Terminal extends Terminal {
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, assignment.hashCode);
+    _$hash = $jc(_$hash, cloudDeviceApiEndpoint.hashCode);
     _$hash = $jc(_$hash, connectivity.hashCode);
+    _$hash = $jc(_$hash, countryCode.hashCode);
     _$hash = $jc(_$hash, firmwareVersion.hashCode);
     _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, installedAPKs.hashCode);
@@ -87,7 +97,9 @@ class _$Terminal extends Terminal {
   String toString() {
     return (newBuiltValueToStringHelper(r'Terminal')
           ..add('assignment', assignment)
+          ..add('cloudDeviceApiEndpoint', cloudDeviceApiEndpoint)
           ..add('connectivity', connectivity)
+          ..add('countryCode', countryCode)
           ..add('firmwareVersion', firmwareVersion)
           ..add('id', id)
           ..add('installedAPKs', installedAPKs)
@@ -109,11 +121,20 @@ class TerminalBuilder implements Builder<Terminal, TerminalBuilder> {
   set assignment(TerminalAssignmentBuilder? assignment) =>
       _$this._assignment = assignment;
 
+  String? _cloudDeviceApiEndpoint;
+  String? get cloudDeviceApiEndpoint => _$this._cloudDeviceApiEndpoint;
+  set cloudDeviceApiEndpoint(String? cloudDeviceApiEndpoint) =>
+      _$this._cloudDeviceApiEndpoint = cloudDeviceApiEndpoint;
+
   TerminalConnectivityBuilder? _connectivity;
   TerminalConnectivityBuilder get connectivity =>
       _$this._connectivity ??= TerminalConnectivityBuilder();
   set connectivity(TerminalConnectivityBuilder? connectivity) =>
       _$this._connectivity = connectivity;
+
+  String? _countryCode;
+  String? get countryCode => _$this._countryCode;
+  set countryCode(String? countryCode) => _$this._countryCode = countryCode;
 
   String? _firmwareVersion;
   String? get firmwareVersion => _$this._firmwareVersion;
@@ -161,7 +182,9 @@ class TerminalBuilder implements Builder<Terminal, TerminalBuilder> {
     final $v = _$v;
     if ($v != null) {
       _assignment = $v.assignment?.toBuilder();
+      _cloudDeviceApiEndpoint = $v.cloudDeviceApiEndpoint;
       _connectivity = $v.connectivity?.toBuilder();
+      _countryCode = $v.countryCode;
       _firmwareVersion = $v.firmwareVersion;
       _id = $v.id;
       _installedAPKs = $v.installedAPKs?.toBuilder();
@@ -195,7 +218,9 @@ class TerminalBuilder implements Builder<Terminal, TerminalBuilder> {
           _$v ??
           _$Terminal._(
             assignment: _assignment?.build(),
+            cloudDeviceApiEndpoint: cloudDeviceApiEndpoint,
             connectivity: _connectivity?.build(),
+            countryCode: countryCode,
             firmwareVersion: firmwareVersion,
             id: id,
             installedAPKs: _installedAPKs?.build(),
@@ -210,6 +235,7 @@ class TerminalBuilder implements Builder<Terminal, TerminalBuilder> {
       try {
         _$failedField = 'assignment';
         _assignment?.build();
+
         _$failedField = 'connectivity';
         _connectivity?.build();
 

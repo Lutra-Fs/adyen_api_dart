@@ -43,7 +43,7 @@ abstract class TransactionConditions implements Built<TransactionConditions, Tra
   /// Type of Loyalty processing requested by the Sale System. Possible values: * **Allowed** * **Forbidden** * **Processed** * **Proposed** * **Required**
   @BuiltValueField(wireName: r'LoyaltyHandling')
   LoyaltyHandling? get loyaltyHandling;
-  // enum loyaltyHandlingEnum {  Allowed,  Forbidden,  Processed,  Proposed,  Required,  };
+  // enum loyaltyHandlingEnum {  Forbidden,  Processed,  Allowed,  Proposed,  Required,  };
 
   /// The language used on the terminal screen or in text printed by the terminal. Typical use case is setting the language on unattended terminals. Format: two-character [ISO 639:2023](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes) format.
   @BuiltValueField(wireName: r'CustomerLanguage')
@@ -56,7 +56,7 @@ abstract class TransactionConditions implements Built<TransactionConditions, Tra
   /// Payment instrument entry mode requested by the Sale System. Restrict entry mode if sent. Possible values: * **CheckReader** * **Contactless** * **File** * **ICC** * **Keyed** * **MagStripe** * **Manual** * **RFID** * **Scanned** * **SynchronousICC** * **Tapped**
   @BuiltValueField(wireName: r'ForceEntryMode')
   BuiltList<TransactionConditionsForceEntryModeEnum>? get forceEntryMode;
-  // enum forceEntryModeEnum {  CheckReader,  Contactless,  File,  ICC,  Keyed,  MagStripe,  Manual,  RFID,  Scanned,  SynchronousICC,  Tapped,  };
+  // enum forceEntryModeEnum {  RFID,  Keyed,  Manual,  File,  Scanned,  MagStripe,  ICC,  SynchronousICC,  Tapped,  Contactless,  CheckReader,  };
 
   /// The code which identifies the category of the transaction (MCC). The payment implies a specific MCC.
   @BuiltValueField(wireName: r'MerchantCategoryCode')
@@ -266,28 +266,28 @@ class _$TransactionConditionsSerializer implements PrimitiveSerializer<Transacti
 
 class TransactionConditionsForceEntryModeEnum extends EnumClass {
 
-  @BuiltValueEnumConst(wireName: r'CheckReader')
-  static const TransactionConditionsForceEntryModeEnum checkReader = _$transactionConditionsForceEntryModeEnum_checkReader;
-  @BuiltValueEnumConst(wireName: r'Contactless')
-  static const TransactionConditionsForceEntryModeEnum contactless = _$transactionConditionsForceEntryModeEnum_contactless;
-  @BuiltValueEnumConst(wireName: r'File')
-  static const TransactionConditionsForceEntryModeEnum file = _$transactionConditionsForceEntryModeEnum_file;
-  @BuiltValueEnumConst(wireName: r'ICC')
-  static const TransactionConditionsForceEntryModeEnum ICC = _$transactionConditionsForceEntryModeEnum_ICC;
-  @BuiltValueEnumConst(wireName: r'Keyed')
-  static const TransactionConditionsForceEntryModeEnum keyed = _$transactionConditionsForceEntryModeEnum_keyed;
-  @BuiltValueEnumConst(wireName: r'MagStripe')
-  static const TransactionConditionsForceEntryModeEnum magStripe = _$transactionConditionsForceEntryModeEnum_magStripe;
-  @BuiltValueEnumConst(wireName: r'Manual')
-  static const TransactionConditionsForceEntryModeEnum manual = _$transactionConditionsForceEntryModeEnum_manual;
   @BuiltValueEnumConst(wireName: r'RFID')
   static const TransactionConditionsForceEntryModeEnum RFID = _$transactionConditionsForceEntryModeEnum_RFID;
+  @BuiltValueEnumConst(wireName: r'Keyed')
+  static const TransactionConditionsForceEntryModeEnum keyed = _$transactionConditionsForceEntryModeEnum_keyed;
+  @BuiltValueEnumConst(wireName: r'Manual')
+  static const TransactionConditionsForceEntryModeEnum manual = _$transactionConditionsForceEntryModeEnum_manual;
+  @BuiltValueEnumConst(wireName: r'File')
+  static const TransactionConditionsForceEntryModeEnum file = _$transactionConditionsForceEntryModeEnum_file;
   @BuiltValueEnumConst(wireName: r'Scanned')
   static const TransactionConditionsForceEntryModeEnum scanned = _$transactionConditionsForceEntryModeEnum_scanned;
+  @BuiltValueEnumConst(wireName: r'MagStripe')
+  static const TransactionConditionsForceEntryModeEnum magStripe = _$transactionConditionsForceEntryModeEnum_magStripe;
+  @BuiltValueEnumConst(wireName: r'ICC')
+  static const TransactionConditionsForceEntryModeEnum ICC = _$transactionConditionsForceEntryModeEnum_ICC;
   @BuiltValueEnumConst(wireName: r'SynchronousICC')
   static const TransactionConditionsForceEntryModeEnum synchronousICC = _$transactionConditionsForceEntryModeEnum_synchronousICC;
   @BuiltValueEnumConst(wireName: r'Tapped')
   static const TransactionConditionsForceEntryModeEnum tapped = _$transactionConditionsForceEntryModeEnum_tapped;
+  @BuiltValueEnumConst(wireName: r'Contactless')
+  static const TransactionConditionsForceEntryModeEnum contactless = _$transactionConditionsForceEntryModeEnum_contactless;
+  @BuiltValueEnumConst(wireName: r'CheckReader')
+  static const TransactionConditionsForceEntryModeEnum checkReader = _$transactionConditionsForceEntryModeEnum_checkReader;
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const TransactionConditionsForceEntryModeEnum unknownDefaultOpenApi = _$transactionConditionsForceEntryModeEnum_unknownDefaultOpenApi;
 

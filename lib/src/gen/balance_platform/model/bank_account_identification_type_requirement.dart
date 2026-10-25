@@ -20,7 +20,7 @@ abstract class BankAccountIdentificationTypeRequirement implements Built<BankAcc
   /// List of bank account identification types: eg.; [iban , numberAndBic]
   @BuiltValueField(wireName: r'bankAccountIdentificationTypes')
   BuiltList<BankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum>? get bankAccountIdentificationTypes;
-  // enum bankAccountIdentificationTypesEnum {  auLocal,  brLocal,  caLocal,  czLocal,  dkLocal,  hkLocal,  huLocal,  iban,  legacy,  noLocal,  numberAndBic,  nzLocal,  plLocal,  seLocal,  sgLocal,  ukLocal,  usLocal,  };
+  // enum bankAccountIdentificationTypesEnum {  auLocal,  brLocal,  caLocal,  czLocal,  dkLocal,  hkLocal,  huLocal,  iban,  inLocal,  jpLocal,  legacy,  mxLocal,  myLocal,  noLocal,  numberAndBic,  nzLocal,  plLocal,  seLocal,  sgLocal,  ukLocal,  usLocal,  };
 
   /// Specifies the bank account details for a particular route per required field in this object depending on the country of the bank account and the currency of the transfer.
   @BuiltValueField(wireName: r'description')
@@ -165,8 +165,16 @@ class BankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum
   static const BankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum huLocal = _$bankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum_huLocal;
   @BuiltValueEnumConst(wireName: r'iban')
   static const BankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum iban = _$bankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum_iban;
+  @BuiltValueEnumConst(wireName: r'inLocal')
+  static const BankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum inLocal = _$bankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum_inLocal;
+  @BuiltValueEnumConst(wireName: r'jpLocal')
+  static const BankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum jpLocal = _$bankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum_jpLocal;
   @BuiltValueEnumConst(wireName: r'legacy')
   static const BankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum legacy = _$bankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum_legacy;
+  @BuiltValueEnumConst(wireName: r'mxLocal')
+  static const BankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum mxLocal = _$bankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum_mxLocal;
+  @BuiltValueEnumConst(wireName: r'myLocal')
+  static const BankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum myLocal = _$bankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum_myLocal;
   @BuiltValueEnumConst(wireName: r'noLocal')
   static const BankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum noLocal = _$bankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum_noLocal;
   @BuiltValueEnumConst(wireName: r'numberAndBic')

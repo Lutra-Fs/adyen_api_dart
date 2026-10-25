@@ -17,9 +17,12 @@ import 'package:adyen_api/src/gen/webhook_notification/model/expire_notification
 import 'package:adyen_api/src/gen/webhook_notification/model/modification_notification_request.dart';
 import 'package:adyen_api/src/gen/webhook_notification/model/notification_request.dart';
 import 'package:adyen_api/src/gen/webhook_notification/model/refund_capture_failed_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/refund_not_cleared_notification_request.dart';
 import 'package:adyen_api/src/gen/webhook_notification/model/refund_notification_request.dart';
 import 'package:adyen_api/src/gen/webhook_notification/model/refund_with_data_notification_request.dart';
 import 'package:adyen_api/src/gen/webhook_notification/model/report_available_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/reversal_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/settled_reversed_notification_request.dart';
 
 class StandardApi {
 
@@ -905,6 +908,79 @@ class StandardApi {
     return _response;
   }
 
+  /// Refund failed to clear
+  /// A refund hasn&#39;t been settled because the acquirer hasn&#39;t processed the refund 30 days after initiation. However, the customer has received the funds. This webhook is available for all payment methods for merchants on Sales Day Payout. [Enable this webhook](https://docs.adyen.com/development-resources/webhooks/webhook-types#non-default-event-codes) in your Customer Area.
+  ///
+  /// Parameters:
+  /// * [refundNotClearedNotificationRequest] 
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future]
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> postREFUNDNOTCLEARED({ 
+    RefundNotClearedNotificationRequest? refundNotClearedNotificationRequest,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async {
+    final _path = r'/REFUND_NOT_CLEARED';
+    final _options = Options(
+      method: r'POST',
+      headers: <String, dynamic>{
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'http',
+            'scheme': 'basic',
+            'name': 'BasicAuth',
+          },
+        ],
+        ...?extra,
+      },
+      contentType: '',
+      validateStatus: validateStatus,
+    );
+
+    dynamic _bodyData;
+
+    try {
+      const _type = FullType(RefundNotClearedNotificationRequest);
+      _bodyData = refundNotClearedNotificationRequest == null ? null : _serializers.serialize(refundNotClearedNotificationRequest, specifiedType: _type);
+
+    } catch(error, stackTrace) {
+      throw DioException(
+         requestOptions: _options.compose(
+          _dio.options,
+          _path,
+        ),
+        type: DioExceptionType.unknown,
+        error: error,
+        stackTrace: stackTrace,
+      );
+    }
+
+    final _response = await _dio.request<Object>(
+      _path,
+      data: _bodyData,
+      options: _options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    return _response;
+  }
+
   /// Result of refund request with data
   /// The result of the request to [refund with data](https://docs.adyen.com/online-payments/classic-integrations/modify-payments/refund#unreferenced-refund).
   ///
@@ -1026,6 +1102,152 @@ class StandardApi {
     try {
       const _type = FullType(ReportAvailableNotificationRequest);
       _bodyData = reportAvailableNotificationRequest == null ? null : _serializers.serialize(reportAvailableNotificationRequest, specifiedType: _type);
+
+    } catch(error, stackTrace) {
+      throw DioException(
+         requestOptions: _options.compose(
+          _dio.options,
+          _path,
+        ),
+        type: DioExceptionType.unknown,
+        error: error,
+        stackTrace: stackTrace,
+      );
+    }
+
+    final _response = await _dio.request<Object>(
+      _path,
+      data: _bodyData,
+      options: _options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    return _response;
+  }
+
+  /// Result of reversal request
+  /// The result of a reversal request. The &#x60;modification.action&#x60; field indicates whether the original payment was cancelled or refunded, or an authorised refund was cancelled.
+  ///
+  /// Parameters:
+  /// * [reversalNotificationRequest] 
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future]
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> postREVERSAL({ 
+    ReversalNotificationRequest? reversalNotificationRequest,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async {
+    final _path = r'/REVERSAL';
+    final _options = Options(
+      method: r'POST',
+      headers: <String, dynamic>{
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'http',
+            'scheme': 'basic',
+            'name': 'BasicAuth',
+          },
+        ],
+        ...?extra,
+      },
+      contentType: '',
+      validateStatus: validateStatus,
+    );
+
+    dynamic _bodyData;
+
+    try {
+      const _type = FullType(ReversalNotificationRequest);
+      _bodyData = reversalNotificationRequest == null ? null : _serializers.serialize(reversalNotificationRequest, specifiedType: _type);
+
+    } catch(error, stackTrace) {
+      throw DioException(
+         requestOptions: _options.compose(
+          _dio.options,
+          _path,
+        ),
+        type: DioExceptionType.unknown,
+        error: error,
+        stackTrace: stackTrace,
+      );
+    }
+
+    final _response = await _dio.request<Object>(
+      _path,
+      data: _bodyData,
+      options: _options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    return _response;
+  }
+
+  /// Capture settlement reversed
+  /// A debit that reverses a **settled** transaction for which Adyen hasn&#39;t received the funds from the card scheme or payment method within 30 days of capture. This webhook is available for all payment methods for merchants on Sales Day Payout. [Enable this webhook](https://docs.adyen.com/development-resources/webhooks/webhook-types#non-default-event-codes) in your Customer Area.
+  ///
+  /// Parameters:
+  /// * [settledReversedNotificationRequest] 
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future]
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> postSETTLEDREVERSED({ 
+    SettledReversedNotificationRequest? settledReversedNotificationRequest,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async {
+    final _path = r'/SETTLED_REVERSED';
+    final _options = Options(
+      method: r'POST',
+      headers: <String, dynamic>{
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'http',
+            'scheme': 'basic',
+            'name': 'BasicAuth',
+          },
+        ],
+        ...?extra,
+      },
+      contentType: '',
+      validateStatus: validateStatus,
+    );
+
+    dynamic _bodyData;
+
+    try {
+      const _type = FullType(SettledReversedNotificationRequest);
+      _bodyData = settledReversedNotificationRequest == null ? null : _serializers.serialize(settledReversedNotificationRequest, specifiedType: _type);
 
     } catch(error, stackTrace) {
       throw DioException(

@@ -15,6 +15,7 @@ part 'direct_debit_au_details.g.dart';
 /// * [bankAccountNumber] - The shopper's banking account number used to complete payment.
 /// * [bankBranchCode] - The shopper's BSB (their bank's branch code) number used to complete payment.
 /// * [checkoutAttemptId] - The checkout attempt identifier.
+/// * [holderName] - The name of the bank account holder.
 /// * [recurringDetailReference] - This is the `recurringDetailReference` returned in the response when you created the token.
 /// * [sdkData] - Base64-encoded JSON object containing SDK related parameters required by the SDK
 /// * [storedPaymentMethodId] - This is the `recurringDetailReference` returned in the response when you created the token.
@@ -32,6 +33,10 @@ abstract class DirectDebitAuDetails implements Built<DirectDebitAuDetails, Direc
   /// The checkout attempt identifier.
   @BuiltValueField(wireName: r'checkoutAttemptId')
   String? get checkoutAttemptId;
+
+  /// The name of the bank account holder.
+  @BuiltValueField(wireName: r'holderName')
+  String get holderName;
 
   /// This is the `recurringDetailReference` returned in the response when you created the token.
   @Deprecated('recurringDetailReference has been deprecated')
@@ -96,6 +101,11 @@ class _$DirectDebitAuDetailsSerializer implements PrimitiveSerializer<DirectDebi
         specifiedType: const FullType(String),
       );
     }
+    yield r'holderName';
+    yield serializers.serialize(
+      object.holderName,
+      specifiedType: const FullType(String),
+    );
     if (object.recurringDetailReference != null) {
       yield r'recurringDetailReference';
       yield serializers.serialize(
@@ -167,6 +177,13 @@ class _$DirectDebitAuDetailsSerializer implements PrimitiveSerializer<DirectDebi
             specifiedType: const FullType(String),
           ) as String;
           result.checkoutAttemptId = valueDes;
+          break;
+        case r'holderName':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.holderName = valueDes;
           break;
         case r'recurringDetailReference':
           final valueDes = serializers.deserialize(

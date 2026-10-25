@@ -58,6 +58,9 @@ const StoredPaymentMethodDetailsTypeEnum
 _$storedPaymentMethodDetailsTypeEnum_momoWalletApp =
     const StoredPaymentMethodDetailsTypeEnum._('momoWalletApp');
 const StoredPaymentMethodDetailsTypeEnum
+_$storedPaymentMethodDetailsTypeEnum_revolutpay =
+    const StoredPaymentMethodDetailsTypeEnum._('revolutpay');
+const StoredPaymentMethodDetailsTypeEnum
 _$storedPaymentMethodDetailsTypeEnum_paymayaWallet =
     const StoredPaymentMethodDetailsTypeEnum._('paymayaWallet');
 const StoredPaymentMethodDetailsTypeEnum
@@ -96,6 +99,9 @@ _$storedPaymentMethodDetailsTypeEnum_truemoney =
 const StoredPaymentMethodDetailsTypeEnum
 _$storedPaymentMethodDetailsTypeEnum_paysafecard =
     const StoredPaymentMethodDetailsTypeEnum._('paysafecard');
+const StoredPaymentMethodDetailsTypeEnum
+_$storedPaymentMethodDetailsTypeEnum_gopayWallet =
+    const StoredPaymentMethodDetailsTypeEnum._('gopayWallet');
 const StoredPaymentMethodDetailsTypeEnum
 _$storedPaymentMethodDetailsTypeEnum_unknownDefaultOpenApi =
     const StoredPaymentMethodDetailsTypeEnum._('unknownDefaultOpenApi');
@@ -138,6 +144,8 @@ StoredPaymentMethodDetailsTypeEnum _$storedPaymentMethodDetailsTypeEnumValueOf(
       return _$storedPaymentMethodDetailsTypeEnum_momoWallet;
     case 'momoWalletApp':
       return _$storedPaymentMethodDetailsTypeEnum_momoWalletApp;
+    case 'revolutpay':
+      return _$storedPaymentMethodDetailsTypeEnum_revolutpay;
     case 'paymayaWallet':
       return _$storedPaymentMethodDetailsTypeEnum_paymayaWallet;
     case 'grabpaySG':
@@ -164,6 +172,8 @@ StoredPaymentMethodDetailsTypeEnum _$storedPaymentMethodDetailsTypeEnumValueOf(
       return _$storedPaymentMethodDetailsTypeEnum_truemoney;
     case 'paysafecard':
       return _$storedPaymentMethodDetailsTypeEnum_paysafecard;
+    case 'gopayWallet':
+      return _$storedPaymentMethodDetailsTypeEnum_gopayWallet;
     case 'unknownDefaultOpenApi':
       return _$storedPaymentMethodDetailsTypeEnum_unknownDefaultOpenApi;
     default:
@@ -192,6 +202,7 @@ _$storedPaymentMethodDetailsTypeEnumValues =
         _$storedPaymentMethodDetailsTypeEnum_bcmcMobileApp,
         _$storedPaymentMethodDetailsTypeEnum_momoWallet,
         _$storedPaymentMethodDetailsTypeEnum_momoWalletApp,
+        _$storedPaymentMethodDetailsTypeEnum_revolutpay,
         _$storedPaymentMethodDetailsTypeEnum_paymayaWallet,
         _$storedPaymentMethodDetailsTypeEnum_grabpaySG,
         _$storedPaymentMethodDetailsTypeEnum_grabpayMY,
@@ -205,6 +216,7 @@ _$storedPaymentMethodDetailsTypeEnumValues =
         _$storedPaymentMethodDetailsTypeEnum_kakaopay,
         _$storedPaymentMethodDetailsTypeEnum_truemoney,
         _$storedPaymentMethodDetailsTypeEnum_paysafecard,
+        _$storedPaymentMethodDetailsTypeEnum_gopayWallet,
         _$storedPaymentMethodDetailsTypeEnum_unknownDefaultOpenApi,
       ],
     );
@@ -233,6 +245,7 @@ class _$StoredPaymentMethodDetailsTypeEnumSerializer
     'bcmcMobileApp': 'bcmc_mobile_app',
     'momoWallet': 'momo_wallet',
     'momoWalletApp': 'momo_wallet_app',
+    'revolutpay': 'revolutpay',
     'paymayaWallet': 'paymaya_wallet',
     'grabpaySG': 'grabpay_SG',
     'grabpayMY': 'grabpay_MY',
@@ -246,6 +259,7 @@ class _$StoredPaymentMethodDetailsTypeEnumSerializer
     'kakaopay': 'kakaopay',
     'truemoney': 'truemoney',
     'paysafecard': 'paysafecard',
+    'gopayWallet': 'gopay_wallet',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
@@ -266,6 +280,7 @@ class _$StoredPaymentMethodDetailsTypeEnumSerializer
     'bcmc_mobile_app': 'bcmcMobileApp',
     'momo_wallet': 'momoWallet',
     'momo_wallet_app': 'momoWalletApp',
+    'revolutpay': 'revolutpay',
     'paymaya_wallet': 'paymayaWallet',
     'grabpay_SG': 'grabpaySG',
     'grabpay_MY': 'grabpayMY',
@@ -279,6 +294,7 @@ class _$StoredPaymentMethodDetailsTypeEnumSerializer
     'kakaopay': 'kakaopay',
     'truemoney': 'truemoney',
     'paysafecard': 'paysafecard',
+    'gopay_wallet': 'gopayWallet',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
 

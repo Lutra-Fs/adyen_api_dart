@@ -11,9 +11,24 @@ part 'alipay_plus_info.g.dart';
 /// AlipayPlusInfo
 ///
 /// Properties:
+/// * [branchName] - The name of the company branch. Required for TrueMoney.
+/// * [merchantMobileAppName] - The name of your mobile app. Required for TrueMoney.
+/// * [productServiceDescription] - The description of the product or service. Required for TrueMoney.
 /// * [settlementCurrencyCode] - The currency used for settlement. Defaults to USD.
 @BuiltValue()
 abstract class AlipayPlusInfo implements Built<AlipayPlusInfo, AlipayPlusInfoBuilder> {
+  /// The name of the company branch. Required for TrueMoney.
+  @BuiltValueField(wireName: r'branchName')
+  String? get branchName;
+
+  /// The name of your mobile app. Required for TrueMoney.
+  @BuiltValueField(wireName: r'merchantMobileAppName')
+  String? get merchantMobileAppName;
+
+  /// The description of the product or service. Required for TrueMoney.
+  @BuiltValueField(wireName: r'productServiceDescription')
+  String? get productServiceDescription;
+
   /// The currency used for settlement. Defaults to USD.
   @BuiltValueField(wireName: r'settlementCurrencyCode')
   String? get settlementCurrencyCode;
@@ -41,6 +56,27 @@ class _$AlipayPlusInfoSerializer implements PrimitiveSerializer<AlipayPlusInfo> 
     AlipayPlusInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
+    if (object.branchName != null) {
+      yield r'branchName';
+      yield serializers.serialize(
+        object.branchName,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.merchantMobileAppName != null) {
+      yield r'merchantMobileAppName';
+      yield serializers.serialize(
+        object.merchantMobileAppName,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.productServiceDescription != null) {
+      yield r'productServiceDescription';
+      yield serializers.serialize(
+        object.productServiceDescription,
+        specifiedType: const FullType(String),
+      );
+    }
     if (object.settlementCurrencyCode != null) {
       yield r'settlementCurrencyCode';
       yield serializers.serialize(
@@ -71,6 +107,27 @@ class _$AlipayPlusInfoSerializer implements PrimitiveSerializer<AlipayPlusInfo> 
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
+        case r'branchName':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.branchName = valueDes;
+          break;
+        case r'merchantMobileAppName':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.merchantMobileAppName = valueDes;
+          break;
+        case r'productServiceDescription':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.productServiceDescription = valueDes;
+          break;
         case r'settlementCurrencyCode':
           final valueDes = serializers.deserialize(
             value,

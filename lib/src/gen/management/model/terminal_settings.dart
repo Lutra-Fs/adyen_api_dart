@@ -22,6 +22,7 @@ import 'package:adyen_api/src/gen/management/model/moto.dart';
 import 'package:adyen_api/src/gen/management/model/nexo.dart';
 import 'package:adyen_api/src/gen/management/model/passcodes.dart';
 import 'package:adyen_api/src/gen/management/model/signature.dart';
+import 'package:adyen_api/src/gen/management/model/dcc.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:adyen_api/src/gen/management/model/kiosk_mode_settings.dart';
 import 'package:adyen_api/src/gen/management/model/opi.dart';
@@ -39,6 +40,7 @@ part 'terminal_settings.g.dart';
 /// Properties:
 /// * [cardholderReceipt] - Settings to define the header of the shopper receipt.
 /// * [connectivity] - Settings for terminal connectivity features.
+/// * [dcc] - Settings for Dynamic Currency Conversion (DCC).
 /// * [gratuities] - Settings for tipping with or without predefined options to choose from. The maximum number of predefined options is four, or three plus the option to enter a custom tip.
 /// * [hardware] - Settings for terminal hardware features.
 /// * [homeScreen] - Settings for the home screen.
@@ -46,7 +48,7 @@ part 'terminal_settings.g.dart';
 /// * [localization] - Settings for localization.
 /// * [moto] - Settings for Mail Order/Telephone Order transactions.
 /// * [nexo] - Settings for a Terminal API integration.
-/// * [offlineProcessing] - Settings for [offline payment](https://docs.adyen.com/point-of-sale/offline-payments) features.
+/// * [offlineProcessing] - Settings for EMV [offline payment](https://docs.adyen.com/point-of-sale/offline-payments) features.
 /// * [opi] - Settings for an Oracle Payment Interface (OPI) integration.
 /// * [passcodes] - Settings for [passcodes](https://docs.adyen.com/point-of-sale/managing-terminals/menu-access?tab=manage_passcodes_with_an_api_call_2#manage-passcodes) features.
 /// * [payAtTable] - Settings for [Pay-at-table](https://docs.adyen.com/point-of-sale/pay-at-x) features.
@@ -54,6 +56,7 @@ part 'terminal_settings.g.dart';
 /// * [receiptOptions] - Generic receipt settings.
 /// * [receiptPrinting] - Transaction outcomes that you want the terminal to print a merchant receipt or a shopper receipt for.
 /// * [refunds] - Settings for refunds.
+/// * [showCalculatedPercentageTippingAmount] - Show the tipping amount calculated from the percentage next to each tipping percentage option on the terminal screen, for example `10 % | 10 EUR` for a 100 EUR payment.
 /// * [signature] - Settings to skip signature, sign on display, or sign on receipt.
 /// * [standalone] - Settings for [standalone](https://docs.adyen.com/point-of-sale/standalone/standalone-build/set-up-standalone#set-up-standalone-using-an-api-call) features.
 /// * [storeAndForward] - Settings for store-and-forward offline payments. The `maxAmount`, `maxPayments`, and `supportedCardTypes` parameters must be configured, either in the request or inherited from a higher level in your account structure.
@@ -71,6 +74,10 @@ abstract class TerminalSettings implements Built<TerminalSettings, TerminalSetti
   /// Settings for terminal connectivity features.
   @BuiltValueField(wireName: r'connectivity')
   Connectivity? get connectivity;
+
+  /// Settings for Dynamic Currency Conversion (DCC).
+  @BuiltValueField(wireName: r'dcc')
+  Dcc? get dcc;
 
   /// Settings for tipping with or without predefined options to choose from. The maximum number of predefined options is four, or three plus the option to enter a custom tip.
   @BuiltValueField(wireName: r'gratuities')
@@ -100,7 +107,7 @@ abstract class TerminalSettings implements Built<TerminalSettings, TerminalSetti
   @BuiltValueField(wireName: r'nexo')
   Nexo? get nexo;
 
-  /// Settings for [offline payment](https://docs.adyen.com/point-of-sale/offline-payments) features.
+  /// Settings for EMV [offline payment](https://docs.adyen.com/point-of-sale/offline-payments) features.
   @BuiltValueField(wireName: r'offlineProcessing')
   OfflineProcessing? get offlineProcessing;
 
@@ -131,6 +138,10 @@ abstract class TerminalSettings implements Built<TerminalSettings, TerminalSetti
   /// Settings for refunds.
   @BuiltValueField(wireName: r'refunds')
   Refunds? get refunds;
+
+  /// Show the tipping amount calculated from the percentage next to each tipping percentage option on the terminal screen, for example `10 % | 10 EUR` for a 100 EUR payment.
+  @BuiltValueField(wireName: r'showCalculatedPercentageTippingAmount')
+  bool? get showCalculatedPercentageTippingAmount;
 
   /// Settings to skip signature, sign on display, or sign on receipt.
   @BuiltValueField(wireName: r'signature')
@@ -199,6 +210,13 @@ class _$TerminalSettingsSerializer implements PrimitiveSerializer<TerminalSettin
       yield serializers.serialize(
         object.connectivity,
         specifiedType: const FullType(Connectivity),
+      );
+    }
+    if (object.dcc != null) {
+      yield r'dcc';
+      yield serializers.serialize(
+        object.dcc,
+        specifiedType: const FullType(Dcc),
       );
     }
     if (object.gratuities != null) {
@@ -306,6 +324,13 @@ class _$TerminalSettingsSerializer implements PrimitiveSerializer<TerminalSettin
         specifiedType: const FullType(Refunds),
       );
     }
+    if (object.showCalculatedPercentageTippingAmount != null) {
+      yield r'showCalculatedPercentageTippingAmount';
+      yield serializers.serialize(
+        object.showCalculatedPercentageTippingAmount,
+        specifiedType: const FullType(bool),
+      );
+    }
     if (object.signature != null) {
       yield r'signature';
       yield serializers.serialize(
@@ -398,6 +423,13 @@ class _$TerminalSettingsSerializer implements PrimitiveSerializer<TerminalSettin
             specifiedType: const FullType(Connectivity),
           ) as Connectivity;
           result.connectivity.replace(valueDes);
+          break;
+        case r'dcc':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(Dcc),
+          ) as Dcc;
+          result.dcc.replace(valueDes);
           break;
         case r'gratuities':
           final valueDes = serializers.deserialize(
@@ -503,6 +535,13 @@ class _$TerminalSettingsSerializer implements PrimitiveSerializer<TerminalSettin
             specifiedType: const FullType(Refunds),
           ) as Refunds;
           result.refunds.replace(valueDes);
+          break;
+        case r'showCalculatedPercentageTippingAmount':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.showCalculatedPercentageTippingAmount = valueDes;
           break;
         case r'signature':
           final valueDes = serializers.deserialize(

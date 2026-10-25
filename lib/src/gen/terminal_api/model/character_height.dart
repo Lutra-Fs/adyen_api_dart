@@ -11,12 +11,16 @@ part 'character_height.g.dart';
 
 class CharacterHeight extends EnumClass {
 
-  @BuiltValueEnumConst(wireName: r'DoubleHeight')
-  static const CharacterHeight doubleHeight = _$doubleHeight;
-  @BuiltValueEnumConst(wireName: r'HalfHeight')
-  static const CharacterHeight halfHeight = _$halfHeight;
+  ///  Possible values: * **SingleHeight** * **DoubleHeight** * **HalfHeight**
   @BuiltValueEnumConst(wireName: r'SingleHeight')
   static const CharacterHeight singleHeight = _$singleHeight;
+  ///  Possible values: * **SingleHeight** * **DoubleHeight** * **HalfHeight**
+  @BuiltValueEnumConst(wireName: r'DoubleHeight')
+  static const CharacterHeight doubleHeight = _$doubleHeight;
+  ///  Possible values: * **SingleHeight** * **DoubleHeight** * **HalfHeight**
+  @BuiltValueEnumConst(wireName: r'HalfHeight')
+  static const CharacterHeight halfHeight = _$halfHeight;
+  ///  Possible values: * **SingleHeight** * **DoubleHeight** * **HalfHeight**
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const CharacterHeight unknownDefaultOpenApi = _$unknownDefaultOpenApi;
 

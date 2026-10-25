@@ -6,29 +6,29 @@ part of 'identification_support.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+const IdentificationSupport _$noCard = const IdentificationSupport._('noCard');
+const IdentificationSupport _$loyaltyCard = const IdentificationSupport._(
+  'loyaltyCard',
+);
 const IdentificationSupport _$hybridCard = const IdentificationSupport._(
   'hybridCard',
 );
 const IdentificationSupport _$linkedCard = const IdentificationSupport._(
   'linkedCard',
 );
-const IdentificationSupport _$loyaltyCard = const IdentificationSupport._(
-  'loyaltyCard',
-);
-const IdentificationSupport _$noCard = const IdentificationSupport._('noCard');
 const IdentificationSupport _$unknownDefaultOpenApi =
     const IdentificationSupport._('unknownDefaultOpenApi');
 
 IdentificationSupport _$valueOf(String name) {
   switch (name) {
+    case 'noCard':
+      return _$noCard;
+    case 'loyaltyCard':
+      return _$loyaltyCard;
     case 'hybridCard':
       return _$hybridCard;
     case 'linkedCard':
       return _$linkedCard;
-    case 'loyaltyCard':
-      return _$loyaltyCard;
-    case 'noCard':
-      return _$noCard;
     case 'unknownDefaultOpenApi':
       return _$unknownDefaultOpenApi;
     default:
@@ -38,19 +38,19 @@ IdentificationSupport _$valueOf(String name) {
 
 final BuiltSet<IdentificationSupport> _$values =
     BuiltSet<IdentificationSupport>(const <IdentificationSupport>[
+      _$noCard,
+      _$loyaltyCard,
       _$hybridCard,
       _$linkedCard,
-      _$loyaltyCard,
-      _$noCard,
       _$unknownDefaultOpenApi,
     ]);
 
 class _$IdentificationSupportMeta {
   const _$IdentificationSupportMeta();
+  IdentificationSupport get noCard => _$noCard;
+  IdentificationSupport get loyaltyCard => _$loyaltyCard;
   IdentificationSupport get hybridCard => _$hybridCard;
   IdentificationSupport get linkedCard => _$linkedCard;
-  IdentificationSupport get loyaltyCard => _$loyaltyCard;
-  IdentificationSupport get noCard => _$noCard;
   IdentificationSupport get unknownDefaultOpenApi => _$unknownDefaultOpenApi;
   IdentificationSupport valueOf(String name) => _$valueOf(name);
   BuiltSet<IdentificationSupport> get values => _$values;
@@ -68,17 +68,17 @@ Serializer<IdentificationSupport> _$identificationSupportSerializer =
 class _$IdentificationSupportSerializer
     implements PrimitiveSerializer<IdentificationSupport> {
   static const Map<String, Object> _toWire = const <String, Object>{
+    'noCard': 'NoCard',
+    'loyaltyCard': 'LoyaltyCard',
     'hybridCard': 'HybridCard',
     'linkedCard': 'LinkedCard',
-    'loyaltyCard': 'LoyaltyCard',
-    'noCard': 'NoCard',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
+    'NoCard': 'noCard',
+    'LoyaltyCard': 'loyaltyCard',
     'HybridCard': 'hybridCard',
     'LinkedCard': 'linkedCard',
-    'LoyaltyCard': 'loyaltyCard',
-    'NoCard': 'noCard',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
 

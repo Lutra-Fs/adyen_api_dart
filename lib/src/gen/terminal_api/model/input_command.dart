@@ -11,24 +11,34 @@ part 'input_command.g.dart';
 
 class InputCommand extends EnumClass {
 
-  @BuiltValueEnumConst(wireName: r'DecimalString')
-  static const InputCommand decimalString = _$decimalString;
-  @BuiltValueEnumConst(wireName: r'DigitString')
-  static const InputCommand digitString = _$digitString;
+  ///  Possible values: * **GetAnyKey** * **GetConfirmation** * **SiteManager** * **TextString** * **DigitString** * **DecimalString** * **GetFunctionKey** * **GetMenuEntry** * **Password**
   @BuiltValueEnumConst(wireName: r'GetAnyKey')
   static const InputCommand getAnyKey = _$getAnyKey;
+  ///  Possible values: * **GetAnyKey** * **GetConfirmation** * **SiteManager** * **TextString** * **DigitString** * **DecimalString** * **GetFunctionKey** * **GetMenuEntry** * **Password**
   @BuiltValueEnumConst(wireName: r'GetConfirmation')
   static const InputCommand getConfirmation = _$getConfirmation;
-  @BuiltValueEnumConst(wireName: r'GetFunctionKey')
-  static const InputCommand getFunctionKey = _$getFunctionKey;
-  @BuiltValueEnumConst(wireName: r'GetMenuEntry')
-  static const InputCommand getMenuEntry = _$getMenuEntry;
-  @BuiltValueEnumConst(wireName: r'Password')
-  static const InputCommand password = _$password;
+  ///  Possible values: * **GetAnyKey** * **GetConfirmation** * **SiteManager** * **TextString** * **DigitString** * **DecimalString** * **GetFunctionKey** * **GetMenuEntry** * **Password**
   @BuiltValueEnumConst(wireName: r'SiteManager')
   static const InputCommand siteManager = _$siteManager;
+  ///  Possible values: * **GetAnyKey** * **GetConfirmation** * **SiteManager** * **TextString** * **DigitString** * **DecimalString** * **GetFunctionKey** * **GetMenuEntry** * **Password**
   @BuiltValueEnumConst(wireName: r'TextString')
   static const InputCommand textString = _$textString;
+  ///  Possible values: * **GetAnyKey** * **GetConfirmation** * **SiteManager** * **TextString** * **DigitString** * **DecimalString** * **GetFunctionKey** * **GetMenuEntry** * **Password**
+  @BuiltValueEnumConst(wireName: r'DigitString')
+  static const InputCommand digitString = _$digitString;
+  ///  Possible values: * **GetAnyKey** * **GetConfirmation** * **SiteManager** * **TextString** * **DigitString** * **DecimalString** * **GetFunctionKey** * **GetMenuEntry** * **Password**
+  @BuiltValueEnumConst(wireName: r'DecimalString')
+  static const InputCommand decimalString = _$decimalString;
+  ///  Possible values: * **GetAnyKey** * **GetConfirmation** * **SiteManager** * **TextString** * **DigitString** * **DecimalString** * **GetFunctionKey** * **GetMenuEntry** * **Password**
+  @BuiltValueEnumConst(wireName: r'GetFunctionKey')
+  static const InputCommand getFunctionKey = _$getFunctionKey;
+  ///  Possible values: * **GetAnyKey** * **GetConfirmation** * **SiteManager** * **TextString** * **DigitString** * **DecimalString** * **GetFunctionKey** * **GetMenuEntry** * **Password**
+  @BuiltValueEnumConst(wireName: r'GetMenuEntry')
+  static const InputCommand getMenuEntry = _$getMenuEntry;
+  ///  Possible values: * **GetAnyKey** * **GetConfirmation** * **SiteManager** * **TextString** * **DigitString** * **DecimalString** * **GetFunctionKey** * **GetMenuEntry** * **Password**
+  @BuiltValueEnumConst(wireName: r'Password')
+  static const InputCommand password = _$password;
+  ///  Possible values: * **GetAnyKey** * **GetConfirmation** * **SiteManager** * **TextString** * **DigitString** * **DecimalString** * **GetFunctionKey** * **GetMenuEntry** * **Password**
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const InputCommand unknownDefaultOpenApi = _$unknownDefaultOpenApi;
 

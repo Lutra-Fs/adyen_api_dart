@@ -25,7 +25,7 @@ abstract class Input implements Built<Input, InputBuilder> {
   /// Type of requested input. Can be: **GetConfirmation**, **TextString**, **DigitString**, **DecimalString** or **GetMenuEntry**. Possible values: * **DecimalString** * **DigitString** * **GetAnyKey** * **GetConfirmation** * **GetFunctionKey** * **GetMenuEntry** * **Password** * **SiteManager** * **TextString**
   @BuiltValueField(wireName: r'InputCommand')
   InputCommand get inputCommand;
-  // enum inputCommandEnum {  DecimalString,  DigitString,  GetAnyKey,  GetConfirmation,  GetFunctionKey,  GetMenuEntry,  Password,  SiteManager,  TextString,  };
+  // enum inputCommandEnum {  GetAnyKey,  GetConfirmation,  SiteManager,  TextString,  DigitString,  DecimalString,  GetFunctionKey,  GetMenuEntry,  Password,  };
 
   /// Indicates te response of the user from the `GetConfirmation` input command.
   @BuiltValueField(wireName: r'ConfirmedFlag')

@@ -11,13 +11,25 @@ part 'track_format.g.dart';
 
 class TrackFormat extends EnumClass {
 
-  /// Magnetic track or magnetic ink characters line. Possible values: * **AAMVA** * **ISO**
-  @BuiltValueEnumConst(wireName: r'AAMVA')
-  static const TrackFormat AAMVA = _$AAMVA;
-  /// Magnetic track or magnetic ink characters line. Possible values: * **AAMVA** * **ISO**
+  /// Magnetic track or magnetic ink characters line. Possible values: * **ISO** * **JIS-I** * **JIS-II** * **AAMVA** * **CMC-7** * **E-13B**
   @BuiltValueEnumConst(wireName: r'ISO')
   static const TrackFormat ISO = _$ISO;
-  /// Magnetic track or magnetic ink characters line. Possible values: * **AAMVA** * **ISO**
+  /// Magnetic track or magnetic ink characters line. Possible values: * **ISO** * **JIS-I** * **JIS-II** * **AAMVA** * **CMC-7** * **E-13B**
+  @BuiltValueEnumConst(wireName: r'JIS-I')
+  static const TrackFormat JIS_I = _$JIS_I;
+  /// Magnetic track or magnetic ink characters line. Possible values: * **ISO** * **JIS-I** * **JIS-II** * **AAMVA** * **CMC-7** * **E-13B**
+  @BuiltValueEnumConst(wireName: r'JIS-II')
+  static const TrackFormat JIS_II = _$JIS_II;
+  /// Magnetic track or magnetic ink characters line. Possible values: * **ISO** * **JIS-I** * **JIS-II** * **AAMVA** * **CMC-7** * **E-13B**
+  @BuiltValueEnumConst(wireName: r'AAMVA')
+  static const TrackFormat AAMVA = _$AAMVA;
+  /// Magnetic track or magnetic ink characters line. Possible values: * **ISO** * **JIS-I** * **JIS-II** * **AAMVA** * **CMC-7** * **E-13B**
+  @BuiltValueEnumConst(wireName: r'CMC-7')
+  static const TrackFormat cMC7 = _$cMC7;
+  /// Magnetic track or magnetic ink characters line. Possible values: * **ISO** * **JIS-I** * **JIS-II** * **AAMVA** * **CMC-7** * **E-13B**
+  @BuiltValueEnumConst(wireName: r'E-13B')
+  static const TrackFormat e13B = _$e13B;
+  /// Magnetic track or magnetic ink characters line. Possible values: * **ISO** * **JIS-I** * **JIS-II** * **AAMVA** * **CMC-7** * **E-13B**
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const TrackFormat unknownDefaultOpenApi = _$unknownDefaultOpenApi;
 

@@ -7,14 +7,14 @@ part of 'get_totals_request.dart';
 // **************************************************************************
 
 const GetTotalsRequestTotalDetailsEnum
-_$getTotalsRequestTotalDetailsEnum_operatorID =
-    const GetTotalsRequestTotalDetailsEnum._('operatorID');
-const GetTotalsRequestTotalDetailsEnum
 _$getTotalsRequestTotalDetailsEnum_POIID =
     const GetTotalsRequestTotalDetailsEnum._('POIID');
 const GetTotalsRequestTotalDetailsEnum
 _$getTotalsRequestTotalDetailsEnum_saleID =
     const GetTotalsRequestTotalDetailsEnum._('saleID');
+const GetTotalsRequestTotalDetailsEnum
+_$getTotalsRequestTotalDetailsEnum_operatorID =
+    const GetTotalsRequestTotalDetailsEnum._('operatorID');
 const GetTotalsRequestTotalDetailsEnum
 _$getTotalsRequestTotalDetailsEnum_shiftNumber =
     const GetTotalsRequestTotalDetailsEnum._('shiftNumber');
@@ -29,12 +29,12 @@ GetTotalsRequestTotalDetailsEnum _$getTotalsRequestTotalDetailsEnumValueOf(
   String name,
 ) {
   switch (name) {
-    case 'operatorID':
-      return _$getTotalsRequestTotalDetailsEnum_operatorID;
     case 'POIID':
       return _$getTotalsRequestTotalDetailsEnum_POIID;
     case 'saleID':
       return _$getTotalsRequestTotalDetailsEnum_saleID;
+    case 'operatorID':
+      return _$getTotalsRequestTotalDetailsEnum_operatorID;
     case 'shiftNumber':
       return _$getTotalsRequestTotalDetailsEnum_shiftNumber;
     case 'totalsGroupID':
@@ -50,9 +50,9 @@ final BuiltSet<GetTotalsRequestTotalDetailsEnum>
 _$getTotalsRequestTotalDetailsEnumValues =
     BuiltSet<GetTotalsRequestTotalDetailsEnum>(
       const <GetTotalsRequestTotalDetailsEnum>[
-        _$getTotalsRequestTotalDetailsEnum_operatorID,
         _$getTotalsRequestTotalDetailsEnum_POIID,
         _$getTotalsRequestTotalDetailsEnum_saleID,
+        _$getTotalsRequestTotalDetailsEnum_operatorID,
         _$getTotalsRequestTotalDetailsEnum_shiftNumber,
         _$getTotalsRequestTotalDetailsEnum_totalsGroupID,
         _$getTotalsRequestTotalDetailsEnum_unknownDefaultOpenApi,
@@ -66,17 +66,17 @@ _$getTotalsRequestTotalDetailsEnumSerializer =
 class _$GetTotalsRequestTotalDetailsEnumSerializer
     implements PrimitiveSerializer<GetTotalsRequestTotalDetailsEnum> {
   static const Map<String, Object> _toWire = const <String, Object>{
-    'operatorID': 'OperatorID',
     'POIID': 'POIID',
     'saleID': 'SaleID',
+    'operatorID': 'OperatorID',
     'shiftNumber': 'ShiftNumber',
     'totalsGroupID': 'TotalsGroupID',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
-    'OperatorID': 'operatorID',
     'POIID': 'POIID',
     'SaleID': 'saleID',
+    'OperatorID': 'operatorID',
     'ShiftNumber': 'shiftNumber',
     'TotalsGroupID': 'totalsGroupID',
     'unknown_default_open_api': 'unknownDefaultOpenApi',

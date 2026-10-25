@@ -17,6 +17,11 @@ _$calculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum_adyenCapital =
       'adyenCapital',
     );
 const CalculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum
+_$calculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum_adyenCapitalCashAdvance =
+    const CalculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum._(
+      'adyenCapitalCashAdvance',
+    );
+const CalculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum
 _$calculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum_adyenCard =
     const CalculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum._(
       'adyenCard',
@@ -52,6 +57,11 @@ _$calculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum_adyenPccr =
       'adyenPccr',
     );
 const CalculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum
+_$calculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum_directDebit =
+    const CalculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum._(
+      'directDebit',
+    );
+const CalculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum
 _$calculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum_kycOnInvite =
     const CalculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum._(
       'kycOnInvite',
@@ -71,6 +81,8 @@ _$calculateTermsOfServiceStatusResponseTermsOfServiceTypesEnumValueOf(
       return _$calculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum_adyenAccount;
     case 'adyenCapital':
       return _$calculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum_adyenCapital;
+    case 'adyenCapitalCashAdvance':
+      return _$calculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum_adyenCapitalCashAdvance;
     case 'adyenCard':
       return _$calculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum_adyenCard;
     case 'adyenChargeCard':
@@ -85,6 +97,8 @@ _$calculateTermsOfServiceStatusResponseTermsOfServiceTypesEnumValueOf(
       return _$calculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum_adyenIssuing;
     case 'adyenPccr':
       return _$calculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum_adyenPccr;
+    case 'directDebit':
+      return _$calculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum_directDebit;
     case 'kycOnInvite':
       return _$calculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum_kycOnInvite;
     case 'unknownDefaultOpenApi':
@@ -101,6 +115,7 @@ _$calculateTermsOfServiceStatusResponseTermsOfServiceTypesEnumValues =
     >(const <CalculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum>[
       _$calculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum_adyenAccount,
       _$calculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum_adyenCapital,
+      _$calculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum_adyenCapitalCashAdvance,
       _$calculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum_adyenCard,
       _$calculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum_adyenChargeCard,
       _$calculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum_adyenForPlatformsAdvanced,
@@ -108,6 +123,7 @@ _$calculateTermsOfServiceStatusResponseTermsOfServiceTypesEnumValues =
       _$calculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum_adyenFranchisee,
       _$calculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum_adyenIssuing,
       _$calculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum_adyenPccr,
+      _$calculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum_directDebit,
       _$calculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum_kycOnInvite,
       _$calculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum_unknownDefaultOpenApi,
     ]);
@@ -124,6 +140,7 @@ class _$CalculateTermsOfServiceStatusResponseTermsOfServiceTypesEnumSerializer
   static const Map<String, Object> _toWire = const <String, Object>{
     'adyenAccount': 'adyenAccount',
     'adyenCapital': 'adyenCapital',
+    'adyenCapitalCashAdvance': 'adyenCapitalCashAdvance',
     'adyenCard': 'adyenCard',
     'adyenChargeCard': 'adyenChargeCard',
     'adyenForPlatformsAdvanced': 'adyenForPlatformsAdvanced',
@@ -131,12 +148,14 @@ class _$CalculateTermsOfServiceStatusResponseTermsOfServiceTypesEnumSerializer
     'adyenFranchisee': 'adyenFranchisee',
     'adyenIssuing': 'adyenIssuing',
     'adyenPccr': 'adyenPccr',
+    'directDebit': 'directDebit',
     'kycOnInvite': 'kycOnInvite',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'adyenAccount': 'adyenAccount',
     'adyenCapital': 'adyenCapital',
+    'adyenCapitalCashAdvance': 'adyenCapitalCashAdvance',
     'adyenCard': 'adyenCard',
     'adyenChargeCard': 'adyenChargeCard',
     'adyenForPlatformsAdvanced': 'adyenForPlatformsAdvanced',
@@ -144,6 +163,7 @@ class _$CalculateTermsOfServiceStatusResponseTermsOfServiceTypesEnumSerializer
     'adyenFranchisee': 'adyenFranchisee',
     'adyenIssuing': 'adyenIssuing',
     'adyenPccr': 'adyenPccr',
+    'directDebit': 'directDebit',
     'kycOnInvite': 'kycOnInvite',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };

@@ -40,6 +40,21 @@ abstract class TransferRouteRequirementsInner implements Built<TransferRouteRequ
   /// One Of [AdditionalBankIdentificationRequirement], [AddressRequirement], [AmountMinMaxRequirement], [AmountNonZeroDecimalsRequirement], [BankAccountIdentificationTypeRequirement], [IbanAccountIdentificationRequirement], [PaymentInstrumentRequirement], [USInstantPayoutAddressRequirement], [USInternationalAchAddressRequirement], [USInternationalAchPriorityRequirement]
   OneOf get oneOf;
 
+  static const String discriminatorFieldName = r'type';
+
+  static const Map<String, Type> discriminatorMapping = {
+    r'additionalBankIdentificationRequirement': AdditionalBankIdentificationRequirement,
+    r'addressRequirement': AddressRequirement,
+    r'amountMinMaxRequirement': AmountMinMaxRequirement,
+    r'amountNonZeroDecimalsRequirement': AmountNonZeroDecimalsRequirement,
+    r'bankAccountIdentificationTypeRequirement': BankAccountIdentificationTypeRequirement,
+    r'ibanAccountIdentificationRequirement': IbanAccountIdentificationRequirement,
+    r'paymentInstrumentRequirement': PaymentInstrumentRequirement,
+    r'usInstantPayoutAddressRequirement': USInstantPayoutAddressRequirement,
+    r'usInternationalAchAddressRequirement': USInternationalAchAddressRequirement,
+    r'usInternationalAchPriorityRequirement': USInternationalAchPriorityRequirement,
+  };
+
   TransferRouteRequirementsInner._();
 
   factory TransferRouteRequirementsInner([void updates(TransferRouteRequirementsInnerBuilder b)]) = _$TransferRouteRequirementsInner;
@@ -49,6 +64,77 @@ abstract class TransferRouteRequirementsInner implements Built<TransferRouteRequ
 
   @BuiltValueSerializer(custom: true)
   static Serializer<TransferRouteRequirementsInner> get serializer => _$TransferRouteRequirementsInnerSerializer();
+}
+
+extension TransferRouteRequirementsInnerDiscriminatorExt on TransferRouteRequirementsInner {
+    String? get discriminatorValue {
+        if (this is AdditionalBankIdentificationRequirement) {
+            return r'additionalBankIdentificationRequirement';
+        }
+        if (this is AddressRequirement) {
+            return r'addressRequirement';
+        }
+        if (this is AmountMinMaxRequirement) {
+            return r'amountMinMaxRequirement';
+        }
+        if (this is AmountNonZeroDecimalsRequirement) {
+            return r'amountNonZeroDecimalsRequirement';
+        }
+        if (this is BankAccountIdentificationTypeRequirement) {
+            return r'bankAccountIdentificationTypeRequirement';
+        }
+        if (this is IbanAccountIdentificationRequirement) {
+            return r'ibanAccountIdentificationRequirement';
+        }
+        if (this is PaymentInstrumentRequirement) {
+            return r'paymentInstrumentRequirement';
+        }
+        if (this is USInstantPayoutAddressRequirement) {
+            return r'usInstantPayoutAddressRequirement';
+        }
+        if (this is USInternationalAchAddressRequirement) {
+            return r'usInternationalAchAddressRequirement';
+        }
+        if (this is USInternationalAchPriorityRequirement) {
+            return r'usInternationalAchPriorityRequirement';
+        }
+        return null;
+    }
+}
+extension TransferRouteRequirementsInnerBuilderDiscriminatorExt on TransferRouteRequirementsInnerBuilder {
+    String? get discriminatorValue {
+        if (this is AdditionalBankIdentificationRequirementBuilder) {
+            return r'additionalBankIdentificationRequirement';
+        }
+        if (this is AddressRequirementBuilder) {
+            return r'addressRequirement';
+        }
+        if (this is AmountMinMaxRequirementBuilder) {
+            return r'amountMinMaxRequirement';
+        }
+        if (this is AmountNonZeroDecimalsRequirementBuilder) {
+            return r'amountNonZeroDecimalsRequirement';
+        }
+        if (this is BankAccountIdentificationTypeRequirementBuilder) {
+            return r'bankAccountIdentificationTypeRequirement';
+        }
+        if (this is IbanAccountIdentificationRequirementBuilder) {
+            return r'ibanAccountIdentificationRequirement';
+        }
+        if (this is PaymentInstrumentRequirementBuilder) {
+            return r'paymentInstrumentRequirement';
+        }
+        if (this is USInstantPayoutAddressRequirementBuilder) {
+            return r'usInstantPayoutAddressRequirement';
+        }
+        if (this is USInternationalAchAddressRequirementBuilder) {
+            return r'usInternationalAchAddressRequirement';
+        }
+        if (this is USInternationalAchPriorityRequirementBuilder) {
+            return r'usInternationalAchPriorityRequirement';
+        }
+        return null;
+    }
 }
 
 class _$TransferRouteRequirementsInnerSerializer implements PrimitiveSerializer<TransferRouteRequirementsInner> {
@@ -83,9 +169,88 @@ class _$TransferRouteRequirementsInnerSerializer implements PrimitiveSerializer<
   }) {
     final result = TransferRouteRequirementsInnerBuilder();
     Object? oneOfDataSrc;
-    final targetType = const FullType(OneOf, [FullType(AdditionalBankIdentificationRequirement), FullType(AddressRequirement), FullType(AmountMinMaxRequirement), FullType(AmountNonZeroDecimalsRequirement), FullType(BankAccountIdentificationTypeRequirement), FullType(IbanAccountIdentificationRequirement), FullType(PaymentInstrumentRequirement), FullType(USInstantPayoutAddressRequirement), FullType(USInternationalAchAddressRequirement), FullType(USInternationalAchPriorityRequirement), ]);
+    final serializedList = (serialized as Iterable<Object?>).toList();
+    final discIndex = serializedList.indexOf(TransferRouteRequirementsInner.discriminatorFieldName) + 1;
+    final discValue = serializers.deserialize(serializedList[discIndex], specifiedType: FullType(String)) as String;
     oneOfDataSrc = serialized;
-    result.oneOf = serializers.deserialize(oneOfDataSrc, specifiedType: targetType) as OneOf;
+    final oneOfTypes = [AdditionalBankIdentificationRequirement, AddressRequirement, AmountMinMaxRequirement, AmountNonZeroDecimalsRequirement, BankAccountIdentificationTypeRequirement, IbanAccountIdentificationRequirement, PaymentInstrumentRequirement, USInstantPayoutAddressRequirement, USInternationalAchAddressRequirement, USInternationalAchPriorityRequirement, ];
+    Object oneOfResult;
+    Type oneOfType;
+    switch (discValue) {
+      case r'additionalBankIdentificationRequirement':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(AdditionalBankIdentificationRequirement),
+        ) as AdditionalBankIdentificationRequirement;
+        oneOfType = AdditionalBankIdentificationRequirement;
+        break;
+      case r'addressRequirement':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(AddressRequirement),
+        ) as AddressRequirement;
+        oneOfType = AddressRequirement;
+        break;
+      case r'amountMinMaxRequirement':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(AmountMinMaxRequirement),
+        ) as AmountMinMaxRequirement;
+        oneOfType = AmountMinMaxRequirement;
+        break;
+      case r'amountNonZeroDecimalsRequirement':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(AmountNonZeroDecimalsRequirement),
+        ) as AmountNonZeroDecimalsRequirement;
+        oneOfType = AmountNonZeroDecimalsRequirement;
+        break;
+      case r'bankAccountIdentificationTypeRequirement':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(BankAccountIdentificationTypeRequirement),
+        ) as BankAccountIdentificationTypeRequirement;
+        oneOfType = BankAccountIdentificationTypeRequirement;
+        break;
+      case r'ibanAccountIdentificationRequirement':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(IbanAccountIdentificationRequirement),
+        ) as IbanAccountIdentificationRequirement;
+        oneOfType = IbanAccountIdentificationRequirement;
+        break;
+      case r'paymentInstrumentRequirement':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(PaymentInstrumentRequirement),
+        ) as PaymentInstrumentRequirement;
+        oneOfType = PaymentInstrumentRequirement;
+        break;
+      case r'usInstantPayoutAddressRequirement':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(USInstantPayoutAddressRequirement),
+        ) as USInstantPayoutAddressRequirement;
+        oneOfType = USInstantPayoutAddressRequirement;
+        break;
+      case r'usInternationalAchAddressRequirement':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(USInternationalAchAddressRequirement),
+        ) as USInternationalAchAddressRequirement;
+        oneOfType = USInternationalAchAddressRequirement;
+        break;
+      case r'usInternationalAchPriorityRequirement':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(USInternationalAchPriorityRequirement),
+        ) as USInternationalAchPriorityRequirement;
+        oneOfType = USInternationalAchPriorityRequirement;
+        break;
+      default:
+        throw UnsupportedError("Couldn't deserialize oneOf for the discriminator value: ${discValue}");
+    }
+    result.oneOf = OneOfDynamic(typeIndex: oneOfTypes.indexOf(oneOfType), types: oneOfTypes, value: oneOfResult);
     return result.build();
   }
 }
@@ -201,8 +366,16 @@ class TransferRouteRequirementsInnerBankAccountIdentificationTypesEnum extends E
   static const TransferRouteRequirementsInnerBankAccountIdentificationTypesEnum huLocal = _$transferRouteRequirementsInnerBankAccountIdentificationTypesEnum_huLocal;
   @BuiltValueEnumConst(wireName: r'iban')
   static const TransferRouteRequirementsInnerBankAccountIdentificationTypesEnum iban = _$transferRouteRequirementsInnerBankAccountIdentificationTypesEnum_iban;
+  @BuiltValueEnumConst(wireName: r'inLocal')
+  static const TransferRouteRequirementsInnerBankAccountIdentificationTypesEnum inLocal = _$transferRouteRequirementsInnerBankAccountIdentificationTypesEnum_inLocal;
+  @BuiltValueEnumConst(wireName: r'jpLocal')
+  static const TransferRouteRequirementsInnerBankAccountIdentificationTypesEnum jpLocal = _$transferRouteRequirementsInnerBankAccountIdentificationTypesEnum_jpLocal;
   @BuiltValueEnumConst(wireName: r'legacy')
   static const TransferRouteRequirementsInnerBankAccountIdentificationTypesEnum legacy = _$transferRouteRequirementsInnerBankAccountIdentificationTypesEnum_legacy;
+  @BuiltValueEnumConst(wireName: r'mxLocal')
+  static const TransferRouteRequirementsInnerBankAccountIdentificationTypesEnum mxLocal = _$transferRouteRequirementsInnerBankAccountIdentificationTypesEnum_mxLocal;
+  @BuiltValueEnumConst(wireName: r'myLocal')
+  static const TransferRouteRequirementsInnerBankAccountIdentificationTypesEnum myLocal = _$transferRouteRequirementsInnerBankAccountIdentificationTypesEnum_myLocal;
   @BuiltValueEnumConst(wireName: r'noLocal')
   static const TransferRouteRequirementsInnerBankAccountIdentificationTypesEnum noLocal = _$transferRouteRequirementsInnerBankAccountIdentificationTypesEnum_noLocal;
   @BuiltValueEnumConst(wireName: r'numberAndBic')

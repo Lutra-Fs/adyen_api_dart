@@ -39,7 +39,7 @@ abstract class CardData implements Built<CardData, CardDataBuilder> {
   /// Entry mode of the payment instrument information. In the Payment, Loyalty or StoredValue Request messages, it informs the POI System the entry mode of the payment instrument information when read by the Sale Terminal. In the Payment, Loyalty or StoredValue Response messages, it informs the Sale System the entry mode of the payment instrument. Possible values: * **Contactless** * **File** * **ICC** * **Keyed** * **MagStripe** * **Manual** * **Mobile** * **RFID** * **Scanned** * **SynchronousICC** * **Tapped**
   @BuiltValueField(wireName: r'EntryMode')
   BuiltList<CardDataEntryModeEnum>? get entryMode;
-  // enum entryModeEnum {  Contactless,  File,  ICC,  Keyed,  MagStripe,  Manual,  Mobile,  RFID,  Scanned,  SynchronousICC,  Tapped,  };
+  // enum entryModeEnum {  RFID,  Keyed,  Manual,  File,  Scanned,  MagStripe,  ICC,  SynchronousICC,  Tapped,  Contactless,  Mobile,  };
 
   /// Country Code attached to the card (3 numerics). If available in the card.
   @BuiltValueField(wireName: r'CardCountryCode')
@@ -246,28 +246,28 @@ class _$CardDataSerializer implements PrimitiveSerializer<CardData> {
 
 class CardDataEntryModeEnum extends EnumClass {
 
-  @BuiltValueEnumConst(wireName: r'Contactless')
-  static const CardDataEntryModeEnum contactless = _$cardDataEntryModeEnum_contactless;
-  @BuiltValueEnumConst(wireName: r'File')
-  static const CardDataEntryModeEnum file = _$cardDataEntryModeEnum_file;
-  @BuiltValueEnumConst(wireName: r'ICC')
-  static const CardDataEntryModeEnum ICC = _$cardDataEntryModeEnum_ICC;
-  @BuiltValueEnumConst(wireName: r'Keyed')
-  static const CardDataEntryModeEnum keyed = _$cardDataEntryModeEnum_keyed;
-  @BuiltValueEnumConst(wireName: r'MagStripe')
-  static const CardDataEntryModeEnum magStripe = _$cardDataEntryModeEnum_magStripe;
-  @BuiltValueEnumConst(wireName: r'Manual')
-  static const CardDataEntryModeEnum manual = _$cardDataEntryModeEnum_manual;
-  @BuiltValueEnumConst(wireName: r'Mobile')
-  static const CardDataEntryModeEnum mobile = _$cardDataEntryModeEnum_mobile;
   @BuiltValueEnumConst(wireName: r'RFID')
   static const CardDataEntryModeEnum RFID = _$cardDataEntryModeEnum_RFID;
+  @BuiltValueEnumConst(wireName: r'Keyed')
+  static const CardDataEntryModeEnum keyed = _$cardDataEntryModeEnum_keyed;
+  @BuiltValueEnumConst(wireName: r'Manual')
+  static const CardDataEntryModeEnum manual = _$cardDataEntryModeEnum_manual;
+  @BuiltValueEnumConst(wireName: r'File')
+  static const CardDataEntryModeEnum file = _$cardDataEntryModeEnum_file;
   @BuiltValueEnumConst(wireName: r'Scanned')
   static const CardDataEntryModeEnum scanned = _$cardDataEntryModeEnum_scanned;
+  @BuiltValueEnumConst(wireName: r'MagStripe')
+  static const CardDataEntryModeEnum magStripe = _$cardDataEntryModeEnum_magStripe;
+  @BuiltValueEnumConst(wireName: r'ICC')
+  static const CardDataEntryModeEnum ICC = _$cardDataEntryModeEnum_ICC;
   @BuiltValueEnumConst(wireName: r'SynchronousICC')
   static const CardDataEntryModeEnum synchronousICC = _$cardDataEntryModeEnum_synchronousICC;
   @BuiltValueEnumConst(wireName: r'Tapped')
   static const CardDataEntryModeEnum tapped = _$cardDataEntryModeEnum_tapped;
+  @BuiltValueEnumConst(wireName: r'Contactless')
+  static const CardDataEntryModeEnum contactless = _$cardDataEntryModeEnum_contactless;
+  @BuiltValueEnumConst(wireName: r'Mobile')
+  static const CardDataEntryModeEnum mobile = _$cardDataEntryModeEnum_mobile;
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const CardDataEntryModeEnum unknownDefaultOpenApi = _$cardDataEntryModeEnum_unknownDefaultOpenApi;
 

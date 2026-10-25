@@ -6,21 +6,21 @@ part of 'message_type.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-const MessageType _$notification = const MessageType._('notification');
 const MessageType _$request = const MessageType._('request');
 const MessageType _$response = const MessageType._('response');
+const MessageType _$notification = const MessageType._('notification');
 const MessageType _$unknownDefaultOpenApi = const MessageType._(
   'unknownDefaultOpenApi',
 );
 
 MessageType _$valueOf(String name) {
   switch (name) {
-    case 'notification':
-      return _$notification;
     case 'request':
       return _$request;
     case 'response':
       return _$response;
+    case 'notification':
+      return _$notification;
     case 'unknownDefaultOpenApi':
       return _$unknownDefaultOpenApi;
     default:
@@ -30,18 +30,18 @@ MessageType _$valueOf(String name) {
 
 final BuiltSet<MessageType> _$values = BuiltSet<MessageType>(
   const <MessageType>[
-    _$notification,
     _$request,
     _$response,
+    _$notification,
     _$unknownDefaultOpenApi,
   ],
 );
 
 class _$MessageTypeMeta {
   const _$MessageTypeMeta();
-  MessageType get notification => _$notification;
   MessageType get request => _$request;
   MessageType get response => _$response;
+  MessageType get notification => _$notification;
   MessageType get unknownDefaultOpenApi => _$unknownDefaultOpenApi;
   MessageType valueOf(String name) => _$valueOf(name);
   BuiltSet<MessageType> get values => _$values;
@@ -56,15 +56,15 @@ Serializer<MessageType> _$messageTypeSerializer = _$MessageTypeSerializer();
 
 class _$MessageTypeSerializer implements PrimitiveSerializer<MessageType> {
   static const Map<String, Object> _toWire = const <String, Object>{
-    'notification': 'Notification',
     'request': 'Request',
     'response': 'Response',
+    'notification': 'Notification',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
-    'Notification': 'notification',
     'Request': 'request',
     'Response': 'response',
+    'Notification': 'notification',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
 

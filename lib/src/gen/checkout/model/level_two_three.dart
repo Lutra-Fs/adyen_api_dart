@@ -15,17 +15,17 @@ part 'level_two_three.g.dart';
 /// LevelTwoThree
 ///
 /// Properties:
-/// * [customerReferenceNumber] - The reference number to identify the customer and their order. * Format: ASCII * Max length: 25 characters * Must not start with a space or be all spaces. * Must not be all zeros.
+/// * [customerReferenceNumber] - The reference number to identify the customer and their order. * Format: ASCII * Max length: 25 characters * Must not start with a space or be all spaces. * Must not be all zeros. * **additionalData key:** `enhancedSchemeData.customerReference`
 /// * [destination] - The destination address information.
-/// * [dutyAmount] - The duty tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000 means USD 20.00. * Encoding: Numeric * Max value: 10000000000
-/// * [freightAmount] - The shipping amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000 means USD 20.00. * Encoding: Numeric * Max value: 10000000000
+/// * [dutyAmount] - The duty tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000 means USD 20.00. * Encoding: Numeric * Max value: 10000000000 * **additionalData key:** `enhancedSchemeData.dutyAmount`
+/// * [freightAmount] - The shipping amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000 means USD 20.00. * Encoding: Numeric * Max value: 10000000000 * **additionalData key:** `enhancedSchemeData.freightAmount`
 /// * [itemDetailLines] - The list of item detail lines.
-/// * [orderDate] - The date of the order. * Min Length: 10 characters * Max Length: 10 characters * Format [ISO 8601](https://www.w3.org/TR/NOTE-datetime): yyyy-MM-dd
-/// * [shipFromPostalCode] - The postal code of the address where the item is shipped from. * Encoding: ASCII * Max length: 10 characters * For the US, it must be in five or nine digits format. For example, 10001 or 10001-0000. * For Canada, it must be in 6 digits format. For example, M4B 1G5.
-/// * [totalTaxAmount] - The amount of state or provincial [tax included in the total transaction amount](https://docs.adyen.com/payment-methods/cards/enhanced-scheme-data/l2-l3#requirements-to-send-level-2-3-esd), in [minor units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000 means USD 20.00. * Encoding: Numeric * Max value: 10000000000 * For L2 data: must not be all zeroes.  * For L3 data: can be zero.
+/// * [orderDate] - The date of the order. * Min Length: 10 characters * Max Length: 10 characters * Format [ISO 8601](https://www.w3.org/TR/NOTE-datetime): yyyy-MM-dd * **additionalData key:** `enhancedSchemeData.orderDate`
+/// * [shipFromPostalCode] - The postal code of the address where the item is shipped from. * Encoding: ASCII * Max length: 10 characters * For the US, it must be in five or nine digits format. For example, 10001 or 10001-0000. * For Canada, it must be in 6 digits format. For example, M4B 1G5. * **additionalData key:** `enhancedSchemeData.shipFromPostalCode`
+/// * [totalTaxAmount] - The amount of state or provincial [tax included in the total transaction amount](https://docs.adyen.com/payment-methods/cards/enhanced-scheme-data/l2-l3#requirements-to-send-level-2-3-esd), in [minor units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000 means USD 20.00. * Encoding: Numeric * Max value: 10000000000 * For L2 data: must not be all zeroes.  * For L3 data: can be zero. * **additionalData key:** `enhancedSchemeData.totalTaxAmount`
 @BuiltValue()
 abstract class LevelTwoThree implements Built<LevelTwoThree, LevelTwoThreeBuilder> {
-  /// The reference number to identify the customer and their order. * Format: ASCII * Max length: 25 characters * Must not start with a space or be all spaces. * Must not be all zeros.
+  /// The reference number to identify the customer and their order. * Format: ASCII * Max length: 25 characters * Must not start with a space or be all spaces. * Must not be all zeros. * **additionalData key:** `enhancedSchemeData.customerReference`
   @BuiltValueField(wireName: r'customerReferenceNumber')
   String? get customerReferenceNumber;
 
@@ -33,11 +33,11 @@ abstract class LevelTwoThree implements Built<LevelTwoThree, LevelTwoThreeBuilde
   @BuiltValueField(wireName: r'destination')
   Destination? get destination;
 
-  /// The duty tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000 means USD 20.00. * Encoding: Numeric * Max value: 10000000000
+  /// The duty tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000 means USD 20.00. * Encoding: Numeric * Max value: 10000000000 * **additionalData key:** `enhancedSchemeData.dutyAmount`
   @BuiltValueField(wireName: r'dutyAmount')
   int? get dutyAmount;
 
-  /// The shipping amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000 means USD 20.00. * Encoding: Numeric * Max value: 10000000000
+  /// The shipping amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000 means USD 20.00. * Encoding: Numeric * Max value: 10000000000 * **additionalData key:** `enhancedSchemeData.freightAmount`
   @BuiltValueField(wireName: r'freightAmount')
   int? get freightAmount;
 
@@ -45,15 +45,15 @@ abstract class LevelTwoThree implements Built<LevelTwoThree, LevelTwoThreeBuilde
   @BuiltValueField(wireName: r'itemDetailLines')
   BuiltList<ItemDetailLine>? get itemDetailLines;
 
-  /// The date of the order. * Min Length: 10 characters * Max Length: 10 characters * Format [ISO 8601](https://www.w3.org/TR/NOTE-datetime): yyyy-MM-dd
+  /// The date of the order. * Min Length: 10 characters * Max Length: 10 characters * Format [ISO 8601](https://www.w3.org/TR/NOTE-datetime): yyyy-MM-dd * **additionalData key:** `enhancedSchemeData.orderDate`
   @BuiltValueField(wireName: r'orderDate')
   Date? get orderDate;
 
-  /// The postal code of the address where the item is shipped from. * Encoding: ASCII * Max length: 10 characters * For the US, it must be in five or nine digits format. For example, 10001 or 10001-0000. * For Canada, it must be in 6 digits format. For example, M4B 1G5.
+  /// The postal code of the address where the item is shipped from. * Encoding: ASCII * Max length: 10 characters * For the US, it must be in five or nine digits format. For example, 10001 or 10001-0000. * For Canada, it must be in 6 digits format. For example, M4B 1G5. * **additionalData key:** `enhancedSchemeData.shipFromPostalCode`
   @BuiltValueField(wireName: r'shipFromPostalCode')
   String? get shipFromPostalCode;
 
-  /// The amount of state or provincial [tax included in the total transaction amount](https://docs.adyen.com/payment-methods/cards/enhanced-scheme-data/l2-l3#requirements-to-send-level-2-3-esd), in [minor units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000 means USD 20.00. * Encoding: Numeric * Max value: 10000000000 * For L2 data: must not be all zeroes.  * For L3 data: can be zero.
+  /// The amount of state or provincial [tax included in the total transaction amount](https://docs.adyen.com/payment-methods/cards/enhanced-scheme-data/l2-l3#requirements-to-send-level-2-3-esd), in [minor units](https://docs.adyen.com/development-resources/currency-codes). * For example, 2000 means USD 20.00. * Encoding: Numeric * Max value: 10000000000 * For L2 data: must not be all zeroes.  * For L3 data: can be zero. * **additionalData key:** `enhancedSchemeData.totalTaxAmount`
   @BuiltValueField(wireName: r'totalTaxAmount')
   int? get totalTaxAmount;
 

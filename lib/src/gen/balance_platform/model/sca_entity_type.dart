@@ -13,6 +13,8 @@ class ScaEntityType extends EnumClass {
 
   @BuiltValueEnumConst(wireName: r'accountHolder')
   static const ScaEntityType accountHolder = _$accountHolder;
+  @BuiltValueEnumConst(wireName: r'legalEntity')
+  static const ScaEntityType legalEntity = _$legalEntity;
   @BuiltValueEnumConst(wireName: r'paymentInstrument')
   static const ScaEntityType paymentInstrument = _$paymentInstrument;
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)

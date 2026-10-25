@@ -24,7 +24,7 @@ abstract class TrackData implements Built<TrackData, TrackDataBuilder> {
   /// Card track format. Possible values: * **AAMVA** * **ISO**
   @BuiltValueField(wireName: r'TrackFormat')
   TrackFormat? get trackFormat;
-  // enum trackFormatEnum {  AAMVA,  ISO,  };
+  // enum trackFormatEnum {  ISO,  JIS-I,  JIS-II,  AAMVA,  CMC-7,  E-13B,  };
 
   /// Card track content.
   @BuiltValueField(wireName: r'TrackValue')

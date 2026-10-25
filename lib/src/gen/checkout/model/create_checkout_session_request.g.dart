@@ -569,6 +569,8 @@ class _$CreateCheckoutSessionRequest extends CreateCheckoutSessionRequest {
   @override
   final bool? enableRecurring;
   @override
+  final EnhancedSchemeData? enhancedSchemeData;
+  @override
   final DateTime? expiresAt;
   @override
   final FundOrigin? fundOrigin;
@@ -593,6 +595,8 @@ class _$CreateCheckoutSessionRequest extends CreateCheckoutSessionRequest {
   @override
   final ThreeDSecureData? mpiData;
   @override
+  final bool? payable;
+  @override
   final PlatformChargebackLogic? platformChargebackLogic;
   @override
   final String? recurringExpiry;
@@ -611,6 +615,8 @@ class _$CreateCheckoutSessionRequest extends CreateCheckoutSessionRequest {
   final String returnUrl;
   @override
   final RiskData? riskData;
+  @override
+  final String? shopperConversionId;
   @override
   final String? shopperEmail;
   @override
@@ -650,6 +656,8 @@ class _$CreateCheckoutSessionRequest extends CreateCheckoutSessionRequest {
   @override
   final String? themeId;
   @override
+  final ThirdPartyTokenRedundancyInfo? thirdPartyTokenRedundancyInfo;
+  @override
   final CheckoutSessionThreeDS2RequestData? threeDS2RequestData;
   @override
   final bool? threeDSAuthenticationOnly;
@@ -680,6 +688,7 @@ class _$CreateCheckoutSessionRequest extends CreateCheckoutSessionRequest {
     this.enableOneClick,
     this.enablePayOut,
     this.enableRecurring,
+    this.enhancedSchemeData,
     this.expiresAt,
     this.fundOrigin,
     this.fundRecipient,
@@ -692,6 +701,7 @@ class _$CreateCheckoutSessionRequest extends CreateCheckoutSessionRequest {
     this.metadata,
     this.mode,
     this.mpiData,
+    this.payable,
     this.platformChargebackLogic,
     this.recurringExpiry,
     this.recurringFrequency,
@@ -701,6 +711,7 @@ class _$CreateCheckoutSessionRequest extends CreateCheckoutSessionRequest {
     required this.reference,
     required this.returnUrl,
     this.riskData,
+    this.shopperConversionId,
     this.shopperEmail,
     this.shopperIP,
     this.shopperInteraction,
@@ -719,6 +730,7 @@ class _$CreateCheckoutSessionRequest extends CreateCheckoutSessionRequest {
     this.storePaymentMethodMode,
     this.telephoneNumber,
     this.themeId,
+    this.thirdPartyTokenRedundancyInfo,
     this.threeDS2RequestData,
     this.threeDSAuthenticationOnly,
     this.trustedShopper,
@@ -755,6 +767,7 @@ class _$CreateCheckoutSessionRequest extends CreateCheckoutSessionRequest {
         enableOneClick == other.enableOneClick &&
         enablePayOut == other.enablePayOut &&
         enableRecurring == other.enableRecurring &&
+        enhancedSchemeData == other.enhancedSchemeData &&
         expiresAt == other.expiresAt &&
         fundOrigin == other.fundOrigin &&
         fundRecipient == other.fundRecipient &&
@@ -767,6 +780,7 @@ class _$CreateCheckoutSessionRequest extends CreateCheckoutSessionRequest {
         metadata == other.metadata &&
         mode == other.mode &&
         mpiData == other.mpiData &&
+        payable == other.payable &&
         platformChargebackLogic == other.platformChargebackLogic &&
         recurringExpiry == other.recurringExpiry &&
         recurringFrequency == other.recurringFrequency &&
@@ -776,6 +790,7 @@ class _$CreateCheckoutSessionRequest extends CreateCheckoutSessionRequest {
         reference == other.reference &&
         returnUrl == other.returnUrl &&
         riskData == other.riskData &&
+        shopperConversionId == other.shopperConversionId &&
         shopperEmail == other.shopperEmail &&
         shopperIP == other.shopperIP &&
         shopperInteraction == other.shopperInteraction &&
@@ -794,6 +809,7 @@ class _$CreateCheckoutSessionRequest extends CreateCheckoutSessionRequest {
         storePaymentMethodMode == other.storePaymentMethodMode &&
         telephoneNumber == other.telephoneNumber &&
         themeId == other.themeId &&
+        thirdPartyTokenRedundancyInfo == other.thirdPartyTokenRedundancyInfo &&
         threeDS2RequestData == other.threeDS2RequestData &&
         threeDSAuthenticationOnly == other.threeDSAuthenticationOnly &&
         trustedShopper == other.trustedShopper;
@@ -821,6 +837,7 @@ class _$CreateCheckoutSessionRequest extends CreateCheckoutSessionRequest {
     _$hash = $jc(_$hash, enableOneClick.hashCode);
     _$hash = $jc(_$hash, enablePayOut.hashCode);
     _$hash = $jc(_$hash, enableRecurring.hashCode);
+    _$hash = $jc(_$hash, enhancedSchemeData.hashCode);
     _$hash = $jc(_$hash, expiresAt.hashCode);
     _$hash = $jc(_$hash, fundOrigin.hashCode);
     _$hash = $jc(_$hash, fundRecipient.hashCode);
@@ -833,6 +850,7 @@ class _$CreateCheckoutSessionRequest extends CreateCheckoutSessionRequest {
     _$hash = $jc(_$hash, metadata.hashCode);
     _$hash = $jc(_$hash, mode.hashCode);
     _$hash = $jc(_$hash, mpiData.hashCode);
+    _$hash = $jc(_$hash, payable.hashCode);
     _$hash = $jc(_$hash, platformChargebackLogic.hashCode);
     _$hash = $jc(_$hash, recurringExpiry.hashCode);
     _$hash = $jc(_$hash, recurringFrequency.hashCode);
@@ -842,6 +860,7 @@ class _$CreateCheckoutSessionRequest extends CreateCheckoutSessionRequest {
     _$hash = $jc(_$hash, reference.hashCode);
     _$hash = $jc(_$hash, returnUrl.hashCode);
     _$hash = $jc(_$hash, riskData.hashCode);
+    _$hash = $jc(_$hash, shopperConversionId.hashCode);
     _$hash = $jc(_$hash, shopperEmail.hashCode);
     _$hash = $jc(_$hash, shopperIP.hashCode);
     _$hash = $jc(_$hash, shopperInteraction.hashCode);
@@ -860,6 +879,7 @@ class _$CreateCheckoutSessionRequest extends CreateCheckoutSessionRequest {
     _$hash = $jc(_$hash, storePaymentMethodMode.hashCode);
     _$hash = $jc(_$hash, telephoneNumber.hashCode);
     _$hash = $jc(_$hash, themeId.hashCode);
+    _$hash = $jc(_$hash, thirdPartyTokenRedundancyInfo.hashCode);
     _$hash = $jc(_$hash, threeDS2RequestData.hashCode);
     _$hash = $jc(_$hash, threeDSAuthenticationOnly.hashCode);
     _$hash = $jc(_$hash, trustedShopper.hashCode);
@@ -889,6 +909,7 @@ class _$CreateCheckoutSessionRequest extends CreateCheckoutSessionRequest {
           ..add('enableOneClick', enableOneClick)
           ..add('enablePayOut', enablePayOut)
           ..add('enableRecurring', enableRecurring)
+          ..add('enhancedSchemeData', enhancedSchemeData)
           ..add('expiresAt', expiresAt)
           ..add('fundOrigin', fundOrigin)
           ..add('fundRecipient', fundRecipient)
@@ -901,6 +922,7 @@ class _$CreateCheckoutSessionRequest extends CreateCheckoutSessionRequest {
           ..add('metadata', metadata)
           ..add('mode', mode)
           ..add('mpiData', mpiData)
+          ..add('payable', payable)
           ..add('platformChargebackLogic', platformChargebackLogic)
           ..add('recurringExpiry', recurringExpiry)
           ..add('recurringFrequency', recurringFrequency)
@@ -910,6 +932,7 @@ class _$CreateCheckoutSessionRequest extends CreateCheckoutSessionRequest {
           ..add('reference', reference)
           ..add('returnUrl', returnUrl)
           ..add('riskData', riskData)
+          ..add('shopperConversionId', shopperConversionId)
           ..add('shopperEmail', shopperEmail)
           ..add('shopperIP', shopperIP)
           ..add('shopperInteraction', shopperInteraction)
@@ -928,6 +951,7 @@ class _$CreateCheckoutSessionRequest extends CreateCheckoutSessionRequest {
           ..add('storePaymentMethodMode', storePaymentMethodMode)
           ..add('telephoneNumber', telephoneNumber)
           ..add('themeId', themeId)
+          ..add('thirdPartyTokenRedundancyInfo', thirdPartyTokenRedundancyInfo)
           ..add('threeDS2RequestData', threeDS2RequestData)
           ..add('threeDSAuthenticationOnly', threeDSAuthenticationOnly)
           ..add('trustedShopper', trustedShopper))
@@ -1041,6 +1065,12 @@ class CreateCheckoutSessionRequestBuilder
   set enableRecurring(bool? enableRecurring) =>
       _$this._enableRecurring = enableRecurring;
 
+  EnhancedSchemeDataBuilder? _enhancedSchemeData;
+  EnhancedSchemeDataBuilder get enhancedSchemeData =>
+      _$this._enhancedSchemeData ??= EnhancedSchemeDataBuilder();
+  set enhancedSchemeData(EnhancedSchemeDataBuilder? enhancedSchemeData) =>
+      _$this._enhancedSchemeData = enhancedSchemeData;
+
   DateTime? _expiresAt;
   DateTime? get expiresAt => _$this._expiresAt;
   set expiresAt(DateTime? expiresAt) => _$this._expiresAt = expiresAt;
@@ -1104,6 +1134,10 @@ class CreateCheckoutSessionRequestBuilder
       _$this._mpiData ??= ThreeDSecureDataBuilder();
   set mpiData(ThreeDSecureDataBuilder? mpiData) => _$this._mpiData = mpiData;
 
+  bool? _payable;
+  bool? get payable => _$this._payable;
+  set payable(bool? payable) => _$this._payable = payable;
+
   PlatformChargebackLogicBuilder? _platformChargebackLogic;
   PlatformChargebackLogicBuilder get platformChargebackLogic =>
       _$this._platformChargebackLogic ??= PlatformChargebackLogicBuilder();
@@ -1151,6 +1185,11 @@ class CreateCheckoutSessionRequestBuilder
   RiskDataBuilder? _riskData;
   RiskDataBuilder get riskData => _$this._riskData ??= RiskDataBuilder();
   set riskData(RiskDataBuilder? riskData) => _$this._riskData = riskData;
+
+  String? _shopperConversionId;
+  String? get shopperConversionId => _$this._shopperConversionId;
+  set shopperConversionId(String? shopperConversionId) =>
+      _$this._shopperConversionId = shopperConversionId;
 
   String? _shopperEmail;
   String? get shopperEmail => _$this._shopperEmail;
@@ -1247,6 +1286,14 @@ class CreateCheckoutSessionRequestBuilder
   String? get themeId => _$this._themeId;
   set themeId(String? themeId) => _$this._themeId = themeId;
 
+  ThirdPartyTokenRedundancyInfoBuilder? _thirdPartyTokenRedundancyInfo;
+  ThirdPartyTokenRedundancyInfoBuilder get thirdPartyTokenRedundancyInfo =>
+      _$this._thirdPartyTokenRedundancyInfo ??=
+          ThirdPartyTokenRedundancyInfoBuilder();
+  set thirdPartyTokenRedundancyInfo(
+    ThirdPartyTokenRedundancyInfoBuilder? thirdPartyTokenRedundancyInfo,
+  ) => _$this._thirdPartyTokenRedundancyInfo = thirdPartyTokenRedundancyInfo;
+
   CheckoutSessionThreeDS2RequestDataBuilder? _threeDS2RequestData;
   CheckoutSessionThreeDS2RequestDataBuilder get threeDS2RequestData =>
       _$this._threeDS2RequestData ??=
@@ -1291,6 +1338,7 @@ class CreateCheckoutSessionRequestBuilder
       _enableOneClick = $v.enableOneClick;
       _enablePayOut = $v.enablePayOut;
       _enableRecurring = $v.enableRecurring;
+      _enhancedSchemeData = $v.enhancedSchemeData?.toBuilder();
       _expiresAt = $v.expiresAt;
       _fundOrigin = $v.fundOrigin?.toBuilder();
       _fundRecipient = $v.fundRecipient?.toBuilder();
@@ -1303,6 +1351,7 @@ class CreateCheckoutSessionRequestBuilder
       _metadata = $v.metadata?.toBuilder();
       _mode = $v.mode;
       _mpiData = $v.mpiData?.toBuilder();
+      _payable = $v.payable;
       _platformChargebackLogic = $v.platformChargebackLogic?.toBuilder();
       _recurringExpiry = $v.recurringExpiry;
       _recurringFrequency = $v.recurringFrequency;
@@ -1312,6 +1361,7 @@ class CreateCheckoutSessionRequestBuilder
       _reference = $v.reference;
       _returnUrl = $v.returnUrl;
       _riskData = $v.riskData?.toBuilder();
+      _shopperConversionId = $v.shopperConversionId;
       _shopperEmail = $v.shopperEmail;
       _shopperIP = $v.shopperIP;
       _shopperInteraction = $v.shopperInteraction;
@@ -1330,6 +1380,8 @@ class CreateCheckoutSessionRequestBuilder
       _storePaymentMethodMode = $v.storePaymentMethodMode;
       _telephoneNumber = $v.telephoneNumber;
       _themeId = $v.themeId;
+      _thirdPartyTokenRedundancyInfo = $v.thirdPartyTokenRedundancyInfo
+          ?.toBuilder();
       _threeDS2RequestData = $v.threeDS2RequestData?.toBuilder();
       _threeDSAuthenticationOnly = $v.threeDSAuthenticationOnly;
       _trustedShopper = $v.trustedShopper;
@@ -1376,6 +1428,7 @@ class CreateCheckoutSessionRequestBuilder
             enableOneClick: enableOneClick,
             enablePayOut: enablePayOut,
             enableRecurring: enableRecurring,
+            enhancedSchemeData: _enhancedSchemeData?.build(),
             expiresAt: expiresAt,
             fundOrigin: _fundOrigin?.build(),
             fundRecipient: _fundRecipient?.build(),
@@ -1392,6 +1445,7 @@ class CreateCheckoutSessionRequestBuilder
             metadata: _metadata?.build(),
             mode: mode,
             mpiData: _mpiData?.build(),
+            payable: payable,
             platformChargebackLogic: _platformChargebackLogic?.build(),
             recurringExpiry: recurringExpiry,
             recurringFrequency: recurringFrequency,
@@ -1409,6 +1463,7 @@ class CreateCheckoutSessionRequestBuilder
               'returnUrl',
             ),
             riskData: _riskData?.build(),
+            shopperConversionId: shopperConversionId,
             shopperEmail: shopperEmail,
             shopperIP: shopperIP,
             shopperInteraction: shopperInteraction,
@@ -1427,6 +1482,8 @@ class CreateCheckoutSessionRequestBuilder
             storePaymentMethodMode: storePaymentMethodMode,
             telephoneNumber: telephoneNumber,
             themeId: themeId,
+            thirdPartyTokenRedundancyInfo: _thirdPartyTokenRedundancyInfo
+                ?.build(),
             threeDS2RequestData: _threeDS2RequestData?.build(),
             threeDSAuthenticationOnly: threeDSAuthenticationOnly,
             trustedShopper: trustedShopper,
@@ -1459,6 +1516,9 @@ class CreateCheckoutSessionRequestBuilder
         _$failedField = 'deliveryAddress';
         _deliveryAddress?.build();
 
+        _$failedField = 'enhancedSchemeData';
+        _enhancedSchemeData?.build();
+
         _$failedField = 'fundOrigin';
         _fundOrigin?.build();
         _$failedField = 'fundRecipient';
@@ -1475,6 +1535,7 @@ class CreateCheckoutSessionRequestBuilder
 
         _$failedField = 'mpiData';
         _mpiData?.build();
+
         _$failedField = 'platformChargebackLogic';
         _platformChargebackLogic?.build();
 
@@ -1487,6 +1548,8 @@ class CreateCheckoutSessionRequestBuilder
         _$failedField = 'splits';
         _splits?.build();
 
+        _$failedField = 'thirdPartyTokenRedundancyInfo';
+        _thirdPartyTokenRedundancyInfo?.build();
         _$failedField = 'threeDS2RequestData';
         _threeDS2RequestData?.build();
       } catch (e) {

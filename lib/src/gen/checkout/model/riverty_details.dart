@@ -17,6 +17,7 @@ part 'riverty_details.g.dart';
 /// * [deliveryAddress] - The address where the goods should be delivered.
 /// * [deviceFingerprint] - A string containing the shopper's device fingerprint. For more information, refer to [Device fingerprinting](https://docs.adyen.com/risk-management/device-fingerprinting).
 /// * [iban] - The iban number of the customer 
+/// * [merchantData] - Base64-encoded merchant metadata (Extra Merchant Data) forwarded to Riverty at authorization.
 /// * [personalDetails] - Shopper name, date of birth, phone number, and email address.
 /// * [recurringDetailReference] - This is the `recurringDetailReference` returned in the response when you created the token.
 /// * [sdkData] - Base64-encoded JSON object containing SDK related parameters required by the SDK
@@ -44,6 +45,10 @@ abstract class RivertyDetails implements Built<RivertyDetails, RivertyDetailsBui
   /// The iban number of the customer 
   @BuiltValueField(wireName: r'iban')
   String? get iban;
+
+  /// Base64-encoded merchant metadata (Extra Merchant Data) forwarded to Riverty at authorization.
+  @BuiltValueField(wireName: r'merchantData')
+  String? get merchantData;
 
   /// Shopper name, date of birth, phone number, and email address.
   @BuiltValueField(wireName: r'personalDetails')
@@ -127,6 +132,13 @@ class _$RivertyDetailsSerializer implements PrimitiveSerializer<RivertyDetails> 
       yield r'iban';
       yield serializers.serialize(
         object.iban,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.merchantData != null) {
+      yield r'merchantData';
+      yield serializers.serialize(
+        object.merchantData,
         specifiedType: const FullType(String),
       );
     }
@@ -227,6 +239,13 @@ class _$RivertyDetailsSerializer implements PrimitiveSerializer<RivertyDetails> 
             specifiedType: const FullType(String),
           ) as String;
           result.iban = valueDes;
+          break;
+        case r'merchantData':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.merchantData = valueDes;
           break;
         case r'personalDetails':
           final valueDes = serializers.deserialize(

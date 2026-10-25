@@ -78,6 +78,8 @@ class _$DirectDebitAuDetails extends DirectDebitAuDetails {
   @override
   final String? checkoutAttemptId;
   @override
+  final String holderName;
+  @override
   final String? recurringDetailReference;
   @override
   final String? sdkData;
@@ -94,6 +96,7 @@ class _$DirectDebitAuDetails extends DirectDebitAuDetails {
     this.bankAccountNumber,
     this.bankBranchCode,
     this.checkoutAttemptId,
+    required this.holderName,
     this.recurringDetailReference,
     this.sdkData,
     this.storedPaymentMethodId,
@@ -115,6 +118,7 @@ class _$DirectDebitAuDetails extends DirectDebitAuDetails {
         bankAccountNumber == other.bankAccountNumber &&
         bankBranchCode == other.bankBranchCode &&
         checkoutAttemptId == other.checkoutAttemptId &&
+        holderName == other.holderName &&
         recurringDetailReference == other.recurringDetailReference &&
         sdkData == other.sdkData &&
         storedPaymentMethodId == other.storedPaymentMethodId &&
@@ -127,6 +131,7 @@ class _$DirectDebitAuDetails extends DirectDebitAuDetails {
     _$hash = $jc(_$hash, bankAccountNumber.hashCode);
     _$hash = $jc(_$hash, bankBranchCode.hashCode);
     _$hash = $jc(_$hash, checkoutAttemptId.hashCode);
+    _$hash = $jc(_$hash, holderName.hashCode);
     _$hash = $jc(_$hash, recurringDetailReference.hashCode);
     _$hash = $jc(_$hash, sdkData.hashCode);
     _$hash = $jc(_$hash, storedPaymentMethodId.hashCode);
@@ -141,6 +146,7 @@ class _$DirectDebitAuDetails extends DirectDebitAuDetails {
           ..add('bankAccountNumber', bankAccountNumber)
           ..add('bankBranchCode', bankBranchCode)
           ..add('checkoutAttemptId', checkoutAttemptId)
+          ..add('holderName', holderName)
           ..add('recurringDetailReference', recurringDetailReference)
           ..add('sdkData', sdkData)
           ..add('storedPaymentMethodId', storedPaymentMethodId)
@@ -167,6 +173,10 @@ class DirectDebitAuDetailsBuilder
   String? get checkoutAttemptId => _$this._checkoutAttemptId;
   set checkoutAttemptId(String? checkoutAttemptId) =>
       _$this._checkoutAttemptId = checkoutAttemptId;
+
+  String? _holderName;
+  String? get holderName => _$this._holderName;
+  set holderName(String? holderName) => _$this._holderName = holderName;
 
   String? _recurringDetailReference;
   String? get recurringDetailReference => _$this._recurringDetailReference;
@@ -196,6 +206,7 @@ class DirectDebitAuDetailsBuilder
       _bankAccountNumber = $v.bankAccountNumber;
       _bankBranchCode = $v.bankBranchCode;
       _checkoutAttemptId = $v.checkoutAttemptId;
+      _holderName = $v.holderName;
       _recurringDetailReference = $v.recurringDetailReference;
       _sdkData = $v.sdkData;
       _storedPaymentMethodId = $v.storedPaymentMethodId;
@@ -225,6 +236,11 @@ class DirectDebitAuDetailsBuilder
           bankAccountNumber: bankAccountNumber,
           bankBranchCode: bankBranchCode,
           checkoutAttemptId: checkoutAttemptId,
+          holderName: BuiltValueNullFieldError.checkNotNull(
+            holderName,
+            r'DirectDebitAuDetails',
+            'holderName',
+          ),
           recurringDetailReference: recurringDetailReference,
           sdkData: sdkData,
           storedPaymentMethodId: storedPaymentMethodId,

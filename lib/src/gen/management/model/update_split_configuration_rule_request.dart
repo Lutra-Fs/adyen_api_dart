@@ -3,6 +3,7 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -11,12 +12,18 @@ part 'update_split_configuration_rule_request.g.dart';
 /// UpdateSplitConfigurationRuleRequest
 ///
 /// Properties:
+/// * [cardUsageType] - The card usage type condition that determines whether the split logic applies to commercial cards, consumer cards, or all cards.  * **ANY** (default): The split logic applies to all cards, regardless of its usage type. * **commercial**: The split logic applies to commercial cards only. * **consumer**: The split logic applies to consumer cards only.
 /// * [currency] - The currency condition that defines whether the split logic applies. Its value must be a three-character [ISO currency code](https://en.wikipedia.org/wiki/ISO_4217).
 /// * [fundingSource] - The funding source of the payment method.  Possible values: * **credit** * **debit** * **prepaid** * **deferred_debit** * **charged** * **ANY**
 /// * [paymentMethod] - The payment method condition that defines whether the split logic applies.  Possible values: * [Payment method variant](https://docs.adyen.com/development-resources/paymentmethodvariant): Apply the split logic for a specific payment method. * **ANY**: Apply the split logic for all available payment methods.
 /// * [shopperInteraction] - The sales channel condition that defines whether the split logic applies.  Possible values: * **Ecommerce**: Online transactions where the cardholder is present. * **ContAuth**: Card on file and/or subscription transactions, where the cardholder is known to the merchant (returning customer). * **Moto**: Mail-order and telephone-order transactions where the customer is in contact with the merchant via email or telephone. * **POS**: Point-of-sale transactions where the customer is physically present to make a payment using a secure payment terminal. * **ANY**: All sales channels.
 @BuiltValue()
 abstract class UpdateSplitConfigurationRuleRequest implements Built<UpdateSplitConfigurationRuleRequest, UpdateSplitConfigurationRuleRequestBuilder> {
+  /// The card usage type condition that determines whether the split logic applies to commercial cards, consumer cards, or all cards.  * **ANY** (default): The split logic applies to all cards, regardless of its usage type. * **commercial**: The split logic applies to commercial cards only. * **consumer**: The split logic applies to consumer cards only.
+  @BuiltValueField(wireName: r'cardUsageType')
+  UpdateSplitConfigurationRuleRequestCardUsageTypeEnum? get cardUsageType;
+  // enum cardUsageTypeEnum {  commercial,  consumer,  ANY,  };
+
   /// The currency condition that defines whether the split logic applies. Its value must be a three-character [ISO currency code](https://en.wikipedia.org/wiki/ISO_4217).
   @BuiltValueField(wireName: r'currency')
   String get currency;
@@ -56,6 +63,13 @@ class _$UpdateSplitConfigurationRuleRequestSerializer implements PrimitiveSerial
     UpdateSplitConfigurationRuleRequest object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
+    if (object.cardUsageType != null) {
+      yield r'cardUsageType';
+      yield serializers.serialize(
+        object.cardUsageType,
+        specifiedType: const FullType(UpdateSplitConfigurationRuleRequestCardUsageTypeEnum),
+      );
+    }
     yield r'currency';
     yield serializers.serialize(
       object.currency,
@@ -99,6 +113,13 @@ class _$UpdateSplitConfigurationRuleRequestSerializer implements PrimitiveSerial
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
+        case r'cardUsageType':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(UpdateSplitConfigurationRuleRequestCardUsageTypeEnum),
+          ) as UpdateSplitConfigurationRuleRequestCardUsageTypeEnum;
+          result.cardUsageType = valueDes;
+          break;
         case r'currency':
           final valueDes = serializers.deserialize(
             value,
@@ -154,5 +175,28 @@ class _$UpdateSplitConfigurationRuleRequestSerializer implements PrimitiveSerial
     );
     return result.build();
   }
+}
+
+class UpdateSplitConfigurationRuleRequestCardUsageTypeEnum extends EnumClass {
+
+  /// The card usage type condition that determines whether the split logic applies to commercial cards, consumer cards, or all cards.  * **ANY** (default): The split logic applies to all cards, regardless of its usage type. * **commercial**: The split logic applies to commercial cards only. * **consumer**: The split logic applies to consumer cards only.
+  @BuiltValueEnumConst(wireName: r'commercial')
+  static const UpdateSplitConfigurationRuleRequestCardUsageTypeEnum commercial = _$updateSplitConfigurationRuleRequestCardUsageTypeEnum_commercial;
+  /// The card usage type condition that determines whether the split logic applies to commercial cards, consumer cards, or all cards.  * **ANY** (default): The split logic applies to all cards, regardless of its usage type. * **commercial**: The split logic applies to commercial cards only. * **consumer**: The split logic applies to consumer cards only.
+  @BuiltValueEnumConst(wireName: r'consumer')
+  static const UpdateSplitConfigurationRuleRequestCardUsageTypeEnum consumer = _$updateSplitConfigurationRuleRequestCardUsageTypeEnum_consumer;
+  /// The card usage type condition that determines whether the split logic applies to commercial cards, consumer cards, or all cards.  * **ANY** (default): The split logic applies to all cards, regardless of its usage type. * **commercial**: The split logic applies to commercial cards only. * **consumer**: The split logic applies to consumer cards only.
+  @BuiltValueEnumConst(wireName: r'ANY')
+  static const UpdateSplitConfigurationRuleRequestCardUsageTypeEnum ANY = _$updateSplitConfigurationRuleRequestCardUsageTypeEnum_ANY;
+  /// The card usage type condition that determines whether the split logic applies to commercial cards, consumer cards, or all cards.  * **ANY** (default): The split logic applies to all cards, regardless of its usage type. * **commercial**: The split logic applies to commercial cards only. * **consumer**: The split logic applies to consumer cards only.
+  @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
+  static const UpdateSplitConfigurationRuleRequestCardUsageTypeEnum unknownDefaultOpenApi = _$updateSplitConfigurationRuleRequestCardUsageTypeEnum_unknownDefaultOpenApi;
+
+  static Serializer<UpdateSplitConfigurationRuleRequestCardUsageTypeEnum> get serializer => _$updateSplitConfigurationRuleRequestCardUsageTypeEnumSerializer;
+
+  const UpdateSplitConfigurationRuleRequestCardUsageTypeEnum._(String name): super(name);
+
+  static BuiltSet<UpdateSplitConfigurationRuleRequestCardUsageTypeEnum> get values => _$updateSplitConfigurationRuleRequestCardUsageTypeEnumValues;
+  static UpdateSplitConfigurationRuleRequestCardUsageTypeEnum valueOf(String name) => _$updateSplitConfigurationRuleRequestCardUsageTypeEnumValueOf(name);
 }
 

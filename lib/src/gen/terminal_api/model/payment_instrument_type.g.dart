@@ -7,12 +7,12 @@ part of 'payment_instrument_type.dart';
 // **************************************************************************
 
 const PaymentInstrumentType _$card = const PaymentInstrumentType._('card');
-const PaymentInstrumentType _$cash = const PaymentInstrumentType._('cash');
 const PaymentInstrumentType _$check = const PaymentInstrumentType._('check');
 const PaymentInstrumentType _$mobile = const PaymentInstrumentType._('mobile');
 const PaymentInstrumentType _$storedValue = const PaymentInstrumentType._(
   'storedValue',
 );
+const PaymentInstrumentType _$cash = const PaymentInstrumentType._('cash');
 const PaymentInstrumentType _$unknownDefaultOpenApi =
     const PaymentInstrumentType._('unknownDefaultOpenApi');
 
@@ -20,14 +20,14 @@ PaymentInstrumentType _$valueOf(String name) {
   switch (name) {
     case 'card':
       return _$card;
-    case 'cash':
-      return _$cash;
     case 'check':
       return _$check;
     case 'mobile':
       return _$mobile;
     case 'storedValue':
       return _$storedValue;
+    case 'cash':
+      return _$cash;
     case 'unknownDefaultOpenApi':
       return _$unknownDefaultOpenApi;
     default:
@@ -38,20 +38,20 @@ PaymentInstrumentType _$valueOf(String name) {
 final BuiltSet<PaymentInstrumentType> _$values =
     BuiltSet<PaymentInstrumentType>(const <PaymentInstrumentType>[
       _$card,
-      _$cash,
       _$check,
       _$mobile,
       _$storedValue,
+      _$cash,
       _$unknownDefaultOpenApi,
     ]);
 
 class _$PaymentInstrumentTypeMeta {
   const _$PaymentInstrumentTypeMeta();
   PaymentInstrumentType get card => _$card;
-  PaymentInstrumentType get cash => _$cash;
   PaymentInstrumentType get check => _$check;
   PaymentInstrumentType get mobile => _$mobile;
   PaymentInstrumentType get storedValue => _$storedValue;
+  PaymentInstrumentType get cash => _$cash;
   PaymentInstrumentType get unknownDefaultOpenApi => _$unknownDefaultOpenApi;
   PaymentInstrumentType valueOf(String name) => _$valueOf(name);
   BuiltSet<PaymentInstrumentType> get values => _$values;
@@ -70,18 +70,18 @@ class _$PaymentInstrumentTypeSerializer
     implements PrimitiveSerializer<PaymentInstrumentType> {
   static const Map<String, Object> _toWire = const <String, Object>{
     'card': 'Card',
-    'cash': 'Cash',
     'check': 'Check',
     'mobile': 'Mobile',
     'storedValue': 'StoredValue',
+    'cash': 'Cash',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'Card': 'card',
-    'Cash': 'cash',
     'Check': 'check',
     'Mobile': 'mobile',
     'StoredValue': 'storedValue',
+    'Cash': 'cash',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
 

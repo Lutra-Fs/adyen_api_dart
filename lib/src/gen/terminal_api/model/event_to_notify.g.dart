@@ -6,31 +6,31 @@ part of 'event_to_notify.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-const EventToNotify _$abort = const EventToNotify._('abort');
 const EventToNotify _$beginMaintenance = const EventToNotify._(
   'beginMaintenance',
 );
-const EventToNotify _$cardInserted = const EventToNotify._('cardInserted');
-const EventToNotify _$cardRemoved = const EventToNotify._('cardRemoved');
+const EventToNotify _$endMaintenance = const EventToNotify._('endMaintenance');
+const EventToNotify _$shutdown = const EventToNotify._('shutdown');
+const EventToNotify _$initialised = const EventToNotify._('initialised');
+const EventToNotify _$outOfOrder = const EventToNotify._('outOfOrder');
 const EventToNotify _$completed = const EventToNotify._('completed');
+const EventToNotify _$abort = const EventToNotify._('abort');
+const EventToNotify _$saleWakeUp = const EventToNotify._('saleWakeUp');
+const EventToNotify _$saleAdmin = const EventToNotify._('saleAdmin');
 const EventToNotify _$customerLanguage = const EventToNotify._(
   'customerLanguage',
 );
-const EventToNotify _$endMaintenance = const EventToNotify._('endMaintenance');
-const EventToNotify _$initialised = const EventToNotify._('initialised');
 const EventToNotify _$keyPressed = const EventToNotify._('keyPressed');
-const EventToNotify _$outOfOrder = const EventToNotify._('outOfOrder');
-const EventToNotify _$reject = const EventToNotify._('reject');
-const EventToNotify _$saleAdmin = const EventToNotify._('saleAdmin');
-const EventToNotify _$saleWakeUp = const EventToNotify._('saleWakeUp');
-const EventToNotify _$scanBarcodeResult = const EventToNotify._(
-  'scanBarcodeResult',
-);
 const EventToNotify _$securityAlarm = const EventToNotify._('securityAlarm');
-const EventToNotify _$shutdown = const EventToNotify._('shutdown');
 const EventToNotify _$stopAssistance = const EventToNotify._('stopAssistance');
+const EventToNotify _$cardInserted = const EventToNotify._('cardInserted');
+const EventToNotify _$cardRemoved = const EventToNotify._('cardRemoved');
+const EventToNotify _$reject = const EventToNotify._('reject');
 const EventToNotify _$useAnotherCardForPreauth = const EventToNotify._(
   'useAnotherCardForPreauth',
+);
+const EventToNotify _$scanBarcodeResult = const EventToNotify._(
+  'scanBarcodeResult',
 );
 const EventToNotify _$unknownDefaultOpenApi = const EventToNotify._(
   'unknownDefaultOpenApi',
@@ -38,42 +38,42 @@ const EventToNotify _$unknownDefaultOpenApi = const EventToNotify._(
 
 EventToNotify _$valueOf(String name) {
   switch (name) {
-    case 'abort':
-      return _$abort;
     case 'beginMaintenance':
       return _$beginMaintenance;
+    case 'endMaintenance':
+      return _$endMaintenance;
+    case 'shutdown':
+      return _$shutdown;
+    case 'initialised':
+      return _$initialised;
+    case 'outOfOrder':
+      return _$outOfOrder;
+    case 'completed':
+      return _$completed;
+    case 'abort':
+      return _$abort;
+    case 'saleWakeUp':
+      return _$saleWakeUp;
+    case 'saleAdmin':
+      return _$saleAdmin;
+    case 'customerLanguage':
+      return _$customerLanguage;
+    case 'keyPressed':
+      return _$keyPressed;
+    case 'securityAlarm':
+      return _$securityAlarm;
+    case 'stopAssistance':
+      return _$stopAssistance;
     case 'cardInserted':
       return _$cardInserted;
     case 'cardRemoved':
       return _$cardRemoved;
-    case 'completed':
-      return _$completed;
-    case 'customerLanguage':
-      return _$customerLanguage;
-    case 'endMaintenance':
-      return _$endMaintenance;
-    case 'initialised':
-      return _$initialised;
-    case 'keyPressed':
-      return _$keyPressed;
-    case 'outOfOrder':
-      return _$outOfOrder;
     case 'reject':
       return _$reject;
-    case 'saleAdmin':
-      return _$saleAdmin;
-    case 'saleWakeUp':
-      return _$saleWakeUp;
-    case 'scanBarcodeResult':
-      return _$scanBarcodeResult;
-    case 'securityAlarm':
-      return _$securityAlarm;
-    case 'shutdown':
-      return _$shutdown;
-    case 'stopAssistance':
-      return _$stopAssistance;
     case 'useAnotherCardForPreauth':
       return _$useAnotherCardForPreauth;
+    case 'scanBarcodeResult':
+      return _$scanBarcodeResult;
     case 'unknownDefaultOpenApi':
       return _$unknownDefaultOpenApi;
     default:
@@ -83,47 +83,47 @@ EventToNotify _$valueOf(String name) {
 
 final BuiltSet<EventToNotify> _$values =
     BuiltSet<EventToNotify>(const <EventToNotify>[
-      _$abort,
       _$beginMaintenance,
+      _$endMaintenance,
+      _$shutdown,
+      _$initialised,
+      _$outOfOrder,
+      _$completed,
+      _$abort,
+      _$saleWakeUp,
+      _$saleAdmin,
+      _$customerLanguage,
+      _$keyPressed,
+      _$securityAlarm,
+      _$stopAssistance,
       _$cardInserted,
       _$cardRemoved,
-      _$completed,
-      _$customerLanguage,
-      _$endMaintenance,
-      _$initialised,
-      _$keyPressed,
-      _$outOfOrder,
       _$reject,
-      _$saleAdmin,
-      _$saleWakeUp,
-      _$scanBarcodeResult,
-      _$securityAlarm,
-      _$shutdown,
-      _$stopAssistance,
       _$useAnotherCardForPreauth,
+      _$scanBarcodeResult,
       _$unknownDefaultOpenApi,
     ]);
 
 class _$EventToNotifyMeta {
   const _$EventToNotifyMeta();
-  EventToNotify get abort => _$abort;
   EventToNotify get beginMaintenance => _$beginMaintenance;
+  EventToNotify get endMaintenance => _$endMaintenance;
+  EventToNotify get shutdown => _$shutdown;
+  EventToNotify get initialised => _$initialised;
+  EventToNotify get outOfOrder => _$outOfOrder;
+  EventToNotify get completed => _$completed;
+  EventToNotify get abort => _$abort;
+  EventToNotify get saleWakeUp => _$saleWakeUp;
+  EventToNotify get saleAdmin => _$saleAdmin;
+  EventToNotify get customerLanguage => _$customerLanguage;
+  EventToNotify get keyPressed => _$keyPressed;
+  EventToNotify get securityAlarm => _$securityAlarm;
+  EventToNotify get stopAssistance => _$stopAssistance;
   EventToNotify get cardInserted => _$cardInserted;
   EventToNotify get cardRemoved => _$cardRemoved;
-  EventToNotify get completed => _$completed;
-  EventToNotify get customerLanguage => _$customerLanguage;
-  EventToNotify get endMaintenance => _$endMaintenance;
-  EventToNotify get initialised => _$initialised;
-  EventToNotify get keyPressed => _$keyPressed;
-  EventToNotify get outOfOrder => _$outOfOrder;
   EventToNotify get reject => _$reject;
-  EventToNotify get saleAdmin => _$saleAdmin;
-  EventToNotify get saleWakeUp => _$saleWakeUp;
-  EventToNotify get scanBarcodeResult => _$scanBarcodeResult;
-  EventToNotify get securityAlarm => _$securityAlarm;
-  EventToNotify get shutdown => _$shutdown;
-  EventToNotify get stopAssistance => _$stopAssistance;
   EventToNotify get useAnotherCardForPreauth => _$useAnotherCardForPreauth;
+  EventToNotify get scanBarcodeResult => _$scanBarcodeResult;
   EventToNotify get unknownDefaultOpenApi => _$unknownDefaultOpenApi;
   EventToNotify valueOf(String name) => _$valueOf(name);
   BuiltSet<EventToNotify> get values => _$values;
@@ -139,45 +139,45 @@ Serializer<EventToNotify> _$eventToNotifySerializer =
 
 class _$EventToNotifySerializer implements PrimitiveSerializer<EventToNotify> {
   static const Map<String, Object> _toWire = const <String, Object>{
-    'abort': 'Abort',
     'beginMaintenance': 'BeginMaintenance',
+    'endMaintenance': 'EndMaintenance',
+    'shutdown': 'Shutdown',
+    'initialised': 'Initialised',
+    'outOfOrder': 'OutOfOrder',
+    'completed': 'Completed',
+    'abort': 'Abort',
+    'saleWakeUp': 'SaleWakeUp',
+    'saleAdmin': 'SaleAdmin',
+    'customerLanguage': 'CustomerLanguage',
+    'keyPressed': 'KeyPressed',
+    'securityAlarm': 'SecurityAlarm',
+    'stopAssistance': 'StopAssistance',
     'cardInserted': 'CardInserted',
     'cardRemoved': 'CardRemoved',
-    'completed': 'Completed',
-    'customerLanguage': 'CustomerLanguage',
-    'endMaintenance': 'EndMaintenance',
-    'initialised': 'Initialised',
-    'keyPressed': 'KeyPressed',
-    'outOfOrder': 'OutOfOrder',
     'reject': 'Reject',
-    'saleAdmin': 'SaleAdmin',
-    'saleWakeUp': 'SaleWakeUp',
-    'scanBarcodeResult': 'ScanBarcodeResult',
-    'securityAlarm': 'SecurityAlarm',
-    'shutdown': 'Shutdown',
-    'stopAssistance': 'StopAssistance',
     'useAnotherCardForPreauth': 'UseAnotherCardForPreauth',
+    'scanBarcodeResult': 'ScanBarcodeResult',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
-    'Abort': 'abort',
     'BeginMaintenance': 'beginMaintenance',
+    'EndMaintenance': 'endMaintenance',
+    'Shutdown': 'shutdown',
+    'Initialised': 'initialised',
+    'OutOfOrder': 'outOfOrder',
+    'Completed': 'completed',
+    'Abort': 'abort',
+    'SaleWakeUp': 'saleWakeUp',
+    'SaleAdmin': 'saleAdmin',
+    'CustomerLanguage': 'customerLanguage',
+    'KeyPressed': 'keyPressed',
+    'SecurityAlarm': 'securityAlarm',
+    'StopAssistance': 'stopAssistance',
     'CardInserted': 'cardInserted',
     'CardRemoved': 'cardRemoved',
-    'Completed': 'completed',
-    'CustomerLanguage': 'customerLanguage',
-    'EndMaintenance': 'endMaintenance',
-    'Initialised': 'initialised',
-    'KeyPressed': 'keyPressed',
-    'OutOfOrder': 'outOfOrder',
     'Reject': 'reject',
-    'SaleAdmin': 'saleAdmin',
-    'SaleWakeUp': 'saleWakeUp',
-    'ScanBarcodeResult': 'scanBarcodeResult',
-    'SecurityAlarm': 'securityAlarm',
-    'Shutdown': 'shutdown',
-    'StopAssistance': 'stopAssistance',
     'UseAnotherCardForPreauth': 'useAnotherCardForPreauth',
+    'ScanBarcodeResult': 'scanBarcodeResult',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
 

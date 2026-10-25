@@ -6,21 +6,21 @@ part of 'character_height.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+const CharacterHeight _$singleHeight = const CharacterHeight._('singleHeight');
 const CharacterHeight _$doubleHeight = const CharacterHeight._('doubleHeight');
 const CharacterHeight _$halfHeight = const CharacterHeight._('halfHeight');
-const CharacterHeight _$singleHeight = const CharacterHeight._('singleHeight');
 const CharacterHeight _$unknownDefaultOpenApi = const CharacterHeight._(
   'unknownDefaultOpenApi',
 );
 
 CharacterHeight _$valueOf(String name) {
   switch (name) {
+    case 'singleHeight':
+      return _$singleHeight;
     case 'doubleHeight':
       return _$doubleHeight;
     case 'halfHeight':
       return _$halfHeight;
-    case 'singleHeight':
-      return _$singleHeight;
     case 'unknownDefaultOpenApi':
       return _$unknownDefaultOpenApi;
     default:
@@ -30,18 +30,18 @@ CharacterHeight _$valueOf(String name) {
 
 final BuiltSet<CharacterHeight> _$values = BuiltSet<CharacterHeight>(
   const <CharacterHeight>[
+    _$singleHeight,
     _$doubleHeight,
     _$halfHeight,
-    _$singleHeight,
     _$unknownDefaultOpenApi,
   ],
 );
 
 class _$CharacterHeightMeta {
   const _$CharacterHeightMeta();
+  CharacterHeight get singleHeight => _$singleHeight;
   CharacterHeight get doubleHeight => _$doubleHeight;
   CharacterHeight get halfHeight => _$halfHeight;
-  CharacterHeight get singleHeight => _$singleHeight;
   CharacterHeight get unknownDefaultOpenApi => _$unknownDefaultOpenApi;
   CharacterHeight valueOf(String name) => _$valueOf(name);
   BuiltSet<CharacterHeight> get values => _$values;
@@ -58,15 +58,15 @@ Serializer<CharacterHeight> _$characterHeightSerializer =
 class _$CharacterHeightSerializer
     implements PrimitiveSerializer<CharacterHeight> {
   static const Map<String, Object> _toWire = const <String, Object>{
+    'singleHeight': 'SingleHeight',
     'doubleHeight': 'DoubleHeight',
     'halfHeight': 'HalfHeight',
-    'singleHeight': 'SingleHeight',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
+    'SingleHeight': 'singleHeight',
     'DoubleHeight': 'doubleHeight',
     'HalfHeight': 'halfHeight',
-    'SingleHeight': 'singleHeight',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
 

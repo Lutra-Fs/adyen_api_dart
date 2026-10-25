@@ -40,6 +40,8 @@ class _$RecurringDetail extends RecurringDetail {
   @override
   final TokenDetails? tokenDetails;
   @override
+  final String? transactionLinkId;
+  @override
   final String variant;
 
   factory _$RecurringDetail([void Function(RecurringDetailBuilder)? updates]) =>
@@ -62,6 +64,7 @@ class _$RecurringDetail extends RecurringDetail {
     this.shopperName,
     this.socialSecurityNumber,
     this.tokenDetails,
+    this.transactionLinkId,
     required this.variant,
   }) : super._();
   @override
@@ -91,6 +94,7 @@ class _$RecurringDetail extends RecurringDetail {
         shopperName == other.shopperName &&
         socialSecurityNumber == other.socialSecurityNumber &&
         tokenDetails == other.tokenDetails &&
+        transactionLinkId == other.transactionLinkId &&
         variant == other.variant;
   }
 
@@ -113,6 +117,7 @@ class _$RecurringDetail extends RecurringDetail {
     _$hash = $jc(_$hash, shopperName.hashCode);
     _$hash = $jc(_$hash, socialSecurityNumber.hashCode);
     _$hash = $jc(_$hash, tokenDetails.hashCode);
+    _$hash = $jc(_$hash, transactionLinkId.hashCode);
     _$hash = $jc(_$hash, variant.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -137,6 +142,7 @@ class _$RecurringDetail extends RecurringDetail {
           ..add('shopperName', shopperName)
           ..add('socialSecurityNumber', socialSecurityNumber)
           ..add('tokenDetails', tokenDetails)
+          ..add('transactionLinkId', transactionLinkId)
           ..add('variant', variant))
         .toString();
   }
@@ -225,6 +231,11 @@ class RecurringDetailBuilder
   set tokenDetails(TokenDetailsBuilder? tokenDetails) =>
       _$this._tokenDetails = tokenDetails;
 
+  String? _transactionLinkId;
+  String? get transactionLinkId => _$this._transactionLinkId;
+  set transactionLinkId(String? transactionLinkId) =>
+      _$this._transactionLinkId = transactionLinkId;
+
   String? _variant;
   String? get variant => _$this._variant;
   set variant(String? variant) => _$this._variant = variant;
@@ -252,6 +263,7 @@ class RecurringDetailBuilder
       _shopperName = $v.shopperName?.toBuilder();
       _socialSecurityNumber = $v.socialSecurityNumber;
       _tokenDetails = $v.tokenDetails?.toBuilder();
+      _transactionLinkId = $v.transactionLinkId;
       _variant = $v.variant;
       _$v = null;
     }
@@ -297,6 +309,7 @@ class RecurringDetailBuilder
             shopperName: _shopperName?.build(),
             socialSecurityNumber: socialSecurityNumber,
             tokenDetails: _tokenDetails?.build(),
+            transactionLinkId: transactionLinkId,
             variant: BuiltValueNullFieldError.checkNotNull(
               variant,
               r'RecurringDetail',

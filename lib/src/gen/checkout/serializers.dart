@@ -43,11 +43,13 @@ import 'package:adyen_api/src/gen/checkout/model/amount.dart';
 import 'package:adyen_api/src/gen/checkout/model/amounts.dart';
 import 'package:adyen_api/src/gen/checkout/model/ancv_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/android_pay_details.dart';
+import 'package:adyen_api/src/gen/checkout/model/app_identifier_info.dart';
 import 'package:adyen_api/src/gen/checkout/model/apple_pay_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/apple_pay_donations.dart';
 import 'package:adyen_api/src/gen/checkout/model/apple_pay_session_request.dart';
 import 'package:adyen_api/src/gen/checkout/model/apple_pay_session_response.dart';
 import 'package:adyen_api/src/gen/checkout/model/application_info.dart';
+import 'package:adyen_api/src/gen/checkout/model/au_pay_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/authentication_data.dart';
 import 'package:adyen_api/src/gen/checkout/model/bacs_direct_debit_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/balance_check_request.dart';
@@ -56,8 +58,12 @@ import 'package:adyen_api/src/gen/checkout/model/bill_desk_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/billing_address.dart';
 import 'package:adyen_api/src/gen/checkout/model/blik_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/browser_info.dart';
+import 'package:adyen_api/src/gen/checkout/model/calculate_tax_request.dart';
+import 'package:adyen_api/src/gen/checkout/model/calculate_tax_response.dart';
+import 'package:adyen_api/src/gen/checkout/model/calculation_type.dart';
 import 'package:adyen_api/src/gen/checkout/model/cancel_order_request.dart';
 import 'package:adyen_api/src/gen/checkout/model/cancel_order_response.dart';
+import 'package:adyen_api/src/gen/checkout/model/car_rental.dart';
 import 'package:adyen_api/src/gen/checkout/model/card_brand_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/card_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/card_details_request.dart';
@@ -69,6 +75,9 @@ import 'package:adyen_api/src/gen/checkout/model/checkout_await_action.dart';
 import 'package:adyen_api/src/gen/checkout/model/checkout_bank_account.dart';
 import 'package:adyen_api/src/gen/checkout/model/checkout_bank_transfer_action.dart';
 import 'package:adyen_api/src/gen/checkout/model/checkout_delegated_authentication_action.dart';
+import 'package:adyen_api/src/gen/checkout/model/checkout_error_response_entity.dart';
+import 'package:adyen_api/src/gen/checkout/model/checkout_forward_account_update_result.dart';
+import 'package:adyen_api/src/gen/checkout/model/checkout_forward_network_token_result.dart';
 import 'package:adyen_api/src/gen/checkout/model/checkout_forward_request.dart';
 import 'package:adyen_api/src/gen/checkout/model/checkout_forward_request_card.dart';
 import 'package:adyen_api/src/gen/checkout/model/checkout_forward_request_options.dart';
@@ -82,6 +91,8 @@ import 'package:adyen_api/src/gen/checkout/model/checkout_qr_code_action.dart';
 import 'package:adyen_api/src/gen/checkout/model/checkout_redirect_action.dart';
 import 'package:adyen_api/src/gen/checkout/model/checkout_sdk_action.dart';
 import 'package:adyen_api/src/gen/checkout/model/checkout_session_installment_option.dart';
+import 'package:adyen_api/src/gen/checkout/model/checkout_session_patch_session_request.dart';
+import 'package:adyen_api/src/gen/checkout/model/checkout_session_patch_session_response.dart';
 import 'package:adyen_api/src/gen/checkout/model/checkout_session_three_ds2_request_data.dart';
 import 'package:adyen_api/src/gen/checkout/model/checkout_three_ds2_action.dart';
 import 'package:adyen_api/src/gen/checkout/model/checkout_voucher_action.dart';
@@ -92,7 +103,7 @@ import 'package:adyen_api/src/gen/checkout/model/create_checkout_session_request
 import 'package:adyen_api/src/gen/checkout/model/create_checkout_session_response.dart';
 import 'package:adyen_api/src/gen/checkout/model/create_order_request.dart';
 import 'package:adyen_api/src/gen/checkout/model/create_order_response.dart';
-import 'package:adyen_api/src/gen/checkout/model/default_error_response_entity.dart';
+import 'package:adyen_api/src/gen/checkout/model/d_barai_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/delivery_address.dart';
 import 'package:adyen_api/src/gen/checkout/model/delivery_method.dart';
 import 'package:adyen_api/src/gen/checkout/model/destination.dart';
@@ -116,6 +127,7 @@ import 'package:adyen_api/src/gen/checkout/model/enhanced_scheme_data.dart';
 import 'package:adyen_api/src/gen/checkout/model/external_platform.dart';
 import 'package:adyen_api/src/gen/checkout/model/external_token_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/fastlane_details.dart';
+import 'package:adyen_api/src/gen/checkout/model/folio.dart';
 import 'package:adyen_api/src/gen/checkout/model/forex_quote.dart';
 import 'package:adyen_api/src/gen/checkout/model/fraud_check_result.dart';
 import 'package:adyen_api/src/gen/checkout/model/fraud_result.dart';
@@ -124,12 +136,12 @@ import 'package:adyen_api/src/gen/checkout/model/fund_recipient.dart';
 import 'package:adyen_api/src/gen/checkout/model/generic_issuer_payment_method_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/google_pay_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/google_pay_donations.dart';
+import 'package:adyen_api/src/gen/checkout/model/healthcare.dart';
 import 'package:adyen_api/src/gen/checkout/model/ideal_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/ideal_donations.dart';
 import 'package:adyen_api/src/gen/checkout/model/input_detail.dart';
 import 'package:adyen_api/src/gen/checkout/model/installment_option.dart';
 import 'package:adyen_api/src/gen/checkout/model/installments.dart';
-import 'package:adyen_api/src/gen/checkout/model/invalid_field.dart';
 import 'package:adyen_api/src/gen/checkout/model/item.dart';
 import 'package:adyen_api/src/gen/checkout/model/item_detail_line.dart';
 import 'package:adyen_api/src/gen/checkout/model/klarna_details.dart';
@@ -138,6 +150,8 @@ import 'package:adyen_api/src/gen/checkout/model/leg.dart';
 import 'package:adyen_api/src/gen/checkout/model/level_two_three.dart';
 import 'package:adyen_api/src/gen/checkout/model/line_item.dart';
 import 'package:adyen_api/src/gen/checkout/model/list_stored_payment_methods_response.dart';
+import 'package:adyen_api/src/gen/checkout/model/lodging.dart';
+import 'package:adyen_api/src/gen/checkout/model/lrs_context.dart';
 import 'package:adyen_api/src/gen/checkout/model/mandate.dart';
 import 'package:adyen_api/src/gen/checkout/model/masterpass_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/mbway_details.dart';
@@ -147,8 +161,11 @@ import 'package:adyen_api/src/gen/checkout/model/mobile_pay_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/mol_pay_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/name.dart';
 import 'package:adyen_api/src/gen/checkout/model/open_invoice_details.dart';
+import 'package:adyen_api/src/gen/checkout/model/opi_request.dart';
+import 'package:adyen_api/src/gen/checkout/model/opi_response.dart';
 import 'package:adyen_api/src/gen/checkout/model/passenger.dart';
 import 'package:adyen_api/src/gen/checkout/model/pay_by_bank_ais_direct_debit_details.dart';
+import 'package:adyen_api/src/gen/checkout/model/pay_by_bank_ca_direct_debit_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/pay_by_bank_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/pay_pal_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/pay_pay_details.dart';
@@ -195,6 +212,7 @@ import 'package:adyen_api/src/gen/checkout/model/payment_validations_response.da
 import 'package:adyen_api/src/gen/checkout/model/paypal_update_order_request.dart';
 import 'package:adyen_api/src/gen/checkout/model/paypal_update_order_response.dart';
 import 'package:adyen_api/src/gen/checkout/model/phone.dart';
+import 'package:adyen_api/src/gen/checkout/model/pickup_info.dart';
 import 'package:adyen_api/src/gen/checkout/model/pix_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/pix_pay_by_bank_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/pix_pay_by_bank_risk_signals.dart';
@@ -204,6 +222,8 @@ import 'package:adyen_api/src/gen/checkout/model/pse_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/rakuten_pay_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/ratepay_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/recurring.dart';
+import 'package:adyen_api/src/gen/checkout/model/remittance_purpose.dart';
+import 'package:adyen_api/src/gen/checkout/model/rental_surcharges.dart';
 import 'package:adyen_api/src/gen/checkout/model/response_additional_data3_d_secure.dart';
 import 'package:adyen_api/src/gen/checkout/model/response_additional_data_billing_address.dart';
 import 'package:adyen_api/src/gen/checkout/model/response_additional_data_card.dart';
@@ -216,17 +236,22 @@ import 'package:adyen_api/src/gen/checkout/model/response_additional_data_sepa.d
 import 'package:adyen_api/src/gen/checkout/model/response_additional_data_swish.dart';
 import 'package:adyen_api/src/gen/checkout/model/response_payment_method.dart';
 import 'package:adyen_api/src/gen/checkout/model/result.dart';
+import 'package:adyen_api/src/gen/checkout/model/return_info.dart';
 import 'package:adyen_api/src/gen/checkout/model/risk_data.dart';
 import 'package:adyen_api/src/gen/checkout/model/riverty_details.dart';
+import 'package:adyen_api/src/gen/checkout/model/room.dart';
 import 'package:adyen_api/src/gen/checkout/model/sdk_ephem_pub_key.dart';
 import 'package:adyen_api/src/gen/checkout/model/samsung_pay_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/screen_dimensions.dart';
 import 'package:adyen_api/src/gen/checkout/model/sepa_direct_debit_details.dart';
+import 'package:adyen_api/src/gen/checkout/model/sepa_direct_debit_donations.dart';
 import 'package:adyen_api/src/gen/checkout/model/service_error.dart';
+import 'package:adyen_api/src/gen/checkout/model/session_amount_update.dart';
 import 'package:adyen_api/src/gen/checkout/model/session_result_response.dart';
 import 'package:adyen_api/src/gen/checkout/model/shopper_id_payment_method.dart';
 import 'package:adyen_api/src/gen/checkout/model/shopper_interaction_device.dart';
 import 'package:adyen_api/src/gen/checkout/model/shopper_name.dart';
+import 'package:adyen_api/src/gen/checkout/model/shopper_tax_identification.dart';
 import 'package:adyen_api/src/gen/checkout/model/shopper_tax_info.dart';
 import 'package:adyen_api/src/gen/checkout/model/split.dart';
 import 'package:adyen_api/src/gen/checkout/model/split_amount.dart';
@@ -239,8 +264,17 @@ import 'package:adyen_api/src/gen/checkout/model/stored_payment_method_resource.
 import 'package:adyen_api/src/gen/checkout/model/sub_input_detail.dart';
 import 'package:adyen_api/src/gen/checkout/model/sub_merchant.dart';
 import 'package:adyen_api/src/gen/checkout/model/sub_merchant_info.dart';
+import 'package:adyen_api/src/gen/checkout/model/sublimit_status.dart';
 import 'package:adyen_api/src/gen/checkout/model/surcharge.dart';
+import 'package:adyen_api/src/gen/checkout/model/tax_amount.dart';
+import 'package:adyen_api/src/gen/checkout/model/tax_calculation.dart';
+import 'package:adyen_api/src/gen/checkout/model/tax_calculation_component.dart';
+import 'package:adyen_api/src/gen/checkout/model/tax_calculation_context.dart';
+import 'package:adyen_api/src/gen/checkout/model/tax_identification_type.dart';
 import 'package:adyen_api/src/gen/checkout/model/tax_total.dart';
+import 'package:adyen_api/src/gen/checkout/model/taxable_amount.dart';
+import 'package:adyen_api/src/gen/checkout/model/temporary_services.dart';
+import 'package:adyen_api/src/gen/checkout/model/third_party_token_redundancy_info.dart';
 import 'package:adyen_api/src/gen/checkout/model/three_ds2_request_data.dart';
 import 'package:adyen_api/src/gen/checkout/model/three_ds2_request_fields.dart';
 import 'package:adyen_api/src/gen/checkout/model/three_ds2_response_data.dart';
@@ -262,6 +296,9 @@ import 'package:adyen_api/src/gen/checkout/model/utility_request.dart';
 import 'package:adyen_api/src/gen/checkout/model/utility_response.dart';
 import 'package:adyen_api/src/gen/checkout/model/validate_shopper_id_request.dart';
 import 'package:adyen_api/src/gen/checkout/model/validate_shopper_id_response.dart';
+import 'package:adyen_api/src/gen/checkout/model/verified_shopper_tax_identification.dart';
+import 'package:adyen_api/src/gen/checkout/model/verify_shopper_tax_identification_request.dart';
+import 'package:adyen_api/src/gen/checkout/model/verify_shopper_tax_identification_response.dart';
 import 'package:adyen_api/src/gen/checkout/model/vipps_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/visa_checkout_details.dart';
 import 'package:adyen_api/src/gen/checkout/model/we_chat_pay_details.dart';
@@ -300,11 +337,13 @@ part 'serializers.g.dart';
   Amounts,
   AncvDetails,
   AndroidPayDetails,
+  AppIdentifierInfo,
   ApplePayDetails,
   ApplePayDonations,
   ApplePaySessionRequest,
   ApplePaySessionResponse,
   ApplicationInfo,
+  AuPayDetails,
   AuthenticationData,
   BacsDirectDebitDetails,
   BalanceCheckRequest,
@@ -313,8 +352,12 @@ part 'serializers.g.dart';
   BillingAddress,
   BlikDetails,
   BrowserInfo,
+  CalculateTaxRequest,
+  CalculateTaxResponse,
+  CalculationType,
   CancelOrderRequest,
   CancelOrderResponse,
+  CarRental,
   CardBrandDetails,
   CardDetails,
   CardDetailsRequest,
@@ -326,6 +369,9 @@ part 'serializers.g.dart';
   CheckoutBankAccount,
   CheckoutBankTransferAction,
   CheckoutDelegatedAuthenticationAction,
+  CheckoutErrorResponseEntity,
+  CheckoutForwardAccountUpdateResult,
+  CheckoutForwardNetworkTokenResult,
   CheckoutForwardRequest,
   CheckoutForwardRequestCard,
   CheckoutForwardRequestOptions,
@@ -339,6 +385,8 @@ part 'serializers.g.dart';
   CheckoutRedirectAction,
   CheckoutSDKAction,
   CheckoutSessionInstallmentOption,
+  CheckoutSessionPatchSessionRequest,
+  CheckoutSessionPatchSessionResponse,
   CheckoutSessionThreeDS2RequestData,
   CheckoutThreeDS2Action,
   CheckoutVoucherAction,
@@ -349,7 +397,7 @@ part 'serializers.g.dart';
   CreateCheckoutSessionResponse,
   CreateOrderRequest,
   CreateOrderResponse,
-  DefaultErrorResponseEntity,
+  DBaraiDetails,
   DeliveryAddress,
   DeliveryMethod,
   Destination,
@@ -373,6 +421,7 @@ part 'serializers.g.dart';
   ExternalPlatform,
   ExternalTokenDetails,
   FastlaneDetails,
+  Folio,
   ForexQuote,
   FraudCheckResult,
   FraudResult,
@@ -381,12 +430,12 @@ part 'serializers.g.dart';
   GenericIssuerPaymentMethodDetails,
   GooglePayDetails,
   GooglePayDonations,
+  Healthcare,
   IdealDetails,
   IdealDonations,
   InputDetail,
   InstallmentOption,
   Installments,
-  InvalidField,
   Item,
   ItemDetailLine,
   KlarnaDetails,
@@ -395,6 +444,8 @@ part 'serializers.g.dart';
   LevelTwoThree,
   LineItem,
   ListStoredPaymentMethodsResponse,
+  Lodging,
+  LrsContext,
   Mandate,
   MasterpassDetails,
   MbwayDetails,
@@ -404,8 +455,11 @@ part 'serializers.g.dart';
   MolPayDetails,
   Name,
   OpenInvoiceDetails,
+  OpiRequest,
+  OpiResponse,
   Passenger,
   PayByBankAISDirectDebitDetails,
+  PayByBankCADirectDebitDetails,
   PayByBankDetails,
   PayPalDetails,
   PayPayDetails,
@@ -452,6 +506,7 @@ part 'serializers.g.dart';
   PaypalUpdateOrderRequest,
   PaypalUpdateOrderResponse,
   Phone,
+  PickupInfo,
   PixDetails,
   PixPayByBankDetails,
   PixPayByBankRiskSignals,
@@ -461,6 +516,8 @@ part 'serializers.g.dart';
   RakutenPayDetails,
   RatepayDetails,
   Recurring,
+  RemittancePurpose,
+  RentalSurcharges,
   ResponseAdditionalData3DSecure,
   ResponseAdditionalDataBillingAddress,
   ResponseAdditionalDataCard,
@@ -473,17 +530,22 @@ part 'serializers.g.dart';
   ResponseAdditionalDataSwish,
   ResponsePaymentMethod,
   Result,
+  ReturnInfo,
   RiskData,
   RivertyDetails,
+  Room,
   SDKEphemPubKey,
   SamsungPayDetails,
   ScreenDimensions,
   SepaDirectDebitDetails,
+  SepaDirectDebitDonations,
   ServiceError,
+  SessionAmountUpdate,
   SessionResultResponse,
   ShopperIdPaymentMethod,$ShopperIdPaymentMethod,
   ShopperInteractionDevice,
   ShopperName,
+  ShopperTaxIdentification,
   ShopperTaxInfo,
   Split,
   SplitAmount,
@@ -496,8 +558,17 @@ part 'serializers.g.dart';
   SubInputDetail,
   SubMerchant,
   SubMerchantInfo,
+  SublimitStatus,
   Surcharge,
+  TaxAmount,
+  TaxCalculation,
+  TaxCalculationComponent,
+  TaxCalculationContext,
+  TaxIdentificationType,
   TaxTotal,
+  TaxableAmount,
+  TemporaryServices,
+  ThirdPartyTokenRedundancyInfo,
   ThreeDS2RequestData,
   ThreeDS2RequestFields,
   ThreeDS2ResponseData,
@@ -519,6 +590,9 @@ part 'serializers.g.dart';
   UtilityResponse,
   ValidateShopperIdRequest,
   ValidateShopperIdResponse,
+  VerifiedShopperTaxIdentification,
+  VerifyShopperTaxIdentificationRequest,
+  VerifyShopperTaxIdentificationResponse,
   VippsDetails,
   VisaCheckoutDetails,
   WeChatPayDetails,

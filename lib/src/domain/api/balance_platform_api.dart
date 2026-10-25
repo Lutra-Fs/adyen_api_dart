@@ -9,6 +9,12 @@ import '../../gen/balance_platform/api/balance_accounts_api.dart'
 import '../../gen/balance_platform/api/balances_api.dart' as balance_platform;
 import '../../gen/balance_platform/api/bank_account_validation_api.dart'
     as balance_platform;
+import '../../gen/balance_platform/api/custom_payout_schedules_sweeps_api.dart'
+    as balance_platform;
+import '../../gen/balance_platform/api/managed_payout_schedules_api.dart'
+    as balance_platform;
+import '../../gen/balance_platform/api/recurring_top_ups_api.dart'
+    as balance_platform;
 import '../../gen/balance_platform/api/payment_instrument_groups_api.dart'
     as balance_platform;
 import '../../gen/balance_platform/api/payment_instruments_api.dart'
@@ -41,6 +47,13 @@ class BalancePlatformAPI extends ApiService {
       dio,
       serializers,
     );
+    customPayoutSchedulesSweepsApi =
+        balance_platform.CustomPayoutSchedulesSweepsApi(dio, serializers);
+    managedPayoutSchedulesApi = balance_platform.ManagedPayoutSchedulesApi(
+      dio,
+      serializers,
+    );
+    recurringTopUpsApi = balance_platform.RecurringTopUpsApi(dio, serializers);
     paymentInstrumentGroupsApi = balance_platform.PaymentInstrumentGroupsApi(
       dio,
       serializers,
@@ -80,6 +93,17 @@ class BalancePlatformAPI extends ApiService {
 
   /// API for validating bank account details.
   late final balance_platform.BankAccountValidationApi bankAccountValidationApi;
+
+  /// API for managing custom payout schedules and balance account sweeps.
+  late final balance_platform.CustomPayoutSchedulesSweepsApi
+  customPayoutSchedulesSweepsApi;
+
+  /// API for managing payout schedules.
+  late final balance_platform.ManagedPayoutSchedulesApi
+  managedPayoutSchedulesApi;
+
+  /// API for managing recurring top-ups.
+  late final balance_platform.RecurringTopUpsApi recurringTopUpsApi;
 
   /// API for managing payment instrument groups.
   late final balance_platform.PaymentInstrumentGroupsApi

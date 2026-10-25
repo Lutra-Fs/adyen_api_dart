@@ -26,6 +26,8 @@ class _$MeApiCredential extends MeApiCredential {
   @override
   final BuiltList<String> roles;
   @override
+  final String? subjectDN;
+  @override
   final String username;
 
   factory _$MeApiCredential([void Function(MeApiCredentialBuilder)? updates]) =>
@@ -41,6 +43,7 @@ class _$MeApiCredential extends MeApiCredential {
     this.description,
     required this.id,
     required this.roles,
+    this.subjectDN,
     required this.username,
   }) : super._();
   @override
@@ -63,6 +66,7 @@ class _$MeApiCredential extends MeApiCredential {
         description == other.description &&
         id == other.id &&
         roles == other.roles &&
+        subjectDN == other.subjectDN &&
         username == other.username;
   }
 
@@ -78,6 +82,7 @@ class _$MeApiCredential extends MeApiCredential {
     _$hash = $jc(_$hash, description.hashCode);
     _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, roles.hashCode);
+    _$hash = $jc(_$hash, subjectDN.hashCode);
     _$hash = $jc(_$hash, username.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -95,6 +100,7 @@ class _$MeApiCredential extends MeApiCredential {
           ..add('description', description)
           ..add('id', id)
           ..add('roles', roles)
+          ..add('subjectDN', subjectDN)
           ..add('username', username))
         .toString();
   }
@@ -145,6 +151,10 @@ class MeApiCredentialBuilder
   ListBuilder<String> get roles => _$this._roles ??= ListBuilder<String>();
   set roles(ListBuilder<String>? roles) => _$this._roles = roles;
 
+  String? _subjectDN;
+  String? get subjectDN => _$this._subjectDN;
+  set subjectDN(String? subjectDN) => _$this._subjectDN = subjectDN;
+
   String? _username;
   String? get username => _$this._username;
   set username(String? username) => _$this._username = username;
@@ -165,6 +175,7 @@ class MeApiCredentialBuilder
       _description = $v.description;
       _id = $v.id;
       _roles = $v.roles.toBuilder();
+      _subjectDN = $v.subjectDN;
       _username = $v.username;
       _$v = null;
     }
@@ -211,6 +222,7 @@ class MeApiCredentialBuilder
               'id',
             ),
             roles: roles.build(),
+            subjectDN: subjectDN,
             username: BuiltValueNullFieldError.checkNotNull(
               username,
               r'MeApiCredential',

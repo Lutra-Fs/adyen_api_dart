@@ -11,14 +11,19 @@ part 'alignment.g.dart';
 
 class Alignment extends EnumClass {
 
-  @BuiltValueEnumConst(wireName: r'Centred')
-  static const Alignment centred = _$centred;
-  @BuiltValueEnumConst(wireName: r'Justified')
-  static const Alignment justified = _$justified;
+  ///  Possible values: * **Left** * **Right** * **Centred** * **Justified**
   @BuiltValueEnumConst(wireName: r'Left')
   static const Alignment left = _$left;
+  ///  Possible values: * **Left** * **Right** * **Centred** * **Justified**
   @BuiltValueEnumConst(wireName: r'Right')
   static const Alignment right = _$right;
+  ///  Possible values: * **Left** * **Right** * **Centred** * **Justified**
+  @BuiltValueEnumConst(wireName: r'Centred')
+  static const Alignment centred = _$centred;
+  ///  Possible values: * **Left** * **Right** * **Centred** * **Justified**
+  @BuiltValueEnumConst(wireName: r'Justified')
+  static const Alignment justified = _$justified;
+  ///  Possible values: * **Left** * **Right** * **Centred** * **Justified**
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const Alignment unknownDefaultOpenApi = _$unknownDefaultOpenApi;
 

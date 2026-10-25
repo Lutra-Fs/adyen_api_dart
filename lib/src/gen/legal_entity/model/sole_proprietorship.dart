@@ -20,10 +20,11 @@ part 'sole_proprietorship.g.dart';
 /// * [doingBusinessAs] - The registered name, if different from the `name`.
 /// * [doingBusinessAsAbsent] - Set this to **true** if the legal arrangement does not have a `Doing business as` name.
 /// * [financialReports] - The information from the financial report of the sole proprietorship.
-/// * [name_] - The legal name.
+/// * [name_] - The legal name. Must be at least 3 characters.  Only the following special characters are allowed: **,**, **-**, **—**, **.**, **;**, **:**, **&**, **?**, **@**, **(**, **)**, **\"**, **'**, **!**, **\\**, **+**, **_/_**. Accents and non-Latin scripts are allowed.  The field cannot contain emojis, only one repeated character (unless two characters long), only symbols, only numbers, only spaces, or **fictitious names** such as **John Doe** or **N/A**.  For more information, see [validations on fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
 /// * [principalPlaceOfBusiness] - The business address. Required if the principal place of business is different from the `registeredAddress`.
-/// * [registeredAddress] - The address registered at the registrar, such as the Chamber of Commerce.
+/// * [registeredAddress] - The address registered at the registrar, such as the Chamber of Commerce. If you use a PO box, you must also provide a `principalPlaceOfBusiness`. The principal place of business cannot be a PO box.  Address fields cannot contain emojis, only one repeated character (unless two characters long), only symbols, only numbers, only spaces, or **fictitious values** such as **John Doe** or **N/A**. All parts of the address must be different. For example, Spain, Spain, Spain is not allowed.  For more information, see [validations on fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
 /// * [registrationNumber] - The registration number.
+/// * [residentialAddressIndicator] - Indicates if the `registeredAddress` is a place of residence, instead of a business address.  Set to **true** if the address is a place of residence. The default value is **false**.
 /// * [taxAbsent] - The tax information is absent.
 /// * [taxInformation] - The tax information of the entity.
 /// * [vatAbsenceReason] - The reason for not providing a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
@@ -32,7 +33,7 @@ part 'sole_proprietorship.g.dart';
 abstract class SoleProprietorship implements Built<SoleProprietorship, SoleProprietorshipBuilder> {
   /// The two-character [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the governing country.
   @BuiltValueField(wireName: r'countryOfGoverningLaw')
-  String get countryOfGoverningLaw;
+  String? get countryOfGoverningLaw;
 
   /// The date when the legal arrangement was incorporated in YYYY-MM-DD format.
   @BuiltValueField(wireName: r'dateOfIncorporation')
@@ -50,7 +51,7 @@ abstract class SoleProprietorship implements Built<SoleProprietorship, SolePropr
   @BuiltValueField(wireName: r'financialReports')
   BuiltList<FinancialReport>? get financialReports;
 
-  /// The legal name.
+  /// The legal name. Must be at least 3 characters.  Only the following special characters are allowed: **,**, **-**, **—**, **.**, **;**, **:**, **&**, **?**, **@**, **(**, **)**, **\"**, **'**, **!**, **\\**, **+**, **_/_**. Accents and non-Latin scripts are allowed.  The field cannot contain emojis, only one repeated character (unless two characters long), only symbols, only numbers, only spaces, or **fictitious names** such as **John Doe** or **N/A**.  For more information, see [validations on fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
   @BuiltValueField(wireName: r'name')
   String get name_;
 
@@ -58,13 +59,17 @@ abstract class SoleProprietorship implements Built<SoleProprietorship, SolePropr
   @BuiltValueField(wireName: r'principalPlaceOfBusiness')
   Address? get principalPlaceOfBusiness;
 
-  /// The address registered at the registrar, such as the Chamber of Commerce.
+  /// The address registered at the registrar, such as the Chamber of Commerce. If you use a PO box, you must also provide a `principalPlaceOfBusiness`. The principal place of business cannot be a PO box.  Address fields cannot contain emojis, only one repeated character (unless two characters long), only symbols, only numbers, only spaces, or **fictitious values** such as **John Doe** or **N/A**. All parts of the address must be different. For example, Spain, Spain, Spain is not allowed.  For more information, see [validations on fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
   @BuiltValueField(wireName: r'registeredAddress')
   Address get registeredAddress;
 
   /// The registration number.
   @BuiltValueField(wireName: r'registrationNumber')
   String? get registrationNumber;
+
+  /// Indicates if the `registeredAddress` is a place of residence, instead of a business address.  Set to **true** if the address is a place of residence. The default value is **false**.
+  @BuiltValueField(wireName: r'residentialAddressIndicator')
+  bool? get residentialAddressIndicator;
 
   /// The tax information is absent.
   @BuiltValueField(wireName: r'taxAbsent')
@@ -106,11 +111,13 @@ class _$SoleProprietorshipSerializer implements PrimitiveSerializer<SolePropriet
     SoleProprietorship object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    yield r'countryOfGoverningLaw';
-    yield serializers.serialize(
-      object.countryOfGoverningLaw,
-      specifiedType: const FullType(String),
-    );
+    if (object.countryOfGoverningLaw != null) {
+      yield r'countryOfGoverningLaw';
+      yield serializers.serialize(
+        object.countryOfGoverningLaw,
+        specifiedType: const FullType(String),
+      );
+    }
     if (object.dateOfIncorporation != null) {
       yield r'dateOfIncorporation';
       yield serializers.serialize(
@@ -161,6 +168,13 @@ class _$SoleProprietorshipSerializer implements PrimitiveSerializer<SolePropriet
       yield serializers.serialize(
         object.registrationNumber,
         specifiedType: const FullType(String),
+      );
+    }
+    if (object.residentialAddressIndicator != null) {
+      yield r'residentialAddressIndicator';
+      yield serializers.serialize(
+        object.residentialAddressIndicator,
+        specifiedType: const FullType(bool),
       );
     }
     if (object.taxAbsent != null) {
@@ -276,6 +290,13 @@ class _$SoleProprietorshipSerializer implements PrimitiveSerializer<SolePropriet
             specifiedType: const FullType(String),
           ) as String;
           result.registrationNumber = valueDes;
+          break;
+        case r'residentialAddressIndicator':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.residentialAddressIndicator = valueDes;
           break;
         case r'taxAbsent':
           final valueDes = serializers.deserialize(

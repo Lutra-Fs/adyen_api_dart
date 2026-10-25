@@ -11,12 +11,16 @@ part 'message_type.g.dart';
 
 class MessageType extends EnumClass {
 
-  @BuiltValueEnumConst(wireName: r'Notification')
-  static const MessageType notification = _$notification;
+  ///  Possible values: * **Request** * **Response** * **Notification**
   @BuiltValueEnumConst(wireName: r'Request')
   static const MessageType request = _$request;
+  ///  Possible values: * **Request** * **Response** * **Notification**
   @BuiltValueEnumConst(wireName: r'Response')
   static const MessageType response = _$response;
+  ///  Possible values: * **Request** * **Response** * **Notification**
+  @BuiltValueEnumConst(wireName: r'Notification')
+  static const MessageType notification = _$notification;
+  ///  Possible values: * **Request** * **Response** * **Notification**
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const MessageType unknownDefaultOpenApi = _$unknownDefaultOpenApi;
 

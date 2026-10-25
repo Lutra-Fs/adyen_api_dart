@@ -9,17 +9,22 @@ permissions:
   pull-requests: write
 
 jobs:
-  test:
+  verify:
+    name: Dart ${{ matrix.sdk }}
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        sdk: ['3.10.3', stable]
     # Skip push events for PRs to avoid duplicate runs
     if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Install dependencies
         run: sudo apt-get update && sudo apt-get install -y jq ripgrep
       - uses: dart-lang/setup-dart@v1
         with:
-          sdk: 3.10.3
+          sdk: ${{ matrix.sdk }}
       - name: Install dependencies
         run: dart pub get
       - name: Verify model export files
@@ -27,16 +32,29 @@ jobs:
       - name: Format
         run: dart format --set-exit-if-changed example test tool lib/*.dart lib/src/core lib/src/constants lib/src/domain lib/src/http lib/src/security lib/src/utils
       - name: Analyze
-        run: dart analyze
+        run: dart analyze --fatal-infos
       - name: Test with coverage
         run: dart test --coverage=coverage
       - name: Activate coverage
+        if: matrix.sdk == 'stable'
         run: dart pub global activate coverage
       - name: Format coverage
+        if: matrix.sdk == 'stable'
         run: dart pub global run coverage:format_coverage --lcov --in=coverage --out=coverage/lcov.info --packages=.dart_tool/package_config.json --report-on=lib
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v6
+        if: matrix.sdk == 'stable'
+        uses: codecov/codecov-action@v7
         with:
           files: ./coverage/lcov.info
           fail_ci_if_error: false
           token: ${{ secrets.CODECOV_TOKEN }}
+
+  test:
+    needs: verify
+    if: always() && (github.event_name == 'pull_request' || github.ref == 'refs/heads/main')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require both SDK checks to pass
+        env:
+          RESULT: ${{ needs.verify.result }}
+        run: test "$RESULT" = success

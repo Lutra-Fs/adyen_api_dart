@@ -11,16 +11,22 @@ part 'identification_type.g.dart';
 
 class IdentificationType extends EnumClass {
 
-  @BuiltValueEnumConst(wireName: r'AccountNumber')
-  static const IdentificationType accountNumber = _$accountNumber;
-  @BuiltValueEnumConst(wireName: r'BarCode')
-  static const IdentificationType barCode = _$barCode;
-  @BuiltValueEnumConst(wireName: r'ISOTrack2')
-  static const IdentificationType iSOTrack2 = _$iSOTrack2;
+  ///  Possible values: * **PAN** * **ISOTrack2** * **BarCode** * **AccountNumber** * **PhoneNumber**
   @BuiltValueEnumConst(wireName: r'PAN')
   static const IdentificationType PAN = _$PAN;
+  ///  Possible values: * **PAN** * **ISOTrack2** * **BarCode** * **AccountNumber** * **PhoneNumber**
+  @BuiltValueEnumConst(wireName: r'ISOTrack2')
+  static const IdentificationType iSOTrack2 = _$iSOTrack2;
+  ///  Possible values: * **PAN** * **ISOTrack2** * **BarCode** * **AccountNumber** * **PhoneNumber**
+  @BuiltValueEnumConst(wireName: r'BarCode')
+  static const IdentificationType barCode = _$barCode;
+  ///  Possible values: * **PAN** * **ISOTrack2** * **BarCode** * **AccountNumber** * **PhoneNumber**
+  @BuiltValueEnumConst(wireName: r'AccountNumber')
+  static const IdentificationType accountNumber = _$accountNumber;
+  ///  Possible values: * **PAN** * **ISOTrack2** * **BarCode** * **AccountNumber** * **PhoneNumber**
   @BuiltValueEnumConst(wireName: r'PhoneNumber')
   static const IdentificationType phoneNumber = _$phoneNumber;
+  ///  Possible values: * **PAN** * **ISOTrack2** * **BarCode** * **AccountNumber** * **PhoneNumber**
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const IdentificationType unknownDefaultOpenApi = _$unknownDefaultOpenApi;
 

@@ -11,19 +11,19 @@ part 'reversal_reason.g.dart';
 
 class ReversalReason extends EnumClass {
 
-  /// Reason of the payment or loyalty reversal. Possible values: * **CustCancel** * **Malfunction** * **MerchantCancel** * **Unable2Compl**
+  /// Reason of the payment or loyalty reversal. Possible values: * **CustCancel** * **MerchantCancel** * **Malfunction** * **Unable2Compl**
   @BuiltValueEnumConst(wireName: r'CustCancel')
   static const ReversalReason custCancel = _$custCancel;
-  /// Reason of the payment or loyalty reversal. Possible values: * **CustCancel** * **Malfunction** * **MerchantCancel** * **Unable2Compl**
-  @BuiltValueEnumConst(wireName: r'Malfunction')
-  static const ReversalReason malfunction = _$malfunction;
-  /// Reason of the payment or loyalty reversal. Possible values: * **CustCancel** * **Malfunction** * **MerchantCancel** * **Unable2Compl**
+  /// Reason of the payment or loyalty reversal. Possible values: * **CustCancel** * **MerchantCancel** * **Malfunction** * **Unable2Compl**
   @BuiltValueEnumConst(wireName: r'MerchantCancel')
   static const ReversalReason merchantCancel = _$merchantCancel;
-  /// Reason of the payment or loyalty reversal. Possible values: * **CustCancel** * **Malfunction** * **MerchantCancel** * **Unable2Compl**
+  /// Reason of the payment or loyalty reversal. Possible values: * **CustCancel** * **MerchantCancel** * **Malfunction** * **Unable2Compl**
+  @BuiltValueEnumConst(wireName: r'Malfunction')
+  static const ReversalReason malfunction = _$malfunction;
+  /// Reason of the payment or loyalty reversal. Possible values: * **CustCancel** * **MerchantCancel** * **Malfunction** * **Unable2Compl**
   @BuiltValueEnumConst(wireName: r'Unable2Compl')
   static const ReversalReason unable2Compl = _$unable2Compl;
-  /// Reason of the payment or loyalty reversal. Possible values: * **CustCancel** * **Malfunction** * **MerchantCancel** * **Unable2Compl**
+  /// Reason of the payment or loyalty reversal. Possible values: * **CustCancel** * **MerchantCancel** * **Malfunction** * **Unable2Compl**
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const ReversalReason unknownDefaultOpenApi = _$unknownDefaultOpenApi;
 

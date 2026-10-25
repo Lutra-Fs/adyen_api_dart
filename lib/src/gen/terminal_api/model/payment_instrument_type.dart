@@ -11,16 +11,22 @@ part 'payment_instrument_type.g.dart';
 
 class PaymentInstrumentType extends EnumClass {
 
+  ///  Possible values: * **Card** * **Check** * **Mobile** * **StoredValue** * **Cash**
   @BuiltValueEnumConst(wireName: r'Card')
   static const PaymentInstrumentType card = _$card;
-  @BuiltValueEnumConst(wireName: r'Cash')
-  static const PaymentInstrumentType cash = _$cash;
+  ///  Possible values: * **Card** * **Check** * **Mobile** * **StoredValue** * **Cash**
   @BuiltValueEnumConst(wireName: r'Check')
   static const PaymentInstrumentType check = _$check;
+  ///  Possible values: * **Card** * **Check** * **Mobile** * **StoredValue** * **Cash**
   @BuiltValueEnumConst(wireName: r'Mobile')
   static const PaymentInstrumentType mobile = _$mobile;
+  ///  Possible values: * **Card** * **Check** * **Mobile** * **StoredValue** * **Cash**
   @BuiltValueEnumConst(wireName: r'StoredValue')
   static const PaymentInstrumentType storedValue = _$storedValue;
+  ///  Possible values: * **Card** * **Check** * **Mobile** * **StoredValue** * **Cash**
+  @BuiltValueEnumConst(wireName: r'Cash')
+  static const PaymentInstrumentType cash = _$cash;
+  ///  Possible values: * **Card** * **Check** * **Mobile** * **StoredValue** * **Cash**
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const PaymentInstrumentType unknownDefaultOpenApi = _$unknownDefaultOpenApi;
 

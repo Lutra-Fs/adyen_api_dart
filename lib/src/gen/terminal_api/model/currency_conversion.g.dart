@@ -12,9 +12,9 @@ class _$CurrencyConversion extends CurrencyConversion {
   @override
   final ConvertedAmount convertedAmount;
   @override
-  final String? rate;
+  final num? rate;
   @override
-  final String? markup;
+  final num? markup;
   @override
   final num? commission;
   @override
@@ -94,13 +94,13 @@ class CurrencyConversionBuilder
   set convertedAmount(ConvertedAmountBuilder? convertedAmount) =>
       _$this._convertedAmount = convertedAmount;
 
-  String? _rate;
-  String? get rate => _$this._rate;
-  set rate(String? rate) => _$this._rate = rate;
+  num? _rate;
+  num? get rate => _$this._rate;
+  set rate(num? rate) => _$this._rate = rate;
 
-  String? _markup;
-  String? get markup => _$this._markup;
-  set markup(String? markup) => _$this._markup = markup;
+  num? _markup;
+  num? get markup => _$this._markup;
+  set markup(num? markup) => _$this._markup = markup;
 
   num? _commission;
   num? get commission => _$this._commission;

@@ -10,6 +10,8 @@ class _$BusinessLineInfoUpdate extends BusinessLineInfoUpdate {
   @override
   final String? industryCode;
   @override
+  final String? industryCodeDescription;
+  @override
   final BuiltList<String>? salesChannels;
   @override
   final SourceOfFunds? sourceOfFunds;
@@ -24,6 +26,7 @@ class _$BusinessLineInfoUpdate extends BusinessLineInfoUpdate {
 
   _$BusinessLineInfoUpdate._({
     this.industryCode,
+    this.industryCodeDescription,
     this.salesChannels,
     this.sourceOfFunds,
     this.webData,
@@ -43,6 +46,7 @@ class _$BusinessLineInfoUpdate extends BusinessLineInfoUpdate {
     if (identical(other, this)) return true;
     return other is BusinessLineInfoUpdate &&
         industryCode == other.industryCode &&
+        industryCodeDescription == other.industryCodeDescription &&
         salesChannels == other.salesChannels &&
         sourceOfFunds == other.sourceOfFunds &&
         webData == other.webData &&
@@ -53,6 +57,7 @@ class _$BusinessLineInfoUpdate extends BusinessLineInfoUpdate {
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, industryCode.hashCode);
+    _$hash = $jc(_$hash, industryCodeDescription.hashCode);
     _$hash = $jc(_$hash, salesChannels.hashCode);
     _$hash = $jc(_$hash, sourceOfFunds.hashCode);
     _$hash = $jc(_$hash, webData.hashCode);
@@ -65,6 +70,7 @@ class _$BusinessLineInfoUpdate extends BusinessLineInfoUpdate {
   String toString() {
     return (newBuiltValueToStringHelper(r'BusinessLineInfoUpdate')
           ..add('industryCode', industryCode)
+          ..add('industryCodeDescription', industryCodeDescription)
           ..add('salesChannels', salesChannels)
           ..add('sourceOfFunds', sourceOfFunds)
           ..add('webData', webData)
@@ -80,6 +86,11 @@ class BusinessLineInfoUpdateBuilder
   String? _industryCode;
   String? get industryCode => _$this._industryCode;
   set industryCode(String? industryCode) => _$this._industryCode = industryCode;
+
+  String? _industryCodeDescription;
+  String? get industryCodeDescription => _$this._industryCodeDescription;
+  set industryCodeDescription(String? industryCodeDescription) =>
+      _$this._industryCodeDescription = industryCodeDescription;
 
   ListBuilder<String>? _salesChannels;
   ListBuilder<String> get salesChannels =>
@@ -112,6 +123,7 @@ class BusinessLineInfoUpdateBuilder
     final $v = _$v;
     if ($v != null) {
       _industryCode = $v.industryCode;
+      _industryCodeDescription = $v.industryCodeDescription;
       _salesChannels = $v.salesChannels?.toBuilder();
       _sourceOfFunds = $v.sourceOfFunds?.toBuilder();
       _webData = $v.webData?.toBuilder();
@@ -141,6 +153,7 @@ class BusinessLineInfoUpdateBuilder
           _$v ??
           _$BusinessLineInfoUpdate._(
             industryCode: industryCode,
+            industryCodeDescription: industryCodeDescription,
             salesChannels: _salesChannels?.build(),
             sourceOfFunds: _sourceOfFunds?.build(),
             webData: _webData?.build(),

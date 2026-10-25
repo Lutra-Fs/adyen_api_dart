@@ -7,10 +7,10 @@ part of 'reversal_reason.dart';
 // **************************************************************************
 
 const ReversalReason _$custCancel = const ReversalReason._('custCancel');
-const ReversalReason _$malfunction = const ReversalReason._('malfunction');
 const ReversalReason _$merchantCancel = const ReversalReason._(
   'merchantCancel',
 );
+const ReversalReason _$malfunction = const ReversalReason._('malfunction');
 const ReversalReason _$unable2Compl = const ReversalReason._('unable2Compl');
 const ReversalReason _$unknownDefaultOpenApi = const ReversalReason._(
   'unknownDefaultOpenApi',
@@ -20,10 +20,10 @@ ReversalReason _$valueOf(String name) {
   switch (name) {
     case 'custCancel':
       return _$custCancel;
-    case 'malfunction':
-      return _$malfunction;
     case 'merchantCancel':
       return _$merchantCancel;
+    case 'malfunction':
+      return _$malfunction;
     case 'unable2Compl':
       return _$unable2Compl;
     case 'unknownDefaultOpenApi':
@@ -36,8 +36,8 @@ ReversalReason _$valueOf(String name) {
 final BuiltSet<ReversalReason> _$values =
     BuiltSet<ReversalReason>(const <ReversalReason>[
       _$custCancel,
-      _$malfunction,
       _$merchantCancel,
+      _$malfunction,
       _$unable2Compl,
       _$unknownDefaultOpenApi,
     ]);
@@ -45,8 +45,8 @@ final BuiltSet<ReversalReason> _$values =
 class _$ReversalReasonMeta {
   const _$ReversalReasonMeta();
   ReversalReason get custCancel => _$custCancel;
-  ReversalReason get malfunction => _$malfunction;
   ReversalReason get merchantCancel => _$merchantCancel;
+  ReversalReason get malfunction => _$malfunction;
   ReversalReason get unable2Compl => _$unable2Compl;
   ReversalReason get unknownDefaultOpenApi => _$unknownDefaultOpenApi;
   ReversalReason valueOf(String name) => _$valueOf(name);
@@ -65,15 +65,15 @@ class _$ReversalReasonSerializer
     implements PrimitiveSerializer<ReversalReason> {
   static const Map<String, Object> _toWire = const <String, Object>{
     'custCancel': 'CustCancel',
-    'malfunction': 'Malfunction',
     'merchantCancel': 'MerchantCancel',
+    'malfunction': 'Malfunction',
     'unable2Compl': 'Unable2Compl',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'CustCancel': 'custCancel',
-    'Malfunction': 'malfunction',
     'MerchantCancel': 'merchantCancel',
+    'Malfunction': 'malfunction',
     'Unable2Compl': 'unable2Compl',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };

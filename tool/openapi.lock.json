@@ -1,6 +1,6 @@
 {
   "repo": "https://github.com/Adyen/adyen-openapi",
-  "commit": "2462fa5f32e55c7ee24ff84ef2d17a91fbb68448",
+  "commit": "2c1f3ab1e0385815899db9364a95e5aa5cf5568a",
   "specs": [
     {
       "name": "binlookup",
@@ -9,7 +9,7 @@
     },
     {
       "name": "checkout",
-      "path": "yaml/CheckoutService-v71.yaml",
+      "path": "yaml/CheckoutService-v72.yaml",
       "output": "lib/src/gen/checkout"
     },
     {

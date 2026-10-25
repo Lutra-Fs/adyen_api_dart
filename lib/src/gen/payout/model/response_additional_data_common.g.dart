@@ -461,6 +461,8 @@ class _$ResponseAdditionalDataCommon extends ResponseAdditionalDataCommon {
   @override
   final String? merchantReference;
   @override
+  final String? networkProcessingMode;
+  @override
   final String? networkTxReference;
   @override
   final String? ownerName;
@@ -519,6 +521,8 @@ class _$ResponseAdditionalDataCommon extends ResponseAdditionalDataCommon {
   @override
   final String? tokenizationPeriodStoredPaymentMethodId;
   @override
+  final String? transactionLinkId;
+  @override
   final String? visaTransactionId;
   @override
   final String? xid;
@@ -561,6 +565,7 @@ class _$ResponseAdditionalDataCommon extends ResponseAdditionalDataCommon {
     this.mcBankNetReferenceNumber,
     this.merchantAdviceCode,
     this.merchantReference,
+    this.networkProcessingMode,
     this.networkTxReference,
     this.ownerName,
     this.paymentAccountReference,
@@ -589,6 +594,7 @@ class _$ResponseAdditionalDataCommon extends ResponseAdditionalDataCommon {
     this.tokenizationPeriodShopperReference,
     this.tokenizationPeriodStorePeriodOperationType,
     this.tokenizationPeriodStoredPaymentMethodId,
+    this.transactionLinkId,
     this.visaTransactionId,
     this.xid,
   }) : super._();
@@ -640,6 +646,7 @@ class _$ResponseAdditionalDataCommon extends ResponseAdditionalDataCommon {
         mcBankNetReferenceNumber == other.mcBankNetReferenceNumber &&
         merchantAdviceCode == other.merchantAdviceCode &&
         merchantReference == other.merchantReference &&
+        networkProcessingMode == other.networkProcessingMode &&
         networkTxReference == other.networkTxReference &&
         ownerName == other.ownerName &&
         paymentAccountReference == other.paymentAccountReference &&
@@ -674,6 +681,7 @@ class _$ResponseAdditionalDataCommon extends ResponseAdditionalDataCommon {
             other.tokenizationPeriodStorePeriodOperationType &&
         tokenizationPeriodStoredPaymentMethodId ==
             other.tokenizationPeriodStoredPaymentMethodId &&
+        transactionLinkId == other.transactionLinkId &&
         visaTransactionId == other.visaTransactionId &&
         xid == other.xid;
   }
@@ -718,6 +726,7 @@ class _$ResponseAdditionalDataCommon extends ResponseAdditionalDataCommon {
     _$hash = $jc(_$hash, mcBankNetReferenceNumber.hashCode);
     _$hash = $jc(_$hash, merchantAdviceCode.hashCode);
     _$hash = $jc(_$hash, merchantReference.hashCode);
+    _$hash = $jc(_$hash, networkProcessingMode.hashCode);
     _$hash = $jc(_$hash, networkTxReference.hashCode);
     _$hash = $jc(_$hash, ownerName.hashCode);
     _$hash = $jc(_$hash, paymentAccountReference.hashCode);
@@ -746,6 +755,7 @@ class _$ResponseAdditionalDataCommon extends ResponseAdditionalDataCommon {
     _$hash = $jc(_$hash, tokenizationPeriodShopperReference.hashCode);
     _$hash = $jc(_$hash, tokenizationPeriodStorePeriodOperationType.hashCode);
     _$hash = $jc(_$hash, tokenizationPeriodStoredPaymentMethodId.hashCode);
+    _$hash = $jc(_$hash, transactionLinkId.hashCode);
     _$hash = $jc(_$hash, visaTransactionId.hashCode);
     _$hash = $jc(_$hash, xid.hashCode);
     _$hash = $jf(_$hash);
@@ -791,6 +801,7 @@ class _$ResponseAdditionalDataCommon extends ResponseAdditionalDataCommon {
           ..add('mcBankNetReferenceNumber', mcBankNetReferenceNumber)
           ..add('merchantAdviceCode', merchantAdviceCode)
           ..add('merchantReference', merchantReference)
+          ..add('networkProcessingMode', networkProcessingMode)
           ..add('networkTxReference', networkTxReference)
           ..add('ownerName', ownerName)
           ..add('paymentAccountReference', paymentAccountReference)
@@ -837,6 +848,7 @@ class _$ResponseAdditionalDataCommon extends ResponseAdditionalDataCommon {
             'tokenizationPeriodStoredPaymentMethodId',
             tokenizationPeriodStoredPaymentMethodId,
           )
+          ..add('transactionLinkId', transactionLinkId)
           ..add('visaTransactionId', visaTransactionId)
           ..add('xid', xid))
         .toString();
@@ -1015,6 +1027,11 @@ class ResponseAdditionalDataCommonBuilder
   set merchantReference(String? merchantReference) =>
       _$this._merchantReference = merchantReference;
 
+  String? _networkProcessingMode;
+  String? get networkProcessingMode => _$this._networkProcessingMode;
+  set networkProcessingMode(String? networkProcessingMode) =>
+      _$this._networkProcessingMode = networkProcessingMode;
+
   String? _networkTxReference;
   String? get networkTxReference => _$this._networkTxReference;
   set networkTxReference(String? networkTxReference) =>
@@ -1180,6 +1197,11 @@ class ResponseAdditionalDataCommonBuilder
   ) => _$this._tokenizationPeriodStoredPaymentMethodId =
       tokenizationPeriodStoredPaymentMethodId;
 
+  String? _transactionLinkId;
+  String? get transactionLinkId => _$this._transactionLinkId;
+  set transactionLinkId(String? transactionLinkId) =>
+      _$this._transactionLinkId = transactionLinkId;
+
   String? _visaTransactionId;
   String? get visaTransactionId => _$this._visaTransactionId;
   set visaTransactionId(String? visaTransactionId) =>
@@ -1230,6 +1252,7 @@ class ResponseAdditionalDataCommonBuilder
       _mcBankNetReferenceNumber = $v.mcBankNetReferenceNumber;
       _merchantAdviceCode = $v.merchantAdviceCode;
       _merchantReference = $v.merchantReference;
+      _networkProcessingMode = $v.networkProcessingMode;
       _networkTxReference = $v.networkTxReference;
       _ownerName = $v.ownerName;
       _paymentAccountReference = $v.paymentAccountReference;
@@ -1262,6 +1285,7 @@ class ResponseAdditionalDataCommonBuilder
           $v.tokenizationPeriodStorePeriodOperationType;
       _tokenizationPeriodStoredPaymentMethodId =
           $v.tokenizationPeriodStoredPaymentMethodId;
+      _transactionLinkId = $v.transactionLinkId;
       _visaTransactionId = $v.visaTransactionId;
       _xid = $v.xid;
       _$v = null;
@@ -1320,6 +1344,7 @@ class ResponseAdditionalDataCommonBuilder
           mcBankNetReferenceNumber: mcBankNetReferenceNumber,
           merchantAdviceCode: merchantAdviceCode,
           merchantReference: merchantReference,
+          networkProcessingMode: networkProcessingMode,
           networkTxReference: networkTxReference,
           ownerName: ownerName,
           paymentAccountReference: paymentAccountReference,
@@ -1352,6 +1377,7 @@ class ResponseAdditionalDataCommonBuilder
               tokenizationPeriodStorePeriodOperationType,
           tokenizationPeriodStoredPaymentMethodId:
               tokenizationPeriodStoredPaymentMethodId,
+          transactionLinkId: transactionLinkId,
           visaTransactionId: visaTransactionId,
           xid: xid,
         );

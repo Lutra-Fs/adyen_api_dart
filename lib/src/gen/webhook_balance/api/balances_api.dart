@@ -20,11 +20,11 @@ class BalancesApi {
 
   const BalancesApi(this._dio, this._serializers);
 
-  /// Balance updated
-  /// Adyen sends this webhook when the specified balance type reaches or drops below the threshold you configured.
+  /// Blocked funds released
+  /// Adyen sends this webhook when funds that were previously blocked are released, making them available. Funds may be blocked for reasons such as:  **Collateral for payments**: Funds are held to secure loans or payments, and are released upon repayment.  **Risk mitigation**: Funds are held to cover potential risks like chargebacks, and are released after a set period, such as a return window.  
   ///
   /// Parameters:
-  /// * [balanceAccountBalanceNotificationRequest] 
+  /// * [releasedBlockedBalanceNotificationRequest] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -34,8 +34,8 @@ class BalancesApi {
   ///
   /// Returns a [Future] containing a [Response] with a [BalancePlatformNotificationResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<BalancePlatformNotificationResponse>> postBalanceAccountBalanceUpdated({ 
-    BalanceAccountBalanceNotificationRequest? balanceAccountBalanceNotificationRequest,
+  Future<Response<BalancePlatformNotificationResponse>> postBalancePlatformBalanceAccountBalanceBlockReleased({ 
+    ReleasedBlockedBalanceNotificationRequest? releasedBlockedBalanceNotificationRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -43,7 +43,7 @@ class BalancesApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/balanceAccount.balance.updated';
+    final _path = r'/balancePlatform.balanceAccount.balance.block.released';
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -60,8 +60,8 @@ class BalancesApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(BalanceAccountBalanceNotificationRequest);
-      _bodyData = balanceAccountBalanceNotificationRequest == null ? null : _serializers.serialize(balanceAccountBalanceNotificationRequest, specifiedType: _type);
+      const _type = FullType(ReleasedBlockedBalanceNotificationRequest);
+      _bodyData = releasedBlockedBalanceNotificationRequest == null ? null : _serializers.serialize(releasedBlockedBalanceNotificationRequest, specifiedType: _type);
 
     } catch(error, stackTrace) {
       throw DioException(
@@ -115,11 +115,11 @@ class BalancesApi {
     );
   }
 
-  /// Blocked funds released
-  /// Adyen sends this webhook when funds that were previously blocked are released, making them available. Funds may be blocked for reasons such as:  **Collateral for payments**: Funds are held to secure loans or payments, and are released upon repayment.  **Risk mitigation**: Funds are held to cover potential risks like chargebacks, and are released after a set period, such as a return window.  
+  /// Balance updated
+  /// Adyen sends this webhook when the specified balance type reaches or drops below the threshold you configured.
   ///
   /// Parameters:
-  /// * [releasedBlockedBalanceNotificationRequest] 
+  /// * [balanceAccountBalanceNotificationRequest] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -129,8 +129,8 @@ class BalancesApi {
   ///
   /// Returns a [Future] containing a [Response] with a [BalancePlatformNotificationResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<BalancePlatformNotificationResponse>> postBalancePlatformBalanceAccountBalanceBlockReleased({ 
-    ReleasedBlockedBalanceNotificationRequest? releasedBlockedBalanceNotificationRequest,
+  Future<Response<BalancePlatformNotificationResponse>> postBalancePlatformBalanceAccountBalanceUpdated({ 
+    BalanceAccountBalanceNotificationRequest? balanceAccountBalanceNotificationRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -138,7 +138,7 @@ class BalancesApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/balancePlatform.balanceAccount.balance.block.released';
+    final _path = r'/balancePlatform.balanceAccount.balance.updated';
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -155,8 +155,8 @@ class BalancesApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(ReleasedBlockedBalanceNotificationRequest);
-      _bodyData = releasedBlockedBalanceNotificationRequest == null ? null : _serializers.serialize(releasedBlockedBalanceNotificationRequest, specifiedType: _type);
+      const _type = FullType(BalanceAccountBalanceNotificationRequest);
+      _bodyData = balanceAccountBalanceNotificationRequest == null ? null : _serializers.serialize(balanceAccountBalanceNotificationRequest, specifiedType: _type);
 
     } catch(error, stackTrace) {
       throw DioException(

@@ -64,7 +64,7 @@ abstract class DisputeEventNotification implements Built<DisputeEventNotificatio
   /// The type of dispute raised for the transaction.
   @BuiltValueField(wireName: r'type')
   DisputeEventNotificationTypeEnum? get type;
-  // enum typeEnum {  fraud,  notDelivered,  duplicate,  other,  };
+  // enum typeEnum {  fraud,  notDelivered,  duplicate,  notAsDescribed,  cancelled,  other,  };
 
   DisputeEventNotification._();
 
@@ -292,6 +292,12 @@ class DisputeEventNotificationTypeEnum extends EnumClass {
   /// The type of dispute raised for the transaction.
   @BuiltValueEnumConst(wireName: r'duplicate')
   static const DisputeEventNotificationTypeEnum duplicate = _$disputeEventNotificationTypeEnum_duplicate;
+  /// The type of dispute raised for the transaction.
+  @BuiltValueEnumConst(wireName: r'notAsDescribed')
+  static const DisputeEventNotificationTypeEnum notAsDescribed = _$disputeEventNotificationTypeEnum_notAsDescribed;
+  /// The type of dispute raised for the transaction.
+  @BuiltValueEnumConst(wireName: r'cancelled')
+  static const DisputeEventNotificationTypeEnum cancelled = _$disputeEventNotificationTypeEnum_cancelled;
   /// The type of dispute raised for the transaction.
   @BuiltValueEnumConst(wireName: r'other')
   static const DisputeEventNotificationTypeEnum other = _$disputeEventNotificationTypeEnum_other;

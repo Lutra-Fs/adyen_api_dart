@@ -10,6 +10,8 @@ class _$DonationCampaignsRequest extends DonationCampaignsRequest {
   @override
   final String currency;
   @override
+  final String? label;
+  @override
   final String? locale;
   @override
   final String merchantAccount;
@@ -22,6 +24,7 @@ class _$DonationCampaignsRequest extends DonationCampaignsRequest {
 
   _$DonationCampaignsRequest._({
     required this.currency,
+    this.label,
     this.locale,
     required this.merchantAccount,
     this.store,
@@ -40,6 +43,7 @@ class _$DonationCampaignsRequest extends DonationCampaignsRequest {
     if (identical(other, this)) return true;
     return other is DonationCampaignsRequest &&
         currency == other.currency &&
+        label == other.label &&
         locale == other.locale &&
         merchantAccount == other.merchantAccount &&
         store == other.store;
@@ -49,6 +53,7 @@ class _$DonationCampaignsRequest extends DonationCampaignsRequest {
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, currency.hashCode);
+    _$hash = $jc(_$hash, label.hashCode);
     _$hash = $jc(_$hash, locale.hashCode);
     _$hash = $jc(_$hash, merchantAccount.hashCode);
     _$hash = $jc(_$hash, store.hashCode);
@@ -60,6 +65,7 @@ class _$DonationCampaignsRequest extends DonationCampaignsRequest {
   String toString() {
     return (newBuiltValueToStringHelper(r'DonationCampaignsRequest')
           ..add('currency', currency)
+          ..add('label', label)
           ..add('locale', locale)
           ..add('merchantAccount', merchantAccount)
           ..add('store', store))
@@ -75,6 +81,10 @@ class DonationCampaignsRequestBuilder
   String? _currency;
   String? get currency => _$this._currency;
   set currency(String? currency) => _$this._currency = currency;
+
+  String? _label;
+  String? get label => _$this._label;
+  set label(String? label) => _$this._label = label;
 
   String? _locale;
   String? get locale => _$this._locale;
@@ -97,6 +107,7 @@ class DonationCampaignsRequestBuilder
     final $v = _$v;
     if ($v != null) {
       _currency = $v.currency;
+      _label = $v.label;
       _locale = $v.locale;
       _merchantAccount = $v.merchantAccount;
       _store = $v.store;
@@ -127,6 +138,7 @@ class DonationCampaignsRequestBuilder
             r'DonationCampaignsRequest',
             'currency',
           ),
+          label: label,
           locale: locale,
           merchantAccount: BuiltValueNullFieldError.checkNotNull(
             merchantAccount,

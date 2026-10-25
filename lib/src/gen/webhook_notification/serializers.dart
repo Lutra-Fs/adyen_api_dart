@@ -98,6 +98,7 @@ import 'package:adyen_api/src/gen/webhook_notification/model/prearbitration_decl
 import 'package:adyen_api/src/gen/webhook_notification/model/prearbitration_issuer_withdrawn_notification_request.dart';
 import 'package:adyen_api/src/gen/webhook_notification/model/prearbitration_lost_notification_request.dart';
 import 'package:adyen_api/src/gen/webhook_notification/model/prearbitration_open_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/prearbitration_scheme_arbitration_notification_request.dart';
 import 'package:adyen_api/src/gen/webhook_notification/model/prearbitration_won_notification_request.dart';
 import 'package:adyen_api/src/gen/webhook_notification/model/recurring_contract_notification_additional_data.dart';
 import 'package:adyen_api/src/gen/webhook_notification/model/recurring_contract_notification_request.dart';
@@ -110,6 +111,10 @@ import 'package:adyen_api/src/gen/webhook_notification/model/refund_capture_fail
 import 'package:adyen_api/src/gen/webhook_notification/model/refund_capture_failed_notification_request_item_recursive.dart';
 import 'package:adyen_api/src/gen/webhook_notification/model/refund_capture_failed_notification_request_item_wrapper.dart';
 import 'package:adyen_api/src/gen/webhook_notification/model/refund_failed_additional_data.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/refund_not_cleared_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/refund_not_cleared_notification_request_item.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/refund_not_cleared_notification_request_item_recursive.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/refund_not_cleared_notification_request_item_wrapper.dart';
 import 'package:adyen_api/src/gen/webhook_notification/model/refund_notification_request.dart';
 import 'package:adyen_api/src/gen/webhook_notification/model/refund_notification_request_item.dart';
 import 'package:adyen_api/src/gen/webhook_notification/model/refund_notification_request_item_recursive.dart';
@@ -125,7 +130,19 @@ import 'package:adyen_api/src/gen/webhook_notification/model/report_available_no
 import 'package:adyen_api/src/gen/webhook_notification/model/report_available_notification_request_item_recursive.dart';
 import 'package:adyen_api/src/gen/webhook_notification/model/report_available_notification_request_item_wrapper.dart';
 import 'package:adyen_api/src/gen/webhook_notification/model/request_for_information_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/reversal_additional_data.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/reversal_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/reversal_notification_request_item.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/reversal_notification_request_item_recursive.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/reversal_notification_request_item_wrapper.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/scheme_arbitration_lost_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/scheme_arbitration_won_notification_request.dart';
 import 'package:adyen_api/src/gen/webhook_notification/model/second_chargeback_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/settled_reversed_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/settled_reversed_notification_request_item.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/settled_reversed_notification_request_item_recursive.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/settled_reversed_notification_request_item_wrapper.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/settlement_reversal_additional_data.dart';
 
 part 'serializers.g.dart';
 
@@ -214,6 +231,7 @@ part 'serializers.g.dart';
   PrearbitrationIssuerWithdrawnNotificationRequest,
   PrearbitrationLostNotificationRequest,
   PrearbitrationOpenNotificationRequest,
+  PrearbitrationSchemeArbitrationNotificationRequest,
   PrearbitrationWonNotificationRequest,
   RecurringContractNotificationAdditionalData,
   RecurringContractNotificationRequest,
@@ -226,6 +244,10 @@ part 'serializers.g.dart';
   RefundCaptureFailedNotificationRequestItemRecursive,
   RefundCaptureFailedNotificationRequestItemWrapper,
   RefundFailedAdditionalData,
+  RefundNotClearedNotificationRequest,
+  RefundNotClearedNotificationRequestItem,
+  RefundNotClearedNotificationRequestItemRecursive,
+  RefundNotClearedNotificationRequestItemWrapper,
   RefundNotificationRequest,
   RefundNotificationRequestItem,
   RefundNotificationRequestItemRecursive,
@@ -241,7 +263,19 @@ part 'serializers.g.dart';
   ReportAvailableNotificationRequestItemRecursive,
   ReportAvailableNotificationRequestItemWrapper,
   RequestForInformationNotificationRequest,
+  ReversalAdditionalData,
+  ReversalNotificationRequest,
+  ReversalNotificationRequestItem,
+  ReversalNotificationRequestItemRecursive,
+  ReversalNotificationRequestItemWrapper,
+  SchemeArbitrationLostNotificationRequest,
+  SchemeArbitrationWonNotificationRequest,
   SecondChargebackNotificationRequest,
+  SettledReversedNotificationRequest,
+  SettledReversedNotificationRequestItem,
+  SettledReversedNotificationRequestItemRecursive,
+  SettledReversedNotificationRequestItemWrapper,
+  SettlementReversalAdditionalData,
 ])
 Serializers serializers = (_$serializers.toBuilder()
       ..add(const OneOfSerializer())

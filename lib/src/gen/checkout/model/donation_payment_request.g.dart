@@ -274,8 +274,6 @@ class _$DonationPaymentRequest extends DonationPaymentRequest {
   @override
   final AccountInfo? accountInfo;
   @override
-  final BuiltMap<String, String>? additionalData;
-  @override
   final Amount amount;
   @override
   final ApplicationInfo? applicationInfo;
@@ -290,13 +288,9 @@ class _$DonationPaymentRequest extends DonationPaymentRequest {
   @override
   final String? checkoutAttemptId;
   @override
-  final String? conversionId;
-  @override
   final String? countryCode;
   @override
   final DateTime? dateOfBirth;
-  @override
-  final DateTime? deliverAt;
   @override
   final DeliveryAddress? deliveryAddress;
   @override
@@ -356,8 +350,6 @@ class _$DonationPaymentRequest extends DonationPaymentRequest {
   final String? telephoneNumber;
   @override
   final ThreeDS2RequestFields? threeDS2RequestData;
-  @override
-  final bool? threeDSAuthenticationOnly;
 
   factory _$DonationPaymentRequest([
     void Function(DonationPaymentRequestBuilder)? updates,
@@ -365,7 +357,6 @@ class _$DonationPaymentRequest extends DonationPaymentRequest {
 
   _$DonationPaymentRequest._({
     this.accountInfo,
-    this.additionalData,
     required this.amount,
     this.applicationInfo,
     this.authenticationData,
@@ -373,10 +364,8 @@ class _$DonationPaymentRequest extends DonationPaymentRequest {
     this.browserInfo,
     this.channel,
     this.checkoutAttemptId,
-    this.conversionId,
     this.countryCode,
     this.dateOfBirth,
-    this.deliverAt,
     this.deliveryAddress,
     this.deviceFingerprint,
     this.donationAccount,
@@ -406,7 +395,6 @@ class _$DonationPaymentRequest extends DonationPaymentRequest {
     this.store,
     this.telephoneNumber,
     this.threeDS2RequestData,
-    this.threeDSAuthenticationOnly,
   }) : super._();
   @override
   DonationPaymentRequest rebuild(
@@ -422,7 +410,6 @@ class _$DonationPaymentRequest extends DonationPaymentRequest {
     if (identical(other, this)) return true;
     return other is DonationPaymentRequest &&
         accountInfo == other.accountInfo &&
-        additionalData == other.additionalData &&
         amount == other.amount &&
         applicationInfo == other.applicationInfo &&
         authenticationData == other.authenticationData &&
@@ -430,10 +417,8 @@ class _$DonationPaymentRequest extends DonationPaymentRequest {
         browserInfo == other.browserInfo &&
         channel == other.channel &&
         checkoutAttemptId == other.checkoutAttemptId &&
-        conversionId == other.conversionId &&
         countryCode == other.countryCode &&
         dateOfBirth == other.dateOfBirth &&
-        deliverAt == other.deliverAt &&
         deliveryAddress == other.deliveryAddress &&
         deviceFingerprint == other.deviceFingerprint &&
         donationAccount == other.donationAccount &&
@@ -462,15 +447,13 @@ class _$DonationPaymentRequest extends DonationPaymentRequest {
         socialSecurityNumber == other.socialSecurityNumber &&
         store == other.store &&
         telephoneNumber == other.telephoneNumber &&
-        threeDS2RequestData == other.threeDS2RequestData &&
-        threeDSAuthenticationOnly == other.threeDSAuthenticationOnly;
+        threeDS2RequestData == other.threeDS2RequestData;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, accountInfo.hashCode);
-    _$hash = $jc(_$hash, additionalData.hashCode);
     _$hash = $jc(_$hash, amount.hashCode);
     _$hash = $jc(_$hash, applicationInfo.hashCode);
     _$hash = $jc(_$hash, authenticationData.hashCode);
@@ -478,10 +461,8 @@ class _$DonationPaymentRequest extends DonationPaymentRequest {
     _$hash = $jc(_$hash, browserInfo.hashCode);
     _$hash = $jc(_$hash, channel.hashCode);
     _$hash = $jc(_$hash, checkoutAttemptId.hashCode);
-    _$hash = $jc(_$hash, conversionId.hashCode);
     _$hash = $jc(_$hash, countryCode.hashCode);
     _$hash = $jc(_$hash, dateOfBirth.hashCode);
-    _$hash = $jc(_$hash, deliverAt.hashCode);
     _$hash = $jc(_$hash, deliveryAddress.hashCode);
     _$hash = $jc(_$hash, deviceFingerprint.hashCode);
     _$hash = $jc(_$hash, donationAccount.hashCode);
@@ -511,7 +492,6 @@ class _$DonationPaymentRequest extends DonationPaymentRequest {
     _$hash = $jc(_$hash, store.hashCode);
     _$hash = $jc(_$hash, telephoneNumber.hashCode);
     _$hash = $jc(_$hash, threeDS2RequestData.hashCode);
-    _$hash = $jc(_$hash, threeDSAuthenticationOnly.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -520,7 +500,6 @@ class _$DonationPaymentRequest extends DonationPaymentRequest {
   String toString() {
     return (newBuiltValueToStringHelper(r'DonationPaymentRequest')
           ..add('accountInfo', accountInfo)
-          ..add('additionalData', additionalData)
           ..add('amount', amount)
           ..add('applicationInfo', applicationInfo)
           ..add('authenticationData', authenticationData)
@@ -528,10 +507,8 @@ class _$DonationPaymentRequest extends DonationPaymentRequest {
           ..add('browserInfo', browserInfo)
           ..add('channel', channel)
           ..add('checkoutAttemptId', checkoutAttemptId)
-          ..add('conversionId', conversionId)
           ..add('countryCode', countryCode)
           ..add('dateOfBirth', dateOfBirth)
-          ..add('deliverAt', deliverAt)
           ..add('deliveryAddress', deliveryAddress)
           ..add('deviceFingerprint', deviceFingerprint)
           ..add('donationAccount', donationAccount)
@@ -560,8 +537,7 @@ class _$DonationPaymentRequest extends DonationPaymentRequest {
           ..add('socialSecurityNumber', socialSecurityNumber)
           ..add('store', store)
           ..add('telephoneNumber', telephoneNumber)
-          ..add('threeDS2RequestData', threeDS2RequestData)
-          ..add('threeDSAuthenticationOnly', threeDSAuthenticationOnly))
+          ..add('threeDS2RequestData', threeDS2RequestData))
         .toString();
   }
 }
@@ -575,12 +551,6 @@ class DonationPaymentRequestBuilder
       _$this._accountInfo ??= AccountInfoBuilder();
   set accountInfo(AccountInfoBuilder? accountInfo) =>
       _$this._accountInfo = accountInfo;
-
-  MapBuilder<String, String>? _additionalData;
-  MapBuilder<String, String> get additionalData =>
-      _$this._additionalData ??= MapBuilder<String, String>();
-  set additionalData(MapBuilder<String, String>? additionalData) =>
-      _$this._additionalData = additionalData;
 
   AmountBuilder? _amount;
   AmountBuilder get amount => _$this._amount ??= AmountBuilder();
@@ -620,10 +590,6 @@ class DonationPaymentRequestBuilder
   set checkoutAttemptId(String? checkoutAttemptId) =>
       _$this._checkoutAttemptId = checkoutAttemptId;
 
-  String? _conversionId;
-  String? get conversionId => _$this._conversionId;
-  set conversionId(String? conversionId) => _$this._conversionId = conversionId;
-
   String? _countryCode;
   String? get countryCode => _$this._countryCode;
   set countryCode(String? countryCode) => _$this._countryCode = countryCode;
@@ -631,10 +597,6 @@ class DonationPaymentRequestBuilder
   DateTime? _dateOfBirth;
   DateTime? get dateOfBirth => _$this._dateOfBirth;
   set dateOfBirth(DateTime? dateOfBirth) => _$this._dateOfBirth = dateOfBirth;
-
-  DateTime? _deliverAt;
-  DateTime? get deliverAt => _$this._deliverAt;
-  set deliverAt(DateTime? deliverAt) => _$this._deliverAt = deliverAt;
 
   DeliveryAddressBuilder? _deliveryAddress;
   DeliveryAddressBuilder get deliveryAddress =>
@@ -790,11 +752,6 @@ class DonationPaymentRequestBuilder
   set threeDS2RequestData(ThreeDS2RequestFieldsBuilder? threeDS2RequestData) =>
       _$this._threeDS2RequestData = threeDS2RequestData;
 
-  bool? _threeDSAuthenticationOnly;
-  bool? get threeDSAuthenticationOnly => _$this._threeDSAuthenticationOnly;
-  set threeDSAuthenticationOnly(bool? threeDSAuthenticationOnly) =>
-      _$this._threeDSAuthenticationOnly = threeDSAuthenticationOnly;
-
   DonationPaymentRequestBuilder() {
     DonationPaymentRequest._defaults(this);
   }
@@ -803,7 +760,6 @@ class DonationPaymentRequestBuilder
     final $v = _$v;
     if ($v != null) {
       _accountInfo = $v.accountInfo?.toBuilder();
-      _additionalData = $v.additionalData?.toBuilder();
       _amount = $v.amount.toBuilder();
       _applicationInfo = $v.applicationInfo?.toBuilder();
       _authenticationData = $v.authenticationData?.toBuilder();
@@ -811,10 +767,8 @@ class DonationPaymentRequestBuilder
       _browserInfo = $v.browserInfo?.toBuilder();
       _channel = $v.channel;
       _checkoutAttemptId = $v.checkoutAttemptId;
-      _conversionId = $v.conversionId;
       _countryCode = $v.countryCode;
       _dateOfBirth = $v.dateOfBirth;
-      _deliverAt = $v.deliverAt;
       _deliveryAddress = $v.deliveryAddress?.toBuilder();
       _deviceFingerprint = $v.deviceFingerprint;
       _donationAccount = $v.donationAccount;
@@ -844,7 +798,6 @@ class DonationPaymentRequestBuilder
       _store = $v.store;
       _telephoneNumber = $v.telephoneNumber;
       _threeDS2RequestData = $v.threeDS2RequestData?.toBuilder();
-      _threeDSAuthenticationOnly = $v.threeDSAuthenticationOnly;
       _$v = null;
     }
     return this;
@@ -870,7 +823,6 @@ class DonationPaymentRequestBuilder
           _$v ??
           _$DonationPaymentRequest._(
             accountInfo: _accountInfo?.build(),
-            additionalData: _additionalData?.build(),
             amount: amount.build(),
             applicationInfo: _applicationInfo?.build(),
             authenticationData: _authenticationData?.build(),
@@ -878,10 +830,8 @@ class DonationPaymentRequestBuilder
             browserInfo: _browserInfo?.build(),
             channel: channel,
             checkoutAttemptId: checkoutAttemptId,
-            conversionId: conversionId,
             countryCode: countryCode,
             dateOfBirth: dateOfBirth,
-            deliverAt: deliverAt,
             deliveryAddress: _deliveryAddress?.build(),
             deviceFingerprint: deviceFingerprint,
             donationAccount: donationAccount,
@@ -923,15 +873,12 @@ class DonationPaymentRequestBuilder
             store: store,
             telephoneNumber: telephoneNumber,
             threeDS2RequestData: _threeDS2RequestData?.build(),
-            threeDSAuthenticationOnly: threeDSAuthenticationOnly,
           );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'accountInfo';
         _accountInfo?.build();
-        _$failedField = 'additionalData';
-        _additionalData?.build();
         _$failedField = 'amount';
         amount.build();
         _$failedField = 'applicationInfo';

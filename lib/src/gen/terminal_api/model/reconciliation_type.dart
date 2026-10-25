@@ -11,14 +11,19 @@ part 'reconciliation_type.g.dart';
 
 class ReconciliationType extends EnumClass {
 
-  @BuiltValueEnumConst(wireName: r'AcquirerReconciliation')
-  static const ReconciliationType acquirerReconciliation = _$acquirerReconciliation;
-  @BuiltValueEnumConst(wireName: r'AcquirerSynchronisation')
-  static const ReconciliationType acquirerSynchronisation = _$acquirerSynchronisation;
-  @BuiltValueEnumConst(wireName: r'PreviousReconciliation')
-  static const ReconciliationType previousReconciliation = _$previousReconciliation;
+  ///  Possible values: * **SaleReconciliation** * **AcquirerSynchronisation** * **AcquirerReconciliation** * **PreviousReconciliation**
   @BuiltValueEnumConst(wireName: r'SaleReconciliation')
   static const ReconciliationType saleReconciliation = _$saleReconciliation;
+  ///  Possible values: * **SaleReconciliation** * **AcquirerSynchronisation** * **AcquirerReconciliation** * **PreviousReconciliation**
+  @BuiltValueEnumConst(wireName: r'AcquirerSynchronisation')
+  static const ReconciliationType acquirerSynchronisation = _$acquirerSynchronisation;
+  ///  Possible values: * **SaleReconciliation** * **AcquirerSynchronisation** * **AcquirerReconciliation** * **PreviousReconciliation**
+  @BuiltValueEnumConst(wireName: r'AcquirerReconciliation')
+  static const ReconciliationType acquirerReconciliation = _$acquirerReconciliation;
+  ///  Possible values: * **SaleReconciliation** * **AcquirerSynchronisation** * **AcquirerReconciliation** * **PreviousReconciliation**
+  @BuiltValueEnumConst(wireName: r'PreviousReconciliation')
+  static const ReconciliationType previousReconciliation = _$previousReconciliation;
+  ///  Possible values: * **SaleReconciliation** * **AcquirerSynchronisation** * **AcquirerReconciliation** * **PreviousReconciliation**
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const ReconciliationType unknownDefaultOpenApi = _$unknownDefaultOpenApi;
 

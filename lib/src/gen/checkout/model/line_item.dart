@@ -24,10 +24,18 @@ part 'line_item.g.dart';
 /// * [productUrl] - Link to the purchased item.
 /// * [quantity] - Number of items.
 /// * [receiverEmail] - Email associated with the given product in the basket (usually in electronic gift cards).
+/// * [returnShippingCompany] - Shipping company handling the return of the item.
+/// * [returnTrackingNumber] - Tracking number for the return of the item.
+/// * [returnTrackingUri] - Tracking URI for the return of the item.
+/// * [riskCategory] - An optional, free-text category for the item to be used in the risk evaluation. When provided, Protect uses this value to evaluate custom risk rules.
+/// * [shippingCompany] - Shipping company handling the delivery of the item.
+/// * [shippingMethod] - Shipping method used to deliver the item.
 /// * [size] - Size of the item.
 /// * [sku] - Stock keeping unit.
 /// * [taxAmount] - Tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes/#minor-units).
 /// * [taxPercentage] - Tax percentage, represented as a [basis point](https://en.wikipedia.org/wiki/Basis_point) integer. For example:  - **530** for 5.3% (five point three percent)   - **2100** for 21% (twenty-one percent)
+/// * [trackingNumber] - Tracking number for the delivery of the item.
+/// * [trackingUri] - Tracking URI for the delivery of the item.
 /// * [upc] - Universal Product Code.
 @BuiltValue()
 abstract class LineItem implements Built<LineItem, LineItemBuilder> {
@@ -83,6 +91,30 @@ abstract class LineItem implements Built<LineItem, LineItemBuilder> {
   @BuiltValueField(wireName: r'receiverEmail')
   String? get receiverEmail;
 
+  /// Shipping company handling the return of the item.
+  @BuiltValueField(wireName: r'returnShippingCompany')
+  String? get returnShippingCompany;
+
+  /// Tracking number for the return of the item.
+  @BuiltValueField(wireName: r'returnTrackingNumber')
+  String? get returnTrackingNumber;
+
+  /// Tracking URI for the return of the item.
+  @BuiltValueField(wireName: r'returnTrackingUri')
+  String? get returnTrackingUri;
+
+  /// An optional, free-text category for the item to be used in the risk evaluation. When provided, Protect uses this value to evaluate custom risk rules.
+  @BuiltValueField(wireName: r'riskCategory')
+  String? get riskCategory;
+
+  /// Shipping company handling the delivery of the item.
+  @BuiltValueField(wireName: r'shippingCompany')
+  String? get shippingCompany;
+
+  /// Shipping method used to deliver the item.
+  @BuiltValueField(wireName: r'shippingMethod')
+  String? get shippingMethod;
+
   /// Size of the item.
   @BuiltValueField(wireName: r'size')
   String? get size;
@@ -98,6 +130,14 @@ abstract class LineItem implements Built<LineItem, LineItemBuilder> {
   /// Tax percentage, represented as a [basis point](https://en.wikipedia.org/wiki/Basis_point) integer. For example:  - **530** for 5.3% (five point three percent)   - **2100** for 21% (twenty-one percent)
   @BuiltValueField(wireName: r'taxPercentage')
   int? get taxPercentage;
+
+  /// Tracking number for the delivery of the item.
+  @BuiltValueField(wireName: r'trackingNumber')
+  String? get trackingNumber;
+
+  /// Tracking URI for the delivery of the item.
+  @BuiltValueField(wireName: r'trackingUri')
+  String? get trackingUri;
 
   /// Universal Product Code.
   @BuiltValueField(wireName: r'upc')
@@ -217,6 +257,48 @@ class _$LineItemSerializer implements PrimitiveSerializer<LineItem> {
         specifiedType: const FullType(String),
       );
     }
+    if (object.returnShippingCompany != null) {
+      yield r'returnShippingCompany';
+      yield serializers.serialize(
+        object.returnShippingCompany,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.returnTrackingNumber != null) {
+      yield r'returnTrackingNumber';
+      yield serializers.serialize(
+        object.returnTrackingNumber,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.returnTrackingUri != null) {
+      yield r'returnTrackingUri';
+      yield serializers.serialize(
+        object.returnTrackingUri,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.riskCategory != null) {
+      yield r'riskCategory';
+      yield serializers.serialize(
+        object.riskCategory,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.shippingCompany != null) {
+      yield r'shippingCompany';
+      yield serializers.serialize(
+        object.shippingCompany,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.shippingMethod != null) {
+      yield r'shippingMethod';
+      yield serializers.serialize(
+        object.shippingMethod,
+        specifiedType: const FullType(String),
+      );
+    }
     if (object.size != null) {
       yield r'size';
       yield serializers.serialize(
@@ -243,6 +325,20 @@ class _$LineItemSerializer implements PrimitiveSerializer<LineItem> {
       yield serializers.serialize(
         object.taxPercentage,
         specifiedType: const FullType(int),
+      );
+    }
+    if (object.trackingNumber != null) {
+      yield r'trackingNumber';
+      yield serializers.serialize(
+        object.trackingNumber,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.trackingUri != null) {
+      yield r'trackingUri';
+      yield serializers.serialize(
+        object.trackingUri,
+        specifiedType: const FullType(String),
       );
     }
     if (object.upc != null) {
@@ -366,6 +462,48 @@ class _$LineItemSerializer implements PrimitiveSerializer<LineItem> {
           ) as String;
           result.receiverEmail = valueDes;
           break;
+        case r'returnShippingCompany':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.returnShippingCompany = valueDes;
+          break;
+        case r'returnTrackingNumber':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.returnTrackingNumber = valueDes;
+          break;
+        case r'returnTrackingUri':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.returnTrackingUri = valueDes;
+          break;
+        case r'riskCategory':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.riskCategory = valueDes;
+          break;
+        case r'shippingCompany':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.shippingCompany = valueDes;
+          break;
+        case r'shippingMethod':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.shippingMethod = valueDes;
+          break;
         case r'size':
           final valueDes = serializers.deserialize(
             value,
@@ -393,6 +531,20 @@ class _$LineItemSerializer implements PrimitiveSerializer<LineItem> {
             specifiedType: const FullType(int),
           ) as int;
           result.taxPercentage = valueDes;
+          break;
+        case r'trackingNumber':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.trackingNumber = valueDes;
+          break;
+        case r'trackingUri':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.trackingUri = valueDes;
           break;
         case r'upc':
           final valueDes = serializers.deserialize(

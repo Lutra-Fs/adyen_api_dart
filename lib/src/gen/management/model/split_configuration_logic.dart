@@ -3,6 +3,7 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:adyen_api/src/gen/management/model/split_dcc.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:adyen_api/src/gen/management/model/additional_commission.dart';
 import 'package:adyen_api/src/gen/management/model/commission.dart';
@@ -22,6 +23,7 @@ part 'split_configuration_logic.g.dart';
 /// * [chargeback] - Specifies how and from which balance account(s) to deduct the chargeback amount.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**, **deductAccordingToSplitRatio**.
 /// * [chargebackCostAllocation] - Deducts the chargeback costs from the specified balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**
 /// * [commission] - Defines your platform's commission for the processed payments as a fixed amount (specified in minor units), a percentage (specified in basis points), or both. The commission is booked to your platform's liable balance account.
+/// * [dcc] - Defines the logic for booking the markup paid by the customer for Dynamic Currency Conversion (DCC).  > This field is in pilot phase, and not yet available for all platforms.
 /// * [interchange] - Deducts the interchange fee from specified balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
 /// * [paymentFee] - Deducts all transaction fees incurred by the payment from the specified balance account. The transaction fees include the acquiring fees (interchange and scheme fee), and the fees due to Adyen (markup or commission). You can book any and all these fees to different balance account by specifying other transaction fee parameters in your split configuration profile:  - [`adyenCommission`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic-adyenCommission): The transaction fee due to Adyen under [blended rates](https://www.adyen.com/knowledge-hub/interchange-fees-explained#interchange-vs-blended). - [`adyenMarkup`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic-adyenMarkup): The transaction fee due to Adyen under [Interchange ++ pricing](https://www.adyen.com/knowledge-hub/interchange-fees-explained#interchange-vs-blended). - [`schemeFee`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic-schemeFee): The fee paid to the card scheme for using their network. - [`interchange`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic-interchange): The fee paid to the issuer for each payment transaction made with the card network. - [`adyenFees`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic-adyenFees): The aggregated amount of Adyen's commission and markup. - [`acquiringFees`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic-acquiringFees): The aggregated amount of the interchange and scheme fees.  If you don't include at least one transaction fee type in the `splitLogic` object, Adyen updates the payment request with the `paymentFee` parameter, booking all transaction fees to your platform's liable balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
 /// * [refund] - Specifies how and from which balance account(s) to deduct the refund amount.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**, **deductAccordingToSplitRatio**
@@ -70,6 +72,10 @@ abstract class SplitConfigurationLogic implements Built<SplitConfigurationLogic,
   /// Defines your platform's commission for the processed payments as a fixed amount (specified in minor units), a percentage (specified in basis points), or both. The commission is booked to your platform's liable balance account.
   @BuiltValueField(wireName: r'commission')
   Commission get commission;
+
+  /// Defines the logic for booking the markup paid by the customer for Dynamic Currency Conversion (DCC).  > This field is in pilot phase, and not yet available for all platforms.
+  @BuiltValueField(wireName: r'dcc')
+  SplitDcc? get dcc;
 
   /// Deducts the interchange fee from specified balance account.  Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**.
   @BuiltValueField(wireName: r'interchange')
@@ -192,6 +198,13 @@ class _$SplitConfigurationLogicSerializer implements PrimitiveSerializer<SplitCo
       object.commission,
       specifiedType: const FullType(Commission),
     );
+    if (object.dcc != null) {
+      yield r'dcc';
+      yield serializers.serialize(
+        object.dcc,
+        specifiedType: const FullType(SplitDcc),
+      );
+    }
     if (object.interchange != null) {
       yield r'interchange';
       yield serializers.serialize(
@@ -333,6 +346,13 @@ class _$SplitConfigurationLogicSerializer implements PrimitiveSerializer<SplitCo
             specifiedType: const FullType(Commission),
           ) as Commission;
           result.commission.replace(valueDes);
+          break;
+        case r'dcc':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(SplitDcc),
+          ) as SplitDcc;
+          result.dcc.replace(valueDes);
           break;
         case r'interchange':
           final valueDes = serializers.deserialize(

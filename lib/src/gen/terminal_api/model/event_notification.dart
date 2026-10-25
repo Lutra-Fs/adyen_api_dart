@@ -29,7 +29,7 @@ abstract class EventNotification implements Built<EventNotification, EventNotifi
   /// Event the POI notifies to the Sale System. Possible values: * **Abort** * **BeginMaintenance** * **CardInserted** * **CardRemoved** * **Completed** * **CustomerLanguage** * **EndMaintenance** * **Initialised** * **KeyPressed** * **OutOfOrder** * **Reject** * **SaleAdmin** * **SaleWakeUp** * **ScanBarcodeResult** * **SecurityAlarm** * **Shutdown** * **StopAssistance** * **UseAnotherCardForPreauth**
   @BuiltValueField(wireName: r'EventToNotify')
   EventToNotify get eventToNotify;
-  // enum eventToNotifyEnum {  Abort,  BeginMaintenance,  CardInserted,  CardRemoved,  Completed,  CustomerLanguage,  EndMaintenance,  Initialised,  KeyPressed,  OutOfOrder,  Reject,  SaleAdmin,  SaleWakeUp,  ScanBarcodeResult,  SecurityAlarm,  Shutdown,  StopAssistance,  UseAnotherCardForPreauth,  };
+  // enum eventToNotifyEnum {  BeginMaintenance,  EndMaintenance,  Shutdown,  Initialised,  OutOfOrder,  Completed,  Abort,  SaleWakeUp,  SaleAdmin,  CustomerLanguage,  KeyPressed,  SecurityAlarm,  StopAssistance,  CardInserted,  CardRemoved,  Reject,  UseAnotherCardForPreauth,  ScanBarcodeResult,  };
 
   /// Information about the event the POI notifies to the Sale System. If present, the Sale logs it for further examination.
   @BuiltValueField(wireName: r'EventDetails')

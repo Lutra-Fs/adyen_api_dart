@@ -18,7 +18,7 @@ import 'package:adyen_api/src/gen/checkout/api/recurring_api.dart';
 import 'package:adyen_api/src/gen/checkout/api/utility_api.dart';
 
 class AdyenApi {
-  static const String basePath = r'https://checkout-test.adyen.com/v71';
+  static const String basePath = r'https://checkout-test.adyen.com/v72';
 
   final Dio dio;
   final Serializers serializers;

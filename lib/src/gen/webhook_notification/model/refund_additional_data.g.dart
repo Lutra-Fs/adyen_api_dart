@@ -34,6 +34,10 @@ class _$RefundAdditionalData extends RefundAdditionalData {
   @override
   final String? merchantOrderReference;
   @override
+  final String? networkTxDate;
+  @override
+  final String? networkTxReference;
+  @override
   final String? paymentLinkId;
   @override
   final String? paymentMethodVariant;
@@ -60,6 +64,8 @@ class _$RefundAdditionalData extends RefundAdditionalData {
     this.hmacSignature,
     this.interactionCounter,
     this.merchantOrderReference,
+    this.networkTxDate,
+    this.networkTxReference,
     this.paymentLinkId,
     this.paymentMethodVariant,
     this.shopperCountry,
@@ -93,6 +99,8 @@ class _$RefundAdditionalData extends RefundAdditionalData {
         hmacSignature == other.hmacSignature &&
         interactionCounter == other.interactionCounter &&
         merchantOrderReference == other.merchantOrderReference &&
+        networkTxDate == other.networkTxDate &&
+        networkTxReference == other.networkTxReference &&
         paymentLinkId == other.paymentLinkId &&
         paymentMethodVariant == other.paymentMethodVariant &&
         shopperCountry == other.shopperCountry &&
@@ -115,6 +123,8 @@ class _$RefundAdditionalData extends RefundAdditionalData {
     _$hash = $jc(_$hash, hmacSignature.hashCode);
     _$hash = $jc(_$hash, interactionCounter.hashCode);
     _$hash = $jc(_$hash, merchantOrderReference.hashCode);
+    _$hash = $jc(_$hash, networkTxDate.hashCode);
+    _$hash = $jc(_$hash, networkTxReference.hashCode);
     _$hash = $jc(_$hash, paymentLinkId.hashCode);
     _$hash = $jc(_$hash, paymentMethodVariant.hashCode);
     _$hash = $jc(_$hash, shopperCountry.hashCode);
@@ -145,6 +155,8 @@ class _$RefundAdditionalData extends RefundAdditionalData {
           ..add('hmacSignature', hmacSignature)
           ..add('interactionCounter', interactionCounter)
           ..add('merchantOrderReference', merchantOrderReference)
+          ..add('networkTxDate', networkTxDate)
+          ..add('networkTxReference', networkTxReference)
           ..add('paymentLinkId', paymentLinkId)
           ..add('paymentMethodVariant', paymentMethodVariant)
           ..add('shopperCountry', shopperCountry)
@@ -226,6 +238,16 @@ class RefundAdditionalDataBuilder
   set merchantOrderReference(String? merchantOrderReference) =>
       _$this._merchantOrderReference = merchantOrderReference;
 
+  String? _networkTxDate;
+  String? get networkTxDate => _$this._networkTxDate;
+  set networkTxDate(String? networkTxDate) =>
+      _$this._networkTxDate = networkTxDate;
+
+  String? _networkTxReference;
+  String? get networkTxReference => _$this._networkTxReference;
+  set networkTxReference(String? networkTxReference) =>
+      _$this._networkTxReference = networkTxReference;
+
   String? _paymentLinkId;
   String? get paymentLinkId => _$this._paymentLinkId;
   set paymentLinkId(String? paymentLinkId) =>
@@ -267,6 +289,8 @@ class RefundAdditionalDataBuilder
       _hmacSignature = $v.hmacSignature;
       _interactionCounter = $v.interactionCounter;
       _merchantOrderReference = $v.merchantOrderReference;
+      _networkTxDate = $v.networkTxDate;
+      _networkTxReference = $v.networkTxReference;
       _paymentLinkId = $v.paymentLinkId;
       _paymentMethodVariant = $v.paymentMethodVariant;
       _shopperCountry = $v.shopperCountry;
@@ -308,6 +332,8 @@ class RefundAdditionalDataBuilder
           hmacSignature: hmacSignature,
           interactionCounter: interactionCounter,
           merchantOrderReference: merchantOrderReference,
+          networkTxDate: networkTxDate,
+          networkTxReference: networkTxReference,
           paymentLinkId: paymentLinkId,
           paymentMethodVariant: paymentMethodVariant,
           shopperCountry: shopperCountry,

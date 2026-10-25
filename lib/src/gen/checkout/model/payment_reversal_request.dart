@@ -3,7 +3,6 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:adyen_api/src/gen/checkout/model/enhanced_scheme_data.dart';
 import 'package:adyen_api/src/gen/checkout/model/application_info.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -14,7 +13,6 @@ part 'payment_reversal_request.g.dart';
 ///
 /// Properties:
 /// * [applicationInfo] - Information about your application. For more details, see [Building Adyen solutions](https://docs.adyen.com/development-resources/building-adyen-solutions).
-/// * [enhancedSchemeData] - Enhanced scheme data that may be required for processing the payment. For example, airline information.
 /// * [merchantAccount] - The merchant account that is used to process the payment.
 /// * [reference] - Your reference for the reversal request. Maximum length: 80 characters.
 @BuiltValue()
@@ -22,10 +20,6 @@ abstract class PaymentReversalRequest implements Built<PaymentReversalRequest, P
   /// Information about your application. For more details, see [Building Adyen solutions](https://docs.adyen.com/development-resources/building-adyen-solutions).
   @BuiltValueField(wireName: r'applicationInfo')
   ApplicationInfo? get applicationInfo;
-
-  /// Enhanced scheme data that may be required for processing the payment. For example, airline information.
-  @BuiltValueField(wireName: r'enhancedSchemeData')
-  EnhancedSchemeData? get enhancedSchemeData;
 
   /// The merchant account that is used to process the payment.
   @BuiltValueField(wireName: r'merchantAccount')
@@ -63,13 +57,6 @@ class _$PaymentReversalRequestSerializer implements PrimitiveSerializer<PaymentR
       yield serializers.serialize(
         object.applicationInfo,
         specifiedType: const FullType(ApplicationInfo),
-      );
-    }
-    if (object.enhancedSchemeData != null) {
-      yield r'enhancedSchemeData';
-      yield serializers.serialize(
-        object.enhancedSchemeData,
-        specifiedType: const FullType(EnhancedSchemeData),
       );
     }
     yield r'merchantAccount';
@@ -113,13 +100,6 @@ class _$PaymentReversalRequestSerializer implements PrimitiveSerializer<PaymentR
             specifiedType: const FullType(ApplicationInfo),
           ) as ApplicationInfo;
           result.applicationInfo.replace(valueDes);
-          break;
-        case r'enhancedSchemeData':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(EnhancedSchemeData),
-          ) as EnhancedSchemeData;
-          result.enhancedSchemeData.replace(valueDes);
           break;
         case r'merchantAccount':
           final valueDes = serializers.deserialize(

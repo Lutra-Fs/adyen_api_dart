@@ -29,7 +29,7 @@ class CheckoutAPI extends ApiService {
     utilityApi = checkout.UtilityApi(dio, serializers);
   }
 
-  static const _basePath = 'https://checkout-test.adyen.com/v71';
+  static const _basePath = 'https://checkout-test.adyen.com/v72';
 
   /// Serializers for JSON serialization/deserialization of request/response data.
   final Serializers serializers;

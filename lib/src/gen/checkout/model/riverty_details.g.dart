@@ -97,6 +97,8 @@ class _$RivertyDetails extends RivertyDetails {
   @override
   final String? iban;
   @override
+  final String? merchantData;
+  @override
   final String? personalDetails;
   @override
   final String? recurringDetailReference;
@@ -118,6 +120,7 @@ class _$RivertyDetails extends RivertyDetails {
     this.deliveryAddress,
     this.deviceFingerprint,
     this.iban,
+    this.merchantData,
     this.personalDetails,
     this.recurringDetailReference,
     this.sdkData,
@@ -141,6 +144,7 @@ class _$RivertyDetails extends RivertyDetails {
         deliveryAddress == other.deliveryAddress &&
         deviceFingerprint == other.deviceFingerprint &&
         iban == other.iban &&
+        merchantData == other.merchantData &&
         personalDetails == other.personalDetails &&
         recurringDetailReference == other.recurringDetailReference &&
         sdkData == other.sdkData &&
@@ -157,6 +161,7 @@ class _$RivertyDetails extends RivertyDetails {
     _$hash = $jc(_$hash, deliveryAddress.hashCode);
     _$hash = $jc(_$hash, deviceFingerprint.hashCode);
     _$hash = $jc(_$hash, iban.hashCode);
+    _$hash = $jc(_$hash, merchantData.hashCode);
     _$hash = $jc(_$hash, personalDetails.hashCode);
     _$hash = $jc(_$hash, recurringDetailReference.hashCode);
     _$hash = $jc(_$hash, sdkData.hashCode);
@@ -175,6 +180,7 @@ class _$RivertyDetails extends RivertyDetails {
           ..add('deliveryAddress', deliveryAddress)
           ..add('deviceFingerprint', deviceFingerprint)
           ..add('iban', iban)
+          ..add('merchantData', merchantData)
           ..add('personalDetails', personalDetails)
           ..add('recurringDetailReference', recurringDetailReference)
           ..add('sdkData', sdkData)
@@ -212,6 +218,10 @@ class RivertyDetailsBuilder
   String? _iban;
   String? get iban => _$this._iban;
   set iban(String? iban) => _$this._iban = iban;
+
+  String? _merchantData;
+  String? get merchantData => _$this._merchantData;
+  set merchantData(String? merchantData) => _$this._merchantData = merchantData;
 
   String? _personalDetails;
   String? get personalDetails => _$this._personalDetails;
@@ -252,6 +262,7 @@ class RivertyDetailsBuilder
       _deliveryAddress = $v.deliveryAddress;
       _deviceFingerprint = $v.deviceFingerprint;
       _iban = $v.iban;
+      _merchantData = $v.merchantData;
       _personalDetails = $v.personalDetails;
       _recurringDetailReference = $v.recurringDetailReference;
       _sdkData = $v.sdkData;
@@ -285,6 +296,7 @@ class RivertyDetailsBuilder
           deliveryAddress: deliveryAddress,
           deviceFingerprint: deviceFingerprint,
           iban: iban,
+          merchantData: merchantData,
           personalDetails: personalDetails,
           recurringDetailReference: recurringDetailReference,
           sdkData: sdkData,

@@ -16,7 +16,7 @@ part 'terms_of_service_acceptance_info.g.dart';
 /// * [acceptedFor] - The unique identifier of the legal entity for which the Terms of Service are accepted.
 /// * [createdAt] - The date when the Terms of Service were accepted, in ISO 8601 extended format. For example, 2022-12-18T10:15:30+01:00.
 /// * [id] - An Adyen-generated reference for the accepted Terms of Service.
-/// * [type] - The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard** *  **kycOnInvite**  
+/// * [type] - The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenCapitalCashAdvance** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard** *  **kycOnInvite** *  **directDebit**  
 /// * [validTo] - The expiration date for the Terms of Service acceptance, in ISO 8601 extended format. For example, 2022-12-18T00:00:00+01:00.
 @BuiltValue()
 abstract class TermsOfServiceAcceptanceInfo implements Built<TermsOfServiceAcceptanceInfo, TermsOfServiceAcceptanceInfoBuilder> {
@@ -36,10 +36,10 @@ abstract class TermsOfServiceAcceptanceInfo implements Built<TermsOfServiceAccep
   @BuiltValueField(wireName: r'id')
   String? get id;
 
-  /// The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard** *  **kycOnInvite**  
+  /// The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenCapitalCashAdvance** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard** *  **kycOnInvite** *  **directDebit**  
   @BuiltValueField(wireName: r'type')
   TermsOfServiceAcceptanceInfoTypeEnum? get type;
-  // enum typeEnum {  adyenAccount,  adyenCapital,  adyenCard,  adyenChargeCard,  adyenForPlatformsAdvanced,  adyenForPlatformsManage,  adyenFranchisee,  adyenIssuing,  adyenPccr,  kycOnInvite,  };
+  // enum typeEnum {  adyenAccount,  adyenCapital,  adyenCapitalCashAdvance,  adyenCard,  adyenChargeCard,  adyenForPlatformsAdvanced,  adyenForPlatformsManage,  adyenFranchisee,  adyenIssuing,  adyenPccr,  directDebit,  kycOnInvite,  };
 
   /// The expiration date for the Terms of Service acceptance, in ISO 8601 extended format. For example, 2022-12-18T00:00:00+01:00.
   @BuiltValueField(wireName: r'validTo')
@@ -206,37 +206,43 @@ class _$TermsOfServiceAcceptanceInfoSerializer implements PrimitiveSerializer<Te
 
 class TermsOfServiceAcceptanceInfoTypeEnum extends EnumClass {
 
-  /// The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard** *  **kycOnInvite**  
+  /// The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenCapitalCashAdvance** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard** *  **kycOnInvite** *  **directDebit**  
   @BuiltValueEnumConst(wireName: r'adyenAccount')
   static const TermsOfServiceAcceptanceInfoTypeEnum adyenAccount = _$termsOfServiceAcceptanceInfoTypeEnum_adyenAccount;
-  /// The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard** *  **kycOnInvite**  
+  /// The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenCapitalCashAdvance** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard** *  **kycOnInvite** *  **directDebit**  
   @BuiltValueEnumConst(wireName: r'adyenCapital')
   static const TermsOfServiceAcceptanceInfoTypeEnum adyenCapital = _$termsOfServiceAcceptanceInfoTypeEnum_adyenCapital;
-  /// The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard** *  **kycOnInvite**  
+  /// The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenCapitalCashAdvance** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard** *  **kycOnInvite** *  **directDebit**  
+  @BuiltValueEnumConst(wireName: r'adyenCapitalCashAdvance')
+  static const TermsOfServiceAcceptanceInfoTypeEnum adyenCapitalCashAdvance = _$termsOfServiceAcceptanceInfoTypeEnum_adyenCapitalCashAdvance;
+  /// The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenCapitalCashAdvance** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard** *  **kycOnInvite** *  **directDebit**  
   @BuiltValueEnumConst(wireName: r'adyenCard')
   static const TermsOfServiceAcceptanceInfoTypeEnum adyenCard = _$termsOfServiceAcceptanceInfoTypeEnum_adyenCard;
-  /// The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard** *  **kycOnInvite**  
+  /// The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenCapitalCashAdvance** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard** *  **kycOnInvite** *  **directDebit**  
   @BuiltValueEnumConst(wireName: r'adyenChargeCard')
   static const TermsOfServiceAcceptanceInfoTypeEnum adyenChargeCard = _$termsOfServiceAcceptanceInfoTypeEnum_adyenChargeCard;
-  /// The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard** *  **kycOnInvite**  
+  /// The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenCapitalCashAdvance** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard** *  **kycOnInvite** *  **directDebit**  
   @BuiltValueEnumConst(wireName: r'adyenForPlatformsAdvanced')
   static const TermsOfServiceAcceptanceInfoTypeEnum adyenForPlatformsAdvanced = _$termsOfServiceAcceptanceInfoTypeEnum_adyenForPlatformsAdvanced;
-  /// The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard** *  **kycOnInvite**  
+  /// The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenCapitalCashAdvance** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard** *  **kycOnInvite** *  **directDebit**  
   @BuiltValueEnumConst(wireName: r'adyenForPlatformsManage')
   static const TermsOfServiceAcceptanceInfoTypeEnum adyenForPlatformsManage = _$termsOfServiceAcceptanceInfoTypeEnum_adyenForPlatformsManage;
-  /// The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard** *  **kycOnInvite**  
+  /// The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenCapitalCashAdvance** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard** *  **kycOnInvite** *  **directDebit**  
   @BuiltValueEnumConst(wireName: r'adyenFranchisee')
   static const TermsOfServiceAcceptanceInfoTypeEnum adyenFranchisee = _$termsOfServiceAcceptanceInfoTypeEnum_adyenFranchisee;
-  /// The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard** *  **kycOnInvite**  
+  /// The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenCapitalCashAdvance** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard** *  **kycOnInvite** *  **directDebit**  
   @BuiltValueEnumConst(wireName: r'adyenIssuing')
   static const TermsOfServiceAcceptanceInfoTypeEnum adyenIssuing = _$termsOfServiceAcceptanceInfoTypeEnum_adyenIssuing;
-  /// The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard** *  **kycOnInvite**  
+  /// The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenCapitalCashAdvance** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard** *  **kycOnInvite** *  **directDebit**  
   @BuiltValueEnumConst(wireName: r'adyenPccr')
   static const TermsOfServiceAcceptanceInfoTypeEnum adyenPccr = _$termsOfServiceAcceptanceInfoTypeEnum_adyenPccr;
-  /// The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard** *  **kycOnInvite**  
+  /// The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenCapitalCashAdvance** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard** *  **kycOnInvite** *  **directDebit**  
+  @BuiltValueEnumConst(wireName: r'directDebit')
+  static const TermsOfServiceAcceptanceInfoTypeEnum directDebit = _$termsOfServiceAcceptanceInfoTypeEnum_directDebit;
+  /// The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenCapitalCashAdvance** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard** *  **kycOnInvite** *  **directDebit**  
   @BuiltValueEnumConst(wireName: r'kycOnInvite')
   static const TermsOfServiceAcceptanceInfoTypeEnum kycOnInvite = _$termsOfServiceAcceptanceInfoTypeEnum_kycOnInvite;
-  /// The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard** *  **kycOnInvite**  
+  /// The type of Terms of Service.  Possible values: *  **adyenForPlatformsManage** *  **adyenIssuing** *  **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenCapitalCashAdvance** *  **adyenAccount** *  **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *  **adyenChargeCard** *  **kycOnInvite** *  **directDebit**  
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const TermsOfServiceAcceptanceInfoTypeEnum unknownDefaultOpenApi = _$termsOfServiceAcceptanceInfoTypeEnum_unknownDefaultOpenApi;
 

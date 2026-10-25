@@ -25,6 +25,7 @@ part 'card_configuration.g.dart';
 /// * [language] - The two-letter [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code of the card. For example, **en**.
 /// * [logoImageId] - The unique identifier of the logo image. This image is printed on the partial front of the card, for example, a logo on the upper right corner.
 /// * [pinMailer] - The letter on which the PIN of the card is printed.  This field overrides the PIN mailer design ID defined in the card configuration profile.
+/// * [printLine] - Print Line.  Text printed on the physical card below the cardholder name. You provide the value, which can be up to 26 characters.
 /// * [shipmentMethod] - The logistics company that ships the card.  This field overrides the logistics company defined in the card configuration profile.
 @BuiltValue()
 abstract class CardConfiguration implements Built<CardConfiguration, CardConfigurationBuilder> {
@@ -79,6 +80,10 @@ abstract class CardConfiguration implements Built<CardConfiguration, CardConfigu
   /// The letter on which the PIN of the card is printed.  This field overrides the PIN mailer design ID defined in the card configuration profile.
   @BuiltValueField(wireName: r'pinMailer')
   String? get pinMailer;
+
+  /// Print Line.  Text printed on the physical card below the cardholder name. You provide the value, which can be up to 26 characters.
+  @BuiltValueField(wireName: r'printLine')
+  String? get printLine;
 
   /// The logistics company that ships the card.  This field overrides the logistics company defined in the card configuration profile.
   @BuiltValueField(wireName: r'shipmentMethod')
@@ -193,6 +198,13 @@ class _$CardConfigurationSerializer implements PrimitiveSerializer<CardConfigura
       yield r'pinMailer';
       yield serializers.serialize(
         object.pinMailer,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.printLine != null) {
+      yield r'printLine';
+      yield serializers.serialize(
+        object.printLine,
         specifiedType: const FullType(String),
       );
     }
@@ -316,6 +328,13 @@ class _$CardConfigurationSerializer implements PrimitiveSerializer<CardConfigura
             specifiedType: const FullType(String),
           ) as String;
           result.pinMailer = valueDes;
+          break;
+        case r'printLine':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.printLine = valueDes;
           break;
         case r'shipmentMethod':
           final valueDes = serializers.deserialize(

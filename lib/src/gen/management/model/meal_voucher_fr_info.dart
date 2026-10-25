@@ -14,7 +14,7 @@ part 'meal_voucher_fr_info.g.dart';
 /// Properties:
 /// * [conecsId] - Meal Voucher conecsId. Format: digits only
 /// * [siret] - Meal Voucher siret. Format: 14 digits.
-/// * [subTypes] - The list of additional payment methods. Allowed values: **mealVoucher_FR_edenred**, **mealVoucher_FR_groupeup**, **mealVoucher_FR_natixis**, **mealVoucher_FR_sodexo**.
+/// * [subTypes] - The list of additional payment methods. Allowed values: **mealVoucher_FR_endenred**, **mealVoucher_FR_groupeup**, **mealVoucher_FR_natixis**, **mealVoucher_FR_sodexo**.
 @BuiltValue()
 abstract class MealVoucherFRInfo implements Built<MealVoucherFRInfo, MealVoucherFRInfoBuilder> {
   /// Meal Voucher conecsId. Format: digits only
@@ -25,7 +25,7 @@ abstract class MealVoucherFRInfo implements Built<MealVoucherFRInfo, MealVoucher
   @BuiltValueField(wireName: r'siret')
   String get siret;
 
-  /// The list of additional payment methods. Allowed values: **mealVoucher_FR_edenred**, **mealVoucher_FR_groupeup**, **mealVoucher_FR_natixis**, **mealVoucher_FR_sodexo**.
+  /// The list of additional payment methods. Allowed values: **mealVoucher_FR_endenred**, **mealVoucher_FR_groupeup**, **mealVoucher_FR_natixis**, **mealVoucher_FR_sodexo**.
   @BuiltValueField(wireName: r'subTypes')
   BuiltList<String> get subTypes;
 

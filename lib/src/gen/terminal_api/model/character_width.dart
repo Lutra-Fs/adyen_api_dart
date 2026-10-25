@@ -11,10 +11,13 @@ part 'character_width.g.dart';
 
 class CharacterWidth extends EnumClass {
 
-  @BuiltValueEnumConst(wireName: r'DoubleWidth')
-  static const CharacterWidth doubleWidth = _$doubleWidth;
+  ///  Possible values: * **SingleWidth** * **DoubleWidth**
   @BuiltValueEnumConst(wireName: r'SingleWidth')
   static const CharacterWidth singleWidth = _$singleWidth;
+  ///  Possible values: * **SingleWidth** * **DoubleWidth**
+  @BuiltValueEnumConst(wireName: r'DoubleWidth')
+  static const CharacterWidth doubleWidth = _$doubleWidth;
+  ///  Possible values: * **SingleWidth** * **DoubleWidth**
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const CharacterWidth unknownDefaultOpenApi = _$unknownDefaultOpenApi;
 

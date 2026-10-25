@@ -13,14 +13,14 @@ part 'authentication_session_request.g.dart';
 /// AuthenticationSessionRequest
 ///
 /// Properties:
-/// * [allowOrigin] - The URL where the component will appear. In your live environment, you must protect the URL with an SSL certificate and ensure that it starts with `https://`.
+/// * [allowOrigin] - The URL where the component will appear. In your live environment, you must protect the URL with an SSL certificate and ensure that it starts with `https://`.  Required for creating a session for Platform Experience and Onboarding components. Omitting this parameter results in an unusable session token.
 /// * [policy] - An object that contains a description of the allowed resources and roles for the requested session.
 /// * [product] - The type of component.  For [Onboarding components](https://docs.adyen.com/platforms/onboard-users/components), set this to **onboarding**.  For [Platform Experience components](https://docs.adyen.com/platforms/build-user-dashboards), set this to **platform**.
 @BuiltValue()
 abstract class AuthenticationSessionRequest implements Built<AuthenticationSessionRequest, AuthenticationSessionRequestBuilder> {
-  /// The URL where the component will appear. In your live environment, you must protect the URL with an SSL certificate and ensure that it starts with `https://`.
+  /// The URL where the component will appear. In your live environment, you must protect the URL with an SSL certificate and ensure that it starts with `https://`.  Required for creating a session for Platform Experience and Onboarding components. Omitting this parameter results in an unusable session token.
   @BuiltValueField(wireName: r'allowOrigin')
-  String get allowOrigin;
+  String? get allowOrigin;
 
   /// An object that contains a description of the allowed resources and roles for the requested session.
   @BuiltValueField(wireName: r'policy')
@@ -54,11 +54,13 @@ class _$AuthenticationSessionRequestSerializer implements PrimitiveSerializer<Au
     AuthenticationSessionRequest object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    yield r'allowOrigin';
-    yield serializers.serialize(
-      object.allowOrigin,
-      specifiedType: const FullType(String),
-    );
+    if (object.allowOrigin != null) {
+      yield r'allowOrigin';
+      yield serializers.serialize(
+        object.allowOrigin,
+        specifiedType: const FullType(String),
+      );
+    }
     yield r'policy';
     yield serializers.serialize(
       object.policy,

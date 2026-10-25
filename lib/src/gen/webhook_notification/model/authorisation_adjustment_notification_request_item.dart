@@ -38,7 +38,7 @@ abstract class AuthorisationAdjustmentNotificationRequestItem implements Built<A
   /// The type of event the notification item is for.
   @BuiltValueField(wireName: r'eventCode')
   AuthorisationAdjustmentNotificationRequestItemEventCodeEnum get eventCode;
-  // enum eventCodeEnum {  AUTHENTICATION,  AUTHORISATION,  AUTHORISATION_ADJUSTMENT,  AUTORESCUE,  CANCELLATION,  CANCEL_AUTORESCUE,  CANCEL_OR_REFUND,  CAPTURE,  CAPTURE_FAILED,  CHARGEBACK,  CHARGEBACK_REVERSED,  DISPUTE_DEFENSE_PERIOD_ENDED,  EXPIRE,  HANDLED_EXTERNALLY,  INFORMATION_SUPPLIED,  ISSUER_COMMENTS,  ISSUER_RESPONSE_TIMEFRAME_EXPIRED,  MANUAL_REVIEW_ACCEPT,  MANUAL_REVIEW_REJECT,  NOTIFICATION_OF_CHARGEBACK,  NOTIFICATION_OF_FRAUD,  OFFER_CLOSED,  ORDER_CLOSED,  ORDER_OPENED,  PAYOUT_DECLINE,  PAYOUT_EXPIRE,  PAYOUT_THIRDPARTY,  POSTPONED_REFUND,  PREARBITRATION_LOST,  PREARBITRATION_OPEN,  PREARBITRATION_WON,  RECURRING_CONTRACT,  REFUND,  REFUNDED_REVERSED,  REFUND_FAILED,  REFUND_WITH_DATA,  REQUEST_FOR_INFORMATION,  SECOND_CHARGEBACK,  TECHNICAL_CANCEL,  VOID_PENDING_REFUND,  };
+  // enum eventCodeEnum {  AUTHENTICATION,  AUTHORISATION,  AUTHORISATION_ADJUSTMENT,  AUTORESCUE,  CANCELLATION,  CANCEL_AUTORESCUE,  CANCEL_OR_REFUND,  CAPTURE,  CAPTURE_FAILED,  CHARGEBACK,  CHARGEBACK_REVERSED,  DISPUTE_DEFENSE_PERIOD_ENDED,  EXPIRE,  HANDLED_EXTERNALLY,  INFORMATION_SUPPLIED,  ISSUER_COMMENTS,  ISSUER_RESPONSE_TIMEFRAME_EXPIRED,  MANUAL_REVIEW_ACCEPT,  MANUAL_REVIEW_REJECT,  NOTIFICATION_OF_CHARGEBACK,  NOTIFICATION_OF_FRAUD,  OFFER_CLOSED,  ORDER_CLOSED,  ORDER_OPENED,  PAYOUT_DECLINE,  PAYOUT_EXPIRE,  PAYOUT_THIRDPARTY,  POSTPONED_REFUND,  PREARBITRATION_LOST,  PREARBITRATION_OPEN,  PREARBITRATION_WON,  RECURRING_CONTRACT,  REFUND,  REFUNDED_REVERSED,  REFUND_FAILED,  REFUND_NOT_CLEARED,  REFUND_WITH_DATA,  REQUEST_FOR_INFORMATION,  REVERSAL,  SECOND_CHARGEBACK,  SETTLED_REVERSED,  TECHNICAL_CANCEL,  VOID_PENDING_REFUND,  };
 
   /// The time when the event was generated. Format: ISO 8601; yyyy-MM-DDThh:mm:ssTZD
   @BuiltValueField(wireName: r'eventDate')
@@ -395,14 +395,23 @@ class AuthorisationAdjustmentNotificationRequestItemEventCodeEnum extends EnumCl
   @BuiltValueEnumConst(wireName: r'REFUND_FAILED')
   static const AuthorisationAdjustmentNotificationRequestItemEventCodeEnum REFUND_FAILED = _$authorisationAdjustmentNotificationRequestItemEventCodeEnum_REFUND_FAILED;
   /// The type of event the notification item is for.
+  @BuiltValueEnumConst(wireName: r'REFUND_NOT_CLEARED')
+  static const AuthorisationAdjustmentNotificationRequestItemEventCodeEnum REFUND_NOT_CLEARED = _$authorisationAdjustmentNotificationRequestItemEventCodeEnum_REFUND_NOT_CLEARED;
+  /// The type of event the notification item is for.
   @BuiltValueEnumConst(wireName: r'REFUND_WITH_DATA')
   static const AuthorisationAdjustmentNotificationRequestItemEventCodeEnum REFUND_WITH_DATA = _$authorisationAdjustmentNotificationRequestItemEventCodeEnum_REFUND_WITH_DATA;
   /// The type of event the notification item is for.
   @BuiltValueEnumConst(wireName: r'REQUEST_FOR_INFORMATION')
   static const AuthorisationAdjustmentNotificationRequestItemEventCodeEnum REQUEST_FOR_INFORMATION = _$authorisationAdjustmentNotificationRequestItemEventCodeEnum_REQUEST_FOR_INFORMATION;
   /// The type of event the notification item is for.
+  @BuiltValueEnumConst(wireName: r'REVERSAL')
+  static const AuthorisationAdjustmentNotificationRequestItemEventCodeEnum REVERSAL = _$authorisationAdjustmentNotificationRequestItemEventCodeEnum_REVERSAL;
+  /// The type of event the notification item is for.
   @BuiltValueEnumConst(wireName: r'SECOND_CHARGEBACK')
   static const AuthorisationAdjustmentNotificationRequestItemEventCodeEnum SECOND_CHARGEBACK = _$authorisationAdjustmentNotificationRequestItemEventCodeEnum_SECOND_CHARGEBACK;
+  /// The type of event the notification item is for.
+  @BuiltValueEnumConst(wireName: r'SETTLED_REVERSED')
+  static const AuthorisationAdjustmentNotificationRequestItemEventCodeEnum SETTLED_REVERSED = _$authorisationAdjustmentNotificationRequestItemEventCodeEnum_SETTLED_REVERSED;
   /// The type of event the notification item is for.
   @BuiltValueEnumConst(wireName: r'TECHNICAL_CANCEL')
   static const AuthorisationAdjustmentNotificationRequestItemEventCodeEnum TECHNICAL_CANCEL = _$authorisationAdjustmentNotificationRequestItemEventCodeEnum_TECHNICAL_CANCEL;

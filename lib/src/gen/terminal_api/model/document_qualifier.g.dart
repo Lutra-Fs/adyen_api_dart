@@ -6,6 +6,9 @@ part of 'document_qualifier.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+const DocumentQualifier _$saleReceipt = const DocumentQualifier._(
+  'saleReceipt',
+);
 const DocumentQualifier _$cashierReceipt = const DocumentQualifier._(
   'cashierReceipt',
 );
@@ -13,29 +16,26 @@ const DocumentQualifier _$customerReceipt = const DocumentQualifier._(
   'customerReceipt',
 );
 const DocumentQualifier _$document = const DocumentQualifier._('document');
-const DocumentQualifier _$journal = const DocumentQualifier._('journal');
-const DocumentQualifier _$saleReceipt = const DocumentQualifier._(
-  'saleReceipt',
-);
 const DocumentQualifier _$voucher = const DocumentQualifier._('voucher');
+const DocumentQualifier _$journal = const DocumentQualifier._('journal');
 const DocumentQualifier _$unknownDefaultOpenApi = const DocumentQualifier._(
   'unknownDefaultOpenApi',
 );
 
 DocumentQualifier _$valueOf(String name) {
   switch (name) {
+    case 'saleReceipt':
+      return _$saleReceipt;
     case 'cashierReceipt':
       return _$cashierReceipt;
     case 'customerReceipt':
       return _$customerReceipt;
     case 'document':
       return _$document;
-    case 'journal':
-      return _$journal;
-    case 'saleReceipt':
-      return _$saleReceipt;
     case 'voucher':
       return _$voucher;
+    case 'journal':
+      return _$journal;
     case 'unknownDefaultOpenApi':
       return _$unknownDefaultOpenApi;
     default:
@@ -45,23 +45,23 @@ DocumentQualifier _$valueOf(String name) {
 
 final BuiltSet<DocumentQualifier> _$values =
     BuiltSet<DocumentQualifier>(const <DocumentQualifier>[
+      _$saleReceipt,
       _$cashierReceipt,
       _$customerReceipt,
       _$document,
-      _$journal,
-      _$saleReceipt,
       _$voucher,
+      _$journal,
       _$unknownDefaultOpenApi,
     ]);
 
 class _$DocumentQualifierMeta {
   const _$DocumentQualifierMeta();
+  DocumentQualifier get saleReceipt => _$saleReceipt;
   DocumentQualifier get cashierReceipt => _$cashierReceipt;
   DocumentQualifier get customerReceipt => _$customerReceipt;
   DocumentQualifier get document => _$document;
-  DocumentQualifier get journal => _$journal;
-  DocumentQualifier get saleReceipt => _$saleReceipt;
   DocumentQualifier get voucher => _$voucher;
+  DocumentQualifier get journal => _$journal;
   DocumentQualifier get unknownDefaultOpenApi => _$unknownDefaultOpenApi;
   DocumentQualifier valueOf(String name) => _$valueOf(name);
   BuiltSet<DocumentQualifier> get values => _$values;
@@ -79,21 +79,21 @@ Serializer<DocumentQualifier> _$documentQualifierSerializer =
 class _$DocumentQualifierSerializer
     implements PrimitiveSerializer<DocumentQualifier> {
   static const Map<String, Object> _toWire = const <String, Object>{
+    'saleReceipt': 'SaleReceipt',
     'cashierReceipt': 'CashierReceipt',
     'customerReceipt': 'CustomerReceipt',
     'document': 'Document',
-    'journal': 'Journal',
-    'saleReceipt': 'SaleReceipt',
     'voucher': 'Voucher',
+    'journal': 'Journal',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
+    'SaleReceipt': 'saleReceipt',
     'CashierReceipt': 'cashierReceipt',
     'CustomerReceipt': 'customerReceipt',
     'Document': 'document',
-    'Journal': 'journal',
-    'SaleReceipt': 'saleReceipt',
     'Voucher': 'voucher',
+    'Journal': 'journal',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
 

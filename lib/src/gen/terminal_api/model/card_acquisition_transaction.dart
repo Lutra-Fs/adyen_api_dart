@@ -36,7 +36,7 @@ abstract class CardAcquisitionTransaction implements Built<CardAcquisitionTransa
   /// Type of Loyalty processing requested by the Sale System. An way to specify what the POI has to handle concerning the loyalty. Possible values: * **Allowed** * **Forbidden** * **Processed** * **Proposed** * **Required**
   @BuiltValueField(wireName: r'LoyaltyHandling')
   LoyaltyHandling? get loyaltyHandling;
-  // enum loyaltyHandlingEnum {  Allowed,  Forbidden,  Processed,  Proposed,  Required,  };
+  // enum loyaltyHandlingEnum {  Forbidden,  Processed,  Allowed,  Proposed,  Required,  };
 
   /// The language used on the terminal screen or in text printed by the terminal.   Typical use case is setting the language on unattended terminals. Format: two-character [ISO 639:2023](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes) format.
   @BuiltValueField(wireName: r'CustomerLanguage')
@@ -45,7 +45,7 @@ abstract class CardAcquisitionTransaction implements Built<CardAcquisitionTransa
   /// Payment instrument entry mode requested by the Sale System. Avoid retry on an out of order card reading device, when the sale system knows that some card entry modes on the POI do not work. Possible values: * **CheckReader** * **Contactless** * **File** * **ICC** * **Keyed** * **MagStripe** * **Manual** * **RFID** * **Scanned** * **SynchronousICC** * **Tapped**
   @BuiltValueField(wireName: r'ForceEntryMode')
   BuiltList<CardAcquisitionTransactionForceEntryModeEnum>? get forceEntryMode;
-  // enum forceEntryModeEnum {  CheckReader,  Contactless,  File,  ICC,  Keyed,  MagStripe,  Manual,  RFID,  Scanned,  SynchronousICC,  Tapped,  };
+  // enum forceEntryModeEnum {  RFID,  Keyed,  Manual,  File,  Scanned,  MagStripe,  ICC,  SynchronousICC,  Tapped,  Contactless,  CheckReader,  };
 
   /// Indicates if the Customer realises the selection of the card application.
   @BuiltValueField(wireName: r'ForceCustomerSelectionFlag')
@@ -58,7 +58,7 @@ abstract class CardAcquisitionTransaction implements Built<CardAcquisitionTransa
   /// Type of payment transaction. Elements requested by the Sale System that are related to the payment only. Possible values: * **CashAdvance** * **CashDeposit** * **Completion** * **FirstReservation** * **Instalment** * **IssuerInstalment** * **Normal** * **OneTimeReservation** * **PaidOut** * **Recurring** * **Refund** * **UpdateReservation**
   @BuiltValueField(wireName: r'PaymentType')
   PaymentType? get paymentType;
-  // enum paymentTypeEnum {  CashAdvance,  CashDeposit,  Completion,  FirstReservation,  Instalment,  IssuerInstalment,  Normal,  OneTimeReservation,  PaidOut,  Recurring,  Refund,  UpdateReservation,  };
+  // enum paymentTypeEnum {  Normal,  Refund,  OneTimeReservation,  FirstReservation,  UpdateReservation,  Completion,  CashAdvance,  CashDeposit,  Recurring,  Instalment,  IssuerInstalment,  PaidOut,  };
 
   /// Cash back has been requested with the payment transaction. Allows choice of the Customer language when the POI displays messages or print text to Merchant interface.
   @BuiltValueField(wireName: r'CashBackFlag')
@@ -267,28 +267,28 @@ class _$CardAcquisitionTransactionSerializer implements PrimitiveSerializer<Card
 
 class CardAcquisitionTransactionForceEntryModeEnum extends EnumClass {
 
-  @BuiltValueEnumConst(wireName: r'CheckReader')
-  static const CardAcquisitionTransactionForceEntryModeEnum checkReader = _$cardAcquisitionTransactionForceEntryModeEnum_checkReader;
-  @BuiltValueEnumConst(wireName: r'Contactless')
-  static const CardAcquisitionTransactionForceEntryModeEnum contactless = _$cardAcquisitionTransactionForceEntryModeEnum_contactless;
-  @BuiltValueEnumConst(wireName: r'File')
-  static const CardAcquisitionTransactionForceEntryModeEnum file = _$cardAcquisitionTransactionForceEntryModeEnum_file;
-  @BuiltValueEnumConst(wireName: r'ICC')
-  static const CardAcquisitionTransactionForceEntryModeEnum ICC = _$cardAcquisitionTransactionForceEntryModeEnum_ICC;
-  @BuiltValueEnumConst(wireName: r'Keyed')
-  static const CardAcquisitionTransactionForceEntryModeEnum keyed = _$cardAcquisitionTransactionForceEntryModeEnum_keyed;
-  @BuiltValueEnumConst(wireName: r'MagStripe')
-  static const CardAcquisitionTransactionForceEntryModeEnum magStripe = _$cardAcquisitionTransactionForceEntryModeEnum_magStripe;
-  @BuiltValueEnumConst(wireName: r'Manual')
-  static const CardAcquisitionTransactionForceEntryModeEnum manual = _$cardAcquisitionTransactionForceEntryModeEnum_manual;
   @BuiltValueEnumConst(wireName: r'RFID')
   static const CardAcquisitionTransactionForceEntryModeEnum RFID = _$cardAcquisitionTransactionForceEntryModeEnum_RFID;
+  @BuiltValueEnumConst(wireName: r'Keyed')
+  static const CardAcquisitionTransactionForceEntryModeEnum keyed = _$cardAcquisitionTransactionForceEntryModeEnum_keyed;
+  @BuiltValueEnumConst(wireName: r'Manual')
+  static const CardAcquisitionTransactionForceEntryModeEnum manual = _$cardAcquisitionTransactionForceEntryModeEnum_manual;
+  @BuiltValueEnumConst(wireName: r'File')
+  static const CardAcquisitionTransactionForceEntryModeEnum file = _$cardAcquisitionTransactionForceEntryModeEnum_file;
   @BuiltValueEnumConst(wireName: r'Scanned')
   static const CardAcquisitionTransactionForceEntryModeEnum scanned = _$cardAcquisitionTransactionForceEntryModeEnum_scanned;
+  @BuiltValueEnumConst(wireName: r'MagStripe')
+  static const CardAcquisitionTransactionForceEntryModeEnum magStripe = _$cardAcquisitionTransactionForceEntryModeEnum_magStripe;
+  @BuiltValueEnumConst(wireName: r'ICC')
+  static const CardAcquisitionTransactionForceEntryModeEnum ICC = _$cardAcquisitionTransactionForceEntryModeEnum_ICC;
   @BuiltValueEnumConst(wireName: r'SynchronousICC')
   static const CardAcquisitionTransactionForceEntryModeEnum synchronousICC = _$cardAcquisitionTransactionForceEntryModeEnum_synchronousICC;
   @BuiltValueEnumConst(wireName: r'Tapped')
   static const CardAcquisitionTransactionForceEntryModeEnum tapped = _$cardAcquisitionTransactionForceEntryModeEnum_tapped;
+  @BuiltValueEnumConst(wireName: r'Contactless')
+  static const CardAcquisitionTransactionForceEntryModeEnum contactless = _$cardAcquisitionTransactionForceEntryModeEnum_contactless;
+  @BuiltValueEnumConst(wireName: r'CheckReader')
+  static const CardAcquisitionTransactionForceEntryModeEnum checkReader = _$cardAcquisitionTransactionForceEntryModeEnum_checkReader;
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const CardAcquisitionTransactionForceEntryModeEnum unknownDefaultOpenApi = _$cardAcquisitionTransactionForceEntryModeEnum_unknownDefaultOpenApi;
 

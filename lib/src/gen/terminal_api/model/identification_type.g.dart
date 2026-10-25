@@ -6,12 +6,12 @@ part of 'identification_type.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+const IdentificationType _$PAN = const IdentificationType._('PAN');
+const IdentificationType _$iSOTrack2 = const IdentificationType._('iSOTrack2');
+const IdentificationType _$barCode = const IdentificationType._('barCode');
 const IdentificationType _$accountNumber = const IdentificationType._(
   'accountNumber',
 );
-const IdentificationType _$barCode = const IdentificationType._('barCode');
-const IdentificationType _$iSOTrack2 = const IdentificationType._('iSOTrack2');
-const IdentificationType _$PAN = const IdentificationType._('PAN');
 const IdentificationType _$phoneNumber = const IdentificationType._(
   'phoneNumber',
 );
@@ -21,14 +21,14 @@ const IdentificationType _$unknownDefaultOpenApi = const IdentificationType._(
 
 IdentificationType _$valueOf(String name) {
   switch (name) {
-    case 'accountNumber':
-      return _$accountNumber;
-    case 'barCode':
-      return _$barCode;
-    case 'iSOTrack2':
-      return _$iSOTrack2;
     case 'PAN':
       return _$PAN;
+    case 'iSOTrack2':
+      return _$iSOTrack2;
+    case 'barCode':
+      return _$barCode;
+    case 'accountNumber':
+      return _$accountNumber;
     case 'phoneNumber':
       return _$phoneNumber;
     case 'unknownDefaultOpenApi':
@@ -38,23 +38,22 @@ IdentificationType _$valueOf(String name) {
   }
 }
 
-final BuiltSet<IdentificationType> _$values = BuiltSet<IdentificationType>(
-  const <IdentificationType>[
-    _$accountNumber,
-    _$barCode,
-    _$iSOTrack2,
-    _$PAN,
-    _$phoneNumber,
-    _$unknownDefaultOpenApi,
-  ],
-);
+final BuiltSet<IdentificationType> _$values =
+    BuiltSet<IdentificationType>(const <IdentificationType>[
+      _$PAN,
+      _$iSOTrack2,
+      _$barCode,
+      _$accountNumber,
+      _$phoneNumber,
+      _$unknownDefaultOpenApi,
+    ]);
 
 class _$IdentificationTypeMeta {
   const _$IdentificationTypeMeta();
-  IdentificationType get accountNumber => _$accountNumber;
-  IdentificationType get barCode => _$barCode;
-  IdentificationType get iSOTrack2 => _$iSOTrack2;
   IdentificationType get PAN => _$PAN;
+  IdentificationType get iSOTrack2 => _$iSOTrack2;
+  IdentificationType get barCode => _$barCode;
+  IdentificationType get accountNumber => _$accountNumber;
   IdentificationType get phoneNumber => _$phoneNumber;
   IdentificationType get unknownDefaultOpenApi => _$unknownDefaultOpenApi;
   IdentificationType valueOf(String name) => _$valueOf(name);
@@ -73,18 +72,18 @@ Serializer<IdentificationType> _$identificationTypeSerializer =
 class _$IdentificationTypeSerializer
     implements PrimitiveSerializer<IdentificationType> {
   static const Map<String, Object> _toWire = const <String, Object>{
-    'accountNumber': 'AccountNumber',
-    'barCode': 'BarCode',
-    'iSOTrack2': 'ISOTrack2',
     'PAN': 'PAN',
+    'iSOTrack2': 'ISOTrack2',
+    'barCode': 'BarCode',
+    'accountNumber': 'AccountNumber',
     'phoneNumber': 'PhoneNumber',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
-    'AccountNumber': 'accountNumber',
-    'BarCode': 'barCode',
-    'ISOTrack2': 'iSOTrack2',
     'PAN': 'PAN',
+    'ISOTrack2': 'iSOTrack2',
+    'BarCode': 'barCode',
+    'AccountNumber': 'accountNumber',
     'PhoneNumber': 'phoneNumber',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };

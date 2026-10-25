@@ -41,17 +41,16 @@ BalanceTransferType _$valueOf(String name) {
   }
 }
 
-final BuiltSet<BalanceTransferType> _$values = BuiltSet<BalanceTransferType>(
-  const <BalanceTransferType>[
-    _$tax,
-    _$fee,
-    _$terminalSale,
-    _$credit,
-    _$debit,
-    _$adjustment,
-    _$unknownDefaultOpenApi,
-  ],
-);
+final BuiltSet<BalanceTransferType> _$values =
+    BuiltSet<BalanceTransferType>(const <BalanceTransferType>[
+      _$tax,
+      _$fee,
+      _$terminalSale,
+      _$credit,
+      _$debit,
+      _$adjustment,
+      _$unknownDefaultOpenApi,
+    ]);
 
 class _$BalanceTransferTypeMeta {
   const _$BalanceTransferTypeMeta();

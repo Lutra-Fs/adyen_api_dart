@@ -74,6 +74,7 @@ part 'response_additional_data_common.g.dart';
 /// * [tokenizationPeriodShopperReference] - The reference for the shopper that you sent when tokenizing the payment details.
 /// * [tokenizationPeriodStorePeriodOperationType] - The operation performed on the token. Possible values:  * **created**: the token has been created. * **updated**: the existing token has been updated. * **alreadyExisting**: the details have already been stored. 
 /// * [tokenizationPeriodStoredPaymentMethodId] - The reference that uniquely identifies tokenized payment details.
+/// * [transactionLinkId] - Returned in the response for Mastercard payments.  This contains the Mastercard Transaction Link Identifier (TLID).
 /// * [visaTransactionId] - The `visaTransactionId`, has a fixed length of 15 numeric characters.  > Contact Support Team to enable this field.
 /// * [xid] - The 3DS transaction ID of the 3DS session sent in notifications. The value is Base64-encoded and is returned for transactions with directoryResponse 'N' or 'Y'.   Example: ODgxNDc2MDg2MDExODk5MAAAAAA=
 @BuiltValue()
@@ -331,6 +332,10 @@ abstract class ResponseAdditionalDataCommon implements Built<ResponseAdditionalD
   /// The reference that uniquely identifies tokenized payment details.
   @BuiltValueField(wireName: r'tokenization.storedPaymentMethodId')
   String? get tokenizationPeriodStoredPaymentMethodId;
+
+  /// Returned in the response for Mastercard payments.  This contains the Mastercard Transaction Link Identifier (TLID).
+  @BuiltValueField(wireName: r'transactionLinkId')
+  String? get transactionLinkId;
 
   /// The `visaTransactionId`, has a fixed length of 15 numeric characters.  > Contact Support Team to enable this field.
   @BuiltValueField(wireName: r'visaTransactionId')
@@ -794,6 +799,13 @@ class _$ResponseAdditionalDataCommonSerializer implements PrimitiveSerializer<Re
       yield r'tokenization.storedPaymentMethodId';
       yield serializers.serialize(
         object.tokenizationPeriodStoredPaymentMethodId,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.transactionLinkId != null) {
+      yield r'transactionLinkId';
+      yield serializers.serialize(
+        object.transactionLinkId,
         specifiedType: const FullType(String),
       );
     }
@@ -1267,6 +1279,13 @@ class _$ResponseAdditionalDataCommonSerializer implements PrimitiveSerializer<Re
             specifiedType: const FullType(String),
           ) as String;
           result.tokenizationPeriodStoredPaymentMethodId = valueDes;
+          break;
+        case r'transactionLinkId':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.transactionLinkId = valueDes;
           break;
         case r'visaTransactionId':
           final valueDes = serializers.deserialize(

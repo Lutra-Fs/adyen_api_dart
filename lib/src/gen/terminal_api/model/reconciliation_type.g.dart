@@ -6,17 +6,17 @@ part of 'reconciliation_type.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-const ReconciliationType _$acquirerReconciliation = const ReconciliationType._(
-  'acquirerReconciliation',
+const ReconciliationType _$saleReconciliation = const ReconciliationType._(
+  'saleReconciliation',
 );
 const ReconciliationType _$acquirerSynchronisation = const ReconciliationType._(
   'acquirerSynchronisation',
 );
+const ReconciliationType _$acquirerReconciliation = const ReconciliationType._(
+  'acquirerReconciliation',
+);
 const ReconciliationType _$previousReconciliation = const ReconciliationType._(
   'previousReconciliation',
-);
-const ReconciliationType _$saleReconciliation = const ReconciliationType._(
-  'saleReconciliation',
 );
 const ReconciliationType _$unknownDefaultOpenApi = const ReconciliationType._(
   'unknownDefaultOpenApi',
@@ -24,14 +24,14 @@ const ReconciliationType _$unknownDefaultOpenApi = const ReconciliationType._(
 
 ReconciliationType _$valueOf(String name) {
   switch (name) {
-    case 'acquirerReconciliation':
-      return _$acquirerReconciliation;
-    case 'acquirerSynchronisation':
-      return _$acquirerSynchronisation;
-    case 'previousReconciliation':
-      return _$previousReconciliation;
     case 'saleReconciliation':
       return _$saleReconciliation;
+    case 'acquirerSynchronisation':
+      return _$acquirerSynchronisation;
+    case 'acquirerReconciliation':
+      return _$acquirerReconciliation;
+    case 'previousReconciliation':
+      return _$previousReconciliation;
     case 'unknownDefaultOpenApi':
       return _$unknownDefaultOpenApi;
     default:
@@ -41,19 +41,19 @@ ReconciliationType _$valueOf(String name) {
 
 final BuiltSet<ReconciliationType> _$values =
     BuiltSet<ReconciliationType>(const <ReconciliationType>[
-      _$acquirerReconciliation,
-      _$acquirerSynchronisation,
-      _$previousReconciliation,
       _$saleReconciliation,
+      _$acquirerSynchronisation,
+      _$acquirerReconciliation,
+      _$previousReconciliation,
       _$unknownDefaultOpenApi,
     ]);
 
 class _$ReconciliationTypeMeta {
   const _$ReconciliationTypeMeta();
-  ReconciliationType get acquirerReconciliation => _$acquirerReconciliation;
-  ReconciliationType get acquirerSynchronisation => _$acquirerSynchronisation;
-  ReconciliationType get previousReconciliation => _$previousReconciliation;
   ReconciliationType get saleReconciliation => _$saleReconciliation;
+  ReconciliationType get acquirerSynchronisation => _$acquirerSynchronisation;
+  ReconciliationType get acquirerReconciliation => _$acquirerReconciliation;
+  ReconciliationType get previousReconciliation => _$previousReconciliation;
   ReconciliationType get unknownDefaultOpenApi => _$unknownDefaultOpenApi;
   ReconciliationType valueOf(String name) => _$valueOf(name);
   BuiltSet<ReconciliationType> get values => _$values;
@@ -71,17 +71,17 @@ Serializer<ReconciliationType> _$reconciliationTypeSerializer =
 class _$ReconciliationTypeSerializer
     implements PrimitiveSerializer<ReconciliationType> {
   static const Map<String, Object> _toWire = const <String, Object>{
-    'acquirerReconciliation': 'AcquirerReconciliation',
-    'acquirerSynchronisation': 'AcquirerSynchronisation',
-    'previousReconciliation': 'PreviousReconciliation',
     'saleReconciliation': 'SaleReconciliation',
+    'acquirerSynchronisation': 'AcquirerSynchronisation',
+    'acquirerReconciliation': 'AcquirerReconciliation',
+    'previousReconciliation': 'PreviousReconciliation',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
-    'AcquirerReconciliation': 'acquirerReconciliation',
-    'AcquirerSynchronisation': 'acquirerSynchronisation',
-    'PreviousReconciliation': 'previousReconciliation',
     'SaleReconciliation': 'saleReconciliation',
+    'AcquirerSynchronisation': 'acquirerSynchronisation',
+    'AcquirerReconciliation': 'acquirerReconciliation',
+    'PreviousReconciliation': 'previousReconciliation',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
 

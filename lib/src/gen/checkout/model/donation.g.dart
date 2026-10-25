@@ -10,7 +10,7 @@ class _$Donation extends Donation {
   @override
   final String currency;
   @override
-  final String donationType;
+  final String? donationType;
   @override
   final int? maxRoundupAmount;
   @override
@@ -23,7 +23,7 @@ class _$Donation extends Donation {
 
   _$Donation._({
     required this.currency,
-    required this.donationType,
+    this.donationType,
     this.maxRoundupAmount,
     required this.type,
     this.values,
@@ -135,11 +135,7 @@ class DonationBuilder implements Builder<Donation, DonationBuilder> {
               r'Donation',
               'currency',
             ),
-            donationType: BuiltValueNullFieldError.checkNotNull(
-              donationType,
-              r'Donation',
-              'donationType',
-            ),
+            donationType: donationType,
             maxRoundupAmount: maxRoundupAmount,
             type: BuiltValueNullFieldError.checkNotNull(
               type,

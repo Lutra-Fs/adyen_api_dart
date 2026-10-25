@@ -26,6 +26,12 @@ abstract class PaymentDetailsResponseAction implements Built<PaymentDetailsRespo
   /// One Of [CheckoutThreeDS2Action]
   OneOf get oneOf;
 
+  static const String discriminatorFieldName = r'type';
+
+  static const Map<String, Type> discriminatorMapping = {
+    r'threeDS2': CheckoutThreeDS2Action,
+  };
+
   PaymentDetailsResponseAction._();
 
   factory PaymentDetailsResponseAction([void updates(PaymentDetailsResponseActionBuilder b)]) = _$PaymentDetailsResponseAction;
@@ -35,6 +41,23 @@ abstract class PaymentDetailsResponseAction implements Built<PaymentDetailsRespo
 
   @BuiltValueSerializer(custom: true)
   static Serializer<PaymentDetailsResponseAction> get serializer => _$PaymentDetailsResponseActionSerializer();
+}
+
+extension PaymentDetailsResponseActionDiscriminatorExt on PaymentDetailsResponseAction {
+    String? get discriminatorValue {
+        if (this is CheckoutThreeDS2Action) {
+            return r'threeDS2';
+        }
+        return null;
+    }
+}
+extension PaymentDetailsResponseActionBuilderDiscriminatorExt on PaymentDetailsResponseActionBuilder {
+    String? get discriminatorValue {
+        if (this is CheckoutThreeDS2ActionBuilder) {
+            return r'threeDS2';
+        }
+        return null;
+    }
 }
 
 class _$PaymentDetailsResponseActionSerializer implements PrimitiveSerializer<PaymentDetailsResponseAction> {
@@ -69,9 +92,25 @@ class _$PaymentDetailsResponseActionSerializer implements PrimitiveSerializer<Pa
   }) {
     final result = PaymentDetailsResponseActionBuilder();
     Object? oneOfDataSrc;
-    final targetType = const FullType(OneOf, [FullType(CheckoutThreeDS2Action), ]);
+    final serializedList = (serialized as Iterable<Object?>).toList();
+    final discIndex = serializedList.indexOf(PaymentDetailsResponseAction.discriminatorFieldName) + 1;
+    final discValue = serializers.deserialize(serializedList[discIndex], specifiedType: FullType(String)) as String;
     oneOfDataSrc = serialized;
-    result.oneOf = serializers.deserialize(oneOfDataSrc, specifiedType: targetType) as OneOf;
+    final oneOfTypes = [CheckoutThreeDS2Action, ];
+    Object oneOfResult;
+    Type oneOfType;
+    switch (discValue) {
+      case r'threeDS2':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(CheckoutThreeDS2Action),
+        ) as CheckoutThreeDS2Action;
+        oneOfType = CheckoutThreeDS2Action;
+        break;
+      default:
+        throw UnsupportedError("Couldn't deserialize oneOf for the discriminator value: ${discValue}");
+    }
+    result.oneOf = OneOfDynamic(typeIndex: oneOfTypes.indexOf(oneOfType), types: oneOfTypes, value: oneOfResult);
     return result.build();
   }
 }

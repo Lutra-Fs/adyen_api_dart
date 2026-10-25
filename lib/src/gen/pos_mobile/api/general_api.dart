@@ -33,6 +33,7 @@ class GeneralApi {
   ///
   /// Returns a [Future] containing a [Response] with a [CreateSessionResponse] as data
   /// Throws [DioException] if API call or serialization fails
+  @Deprecated('This operation has been deprecated')
   Future<Response<CreateSessionResponse>> postSessions({ 
     CreateSessionRequest? createSessionRequest,
     CancelToken? cancelToken,

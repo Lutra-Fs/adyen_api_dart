@@ -99,117 +99,129 @@ class _$PaymentMethodVerificationStatusEnumSerializer
 
 class _$PaymentMethod extends PaymentMethod {
   @override
-  final AccelInfo? accel;
+  final AccelResponseInfo? accel;
   @override
-  final AffirmInfo? affirm;
+  final AffirmResponseInfo? affirm;
   @override
-  final AfterpayTouchInfo? afterpayTouch;
+  final AfterpayTouchResponseInfo? afterpayTouch;
   @override
-  final AlipayPlusInfo? alipayPlus;
+  final AlipayPlusResponseInfo? alipayPlus;
   @override
   final bool? allowed;
   @override
-  final AmexInfo? amex;
+  final AmexResponseInfo? amex;
   @override
-  final ApplePayInfo? applePay;
+  final AncvResponseInfo? ancv;
   @override
-  final BcmcInfo? bcmc;
+  final ApplePayResponseInfo? applePay;
+  @override
+  final BuiltList<AssociatedPaymentMethod>? associatedPaymentMethods;
+  @override
+  final BcmcResponseInfo? bcmc;
   @override
   final String? businessLineId;
   @override
-  final CartesBancairesInfo? cartesBancaires;
+  final CarnetResponseInfo? carnet;
   @override
-  final ClearpayInfo? clearpay;
+  final CartesBancairesResponseInfo? cartesBancaires;
+  @override
+  final ClearpayResponseInfo? clearpay;
   @override
   final BuiltList<String>? countries;
   @override
-  final GenericPmWithTdiInfo? cup;
+  final CupResponseInfo? cup;
   @override
   final BuiltList<String>? currencies;
   @override
   final BuiltList<String>? customRoutingFlags;
   @override
-  final DinersInfo? diners;
+  final DinersResponseInfo? diners;
   @override
-  final GenericPmWithTdiInfo? discover;
+  final DiscoverResponseInfo? discover;
   @override
-  final GenericPmWithTdiInfo? eftDirectdebitCA;
+  final EbtResponseInfo? ebt;
   @override
-  final GenericPmWithTdiInfo? eftposAustralia;
+  final EFTDirectDebitCAResponseInfo? eftDirectdebitCA;
+  @override
+  final EftPosAustraliaResponseInfo? eftposAustralia;
   @override
   final bool? enabled;
   @override
-  final GenericPmWithTdiInfo? girocard;
+  final GirocardResponseInfo? girocard;
   @override
-  final GivexInfo? givex;
+  final GivexResponseInfo? givex;
   @override
-  final GooglePayInfo? googlePay;
+  final GooglePayResponseInfo? googlePay;
   @override
   final String id;
   @override
-  final GenericPmWithTdiInfo? ideal;
+  final IdealResponseInfo? ideal;
   @override
-  final GenericPmWithTdiInfo? interacCard;
+  final InteracCardResponseInfo? interacCard;
   @override
-  final JCBInfo? jcb;
+  final JCBResponseInfo? jcb;
   @override
-  final KlarnaInfo? klarna;
+  final KlarnaResponseInfo? klarna;
   @override
-  final GenericPmWithTdiInfo? maestro;
+  final MaestroResponseInfo? maestro;
   @override
-  final GenericPmWithTdiInfo? maestroUsa;
+  final MaestroUSAResponseInfo? maestroUsa;
   @override
-  final GenericPmWithTdiInfo? mc;
+  final MCResponseInfo? mc;
   @override
-  final MealVoucherFRInfo? mealVoucherFR;
+  final MealVoucherFRResponseInfo? mealVoucherFR;
   @override
-  final NyceInfo? nyce;
+  final String? merchantCategoryCode;
   @override
-  final PayByBankPlaidInfo? paybybankPlaid;
+  final String? mid;
   @override
-  final PayMeInfo? payme;
+  final NyceResponseInfo? nyce;
   @override
-  final PayPalInfo? paypal;
+  final PayByBankPlaidResponseInfo? paybybankPlaid;
   @override
-  final PayToInfo? payto;
+  final PayMeResponseInfo? payme;
   @override
-  final PulseInfo? pulse;
+  final PayPalResponseInfo? paypal;
+  @override
+  final PayToResponseInfo? payto;
+  @override
+  final PulseResponseInfo? pulse;
   @override
   final String? reference;
   @override
-  final SepaDirectDebitInfo? sepadirectdebit;
+  final SepaDirectDebitResponseInfo? sepadirectdebit;
   @override
   final String? shopperInteraction;
   @override
-  final SodexoInfo? sodexo;
+  final SodexoResponseInfo? sodexo;
   @override
-  final SofortInfo? sofort;
+  final SofortResponseInfo? sofort;
   @override
-  final StarInfo? star;
+  final StarResponseInfo? star;
   @override
   final BuiltList<String>? storeIds;
   @override
-  final SvsInfo? svs;
+  final SvsResponseInfo? svs;
   @override
-  final SwishInfo? swish;
+  final SwishResponseInfo? swish;
   @override
-  final TicketInfo? ticket;
+  final TicketResponseInfo? ticket;
   @override
-  final TwintInfo? twint;
+  final TwintResponseInfo? twint;
   @override
   final String? type;
   @override
-  final ValuelinkInfo? valuelink;
+  final ValuelinkResponseInfo? valuelink;
   @override
   final PaymentMethodVerificationStatusEnum? verificationStatus;
   @override
-  final VippsInfo? vipps;
+  final VippsResponseInfo? vipps;
   @override
-  final GenericPmWithTdiInfo? visa;
+  final VisaResponseInfo? visa;
   @override
-  final WeChatPayInfo? wechatpay;
+  final WeChatPayResponseInfo? wechatpay;
   @override
-  final WeChatPayPosInfo? wechatpayPos;
+  final WeChatPayPosResponseInfo? wechatpayPos;
 
   factory _$PaymentMethod([void Function(PaymentMethodBuilder)? updates]) =>
       (PaymentMethodBuilder()..update(updates))._build();
@@ -221,9 +233,12 @@ class _$PaymentMethod extends PaymentMethod {
     this.alipayPlus,
     this.allowed,
     this.amex,
+    this.ancv,
     this.applePay,
+    this.associatedPaymentMethods,
     this.bcmc,
     this.businessLineId,
+    this.carnet,
     this.cartesBancaires,
     this.clearpay,
     this.countries,
@@ -232,6 +247,7 @@ class _$PaymentMethod extends PaymentMethod {
     this.customRoutingFlags,
     this.diners,
     this.discover,
+    this.ebt,
     this.eftDirectdebitCA,
     this.eftposAustralia,
     this.enabled,
@@ -247,6 +263,8 @@ class _$PaymentMethod extends PaymentMethod {
     this.maestroUsa,
     this.mc,
     this.mealVoucherFR,
+    this.merchantCategoryCode,
+    this.mid,
     this.nyce,
     this.paybybankPlaid,
     this.payme,
@@ -289,9 +307,12 @@ class _$PaymentMethod extends PaymentMethod {
         alipayPlus == other.alipayPlus &&
         allowed == other.allowed &&
         amex == other.amex &&
+        ancv == other.ancv &&
         applePay == other.applePay &&
+        associatedPaymentMethods == other.associatedPaymentMethods &&
         bcmc == other.bcmc &&
         businessLineId == other.businessLineId &&
+        carnet == other.carnet &&
         cartesBancaires == other.cartesBancaires &&
         clearpay == other.clearpay &&
         countries == other.countries &&
@@ -300,6 +321,7 @@ class _$PaymentMethod extends PaymentMethod {
         customRoutingFlags == other.customRoutingFlags &&
         diners == other.diners &&
         discover == other.discover &&
+        ebt == other.ebt &&
         eftDirectdebitCA == other.eftDirectdebitCA &&
         eftposAustralia == other.eftposAustralia &&
         enabled == other.enabled &&
@@ -315,6 +337,8 @@ class _$PaymentMethod extends PaymentMethod {
         maestroUsa == other.maestroUsa &&
         mc == other.mc &&
         mealVoucherFR == other.mealVoucherFR &&
+        merchantCategoryCode == other.merchantCategoryCode &&
+        mid == other.mid &&
         nyce == other.nyce &&
         paybybankPlaid == other.paybybankPlaid &&
         payme == other.payme &&
@@ -350,9 +374,12 @@ class _$PaymentMethod extends PaymentMethod {
     _$hash = $jc(_$hash, alipayPlus.hashCode);
     _$hash = $jc(_$hash, allowed.hashCode);
     _$hash = $jc(_$hash, amex.hashCode);
+    _$hash = $jc(_$hash, ancv.hashCode);
     _$hash = $jc(_$hash, applePay.hashCode);
+    _$hash = $jc(_$hash, associatedPaymentMethods.hashCode);
     _$hash = $jc(_$hash, bcmc.hashCode);
     _$hash = $jc(_$hash, businessLineId.hashCode);
+    _$hash = $jc(_$hash, carnet.hashCode);
     _$hash = $jc(_$hash, cartesBancaires.hashCode);
     _$hash = $jc(_$hash, clearpay.hashCode);
     _$hash = $jc(_$hash, countries.hashCode);
@@ -361,6 +388,7 @@ class _$PaymentMethod extends PaymentMethod {
     _$hash = $jc(_$hash, customRoutingFlags.hashCode);
     _$hash = $jc(_$hash, diners.hashCode);
     _$hash = $jc(_$hash, discover.hashCode);
+    _$hash = $jc(_$hash, ebt.hashCode);
     _$hash = $jc(_$hash, eftDirectdebitCA.hashCode);
     _$hash = $jc(_$hash, eftposAustralia.hashCode);
     _$hash = $jc(_$hash, enabled.hashCode);
@@ -376,6 +404,8 @@ class _$PaymentMethod extends PaymentMethod {
     _$hash = $jc(_$hash, maestroUsa.hashCode);
     _$hash = $jc(_$hash, mc.hashCode);
     _$hash = $jc(_$hash, mealVoucherFR.hashCode);
+    _$hash = $jc(_$hash, merchantCategoryCode.hashCode);
+    _$hash = $jc(_$hash, mid.hashCode);
     _$hash = $jc(_$hash, nyce.hashCode);
     _$hash = $jc(_$hash, paybybankPlaid.hashCode);
     _$hash = $jc(_$hash, payme.hashCode);
@@ -413,9 +443,12 @@ class _$PaymentMethod extends PaymentMethod {
           ..add('alipayPlus', alipayPlus)
           ..add('allowed', allowed)
           ..add('amex', amex)
+          ..add('ancv', ancv)
           ..add('applePay', applePay)
+          ..add('associatedPaymentMethods', associatedPaymentMethods)
           ..add('bcmc', bcmc)
           ..add('businessLineId', businessLineId)
+          ..add('carnet', carnet)
           ..add('cartesBancaires', cartesBancaires)
           ..add('clearpay', clearpay)
           ..add('countries', countries)
@@ -424,6 +457,7 @@ class _$PaymentMethod extends PaymentMethod {
           ..add('customRoutingFlags', customRoutingFlags)
           ..add('diners', diners)
           ..add('discover', discover)
+          ..add('ebt', ebt)
           ..add('eftDirectdebitCA', eftDirectdebitCA)
           ..add('eftposAustralia', eftposAustralia)
           ..add('enabled', enabled)
@@ -439,6 +473,8 @@ class _$PaymentMethod extends PaymentMethod {
           ..add('maestroUsa', maestroUsa)
           ..add('mc', mc)
           ..add('mealVoucherFR', mealVoucherFR)
+          ..add('merchantCategoryCode', merchantCategoryCode)
+          ..add('mid', mid)
           ..add('nyce', nyce)
           ..add('paybybankPlaid', paybybankPlaid)
           ..add('payme', payme)
@@ -471,58 +507,82 @@ class PaymentMethodBuilder
     implements Builder<PaymentMethod, PaymentMethodBuilder> {
   _$PaymentMethod? _$v;
 
-  AccelInfoBuilder? _accel;
-  AccelInfoBuilder get accel => _$this._accel ??= AccelInfoBuilder();
-  set accel(AccelInfoBuilder? accel) => _$this._accel = accel;
+  AccelResponseInfoBuilder? _accel;
+  AccelResponseInfoBuilder get accel =>
+      _$this._accel ??= AccelResponseInfoBuilder();
+  set accel(AccelResponseInfoBuilder? accel) => _$this._accel = accel;
 
-  AffirmInfoBuilder? _affirm;
-  AffirmInfoBuilder get affirm => _$this._affirm ??= AffirmInfoBuilder();
-  set affirm(AffirmInfoBuilder? affirm) => _$this._affirm = affirm;
+  AffirmResponseInfoBuilder? _affirm;
+  AffirmResponseInfoBuilder get affirm =>
+      _$this._affirm ??= AffirmResponseInfoBuilder();
+  set affirm(AffirmResponseInfoBuilder? affirm) => _$this._affirm = affirm;
 
-  AfterpayTouchInfoBuilder? _afterpayTouch;
-  AfterpayTouchInfoBuilder get afterpayTouch =>
-      _$this._afterpayTouch ??= AfterpayTouchInfoBuilder();
-  set afterpayTouch(AfterpayTouchInfoBuilder? afterpayTouch) =>
+  AfterpayTouchResponseInfoBuilder? _afterpayTouch;
+  AfterpayTouchResponseInfoBuilder get afterpayTouch =>
+      _$this._afterpayTouch ??= AfterpayTouchResponseInfoBuilder();
+  set afterpayTouch(AfterpayTouchResponseInfoBuilder? afterpayTouch) =>
       _$this._afterpayTouch = afterpayTouch;
 
-  AlipayPlusInfoBuilder? _alipayPlus;
-  AlipayPlusInfoBuilder get alipayPlus =>
-      _$this._alipayPlus ??= AlipayPlusInfoBuilder();
-  set alipayPlus(AlipayPlusInfoBuilder? alipayPlus) =>
+  AlipayPlusResponseInfoBuilder? _alipayPlus;
+  AlipayPlusResponseInfoBuilder get alipayPlus =>
+      _$this._alipayPlus ??= AlipayPlusResponseInfoBuilder();
+  set alipayPlus(AlipayPlusResponseInfoBuilder? alipayPlus) =>
       _$this._alipayPlus = alipayPlus;
 
   bool? _allowed;
   bool? get allowed => _$this._allowed;
   set allowed(bool? allowed) => _$this._allowed = allowed;
 
-  AmexInfoBuilder? _amex;
-  AmexInfoBuilder get amex => _$this._amex ??= AmexInfoBuilder();
-  set amex(AmexInfoBuilder? amex) => _$this._amex = amex;
+  AmexResponseInfoBuilder? _amex;
+  AmexResponseInfoBuilder get amex =>
+      _$this._amex ??= AmexResponseInfoBuilder();
+  set amex(AmexResponseInfoBuilder? amex) => _$this._amex = amex;
 
-  ApplePayInfoBuilder? _applePay;
-  ApplePayInfoBuilder get applePay =>
-      _$this._applePay ??= ApplePayInfoBuilder();
-  set applePay(ApplePayInfoBuilder? applePay) => _$this._applePay = applePay;
+  AncvResponseInfoBuilder? _ancv;
+  AncvResponseInfoBuilder get ancv =>
+      _$this._ancv ??= AncvResponseInfoBuilder();
+  set ancv(AncvResponseInfoBuilder? ancv) => _$this._ancv = ancv;
 
-  BcmcInfoBuilder? _bcmc;
-  BcmcInfoBuilder get bcmc => _$this._bcmc ??= BcmcInfoBuilder();
-  set bcmc(BcmcInfoBuilder? bcmc) => _$this._bcmc = bcmc;
+  ApplePayResponseInfoBuilder? _applePay;
+  ApplePayResponseInfoBuilder get applePay =>
+      _$this._applePay ??= ApplePayResponseInfoBuilder();
+  set applePay(ApplePayResponseInfoBuilder? applePay) =>
+      _$this._applePay = applePay;
+
+  ListBuilder<AssociatedPaymentMethod>? _associatedPaymentMethods;
+  ListBuilder<AssociatedPaymentMethod> get associatedPaymentMethods =>
+      _$this._associatedPaymentMethods ??=
+          ListBuilder<AssociatedPaymentMethod>();
+  set associatedPaymentMethods(
+    ListBuilder<AssociatedPaymentMethod>? associatedPaymentMethods,
+  ) => _$this._associatedPaymentMethods = associatedPaymentMethods;
+
+  BcmcResponseInfoBuilder? _bcmc;
+  BcmcResponseInfoBuilder get bcmc =>
+      _$this._bcmc ??= BcmcResponseInfoBuilder();
+  set bcmc(BcmcResponseInfoBuilder? bcmc) => _$this._bcmc = bcmc;
 
   String? _businessLineId;
   String? get businessLineId => _$this._businessLineId;
   set businessLineId(String? businessLineId) =>
       _$this._businessLineId = businessLineId;
 
-  CartesBancairesInfoBuilder? _cartesBancaires;
-  CartesBancairesInfoBuilder get cartesBancaires =>
-      _$this._cartesBancaires ??= CartesBancairesInfoBuilder();
-  set cartesBancaires(CartesBancairesInfoBuilder? cartesBancaires) =>
+  CarnetResponseInfoBuilder? _carnet;
+  CarnetResponseInfoBuilder get carnet =>
+      _$this._carnet ??= CarnetResponseInfoBuilder();
+  set carnet(CarnetResponseInfoBuilder? carnet) => _$this._carnet = carnet;
+
+  CartesBancairesResponseInfoBuilder? _cartesBancaires;
+  CartesBancairesResponseInfoBuilder get cartesBancaires =>
+      _$this._cartesBancaires ??= CartesBancairesResponseInfoBuilder();
+  set cartesBancaires(CartesBancairesResponseInfoBuilder? cartesBancaires) =>
       _$this._cartesBancaires = cartesBancaires;
 
-  ClearpayInfoBuilder? _clearpay;
-  ClearpayInfoBuilder get clearpay =>
-      _$this._clearpay ??= ClearpayInfoBuilder();
-  set clearpay(ClearpayInfoBuilder? clearpay) => _$this._clearpay = clearpay;
+  ClearpayResponseInfoBuilder? _clearpay;
+  ClearpayResponseInfoBuilder get clearpay =>
+      _$this._clearpay ??= ClearpayResponseInfoBuilder();
+  set clearpay(ClearpayResponseInfoBuilder? clearpay) =>
+      _$this._clearpay = clearpay;
 
   ListBuilder<String>? _countries;
   ListBuilder<String> get countries =>
@@ -530,10 +590,9 @@ class PaymentMethodBuilder
   set countries(ListBuilder<String>? countries) =>
       _$this._countries = countries;
 
-  GenericPmWithTdiInfoBuilder? _cup;
-  GenericPmWithTdiInfoBuilder get cup =>
-      _$this._cup ??= GenericPmWithTdiInfoBuilder();
-  set cup(GenericPmWithTdiInfoBuilder? cup) => _$this._cup = cup;
+  CupResponseInfoBuilder? _cup;
+  CupResponseInfoBuilder get cup => _$this._cup ??= CupResponseInfoBuilder();
+  set cup(CupResponseInfoBuilder? cup) => _$this._cup = cup;
 
   ListBuilder<String>? _currencies;
   ListBuilder<String> get currencies =>
@@ -547,128 +606,147 @@ class PaymentMethodBuilder
   set customRoutingFlags(ListBuilder<String>? customRoutingFlags) =>
       _$this._customRoutingFlags = customRoutingFlags;
 
-  DinersInfoBuilder? _diners;
-  DinersInfoBuilder get diners => _$this._diners ??= DinersInfoBuilder();
-  set diners(DinersInfoBuilder? diners) => _$this._diners = diners;
+  DinersResponseInfoBuilder? _diners;
+  DinersResponseInfoBuilder get diners =>
+      _$this._diners ??= DinersResponseInfoBuilder();
+  set diners(DinersResponseInfoBuilder? diners) => _$this._diners = diners;
 
-  GenericPmWithTdiInfoBuilder? _discover;
-  GenericPmWithTdiInfoBuilder get discover =>
-      _$this._discover ??= GenericPmWithTdiInfoBuilder();
-  set discover(GenericPmWithTdiInfoBuilder? discover) =>
+  DiscoverResponseInfoBuilder? _discover;
+  DiscoverResponseInfoBuilder get discover =>
+      _$this._discover ??= DiscoverResponseInfoBuilder();
+  set discover(DiscoverResponseInfoBuilder? discover) =>
       _$this._discover = discover;
 
-  GenericPmWithTdiInfoBuilder? _eftDirectdebitCA;
-  GenericPmWithTdiInfoBuilder get eftDirectdebitCA =>
-      _$this._eftDirectdebitCA ??= GenericPmWithTdiInfoBuilder();
-  set eftDirectdebitCA(GenericPmWithTdiInfoBuilder? eftDirectdebitCA) =>
+  EbtResponseInfoBuilder? _ebt;
+  EbtResponseInfoBuilder get ebt => _$this._ebt ??= EbtResponseInfoBuilder();
+  set ebt(EbtResponseInfoBuilder? ebt) => _$this._ebt = ebt;
+
+  EFTDirectDebitCAResponseInfoBuilder? _eftDirectdebitCA;
+  EFTDirectDebitCAResponseInfoBuilder get eftDirectdebitCA =>
+      _$this._eftDirectdebitCA ??= EFTDirectDebitCAResponseInfoBuilder();
+  set eftDirectdebitCA(EFTDirectDebitCAResponseInfoBuilder? eftDirectdebitCA) =>
       _$this._eftDirectdebitCA = eftDirectdebitCA;
 
-  GenericPmWithTdiInfoBuilder? _eftposAustralia;
-  GenericPmWithTdiInfoBuilder get eftposAustralia =>
-      _$this._eftposAustralia ??= GenericPmWithTdiInfoBuilder();
-  set eftposAustralia(GenericPmWithTdiInfoBuilder? eftposAustralia) =>
+  EftPosAustraliaResponseInfoBuilder? _eftposAustralia;
+  EftPosAustraliaResponseInfoBuilder get eftposAustralia =>
+      _$this._eftposAustralia ??= EftPosAustraliaResponseInfoBuilder();
+  set eftposAustralia(EftPosAustraliaResponseInfoBuilder? eftposAustralia) =>
       _$this._eftposAustralia = eftposAustralia;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
   set enabled(bool? enabled) => _$this._enabled = enabled;
 
-  GenericPmWithTdiInfoBuilder? _girocard;
-  GenericPmWithTdiInfoBuilder get girocard =>
-      _$this._girocard ??= GenericPmWithTdiInfoBuilder();
-  set girocard(GenericPmWithTdiInfoBuilder? girocard) =>
+  GirocardResponseInfoBuilder? _girocard;
+  GirocardResponseInfoBuilder get girocard =>
+      _$this._girocard ??= GirocardResponseInfoBuilder();
+  set girocard(GirocardResponseInfoBuilder? girocard) =>
       _$this._girocard = girocard;
 
-  GivexInfoBuilder? _givex;
-  GivexInfoBuilder get givex => _$this._givex ??= GivexInfoBuilder();
-  set givex(GivexInfoBuilder? givex) => _$this._givex = givex;
+  GivexResponseInfoBuilder? _givex;
+  GivexResponseInfoBuilder get givex =>
+      _$this._givex ??= GivexResponseInfoBuilder();
+  set givex(GivexResponseInfoBuilder? givex) => _$this._givex = givex;
 
-  GooglePayInfoBuilder? _googlePay;
-  GooglePayInfoBuilder get googlePay =>
-      _$this._googlePay ??= GooglePayInfoBuilder();
-  set googlePay(GooglePayInfoBuilder? googlePay) =>
+  GooglePayResponseInfoBuilder? _googlePay;
+  GooglePayResponseInfoBuilder get googlePay =>
+      _$this._googlePay ??= GooglePayResponseInfoBuilder();
+  set googlePay(GooglePayResponseInfoBuilder? googlePay) =>
       _$this._googlePay = googlePay;
 
   String? _id;
   String? get id => _$this._id;
   set id(String? id) => _$this._id = id;
 
-  GenericPmWithTdiInfoBuilder? _ideal;
-  GenericPmWithTdiInfoBuilder get ideal =>
-      _$this._ideal ??= GenericPmWithTdiInfoBuilder();
-  set ideal(GenericPmWithTdiInfoBuilder? ideal) => _$this._ideal = ideal;
+  IdealResponseInfoBuilder? _ideal;
+  IdealResponseInfoBuilder get ideal =>
+      _$this._ideal ??= IdealResponseInfoBuilder();
+  set ideal(IdealResponseInfoBuilder? ideal) => _$this._ideal = ideal;
 
-  GenericPmWithTdiInfoBuilder? _interacCard;
-  GenericPmWithTdiInfoBuilder get interacCard =>
-      _$this._interacCard ??= GenericPmWithTdiInfoBuilder();
-  set interacCard(GenericPmWithTdiInfoBuilder? interacCard) =>
+  InteracCardResponseInfoBuilder? _interacCard;
+  InteracCardResponseInfoBuilder get interacCard =>
+      _$this._interacCard ??= InteracCardResponseInfoBuilder();
+  set interacCard(InteracCardResponseInfoBuilder? interacCard) =>
       _$this._interacCard = interacCard;
 
-  JCBInfoBuilder? _jcb;
-  JCBInfoBuilder get jcb => _$this._jcb ??= JCBInfoBuilder();
-  set jcb(JCBInfoBuilder? jcb) => _$this._jcb = jcb;
+  JCBResponseInfoBuilder? _jcb;
+  JCBResponseInfoBuilder get jcb => _$this._jcb ??= JCBResponseInfoBuilder();
+  set jcb(JCBResponseInfoBuilder? jcb) => _$this._jcb = jcb;
 
-  KlarnaInfoBuilder? _klarna;
-  KlarnaInfoBuilder get klarna => _$this._klarna ??= KlarnaInfoBuilder();
-  set klarna(KlarnaInfoBuilder? klarna) => _$this._klarna = klarna;
+  KlarnaResponseInfoBuilder? _klarna;
+  KlarnaResponseInfoBuilder get klarna =>
+      _$this._klarna ??= KlarnaResponseInfoBuilder();
+  set klarna(KlarnaResponseInfoBuilder? klarna) => _$this._klarna = klarna;
 
-  GenericPmWithTdiInfoBuilder? _maestro;
-  GenericPmWithTdiInfoBuilder get maestro =>
-      _$this._maestro ??= GenericPmWithTdiInfoBuilder();
-  set maestro(GenericPmWithTdiInfoBuilder? maestro) =>
-      _$this._maestro = maestro;
+  MaestroResponseInfoBuilder? _maestro;
+  MaestroResponseInfoBuilder get maestro =>
+      _$this._maestro ??= MaestroResponseInfoBuilder();
+  set maestro(MaestroResponseInfoBuilder? maestro) => _$this._maestro = maestro;
 
-  GenericPmWithTdiInfoBuilder? _maestroUsa;
-  GenericPmWithTdiInfoBuilder get maestroUsa =>
-      _$this._maestroUsa ??= GenericPmWithTdiInfoBuilder();
-  set maestroUsa(GenericPmWithTdiInfoBuilder? maestroUsa) =>
+  MaestroUSAResponseInfoBuilder? _maestroUsa;
+  MaestroUSAResponseInfoBuilder get maestroUsa =>
+      _$this._maestroUsa ??= MaestroUSAResponseInfoBuilder();
+  set maestroUsa(MaestroUSAResponseInfoBuilder? maestroUsa) =>
       _$this._maestroUsa = maestroUsa;
 
-  GenericPmWithTdiInfoBuilder? _mc;
-  GenericPmWithTdiInfoBuilder get mc =>
-      _$this._mc ??= GenericPmWithTdiInfoBuilder();
-  set mc(GenericPmWithTdiInfoBuilder? mc) => _$this._mc = mc;
+  MCResponseInfoBuilder? _mc;
+  MCResponseInfoBuilder get mc => _$this._mc ??= MCResponseInfoBuilder();
+  set mc(MCResponseInfoBuilder? mc) => _$this._mc = mc;
 
-  MealVoucherFRInfoBuilder? _mealVoucherFR;
-  MealVoucherFRInfoBuilder get mealVoucherFR =>
-      _$this._mealVoucherFR ??= MealVoucherFRInfoBuilder();
-  set mealVoucherFR(MealVoucherFRInfoBuilder? mealVoucherFR) =>
+  MealVoucherFRResponseInfoBuilder? _mealVoucherFR;
+  MealVoucherFRResponseInfoBuilder get mealVoucherFR =>
+      _$this._mealVoucherFR ??= MealVoucherFRResponseInfoBuilder();
+  set mealVoucherFR(MealVoucherFRResponseInfoBuilder? mealVoucherFR) =>
       _$this._mealVoucherFR = mealVoucherFR;
 
-  NyceInfoBuilder? _nyce;
-  NyceInfoBuilder get nyce => _$this._nyce ??= NyceInfoBuilder();
-  set nyce(NyceInfoBuilder? nyce) => _$this._nyce = nyce;
+  String? _merchantCategoryCode;
+  String? get merchantCategoryCode => _$this._merchantCategoryCode;
+  set merchantCategoryCode(String? merchantCategoryCode) =>
+      _$this._merchantCategoryCode = merchantCategoryCode;
 
-  PayByBankPlaidInfoBuilder? _paybybankPlaid;
-  PayByBankPlaidInfoBuilder get paybybankPlaid =>
-      _$this._paybybankPlaid ??= PayByBankPlaidInfoBuilder();
-  set paybybankPlaid(PayByBankPlaidInfoBuilder? paybybankPlaid) =>
+  String? _mid;
+  String? get mid => _$this._mid;
+  set mid(String? mid) => _$this._mid = mid;
+
+  NyceResponseInfoBuilder? _nyce;
+  NyceResponseInfoBuilder get nyce =>
+      _$this._nyce ??= NyceResponseInfoBuilder();
+  set nyce(NyceResponseInfoBuilder? nyce) => _$this._nyce = nyce;
+
+  PayByBankPlaidResponseInfoBuilder? _paybybankPlaid;
+  PayByBankPlaidResponseInfoBuilder get paybybankPlaid =>
+      _$this._paybybankPlaid ??= PayByBankPlaidResponseInfoBuilder();
+  set paybybankPlaid(PayByBankPlaidResponseInfoBuilder? paybybankPlaid) =>
       _$this._paybybankPlaid = paybybankPlaid;
 
-  PayMeInfoBuilder? _payme;
-  PayMeInfoBuilder get payme => _$this._payme ??= PayMeInfoBuilder();
-  set payme(PayMeInfoBuilder? payme) => _$this._payme = payme;
+  PayMeResponseInfoBuilder? _payme;
+  PayMeResponseInfoBuilder get payme =>
+      _$this._payme ??= PayMeResponseInfoBuilder();
+  set payme(PayMeResponseInfoBuilder? payme) => _$this._payme = payme;
 
-  PayPalInfoBuilder? _paypal;
-  PayPalInfoBuilder get paypal => _$this._paypal ??= PayPalInfoBuilder();
-  set paypal(PayPalInfoBuilder? paypal) => _$this._paypal = paypal;
+  PayPalResponseInfoBuilder? _paypal;
+  PayPalResponseInfoBuilder get paypal =>
+      _$this._paypal ??= PayPalResponseInfoBuilder();
+  set paypal(PayPalResponseInfoBuilder? paypal) => _$this._paypal = paypal;
 
-  PayToInfoBuilder? _payto;
-  PayToInfoBuilder get payto => _$this._payto ??= PayToInfoBuilder();
-  set payto(PayToInfoBuilder? payto) => _$this._payto = payto;
+  PayToResponseInfoBuilder? _payto;
+  PayToResponseInfoBuilder get payto =>
+      _$this._payto ??= PayToResponseInfoBuilder();
+  set payto(PayToResponseInfoBuilder? payto) => _$this._payto = payto;
 
-  PulseInfoBuilder? _pulse;
-  PulseInfoBuilder get pulse => _$this._pulse ??= PulseInfoBuilder();
-  set pulse(PulseInfoBuilder? pulse) => _$this._pulse = pulse;
+  PulseResponseInfoBuilder? _pulse;
+  PulseResponseInfoBuilder get pulse =>
+      _$this._pulse ??= PulseResponseInfoBuilder();
+  set pulse(PulseResponseInfoBuilder? pulse) => _$this._pulse = pulse;
 
   String? _reference;
   String? get reference => _$this._reference;
   set reference(String? reference) => _$this._reference = reference;
 
-  SepaDirectDebitInfoBuilder? _sepadirectdebit;
-  SepaDirectDebitInfoBuilder get sepadirectdebit =>
-      _$this._sepadirectdebit ??= SepaDirectDebitInfoBuilder();
-  set sepadirectdebit(SepaDirectDebitInfoBuilder? sepadirectdebit) =>
+  SepaDirectDebitResponseInfoBuilder? _sepadirectdebit;
+  SepaDirectDebitResponseInfoBuilder get sepadirectdebit =>
+      _$this._sepadirectdebit ??= SepaDirectDebitResponseInfoBuilder();
+  set sepadirectdebit(SepaDirectDebitResponseInfoBuilder? sepadirectdebit) =>
       _$this._sepadirectdebit = sepadirectdebit;
 
   String? _shopperInteraction;
@@ -676,47 +754,53 @@ class PaymentMethodBuilder
   set shopperInteraction(String? shopperInteraction) =>
       _$this._shopperInteraction = shopperInteraction;
 
-  SodexoInfoBuilder? _sodexo;
-  SodexoInfoBuilder get sodexo => _$this._sodexo ??= SodexoInfoBuilder();
-  set sodexo(SodexoInfoBuilder? sodexo) => _$this._sodexo = sodexo;
+  SodexoResponseInfoBuilder? _sodexo;
+  SodexoResponseInfoBuilder get sodexo =>
+      _$this._sodexo ??= SodexoResponseInfoBuilder();
+  set sodexo(SodexoResponseInfoBuilder? sodexo) => _$this._sodexo = sodexo;
 
-  SofortInfoBuilder? _sofort;
-  SofortInfoBuilder get sofort => _$this._sofort ??= SofortInfoBuilder();
-  set sofort(SofortInfoBuilder? sofort) => _$this._sofort = sofort;
+  SofortResponseInfoBuilder? _sofort;
+  SofortResponseInfoBuilder get sofort =>
+      _$this._sofort ??= SofortResponseInfoBuilder();
+  set sofort(SofortResponseInfoBuilder? sofort) => _$this._sofort = sofort;
 
-  StarInfoBuilder? _star;
-  StarInfoBuilder get star => _$this._star ??= StarInfoBuilder();
-  set star(StarInfoBuilder? star) => _$this._star = star;
+  StarResponseInfoBuilder? _star;
+  StarResponseInfoBuilder get star =>
+      _$this._star ??= StarResponseInfoBuilder();
+  set star(StarResponseInfoBuilder? star) => _$this._star = star;
 
   ListBuilder<String>? _storeIds;
   ListBuilder<String> get storeIds =>
       _$this._storeIds ??= ListBuilder<String>();
   set storeIds(ListBuilder<String>? storeIds) => _$this._storeIds = storeIds;
 
-  SvsInfoBuilder? _svs;
-  SvsInfoBuilder get svs => _$this._svs ??= SvsInfoBuilder();
-  set svs(SvsInfoBuilder? svs) => _$this._svs = svs;
+  SvsResponseInfoBuilder? _svs;
+  SvsResponseInfoBuilder get svs => _$this._svs ??= SvsResponseInfoBuilder();
+  set svs(SvsResponseInfoBuilder? svs) => _$this._svs = svs;
 
-  SwishInfoBuilder? _swish;
-  SwishInfoBuilder get swish => _$this._swish ??= SwishInfoBuilder();
-  set swish(SwishInfoBuilder? swish) => _$this._swish = swish;
+  SwishResponseInfoBuilder? _swish;
+  SwishResponseInfoBuilder get swish =>
+      _$this._swish ??= SwishResponseInfoBuilder();
+  set swish(SwishResponseInfoBuilder? swish) => _$this._swish = swish;
 
-  TicketInfoBuilder? _ticket;
-  TicketInfoBuilder get ticket => _$this._ticket ??= TicketInfoBuilder();
-  set ticket(TicketInfoBuilder? ticket) => _$this._ticket = ticket;
+  TicketResponseInfoBuilder? _ticket;
+  TicketResponseInfoBuilder get ticket =>
+      _$this._ticket ??= TicketResponseInfoBuilder();
+  set ticket(TicketResponseInfoBuilder? ticket) => _$this._ticket = ticket;
 
-  TwintInfoBuilder? _twint;
-  TwintInfoBuilder get twint => _$this._twint ??= TwintInfoBuilder();
-  set twint(TwintInfoBuilder? twint) => _$this._twint = twint;
+  TwintResponseInfoBuilder? _twint;
+  TwintResponseInfoBuilder get twint =>
+      _$this._twint ??= TwintResponseInfoBuilder();
+  set twint(TwintResponseInfoBuilder? twint) => _$this._twint = twint;
 
   String? _type;
   String? get type => _$this._type;
   set type(String? type) => _$this._type = type;
 
-  ValuelinkInfoBuilder? _valuelink;
-  ValuelinkInfoBuilder get valuelink =>
-      _$this._valuelink ??= ValuelinkInfoBuilder();
-  set valuelink(ValuelinkInfoBuilder? valuelink) =>
+  ValuelinkResponseInfoBuilder? _valuelink;
+  ValuelinkResponseInfoBuilder get valuelink =>
+      _$this._valuelink ??= ValuelinkResponseInfoBuilder();
+  set valuelink(ValuelinkResponseInfoBuilder? valuelink) =>
       _$this._valuelink = valuelink;
 
   PaymentMethodVerificationStatusEnum? _verificationStatus;
@@ -726,25 +810,26 @@ class PaymentMethodBuilder
     PaymentMethodVerificationStatusEnum? verificationStatus,
   ) => _$this._verificationStatus = verificationStatus;
 
-  VippsInfoBuilder? _vipps;
-  VippsInfoBuilder get vipps => _$this._vipps ??= VippsInfoBuilder();
-  set vipps(VippsInfoBuilder? vipps) => _$this._vipps = vipps;
+  VippsResponseInfoBuilder? _vipps;
+  VippsResponseInfoBuilder get vipps =>
+      _$this._vipps ??= VippsResponseInfoBuilder();
+  set vipps(VippsResponseInfoBuilder? vipps) => _$this._vipps = vipps;
 
-  GenericPmWithTdiInfoBuilder? _visa;
-  GenericPmWithTdiInfoBuilder get visa =>
-      _$this._visa ??= GenericPmWithTdiInfoBuilder();
-  set visa(GenericPmWithTdiInfoBuilder? visa) => _$this._visa = visa;
+  VisaResponseInfoBuilder? _visa;
+  VisaResponseInfoBuilder get visa =>
+      _$this._visa ??= VisaResponseInfoBuilder();
+  set visa(VisaResponseInfoBuilder? visa) => _$this._visa = visa;
 
-  WeChatPayInfoBuilder? _wechatpay;
-  WeChatPayInfoBuilder get wechatpay =>
-      _$this._wechatpay ??= WeChatPayInfoBuilder();
-  set wechatpay(WeChatPayInfoBuilder? wechatpay) =>
+  WeChatPayResponseInfoBuilder? _wechatpay;
+  WeChatPayResponseInfoBuilder get wechatpay =>
+      _$this._wechatpay ??= WeChatPayResponseInfoBuilder();
+  set wechatpay(WeChatPayResponseInfoBuilder? wechatpay) =>
       _$this._wechatpay = wechatpay;
 
-  WeChatPayPosInfoBuilder? _wechatpayPos;
-  WeChatPayPosInfoBuilder get wechatpayPos =>
-      _$this._wechatpayPos ??= WeChatPayPosInfoBuilder();
-  set wechatpayPos(WeChatPayPosInfoBuilder? wechatpayPos) =>
+  WeChatPayPosResponseInfoBuilder? _wechatpayPos;
+  WeChatPayPosResponseInfoBuilder get wechatpayPos =>
+      _$this._wechatpayPos ??= WeChatPayPosResponseInfoBuilder();
+  set wechatpayPos(WeChatPayPosResponseInfoBuilder? wechatpayPos) =>
       _$this._wechatpayPos = wechatpayPos;
 
   PaymentMethodBuilder() {
@@ -760,9 +845,12 @@ class PaymentMethodBuilder
       _alipayPlus = $v.alipayPlus?.toBuilder();
       _allowed = $v.allowed;
       _amex = $v.amex?.toBuilder();
+      _ancv = $v.ancv?.toBuilder();
       _applePay = $v.applePay?.toBuilder();
+      _associatedPaymentMethods = $v.associatedPaymentMethods?.toBuilder();
       _bcmc = $v.bcmc?.toBuilder();
       _businessLineId = $v.businessLineId;
+      _carnet = $v.carnet?.toBuilder();
       _cartesBancaires = $v.cartesBancaires?.toBuilder();
       _clearpay = $v.clearpay?.toBuilder();
       _countries = $v.countries?.toBuilder();
@@ -771,6 +859,7 @@ class PaymentMethodBuilder
       _customRoutingFlags = $v.customRoutingFlags?.toBuilder();
       _diners = $v.diners?.toBuilder();
       _discover = $v.discover?.toBuilder();
+      _ebt = $v.ebt?.toBuilder();
       _eftDirectdebitCA = $v.eftDirectdebitCA?.toBuilder();
       _eftposAustralia = $v.eftposAustralia?.toBuilder();
       _enabled = $v.enabled;
@@ -786,6 +875,8 @@ class PaymentMethodBuilder
       _maestroUsa = $v.maestroUsa?.toBuilder();
       _mc = $v.mc?.toBuilder();
       _mealVoucherFR = $v.mealVoucherFR?.toBuilder();
+      _merchantCategoryCode = $v.merchantCategoryCode;
+      _mid = $v.mid;
       _nyce = $v.nyce?.toBuilder();
       _paybybankPlaid = $v.paybybankPlaid?.toBuilder();
       _payme = $v.payme?.toBuilder();
@@ -840,9 +931,12 @@ class PaymentMethodBuilder
             alipayPlus: _alipayPlus?.build(),
             allowed: allowed,
             amex: _amex?.build(),
+            ancv: _ancv?.build(),
             applePay: _applePay?.build(),
+            associatedPaymentMethods: _associatedPaymentMethods?.build(),
             bcmc: _bcmc?.build(),
             businessLineId: businessLineId,
+            carnet: _carnet?.build(),
             cartesBancaires: _cartesBancaires?.build(),
             clearpay: _clearpay?.build(),
             countries: _countries?.build(),
@@ -851,6 +945,7 @@ class PaymentMethodBuilder
             customRoutingFlags: _customRoutingFlags?.build(),
             diners: _diners?.build(),
             discover: _discover?.build(),
+            ebt: _ebt?.build(),
             eftDirectdebitCA: _eftDirectdebitCA?.build(),
             eftposAustralia: _eftposAustralia?.build(),
             enabled: enabled,
@@ -870,6 +965,8 @@ class PaymentMethodBuilder
             maestroUsa: _maestroUsa?.build(),
             mc: _mc?.build(),
             mealVoucherFR: _mealVoucherFR?.build(),
+            merchantCategoryCode: merchantCategoryCode,
+            mid: mid,
             nyce: _nyce?.build(),
             paybybankPlaid: _paybybankPlaid?.build(),
             payme: _payme?.build(),
@@ -909,11 +1006,17 @@ class PaymentMethodBuilder
 
         _$failedField = 'amex';
         _amex?.build();
+        _$failedField = 'ancv';
+        _ancv?.build();
         _$failedField = 'applePay';
         _applePay?.build();
+        _$failedField = 'associatedPaymentMethods';
+        _associatedPaymentMethods?.build();
         _$failedField = 'bcmc';
         _bcmc?.build();
 
+        _$failedField = 'carnet';
+        _carnet?.build();
         _$failedField = 'cartesBancaires';
         _cartesBancaires?.build();
         _$failedField = 'clearpay';
@@ -930,6 +1033,8 @@ class PaymentMethodBuilder
         _diners?.build();
         _$failedField = 'discover';
         _discover?.build();
+        _$failedField = 'ebt';
+        _ebt?.build();
         _$failedField = 'eftDirectdebitCA';
         _eftDirectdebitCA?.build();
         _$failedField = 'eftposAustralia';
@@ -958,6 +1063,7 @@ class PaymentMethodBuilder
         _mc?.build();
         _$failedField = 'mealVoucherFR';
         _mealVoucherFR?.build();
+
         _$failedField = 'nyce';
         _nyce?.build();
         _$failedField = 'paybybankPlaid';

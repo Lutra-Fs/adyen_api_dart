@@ -158,6 +158,11 @@ const IssuerCommentsNotificationRequestItemEventCodeEnum
 _$issuerCommentsNotificationRequestItemEventCodeEnum_REFUND_FAILED =
     const IssuerCommentsNotificationRequestItemEventCodeEnum._('REFUND_FAILED');
 const IssuerCommentsNotificationRequestItemEventCodeEnum
+_$issuerCommentsNotificationRequestItemEventCodeEnum_REFUND_NOT_CLEARED =
+    const IssuerCommentsNotificationRequestItemEventCodeEnum._(
+      'REFUND_NOT_CLEARED',
+    );
+const IssuerCommentsNotificationRequestItemEventCodeEnum
 _$issuerCommentsNotificationRequestItemEventCodeEnum_REFUND_WITH_DATA =
     const IssuerCommentsNotificationRequestItemEventCodeEnum._(
       'REFUND_WITH_DATA',
@@ -168,9 +173,17 @@ _$issuerCommentsNotificationRequestItemEventCodeEnum_REQUEST_FOR_INFORMATION =
       'REQUEST_FOR_INFORMATION',
     );
 const IssuerCommentsNotificationRequestItemEventCodeEnum
+_$issuerCommentsNotificationRequestItemEventCodeEnum_REVERSAL =
+    const IssuerCommentsNotificationRequestItemEventCodeEnum._('REVERSAL');
+const IssuerCommentsNotificationRequestItemEventCodeEnum
 _$issuerCommentsNotificationRequestItemEventCodeEnum_SECOND_CHARGEBACK =
     const IssuerCommentsNotificationRequestItemEventCodeEnum._(
       'SECOND_CHARGEBACK',
+    );
+const IssuerCommentsNotificationRequestItemEventCodeEnum
+_$issuerCommentsNotificationRequestItemEventCodeEnum_SETTLED_REVERSED =
+    const IssuerCommentsNotificationRequestItemEventCodeEnum._(
+      'SETTLED_REVERSED',
     );
 const IssuerCommentsNotificationRequestItemEventCodeEnum
 _$issuerCommentsNotificationRequestItemEventCodeEnum_TECHNICAL_CANCEL =
@@ -261,12 +274,18 @@ _$issuerCommentsNotificationRequestItemEventCodeEnumValueOf(String name) {
       return _$issuerCommentsNotificationRequestItemEventCodeEnum_REFUNDED_REVERSED;
     case 'REFUND_FAILED':
       return _$issuerCommentsNotificationRequestItemEventCodeEnum_REFUND_FAILED;
+    case 'REFUND_NOT_CLEARED':
+      return _$issuerCommentsNotificationRequestItemEventCodeEnum_REFUND_NOT_CLEARED;
     case 'REFUND_WITH_DATA':
       return _$issuerCommentsNotificationRequestItemEventCodeEnum_REFUND_WITH_DATA;
     case 'REQUEST_FOR_INFORMATION':
       return _$issuerCommentsNotificationRequestItemEventCodeEnum_REQUEST_FOR_INFORMATION;
+    case 'REVERSAL':
+      return _$issuerCommentsNotificationRequestItemEventCodeEnum_REVERSAL;
     case 'SECOND_CHARGEBACK':
       return _$issuerCommentsNotificationRequestItemEventCodeEnum_SECOND_CHARGEBACK;
+    case 'SETTLED_REVERSED':
+      return _$issuerCommentsNotificationRequestItemEventCodeEnum_SETTLED_REVERSED;
     case 'TECHNICAL_CANCEL':
       return _$issuerCommentsNotificationRequestItemEventCodeEnum_TECHNICAL_CANCEL;
     case 'VOID_PENDING_REFUND':
@@ -318,9 +337,12 @@ _$issuerCommentsNotificationRequestItemEventCodeEnumValues =
       _$issuerCommentsNotificationRequestItemEventCodeEnum_REFUND,
       _$issuerCommentsNotificationRequestItemEventCodeEnum_REFUNDED_REVERSED,
       _$issuerCommentsNotificationRequestItemEventCodeEnum_REFUND_FAILED,
+      _$issuerCommentsNotificationRequestItemEventCodeEnum_REFUND_NOT_CLEARED,
       _$issuerCommentsNotificationRequestItemEventCodeEnum_REFUND_WITH_DATA,
       _$issuerCommentsNotificationRequestItemEventCodeEnum_REQUEST_FOR_INFORMATION,
+      _$issuerCommentsNotificationRequestItemEventCodeEnum_REVERSAL,
       _$issuerCommentsNotificationRequestItemEventCodeEnum_SECOND_CHARGEBACK,
+      _$issuerCommentsNotificationRequestItemEventCodeEnum_SETTLED_REVERSED,
       _$issuerCommentsNotificationRequestItemEventCodeEnum_TECHNICAL_CANCEL,
       _$issuerCommentsNotificationRequestItemEventCodeEnum_VOID_PENDING_REFUND,
       _$issuerCommentsNotificationRequestItemEventCodeEnum_unknownDefaultOpenApi,
@@ -371,9 +393,12 @@ class _$IssuerCommentsNotificationRequestItemEventCodeEnumSerializer
     'REFUND': 'REFUND',
     'REFUNDED_REVERSED': 'REFUNDED_REVERSED',
     'REFUND_FAILED': 'REFUND_FAILED',
+    'REFUND_NOT_CLEARED': 'REFUND_NOT_CLEARED',
     'REFUND_WITH_DATA': 'REFUND_WITH_DATA',
     'REQUEST_FOR_INFORMATION': 'REQUEST_FOR_INFORMATION',
+    'REVERSAL': 'REVERSAL',
     'SECOND_CHARGEBACK': 'SECOND_CHARGEBACK',
+    'SETTLED_REVERSED': 'SETTLED_REVERSED',
     'TECHNICAL_CANCEL': 'TECHNICAL_CANCEL',
     'VOID_PENDING_REFUND': 'VOID_PENDING_REFUND',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
@@ -414,9 +439,12 @@ class _$IssuerCommentsNotificationRequestItemEventCodeEnumSerializer
     'REFUND': 'REFUND',
     'REFUNDED_REVERSED': 'REFUNDED_REVERSED',
     'REFUND_FAILED': 'REFUND_FAILED',
+    'REFUND_NOT_CLEARED': 'REFUND_NOT_CLEARED',
     'REFUND_WITH_DATA': 'REFUND_WITH_DATA',
     'REQUEST_FOR_INFORMATION': 'REQUEST_FOR_INFORMATION',
+    'REVERSAL': 'REVERSAL',
     'SECOND_CHARGEBACK': 'SECOND_CHARGEBACK',
+    'SETTLED_REVERSED': 'SETTLED_REVERSED',
     'TECHNICAL_CANCEL': 'TECHNICAL_CANCEL',
     'VOID_PENDING_REFUND': 'VOID_PENDING_REFUND',
     'unknown_default_open_api': 'unknownDefaultOpenApi',

@@ -25,14 +25,14 @@ const PaymentResultAuthenticationMethodEnum
 _$paymentResultAuthenticationMethodEnum_paperSignature =
     const PaymentResultAuthenticationMethodEnum._('paperSignature');
 const PaymentResultAuthenticationMethodEnum
+_$paymentResultAuthenticationMethodEnum_securedChannel =
+    const PaymentResultAuthenticationMethodEnum._('securedChannel');
+const PaymentResultAuthenticationMethodEnum
 _$paymentResultAuthenticationMethodEnum_secureCertificate =
     const PaymentResultAuthenticationMethodEnum._('secureCertificate');
 const PaymentResultAuthenticationMethodEnum
 _$paymentResultAuthenticationMethodEnum_secureNoCertificate =
     const PaymentResultAuthenticationMethodEnum._('secureNoCertificate');
-const PaymentResultAuthenticationMethodEnum
-_$paymentResultAuthenticationMethodEnum_securedChannel =
-    const PaymentResultAuthenticationMethodEnum._('securedChannel');
 const PaymentResultAuthenticationMethodEnum
 _$paymentResultAuthenticationMethodEnum_signatureCapture =
     const PaymentResultAuthenticationMethodEnum._('signatureCapture');
@@ -58,12 +58,12 @@ _$paymentResultAuthenticationMethodEnumValueOf(String name) {
       return _$paymentResultAuthenticationMethodEnum_onlinePIN;
     case 'paperSignature':
       return _$paymentResultAuthenticationMethodEnum_paperSignature;
+    case 'securedChannel':
+      return _$paymentResultAuthenticationMethodEnum_securedChannel;
     case 'secureCertificate':
       return _$paymentResultAuthenticationMethodEnum_secureCertificate;
     case 'secureNoCertificate':
       return _$paymentResultAuthenticationMethodEnum_secureNoCertificate;
-    case 'securedChannel':
-      return _$paymentResultAuthenticationMethodEnum_securedChannel;
     case 'signatureCapture':
       return _$paymentResultAuthenticationMethodEnum_signatureCapture;
     case 'unknownMethod':
@@ -85,9 +85,9 @@ _$paymentResultAuthenticationMethodEnumValues =
         _$paymentResultAuthenticationMethodEnum_offlinePIN,
         _$paymentResultAuthenticationMethodEnum_onlinePIN,
         _$paymentResultAuthenticationMethodEnum_paperSignature,
+        _$paymentResultAuthenticationMethodEnum_securedChannel,
         _$paymentResultAuthenticationMethodEnum_secureCertificate,
         _$paymentResultAuthenticationMethodEnum_secureNoCertificate,
-        _$paymentResultAuthenticationMethodEnum_securedChannel,
         _$paymentResultAuthenticationMethodEnum_signatureCapture,
         _$paymentResultAuthenticationMethodEnum_unknownMethod,
         _$paymentResultAuthenticationMethodEnum_unknownDefaultOpenApi,
@@ -107,9 +107,9 @@ class _$PaymentResultAuthenticationMethodEnumSerializer
     'offlinePIN': 'OfflinePIN',
     'onlinePIN': 'OnlinePIN',
     'paperSignature': 'PaperSignature',
+    'securedChannel': 'SecuredChannel',
     'secureCertificate': 'SecureCertificate',
     'secureNoCertificate': 'SecureNoCertificate',
-    'securedChannel': 'SecuredChannel',
     'signatureCapture': 'SignatureCapture',
     'unknownMethod': 'UnknownMethod',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
@@ -121,9 +121,9 @@ class _$PaymentResultAuthenticationMethodEnumSerializer
     'OfflinePIN': 'offlinePIN',
     'OnlinePIN': 'onlinePIN',
     'PaperSignature': 'paperSignature',
+    'SecuredChannel': 'securedChannel',
     'SecureCertificate': 'secureCertificate',
     'SecureNoCertificate': 'secureNoCertificate',
-    'SecuredChannel': 'securedChannel',
     'SignatureCapture': 'signatureCapture',
     'UnknownMethod': 'unknownMethod',
     'unknown_default_open_api': 'unknownDefaultOpenApi',

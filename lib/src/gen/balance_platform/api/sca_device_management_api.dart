@@ -25,6 +25,53 @@ class SCADeviceManagementApi {
 
   const SCADeviceManagementApi(this._dio, this._serializers);
 
+  /// Delete an SCA device
+  /// Deletes a Strong Customer Authentication (SCA) device.
+  ///
+  /// Parameters:
+  /// * [deviceId] - The unique identifier of the SCA device to delete.
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future]
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> deleteScaDevicesDeviceId({ 
+    required String deviceId,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async {
+    final _path = r'/scaDevices/{deviceId}'.replaceAll('{' r'deviceId' '}', encodeQueryParameter(_serializers, deviceId, const FullType(String)).toString());
+    final _options = Options(
+      method: r'DELETE',
+      headers: <String, dynamic>{
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
+    );
+
+    final _response = await _dio.request<Object>(
+      _path,
+      options: _options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    return _response;
+  }
+
   /// Finish registration process for a SCA device
   /// Finishes the registration process for a new Strong Customer Authentication (SCA) device.
   ///
@@ -218,7 +265,7 @@ class SCADeviceManagementApi {
   }
 
   /// Create a new SCA association for a device
-  /// Creates an association between an SCA-enabled device and an entity, such as an account holder. This action does not guarantee the association is immediately ready for use; its status may be &#x60;pendingApproval&#x60; if the account holder has existing devices.
+  /// Creates an association between an SCA-enabled device and an entity, such as an account holder. This action does not guarantee the association is immediately ready for use; its status may be &#x60;pendingApproval&#x60; if the account holder has existing devices. If the entity is configured to allow only a single associated device and single-device replacement is enabled for your account, the new association immediately replaces the existing one: its status is &#x60;active&#x60; and the previously associated device is no longer associated.
   ///
   /// Parameters:
   /// * [deviceId] - The unique identifier of the SCA device that you are associating with a resource.

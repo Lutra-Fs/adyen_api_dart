@@ -1205,6 +1205,8 @@ class _$UpdateSplitConfigurationLogicRequest
   @override
   final Commission commission;
   @override
+  final SplitDcc? dcc;
+  @override
   final UpdateSplitConfigurationLogicRequestInterchangeEnum? interchange;
   @override
   final UpdateSplitConfigurationLogicRequestPaymentFeeEnum? paymentFee;
@@ -1238,6 +1240,7 @@ class _$UpdateSplitConfigurationLogicRequest
     this.chargeback,
     this.chargebackCostAllocation,
     required this.commission,
+    this.dcc,
     this.interchange,
     this.paymentFee,
     this.refund,
@@ -1269,6 +1272,7 @@ class _$UpdateSplitConfigurationLogicRequest
         chargeback == other.chargeback &&
         chargebackCostAllocation == other.chargebackCostAllocation &&
         commission == other.commission &&
+        dcc == other.dcc &&
         interchange == other.interchange &&
         paymentFee == other.paymentFee &&
         refund == other.refund &&
@@ -1291,6 +1295,7 @@ class _$UpdateSplitConfigurationLogicRequest
     _$hash = $jc(_$hash, chargeback.hashCode);
     _$hash = $jc(_$hash, chargebackCostAllocation.hashCode);
     _$hash = $jc(_$hash, commission.hashCode);
+    _$hash = $jc(_$hash, dcc.hashCode);
     _$hash = $jc(_$hash, interchange.hashCode);
     _$hash = $jc(_$hash, paymentFee.hashCode);
     _$hash = $jc(_$hash, refund.hashCode);
@@ -1315,6 +1320,7 @@ class _$UpdateSplitConfigurationLogicRequest
           ..add('chargeback', chargeback)
           ..add('chargebackCostAllocation', chargebackCostAllocation)
           ..add('commission', commission)
+          ..add('dcc', dcc)
           ..add('interchange', interchange)
           ..add('paymentFee', paymentFee)
           ..add('refund', refund)
@@ -1391,6 +1397,10 @@ class UpdateSplitConfigurationLogicRequestBuilder
   set commission(CommissionBuilder? commission) =>
       _$this._commission = commission;
 
+  SplitDccBuilder? _dcc;
+  SplitDccBuilder get dcc => _$this._dcc ??= SplitDccBuilder();
+  set dcc(SplitDccBuilder? dcc) => _$this._dcc = dcc;
+
   UpdateSplitConfigurationLogicRequestInterchangeEnum? _interchange;
   UpdateSplitConfigurationLogicRequestInterchangeEnum? get interchange =>
       _$this._interchange;
@@ -1461,6 +1471,7 @@ class UpdateSplitConfigurationLogicRequestBuilder
       _chargeback = $v.chargeback;
       _chargebackCostAllocation = $v.chargebackCostAllocation;
       _commission = $v.commission.toBuilder();
+      _dcc = $v.dcc?.toBuilder();
       _interchange = $v.interchange;
       _paymentFee = $v.paymentFee;
       _refund = $v.refund;
@@ -1504,6 +1515,7 @@ class UpdateSplitConfigurationLogicRequestBuilder
             chargeback: chargeback,
             chargebackCostAllocation: chargebackCostAllocation,
             commission: commission.build(),
+            dcc: _dcc?.build(),
             interchange: interchange,
             paymentFee: paymentFee,
             refund: refund,
@@ -1522,6 +1534,8 @@ class UpdateSplitConfigurationLogicRequestBuilder
 
         _$failedField = 'commission';
         commission.build();
+        _$failedField = 'dcc';
+        _dcc?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
           r'UpdateSplitConfigurationLogicRequest',

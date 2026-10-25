@@ -6,21 +6,21 @@ part of 'pin_request_type.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-const PINRequestType _$pINEnter = const PINRequestType._('pINEnter');
 const PINRequestType _$pINVerify = const PINRequestType._('pINVerify');
 const PINRequestType _$pINVerifyOnly = const PINRequestType._('pINVerifyOnly');
+const PINRequestType _$pINEnter = const PINRequestType._('pINEnter');
 const PINRequestType _$unknownDefaultOpenApi = const PINRequestType._(
   'unknownDefaultOpenApi',
 );
 
 PINRequestType _$valueOf(String name) {
   switch (name) {
-    case 'pINEnter':
-      return _$pINEnter;
     case 'pINVerify':
       return _$pINVerify;
     case 'pINVerifyOnly':
       return _$pINVerifyOnly;
+    case 'pINEnter':
+      return _$pINEnter;
     case 'unknownDefaultOpenApi':
       return _$unknownDefaultOpenApi;
     default:
@@ -30,18 +30,18 @@ PINRequestType _$valueOf(String name) {
 
 final BuiltSet<PINRequestType> _$values = BuiltSet<PINRequestType>(
   const <PINRequestType>[
-    _$pINEnter,
     _$pINVerify,
     _$pINVerifyOnly,
+    _$pINEnter,
     _$unknownDefaultOpenApi,
   ],
 );
 
 class _$PINRequestTypeMeta {
   const _$PINRequestTypeMeta();
-  PINRequestType get pINEnter => _$pINEnter;
   PINRequestType get pINVerify => _$pINVerify;
   PINRequestType get pINVerifyOnly => _$pINVerifyOnly;
+  PINRequestType get pINEnter => _$pINEnter;
   PINRequestType get unknownDefaultOpenApi => _$unknownDefaultOpenApi;
   PINRequestType valueOf(String name) => _$valueOf(name);
   BuiltSet<PINRequestType> get values => _$values;
@@ -58,15 +58,15 @@ Serializer<PINRequestType> _$pINRequestTypeSerializer =
 class _$PINRequestTypeSerializer
     implements PrimitiveSerializer<PINRequestType> {
   static const Map<String, Object> _toWire = const <String, Object>{
-    'pINEnter': 'PINEnter',
     'pINVerify': 'PINVerify',
     'pINVerifyOnly': 'PINVerifyOnly',
+    'pINEnter': 'PINEnter',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
-    'PINEnter': 'pINEnter',
     'PINVerify': 'pINVerify',
     'PINVerifyOnly': 'pINVerifyOnly',
+    'PINEnter': 'pINEnter',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
 

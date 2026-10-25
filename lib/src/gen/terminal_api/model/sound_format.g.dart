@@ -6,8 +6,8 @@ part of 'sound_format.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-const SoundFormat _$messageRef = const SoundFormat._('messageRef');
 const SoundFormat _$soundRef = const SoundFormat._('soundRef');
+const SoundFormat _$messageRef = const SoundFormat._('messageRef');
 const SoundFormat _$text = const SoundFormat._('text');
 const SoundFormat _$unknownDefaultOpenApi = const SoundFormat._(
   'unknownDefaultOpenApi',
@@ -15,10 +15,10 @@ const SoundFormat _$unknownDefaultOpenApi = const SoundFormat._(
 
 SoundFormat _$valueOf(String name) {
   switch (name) {
-    case 'messageRef':
-      return _$messageRef;
     case 'soundRef':
       return _$soundRef;
+    case 'messageRef':
+      return _$messageRef;
     case 'text':
       return _$text;
     case 'unknownDefaultOpenApi':
@@ -30,8 +30,8 @@ SoundFormat _$valueOf(String name) {
 
 final BuiltSet<SoundFormat> _$values = BuiltSet<SoundFormat>(
   const <SoundFormat>[
-    _$messageRef,
     _$soundRef,
+    _$messageRef,
     _$text,
     _$unknownDefaultOpenApi,
   ],
@@ -39,8 +39,8 @@ final BuiltSet<SoundFormat> _$values = BuiltSet<SoundFormat>(
 
 class _$SoundFormatMeta {
   const _$SoundFormatMeta();
-  SoundFormat get messageRef => _$messageRef;
   SoundFormat get soundRef => _$soundRef;
+  SoundFormat get messageRef => _$messageRef;
   SoundFormat get text => _$text;
   SoundFormat get unknownDefaultOpenApi => _$unknownDefaultOpenApi;
   SoundFormat valueOf(String name) => _$valueOf(name);
@@ -56,14 +56,14 @@ Serializer<SoundFormat> _$soundFormatSerializer = _$SoundFormatSerializer();
 
 class _$SoundFormatSerializer implements PrimitiveSerializer<SoundFormat> {
   static const Map<String, Object> _toWire = const <String, Object>{
-    'messageRef': 'MessageRef',
     'soundRef': 'SoundRef',
+    'messageRef': 'MessageRef',
     'text': 'Text',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
-    'MessageRef': 'messageRef',
     'SoundRef': 'soundRef',
+    'MessageRef': 'messageRef',
     'Text': 'text',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };

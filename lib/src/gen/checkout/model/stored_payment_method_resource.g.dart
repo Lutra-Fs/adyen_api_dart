@@ -12,9 +12,13 @@ class _$StoredPaymentMethodResource extends StoredPaymentMethodResource {
   @override
   final String? aliasType;
   @override
+  final Address? billingAddress;
+  @override
   final String? brand;
   @override
   final String? cardBin;
+  @override
+  final DateTime? createdAt;
   @override
   final String? expiryMonth;
   @override
@@ -23,6 +27,8 @@ class _$StoredPaymentMethodResource extends StoredPaymentMethodResource {
   final String? externalResponseCode;
   @override
   final String? externalTokenReference;
+  @override
+  final String? firstPspReference;
   @override
   final String? holderName;
   @override
@@ -39,6 +45,8 @@ class _$StoredPaymentMethodResource extends StoredPaymentMethodResource {
   final String? name_;
   @override
   final String? networkTxReference;
+  @override
+  final OpiResponse? opi;
   @override
   final String? ownerName;
   @override
@@ -57,12 +65,15 @@ class _$StoredPaymentMethodResource extends StoredPaymentMethodResource {
   _$StoredPaymentMethodResource._({
     this.alias,
     this.aliasType,
+    this.billingAddress,
     this.brand,
     this.cardBin,
+    this.createdAt,
     this.expiryMonth,
     this.expiryYear,
     this.externalResponseCode,
     this.externalTokenReference,
+    this.firstPspReference,
     this.holderName,
     this.iban,
     this.id,
@@ -71,6 +82,7 @@ class _$StoredPaymentMethodResource extends StoredPaymentMethodResource {
     this.mandate,
     this.name_,
     this.networkTxReference,
+    this.opi,
     this.ownerName,
     this.shopperEmail,
     this.shopperReference,
@@ -92,12 +104,15 @@ class _$StoredPaymentMethodResource extends StoredPaymentMethodResource {
     return other is StoredPaymentMethodResource &&
         alias == other.alias &&
         aliasType == other.aliasType &&
+        billingAddress == other.billingAddress &&
         brand == other.brand &&
         cardBin == other.cardBin &&
+        createdAt == other.createdAt &&
         expiryMonth == other.expiryMonth &&
         expiryYear == other.expiryYear &&
         externalResponseCode == other.externalResponseCode &&
         externalTokenReference == other.externalTokenReference &&
+        firstPspReference == other.firstPspReference &&
         holderName == other.holderName &&
         iban == other.iban &&
         id == other.id &&
@@ -106,6 +121,7 @@ class _$StoredPaymentMethodResource extends StoredPaymentMethodResource {
         mandate == other.mandate &&
         name_ == other.name_ &&
         networkTxReference == other.networkTxReference &&
+        opi == other.opi &&
         ownerName == other.ownerName &&
         shopperEmail == other.shopperEmail &&
         shopperReference == other.shopperReference &&
@@ -119,12 +135,15 @@ class _$StoredPaymentMethodResource extends StoredPaymentMethodResource {
     var _$hash = 0;
     _$hash = $jc(_$hash, alias.hashCode);
     _$hash = $jc(_$hash, aliasType.hashCode);
+    _$hash = $jc(_$hash, billingAddress.hashCode);
     _$hash = $jc(_$hash, brand.hashCode);
     _$hash = $jc(_$hash, cardBin.hashCode);
+    _$hash = $jc(_$hash, createdAt.hashCode);
     _$hash = $jc(_$hash, expiryMonth.hashCode);
     _$hash = $jc(_$hash, expiryYear.hashCode);
     _$hash = $jc(_$hash, externalResponseCode.hashCode);
     _$hash = $jc(_$hash, externalTokenReference.hashCode);
+    _$hash = $jc(_$hash, firstPspReference.hashCode);
     _$hash = $jc(_$hash, holderName.hashCode);
     _$hash = $jc(_$hash, iban.hashCode);
     _$hash = $jc(_$hash, id.hashCode);
@@ -133,6 +152,7 @@ class _$StoredPaymentMethodResource extends StoredPaymentMethodResource {
     _$hash = $jc(_$hash, mandate.hashCode);
     _$hash = $jc(_$hash, name_.hashCode);
     _$hash = $jc(_$hash, networkTxReference.hashCode);
+    _$hash = $jc(_$hash, opi.hashCode);
     _$hash = $jc(_$hash, ownerName.hashCode);
     _$hash = $jc(_$hash, shopperEmail.hashCode);
     _$hash = $jc(_$hash, shopperReference.hashCode);
@@ -147,12 +167,15 @@ class _$StoredPaymentMethodResource extends StoredPaymentMethodResource {
     return (newBuiltValueToStringHelper(r'StoredPaymentMethodResource')
           ..add('alias', alias)
           ..add('aliasType', aliasType)
+          ..add('billingAddress', billingAddress)
           ..add('brand', brand)
           ..add('cardBin', cardBin)
+          ..add('createdAt', createdAt)
           ..add('expiryMonth', expiryMonth)
           ..add('expiryYear', expiryYear)
           ..add('externalResponseCode', externalResponseCode)
           ..add('externalTokenReference', externalTokenReference)
+          ..add('firstPspReference', firstPspReference)
           ..add('holderName', holderName)
           ..add('iban', iban)
           ..add('id', id)
@@ -161,6 +184,7 @@ class _$StoredPaymentMethodResource extends StoredPaymentMethodResource {
           ..add('mandate', mandate)
           ..add('name_', name_)
           ..add('networkTxReference', networkTxReference)
+          ..add('opi', opi)
           ..add('ownerName', ownerName)
           ..add('shopperEmail', shopperEmail)
           ..add('shopperReference', shopperReference)
@@ -189,6 +213,12 @@ class StoredPaymentMethodResourceBuilder
   String? get aliasType => _$this._aliasType;
   set aliasType(String? aliasType) => _$this._aliasType = aliasType;
 
+  AddressBuilder? _billingAddress;
+  AddressBuilder get billingAddress =>
+      _$this._billingAddress ??= AddressBuilder();
+  set billingAddress(AddressBuilder? billingAddress) =>
+      _$this._billingAddress = billingAddress;
+
   String? _brand;
   String? get brand => _$this._brand;
   set brand(String? brand) => _$this._brand = brand;
@@ -196,6 +226,10 @@ class StoredPaymentMethodResourceBuilder
   String? _cardBin;
   String? get cardBin => _$this._cardBin;
   set cardBin(String? cardBin) => _$this._cardBin = cardBin;
+
+  DateTime? _createdAt;
+  DateTime? get createdAt => _$this._createdAt;
+  set createdAt(DateTime? createdAt) => _$this._createdAt = createdAt;
 
   String? _expiryMonth;
   String? get expiryMonth => _$this._expiryMonth;
@@ -214,6 +248,11 @@ class StoredPaymentMethodResourceBuilder
   String? get externalTokenReference => _$this._externalTokenReference;
   set externalTokenReference(String? externalTokenReference) =>
       _$this._externalTokenReference = externalTokenReference;
+
+  String? _firstPspReference;
+  String? get firstPspReference => _$this._firstPspReference;
+  set firstPspReference(String? firstPspReference) =>
+      _$this._firstPspReference = firstPspReference;
 
   String? _holderName;
   String? get holderName => _$this._holderName;
@@ -247,6 +286,10 @@ class StoredPaymentMethodResourceBuilder
   String? get networkTxReference => _$this._networkTxReference;
   set networkTxReference(String? networkTxReference) =>
       _$this._networkTxReference = networkTxReference;
+
+  OpiResponseBuilder? _opi;
+  OpiResponseBuilder get opi => _$this._opi ??= OpiResponseBuilder();
+  set opi(OpiResponseBuilder? opi) => _$this._opi = opi;
 
   String? _ownerName;
   String? get ownerName => _$this._ownerName;
@@ -282,12 +325,15 @@ class StoredPaymentMethodResourceBuilder
     if ($v != null) {
       _alias = $v.alias;
       _aliasType = $v.aliasType;
+      _billingAddress = $v.billingAddress?.toBuilder();
       _brand = $v.brand;
       _cardBin = $v.cardBin;
+      _createdAt = $v.createdAt;
       _expiryMonth = $v.expiryMonth;
       _expiryYear = $v.expiryYear;
       _externalResponseCode = $v.externalResponseCode;
       _externalTokenReference = $v.externalTokenReference;
+      _firstPspReference = $v.firstPspReference;
       _holderName = $v.holderName;
       _iban = $v.iban;
       _id = $v.id;
@@ -296,6 +342,7 @@ class StoredPaymentMethodResourceBuilder
       _mandate = $v.mandate?.toBuilder();
       _name_ = $v.name_;
       _networkTxReference = $v.networkTxReference;
+      _opi = $v.opi?.toBuilder();
       _ownerName = $v.ownerName;
       _shopperEmail = $v.shopperEmail;
       _shopperReference = $v.shopperReference;
@@ -329,12 +376,15 @@ class StoredPaymentMethodResourceBuilder
           _$StoredPaymentMethodResource._(
             alias: alias,
             aliasType: aliasType,
+            billingAddress: _billingAddress?.build(),
             brand: brand,
             cardBin: cardBin,
+            createdAt: createdAt,
             expiryMonth: expiryMonth,
             expiryYear: expiryYear,
             externalResponseCode: externalResponseCode,
             externalTokenReference: externalTokenReference,
+            firstPspReference: firstPspReference,
             holderName: holderName,
             iban: iban,
             id: id,
@@ -343,6 +393,7 @@ class StoredPaymentMethodResourceBuilder
             mandate: _mandate?.build(),
             name_: name_,
             networkTxReference: networkTxReference,
+            opi: _opi?.build(),
             ownerName: ownerName,
             shopperEmail: shopperEmail,
             shopperReference: shopperReference,
@@ -353,8 +404,14 @@ class StoredPaymentMethodResourceBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'billingAddress';
+        _billingAddress?.build();
+
         _$failedField = 'mandate';
         _mandate?.build();
+
+        _$failedField = 'opi';
+        _opi?.build();
 
         _$failedField = 'supportedRecurringProcessingModels';
         _supportedRecurringProcessingModels?.build();

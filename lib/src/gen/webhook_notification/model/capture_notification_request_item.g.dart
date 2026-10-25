@@ -122,6 +122,9 @@ const CaptureNotificationRequestItemEventCodeEnum
 _$captureNotificationRequestItemEventCodeEnum_REFUND_FAILED =
     const CaptureNotificationRequestItemEventCodeEnum._('REFUND_FAILED');
 const CaptureNotificationRequestItemEventCodeEnum
+_$captureNotificationRequestItemEventCodeEnum_REFUND_NOT_CLEARED =
+    const CaptureNotificationRequestItemEventCodeEnum._('REFUND_NOT_CLEARED');
+const CaptureNotificationRequestItemEventCodeEnum
 _$captureNotificationRequestItemEventCodeEnum_REFUND_WITH_DATA =
     const CaptureNotificationRequestItemEventCodeEnum._('REFUND_WITH_DATA');
 const CaptureNotificationRequestItemEventCodeEnum
@@ -130,8 +133,14 @@ _$captureNotificationRequestItemEventCodeEnum_REQUEST_FOR_INFORMATION =
       'REQUEST_FOR_INFORMATION',
     );
 const CaptureNotificationRequestItemEventCodeEnum
+_$captureNotificationRequestItemEventCodeEnum_REVERSAL =
+    const CaptureNotificationRequestItemEventCodeEnum._('REVERSAL');
+const CaptureNotificationRequestItemEventCodeEnum
 _$captureNotificationRequestItemEventCodeEnum_SECOND_CHARGEBACK =
     const CaptureNotificationRequestItemEventCodeEnum._('SECOND_CHARGEBACK');
+const CaptureNotificationRequestItemEventCodeEnum
+_$captureNotificationRequestItemEventCodeEnum_SETTLED_REVERSED =
+    const CaptureNotificationRequestItemEventCodeEnum._('SETTLED_REVERSED');
 const CaptureNotificationRequestItemEventCodeEnum
 _$captureNotificationRequestItemEventCodeEnum_TECHNICAL_CANCEL =
     const CaptureNotificationRequestItemEventCodeEnum._('TECHNICAL_CANCEL');
@@ -217,12 +226,18 @@ _$captureNotificationRequestItemEventCodeEnumValueOf(String name) {
       return _$captureNotificationRequestItemEventCodeEnum_REFUNDED_REVERSED;
     case 'REFUND_FAILED':
       return _$captureNotificationRequestItemEventCodeEnum_REFUND_FAILED;
+    case 'REFUND_NOT_CLEARED':
+      return _$captureNotificationRequestItemEventCodeEnum_REFUND_NOT_CLEARED;
     case 'REFUND_WITH_DATA':
       return _$captureNotificationRequestItemEventCodeEnum_REFUND_WITH_DATA;
     case 'REQUEST_FOR_INFORMATION':
       return _$captureNotificationRequestItemEventCodeEnum_REQUEST_FOR_INFORMATION;
+    case 'REVERSAL':
+      return _$captureNotificationRequestItemEventCodeEnum_REVERSAL;
     case 'SECOND_CHARGEBACK':
       return _$captureNotificationRequestItemEventCodeEnum_SECOND_CHARGEBACK;
+    case 'SETTLED_REVERSED':
+      return _$captureNotificationRequestItemEventCodeEnum_SETTLED_REVERSED;
     case 'TECHNICAL_CANCEL':
       return _$captureNotificationRequestItemEventCodeEnum_TECHNICAL_CANCEL;
     case 'VOID_PENDING_REFUND':
@@ -274,9 +289,12 @@ _$captureNotificationRequestItemEventCodeEnumValues =
       _$captureNotificationRequestItemEventCodeEnum_REFUND,
       _$captureNotificationRequestItemEventCodeEnum_REFUNDED_REVERSED,
       _$captureNotificationRequestItemEventCodeEnum_REFUND_FAILED,
+      _$captureNotificationRequestItemEventCodeEnum_REFUND_NOT_CLEARED,
       _$captureNotificationRequestItemEventCodeEnum_REFUND_WITH_DATA,
       _$captureNotificationRequestItemEventCodeEnum_REQUEST_FOR_INFORMATION,
+      _$captureNotificationRequestItemEventCodeEnum_REVERSAL,
       _$captureNotificationRequestItemEventCodeEnum_SECOND_CHARGEBACK,
+      _$captureNotificationRequestItemEventCodeEnum_SETTLED_REVERSED,
       _$captureNotificationRequestItemEventCodeEnum_TECHNICAL_CANCEL,
       _$captureNotificationRequestItemEventCodeEnum_VOID_PENDING_REFUND,
       _$captureNotificationRequestItemEventCodeEnum_unknownDefaultOpenApi,
@@ -325,9 +343,12 @@ class _$CaptureNotificationRequestItemEventCodeEnumSerializer
     'REFUND': 'REFUND',
     'REFUNDED_REVERSED': 'REFUNDED_REVERSED',
     'REFUND_FAILED': 'REFUND_FAILED',
+    'REFUND_NOT_CLEARED': 'REFUND_NOT_CLEARED',
     'REFUND_WITH_DATA': 'REFUND_WITH_DATA',
     'REQUEST_FOR_INFORMATION': 'REQUEST_FOR_INFORMATION',
+    'REVERSAL': 'REVERSAL',
     'SECOND_CHARGEBACK': 'SECOND_CHARGEBACK',
+    'SETTLED_REVERSED': 'SETTLED_REVERSED',
     'TECHNICAL_CANCEL': 'TECHNICAL_CANCEL',
     'VOID_PENDING_REFUND': 'VOID_PENDING_REFUND',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
@@ -368,9 +389,12 @@ class _$CaptureNotificationRequestItemEventCodeEnumSerializer
     'REFUND': 'REFUND',
     'REFUNDED_REVERSED': 'REFUNDED_REVERSED',
     'REFUND_FAILED': 'REFUND_FAILED',
+    'REFUND_NOT_CLEARED': 'REFUND_NOT_CLEARED',
     'REFUND_WITH_DATA': 'REFUND_WITH_DATA',
     'REQUEST_FOR_INFORMATION': 'REQUEST_FOR_INFORMATION',
+    'REVERSAL': 'REVERSAL',
     'SECOND_CHARGEBACK': 'SECOND_CHARGEBACK',
+    'SETTLED_REVERSED': 'SETTLED_REVERSED',
     'TECHNICAL_CANCEL': 'TECHNICAL_CANCEL',
     'VOID_PENDING_REFUND': 'VOID_PENDING_REFUND',
     'unknown_default_open_api': 'unknownDefaultOpenApi',

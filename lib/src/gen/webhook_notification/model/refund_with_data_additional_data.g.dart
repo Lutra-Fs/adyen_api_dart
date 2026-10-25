@@ -78,6 +78,10 @@ class _$RefundWithDataAdditionalData extends RefundWithDataAdditionalData {
   @override
   final String? merchantOrderReference;
   @override
+  final String? networkTxDate;
+  @override
+  final String? networkTxReference;
+  @override
   final String? paymentLinkId;
   @override
   final String? paymentMethodVariant;
@@ -146,6 +150,8 @@ class _$RefundWithDataAdditionalData extends RefundWithDataAdditionalData {
     this.issuerCountry,
     this.liabilityShift,
     this.merchantOrderReference,
+    this.networkTxDate,
+    this.networkTxReference,
     this.paymentLinkId,
     this.paymentMethodVariant,
     this.refusalReasonRaw,
@@ -211,6 +217,8 @@ class _$RefundWithDataAdditionalData extends RefundWithDataAdditionalData {
         issuerCountry == other.issuerCountry &&
         liabilityShift == other.liabilityShift &&
         merchantOrderReference == other.merchantOrderReference &&
+        networkTxDate == other.networkTxDate &&
+        networkTxReference == other.networkTxReference &&
         paymentLinkId == other.paymentLinkId &&
         paymentMethodVariant == other.paymentMethodVariant &&
         refusalReasonRaw == other.refusalReasonRaw &&
@@ -265,6 +273,8 @@ class _$RefundWithDataAdditionalData extends RefundWithDataAdditionalData {
     _$hash = $jc(_$hash, issuerCountry.hashCode);
     _$hash = $jc(_$hash, liabilityShift.hashCode);
     _$hash = $jc(_$hash, merchantOrderReference.hashCode);
+    _$hash = $jc(_$hash, networkTxDate.hashCode);
+    _$hash = $jc(_$hash, networkTxReference.hashCode);
     _$hash = $jc(_$hash, paymentLinkId.hashCode);
     _$hash = $jc(_$hash, paymentMethodVariant.hashCode);
     _$hash = $jc(_$hash, refusalReasonRaw.hashCode);
@@ -327,6 +337,8 @@ class _$RefundWithDataAdditionalData extends RefundWithDataAdditionalData {
           ..add('issuerCountry', issuerCountry)
           ..add('liabilityShift', liabilityShift)
           ..add('merchantOrderReference', merchantOrderReference)
+          ..add('networkTxDate', networkTxDate)
+          ..add('networkTxReference', networkTxReference)
           ..add('paymentLinkId', paymentLinkId)
           ..add('paymentMethodVariant', paymentMethodVariant)
           ..add('refusalReasonRaw', refusalReasonRaw)
@@ -521,6 +533,16 @@ class RefundWithDataAdditionalDataBuilder
   set merchantOrderReference(String? merchantOrderReference) =>
       _$this._merchantOrderReference = merchantOrderReference;
 
+  String? _networkTxDate;
+  String? get networkTxDate => _$this._networkTxDate;
+  set networkTxDate(String? networkTxDate) =>
+      _$this._networkTxDate = networkTxDate;
+
+  String? _networkTxReference;
+  String? get networkTxReference => _$this._networkTxReference;
+  set networkTxReference(String? networkTxReference) =>
+      _$this._networkTxReference = networkTxReference;
+
   String? _paymentLinkId;
   String? get paymentLinkId => _$this._paymentLinkId;
   set paymentLinkId(String? paymentLinkId) =>
@@ -632,6 +654,8 @@ class RefundWithDataAdditionalDataBuilder
       _issuerCountry = $v.issuerCountry;
       _liabilityShift = $v.liabilityShift;
       _merchantOrderReference = $v.merchantOrderReference;
+      _networkTxDate = $v.networkTxDate;
+      _networkTxReference = $v.networkTxReference;
       _paymentLinkId = $v.paymentLinkId;
       _paymentMethodVariant = $v.paymentMethodVariant;
       _refusalReasonRaw = $v.refusalReasonRaw;
@@ -705,6 +729,8 @@ class RefundWithDataAdditionalDataBuilder
           issuerCountry: issuerCountry,
           liabilityShift: liabilityShift,
           merchantOrderReference: merchantOrderReference,
+          networkTxDate: networkTxDate,
+          networkTxReference: networkTxReference,
           paymentLinkId: paymentLinkId,
           paymentMethodVariant: paymentMethodVariant,
           refusalReasonRaw: refusalReasonRaw,

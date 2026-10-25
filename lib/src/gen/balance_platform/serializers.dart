@@ -26,8 +26,10 @@ import 'package:adyen_api/src/gen/balance_platform/model/additional_bank_identif
 import 'package:adyen_api/src/gen/balance_platform/model/address.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/address_requirement.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/amount.dart';
+import 'package:adyen_api/src/gen/balance_platform/model/amount_dto.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/amount_min_max_requirement.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/amount_non_zero_decimals_requirement.dart';
+import 'package:adyen_api/src/gen/balance_platform/model/amount_update.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/approve_association_request.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/approve_association_response.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/approve_transfer_limit_request.dart';
@@ -45,9 +47,15 @@ import 'package:adyen_api/src/gen/balance_platform/model/br_local_account_identi
 import 'package:adyen_api/src/gen/balance_platform/model/balance.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/balance_account.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/balance_account_base.dart';
+import 'package:adyen_api/src/gen/balance_platform/model/balance_account_configuration.dart';
+import 'package:adyen_api/src/gen/balance_platform/model/balance_account_configuration_request.dart';
+import 'package:adyen_api/src/gen/balance_platform/model/balance_account_configuration_update.dart';
+import 'package:adyen_api/src/gen/balance_platform/model/balance_account_configurations.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/balance_account_info.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/balance_account_update_request.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/balance_platform.dart';
+import 'package:adyen_api/src/gen/balance_platform/model/balance_platform_configuration.dart';
+import 'package:adyen_api/src/gen/balance_platform/model/balance_platform_configurations.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/balance_sweep_configurations_response.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/balance_webhook_setting.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/balance_webhook_setting_info.dart';
@@ -84,6 +92,7 @@ import 'package:adyen_api/src/gen/balance_platform/model/counterparty.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/counterparty_bank_restriction.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/counterparty_types_restriction.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/countries_restriction.dart';
+import 'package:adyen_api/src/gen/balance_platform/model/create_recurring_top_up.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/create_sca_information.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/create_sweep_configuration_v2.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/create_transfer_limit_request.dart';
@@ -98,6 +107,7 @@ import 'package:adyen_api/src/gen/balance_platform/model/device_info.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/different_currencies_restriction.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/duration.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/entry_modes_restriction.dart';
+import 'package:adyen_api/src/gen/balance_platform/model/execution_result.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/expiry.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/fee.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/finish_sca_device_registration_request.dart';
@@ -125,6 +135,7 @@ import 'package:adyen_api/src/gen/balance_platform/model/mandate_bank_account.da
 import 'package:adyen_api/src/gen/balance_platform/model/mandate_party_identification.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/mandate_status.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/mandate_type.dart';
+import 'package:adyen_api/src/gen/balance_platform/model/mandate_update.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/matching_transactions_restriction.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/matching_values_restriction.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/mccs_restriction.dart';
@@ -145,7 +156,6 @@ import 'package:adyen_api/src/gen/balance_platform/model/paginated_balance_accou
 import 'package:adyen_api/src/gen/balance_platform/model/paginated_get_card_order_item_response.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/paginated_get_card_order_response.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/paginated_payment_instruments_response.dart';
-import 'package:adyen_api/src/gen/balance_platform/model/patchable_mandate.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/payment_instrument.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/payment_instrument_group.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/payment_instrument_group_info.dart';
@@ -155,6 +165,12 @@ import 'package:adyen_api/src/gen/balance_platform/model/payment_instrument_reve
 import 'package:adyen_api/src/gen/balance_platform/model/payment_instrument_reveal_request.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/payment_instrument_reveal_response.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/payment_instrument_update_request.dart';
+import 'package:adyen_api/src/gen/balance_platform/model/payout_schedule_execution.dart';
+import 'package:adyen_api/src/gen/balance_platform/model/payout_schedule_execution_details.dart';
+import 'package:adyen_api/src/gen/balance_platform/model/payout_schedule_executions.dart';
+import 'package:adyen_api/src/gen/balance_platform/model/payout_sweep_execution.dart';
+import 'package:adyen_api/src/gen/balance_platform/model/payout_sweep_execution_details.dart';
+import 'package:adyen_api/src/gen/balance_platform/model/payout_sweep_executions.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/phone.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/phone_info.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/phone_number.dart';
@@ -163,6 +179,9 @@ import 'package:adyen_api/src/gen/balance_platform/model/pin_change_response.dar
 import 'package:adyen_api/src/gen/balance_platform/model/platform_payment_configuration.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/processing_types_restriction.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/public_key_response.dart';
+import 'package:adyen_api/src/gen/balance_platform/model/recurring_top_up.dart';
+import 'package:adyen_api/src/gen/balance_platform/model/recurring_top_up_update.dart';
+import 'package:adyen_api/src/gen/balance_platform/model/recurring_top_ups_result.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/register_sca_final_response.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/register_sca_request.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/register_sca_response.dart';
@@ -186,6 +205,9 @@ import 'package:adyen_api/src/gen/balance_platform/model/sca_entity_type.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/sca_exemption.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/sca_information.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/sca_status.dart';
+import 'package:adyen_api/src/gen/balance_platform/model/schedule.dart';
+import 'package:adyen_api/src/gen/balance_platform/model/schedule_type.dart';
+import 'package:adyen_api/src/gen/balance_platform/model/schedule_update.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/scope.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/search_registered_devices_response.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/setting_type.dart';
@@ -204,6 +226,9 @@ import 'package:adyen_api/src/gen/balance_platform/model/threshold_repayment.dar
 import 'package:adyen_api/src/gen/balance_platform/model/time_of_day.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/time_of_day_restriction.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/token_requestors_restriction.dart';
+import 'package:adyen_api/src/gen/balance_platform/model/top_up_amount.dart';
+import 'package:adyen_api/src/gen/balance_platform/model/top_up_amount_update.dart';
+import 'package:adyen_api/src/gen/balance_platform/model/top_up_counterparty.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/total_amount_restriction.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/transaction_rule.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/transaction_rule_entity_key.dart';
@@ -219,6 +244,8 @@ import 'package:adyen_api/src/gen/balance_platform/model/transfer_route_request.
 import 'package:adyen_api/src/gen/balance_platform/model/transfer_route_requirements_inner.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/transfer_route_response.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/transfer_type.dart';
+import 'package:adyen_api/src/gen/balance_platform/model/trigger.dart';
+import 'package:adyen_api/src/gen/balance_platform/model/trigger_update.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/uk_local_account_identification.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/uk_local_mandate_account_identification.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/us_instant_payout_address_requirement.dart';
@@ -252,8 +279,10 @@ part 'serializers.g.dart';
   Address,
   AddressRequirement,
   Amount,
+  AmountDTO,
   AmountMinMaxRequirement,
   AmountNonZeroDecimalsRequirement,
+  AmountUpdate,
   ApproveAssociationRequest,
   ApproveAssociationResponse,
   ApproveTransferLimitRequest,
@@ -271,9 +300,15 @@ part 'serializers.g.dart';
   Balance,
   BalanceAccount,
   BalanceAccountBase,
+  BalanceAccountConfiguration,
+  BalanceAccountConfigurationRequest,
+  BalanceAccountConfigurationUpdate,
+  BalanceAccountConfigurations,
   BalanceAccountInfo,
   BalanceAccountUpdateRequest,
   BalancePlatform,
+  BalancePlatformConfiguration,
+  BalancePlatformConfigurations,
   BalanceSweepConfigurationsResponse,
   BalanceWebhookSetting,
   BalanceWebhookSettingInfo,
@@ -310,6 +345,7 @@ part 'serializers.g.dart';
   CounterpartyBankRestriction,
   CounterpartyTypesRestriction,
   CountriesRestriction,
+  CreateRecurringTopUp,
   CreateScaInformation,
   CreateSweepConfigurationV2,
   CreateTransferLimitRequest,
@@ -324,6 +360,7 @@ part 'serializers.g.dart';
   DifferentCurrenciesRestriction,
   Duration,
   EntryModesRestriction,
+  ExecutionResult,
   Expiry,
   Fee,
   FinishScaDeviceRegistrationRequest,
@@ -351,6 +388,7 @@ part 'serializers.g.dart';
   MandatePartyIdentification,
   MandateStatus,
   MandateType,
+  MandateUpdate,
   MatchingTransactionsRestriction,
   MatchingValuesRestriction,
   MccsRestriction,
@@ -371,7 +409,6 @@ part 'serializers.g.dart';
   PaginatedGetCardOrderItemResponse,
   PaginatedGetCardOrderResponse,
   PaginatedPaymentInstrumentsResponse,
-  PatchableMandate,
   PaymentInstrument,
   PaymentInstrumentGroup,
   PaymentInstrumentGroupInfo,
@@ -381,6 +418,12 @@ part 'serializers.g.dart';
   PaymentInstrumentRevealRequest,
   PaymentInstrumentRevealResponse,
   PaymentInstrumentUpdateRequest,
+  PayoutScheduleExecution,
+  PayoutScheduleExecutionDetails,
+  PayoutScheduleExecutions,
+  PayoutSweepExecution,
+  PayoutSweepExecutionDetails,
+  PayoutSweepExecutions,
   Phone,
   PhoneInfo,
   PhoneNumber,
@@ -389,6 +432,9 @@ part 'serializers.g.dart';
   PlatformPaymentConfiguration,
   ProcessingTypesRestriction,
   PublicKeyResponse,
+  RecurringTopUp,
+  RecurringTopUpUpdate,
+  RecurringTopUpsResult,
   RegisterSCAFinalResponse,
   RegisterSCARequest,
   RegisterSCAResponse,
@@ -412,6 +458,9 @@ part 'serializers.g.dart';
   ScaExemption,
   ScaInformation,
   ScaStatus,
+  Schedule,
+  ScheduleType,
+  ScheduleUpdate,
   Scope,
   SearchRegisteredDevicesResponse,
   SettingType,
@@ -430,6 +479,9 @@ part 'serializers.g.dart';
   TimeOfDay,
   TimeOfDayRestriction,
   TokenRequestorsRestriction,
+  TopUpAmount,
+  TopUpAmountUpdate,
+  TopUpCounterparty,
   TotalAmountRestriction,
   TransactionRule,
   TransactionRuleEntityKey,
@@ -445,6 +497,8 @@ part 'serializers.g.dart';
   TransferRouteRequirementsInner,
   TransferRouteResponse,
   TransferType,
+  Trigger,
+  TriggerUpdate,
   UKLocalAccountIdentification,
   UKLocalMandateAccountIdentification,
   USInstantPayoutAddressRequirement,

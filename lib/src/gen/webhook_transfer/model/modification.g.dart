@@ -113,6 +113,8 @@ const ModificationStatusEnum _$modificationStatusEnum_paymentCost =
     const ModificationStatusEnum._('paymentCost');
 const ModificationStatusEnum _$modificationStatusEnum_paymentCostPending =
     const ModificationStatusEnum._('paymentCostPending');
+const ModificationStatusEnum _$modificationStatusEnum_pending =
+    const ModificationStatusEnum._('pending');
 const ModificationStatusEnum _$modificationStatusEnum_pendingApproval =
     const ModificationStatusEnum._('pendingApproval');
 const ModificationStatusEnum _$modificationStatusEnum_pendingExecution =
@@ -139,6 +141,10 @@ const ModificationStatusEnum _$modificationStatusEnum_reserveAdjustmentPending =
     const ModificationStatusEnum._('reserveAdjustmentPending');
 const ModificationStatusEnum _$modificationStatusEnum_returned =
     const ModificationStatusEnum._('returned');
+const ModificationStatusEnum _$modificationStatusEnum_reversalReceived =
+    const ModificationStatusEnum._('reversalReceived');
+const ModificationStatusEnum _$modificationStatusEnum_reversed =
+    const ModificationStatusEnum._('reversed');
 const ModificationStatusEnum _$modificationStatusEnum_secondChargeback =
     const ModificationStatusEnum._('secondChargeback');
 const ModificationStatusEnum _$modificationStatusEnum_secondChargebackPending =
@@ -254,6 +260,8 @@ ModificationStatusEnum _$modificationStatusEnumValueOf(String name) {
       return _$modificationStatusEnum_paymentCost;
     case 'paymentCostPending':
       return _$modificationStatusEnum_paymentCostPending;
+    case 'pending':
+      return _$modificationStatusEnum_pending;
     case 'pendingApproval':
       return _$modificationStatusEnum_pendingApproval;
     case 'pendingExecution':
@@ -280,6 +288,10 @@ ModificationStatusEnum _$modificationStatusEnumValueOf(String name) {
       return _$modificationStatusEnum_reserveAdjustmentPending;
     case 'returned':
       return _$modificationStatusEnum_returned;
+    case 'reversalReceived':
+      return _$modificationStatusEnum_reversalReceived;
+    case 'reversed':
+      return _$modificationStatusEnum_reversed;
     case 'secondChargeback':
       return _$modificationStatusEnum_secondChargeback;
     case 'secondChargebackPending':
@@ -347,6 +359,7 @@ final BuiltSet<ModificationStatusEnum> _$modificationStatusEnumValues =
       _$modificationStatusEnum_miscCostPending,
       _$modificationStatusEnum_paymentCost,
       _$modificationStatusEnum_paymentCostPending,
+      _$modificationStatusEnum_pending,
       _$modificationStatusEnum_pendingApproval,
       _$modificationStatusEnum_pendingExecution,
       _$modificationStatusEnum_received,
@@ -360,6 +373,8 @@ final BuiltSet<ModificationStatusEnum> _$modificationStatusEnumValues =
       _$modificationStatusEnum_reserveAdjustment,
       _$modificationStatusEnum_reserveAdjustmentPending,
       _$modificationStatusEnum_returned,
+      _$modificationStatusEnum_reversalReceived,
+      _$modificationStatusEnum_reversed,
       _$modificationStatusEnum_secondChargeback,
       _$modificationStatusEnum_secondChargebackPending,
       _$modificationStatusEnum_undefined,
@@ -424,6 +439,7 @@ class _$ModificationStatusEnumSerializer
     'miscCostPending': 'miscCostPending',
     'paymentCost': 'paymentCost',
     'paymentCostPending': 'paymentCostPending',
+    'pending': 'pending',
     'pendingApproval': 'pendingApproval',
     'pendingExecution': 'pendingExecution',
     'received': 'received',
@@ -437,6 +453,8 @@ class _$ModificationStatusEnumSerializer
     'reserveAdjustment': 'reserveAdjustment',
     'reserveAdjustmentPending': 'reserveAdjustmentPending',
     'returned': 'returned',
+    'reversalReceived': 'reversalReceived',
+    'reversed': 'reversed',
     'secondChargeback': 'secondChargeback',
     'secondChargebackPending': 'secondChargebackPending',
     'undefined': 'undefined',
@@ -495,6 +513,7 @@ class _$ModificationStatusEnumSerializer
     'miscCostPending': 'miscCostPending',
     'paymentCost': 'paymentCost',
     'paymentCostPending': 'paymentCostPending',
+    'pending': 'pending',
     'pendingApproval': 'pendingApproval',
     'pendingExecution': 'pendingExecution',
     'received': 'received',
@@ -508,6 +527,8 @@ class _$ModificationStatusEnumSerializer
     'reserveAdjustment': 'reserveAdjustment',
     'reserveAdjustmentPending': 'reserveAdjustmentPending',
     'returned': 'returned',
+    'reversalReceived': 'reversalReceived',
+    'reversed': 'reversed',
     'secondChargeback': 'secondChargeback',
     'secondChargebackPending': 'secondChargebackPending',
     'undefined': 'undefined',

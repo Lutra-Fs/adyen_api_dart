@@ -27,7 +27,7 @@ class PaymentsApi {
   const PaymentsApi(this._dio, this._serializers);
 
   /// Create an authorisation
-  /// Creates a payment with a unique reference (&#x60;pspReference&#x60;) and attempts to obtain an authorisation hold. For cards, this amount can be captured or cancelled later. Non-card payment methods typically don&#39;t support this and will automatically capture as part of the authorisation. &gt; This endpoint is part of our [classic API integration](https://docs.adyen.com/online-payments/classic-integrations/api-integration-ecommerce). If using a [newer integration](https://docs.adyen.com/online-payments), use the [&#x60;/payments&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/payments) endpoint under Checkout API instead.
+  /// Creates a payment with a unique reference (&#x60;pspReference&#x60;) and attempts to obtain an authorisation hold. For cards, this amount can be captured or cancelled later. Non-card payment methods typically don&#39;t support this and will automatically capture as part of the authorisation.  &gt; This endpoint is [inactive](https://docs.adyen.com/online-payments/upgrade-your-integration#checkout-api-lifecycle) and is no longer supported for new integrations. &gt; * If you are building a new integration, use the Checkout API [&#x60;/payments&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments) endpoint instead. &gt; * If you have an existing integration using this endpoint, reach out to your Adyen contact and [migrate to the Checkout API](https://docs.adyen.com/online-payments/upgrade-your-integration/migrate-to-checkout-api).  &gt;The Checkout API enables your [online payments](https://docs.adyen.com/online-payments) integration to accept all supported payment methods, use the latest features, and access more benefits.
   ///
   /// Parameters:
   /// * [paymentRequest] 
@@ -133,7 +133,7 @@ class PaymentsApi {
   }
 
   /// Complete a 3DS authorisation
-  /// For an authenticated 3D Secure session, completes the payment authorisation. This endpoint must receive the &#x60;md&#x60; and &#x60;paResponse&#x60; parameters that you get from the card issuer after a shopper pays via 3D Secure.  &gt; This endpoint is part of our [classic API integration](https://docs.adyen.com/online-payments/classic-integrations/api-integration-ecommerce/3d-secure). If using a [newer integration](https://docs.adyen.com/online-payments), use the [&#x60;/payments/details&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/payments/details) endpoint under Checkout API instead.
+  /// For an authenticated 3D Secure session, completes the payment authorisation. This endpoint must receive the &#x60;md&#x60; and &#x60;paResponse&#x60; parameters that you get from the card issuer after a shopper pays via 3D Secure.  &gt; This endpoint is [inactive](https://docs.adyen.com/online-payments/upgrade-your-integration#checkout-api-lifecycle) and is no longer supported for new integrations. &gt; * If you are building a new integration, use the Checkout API [&#x60;/payments/details&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments/details) endpoint instead. &gt; * If you have an existing integration using this endpoint, reach out to your Adyen contact and [migrate to the Checkout API](https://docs.adyen.com/online-payments/upgrade-your-integration/migrate-to-checkout-api).  &gt; The Checkout API enables your [online payments](https://docs.adyen.com/online-payments) integration to accept all supported payment methods, use the latest features, and access more benefits.
   ///
   /// Parameters:
   /// * [paymentRequest3d] 
@@ -239,7 +239,7 @@ class PaymentsApi {
   }
 
   /// Complete a 3DS2 authorisation
-  /// For an authenticated 3D Secure 2 session, completes the payment authorisation. This endpoint must receive the &#x60;threeDS2Token&#x60; and &#x60;threeDS2Result&#x60; parameters.  &gt; This endpoint is part of our [classic API integration](https://docs.adyen.com/online-payments/classic-integrations/api-integration-ecommerce/3d-secure). If using a [newer integration](https://docs.adyen.com/online-payments), use the [&#x60;/payments/details&#x60;](https://docs.adyen.com/api-explorer/#/CheckoutService/payments/details) endpoint under Checkout API instead.
+  /// For an authenticated 3D Secure 2 session, completes the payment authorisation. This endpoint must receive the &#x60;threeDS2Token&#x60; and &#x60;threeDS2Result&#x60; parameters.  &gt; This endpoint is [inactive](https://docs.adyen.com/online-payments/upgrade-your-integration#checkout-api-lifecycle) and is no longer supported for new integrations. &gt; * If you are building a new integration, use the Checkout API [&#x60;/payments/details&#x60;](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments/details) endpoint instead. &gt; * If you have an existing integration using this endpoint, reach out to your Adyen contact and [migrate to the Checkout API](https://docs.adyen.com/online-payments/upgrade-your-integration/migrate-to-checkout-api).  &gt;The Checkout API enables your [online payments](https://docs.adyen.com/online-payments) integration to accept all supported payment methods, use the latest features, and access more benefits.
   ///
   /// Parameters:
   /// * [paymentRequest3ds2] 

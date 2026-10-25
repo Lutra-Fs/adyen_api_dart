@@ -23,10 +23,10 @@ part 'individual.g.dart';
 /// * [birthData] - The individual's birth information.
 /// * [email] - The email address of the legal entity.
 /// * [identificationData] - Information about the individual's identification document.
-/// * [name_] - The individual's name.
+/// * [name_] - The individual's name. The combined length of `firstName` and `lastName` must be at least 3 characters.  Only **-**, **—**, **.**, **_/_** are allowed as special characters.  For more information, see [validations on fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
 /// * [nationality] - The individual's nationality.
 /// * [phone] - The phone number of the legal entity.
-/// * [residentialAddress] - The residential address of the individual.
+/// * [residentialAddress] - The residential address of the individual. Individuals cannot use a PO box as their residential address.  Address fields cannot contain emojis, only one repeated character (unless two characters long), only symbols, only numbers, only spaces, or **fictitious values** such as **John Doe** or **N/A**. All parts of the address must be different. For example, Spain, Spain, Spain is not allowed.  For more information, see [validations on fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
 /// * [support] - Support information for the legal entity. Required if you have a platform setup.
 /// * [taxInformation] - The tax information of the individual.
 /// * [webData] - The website and app URL of the legal entity.
@@ -44,7 +44,7 @@ abstract class Individual implements Built<Individual, IndividualBuilder> {
   @BuiltValueField(wireName: r'identificationData')
   IdentificationData? get identificationData;
 
-  /// The individual's name.
+  /// The individual's name. The combined length of `firstName` and `lastName` must be at least 3 characters.  Only **-**, **—**, **.**, **_/_** are allowed as special characters.  For more information, see [validations on fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
   @BuiltValueField(wireName: r'name')
   Name get name_;
 
@@ -56,7 +56,7 @@ abstract class Individual implements Built<Individual, IndividualBuilder> {
   @BuiltValueField(wireName: r'phone')
   PhoneNumber? get phone;
 
-  /// The residential address of the individual.
+  /// The residential address of the individual. Individuals cannot use a PO box as their residential address.  Address fields cannot contain emojis, only one repeated character (unless two characters long), only symbols, only numbers, only spaces, or **fictitious values** such as **John Doe** or **N/A**. All parts of the address must be different. For example, Spain, Spain, Spain is not allowed.  For more information, see [validations on fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
   @BuiltValueField(wireName: r'residentialAddress')
   Address get residentialAddress;
 

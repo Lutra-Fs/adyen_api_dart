@@ -10,8 +10,6 @@ class _$PaymentReversalRequest extends PaymentReversalRequest {
   @override
   final ApplicationInfo? applicationInfo;
   @override
-  final EnhancedSchemeData? enhancedSchemeData;
-  @override
   final String merchantAccount;
   @override
   final String? reference;
@@ -22,7 +20,6 @@ class _$PaymentReversalRequest extends PaymentReversalRequest {
 
   _$PaymentReversalRequest._({
     this.applicationInfo,
-    this.enhancedSchemeData,
     required this.merchantAccount,
     this.reference,
   }) : super._();
@@ -40,7 +37,6 @@ class _$PaymentReversalRequest extends PaymentReversalRequest {
     if (identical(other, this)) return true;
     return other is PaymentReversalRequest &&
         applicationInfo == other.applicationInfo &&
-        enhancedSchemeData == other.enhancedSchemeData &&
         merchantAccount == other.merchantAccount &&
         reference == other.reference;
   }
@@ -49,7 +45,6 @@ class _$PaymentReversalRequest extends PaymentReversalRequest {
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, applicationInfo.hashCode);
-    _$hash = $jc(_$hash, enhancedSchemeData.hashCode);
     _$hash = $jc(_$hash, merchantAccount.hashCode);
     _$hash = $jc(_$hash, reference.hashCode);
     _$hash = $jf(_$hash);
@@ -60,7 +55,6 @@ class _$PaymentReversalRequest extends PaymentReversalRequest {
   String toString() {
     return (newBuiltValueToStringHelper(r'PaymentReversalRequest')
           ..add('applicationInfo', applicationInfo)
-          ..add('enhancedSchemeData', enhancedSchemeData)
           ..add('merchantAccount', merchantAccount)
           ..add('reference', reference))
         .toString();
@@ -76,12 +70,6 @@ class PaymentReversalRequestBuilder
       _$this._applicationInfo ??= ApplicationInfoBuilder();
   set applicationInfo(ApplicationInfoBuilder? applicationInfo) =>
       _$this._applicationInfo = applicationInfo;
-
-  EnhancedSchemeDataBuilder? _enhancedSchemeData;
-  EnhancedSchemeDataBuilder get enhancedSchemeData =>
-      _$this._enhancedSchemeData ??= EnhancedSchemeDataBuilder();
-  set enhancedSchemeData(EnhancedSchemeDataBuilder? enhancedSchemeData) =>
-      _$this._enhancedSchemeData = enhancedSchemeData;
 
   String? _merchantAccount;
   String? get merchantAccount => _$this._merchantAccount;
@@ -100,7 +88,6 @@ class PaymentReversalRequestBuilder
     final $v = _$v;
     if ($v != null) {
       _applicationInfo = $v.applicationInfo?.toBuilder();
-      _enhancedSchemeData = $v.enhancedSchemeData?.toBuilder();
       _merchantAccount = $v.merchantAccount;
       _reference = $v.reference;
       _$v = null;
@@ -128,7 +115,6 @@ class PaymentReversalRequestBuilder
           _$v ??
           _$PaymentReversalRequest._(
             applicationInfo: _applicationInfo?.build(),
-            enhancedSchemeData: _enhancedSchemeData?.build(),
             merchantAccount: BuiltValueNullFieldError.checkNotNull(
               merchantAccount,
               r'PaymentReversalRequest',
@@ -141,8 +127,6 @@ class PaymentReversalRequestBuilder
       try {
         _$failedField = 'applicationInfo';
         _applicationInfo?.build();
-        _$failedField = 'enhancedSchemeData';
-        _enhancedSchemeData?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
           r'PaymentReversalRequest',

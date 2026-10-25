@@ -5,7 +5,6 @@
 // ignore_for_file: unused_element
 import 'package:adyen_api/src/gen/webhook_configuration/model/mandate_bank_account.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:built_value/json_object.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -34,7 +33,7 @@ abstract class Mandate implements Built<Mandate, MandateBuilder> {
 
   /// The date when the mandate was created.
   @BuiltValueField(wireName: r'createdAt')
-  JsonObject? get createdAt;
+  DateTime? get createdAt;
 
   /// The unique identifier of the mandate.
   @BuiltValueField(wireName: r'id')
@@ -56,7 +55,7 @@ abstract class Mandate implements Built<Mandate, MandateBuilder> {
 
   /// The date when the mandate was updated.
   @BuiltValueField(wireName: r'updatedAt')
-  JsonObject? get updatedAt;
+  DateTime? get updatedAt;
 
   Mandate._();
 
@@ -99,7 +98,7 @@ class _$MandateSerializer implements PrimitiveSerializer<Mandate> {
       yield r'createdAt';
       yield serializers.serialize(
         object.createdAt,
-        specifiedType: const FullType(JsonObject),
+        specifiedType: const FullType(DateTime),
       );
     }
     if (object.id != null) {
@@ -134,7 +133,7 @@ class _$MandateSerializer implements PrimitiveSerializer<Mandate> {
       yield r'updatedAt';
       yield serializers.serialize(
         object.updatedAt,
-        specifiedType: const FullType(JsonObject),
+        specifiedType: const FullType(DateTime),
       );
     }
   }
@@ -177,8 +176,8 @@ class _$MandateSerializer implements PrimitiveSerializer<Mandate> {
         case r'createdAt':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(JsonObject),
-          ) as JsonObject;
+            specifiedType: const FullType(DateTime),
+          ) as DateTime;
           result.createdAt = valueDes;
           break;
         case r'id':
@@ -212,8 +211,8 @@ class _$MandateSerializer implements PrimitiveSerializer<Mandate> {
         case r'updatedAt':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(JsonObject),
-          ) as JsonObject;
+            specifiedType: const FullType(DateTime),
+          ) as DateTime;
           result.updatedAt = valueDes;
           break;
         default:

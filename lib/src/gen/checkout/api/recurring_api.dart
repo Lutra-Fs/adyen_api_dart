@@ -24,7 +24,7 @@ class RecurringApi {
   const RecurringApi(this._dio, this._serializers);
 
   /// Delete a token for stored payment details
-  /// Deletes the token identified in the path. The token can no longer be used with payment requests.
+  /// Deletes the token identified in the path. The token can no longer be used with payment requests.  To make this request, your API credential must have the following [role](https://docs.adyen.com/development-resources/api-credentials#api-permissions):  * API tokenise payment details
   ///
   /// Parameters:
   /// * [storedPaymentMethodId] - The unique identifier of the token.
@@ -92,7 +92,7 @@ class RecurringApi {
   }
 
   /// Get tokens for stored payment details
-  /// Lists the tokens for stored payment details for the shopper identified in the path, if there are any available. The token ID can be used with payment requests for the shopper&#39;s payment. A summary of the stored details is included.  
+  /// Lists the tokens for stored payment details for the shopper identified in the path, if there are any available. The token ID can be used with payment requests for the shopper&#39;s payment. A summary of the stored details is included.  To make this request, your API credential must have the following [role](https://docs.adyen.com/development-resources/api-credentials#api-permissions):  * API tokenise payment details
   ///
   /// Parameters:
   /// * [shopperReference] - Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters. > Your reference must not include personally identifiable information (PII), for example name or email address.
@@ -295,7 +295,7 @@ class RecurringApi {
   }
 
   /// Create a token to store payment details
-  /// Creates a token to store the shopper&#39;s payment details. This token can be used for the shopper&#39;s future payments.
+  /// Creates a token to store the shopper&#39;s payment details. This token can be used for the shopper&#39;s future payments.  To make this request, your API credential must have the following [role](https://docs.adyen.com/development-resources/api-credentials#api-permissions):  * API tokenise payment details
   ///
   /// Parameters:
   /// * [idempotencyKey] - A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).

@@ -12,7 +12,7 @@ import 'package:adyen_api/src/gen/balance_platform/api_util.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/default_error_response_entity.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/list_mandates_response.dart';
 import 'package:adyen_api/src/gen/balance_platform/model/mandate.dart';
-import 'package:adyen_api/src/gen/balance_platform/model/patchable_mandate.dart';
+import 'package:adyen_api/src/gen/balance_platform/model/mandate_update.dart';
 
 class DirectDebitMandatesApi {
 
@@ -188,7 +188,7 @@ class DirectDebitMandatesApi {
   ///
   /// Parameters:
   /// * [mandateId] - The unique identifier of the mandate.
-  /// * [patchableMandate] 
+  /// * [mandateUpdate] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -200,7 +200,7 @@ class DirectDebitMandatesApi {
   /// Throws [DioException] if API call or serialization fails
   Future<Response<void>> patchMandatesMandateId({ 
     required String mandateId,
-    required PatchableMandate patchableMandate,
+    required MandateUpdate mandateUpdate,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -225,8 +225,8 @@ class DirectDebitMandatesApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(PatchableMandate);
-      _bodyData = _serializers.serialize(patchableMandate, specifiedType: _type);
+      const _type = FullType(MandateUpdate);
+      _bodyData = _serializers.serialize(mandateUpdate, specifiedType: _type);
 
     } catch(error, stackTrace) {
       throw DioException(

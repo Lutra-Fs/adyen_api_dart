@@ -3,8 +3,6 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_collection/built_collection.dart';
-import 'package:adyen_api/src/gen/management/model/minor_units_monetary_value.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -14,16 +12,11 @@ part 'offline_processing.g.dart';
 ///
 /// Properties:
 /// * [chipFloorLimit] - The maximum offline transaction amount for chip cards, in the processing currency and specified in [minor units](https://docs.adyen.com/development-resources/currency-codes).
-/// * [offlineSwipeLimits] - The maximum offline transaction amount for swiped cards, in the specified currency.
 @BuiltValue()
 abstract class OfflineProcessing implements Built<OfflineProcessing, OfflineProcessingBuilder> {
   /// The maximum offline transaction amount for chip cards, in the processing currency and specified in [minor units](https://docs.adyen.com/development-resources/currency-codes).
   @BuiltValueField(wireName: r'chipFloorLimit')
   int? get chipFloorLimit;
-
-  /// The maximum offline transaction amount for swiped cards, in the specified currency.
-  @BuiltValueField(wireName: r'offlineSwipeLimits')
-  BuiltList<MinorUnitsMonetaryValue>? get offlineSwipeLimits;
 
   OfflineProcessing._();
 
@@ -55,13 +48,6 @@ class _$OfflineProcessingSerializer implements PrimitiveSerializer<OfflineProces
         specifiedType: const FullType(int),
       );
     }
-    if (object.offlineSwipeLimits != null) {
-      yield r'offlineSwipeLimits';
-      yield serializers.serialize(
-        object.offlineSwipeLimits,
-        specifiedType: const FullType(BuiltList, [FullType(MinorUnitsMonetaryValue)]),
-      );
-    }
   }
 
   @override
@@ -91,13 +77,6 @@ class _$OfflineProcessingSerializer implements PrimitiveSerializer<OfflineProces
             specifiedType: const FullType(int),
           ) as int;
           result.chipFloorLimit = valueDes;
-          break;
-        case r'offlineSwipeLimits':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(BuiltList, [FullType(MinorUnitsMonetaryValue)]),
-          ) as BuiltList<MinorUnitsMonetaryValue>;
-          result.offlineSwipeLimits.replace(valueDes);
           break;
         default:
           unhandled.add(key);

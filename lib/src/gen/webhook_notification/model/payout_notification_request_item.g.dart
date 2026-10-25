@@ -120,6 +120,9 @@ const PayoutNotificationRequestItemEventCodeEnum
 _$payoutNotificationRequestItemEventCodeEnum_REFUND_FAILED =
     const PayoutNotificationRequestItemEventCodeEnum._('REFUND_FAILED');
 const PayoutNotificationRequestItemEventCodeEnum
+_$payoutNotificationRequestItemEventCodeEnum_REFUND_NOT_CLEARED =
+    const PayoutNotificationRequestItemEventCodeEnum._('REFUND_NOT_CLEARED');
+const PayoutNotificationRequestItemEventCodeEnum
 _$payoutNotificationRequestItemEventCodeEnum_REFUND_WITH_DATA =
     const PayoutNotificationRequestItemEventCodeEnum._('REFUND_WITH_DATA');
 const PayoutNotificationRequestItemEventCodeEnum
@@ -128,8 +131,14 @@ _$payoutNotificationRequestItemEventCodeEnum_REQUEST_FOR_INFORMATION =
       'REQUEST_FOR_INFORMATION',
     );
 const PayoutNotificationRequestItemEventCodeEnum
+_$payoutNotificationRequestItemEventCodeEnum_REVERSAL =
+    const PayoutNotificationRequestItemEventCodeEnum._('REVERSAL');
+const PayoutNotificationRequestItemEventCodeEnum
 _$payoutNotificationRequestItemEventCodeEnum_SECOND_CHARGEBACK =
     const PayoutNotificationRequestItemEventCodeEnum._('SECOND_CHARGEBACK');
+const PayoutNotificationRequestItemEventCodeEnum
+_$payoutNotificationRequestItemEventCodeEnum_SETTLED_REVERSED =
+    const PayoutNotificationRequestItemEventCodeEnum._('SETTLED_REVERSED');
 const PayoutNotificationRequestItemEventCodeEnum
 _$payoutNotificationRequestItemEventCodeEnum_TECHNICAL_CANCEL =
     const PayoutNotificationRequestItemEventCodeEnum._('TECHNICAL_CANCEL');
@@ -213,12 +222,18 @@ _$payoutNotificationRequestItemEventCodeEnumValueOf(String name) {
       return _$payoutNotificationRequestItemEventCodeEnum_REFUNDED_REVERSED;
     case 'REFUND_FAILED':
       return _$payoutNotificationRequestItemEventCodeEnum_REFUND_FAILED;
+    case 'REFUND_NOT_CLEARED':
+      return _$payoutNotificationRequestItemEventCodeEnum_REFUND_NOT_CLEARED;
     case 'REFUND_WITH_DATA':
       return _$payoutNotificationRequestItemEventCodeEnum_REFUND_WITH_DATA;
     case 'REQUEST_FOR_INFORMATION':
       return _$payoutNotificationRequestItemEventCodeEnum_REQUEST_FOR_INFORMATION;
+    case 'REVERSAL':
+      return _$payoutNotificationRequestItemEventCodeEnum_REVERSAL;
     case 'SECOND_CHARGEBACK':
       return _$payoutNotificationRequestItemEventCodeEnum_SECOND_CHARGEBACK;
+    case 'SETTLED_REVERSED':
+      return _$payoutNotificationRequestItemEventCodeEnum_SETTLED_REVERSED;
     case 'TECHNICAL_CANCEL':
       return _$payoutNotificationRequestItemEventCodeEnum_TECHNICAL_CANCEL;
     case 'VOID_PENDING_REFUND':
@@ -270,9 +285,12 @@ _$payoutNotificationRequestItemEventCodeEnumValues =
       _$payoutNotificationRequestItemEventCodeEnum_REFUND,
       _$payoutNotificationRequestItemEventCodeEnum_REFUNDED_REVERSED,
       _$payoutNotificationRequestItemEventCodeEnum_REFUND_FAILED,
+      _$payoutNotificationRequestItemEventCodeEnum_REFUND_NOT_CLEARED,
       _$payoutNotificationRequestItemEventCodeEnum_REFUND_WITH_DATA,
       _$payoutNotificationRequestItemEventCodeEnum_REQUEST_FOR_INFORMATION,
+      _$payoutNotificationRequestItemEventCodeEnum_REVERSAL,
       _$payoutNotificationRequestItemEventCodeEnum_SECOND_CHARGEBACK,
+      _$payoutNotificationRequestItemEventCodeEnum_SETTLED_REVERSED,
       _$payoutNotificationRequestItemEventCodeEnum_TECHNICAL_CANCEL,
       _$payoutNotificationRequestItemEventCodeEnum_VOID_PENDING_REFUND,
       _$payoutNotificationRequestItemEventCodeEnum_unknownDefaultOpenApi,
@@ -320,9 +338,12 @@ class _$PayoutNotificationRequestItemEventCodeEnumSerializer
     'REFUND': 'REFUND',
     'REFUNDED_REVERSED': 'REFUNDED_REVERSED',
     'REFUND_FAILED': 'REFUND_FAILED',
+    'REFUND_NOT_CLEARED': 'REFUND_NOT_CLEARED',
     'REFUND_WITH_DATA': 'REFUND_WITH_DATA',
     'REQUEST_FOR_INFORMATION': 'REQUEST_FOR_INFORMATION',
+    'REVERSAL': 'REVERSAL',
     'SECOND_CHARGEBACK': 'SECOND_CHARGEBACK',
+    'SETTLED_REVERSED': 'SETTLED_REVERSED',
     'TECHNICAL_CANCEL': 'TECHNICAL_CANCEL',
     'VOID_PENDING_REFUND': 'VOID_PENDING_REFUND',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
@@ -363,9 +384,12 @@ class _$PayoutNotificationRequestItemEventCodeEnumSerializer
     'REFUND': 'REFUND',
     'REFUNDED_REVERSED': 'REFUNDED_REVERSED',
     'REFUND_FAILED': 'REFUND_FAILED',
+    'REFUND_NOT_CLEARED': 'REFUND_NOT_CLEARED',
     'REFUND_WITH_DATA': 'REFUND_WITH_DATA',
     'REQUEST_FOR_INFORMATION': 'REQUEST_FOR_INFORMATION',
+    'REVERSAL': 'REVERSAL',
     'SECOND_CHARGEBACK': 'SECOND_CHARGEBACK',
+    'SETTLED_REVERSED': 'SETTLED_REVERSED',
     'TECHNICAL_CANCEL': 'TECHNICAL_CANCEL',
     'VOID_PENDING_REFUND': 'VOID_PENDING_REFUND',
     'unknown_default_open_api': 'unknownDefaultOpenApi',

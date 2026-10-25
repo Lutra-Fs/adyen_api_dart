@@ -11,50 +11,50 @@ part 'leg.g.dart';
 /// Leg
 ///
 /// Properties:
-/// * [carrierCode] - The [IATA](https://www.iata.org/services/pages/codes.aspx) 2-letter accounting code (PAX) that identifies the carrier. This field is required if the airline data includes leg details. * Example: KLM = KL * minLength: 2 characters * maxLength: 2 characters * Must not start with a space or be all spaces. * Must not be all zeros.
-/// * [classOfTravel] - A one-letter travel class identifier.  The following are common:  * F: first class * J: business class * Y: economy class * W: premium economy  * Encoding: ASCII * minLength: 1 character * maxLength: 1 character * Must not start with a space or be all spaces. * Must not be all zeros.
-/// * [dateOfTravel] - Date and time of travel in format `yyyy-MM-ddTHH:mm`. * Use local time of departure airport. * minLength: 16 characters * maxLength: 16 characters
-/// * [departureAirportCode] - The [IATA](https://www.iata.org/services/pages/codes.aspx) three-letter airport code of the departure airport. This field is required if the airline data includes leg details.  * Encoding: ASCII * Example: Amsterdam = AMS * minLength: 3 characters * maxLength: 3 characters * Must not start with a space or be all spaces. * Must not be all zeros.
-/// * [departureTax] - The amount of [departure tax](https://en.wikipedia.org/wiki/Departure_tax) charged, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Encoding: Numeric * minLength: 1 * maxLength: 11 * Must not be all zeros.
-/// * [destinationAirportCode] - The [IATA](https://www.iata.org/services/pages/codes.aspx) 3-letter airport code of the destination airport. This field is required if the airline data includes leg details. * Example: Amsterdam = AMS * Encoding: ASCII * minLength: 3 characters * maxLength: 3 characters * Must not start with a space or be all spaces. * Must not be all zeros.
-/// * [fareBasisCode] - The [fare basis code](https://en.wikipedia.org/wiki/Fare_basis_code), alphanumeric. * minLength: 1 character * maxLength: 15 characters * Must not start with a space or be all spaces. * Must not be all zeros.
-/// * [flightNumber] - The flight identifier. * minLength: 1 character * maxLength: 5 characters * Must not start with a space or be all spaces. * Must not be all zeros.
-/// * [stopOverCode] - A one-letter code that indicates whether the passenger is entitled to make a stopover. Can be a space, O if the passenger is entitled to make a stopover, or X if they are not. * Encoding: ASCII * minLength: 1 character * maxLength: 1 character
+/// * [carrierCode] - The [IATA](https://www.iata.org/services/pages/codes.aspx) 2-letter accounting code (PAX) that identifies the carrier. This field is required if the airline data includes leg details. * Example: KLM = KL * minLength: 2 characters * maxLength: 2 characters * Must not start with a space or be all spaces. * Must not be all zeros. * **additionalData key:** `airline.leg[N].carrier_code`
+/// * [classOfTravel] - A one-letter travel class identifier.  The following are common:  * F: first class * J: business class * Y: economy class * W: premium economy  * Encoding: ASCII * minLength: 1 character * maxLength: 1 character * Must not start with a space or be all spaces. * Must not be all zeros. * **additionalData key:** `airline.leg[N].class_of_travel`
+/// * [dateOfTravel] - Date and time of travel in format `yyyy-MM-ddTHH:mm`. * Use local time of departure airport. * minLength: 16 characters * maxLength: 16 characters * **additionalData key:** `airline.leg[N].date_of_travel`
+/// * [departureAirportCode] - The [IATA](https://www.iata.org/services/pages/codes.aspx) three-letter airport code of the departure airport. This field is required if the airline data includes leg details.  * Encoding: ASCII * Example: Amsterdam = AMS * minLength: 3 characters * maxLength: 3 characters * Must not start with a space or be all spaces. * Must not be all zeros. * **additionalData key:** `airline.leg[N].depart_airport`
+/// * [departureTax] - The amount of [departure tax](https://en.wikipedia.org/wiki/Departure_tax) charged, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Encoding: Numeric * minLength: 1 * maxLength: 11 * Must not be all zeros. * **additionalData key:** `airline.leg[N].depart_tax`
+/// * [destinationAirportCode] - The [IATA](https://www.iata.org/services/pages/codes.aspx) 3-letter airport code of the destination airport. This field is required if the airline data includes leg details. * Example: Amsterdam = AMS * Encoding: ASCII * minLength: 3 characters * maxLength: 3 characters * Must not start with a space or be all spaces. * Must not be all zeros. * **additionalData key:** `airline.leg[N].destination_code`
+/// * [fareBasisCode] - The [fare basis code](https://en.wikipedia.org/wiki/Fare_basis_code), alphanumeric. * minLength: 1 character * maxLength: 15 characters * Must not start with a space or be all spaces. * Must not be all zeros. * **additionalData key:** `airline.leg[N].fare_base_code`
+/// * [flightNumber] - The flight identifier. * minLength: 1 character * maxLength: 5 characters * Must not start with a space or be all spaces. * Must not be all zeros. * **additionalData key:** `airline.leg[N].flight_number`
+/// * [stopOverCode] - A one-letter code that indicates whether the passenger is entitled to make a stopover. Can be a space, O if the passenger is entitled to make a stopover, or X if they are not. * Encoding: ASCII * minLength: 1 character * maxLength: 1 character * **additionalData key:** `airline.leg[N].stop_over_code`
 @BuiltValue()
 abstract class Leg implements Built<Leg, LegBuilder> {
-  /// The [IATA](https://www.iata.org/services/pages/codes.aspx) 2-letter accounting code (PAX) that identifies the carrier. This field is required if the airline data includes leg details. * Example: KLM = KL * minLength: 2 characters * maxLength: 2 characters * Must not start with a space or be all spaces. * Must not be all zeros.
+  /// The [IATA](https://www.iata.org/services/pages/codes.aspx) 2-letter accounting code (PAX) that identifies the carrier. This field is required if the airline data includes leg details. * Example: KLM = KL * minLength: 2 characters * maxLength: 2 characters * Must not start with a space or be all spaces. * Must not be all zeros. * **additionalData key:** `airline.leg[N].carrier_code`
   @BuiltValueField(wireName: r'carrierCode')
   String? get carrierCode;
 
-  /// A one-letter travel class identifier.  The following are common:  * F: first class * J: business class * Y: economy class * W: premium economy  * Encoding: ASCII * minLength: 1 character * maxLength: 1 character * Must not start with a space or be all spaces. * Must not be all zeros.
+  /// A one-letter travel class identifier.  The following are common:  * F: first class * J: business class * Y: economy class * W: premium economy  * Encoding: ASCII * minLength: 1 character * maxLength: 1 character * Must not start with a space or be all spaces. * Must not be all zeros. * **additionalData key:** `airline.leg[N].class_of_travel`
   @BuiltValueField(wireName: r'classOfTravel')
   String? get classOfTravel;
 
-  /// Date and time of travel in format `yyyy-MM-ddTHH:mm`. * Use local time of departure airport. * minLength: 16 characters * maxLength: 16 characters
+  /// Date and time of travel in format `yyyy-MM-ddTHH:mm`. * Use local time of departure airport. * minLength: 16 characters * maxLength: 16 characters * **additionalData key:** `airline.leg[N].date_of_travel`
   @BuiltValueField(wireName: r'dateOfTravel')
   DateTime? get dateOfTravel;
 
-  /// The [IATA](https://www.iata.org/services/pages/codes.aspx) three-letter airport code of the departure airport. This field is required if the airline data includes leg details.  * Encoding: ASCII * Example: Amsterdam = AMS * minLength: 3 characters * maxLength: 3 characters * Must not start with a space or be all spaces. * Must not be all zeros.
+  /// The [IATA](https://www.iata.org/services/pages/codes.aspx) three-letter airport code of the departure airport. This field is required if the airline data includes leg details.  * Encoding: ASCII * Example: Amsterdam = AMS * minLength: 3 characters * maxLength: 3 characters * Must not start with a space or be all spaces. * Must not be all zeros. * **additionalData key:** `airline.leg[N].depart_airport`
   @BuiltValueField(wireName: r'departureAirportCode')
   String? get departureAirportCode;
 
-  /// The amount of [departure tax](https://en.wikipedia.org/wiki/Departure_tax) charged, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Encoding: Numeric * minLength: 1 * maxLength: 11 * Must not be all zeros.
+  /// The amount of [departure tax](https://en.wikipedia.org/wiki/Departure_tax) charged, in [minor units](https://docs.adyen.com/development-resources/currency-codes). * Encoding: Numeric * minLength: 1 * maxLength: 11 * Must not be all zeros. * **additionalData key:** `airline.leg[N].depart_tax`
   @BuiltValueField(wireName: r'departureTax')
   int? get departureTax;
 
-  /// The [IATA](https://www.iata.org/services/pages/codes.aspx) 3-letter airport code of the destination airport. This field is required if the airline data includes leg details. * Example: Amsterdam = AMS * Encoding: ASCII * minLength: 3 characters * maxLength: 3 characters * Must not start with a space or be all spaces. * Must not be all zeros.
+  /// The [IATA](https://www.iata.org/services/pages/codes.aspx) 3-letter airport code of the destination airport. This field is required if the airline data includes leg details. * Example: Amsterdam = AMS * Encoding: ASCII * minLength: 3 characters * maxLength: 3 characters * Must not start with a space or be all spaces. * Must not be all zeros. * **additionalData key:** `airline.leg[N].destination_code`
   @BuiltValueField(wireName: r'destinationAirportCode')
   String? get destinationAirportCode;
 
-  /// The [fare basis code](https://en.wikipedia.org/wiki/Fare_basis_code), alphanumeric. * minLength: 1 character * maxLength: 15 characters * Must not start with a space or be all spaces. * Must not be all zeros.
+  /// The [fare basis code](https://en.wikipedia.org/wiki/Fare_basis_code), alphanumeric. * minLength: 1 character * maxLength: 15 characters * Must not start with a space or be all spaces. * Must not be all zeros. * **additionalData key:** `airline.leg[N].fare_base_code`
   @BuiltValueField(wireName: r'fareBasisCode')
   String? get fareBasisCode;
 
-  /// The flight identifier. * minLength: 1 character * maxLength: 5 characters * Must not start with a space or be all spaces. * Must not be all zeros.
+  /// The flight identifier. * minLength: 1 character * maxLength: 5 characters * Must not start with a space or be all spaces. * Must not be all zeros. * **additionalData key:** `airline.leg[N].flight_number`
   @BuiltValueField(wireName: r'flightNumber')
   String? get flightNumber;
 
-  /// A one-letter code that indicates whether the passenger is entitled to make a stopover. Can be a space, O if the passenger is entitled to make a stopover, or X if they are not. * Encoding: ASCII * minLength: 1 character * maxLength: 1 character
+  /// A one-letter code that indicates whether the passenger is entitled to make a stopover. Can be a space, O if the passenger is entitled to make a stopover, or X if they are not. * Encoding: ASCII * minLength: 1 character * maxLength: 1 character * **additionalData key:** `airline.leg[N].stop_over_code`
   @BuiltValueField(wireName: r'stopOverCode')
   String? get stopOverCode;
 

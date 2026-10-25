@@ -11,14 +11,19 @@ part 'response_mode.g.dart';
 
 class ResponseMode extends EnumClass {
 
-  @BuiltValueEnumConst(wireName: r'Immediate')
-  static const ResponseMode immediate = _$immediate;
+  ///  Possible values: * **NotRequired** * **Immediate** * **PrintEnd** * **SoundEnd**
   @BuiltValueEnumConst(wireName: r'NotRequired')
   static const ResponseMode notRequired = _$notRequired;
+  ///  Possible values: * **NotRequired** * **Immediate** * **PrintEnd** * **SoundEnd**
+  @BuiltValueEnumConst(wireName: r'Immediate')
+  static const ResponseMode immediate = _$immediate;
+  ///  Possible values: * **NotRequired** * **Immediate** * **PrintEnd** * **SoundEnd**
   @BuiltValueEnumConst(wireName: r'PrintEnd')
   static const ResponseMode printEnd = _$printEnd;
+  ///  Possible values: * **NotRequired** * **Immediate** * **PrintEnd** * **SoundEnd**
   @BuiltValueEnumConst(wireName: r'SoundEnd')
   static const ResponseMode soundEnd = _$soundEnd;
+  ///  Possible values: * **NotRequired** * **Immediate** * **PrintEnd** * **SoundEnd**
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const ResponseMode unknownDefaultOpenApi = _$unknownDefaultOpenApi;
 

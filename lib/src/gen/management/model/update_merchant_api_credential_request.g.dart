@@ -16,6 +16,8 @@ class _$UpdateMerchantApiCredentialRequest
   final String? description;
   @override
   final BuiltList<String>? roles;
+  @override
+  final String? subjectDN;
 
   factory _$UpdateMerchantApiCredentialRequest([
     void Function(UpdateMerchantApiCredentialRequestBuilder)? updates,
@@ -26,6 +28,7 @@ class _$UpdateMerchantApiCredentialRequest
     this.allowedOrigins,
     this.description,
     this.roles,
+    this.subjectDN,
   }) : super._();
   @override
   UpdateMerchantApiCredentialRequest rebuild(
@@ -43,7 +46,8 @@ class _$UpdateMerchantApiCredentialRequest
         active == other.active &&
         allowedOrigins == other.allowedOrigins &&
         description == other.description &&
-        roles == other.roles;
+        roles == other.roles &&
+        subjectDN == other.subjectDN;
   }
 
   @override
@@ -53,6 +57,7 @@ class _$UpdateMerchantApiCredentialRequest
     _$hash = $jc(_$hash, allowedOrigins.hashCode);
     _$hash = $jc(_$hash, description.hashCode);
     _$hash = $jc(_$hash, roles.hashCode);
+    _$hash = $jc(_$hash, subjectDN.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -63,7 +68,8 @@ class _$UpdateMerchantApiCredentialRequest
           ..add('active', active)
           ..add('allowedOrigins', allowedOrigins)
           ..add('description', description)
-          ..add('roles', roles))
+          ..add('roles', roles)
+          ..add('subjectDN', subjectDN))
         .toString();
   }
 }
@@ -94,6 +100,10 @@ class UpdateMerchantApiCredentialRequestBuilder
   ListBuilder<String> get roles => _$this._roles ??= ListBuilder<String>();
   set roles(ListBuilder<String>? roles) => _$this._roles = roles;
 
+  String? _subjectDN;
+  String? get subjectDN => _$this._subjectDN;
+  set subjectDN(String? subjectDN) => _$this._subjectDN = subjectDN;
+
   UpdateMerchantApiCredentialRequestBuilder() {
     UpdateMerchantApiCredentialRequest._defaults(this);
   }
@@ -105,6 +115,7 @@ class UpdateMerchantApiCredentialRequestBuilder
       _allowedOrigins = $v.allowedOrigins?.toBuilder();
       _description = $v.description;
       _roles = $v.roles?.toBuilder();
+      _subjectDN = $v.subjectDN;
       _$v = null;
     }
     return this;
@@ -135,6 +146,7 @@ class UpdateMerchantApiCredentialRequestBuilder
             allowedOrigins: _allowedOrigins?.build(),
             description: description,
             roles: _roles?.build(),
+            subjectDN: subjectDN,
           );
     } catch (_) {
       late String _$failedField;

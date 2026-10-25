@@ -41,10 +41,12 @@ Serializers _$serializers =
           ..add(AddressRequirementRequiredAddressFieldsEnum.serializer)
           ..add(AddressRequirementTypeEnum.serializer)
           ..add(Amount.serializer)
+          ..add(AmountDTO.serializer)
           ..add(AmountMinMaxRequirement.serializer)
           ..add(AmountMinMaxRequirementTypeEnum.serializer)
           ..add(AmountNonZeroDecimalsRequirement.serializer)
           ..add(AmountNonZeroDecimalsRequirementTypeEnum.serializer)
+          ..add(AmountUpdate.serializer)
           ..add(ApproveAssociationRequest.serializer)
           ..add(ApproveAssociationResponse.serializer)
           ..add(ApproveTransferLimitRequest.serializer)
@@ -67,11 +69,19 @@ Serializers _$serializers =
           ..add(BalanceAccount.serializer)
           ..add(BalanceAccountBase.serializer)
           ..add(BalanceAccountBaseStatusEnum.serializer)
+          ..add(BalanceAccountConfiguration.serializer)
+          ..add(BalanceAccountConfigurationRequest.serializer)
+          ..add(BalanceAccountConfigurationRequestFrequencyEnum.serializer)
+          ..add(BalanceAccountConfigurationUpdate.serializer)
+          ..add(BalanceAccountConfigurationUpdateFrequencyEnum.serializer)
+          ..add(BalanceAccountConfigurations.serializer)
           ..add(BalanceAccountInfo.serializer)
           ..add(BalanceAccountStatusEnum.serializer)
           ..add(BalanceAccountUpdateRequest.serializer)
           ..add(BalanceAccountUpdateRequestStatusEnum.serializer)
           ..add(BalancePlatform.serializer)
+          ..add(BalancePlatformConfiguration.serializer)
+          ..add(BalancePlatformConfigurations.serializer)
           ..add(BalanceSweepConfigurationsResponse.serializer)
           ..add(BalanceWebhookSetting.serializer)
           ..add(BalanceWebhookSettingInfo.serializer)
@@ -136,6 +146,8 @@ Serializers _$serializers =
           ..add(CounterpartyTypesRestriction.serializer)
           ..add(CounterpartyTypesRestrictionValueEnum.serializer)
           ..add(CountriesRestriction.serializer)
+          ..add(CreateRecurringTopUp.serializer)
+          ..add(CreateRecurringTopUpStatusEnum.serializer)
           ..add(CreateScaInformation.serializer)
           ..add(CreateSweepConfigurationV2.serializer)
           ..add(CreateSweepConfigurationV2CategoryEnum.serializer)
@@ -160,6 +172,7 @@ Serializers _$serializers =
           ..add(DurationUnitEnum.serializer)
           ..add(EntryModesRestriction.serializer)
           ..add(EntryModesRestrictionValueEnum.serializer)
+          ..add(ExecutionResult.serializer)
           ..add(Expiry.serializer)
           ..add(Fee.serializer)
           ..add(FinishScaDeviceRegistrationRequest.serializer)
@@ -192,6 +205,7 @@ Serializers _$serializers =
           ..add(MandatePartyIdentification.serializer)
           ..add(MandateStatus.serializer)
           ..add(MandateType.serializer)
+          ..add(MandateUpdate.serializer)
           ..add(MatchingTransactionsRestriction.serializer)
           ..add(MatchingValuesRestriction.serializer)
           ..add(MatchingValuesRestrictionValueEnum.serializer)
@@ -218,7 +232,6 @@ Serializers _$serializers =
           ..add(PaginatedGetCardOrderItemResponse.serializer)
           ..add(PaginatedGetCardOrderResponse.serializer)
           ..add(PaginatedPaymentInstrumentsResponse.serializer)
-          ..add(PatchableMandate.serializer)
           ..add(PaymentInstrument.serializer)
           ..add(PaymentInstrumentGroup.serializer)
           ..add(PaymentInstrumentGroupInfo.serializer)
@@ -240,6 +253,12 @@ Serializers _$serializers =
           ..add(PaymentInstrumentUpdateRequest.serializer)
           ..add(PaymentInstrumentUpdateRequestStatusEnum.serializer)
           ..add(PaymentInstrumentUpdateRequestStatusReasonEnum.serializer)
+          ..add(PayoutScheduleExecution.serializer)
+          ..add(PayoutScheduleExecutionDetails.serializer)
+          ..add(PayoutScheduleExecutions.serializer)
+          ..add(PayoutSweepExecution.serializer)
+          ..add(PayoutSweepExecutionDetails.serializer)
+          ..add(PayoutSweepExecutions.serializer)
           ..add(Phone.serializer)
           ..add(PhoneInfo.serializer)
           ..add(PhoneNumber.serializer)
@@ -252,6 +271,11 @@ Serializers _$serializers =
           ..add(ProcessingTypesRestriction.serializer)
           ..add(ProcessingTypesRestrictionValueEnum.serializer)
           ..add(PublicKeyResponse.serializer)
+          ..add(RecurringTopUp.serializer)
+          ..add(RecurringTopUpStatusEnum.serializer)
+          ..add(RecurringTopUpUpdate.serializer)
+          ..add(RecurringTopUpUpdateStatusEnum.serializer)
+          ..add(RecurringTopUpsResult.serializer)
           ..add(RegisterSCAFinalResponse.serializer)
           ..add(RegisterSCARequest.serializer)
           ..add(RegisterSCAResponse.serializer)
@@ -277,6 +301,9 @@ Serializers _$serializers =
           ..add(ScaExemption.serializer)
           ..add(ScaInformation.serializer)
           ..add(ScaStatus.serializer)
+          ..add(Schedule.serializer)
+          ..add(ScheduleType.serializer)
+          ..add(ScheduleUpdate.serializer)
           ..add(Scope.serializer)
           ..add(SearchRegisteredDevicesResponse.serializer)
           ..add(SettingType.serializer)
@@ -305,6 +332,9 @@ Serializers _$serializers =
           ..add(TimeOfDay.serializer)
           ..add(TimeOfDayRestriction.serializer)
           ..add(TokenRequestorsRestriction.serializer)
+          ..add(TopUpAmount.serializer)
+          ..add(TopUpAmountUpdate.serializer)
+          ..add(TopUpCounterparty.serializer)
           ..add(TotalAmountRestriction.serializer)
           ..add(TransactionRule.serializer)
           ..add(TransactionRuleEntityKey.serializer)
@@ -336,6 +366,8 @@ Serializers _$serializers =
           ..add(TransferRouteRequirementsInner.serializer)
           ..add(TransferRouteResponse.serializer)
           ..add(TransferType.serializer)
+          ..add(Trigger.serializer)
+          ..add(TriggerUpdate.serializer)
           ..add(UKLocalAccountIdentification.serializer)
           ..add(UKLocalAccountIdentificationTypeEnum.serializer)
           ..add(UKLocalMandateAccountIdentification.serializer)
@@ -413,6 +445,18 @@ Serializers _$serializers =
               const FullType(BalanceAccountBase),
             ]),
             () => ListBuilder<BalanceAccountBase>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [
+              const FullType(BalanceAccountConfiguration),
+            ]),
+            () => ListBuilder<BalanceAccountConfiguration>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [
+              const FullType(BalancePlatformConfiguration),
+            ]),
+            () => ListBuilder<BalancePlatformConfiguration>(),
           )
           ..addBuilderFactory(
             const FullType(BuiltList, const [
@@ -551,9 +595,25 @@ Serializers _$serializers =
           )
           ..addBuilderFactory(
             const FullType(BuiltList, const [
+              const FullType(PayoutScheduleExecution),
+            ]),
+            () => ListBuilder<PayoutScheduleExecution>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [
+              const FullType(PayoutSweepExecution),
+            ]),
+            () => ListBuilder<PayoutSweepExecution>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [
               const FullType(ProcessingTypesRestrictionValueEnum),
             ]),
             () => ListBuilder<ProcessingTypesRestrictionValueEnum>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(RecurringTopUp)]),
+            () => ListBuilder<RecurringTopUp>(),
           )
           ..addBuilderFactory(
             const FullType(BuiltList, const [const FullType(ScaEntity)]),

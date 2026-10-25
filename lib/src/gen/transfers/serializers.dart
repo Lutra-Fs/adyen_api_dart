@@ -35,10 +35,15 @@ import 'package:adyen_api/src/gen/transfers/model/capital_grant_info.dart';
 import 'package:adyen_api/src/gen/transfers/model/capital_grants.dart';
 import 'package:adyen_api/src/gen/transfers/model/card.dart';
 import 'package:adyen_api/src/gen/transfers/model/card_identification.dart';
+import 'package:adyen_api/src/gen/transfers/model/cash_out.dart';
+import 'package:adyen_api/src/gen/transfers/model/cash_out_info.dart';
+import 'package:adyen_api/src/gen/transfers/model/cash_out_info_counterparty.dart';
+import 'package:adyen_api/src/gen/transfers/model/cash_out_transfer.dart';
 import 'package:adyen_api/src/gen/transfers/model/confirmation_tracking_data.dart';
 import 'package:adyen_api/src/gen/transfers/model/counterparty_info_v3.dart';
 import 'package:adyen_api/src/gen/transfers/model/counterparty_v3.dart';
 import 'package:adyen_api/src/gen/transfers/model/dk_local_account_identification.dart';
+import 'package:adyen_api/src/gen/transfers/model/default_error_response_entity.dart';
 import 'package:adyen_api/src/gen/transfers/model/direct_debit_information.dart';
 import 'package:adyen_api/src/gen/transfers/model/estimation_tracking_data.dart';
 import 'package:adyen_api/src/gen/transfers/model/execution_date.dart';
@@ -67,6 +72,7 @@ import 'package:adyen_api/src/gen/transfers/model/modification.dart';
 import 'package:adyen_api/src/gen/transfers/model/no_local_account_identification.dart';
 import 'package:adyen_api/src/gen/transfers/model/nz_local_account_identification.dart';
 import 'package:adyen_api/src/gen/transfers/model/name_location.dart';
+import 'package:adyen_api/src/gen/transfers/model/network_reason.dart';
 import 'package:adyen_api/src/gen/transfers/model/number_and_bic_account_identification.dart';
 import 'package:adyen_api/src/gen/transfers/model/pl_local_account_identification.dart';
 import 'package:adyen_api/src/gen/transfers/model/party_identification.dart';
@@ -94,9 +100,11 @@ import 'package:adyen_api/src/gen/transfers/model/transaction_search_response.da
 import 'package:adyen_api/src/gen/transfers/model/transfer.dart';
 import 'package:adyen_api/src/gen/transfers/model/transfer_category_data.dart';
 import 'package:adyen_api/src/gen/transfers/model/transfer_data.dart';
+import 'package:adyen_api/src/gen/transfers/model/transfer_data_tracing.dart';
 import 'package:adyen_api/src/gen/transfers/model/transfer_data_tracking.dart';
 import 'package:adyen_api/src/gen/transfers/model/transfer_event.dart';
 import 'package:adyen_api/src/gen/transfers/model/transfer_event_events_data_inner.dart';
+import 'package:adyen_api/src/gen/transfers/model/transfer_event_tracing_data.dart';
 import 'package:adyen_api/src/gen/transfers/model/transfer_event_tracking_data.dart';
 import 'package:adyen_api/src/gen/transfers/model/transfer_info.dart';
 import 'package:adyen_api/src/gen/transfers/model/transfer_notification_counter_party.dart';
@@ -106,7 +114,9 @@ import 'package:adyen_api/src/gen/transfers/model/transfer_request_review.dart';
 import 'package:adyen_api/src/gen/transfers/model/transfer_review.dart';
 import 'package:adyen_api/src/gen/transfers/model/transfer_service_rest_service_error.dart';
 import 'package:adyen_api/src/gen/transfers/model/transfer_view.dart';
+import 'package:adyen_api/src/gen/transfers/model/uk_fps_tracing_data.dart';
 import 'package:adyen_api/src/gen/transfers/model/uk_local_account_identification.dart';
+import 'package:adyen_api/src/gen/transfers/model/us_ach_tracing_data.dart';
 import 'package:adyen_api/src/gen/transfers/model/us_local_account_identification.dart';
 import 'package:adyen_api/src/gen/transfers/model/ultimate_party_identification.dart';
 
@@ -134,10 +144,15 @@ part 'serializers.g.dart';
   CapitalGrants,
   Card,
   CardIdentification,
+  CashOut,
+  CashOutInfo,
+  CashOutInfoCounterparty,
+  CashOutTransfer,
   ConfirmationTrackingData,
   CounterpartyInfoV3,
   CounterpartyV3,
   DKLocalAccountIdentification,
+  DefaultErrorResponseEntity,
   DirectDebitInformation,
   EstimationTrackingData,
   ExecutionDate,
@@ -166,6 +181,7 @@ part 'serializers.g.dart';
   NOLocalAccountIdentification,
   NZLocalAccountIdentification,
   NameLocation,
+  NetworkReason,
   NumberAndBicAccountIdentification,
   PLLocalAccountIdentification,
   PartyIdentification,
@@ -193,9 +209,11 @@ part 'serializers.g.dart';
   Transfer,
   TransferCategoryData,
   TransferData,
+  TransferDataTracing,
   TransferDataTracking,
   TransferEvent,
   TransferEventEventsDataInner,
+  TransferEventTracingData,
   TransferEventTrackingData,
   TransferInfo,
   TransferNotificationCounterParty,
@@ -205,7 +223,9 @@ part 'serializers.g.dart';
   TransferReview,
   TransferServiceRestServiceError,
   TransferView,
+  UKFpsTracingData,
   UKLocalAccountIdentification,
+  USAchTracingData,
   USLocalAccountIdentification,
   UltimatePartyIdentification,
 ])

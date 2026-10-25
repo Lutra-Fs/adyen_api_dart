@@ -74,6 +74,8 @@ class _$IbanAccountIdentificationTypeEnumSerializer
 
 class _$IbanAccountIdentification extends IbanAccountIdentification {
   @override
+  final String? bic;
+  @override
   final String iban;
   @override
   final IbanAccountIdentificationTypeEnum type;
@@ -82,8 +84,11 @@ class _$IbanAccountIdentification extends IbanAccountIdentification {
     void Function(IbanAccountIdentificationBuilder)? updates,
   ]) => (IbanAccountIdentificationBuilder()..update(updates))._build();
 
-  _$IbanAccountIdentification._({required this.iban, required this.type})
-    : super._();
+  _$IbanAccountIdentification._({
+    this.bic,
+    required this.iban,
+    required this.type,
+  }) : super._();
   @override
   IbanAccountIdentification rebuild(
     void Function(IbanAccountIdentificationBuilder) updates,
@@ -97,6 +102,7 @@ class _$IbanAccountIdentification extends IbanAccountIdentification {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is IbanAccountIdentification &&
+        bic == other.bic &&
         iban == other.iban &&
         type == other.type;
   }
@@ -104,6 +110,7 @@ class _$IbanAccountIdentification extends IbanAccountIdentification {
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, bic.hashCode);
     _$hash = $jc(_$hash, iban.hashCode);
     _$hash = $jc(_$hash, type.hashCode);
     _$hash = $jf(_$hash);
@@ -113,6 +120,7 @@ class _$IbanAccountIdentification extends IbanAccountIdentification {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'IbanAccountIdentification')
+          ..add('bic', bic)
           ..add('iban', iban)
           ..add('type', type))
         .toString();
@@ -123,6 +131,10 @@ class IbanAccountIdentificationBuilder
     implements
         Builder<IbanAccountIdentification, IbanAccountIdentificationBuilder> {
   _$IbanAccountIdentification? _$v;
+
+  String? _bic;
+  String? get bic => _$this._bic;
+  set bic(String? bic) => _$this._bic = bic;
 
   String? _iban;
   String? get iban => _$this._iban;
@@ -139,6 +151,7 @@ class IbanAccountIdentificationBuilder
   IbanAccountIdentificationBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _bic = $v.bic;
       _iban = $v.iban;
       _type = $v.type;
       _$v = null;
@@ -163,6 +176,7 @@ class IbanAccountIdentificationBuilder
     final _$result =
         _$v ??
         _$IbanAccountIdentification._(
+          bic: bic,
           iban: BuiltValueNullFieldError.checkNotNull(
             iban,
             r'IbanAccountIdentification',

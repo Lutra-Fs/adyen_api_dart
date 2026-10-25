@@ -12,12 +12,16 @@ part 'valuelink_info.g.dart';
 /// ValuelinkInfo
 ///
 /// Properties:
+/// * [alternateMerchantNumber] - Alternate Merchant Number
 /// * [authorisationMid] - Authorisation Mid
 /// * [pinSupport] - PIN Support. For ecommerce, PIN is required.
-/// * [submitterId] - Submitter ID
 /// * [terminalId] - Terminal ID
 @BuiltValue()
 abstract class ValuelinkInfo implements Built<ValuelinkInfo, ValuelinkInfoBuilder> {
+  /// Alternate Merchant Number
+  @BuiltValueField(wireName: r'alternateMerchantNumber')
+  String? get alternateMerchantNumber;
+
   /// Authorisation Mid
   @BuiltValueField(wireName: r'authorisationMid')
   String get authorisationMid;
@@ -26,10 +30,6 @@ abstract class ValuelinkInfo implements Built<ValuelinkInfo, ValuelinkInfoBuilde
   @BuiltValueField(wireName: r'pinSupport')
   ValuelinkInfoPinSupportEnum get pinSupport;
   // enum pinSupportEnum {  PIN,  NO PIN,  };
-
-  /// Submitter ID
-  @BuiltValueField(wireName: r'submitterId')
-  String? get submitterId;
 
   /// Terminal ID
   @BuiltValueField(wireName: r'terminalId')
@@ -58,6 +58,13 @@ class _$ValuelinkInfoSerializer implements PrimitiveSerializer<ValuelinkInfo> {
     ValuelinkInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
+    if (object.alternateMerchantNumber != null) {
+      yield r'alternateMerchantNumber';
+      yield serializers.serialize(
+        object.alternateMerchantNumber,
+        specifiedType: const FullType(String),
+      );
+    }
     yield r'authorisationMid';
     yield serializers.serialize(
       object.authorisationMid,
@@ -68,13 +75,6 @@ class _$ValuelinkInfoSerializer implements PrimitiveSerializer<ValuelinkInfo> {
       object.pinSupport,
       specifiedType: const FullType(ValuelinkInfoPinSupportEnum),
     );
-    if (object.submitterId != null) {
-      yield r'submitterId';
-      yield serializers.serialize(
-        object.submitterId,
-        specifiedType: const FullType(String),
-      );
-    }
     if (object.terminalId != null) {
       yield r'terminalId';
       yield serializers.serialize(
@@ -105,6 +105,13 @@ class _$ValuelinkInfoSerializer implements PrimitiveSerializer<ValuelinkInfo> {
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
+        case r'alternateMerchantNumber':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.alternateMerchantNumber = valueDes;
+          break;
         case r'authorisationMid':
           final valueDes = serializers.deserialize(
             value,
@@ -118,13 +125,6 @@ class _$ValuelinkInfoSerializer implements PrimitiveSerializer<ValuelinkInfo> {
             specifiedType: const FullType(ValuelinkInfoPinSupportEnum),
           ) as ValuelinkInfoPinSupportEnum;
           result.pinSupport = valueDes;
-          break;
-        case r'submitterId':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.submitterId = valueDes;
           break;
         case r'terminalId':
           final valueDes = serializers.deserialize(

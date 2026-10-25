@@ -24,12 +24,12 @@ abstract class PrintOutput implements Built<PrintOutput, PrintOutputBuilder> {
   /// Qualification of the document to print to the Cashier or the Customer. Allows the manager of the printer, Sale or POI Terminal, to send information to a physical printer or to use the paper type accordingly. Possible values: * **CashierReceipt** * **CustomerReceipt** * **Document** * **Journal** * **SaleReceipt** * **Voucher**
   @BuiltValueField(wireName: r'DocumentQualifier')
   DocumentQualifier get documentQualifier;
-  // enum documentQualifierEnum {  CashierReceipt,  CustomerReceipt,  Document,  Journal,  SaleReceipt,  Voucher,  };
+  // enum documentQualifierEnum {  SaleReceipt,  CashierReceipt,  CustomerReceipt,  Document,  Voucher,  Journal,  };
 
   /// Message response awaited by the initiator of the Request. Allows various types and synchronisation of requests for Print or Sound. Possible values: * **Immediate** * **NotRequired** * **PrintEnd** * **SoundEnd**
   @BuiltValueField(wireName: r'ResponseMode')
   ResponseMode get responseMode;
-  // enum responseModeEnum {  Immediate,  NotRequired,  PrintEnd,  SoundEnd,  };
+  // enum responseModeEnum {  NotRequired,  Immediate,  PrintEnd,  SoundEnd,  };
 
   /// Type of the print integrated in other prints. Allows a separated printing (paper cut if available), or integration with the sale receipt or other print. If the printing is integrated, the response is always immediate, even if the `ResponseMode` is set to `PrintEnd`.
   @BuiltValueField(wireName: r'IntegratedPrintFlag')

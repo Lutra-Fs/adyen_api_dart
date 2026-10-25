@@ -38,7 +38,7 @@ abstract class PaymentResult implements Built<PaymentResult, PaymentResultBuilde
   /// Type of payment transaction. Elements requested by the Sale System that are related to the payment only. Possible values: * **CashAdvance** * **CashDeposit** * **Completion** * **FirstReservation** * **Instalment** * **IssuerInstalment** * **Normal** * **OneTimeReservation** * **PaidOut** * **Recurring** * **Refund** * **UpdateReservation**
   @BuiltValueField(wireName: r'PaymentType')
   PaymentType? get paymentType;
-  // enum paymentTypeEnum {  CashAdvance,  CashDeposit,  Completion,  FirstReservation,  Instalment,  IssuerInstalment,  Normal,  OneTimeReservation,  PaidOut,  Recurring,  Refund,  UpdateReservation,  };
+  // enum paymentTypeEnum {  Normal,  Refund,  OneTimeReservation,  FirstReservation,  UpdateReservation,  Completion,  CashAdvance,  CashDeposit,  Recurring,  Instalment,  IssuerInstalment,  PaidOut,  };
 
   @BuiltValueField(wireName: r'PaymentInstrumentData')
   PaymentInstrumentData? get paymentInstrumentData;
@@ -78,7 +78,7 @@ abstract class PaymentResult implements Built<PaymentResult, PaymentResultBuilde
   /// Method for customer authentication. Allows the Sale System informed about customer authentication for the payment transaction. Possible values: * **Bypass** * **ManualVerification** * **MerchantAuthentication** * **OfflinePIN** * **OnlinePIN** * **PaperSignature** * **SecureCertificate** * **SecureNoCertificate** * **SecuredChannel** * **SignatureCapture** * **UnknownMethod**
   @BuiltValueField(wireName: r'AuthenticationMethod')
   BuiltList<PaymentResultAuthenticationMethodEnum>? get authenticationMethod;
-  // enum authenticationMethodEnum {  Bypass,  ManualVerification,  MerchantAuthentication,  OfflinePIN,  OnlinePIN,  PaperSignature,  SecureCertificate,  SecureNoCertificate,  SecuredChannel,  SignatureCapture,  UnknownMethod,  };
+  // enum authenticationMethodEnum {  Bypass,  ManualVerification,  MerchantAuthentication,  OfflinePIN,  OnlinePIN,  PaperSignature,  SecuredChannel,  SecureCertificate,  SecureNoCertificate,  SignatureCapture,  UnknownMethod,  };
 
   /// End of the validity period for the reservation, for the first reservation, and the reservation updates as well.
   @BuiltValueField(wireName: r'ValidityDate')
@@ -360,12 +360,12 @@ class PaymentResultAuthenticationMethodEnum extends EnumClass {
   static const PaymentResultAuthenticationMethodEnum onlinePIN = _$paymentResultAuthenticationMethodEnum_onlinePIN;
   @BuiltValueEnumConst(wireName: r'PaperSignature')
   static const PaymentResultAuthenticationMethodEnum paperSignature = _$paymentResultAuthenticationMethodEnum_paperSignature;
+  @BuiltValueEnumConst(wireName: r'SecuredChannel')
+  static const PaymentResultAuthenticationMethodEnum securedChannel = _$paymentResultAuthenticationMethodEnum_securedChannel;
   @BuiltValueEnumConst(wireName: r'SecureCertificate')
   static const PaymentResultAuthenticationMethodEnum secureCertificate = _$paymentResultAuthenticationMethodEnum_secureCertificate;
   @BuiltValueEnumConst(wireName: r'SecureNoCertificate')
   static const PaymentResultAuthenticationMethodEnum secureNoCertificate = _$paymentResultAuthenticationMethodEnum_secureNoCertificate;
-  @BuiltValueEnumConst(wireName: r'SecuredChannel')
-  static const PaymentResultAuthenticationMethodEnum securedChannel = _$paymentResultAuthenticationMethodEnum_securedChannel;
   @BuiltValueEnumConst(wireName: r'SignatureCapture')
   static const PaymentResultAuthenticationMethodEnum signatureCapture = _$paymentResultAuthenticationMethodEnum_signatureCapture;
   @BuiltValueEnumConst(wireName: r'UnknownMethod')

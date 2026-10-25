@@ -14,6 +14,7 @@ import 'package:adyen_api/src/gen/management/model/givex_info.dart';
 import 'package:adyen_api/src/gen/management/model/generic_pm_with_tdi_info.dart';
 import 'package:adyen_api/src/gen/management/model/star_info.dart';
 import 'package:adyen_api/src/gen/management/model/accel_info.dart';
+import 'package:adyen_api/src/gen/management/model/ancv_info.dart';
 import 'package:adyen_api/src/gen/management/model/vipps_info.dart';
 import 'package:adyen_api/src/gen/management/model/bcmc_info.dart';
 import 'package:adyen_api/src/gen/management/model/alipay_plus_info.dart';
@@ -24,9 +25,11 @@ import 'package:adyen_api/src/gen/management/model/we_chat_pay_pos_info.dart';
 import 'package:adyen_api/src/gen/management/model/diners_info.dart';
 import 'package:adyen_api/src/gen/management/model/meal_voucher_fr_info.dart';
 import 'package:adyen_api/src/gen/management/model/pulse_info.dart';
+import 'package:adyen_api/src/gen/management/model/carnet_info.dart';
 import 'package:adyen_api/src/gen/management/model/amex_info.dart';
 import 'package:adyen_api/src/gen/management/model/sodexo_info.dart';
 import 'package:adyen_api/src/gen/management/model/apple_pay_info.dart';
+import 'package:adyen_api/src/gen/management/model/ebt_info.dart';
 import 'package:adyen_api/src/gen/management/model/swish_info.dart';
 import 'package:adyen_api/src/gen/management/model/valuelink_info.dart';
 import 'package:adyen_api/src/gen/management/model/pay_to_info.dart';
@@ -50,10 +53,12 @@ part 'payment_method_setup_info.g.dart';
 /// * [affirm] - Details to provide if `type` is **affirm**.
 /// * [afterpayTouch] - Details to provide if `type` is **afterpaytouch**.
 /// * [alipayPlus] - Details to provide if `type` is **alipay_plus**.
-/// * [amex] - Details to provide if `type` is **amex**.
+/// * [amex] - Details to provide if `type` is **amex**. For merchants operating in Australia, New Zealand & Canada, JCB and American Express are automatically requested together.
+/// * [ancv] - Details to provide if `type` is **ancv**.
 /// * [applePay] - Details to provide if `type` is **applepay**.
 /// * [bcmc] - Details to provide if `type` is **bcmc** (Bancontact).
 /// * [businessLineId] - The unique identifier of the business line. Required if you are a [platform model](https://docs.adyen.com/platforms).
+/// * [carnet] - Details to provide if `type` is **carnet**.
 /// * [cartesBancaires] - Details to provide if `type` is **cartebancaire**.
 /// * [clearpay] - Details to provide if `type` is **clearpay**.
 /// * [countries] - The list of countries where a payment method is available. By default, all countries supported by the payment method.
@@ -62,6 +67,7 @@ part 'payment_method_setup_info.g.dart';
 /// * [customRoutingFlags] - The list of custom routing flags to route payment to the intended acquirer.
 /// * [diners] - Details to provide if `type` is **diners**. For merchants operating in Japan, Diners payments are processed through the JCB network. This means that you must include [JCB-specific fields](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings/(paymentMethodId)#request-jcb) in this object.
 /// * [discover] - Details to provide if `type` is **discover**. For merchants operating in Japan, request [Diners](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings/(paymentMethodId)#request-diners) payment method instead. Discover is automatically requested, together with Diners.
+/// * [ebt] - Details to provide if `type` is **ebt**.
 /// * [eftDirectdebitCA] - Details to provide if `type` is **eft_directdebit_CA** (EFT PAD).
 /// * [eftposAustralia] - Details to provide if `type` is **eftpos_australia**.
 /// * [girocard] - Details to provide if `type` is **girocard**.
@@ -69,7 +75,7 @@ part 'payment_method_setup_info.g.dart';
 /// * [googlePay] - Details to provide if `type` is **googlepay**.
 /// * [ideal] - Details to provide if `type` is **ideal**.
 /// * [interacCard] - Details to provide if `type` is **interac_card**.
-/// * [jcb] - Details to provide if `type` is **jcb**. For merchants operating in Japan, `midNumber`, `reuseMidNumber`, and `serviceLevel` fields are required. For merchants operating outside of Japan, these fields are not required.
+/// * [jcb] - Details to provide if `type` is **jcb**. For merchants operating in Japan, `midNumber`, `reuseMidNumber`, and `serviceLevel` fields are required. For merchants operating outside of Japan, these fields are not required. For merchants operating in Australia, New Zealand & Canada, JCB and American Express are automatically requested together.
 /// * [klarna] - Details to provide if `type` is **klarna** or its variant.  You can use the following payment method `type` values for Klarna: * **klarna**: Klarna Pay Later * **klarna_account**: Klarna Pay over time * **klarna_paynow**: Klarna Pay now * **klarna_b2b**: [Billie via Klarna](https://docs.adyen.com/payment-methods/klarna/billie) 
 /// * [maestro] - Details to provide if `type` is **maestro**. In the US, `maestro` is not supported; use `maestro_usa` instead. 
 /// * [maestroUsa] - Details to provide if `type` is **maestro_usa**. Only for Maestro USA, otherwise use `maestro`.
@@ -83,7 +89,7 @@ part 'payment_method_setup_info.g.dart';
 /// * [pulse] - Details to provide if `type` is **pulse**.
 /// * [reference] - Your reference for the payment method. Supported characters a-z, A-Z, 0-9.
 /// * [sepadirectdebit] - Details to provide if `type` is **sepadirectdebit**.
-/// * [shopperInteraction] - The sales channel. Required if the merchant account does not have a sales channel. When you provide this field, it overrides the default sales channel set on the merchant account.  Possible values: **eCommerce**, **pos**, **contAuth**, and **moto**. 
+/// * [shopperInteraction] - The sales channel. Required if: - The merchant account does not have a sales channel. - `type` is **alipay**.  When you provide this field, it overrides the default sales channel set on the merchant account.  Possible values: **eCommerce**, **pos**, **contAuth**, and **moto**. 
 /// * [sodexo] - Details to provide if `type` is **sodexo**.
 /// * [sofort] - Sofort details.
 /// * [star] - Details to provide if `type` is **star**.
@@ -92,7 +98,7 @@ part 'payment_method_setup_info.g.dart';
 /// * [swish] - Details to provide if `type` is **swish**.  - This field is required only if you have a contract with Swish. Swish handles settlement directly with you (not through Adyen).  - If not specified then it's assumed that you are using Adyen's contract with Swish.You don't have a direct relationship with Swish. 
 /// * [ticket] - Details to provide if `type` is **ticket** (Edenred Brazil).
 /// * [twint] - Details to provide if `type` is **twint**.
-/// * [type] - Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+/// * [type] - Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
 /// * [valuelink] - Details to provide if `type` is **valuelink**.
 /// * [vipps] - Details to provide if `type` is **vipps**.
 /// * [visa] - Details to provide if `type` is **visa**.
@@ -116,9 +122,13 @@ abstract class PaymentMethodSetupInfo implements Built<PaymentMethodSetupInfo, P
   @BuiltValueField(wireName: r'alipayPlus')
   AlipayPlusInfo? get alipayPlus;
 
-  /// Details to provide if `type` is **amex**.
+  /// Details to provide if `type` is **amex**. For merchants operating in Australia, New Zealand & Canada, JCB and American Express are automatically requested together.
   @BuiltValueField(wireName: r'amex')
   AmexInfo? get amex;
+
+  /// Details to provide if `type` is **ancv**.
+  @BuiltValueField(wireName: r'ancv')
+  AncvInfo? get ancv;
 
   /// Details to provide if `type` is **applepay**.
   @BuiltValueField(wireName: r'applePay')
@@ -131,6 +141,10 @@ abstract class PaymentMethodSetupInfo implements Built<PaymentMethodSetupInfo, P
   /// The unique identifier of the business line. Required if you are a [platform model](https://docs.adyen.com/platforms).
   @BuiltValueField(wireName: r'businessLineId')
   String? get businessLineId;
+
+  /// Details to provide if `type` is **carnet**.
+  @BuiltValueField(wireName: r'carnet')
+  CarnetInfo? get carnet;
 
   /// Details to provide if `type` is **cartebancaire**.
   @BuiltValueField(wireName: r'cartesBancaires')
@@ -164,6 +178,10 @@ abstract class PaymentMethodSetupInfo implements Built<PaymentMethodSetupInfo, P
   @BuiltValueField(wireName: r'discover')
   GenericPmWithTdiInfo? get discover;
 
+  /// Details to provide if `type` is **ebt**.
+  @BuiltValueField(wireName: r'ebt')
+  EbtInfo? get ebt;
+
   /// Details to provide if `type` is **eft_directdebit_CA** (EFT PAD).
   @BuiltValueField(wireName: r'eft_directdebit_CA')
   GenericPmWithTdiInfo? get eftDirectdebitCA;
@@ -192,7 +210,7 @@ abstract class PaymentMethodSetupInfo implements Built<PaymentMethodSetupInfo, P
   @BuiltValueField(wireName: r'interac_card')
   GenericPmWithTdiInfo? get interacCard;
 
-  /// Details to provide if `type` is **jcb**. For merchants operating in Japan, `midNumber`, `reuseMidNumber`, and `serviceLevel` fields are required. For merchants operating outside of Japan, these fields are not required.
+  /// Details to provide if `type` is **jcb**. For merchants operating in Japan, `midNumber`, `reuseMidNumber`, and `serviceLevel` fields are required. For merchants operating outside of Japan, these fields are not required. For merchants operating in Australia, New Zealand & Canada, JCB and American Express are automatically requested together.
   @BuiltValueField(wireName: r'jcb')
   JCBInfo? get jcb;
 
@@ -248,7 +266,7 @@ abstract class PaymentMethodSetupInfo implements Built<PaymentMethodSetupInfo, P
   @BuiltValueField(wireName: r'sepadirectdebit')
   SepaDirectDebitInfo? get sepadirectdebit;
 
-  /// The sales channel. Required if the merchant account does not have a sales channel. When you provide this field, it overrides the default sales channel set on the merchant account.  Possible values: **eCommerce**, **pos**, **contAuth**, and **moto**. 
+  /// The sales channel. Required if: - The merchant account does not have a sales channel. - `type` is **alipay**.  When you provide this field, it overrides the default sales channel set on the merchant account.  Possible values: **eCommerce**, **pos**, **contAuth**, and **moto**. 
   @BuiltValueField(wireName: r'shopperInteraction')
   PaymentMethodSetupInfoShopperInteractionEnum? get shopperInteraction;
   // enum shopperInteractionEnum {  eCommerce,  pos,  moto,  contAuth,  };
@@ -286,10 +304,10 @@ abstract class PaymentMethodSetupInfo implements Built<PaymentMethodSetupInfo, P
   @BuiltValueField(wireName: r'twint')
   TwintInfo? get twint;
 
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueField(wireName: r'type')
   PaymentMethodSetupInfoTypeEnum get type;
-  // enum typeEnum {  abrapetite,  abrapetite_credit,  abrapetite_debit,  abrapetite_prepaid,  accel,  ach,  affirm,  afterpaytouch,  alelo,  alipay,  alipay_hk,  alipay_plus,  alipay_wap,  amex,  applepay,  avancard,  avancard_credit,  avancard_debit,  banese_card,  banese_card_credit,  banese_card_debit,  banese_card_prepaid,  bcmc,  blik,  blik_pos,  br_schemes,  cartebancaire,  clearpay,  clicktopay,  cooper,  cooper_credit,  cooper_debit,  cooper_food_debit,  cooper_meal_debit,  cooper_prepaid,  cooper_private_credit,  cooper_retail_credit,  credtodos,  credtodos_private_credit,  credtodos_private_debit,  cup,  diners,  directdebit_GB,  discover,  ebanking_FI,  eft_directdebit_CA,  eftpos_australia,  elo,  elocredit,  elodebit,  girocard,  givex,  googlepay,  green_card,  green_card_credit,  green_card_debit,  green_card_food_prepaid,  green_card_meal_prepaid,  green_card_prepaid,  hiper,  hipercard,  ideal,  interac_card,  jcb,  klarna,  klarna_account,  klarna_b2b,  klarna_paynow,  le_card,  le_card_credit,  le_card_debit,  maestro,  maestro_usa,  maxifrota,  maxifrota_prepaid,  mbway,  mc,  mcdebit,  mealVoucher_FR,  megaleve,  megaleve_credit,  megaleve_debit,  mobilepay,  multibanco,  nutricash,  nutricash_prepaid,  nyce,  onlineBanking_PL,  paybybank,  paybybank_plaid,  payme,  payme_pos,  paynow,  paynow_pos,  paypal,  payto,  personal_card,  personal_card_credit,  personal_card_debit,  pulse,  romcard,  romcard_credit,  romcard_debit,  senff,  senff_credit,  sepadirectdebit,  sodexo,  star,  svs,  swish,  ticket,  todo_giftcard,  trustly,  twint,  twint_pos,  up_brazil,  up_brazil_credit,  up_brazil_debit,  up_brazil_prepaid,  vale_refeicao,  vale_refeicao_prepaid,  valuelink,  vegas_card,  vegas_card_credit,  vegas_card_debit,  vero_card,  vero_card_credit,  vero_card_debit,  vero_card_prepaid,  vipps,  visa,  visadebit,  vpay,  wechatpay,  wechatpay_pos,  };
+  // enum typeEnum {  abrapetite,  abrapetite_credit,  abrapetite_debit,  abrapetite_prepaid,  accel,  ach,  affirm,  afterpaytouch,  alelo,  alipay,  alipay_hk,  alipay_plus,  alipay_plus_alipay_cn,  alipay_plus_alipay_hk,  alipay_plus_dana,  alipay_plus_gcash,  alipay_plus_kakaopay,  alipay_plus_kplus,  alipay_plus_naverpay,  alipay_plus_rabbitlinepay,  alipay_plus_tosspay,  alipay_plus_touchngo,  alipay_plus_truemoney,  alipay_wap,  amex,  ancv,  applepay,  avancard,  avancard_credit,  avancard_debit,  banese_card,  banese_card_credit,  banese_card_debit,  banese_card_prepaid,  bcmc,  blik,  blik_pos,  br_schemes,  carnet,  cartebancaire,  cashapp,  clearpay,  clicktopay,  cooper,  cooper_credit,  cooper_debit,  cooper_food_debit,  cooper_meal_debit,  cooper_prepaid,  cooper_private_credit,  cooper_retail_credit,  credtodos,  credtodos_private_credit,  credtodos_private_debit,  cup,  diners,  directdebit_GB,  discover,  ebanking_FI,  ebt,  eft_directdebit_CA,  eftpos_australia,  elo,  elocredit,  elodebit,  girocard,  givex,  googlepay,  green_card,  green_card_credit,  green_card_debit,  green_card_food_prepaid,  green_card_meal_prepaid,  green_card_prepaid,  hiper,  hipercard,  ideal,  interac_card,  jcb,  klarna,  klarna_account,  klarna_b2b,  klarna_paynow,  le_card,  le_card_credit,  le_card_debit,  maestro,  maestro_usa,  maxifrota,  maxifrota_prepaid,  mbway,  mc,  mcdebit,  mealVoucher_FR,  megaleve,  megaleve_credit,  megaleve_debit,  mobilepay,  multibanco,  nutricash,  nutricash_prepaid,  nyce,  onlineBanking_PL,  paybybank,  paybybank_plaid,  payme,  payme_pos,  paynow,  paynow_pos,  paypal,  payto,  personal_card,  personal_card_credit,  personal_card_debit,  pulse,  romcard,  romcard_credit,  romcard_debit,  senff,  senff_credit,  sepadirectdebit,  sodexo,  star,  svs,  swish,  ticket,  todo_giftcard,  trustly,  twint,  twint_pos,  up_brazil,  up_brazil_credit,  up_brazil_debit,  up_brazil_prepaid,  vale_refeicao,  vale_refeicao_prepaid,  valuelink,  vegas_card,  vegas_card_credit,  vegas_card_debit,  vero_card,  vero_card_credit,  vero_card_debit,  vero_card_prepaid,  vipps,  visa,  visadebit,  vpay,  wechatpay,  wechatpay_pos,  wero,  };
 
   /// Details to provide if `type` is **valuelink**.
   @BuiltValueField(wireName: r'valuelink')
@@ -369,6 +387,13 @@ class _$PaymentMethodSetupInfoSerializer implements PrimitiveSerializer<PaymentM
         specifiedType: const FullType(AmexInfo),
       );
     }
+    if (object.ancv != null) {
+      yield r'ancv';
+      yield serializers.serialize(
+        object.ancv,
+        specifiedType: const FullType(AncvInfo),
+      );
+    }
     if (object.applePay != null) {
       yield r'applePay';
       yield serializers.serialize(
@@ -388,6 +413,13 @@ class _$PaymentMethodSetupInfoSerializer implements PrimitiveSerializer<PaymentM
       yield serializers.serialize(
         object.businessLineId,
         specifiedType: const FullType(String),
+      );
+    }
+    if (object.carnet != null) {
+      yield r'carnet';
+      yield serializers.serialize(
+        object.carnet,
+        specifiedType: const FullType(CarnetInfo),
       );
     }
     if (object.cartesBancaires != null) {
@@ -444,6 +476,13 @@ class _$PaymentMethodSetupInfoSerializer implements PrimitiveSerializer<PaymentM
       yield serializers.serialize(
         object.discover,
         specifiedType: const FullType(GenericPmWithTdiInfo),
+      );
+    }
+    if (object.ebt != null) {
+      yield r'ebt';
+      yield serializers.serialize(
+        object.ebt,
+        specifiedType: const FullType(EbtInfo),
       );
     }
     if (object.eftDirectdebitCA != null) {
@@ -754,6 +793,13 @@ class _$PaymentMethodSetupInfoSerializer implements PrimitiveSerializer<PaymentM
           ) as AmexInfo;
           result.amex.replace(valueDes);
           break;
+        case r'ancv':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(AncvInfo),
+          ) as AncvInfo;
+          result.ancv.replace(valueDes);
+          break;
         case r'applePay':
           final valueDes = serializers.deserialize(
             value,
@@ -774,6 +820,13 @@ class _$PaymentMethodSetupInfoSerializer implements PrimitiveSerializer<PaymentM
             specifiedType: const FullType(String),
           ) as String;
           result.businessLineId = valueDes;
+          break;
+        case r'carnet':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(CarnetInfo),
+          ) as CarnetInfo;
+          result.carnet.replace(valueDes);
           break;
         case r'cartesBancaires':
           final valueDes = serializers.deserialize(
@@ -830,6 +883,13 @@ class _$PaymentMethodSetupInfoSerializer implements PrimitiveSerializer<PaymentM
             specifiedType: const FullType(GenericPmWithTdiInfo),
           ) as GenericPmWithTdiInfo;
           result.discover.replace(valueDes);
+          break;
+        case r'ebt':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(EbtInfo),
+          ) as EbtInfo;
+          result.ebt.replace(valueDes);
           break;
         case r'eft_directdebit_CA':
           final valueDes = serializers.deserialize(
@@ -1114,19 +1174,19 @@ class _$PaymentMethodSetupInfoSerializer implements PrimitiveSerializer<PaymentM
 
 class PaymentMethodSetupInfoShopperInteractionEnum extends EnumClass {
 
-  /// The sales channel. Required if the merchant account does not have a sales channel. When you provide this field, it overrides the default sales channel set on the merchant account.  Possible values: **eCommerce**, **pos**, **contAuth**, and **moto**. 
+  /// The sales channel. Required if: - The merchant account does not have a sales channel. - `type` is **alipay**.  When you provide this field, it overrides the default sales channel set on the merchant account.  Possible values: **eCommerce**, **pos**, **contAuth**, and **moto**. 
   @BuiltValueEnumConst(wireName: r'eCommerce')
   static const PaymentMethodSetupInfoShopperInteractionEnum eCommerce = _$paymentMethodSetupInfoShopperInteractionEnum_eCommerce;
-  /// The sales channel. Required if the merchant account does not have a sales channel. When you provide this field, it overrides the default sales channel set on the merchant account.  Possible values: **eCommerce**, **pos**, **contAuth**, and **moto**. 
+  /// The sales channel. Required if: - The merchant account does not have a sales channel. - `type` is **alipay**.  When you provide this field, it overrides the default sales channel set on the merchant account.  Possible values: **eCommerce**, **pos**, **contAuth**, and **moto**. 
   @BuiltValueEnumConst(wireName: r'pos')
   static const PaymentMethodSetupInfoShopperInteractionEnum pos = _$paymentMethodSetupInfoShopperInteractionEnum_pos;
-  /// The sales channel. Required if the merchant account does not have a sales channel. When you provide this field, it overrides the default sales channel set on the merchant account.  Possible values: **eCommerce**, **pos**, **contAuth**, and **moto**. 
+  /// The sales channel. Required if: - The merchant account does not have a sales channel. - `type` is **alipay**.  When you provide this field, it overrides the default sales channel set on the merchant account.  Possible values: **eCommerce**, **pos**, **contAuth**, and **moto**. 
   @BuiltValueEnumConst(wireName: r'moto')
   static const PaymentMethodSetupInfoShopperInteractionEnum moto = _$paymentMethodSetupInfoShopperInteractionEnum_moto;
-  /// The sales channel. Required if the merchant account does not have a sales channel. When you provide this field, it overrides the default sales channel set on the merchant account.  Possible values: **eCommerce**, **pos**, **contAuth**, and **moto**. 
+  /// The sales channel. Required if: - The merchant account does not have a sales channel. - `type` is **alipay**.  When you provide this field, it overrides the default sales channel set on the merchant account.  Possible values: **eCommerce**, **pos**, **contAuth**, and **moto**. 
   @BuiltValueEnumConst(wireName: r'contAuth')
   static const PaymentMethodSetupInfoShopperInteractionEnum contAuth = _$paymentMethodSetupInfoShopperInteractionEnum_contAuth;
-  /// The sales channel. Required if the merchant account does not have a sales channel. When you provide this field, it overrides the default sales channel set on the merchant account.  Possible values: **eCommerce**, **pos**, **contAuth**, and **moto**. 
+  /// The sales channel. Required if: - The merchant account does not have a sales channel. - `type` is **alipay**.  When you provide this field, it overrides the default sales channel set on the merchant account.  Possible values: **eCommerce**, **pos**, **contAuth**, and **moto**. 
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const PaymentMethodSetupInfoShopperInteractionEnum unknownDefaultOpenApi = _$paymentMethodSetupInfoShopperInteractionEnum_unknownDefaultOpenApi;
 
@@ -1140,412 +1200,460 @@ class PaymentMethodSetupInfoShopperInteractionEnum extends EnumClass {
 
 class PaymentMethodSetupInfoTypeEnum extends EnumClass {
 
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'abrapetite')
   static const PaymentMethodSetupInfoTypeEnum abrapetite = _$paymentMethodSetupInfoTypeEnum_abrapetite;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'abrapetite_credit')
   static const PaymentMethodSetupInfoTypeEnum abrapetiteCredit = _$paymentMethodSetupInfoTypeEnum_abrapetiteCredit;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'abrapetite_debit')
   static const PaymentMethodSetupInfoTypeEnum abrapetiteDebit = _$paymentMethodSetupInfoTypeEnum_abrapetiteDebit;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'abrapetite_prepaid')
   static const PaymentMethodSetupInfoTypeEnum abrapetitePrepaid = _$paymentMethodSetupInfoTypeEnum_abrapetitePrepaid;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'accel')
   static const PaymentMethodSetupInfoTypeEnum accel = _$paymentMethodSetupInfoTypeEnum_accel;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'ach')
   static const PaymentMethodSetupInfoTypeEnum ach = _$paymentMethodSetupInfoTypeEnum_ach;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'affirm')
   static const PaymentMethodSetupInfoTypeEnum affirm = _$paymentMethodSetupInfoTypeEnum_affirm;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'afterpaytouch')
   static const PaymentMethodSetupInfoTypeEnum afterpaytouch = _$paymentMethodSetupInfoTypeEnum_afterpaytouch;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'alelo')
   static const PaymentMethodSetupInfoTypeEnum alelo = _$paymentMethodSetupInfoTypeEnum_alelo;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'alipay')
   static const PaymentMethodSetupInfoTypeEnum alipay = _$paymentMethodSetupInfoTypeEnum_alipay;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'alipay_hk')
   static const PaymentMethodSetupInfoTypeEnum alipayHk = _$paymentMethodSetupInfoTypeEnum_alipayHk;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'alipay_plus')
   static const PaymentMethodSetupInfoTypeEnum alipayPlus = _$paymentMethodSetupInfoTypeEnum_alipayPlus;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
+  @BuiltValueEnumConst(wireName: r'alipay_plus_alipay_cn')
+  static const PaymentMethodSetupInfoTypeEnum alipayPlusAlipayCn = _$paymentMethodSetupInfoTypeEnum_alipayPlusAlipayCn;
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
+  @BuiltValueEnumConst(wireName: r'alipay_plus_alipay_hk')
+  static const PaymentMethodSetupInfoTypeEnum alipayPlusAlipayHk = _$paymentMethodSetupInfoTypeEnum_alipayPlusAlipayHk;
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
+  @BuiltValueEnumConst(wireName: r'alipay_plus_dana')
+  static const PaymentMethodSetupInfoTypeEnum alipayPlusDana = _$paymentMethodSetupInfoTypeEnum_alipayPlusDana;
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
+  @BuiltValueEnumConst(wireName: r'alipay_plus_gcash')
+  static const PaymentMethodSetupInfoTypeEnum alipayPlusGcash = _$paymentMethodSetupInfoTypeEnum_alipayPlusGcash;
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
+  @BuiltValueEnumConst(wireName: r'alipay_plus_kakaopay')
+  static const PaymentMethodSetupInfoTypeEnum alipayPlusKakaopay = _$paymentMethodSetupInfoTypeEnum_alipayPlusKakaopay;
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
+  @BuiltValueEnumConst(wireName: r'alipay_plus_kplus')
+  static const PaymentMethodSetupInfoTypeEnum alipayPlusKplus = _$paymentMethodSetupInfoTypeEnum_alipayPlusKplus;
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
+  @BuiltValueEnumConst(wireName: r'alipay_plus_naverpay')
+  static const PaymentMethodSetupInfoTypeEnum alipayPlusNaverpay = _$paymentMethodSetupInfoTypeEnum_alipayPlusNaverpay;
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
+  @BuiltValueEnumConst(wireName: r'alipay_plus_rabbitlinepay')
+  static const PaymentMethodSetupInfoTypeEnum alipayPlusRabbitlinepay = _$paymentMethodSetupInfoTypeEnum_alipayPlusRabbitlinepay;
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
+  @BuiltValueEnumConst(wireName: r'alipay_plus_tosspay')
+  static const PaymentMethodSetupInfoTypeEnum alipayPlusTosspay = _$paymentMethodSetupInfoTypeEnum_alipayPlusTosspay;
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
+  @BuiltValueEnumConst(wireName: r'alipay_plus_touchngo')
+  static const PaymentMethodSetupInfoTypeEnum alipayPlusTouchngo = _$paymentMethodSetupInfoTypeEnum_alipayPlusTouchngo;
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
+  @BuiltValueEnumConst(wireName: r'alipay_plus_truemoney')
+  static const PaymentMethodSetupInfoTypeEnum alipayPlusTruemoney = _$paymentMethodSetupInfoTypeEnum_alipayPlusTruemoney;
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'alipay_wap')
   static const PaymentMethodSetupInfoTypeEnum alipayWap = _$paymentMethodSetupInfoTypeEnum_alipayWap;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'amex')
   static const PaymentMethodSetupInfoTypeEnum amex = _$paymentMethodSetupInfoTypeEnum_amex;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
+  @BuiltValueEnumConst(wireName: r'ancv')
+  static const PaymentMethodSetupInfoTypeEnum ancv = _$paymentMethodSetupInfoTypeEnum_ancv;
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'applepay')
   static const PaymentMethodSetupInfoTypeEnum applepay = _$paymentMethodSetupInfoTypeEnum_applepay;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'avancard')
   static const PaymentMethodSetupInfoTypeEnum avancard = _$paymentMethodSetupInfoTypeEnum_avancard;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'avancard_credit')
   static const PaymentMethodSetupInfoTypeEnum avancardCredit = _$paymentMethodSetupInfoTypeEnum_avancardCredit;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'avancard_debit')
   static const PaymentMethodSetupInfoTypeEnum avancardDebit = _$paymentMethodSetupInfoTypeEnum_avancardDebit;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'banese_card')
   static const PaymentMethodSetupInfoTypeEnum baneseCard = _$paymentMethodSetupInfoTypeEnum_baneseCard;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'banese_card_credit')
   static const PaymentMethodSetupInfoTypeEnum baneseCardCredit = _$paymentMethodSetupInfoTypeEnum_baneseCardCredit;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'banese_card_debit')
   static const PaymentMethodSetupInfoTypeEnum baneseCardDebit = _$paymentMethodSetupInfoTypeEnum_baneseCardDebit;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'banese_card_prepaid')
   static const PaymentMethodSetupInfoTypeEnum baneseCardPrepaid = _$paymentMethodSetupInfoTypeEnum_baneseCardPrepaid;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'bcmc')
   static const PaymentMethodSetupInfoTypeEnum bcmc = _$paymentMethodSetupInfoTypeEnum_bcmc;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'blik')
   static const PaymentMethodSetupInfoTypeEnum blik = _$paymentMethodSetupInfoTypeEnum_blik;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'blik_pos')
   static const PaymentMethodSetupInfoTypeEnum blikPos = _$paymentMethodSetupInfoTypeEnum_blikPos;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'br_schemes')
   static const PaymentMethodSetupInfoTypeEnum brSchemes = _$paymentMethodSetupInfoTypeEnum_brSchemes;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
+  @BuiltValueEnumConst(wireName: r'carnet')
+  static const PaymentMethodSetupInfoTypeEnum carnet = _$paymentMethodSetupInfoTypeEnum_carnet;
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'cartebancaire')
   static const PaymentMethodSetupInfoTypeEnum cartebancaire = _$paymentMethodSetupInfoTypeEnum_cartebancaire;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
+  @BuiltValueEnumConst(wireName: r'cashapp')
+  static const PaymentMethodSetupInfoTypeEnum cashapp = _$paymentMethodSetupInfoTypeEnum_cashapp;
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'clearpay')
   static const PaymentMethodSetupInfoTypeEnum clearpay = _$paymentMethodSetupInfoTypeEnum_clearpay;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'clicktopay')
   static const PaymentMethodSetupInfoTypeEnum clicktopay = _$paymentMethodSetupInfoTypeEnum_clicktopay;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'cooper')
   static const PaymentMethodSetupInfoTypeEnum cooper = _$paymentMethodSetupInfoTypeEnum_cooper;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'cooper_credit')
   static const PaymentMethodSetupInfoTypeEnum cooperCredit = _$paymentMethodSetupInfoTypeEnum_cooperCredit;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'cooper_debit')
   static const PaymentMethodSetupInfoTypeEnum cooperDebit = _$paymentMethodSetupInfoTypeEnum_cooperDebit;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'cooper_food_debit')
   static const PaymentMethodSetupInfoTypeEnum cooperFoodDebit = _$paymentMethodSetupInfoTypeEnum_cooperFoodDebit;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'cooper_meal_debit')
   static const PaymentMethodSetupInfoTypeEnum cooperMealDebit = _$paymentMethodSetupInfoTypeEnum_cooperMealDebit;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'cooper_prepaid')
   static const PaymentMethodSetupInfoTypeEnum cooperPrepaid = _$paymentMethodSetupInfoTypeEnum_cooperPrepaid;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'cooper_private_credit')
   static const PaymentMethodSetupInfoTypeEnum cooperPrivateCredit = _$paymentMethodSetupInfoTypeEnum_cooperPrivateCredit;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'cooper_retail_credit')
   static const PaymentMethodSetupInfoTypeEnum cooperRetailCredit = _$paymentMethodSetupInfoTypeEnum_cooperRetailCredit;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'credtodos')
   static const PaymentMethodSetupInfoTypeEnum credtodos = _$paymentMethodSetupInfoTypeEnum_credtodos;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'credtodos_private_credit')
   static const PaymentMethodSetupInfoTypeEnum credtodosPrivateCredit = _$paymentMethodSetupInfoTypeEnum_credtodosPrivateCredit;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'credtodos_private_debit')
   static const PaymentMethodSetupInfoTypeEnum credtodosPrivateDebit = _$paymentMethodSetupInfoTypeEnum_credtodosPrivateDebit;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'cup')
   static const PaymentMethodSetupInfoTypeEnum cup = _$paymentMethodSetupInfoTypeEnum_cup;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'diners')
   static const PaymentMethodSetupInfoTypeEnum diners = _$paymentMethodSetupInfoTypeEnum_diners;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'directdebit_GB')
   static const PaymentMethodSetupInfoTypeEnum directdebitGB = _$paymentMethodSetupInfoTypeEnum_directdebitGB;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'discover')
   static const PaymentMethodSetupInfoTypeEnum discover = _$paymentMethodSetupInfoTypeEnum_discover;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'ebanking_FI')
   static const PaymentMethodSetupInfoTypeEnum ebankingFI = _$paymentMethodSetupInfoTypeEnum_ebankingFI;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
+  @BuiltValueEnumConst(wireName: r'ebt')
+  static const PaymentMethodSetupInfoTypeEnum ebt = _$paymentMethodSetupInfoTypeEnum_ebt;
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'eft_directdebit_CA')
   static const PaymentMethodSetupInfoTypeEnum eftDirectdebitCA = _$paymentMethodSetupInfoTypeEnum_eftDirectdebitCA;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'eftpos_australia')
   static const PaymentMethodSetupInfoTypeEnum eftposAustralia = _$paymentMethodSetupInfoTypeEnum_eftposAustralia;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'elo')
   static const PaymentMethodSetupInfoTypeEnum elo = _$paymentMethodSetupInfoTypeEnum_elo;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'elocredit')
   static const PaymentMethodSetupInfoTypeEnum elocredit = _$paymentMethodSetupInfoTypeEnum_elocredit;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'elodebit')
   static const PaymentMethodSetupInfoTypeEnum elodebit = _$paymentMethodSetupInfoTypeEnum_elodebit;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'girocard')
   static const PaymentMethodSetupInfoTypeEnum girocard = _$paymentMethodSetupInfoTypeEnum_girocard;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'givex')
   static const PaymentMethodSetupInfoTypeEnum givex = _$paymentMethodSetupInfoTypeEnum_givex;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'googlepay')
   static const PaymentMethodSetupInfoTypeEnum googlepay = _$paymentMethodSetupInfoTypeEnum_googlepay;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'green_card')
   static const PaymentMethodSetupInfoTypeEnum greenCard = _$paymentMethodSetupInfoTypeEnum_greenCard;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'green_card_credit')
   static const PaymentMethodSetupInfoTypeEnum greenCardCredit = _$paymentMethodSetupInfoTypeEnum_greenCardCredit;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'green_card_debit')
   static const PaymentMethodSetupInfoTypeEnum greenCardDebit = _$paymentMethodSetupInfoTypeEnum_greenCardDebit;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'green_card_food_prepaid')
   static const PaymentMethodSetupInfoTypeEnum greenCardFoodPrepaid = _$paymentMethodSetupInfoTypeEnum_greenCardFoodPrepaid;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'green_card_meal_prepaid')
   static const PaymentMethodSetupInfoTypeEnum greenCardMealPrepaid = _$paymentMethodSetupInfoTypeEnum_greenCardMealPrepaid;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'green_card_prepaid')
   static const PaymentMethodSetupInfoTypeEnum greenCardPrepaid = _$paymentMethodSetupInfoTypeEnum_greenCardPrepaid;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'hiper')
   static const PaymentMethodSetupInfoTypeEnum hiper = _$paymentMethodSetupInfoTypeEnum_hiper;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'hipercard')
   static const PaymentMethodSetupInfoTypeEnum hipercard = _$paymentMethodSetupInfoTypeEnum_hipercard;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'ideal')
   static const PaymentMethodSetupInfoTypeEnum ideal = _$paymentMethodSetupInfoTypeEnum_ideal;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'interac_card')
   static const PaymentMethodSetupInfoTypeEnum interacCard = _$paymentMethodSetupInfoTypeEnum_interacCard;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'jcb')
   static const PaymentMethodSetupInfoTypeEnum jcb = _$paymentMethodSetupInfoTypeEnum_jcb;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'klarna')
   static const PaymentMethodSetupInfoTypeEnum klarna = _$paymentMethodSetupInfoTypeEnum_klarna;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'klarna_account')
   static const PaymentMethodSetupInfoTypeEnum klarnaAccount = _$paymentMethodSetupInfoTypeEnum_klarnaAccount;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'klarna_b2b')
   static const PaymentMethodSetupInfoTypeEnum klarnaB2b = _$paymentMethodSetupInfoTypeEnum_klarnaB2b;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'klarna_paynow')
   static const PaymentMethodSetupInfoTypeEnum klarnaPaynow = _$paymentMethodSetupInfoTypeEnum_klarnaPaynow;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'le_card')
   static const PaymentMethodSetupInfoTypeEnum leCard = _$paymentMethodSetupInfoTypeEnum_leCard;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'le_card_credit')
   static const PaymentMethodSetupInfoTypeEnum leCardCredit = _$paymentMethodSetupInfoTypeEnum_leCardCredit;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'le_card_debit')
   static const PaymentMethodSetupInfoTypeEnum leCardDebit = _$paymentMethodSetupInfoTypeEnum_leCardDebit;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'maestro')
   static const PaymentMethodSetupInfoTypeEnum maestro = _$paymentMethodSetupInfoTypeEnum_maestro;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'maestro_usa')
   static const PaymentMethodSetupInfoTypeEnum maestroUsa = _$paymentMethodSetupInfoTypeEnum_maestroUsa;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'maxifrota')
   static const PaymentMethodSetupInfoTypeEnum maxifrota = _$paymentMethodSetupInfoTypeEnum_maxifrota;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'maxifrota_prepaid')
   static const PaymentMethodSetupInfoTypeEnum maxifrotaPrepaid = _$paymentMethodSetupInfoTypeEnum_maxifrotaPrepaid;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'mbway')
   static const PaymentMethodSetupInfoTypeEnum mbway = _$paymentMethodSetupInfoTypeEnum_mbway;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'mc')
   static const PaymentMethodSetupInfoTypeEnum mc = _$paymentMethodSetupInfoTypeEnum_mc;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'mcdebit')
   static const PaymentMethodSetupInfoTypeEnum mcdebit = _$paymentMethodSetupInfoTypeEnum_mcdebit;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'mealVoucher_FR')
   static const PaymentMethodSetupInfoTypeEnum mealVoucherFR = _$paymentMethodSetupInfoTypeEnum_mealVoucherFR;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'megaleve')
   static const PaymentMethodSetupInfoTypeEnum megaleve = _$paymentMethodSetupInfoTypeEnum_megaleve;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'megaleve_credit')
   static const PaymentMethodSetupInfoTypeEnum megaleveCredit = _$paymentMethodSetupInfoTypeEnum_megaleveCredit;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'megaleve_debit')
   static const PaymentMethodSetupInfoTypeEnum megaleveDebit = _$paymentMethodSetupInfoTypeEnum_megaleveDebit;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'mobilepay')
   static const PaymentMethodSetupInfoTypeEnum mobilepay = _$paymentMethodSetupInfoTypeEnum_mobilepay;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'multibanco')
   static const PaymentMethodSetupInfoTypeEnum multibanco = _$paymentMethodSetupInfoTypeEnum_multibanco;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'nutricash')
   static const PaymentMethodSetupInfoTypeEnum nutricash = _$paymentMethodSetupInfoTypeEnum_nutricash;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'nutricash_prepaid')
   static const PaymentMethodSetupInfoTypeEnum nutricashPrepaid = _$paymentMethodSetupInfoTypeEnum_nutricashPrepaid;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'nyce')
   static const PaymentMethodSetupInfoTypeEnum nyce = _$paymentMethodSetupInfoTypeEnum_nyce;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'onlineBanking_PL')
   static const PaymentMethodSetupInfoTypeEnum onlineBankingPL = _$paymentMethodSetupInfoTypeEnum_onlineBankingPL;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'paybybank')
   static const PaymentMethodSetupInfoTypeEnum paybybank = _$paymentMethodSetupInfoTypeEnum_paybybank;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'paybybank_plaid')
   static const PaymentMethodSetupInfoTypeEnum paybybankPlaid = _$paymentMethodSetupInfoTypeEnum_paybybankPlaid;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'payme')
   static const PaymentMethodSetupInfoTypeEnum payme = _$paymentMethodSetupInfoTypeEnum_payme;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'payme_pos')
   static const PaymentMethodSetupInfoTypeEnum paymePos = _$paymentMethodSetupInfoTypeEnum_paymePos;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'paynow')
   static const PaymentMethodSetupInfoTypeEnum paynow = _$paymentMethodSetupInfoTypeEnum_paynow;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'paynow_pos')
   static const PaymentMethodSetupInfoTypeEnum paynowPos = _$paymentMethodSetupInfoTypeEnum_paynowPos;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'paypal')
   static const PaymentMethodSetupInfoTypeEnum paypal = _$paymentMethodSetupInfoTypeEnum_paypal;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'payto')
   static const PaymentMethodSetupInfoTypeEnum payto = _$paymentMethodSetupInfoTypeEnum_payto;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'personal_card')
   static const PaymentMethodSetupInfoTypeEnum personalCard = _$paymentMethodSetupInfoTypeEnum_personalCard;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'personal_card_credit')
   static const PaymentMethodSetupInfoTypeEnum personalCardCredit = _$paymentMethodSetupInfoTypeEnum_personalCardCredit;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'personal_card_debit')
   static const PaymentMethodSetupInfoTypeEnum personalCardDebit = _$paymentMethodSetupInfoTypeEnum_personalCardDebit;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'pulse')
   static const PaymentMethodSetupInfoTypeEnum pulse = _$paymentMethodSetupInfoTypeEnum_pulse;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'romcard')
   static const PaymentMethodSetupInfoTypeEnum romcard = _$paymentMethodSetupInfoTypeEnum_romcard;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'romcard_credit')
   static const PaymentMethodSetupInfoTypeEnum romcardCredit = _$paymentMethodSetupInfoTypeEnum_romcardCredit;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'romcard_debit')
   static const PaymentMethodSetupInfoTypeEnum romcardDebit = _$paymentMethodSetupInfoTypeEnum_romcardDebit;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'senff')
   static const PaymentMethodSetupInfoTypeEnum senff = _$paymentMethodSetupInfoTypeEnum_senff;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'senff_credit')
   static const PaymentMethodSetupInfoTypeEnum senffCredit = _$paymentMethodSetupInfoTypeEnum_senffCredit;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'sepadirectdebit')
   static const PaymentMethodSetupInfoTypeEnum sepadirectdebit = _$paymentMethodSetupInfoTypeEnum_sepadirectdebit;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'sodexo')
   static const PaymentMethodSetupInfoTypeEnum sodexo = _$paymentMethodSetupInfoTypeEnum_sodexo;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'star')
   static const PaymentMethodSetupInfoTypeEnum star = _$paymentMethodSetupInfoTypeEnum_star;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'svs')
   static const PaymentMethodSetupInfoTypeEnum svs = _$paymentMethodSetupInfoTypeEnum_svs;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'swish')
   static const PaymentMethodSetupInfoTypeEnum swish = _$paymentMethodSetupInfoTypeEnum_swish;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'ticket')
   static const PaymentMethodSetupInfoTypeEnum ticket = _$paymentMethodSetupInfoTypeEnum_ticket;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'todo_giftcard')
   static const PaymentMethodSetupInfoTypeEnum todoGiftcard = _$paymentMethodSetupInfoTypeEnum_todoGiftcard;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'trustly')
   static const PaymentMethodSetupInfoTypeEnum trustly = _$paymentMethodSetupInfoTypeEnum_trustly;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'twint')
   static const PaymentMethodSetupInfoTypeEnum twint = _$paymentMethodSetupInfoTypeEnum_twint;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'twint_pos')
   static const PaymentMethodSetupInfoTypeEnum twintPos = _$paymentMethodSetupInfoTypeEnum_twintPos;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'up_brazil')
   static const PaymentMethodSetupInfoTypeEnum upBrazil = _$paymentMethodSetupInfoTypeEnum_upBrazil;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'up_brazil_credit')
   static const PaymentMethodSetupInfoTypeEnum upBrazilCredit = _$paymentMethodSetupInfoTypeEnum_upBrazilCredit;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'up_brazil_debit')
   static const PaymentMethodSetupInfoTypeEnum upBrazilDebit = _$paymentMethodSetupInfoTypeEnum_upBrazilDebit;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'up_brazil_prepaid')
   static const PaymentMethodSetupInfoTypeEnum upBrazilPrepaid = _$paymentMethodSetupInfoTypeEnum_upBrazilPrepaid;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'vale_refeicao')
   static const PaymentMethodSetupInfoTypeEnum valeRefeicao = _$paymentMethodSetupInfoTypeEnum_valeRefeicao;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'vale_refeicao_prepaid')
   static const PaymentMethodSetupInfoTypeEnum valeRefeicaoPrepaid = _$paymentMethodSetupInfoTypeEnum_valeRefeicaoPrepaid;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'valuelink')
   static const PaymentMethodSetupInfoTypeEnum valuelink = _$paymentMethodSetupInfoTypeEnum_valuelink;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'vegas_card')
   static const PaymentMethodSetupInfoTypeEnum vegasCard = _$paymentMethodSetupInfoTypeEnum_vegasCard;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'vegas_card_credit')
   static const PaymentMethodSetupInfoTypeEnum vegasCardCredit = _$paymentMethodSetupInfoTypeEnum_vegasCardCredit;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'vegas_card_debit')
   static const PaymentMethodSetupInfoTypeEnum vegasCardDebit = _$paymentMethodSetupInfoTypeEnum_vegasCardDebit;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'vero_card')
   static const PaymentMethodSetupInfoTypeEnum veroCard = _$paymentMethodSetupInfoTypeEnum_veroCard;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'vero_card_credit')
   static const PaymentMethodSetupInfoTypeEnum veroCardCredit = _$paymentMethodSetupInfoTypeEnum_veroCardCredit;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'vero_card_debit')
   static const PaymentMethodSetupInfoTypeEnum veroCardDebit = _$paymentMethodSetupInfoTypeEnum_veroCardDebit;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'vero_card_prepaid')
   static const PaymentMethodSetupInfoTypeEnum veroCardPrepaid = _$paymentMethodSetupInfoTypeEnum_veroCardPrepaid;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'vipps')
   static const PaymentMethodSetupInfoTypeEnum vipps = _$paymentMethodSetupInfoTypeEnum_vipps;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'visa')
   static const PaymentMethodSetupInfoTypeEnum visa = _$paymentMethodSetupInfoTypeEnum_visa;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'visadebit')
   static const PaymentMethodSetupInfoTypeEnum visadebit = _$paymentMethodSetupInfoTypeEnum_visadebit;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'vpay')
   static const PaymentMethodSetupInfoTypeEnum vpay = _$paymentMethodSetupInfoTypeEnum_vpay;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'wechatpay')
   static const PaymentMethodSetupInfoTypeEnum wechatpay = _$paymentMethodSetupInfoTypeEnum_wechatpay;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'wechatpay_pos')
   static const PaymentMethodSetupInfoTypeEnum wechatpayPos = _$paymentMethodSetupInfoTypeEnum_wechatpayPos;
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
+  @BuiltValueEnumConst(wireName: r'wero')
+  static const PaymentMethodSetupInfoTypeEnum wero = _$paymentMethodSetupInfoTypeEnum_wero;
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const PaymentMethodSetupInfoTypeEnum unknownDefaultOpenApi = _$paymentMethodSetupInfoTypeEnum_unknownDefaultOpenApi;
 

@@ -8,7 +8,11 @@ part of 'checkout_forward_response.dart';
 
 class _$CheckoutForwardResponse extends CheckoutForwardResponse {
   @override
+  final CheckoutForwardAccountUpdateResult? accountUpdate;
+  @override
   final String? merchantReference;
+  @override
+  final CheckoutForwardNetworkTokenResult? networkToken;
   @override
   final String? pspReference;
   @override
@@ -21,7 +25,9 @@ class _$CheckoutForwardResponse extends CheckoutForwardResponse {
   ]) => (CheckoutForwardResponseBuilder()..update(updates))._build();
 
   _$CheckoutForwardResponse._({
+    this.accountUpdate,
     this.merchantReference,
+    this.networkToken,
     this.pspReference,
     required this.response,
     this.storedPaymentMethodId,
@@ -39,7 +45,9 @@ class _$CheckoutForwardResponse extends CheckoutForwardResponse {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is CheckoutForwardResponse &&
+        accountUpdate == other.accountUpdate &&
         merchantReference == other.merchantReference &&
+        networkToken == other.networkToken &&
         pspReference == other.pspReference &&
         response == other.response &&
         storedPaymentMethodId == other.storedPaymentMethodId;
@@ -48,7 +56,9 @@ class _$CheckoutForwardResponse extends CheckoutForwardResponse {
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, accountUpdate.hashCode);
     _$hash = $jc(_$hash, merchantReference.hashCode);
+    _$hash = $jc(_$hash, networkToken.hashCode);
     _$hash = $jc(_$hash, pspReference.hashCode);
     _$hash = $jc(_$hash, response.hashCode);
     _$hash = $jc(_$hash, storedPaymentMethodId.hashCode);
@@ -59,7 +69,9 @@ class _$CheckoutForwardResponse extends CheckoutForwardResponse {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'CheckoutForwardResponse')
+          ..add('accountUpdate', accountUpdate)
           ..add('merchantReference', merchantReference)
+          ..add('networkToken', networkToken)
           ..add('pspReference', pspReference)
           ..add('response', response)
           ..add('storedPaymentMethodId', storedPaymentMethodId))
@@ -72,10 +84,22 @@ class CheckoutForwardResponseBuilder
         Builder<CheckoutForwardResponse, CheckoutForwardResponseBuilder> {
   _$CheckoutForwardResponse? _$v;
 
+  CheckoutForwardAccountUpdateResultBuilder? _accountUpdate;
+  CheckoutForwardAccountUpdateResultBuilder get accountUpdate =>
+      _$this._accountUpdate ??= CheckoutForwardAccountUpdateResultBuilder();
+  set accountUpdate(CheckoutForwardAccountUpdateResultBuilder? accountUpdate) =>
+      _$this._accountUpdate = accountUpdate;
+
   String? _merchantReference;
   String? get merchantReference => _$this._merchantReference;
   set merchantReference(String? merchantReference) =>
       _$this._merchantReference = merchantReference;
+
+  CheckoutForwardNetworkTokenResultBuilder? _networkToken;
+  CheckoutForwardNetworkTokenResultBuilder get networkToken =>
+      _$this._networkToken ??= CheckoutForwardNetworkTokenResultBuilder();
+  set networkToken(CheckoutForwardNetworkTokenResultBuilder? networkToken) =>
+      _$this._networkToken = networkToken;
 
   String? _pspReference;
   String? get pspReference => _$this._pspReference;
@@ -99,7 +123,9 @@ class CheckoutForwardResponseBuilder
   CheckoutForwardResponseBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _accountUpdate = $v.accountUpdate?.toBuilder();
       _merchantReference = $v.merchantReference;
+      _networkToken = $v.networkToken?.toBuilder();
       _pspReference = $v.pspReference;
       _response = $v.response.toBuilder();
       _storedPaymentMethodId = $v.storedPaymentMethodId;
@@ -127,7 +153,9 @@ class CheckoutForwardResponseBuilder
       _$result =
           _$v ??
           _$CheckoutForwardResponse._(
+            accountUpdate: _accountUpdate?.build(),
             merchantReference: merchantReference,
+            networkToken: _networkToken?.build(),
             pspReference: pspReference,
             response: response.build(),
             storedPaymentMethodId: storedPaymentMethodId,
@@ -135,6 +163,12 @@ class CheckoutForwardResponseBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'accountUpdate';
+        _accountUpdate?.build();
+
+        _$failedField = 'networkToken';
+        _networkToken?.build();
+
         _$failedField = 'response';
         response.build();
       } catch (e) {

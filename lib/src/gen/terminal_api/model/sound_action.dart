@@ -11,12 +11,16 @@ part 'sound_action.g.dart';
 
 class SoundAction extends EnumClass {
 
-  @BuiltValueEnumConst(wireName: r'SetDefaultVolume')
-  static const SoundAction setDefaultVolume = _$setDefaultVolume;
+  ///  Possible values: * **StartSound** * **StopSound** * **SetDefaultVolume**
   @BuiltValueEnumConst(wireName: r'StartSound')
   static const SoundAction startSound = _$startSound;
+  ///  Possible values: * **StartSound** * **StopSound** * **SetDefaultVolume**
   @BuiltValueEnumConst(wireName: r'StopSound')
   static const SoundAction stopSound = _$stopSound;
+  ///  Possible values: * **StartSound** * **StopSound** * **SetDefaultVolume**
+  @BuiltValueEnumConst(wireName: r'SetDefaultVolume')
+  static const SoundAction setDefaultVolume = _$setDefaultVolume;
+  ///  Possible values: * **StartSound** * **StopSound** * **SetDefaultVolume**
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const SoundAction unknownDefaultOpenApi = _$unknownDefaultOpenApi;
 

@@ -11,6 +11,8 @@ import 'package:dio/dio.dart';
 import 'package:adyen_api/src/gen/checkout/api_util.dart';
 import 'package:adyen_api/src/gen/checkout/model/card_details_request.dart';
 import 'package:adyen_api/src/gen/checkout/model/card_details_response.dart';
+import 'package:adyen_api/src/gen/checkout/model/checkout_session_patch_session_request.dart';
+import 'package:adyen_api/src/gen/checkout/model/checkout_session_patch_session_response.dart';
 import 'package:adyen_api/src/gen/checkout/model/create_checkout_session_request.dart';
 import 'package:adyen_api/src/gen/checkout/model/create_checkout_session_response.dart';
 import 'package:adyen_api/src/gen/checkout/model/payment_details_request.dart';
@@ -112,6 +114,103 @@ class PaymentsApi {
     }
 
     return Response<SessionResultResponse>(
+      data: _responseData,
+      headers: _response.headers,
+      isRedirect: _response.isRedirect,
+      requestOptions: _response.requestOptions,
+      redirects: _response.redirects,
+      statusCode: _response.statusCode,
+      statusMessage: _response.statusMessage,
+      extra: _response.extra,
+    );
+  }
+
+  /// Update a payment session
+  /// Updates an existing payment session with the &#x60;sessionId&#x60; specified in the path.  You can update the session&#39;s &#x60;amount&#x60; and &#x60;payable&#x60; fields. The session can only be updated if it is not yet payable.
+  ///
+  /// Parameters:
+  /// * [sessionId] 
+  /// * [checkoutSessionPatchSessionRequest] 
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future] containing a [Response] with a [CheckoutSessionPatchSessionResponse] as data
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<CheckoutSessionPatchSessionResponse>> patchSessionsSessionId({ 
+    required String sessionId,
+    CheckoutSessionPatchSessionRequest? checkoutSessionPatchSessionRequest,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async {
+    final _path = r'/sessions/{sessionId}'.replaceAll('{' r'sessionId' '}', encodeQueryParameter(_serializers, sessionId, const FullType(String)).toString());
+    final _options = Options(
+      method: r'PATCH',
+      headers: <String, dynamic>{
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[],
+        ...?extra,
+      },
+      contentType: 'application/json',
+      validateStatus: validateStatus,
+    );
+
+    dynamic _bodyData;
+
+    try {
+      const _type = FullType(CheckoutSessionPatchSessionRequest);
+      _bodyData = checkoutSessionPatchSessionRequest == null ? null : _serializers.serialize(checkoutSessionPatchSessionRequest, specifiedType: _type);
+
+    } catch(error, stackTrace) {
+      throw DioException(
+         requestOptions: _options.compose(
+          _dio.options,
+          _path,
+        ),
+        type: DioExceptionType.unknown,
+        error: error,
+        stackTrace: stackTrace,
+      );
+    }
+
+    final _response = await _dio.request<Object>(
+      _path,
+      data: _bodyData,
+      options: _options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    CheckoutSessionPatchSessionResponse? _responseData;
+
+    try {
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(CheckoutSessionPatchSessionResponse),
+      ) as CheckoutSessionPatchSessionResponse;
+
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _response.requestOptions,
+        response: _response,
+        type: DioExceptionType.unknown,
+        error: error,
+        stackTrace: stackTrace,
+      );
+    }
+
+    return Response<CheckoutSessionPatchSessionResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

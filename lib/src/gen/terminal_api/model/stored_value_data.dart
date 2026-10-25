@@ -31,7 +31,7 @@ abstract class StoredValueData implements Built<StoredValueData, StoredValueData
   /// Identification of operation to proceed on the stored value account or the stored value card. Possible values: * **Activate** * **Duplicate** * **Load** * **Reserve** * **Reverse** * **Unload**
   @BuiltValueField(wireName: r'StoredValueTransactionType')
   StoredValueTransactionType get storedValueTransactionType;
-  // enum storedValueTransactionTypeEnum {  Activate,  Duplicate,  Load,  Reserve,  Reverse,  Unload,  };
+  // enum storedValueTransactionTypeEnum {  Reserve,  Activate,  Load,  Unload,  Reverse,  Duplicate,  };
 
   /// Identification of the stored value account or the stored value card. If the identification of the Stored Value account or card has been made by the Sale System before the request.
   @BuiltValueField(wireName: r'StoredValueAccountID')

@@ -57,7 +57,7 @@ abstract class SaleData implements Built<SaleData, SaleDataBuilder> {
   /// Type of token replacing the PAN of a payment card to identify the payment  mean of the customer. It allows, for a merchant, to use a token for a transaction  only or for a longer period. Possible values: * **Customer** * **Transaction**
   @BuiltValueField(wireName: r'TokenRequestedType')
   TokenRequestedType? get tokenRequestedType;
-  // enum tokenRequestedTypeEnum {  Customer,  Transaction,  };
+  // enum tokenRequestedTypeEnum {  Transaction,  Customer,  };
 
   /// Additional and optional identification of a customer order.
   @BuiltValueField(wireName: r'CustomerOrderID')
@@ -66,7 +66,7 @@ abstract class SaleData implements Built<SaleData, SaleDataBuilder> {
   /// List of customer order open, closed or both to be sent in the response messages. Possible values: * **Both** * **Closed** * **Open**
   @BuiltValueField(wireName: r'CustomerOrderReq')
   BuiltList<SaleDataCustomerOrderReqEnum>? get customerOrderReq;
-  // enum customerOrderReqEnum {  Both,  Closed,  Open,  };
+  // enum customerOrderReqEnum {  Open,  Closed,  Both,  };
 
   /// Sale information intended for the POI. Stored with the transaction.
   @BuiltValueField(wireName: r'SaleToPOIData')
@@ -323,12 +323,12 @@ class _$SaleDataSerializer implements PrimitiveSerializer<SaleData> {
 
 class SaleDataCustomerOrderReqEnum extends EnumClass {
 
-  @BuiltValueEnumConst(wireName: r'Both')
-  static const SaleDataCustomerOrderReqEnum both = _$saleDataCustomerOrderReqEnum_both;
-  @BuiltValueEnumConst(wireName: r'Closed')
-  static const SaleDataCustomerOrderReqEnum closed = _$saleDataCustomerOrderReqEnum_closed;
   @BuiltValueEnumConst(wireName: r'Open')
   static const SaleDataCustomerOrderReqEnum open = _$saleDataCustomerOrderReqEnum_open;
+  @BuiltValueEnumConst(wireName: r'Closed')
+  static const SaleDataCustomerOrderReqEnum closed = _$saleDataCustomerOrderReqEnum_closed;
+  @BuiltValueEnumConst(wireName: r'Both')
+  static const SaleDataCustomerOrderReqEnum both = _$saleDataCustomerOrderReqEnum_both;
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const SaleDataCustomerOrderReqEnum unknownDefaultOpenApi = _$saleDataCustomerOrderReqEnum_unknownDefaultOpenApi;
 

@@ -10,9 +10,8 @@ const ErrorCondition _$aborted = const ErrorCondition._('aborted');
 const ErrorCondition _$busy = const ErrorCondition._('busy');
 const ErrorCondition _$cancel = const ErrorCondition._('cancel');
 const ErrorCondition _$deviceOut = const ErrorCondition._('deviceOut');
-const ErrorCondition _$inProgress = const ErrorCondition._('inProgress');
 const ErrorCondition _$insertedCard = const ErrorCondition._('insertedCard');
-const ErrorCondition _$invalidCard = const ErrorCondition._('invalidCard');
+const ErrorCondition _$inProgress = const ErrorCondition._('inProgress');
 const ErrorCondition _$loggedOut = const ErrorCondition._('loggedOut');
 const ErrorCondition _$messageFormat = const ErrorCondition._('messageFormat');
 const ErrorCondition _$notAllowed = const ErrorCondition._('notAllowed');
@@ -27,6 +26,7 @@ const ErrorCondition _$unavailableDevice = const ErrorCondition._(
 const ErrorCondition _$unavailableService = const ErrorCondition._(
   'unavailableService',
 );
+const ErrorCondition _$invalidCard = const ErrorCondition._('invalidCard');
 const ErrorCondition _$unreachableHost = const ErrorCondition._(
   'unreachableHost',
 );
@@ -45,12 +45,10 @@ ErrorCondition _$valueOf(String name) {
       return _$cancel;
     case 'deviceOut':
       return _$deviceOut;
-    case 'inProgress':
-      return _$inProgress;
     case 'insertedCard':
       return _$insertedCard;
-    case 'invalidCard':
-      return _$invalidCard;
+    case 'inProgress':
+      return _$inProgress;
     case 'loggedOut':
       return _$loggedOut;
     case 'messageFormat':
@@ -67,6 +65,8 @@ ErrorCondition _$valueOf(String name) {
       return _$unavailableDevice;
     case 'unavailableService':
       return _$unavailableService;
+    case 'invalidCard':
+      return _$invalidCard;
     case 'unreachableHost':
       return _$unreachableHost;
     case 'wrongPIN':
@@ -84,9 +84,8 @@ final BuiltSet<ErrorCondition> _$values =
       _$busy,
       _$cancel,
       _$deviceOut,
-      _$inProgress,
       _$insertedCard,
-      _$invalidCard,
+      _$inProgress,
       _$loggedOut,
       _$messageFormat,
       _$notAllowed,
@@ -95,6 +94,7 @@ final BuiltSet<ErrorCondition> _$values =
       _$refusal,
       _$unavailableDevice,
       _$unavailableService,
+      _$invalidCard,
       _$unreachableHost,
       _$wrongPIN,
       _$unknownDefaultOpenApi,
@@ -106,9 +106,8 @@ class _$ErrorConditionMeta {
   ErrorCondition get busy => _$busy;
   ErrorCondition get cancel => _$cancel;
   ErrorCondition get deviceOut => _$deviceOut;
-  ErrorCondition get inProgress => _$inProgress;
   ErrorCondition get insertedCard => _$insertedCard;
-  ErrorCondition get invalidCard => _$invalidCard;
+  ErrorCondition get inProgress => _$inProgress;
   ErrorCondition get loggedOut => _$loggedOut;
   ErrorCondition get messageFormat => _$messageFormat;
   ErrorCondition get notAllowed => _$notAllowed;
@@ -117,6 +116,7 @@ class _$ErrorConditionMeta {
   ErrorCondition get refusal => _$refusal;
   ErrorCondition get unavailableDevice => _$unavailableDevice;
   ErrorCondition get unavailableService => _$unavailableService;
+  ErrorCondition get invalidCard => _$invalidCard;
   ErrorCondition get unreachableHost => _$unreachableHost;
   ErrorCondition get wrongPIN => _$wrongPIN;
   ErrorCondition get unknownDefaultOpenApi => _$unknownDefaultOpenApi;
@@ -139,9 +139,8 @@ class _$ErrorConditionSerializer
     'busy': 'Busy',
     'cancel': 'Cancel',
     'deviceOut': 'DeviceOut',
-    'inProgress': 'InProgress',
     'insertedCard': 'InsertedCard',
-    'invalidCard': 'InvalidCard',
+    'inProgress': 'InProgress',
     'loggedOut': 'LoggedOut',
     'messageFormat': 'MessageFormat',
     'notAllowed': 'NotAllowed',
@@ -150,6 +149,7 @@ class _$ErrorConditionSerializer
     'refusal': 'Refusal',
     'unavailableDevice': 'UnavailableDevice',
     'unavailableService': 'UnavailableService',
+    'invalidCard': 'InvalidCard',
     'unreachableHost': 'UnreachableHost',
     'wrongPIN': 'WrongPIN',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
@@ -159,9 +159,8 @@ class _$ErrorConditionSerializer
     'Busy': 'busy',
     'Cancel': 'cancel',
     'DeviceOut': 'deviceOut',
-    'InProgress': 'inProgress',
     'InsertedCard': 'insertedCard',
-    'InvalidCard': 'invalidCard',
+    'InProgress': 'inProgress',
     'LoggedOut': 'loggedOut',
     'MessageFormat': 'messageFormat',
     'NotAllowed': 'notAllowed',
@@ -170,6 +169,7 @@ class _$ErrorConditionSerializer
     'Refusal': 'refusal',
     'UnavailableDevice': 'unavailableDevice',
     'UnavailableService': 'unavailableService',
+    'InvalidCard': 'invalidCard',
     'UnreachableHost': 'unreachableHost',
     'WrongPIN': 'wrongPIN',
     'unknown_default_open_api': 'unknownDefaultOpenApi',

@@ -16,6 +16,8 @@ class _$Balance extends Balance {
   @override
   final int? pending;
   @override
+  final int? pendingAvailable;
+  @override
   final int reserved;
 
   factory _$Balance([void Function(BalanceBuilder)? updates]) =>
@@ -26,6 +28,7 @@ class _$Balance extends Balance {
     required this.balance,
     required this.currency,
     this.pending,
+    this.pendingAvailable,
     required this.reserved,
   }) : super._();
   @override
@@ -43,6 +46,7 @@ class _$Balance extends Balance {
         balance == other.balance &&
         currency == other.currency &&
         pending == other.pending &&
+        pendingAvailable == other.pendingAvailable &&
         reserved == other.reserved;
   }
 
@@ -53,6 +57,7 @@ class _$Balance extends Balance {
     _$hash = $jc(_$hash, balance.hashCode);
     _$hash = $jc(_$hash, currency.hashCode);
     _$hash = $jc(_$hash, pending.hashCode);
+    _$hash = $jc(_$hash, pendingAvailable.hashCode);
     _$hash = $jc(_$hash, reserved.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -65,6 +70,7 @@ class _$Balance extends Balance {
           ..add('balance', balance)
           ..add('currency', currency)
           ..add('pending', pending)
+          ..add('pendingAvailable', pendingAvailable)
           ..add('reserved', reserved))
         .toString();
   }
@@ -89,6 +95,11 @@ class BalanceBuilder implements Builder<Balance, BalanceBuilder> {
   int? get pending => _$this._pending;
   set pending(int? pending) => _$this._pending = pending;
 
+  int? _pendingAvailable;
+  int? get pendingAvailable => _$this._pendingAvailable;
+  set pendingAvailable(int? pendingAvailable) =>
+      _$this._pendingAvailable = pendingAvailable;
+
   int? _reserved;
   int? get reserved => _$this._reserved;
   set reserved(int? reserved) => _$this._reserved = reserved;
@@ -104,6 +115,7 @@ class BalanceBuilder implements Builder<Balance, BalanceBuilder> {
       _balance = $v.balance;
       _currency = $v.currency;
       _pending = $v.pending;
+      _pendingAvailable = $v.pendingAvailable;
       _reserved = $v.reserved;
       _$v = null;
     }
@@ -143,6 +155,7 @@ class BalanceBuilder implements Builder<Balance, BalanceBuilder> {
             'currency',
           ),
           pending: pending,
+          pendingAvailable: pendingAvailable,
           reserved: BuiltValueNullFieldError.checkNotNull(
             reserved,
             r'Balance',

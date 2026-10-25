@@ -11,12 +11,16 @@ part 'result.g.dart';
 
 class Result extends EnumClass {
 
-  @BuiltValueEnumConst(wireName: r'Failure')
-  static const Result failure = _$failure;
-  @BuiltValueEnumConst(wireName: r'Partial')
-  static const Result partial = _$partial;
+  ///  Possible values: * **Success** * **Failure** * **Partial**
   @BuiltValueEnumConst(wireName: r'Success')
   static const Result success = _$success;
+  ///  Possible values: * **Success** * **Failure** * **Partial**
+  @BuiltValueEnumConst(wireName: r'Failure')
+  static const Result failure = _$failure;
+  ///  Possible values: * **Success** * **Failure** * **Partial**
+  @BuiltValueEnumConst(wireName: r'Partial')
+  static const Result partial = _$partial;
+  ///  Possible values: * **Success** * **Failure** * **Partial**
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const Result unknownDefaultOpenApi = _$unknownDefaultOpenApi;
 

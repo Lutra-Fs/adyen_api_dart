@@ -25,6 +25,14 @@ abstract class TransferDataTracking implements Built<TransferDataTracking, Trans
   /// One Of [ConfirmationTrackingData], [EstimationTrackingData], [InternalReviewTrackingData]
   OneOf get oneOf;
 
+  static const String discriminatorFieldName = r'type';
+
+  static const Map<String, Type> discriminatorMapping = {
+    r'confirmation': ConfirmationTrackingData,
+    r'estimation': EstimationTrackingData,
+    r'internalReview': InternalReviewTrackingData,
+  };
+
   TransferDataTracking._();
 
   factory TransferDataTracking([void updates(TransferDataTrackingBuilder b)]) = _$TransferDataTracking;
@@ -34,6 +42,35 @@ abstract class TransferDataTracking implements Built<TransferDataTracking, Trans
 
   @BuiltValueSerializer(custom: true)
   static Serializer<TransferDataTracking> get serializer => _$TransferDataTrackingSerializer();
+}
+
+extension TransferDataTrackingDiscriminatorExt on TransferDataTracking {
+    String? get discriminatorValue {
+        if (this is ConfirmationTrackingData) {
+            return r'confirmation';
+        }
+        if (this is EstimationTrackingData) {
+            return r'estimation';
+        }
+        if (this is InternalReviewTrackingData) {
+            return r'internalReview';
+        }
+        return null;
+    }
+}
+extension TransferDataTrackingBuilderDiscriminatorExt on TransferDataTrackingBuilder {
+    String? get discriminatorValue {
+        if (this is ConfirmationTrackingDataBuilder) {
+            return r'confirmation';
+        }
+        if (this is EstimationTrackingDataBuilder) {
+            return r'estimation';
+        }
+        if (this is InternalReviewTrackingDataBuilder) {
+            return r'internalReview';
+        }
+        return null;
+    }
 }
 
 class _$TransferDataTrackingSerializer implements PrimitiveSerializer<TransferDataTracking> {
@@ -68,9 +105,39 @@ class _$TransferDataTrackingSerializer implements PrimitiveSerializer<TransferDa
   }) {
     final result = TransferDataTrackingBuilder();
     Object? oneOfDataSrc;
-    final targetType = const FullType(OneOf, [FullType(ConfirmationTrackingData), FullType(EstimationTrackingData), FullType(InternalReviewTrackingData), ]);
+    final serializedList = (serialized as Iterable<Object?>).toList();
+    final discIndex = serializedList.indexOf(TransferDataTracking.discriminatorFieldName) + 1;
+    final discValue = serializers.deserialize(serializedList[discIndex], specifiedType: FullType(String)) as String;
     oneOfDataSrc = serialized;
-    result.oneOf = serializers.deserialize(oneOfDataSrc, specifiedType: targetType) as OneOf;
+    final oneOfTypes = [ConfirmationTrackingData, EstimationTrackingData, InternalReviewTrackingData, ];
+    Object oneOfResult;
+    Type oneOfType;
+    switch (discValue) {
+      case r'confirmation':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(ConfirmationTrackingData),
+        ) as ConfirmationTrackingData;
+        oneOfType = ConfirmationTrackingData;
+        break;
+      case r'estimation':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(EstimationTrackingData),
+        ) as EstimationTrackingData;
+        oneOfType = EstimationTrackingData;
+        break;
+      case r'internalReview':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(InternalReviewTrackingData),
+        ) as InternalReviewTrackingData;
+        oneOfType = InternalReviewTrackingData;
+        break;
+      default:
+        throw UnsupportedError("Couldn't deserialize oneOf for the discriminator value: ${discValue}");
+    }
+    result.oneOf = OneOfDynamic(typeIndex: oneOfTypes.indexOf(oneOfType), types: oneOfTypes, value: oneOfResult);
     return result.build();
   }
 }

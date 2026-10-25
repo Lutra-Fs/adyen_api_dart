@@ -354,7 +354,11 @@ class _$TokenMandate extends TokenMandate {
   @override
   final String? minAmount;
   @override
+  final String? previousMandateId;
+  @override
   final String providerId;
+  @override
+  final String? purposeCode;
   @override
   final String? recurringAmount;
   @override
@@ -386,7 +390,9 @@ class _$TokenMandate extends TokenMandate {
     required this.mandateId,
     this.maskedAccountId,
     this.minAmount,
+    this.previousMandateId,
     required this.providerId,
+    this.purposeCode,
     this.recurringAmount,
     this.recurringStatement,
     this.remarks,
@@ -418,7 +424,9 @@ class _$TokenMandate extends TokenMandate {
         mandateId == other.mandateId &&
         maskedAccountId == other.maskedAccountId &&
         minAmount == other.minAmount &&
+        previousMandateId == other.previousMandateId &&
         providerId == other.providerId &&
+        purposeCode == other.purposeCode &&
         recurringAmount == other.recurringAmount &&
         recurringStatement == other.recurringStatement &&
         remarks == other.remarks &&
@@ -443,7 +451,9 @@ class _$TokenMandate extends TokenMandate {
     _$hash = $jc(_$hash, mandateId.hashCode);
     _$hash = $jc(_$hash, maskedAccountId.hashCode);
     _$hash = $jc(_$hash, minAmount.hashCode);
+    _$hash = $jc(_$hash, previousMandateId.hashCode);
     _$hash = $jc(_$hash, providerId.hashCode);
+    _$hash = $jc(_$hash, purposeCode.hashCode);
     _$hash = $jc(_$hash, recurringAmount.hashCode);
     _$hash = $jc(_$hash, recurringStatement.hashCode);
     _$hash = $jc(_$hash, remarks.hashCode);
@@ -470,7 +480,9 @@ class _$TokenMandate extends TokenMandate {
           ..add('mandateId', mandateId)
           ..add('maskedAccountId', maskedAccountId)
           ..add('minAmount', minAmount)
+          ..add('previousMandateId', previousMandateId)
           ..add('providerId', providerId)
+          ..add('purposeCode', purposeCode)
           ..add('recurringAmount', recurringAmount)
           ..add('recurringStatement', recurringStatement)
           ..add('remarks', remarks)
@@ -541,9 +553,18 @@ class TokenMandateBuilder
   String? get minAmount => _$this._minAmount;
   set minAmount(String? minAmount) => _$this._minAmount = minAmount;
 
+  String? _previousMandateId;
+  String? get previousMandateId => _$this._previousMandateId;
+  set previousMandateId(String? previousMandateId) =>
+      _$this._previousMandateId = previousMandateId;
+
   String? _providerId;
   String? get providerId => _$this._providerId;
   set providerId(String? providerId) => _$this._providerId = providerId;
+
+  String? _purposeCode;
+  String? get purposeCode => _$this._purposeCode;
+  set purposeCode(String? purposeCode) => _$this._purposeCode = purposeCode;
 
   String? _recurringAmount;
   String? get recurringAmount => _$this._recurringAmount;
@@ -595,7 +616,9 @@ class TokenMandateBuilder
       _mandateId = $v.mandateId;
       _maskedAccountId = $v.maskedAccountId;
       _minAmount = $v.minAmount;
+      _previousMandateId = $v.previousMandateId;
       _providerId = $v.providerId;
+      _purposeCode = $v.purposeCode;
       _recurringAmount = $v.recurringAmount;
       _recurringStatement = $v.recurringStatement;
       _remarks = $v.remarks;
@@ -657,11 +680,13 @@ class TokenMandateBuilder
           ),
           maskedAccountId: maskedAccountId,
           minAmount: minAmount,
+          previousMandateId: previousMandateId,
           providerId: BuiltValueNullFieldError.checkNotNull(
             providerId,
             r'TokenMandate',
             'providerId',
           ),
+          purposeCode: purposeCode,
           recurringAmount: recurringAmount,
           recurringStatement: recurringStatement,
           remarks: remarks,

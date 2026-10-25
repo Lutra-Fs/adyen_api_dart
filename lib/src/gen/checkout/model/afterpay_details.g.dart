@@ -10,6 +10,8 @@ const AfterpayDetailsTypeEnum _$afterpayDetailsTypeEnum_afterpayDefault =
     const AfterpayDetailsTypeEnum._('afterpayDefault');
 const AfterpayDetailsTypeEnum _$afterpayDetailsTypeEnum_afterpaytouch =
     const AfterpayDetailsTypeEnum._('afterpaytouch');
+const AfterpayDetailsTypeEnum _$afterpayDetailsTypeEnum_afterpaytouchUS =
+    const AfterpayDetailsTypeEnum._('afterpaytouchUS');
 const AfterpayDetailsTypeEnum _$afterpayDetailsTypeEnum_afterpayB2b =
     const AfterpayDetailsTypeEnum._('afterpayB2b');
 const AfterpayDetailsTypeEnum _$afterpayDetailsTypeEnum_clearpay =
@@ -23,6 +25,8 @@ AfterpayDetailsTypeEnum _$afterpayDetailsTypeEnumValueOf(String name) {
       return _$afterpayDetailsTypeEnum_afterpayDefault;
     case 'afterpaytouch':
       return _$afterpayDetailsTypeEnum_afterpaytouch;
+    case 'afterpaytouchUS':
+      return _$afterpayDetailsTypeEnum_afterpaytouchUS;
     case 'afterpayB2b':
       return _$afterpayDetailsTypeEnum_afterpayB2b;
     case 'clearpay':
@@ -38,6 +42,7 @@ final BuiltSet<AfterpayDetailsTypeEnum> _$afterpayDetailsTypeEnumValues =
     BuiltSet<AfterpayDetailsTypeEnum>(const <AfterpayDetailsTypeEnum>[
       _$afterpayDetailsTypeEnum_afterpayDefault,
       _$afterpayDetailsTypeEnum_afterpaytouch,
+      _$afterpayDetailsTypeEnum_afterpaytouchUS,
       _$afterpayDetailsTypeEnum_afterpayB2b,
       _$afterpayDetailsTypeEnum_clearpay,
       _$afterpayDetailsTypeEnum_unknownDefaultOpenApi,
@@ -51,6 +56,7 @@ class _$AfterpayDetailsTypeEnumSerializer
   static const Map<String, Object> _toWire = const <String, Object>{
     'afterpayDefault': 'afterpay_default',
     'afterpaytouch': 'afterpaytouch',
+    'afterpaytouchUS': 'afterpaytouch_US',
     'afterpayB2b': 'afterpay_b2b',
     'clearpay': 'clearpay',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
@@ -58,6 +64,7 @@ class _$AfterpayDetailsTypeEnumSerializer
   static const Map<Object, String> _fromWire = const <Object, String>{
     'afterpay_default': 'afterpayDefault',
     'afterpaytouch': 'afterpaytouch',
+    'afterpaytouch_US': 'afterpaytouchUS',
     'afterpay_b2b': 'afterpayB2b',
     'clearpay': 'clearpay',
     'unknown_default_open_api': 'unknownDefaultOpenApi',

@@ -16,6 +16,7 @@ part 'business_line_info.g.dart';
 ///
 /// Properties:
 /// * [industryCode] - A code that represents the industry of the legal entity for [marketplaces](https://docs.adyen.com/marketplaces/verification-requirements/reference-additional-products/#list-industry-codes) or [platforms](https://docs.adyen.com/platforms/verification-requirements/reference-additional-products/#list-industry-codes). For example, **4431A** for computer software stores.
+/// * [industryCodeDescription] - The description of the industry code.
 /// * [legalEntityId] - Unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) that owns the business line.
 /// * [salesChannels] - A list of channels where goods or services are sold.  Possible values: **pos**, **posMoto**, **eCommerce**, **ecomMoto**, **payByLink**.  Required only in combination with the `service` **paymentProcessing**.
 /// * [service] - The service for which you are creating the business line.    Possible values: *  **paymentProcessing** *  **issuing** *  **banking**  
@@ -27,6 +28,10 @@ abstract class BusinessLineInfo implements Built<BusinessLineInfo, BusinessLineI
   /// A code that represents the industry of the legal entity for [marketplaces](https://docs.adyen.com/marketplaces/verification-requirements/reference-additional-products/#list-industry-codes) or [platforms](https://docs.adyen.com/platforms/verification-requirements/reference-additional-products/#list-industry-codes). For example, **4431A** for computer software stores.
   @BuiltValueField(wireName: r'industryCode')
   String get industryCode;
+
+  /// The description of the industry code.
+  @BuiltValueField(wireName: r'industryCodeDescription')
+  String? get industryCodeDescription;
 
   /// Unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities__resParam_id) that owns the business line.
   @BuiltValueField(wireName: r'legalEntityId')
@@ -81,6 +86,13 @@ class _$BusinessLineInfoSerializer implements PrimitiveSerializer<BusinessLineIn
       object.industryCode,
       specifiedType: const FullType(String),
     );
+    if (object.industryCodeDescription != null) {
+      yield r'industryCodeDescription';
+      yield serializers.serialize(
+        object.industryCodeDescription,
+        specifiedType: const FullType(String),
+      );
+    }
     yield r'legalEntityId';
     yield serializers.serialize(
       object.legalEntityId,
@@ -148,6 +160,13 @@ class _$BusinessLineInfoSerializer implements PrimitiveSerializer<BusinessLineIn
             specifiedType: const FullType(String),
           ) as String;
           result.industryCode = valueDes;
+          break;
+        case r'industryCodeDescription':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.industryCodeDescription = valueDes;
           break;
         case r'legalEntityId':
           final valueDes = serializers.deserialize(

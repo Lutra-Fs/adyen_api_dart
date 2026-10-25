@@ -30,7 +30,7 @@ abstract class TransactionTotals implements Built<TransactionTotals, Transaction
   /// Type of payment instrument. Possible values: * **Card** * **Cash** * **Check** * **Mobile** * **StoredValue**
   @BuiltValueField(wireName: r'PaymentInstrumentType')
   PaymentInstrumentType get paymentInstrumentType;
-  // enum paymentInstrumentTypeEnum {  Card,  Cash,  Check,  Mobile,  StoredValue,  };
+  // enum paymentInstrumentTypeEnum {  Card,  Check,  Mobile,  StoredValue,  Cash,  };
 
   /// Identification of the Acquirer.
   @BuiltValueField(wireName: r'AcquirerID')

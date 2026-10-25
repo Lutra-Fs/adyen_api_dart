@@ -34,11 +34,11 @@ A type-safe Dart library for Adyen's payment APIs, generated from official OpenA
 
 ```yaml
 dependencies:
-  adyen_api: ^0.1.0
+  adyen_api: ^0.3.0
 ```
 
 ```bash
-dart pub get
+fvm dart pub get
 ```
 
 ## Quick Start
@@ -98,6 +98,51 @@ configuration, dispute, tokenization, transfer, and more.
 See the [example/](example/) directory for complete examples:
 - Basic checkout payment
 - Terminal management with NEXO encryption
+
+## Development and maintenance
+
+The package supports Dart 3.10.3 and newer. Development uses the stable SDK
+pinned in `.fvmrc`; CI checks both the minimum supported SDK and the latest stable SDK.
+
+```bash
+fvm install
+fvm dart pub get
+fvm dart analyze --fatal-infos
+fvm dart test
+```
+
+Generated clients live in `lib/src/gen/`. To update them, change the OpenAPI
+lock file or the scripts in `tool/codegen/`, then regenerate:
+
+```bash
+./tool/codegen/generate.sh
+fvm dart run build_runner build
+./tool/generate_model_exports.sh --check
+```
+
+Code generation requires Java and OpenAPI Generator 7.18.0 (the version used
+in CI), Python 3, `jq`, and `ripgrep`. The generation script fetches the Adyen
+specifications at the commit recorded in `tool/openapi.lock.json`.
+
+The weekly `openapi-codegen` workflow opens an update PR after analysis and
+tests pass. Its `AUTOMATION_PAT` repository secret must be valid and grant
+Contents and Pull requests write access to this repository. For a classic PAT,
+use the `repo` scope. A personal token lets the generated PR trigger CI;
+renew the secret if the workflow reports invalid or expired credentials.
+If GitHub disables scheduled runs after repository inactivity, re-enable
+`openapi-codegen` in the Actions tab after renewing the token.
+
+Maintenance check on 2026-10-25: the scheduled updater is disabled due to
+inactivity, and its most recent run failed with `Bad credentials`. Renew
+`AUTOMATION_PAT` and re-enable the workflow to resume automatic specification updates.
+
+When releasing, keep `pubspec.yaml`, `LibraryConstants.libVersion`, and the
+installation example above in sync so request headers report the package version.
+
+The OpenAPI lock tracks Adyen's 2026-10-22 specification release, including
+Checkout v72. Balance Platform sweep operations are now available through
+`customPayoutSchedulesSweepsApi` instead of `balanceAccountsApi`, matching
+the API groups in the upstream specification.
 
 ## Support
 

@@ -15,6 +15,7 @@ part 'klarna_details.g.dart';
 /// * [billingAddress] - The address where to send the invoice.
 /// * [checkoutAttemptId] - The checkout attempt identifier.
 /// * [deliveryAddress] - The address where the goods should be delivered.
+/// * [merchantData] - Base64-encoded merchant metadata (Extra Merchant Data) forwarded to Klarna at authorization.
 /// * [personalDetails] - Shopper name, date of birth, phone number, and email address.
 /// * [recurringDetailReference] - This is the `recurringDetailReference` returned in the response when you created the token.
 /// * [sdkData] - Base64-encoded JSON object containing SDK related parameters required by the SDK
@@ -34,6 +35,10 @@ abstract class KlarnaDetails implements Built<KlarnaDetails, KlarnaDetailsBuilde
   /// The address where the goods should be delivered.
   @BuiltValueField(wireName: r'deliveryAddress')
   String? get deliveryAddress;
+
+  /// Base64-encoded merchant metadata (Extra Merchant Data) forwarded to Klarna at authorization.
+  @BuiltValueField(wireName: r'merchantData')
+  String? get merchantData;
 
   /// Shopper name, date of birth, phone number, and email address.
   @BuiltValueField(wireName: r'personalDetails')
@@ -103,6 +108,13 @@ class _$KlarnaDetailsSerializer implements PrimitiveSerializer<KlarnaDetails> {
       yield r'deliveryAddress';
       yield serializers.serialize(
         object.deliveryAddress,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.merchantData != null) {
+      yield r'merchantData';
+      yield serializers.serialize(
+        object.merchantData,
         specifiedType: const FullType(String),
       );
     }
@@ -189,6 +201,13 @@ class _$KlarnaDetailsSerializer implements PrimitiveSerializer<KlarnaDetails> {
             specifiedType: const FullType(String),
           ) as String;
           result.deliveryAddress = valueDes;
+          break;
+        case r'merchantData':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.merchantData = valueDes;
           break;
         case r'personalDetails':
           final valueDes = serializers.deserialize(

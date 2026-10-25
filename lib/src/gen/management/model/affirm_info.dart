@@ -3,7 +3,6 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -12,16 +11,15 @@ part 'affirm_info.g.dart';
 /// AffirmInfo
 ///
 /// Properties:
-/// * [pricePlan] - Merchant price plan
-/// * [supportEmail] - Merchant support email
+/// * [pricePlan] - Selected Affirm financing package. Choose from **core**, **standard**, or **signature**. Defaults to **core** if no selection made.
+/// * [supportEmail] - Merchant support email used to manage disputes.
 @BuiltValue()
 abstract class AffirmInfo implements Built<AffirmInfo, AffirmInfoBuilder> {
-  /// Merchant price plan
+  /// Selected Affirm financing package. Choose from **core**, **standard**, or **signature**. Defaults to **core** if no selection made.
   @BuiltValueField(wireName: r'pricePlan')
-  AffirmInfoPricePlanEnum? get pricePlan;
-  // enum pricePlanEnum {  BRONZE,  SILVER,  GOLD,  };
+  String? get pricePlan;
 
-  /// Merchant support email
+  /// Merchant support email used to manage disputes.
   @BuiltValueField(wireName: r'supportEmail')
   String get supportEmail;
 
@@ -52,7 +50,7 @@ class _$AffirmInfoSerializer implements PrimitiveSerializer<AffirmInfo> {
       yield r'pricePlan';
       yield serializers.serialize(
         object.pricePlan,
-        specifiedType: const FullType(AffirmInfoPricePlanEnum),
+        specifiedType: const FullType(String),
       );
     }
     yield r'supportEmail';
@@ -86,8 +84,8 @@ class _$AffirmInfoSerializer implements PrimitiveSerializer<AffirmInfo> {
         case r'pricePlan':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(AffirmInfoPricePlanEnum),
-          ) as AffirmInfoPricePlanEnum;
+            specifiedType: const FullType(String),
+          ) as String;
           result.pricePlan = valueDes;
           break;
         case r'supportEmail':
@@ -124,28 +122,5 @@ class _$AffirmInfoSerializer implements PrimitiveSerializer<AffirmInfo> {
     );
     return result.build();
   }
-}
-
-class AffirmInfoPricePlanEnum extends EnumClass {
-
-  /// Merchant price plan
-  @BuiltValueEnumConst(wireName: r'BRONZE')
-  static const AffirmInfoPricePlanEnum BRONZE = _$affirmInfoPricePlanEnum_BRONZE;
-  /// Merchant price plan
-  @BuiltValueEnumConst(wireName: r'SILVER')
-  static const AffirmInfoPricePlanEnum SILVER = _$affirmInfoPricePlanEnum_SILVER;
-  /// Merchant price plan
-  @BuiltValueEnumConst(wireName: r'GOLD')
-  static const AffirmInfoPricePlanEnum GOLD = _$affirmInfoPricePlanEnum_GOLD;
-  /// Merchant price plan
-  @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
-  static const AffirmInfoPricePlanEnum unknownDefaultOpenApi = _$affirmInfoPricePlanEnum_unknownDefaultOpenApi;
-
-  static Serializer<AffirmInfoPricePlanEnum> get serializer => _$affirmInfoPricePlanEnumSerializer;
-
-  const AffirmInfoPricePlanEnum._(String name): super(name);
-
-  static BuiltSet<AffirmInfoPricePlanEnum> get values => _$affirmInfoPricePlanEnumValues;
-  static AffirmInfoPricePlanEnum valueOf(String name) => _$affirmInfoPricePlanEnumValueOf(name);
 }
 

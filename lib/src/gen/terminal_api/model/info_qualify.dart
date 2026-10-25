@@ -11,26 +11,37 @@ part 'info_qualify.g.dart';
 
 class InfoQualify extends EnumClass {
 
-  @BuiltValueEnumConst(wireName: r'CustomerAssistance')
-  static const InfoQualify customerAssistance = _$customerAssistance;
-  @BuiltValueEnumConst(wireName: r'Display')
-  static const InfoQualify display = _$display;
-  @BuiltValueEnumConst(wireName: r'Document')
-  static const InfoQualify document = _$document;
-  @BuiltValueEnumConst(wireName: r'Error')
-  static const InfoQualify error = _$error;
-  @BuiltValueEnumConst(wireName: r'Input')
-  static const InfoQualify input = _$input;
-  @BuiltValueEnumConst(wireName: r'POIReplication')
-  static const InfoQualify pOIReplication = _$pOIReplication;
-  @BuiltValueEnumConst(wireName: r'Receipt')
-  static const InfoQualify receipt = _$receipt;
-  @BuiltValueEnumConst(wireName: r'Sound')
-  static const InfoQualify sound = _$sound;
+  ///  Possible values: * **Status** * **Error** * **Display** * **Sound** * **Input** * **POIReplication** * **CustomerAssistance** * **Receipt** * **Document** * **Voucher**
   @BuiltValueEnumConst(wireName: r'Status')
   static const InfoQualify status = _$status;
+  ///  Possible values: * **Status** * **Error** * **Display** * **Sound** * **Input** * **POIReplication** * **CustomerAssistance** * **Receipt** * **Document** * **Voucher**
+  @BuiltValueEnumConst(wireName: r'Error')
+  static const InfoQualify error = _$error;
+  ///  Possible values: * **Status** * **Error** * **Display** * **Sound** * **Input** * **POIReplication** * **CustomerAssistance** * **Receipt** * **Document** * **Voucher**
+  @BuiltValueEnumConst(wireName: r'Display')
+  static const InfoQualify display = _$display;
+  ///  Possible values: * **Status** * **Error** * **Display** * **Sound** * **Input** * **POIReplication** * **CustomerAssistance** * **Receipt** * **Document** * **Voucher**
+  @BuiltValueEnumConst(wireName: r'Sound')
+  static const InfoQualify sound = _$sound;
+  ///  Possible values: * **Status** * **Error** * **Display** * **Sound** * **Input** * **POIReplication** * **CustomerAssistance** * **Receipt** * **Document** * **Voucher**
+  @BuiltValueEnumConst(wireName: r'Input')
+  static const InfoQualify input = _$input;
+  ///  Possible values: * **Status** * **Error** * **Display** * **Sound** * **Input** * **POIReplication** * **CustomerAssistance** * **Receipt** * **Document** * **Voucher**
+  @BuiltValueEnumConst(wireName: r'POIReplication')
+  static const InfoQualify pOIReplication = _$pOIReplication;
+  ///  Possible values: * **Status** * **Error** * **Display** * **Sound** * **Input** * **POIReplication** * **CustomerAssistance** * **Receipt** * **Document** * **Voucher**
+  @BuiltValueEnumConst(wireName: r'CustomerAssistance')
+  static const InfoQualify customerAssistance = _$customerAssistance;
+  ///  Possible values: * **Status** * **Error** * **Display** * **Sound** * **Input** * **POIReplication** * **CustomerAssistance** * **Receipt** * **Document** * **Voucher**
+  @BuiltValueEnumConst(wireName: r'Receipt')
+  static const InfoQualify receipt = _$receipt;
+  ///  Possible values: * **Status** * **Error** * **Display** * **Sound** * **Input** * **POIReplication** * **CustomerAssistance** * **Receipt** * **Document** * **Voucher**
+  @BuiltValueEnumConst(wireName: r'Document')
+  static const InfoQualify document = _$document;
+  ///  Possible values: * **Status** * **Error** * **Display** * **Sound** * **Input** * **POIReplication** * **CustomerAssistance** * **Receipt** * **Document** * **Voucher**
   @BuiltValueEnumConst(wireName: r'Voucher')
   static const InfoQualify voucher = _$voucher;
+  ///  Possible values: * **Status** * **Error** * **Display** * **Sound** * **Input** * **POIReplication** * **CustomerAssistance** * **Receipt** * **Document** * **Voucher**
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const InfoQualify unknownDefaultOpenApi = _$unknownDefaultOpenApi;
 

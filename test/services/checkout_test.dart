@@ -146,6 +146,13 @@ void main() {
       adapter = createDioAdapter(checkoutService.dio);
     });
 
+    test('uses the Checkout v72 endpoint', () {
+      expect(
+        checkoutService.dio.options.baseUrl,
+        'https://checkout-test.adyen.com/v72',
+      );
+    });
+
     test('deserializes payment request', () async {
       final paymentRequest = PaymentRequest(
         (b) => b

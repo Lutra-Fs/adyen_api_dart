@@ -14,8 +14,6 @@ const PaymentDetailsTypeEnum _$paymentDetailsTypeEnum_bankTransfer =
     const PaymentDetailsTypeEnum._('bankTransfer');
 const PaymentDetailsTypeEnum _$paymentDetailsTypeEnum_bankTransferIBAN =
     const PaymentDetailsTypeEnum._('bankTransferIBAN');
-const PaymentDetailsTypeEnum _$paymentDetailsTypeEnum_paybright =
-    const PaymentDetailsTypeEnum._('paybright');
 const PaymentDetailsTypeEnum _$paymentDetailsTypeEnum_paynow =
     const PaymentDetailsTypeEnum._('paynow');
 const PaymentDetailsTypeEnum _$paymentDetailsTypeEnum_affirmPos =
@@ -82,6 +80,8 @@ const PaymentDetailsTypeEnum _$paymentDetailsTypeEnum_walleyB2b =
     const PaymentDetailsTypeEnum._('walleyB2b');
 const PaymentDetailsTypeEnum _$paymentDetailsTypeEnum_paypo =
     const PaymentDetailsTypeEnum._('paypo');
+const PaymentDetailsTypeEnum _$paymentDetailsTypeEnum_satispay =
+    const PaymentDetailsTypeEnum._('satispay');
 const PaymentDetailsTypeEnum _$paymentDetailsTypeEnum_scalapay =
     const PaymentDetailsTypeEnum._('scalapay');
 const PaymentDetailsTypeEnum _$paymentDetailsTypeEnum_scalapay3x =
@@ -120,8 +120,6 @@ const PaymentDetailsTypeEnum _$paymentDetailsTypeEnum_knet =
     const PaymentDetailsTypeEnum._('knet');
 const PaymentDetailsTypeEnum _$paymentDetailsTypeEnum_omannet =
     const PaymentDetailsTypeEnum._('omannet');
-const PaymentDetailsTypeEnum _$paymentDetailsTypeEnum_gopayWallet =
-    const PaymentDetailsTypeEnum._('gopayWallet');
 const PaymentDetailsTypeEnum _$paymentDetailsTypeEnum_kcpNaverpay =
     const PaymentDetailsTypeEnum._('kcpNaverpay');
 const PaymentDetailsTypeEnum _$paymentDetailsTypeEnum_fawry =
@@ -194,8 +192,6 @@ PaymentDetailsTypeEnum _$paymentDetailsTypeEnumValueOf(String name) {
       return _$paymentDetailsTypeEnum_bankTransfer;
     case 'bankTransferIBAN':
       return _$paymentDetailsTypeEnum_bankTransferIBAN;
-    case 'paybright':
-      return _$paymentDetailsTypeEnum_paybright;
     case 'paynow':
       return _$paymentDetailsTypeEnum_paynow;
     case 'affirmPos':
@@ -262,6 +258,8 @@ PaymentDetailsTypeEnum _$paymentDetailsTypeEnumValueOf(String name) {
       return _$paymentDetailsTypeEnum_walleyB2b;
     case 'paypo':
       return _$paymentDetailsTypeEnum_paypo;
+    case 'satispay':
+      return _$paymentDetailsTypeEnum_satispay;
     case 'scalapay':
       return _$paymentDetailsTypeEnum_scalapay;
     case 'scalapay3x':
@@ -300,8 +298,6 @@ PaymentDetailsTypeEnum _$paymentDetailsTypeEnumValueOf(String name) {
       return _$paymentDetailsTypeEnum_knet;
     case 'omannet':
       return _$paymentDetailsTypeEnum_omannet;
-    case 'gopayWallet':
-      return _$paymentDetailsTypeEnum_gopayWallet;
     case 'kcpNaverpay':
       return _$paymentDetailsTypeEnum_kcpNaverpay;
     case 'fawry':
@@ -373,7 +369,6 @@ final BuiltSet<PaymentDetailsTypeEnum> _$paymentDetailsTypeEnumValues =
       _$paymentDetailsTypeEnum_multibanco,
       _$paymentDetailsTypeEnum_bankTransfer,
       _$paymentDetailsTypeEnum_bankTransferIBAN,
-      _$paymentDetailsTypeEnum_paybright,
       _$paymentDetailsTypeEnum_paynow,
       _$paymentDetailsTypeEnum_affirmPos,
       _$paymentDetailsTypeEnum_iris,
@@ -407,6 +402,7 @@ final BuiltSet<PaymentDetailsTypeEnum> _$paymentDetailsTypeEnumValues =
       _$paymentDetailsTypeEnum_walley,
       _$paymentDetailsTypeEnum_walleyB2b,
       _$paymentDetailsTypeEnum_paypo,
+      _$paymentDetailsTypeEnum_satispay,
       _$paymentDetailsTypeEnum_scalapay,
       _$paymentDetailsTypeEnum_scalapay3x,
       _$paymentDetailsTypeEnum_scalapay4x,
@@ -426,7 +422,6 @@ final BuiltSet<PaymentDetailsTypeEnum> _$paymentDetailsTypeEnumValues =
       _$paymentDetailsTypeEnum_benefit,
       _$paymentDetailsTypeEnum_knet,
       _$paymentDetailsTypeEnum_omannet,
-      _$paymentDetailsTypeEnum_gopayWallet,
       _$paymentDetailsTypeEnum_kcpNaverpay,
       _$paymentDetailsTypeEnum_fawry,
       _$paymentDetailsTypeEnum_atome,
@@ -469,7 +464,6 @@ class _$PaymentDetailsTypeEnumSerializer
     'multibanco': 'multibanco',
     'bankTransfer': 'bankTransfer',
     'bankTransferIBAN': 'bankTransfer_IBAN',
-    'paybright': 'paybright',
     'paynow': 'paynow',
     'affirmPos': 'affirm_pos',
     'iris': 'iris',
@@ -503,6 +497,7 @@ class _$PaymentDetailsTypeEnumSerializer
     'walley': 'walley',
     'walleyB2b': 'walley_b2b',
     'paypo': 'paypo',
+    'satispay': 'satispay',
     'scalapay': 'scalapay',
     'scalapay3x': 'scalapay_3x',
     'scalapay4x': 'scalapay_4x',
@@ -522,7 +517,6 @@ class _$PaymentDetailsTypeEnumSerializer
     'benefit': 'benefit',
     'knet': 'knet',
     'omannet': 'omannet',
-    'gopayWallet': 'gopay_wallet',
     'kcpNaverpay': 'kcp_naverpay',
     'fawry': 'fawry',
     'atome': 'atome',
@@ -559,7 +553,6 @@ class _$PaymentDetailsTypeEnumSerializer
     'multibanco': 'multibanco',
     'bankTransfer': 'bankTransfer',
     'bankTransfer_IBAN': 'bankTransferIBAN',
-    'paybright': 'paybright',
     'paynow': 'paynow',
     'affirm_pos': 'affirmPos',
     'iris': 'iris',
@@ -593,6 +586,7 @@ class _$PaymentDetailsTypeEnumSerializer
     'walley': 'walley',
     'walley_b2b': 'walleyB2b',
     'paypo': 'paypo',
+    'satispay': 'satispay',
     'scalapay': 'scalapay',
     'scalapay_3x': 'scalapay3x',
     'scalapay_4x': 'scalapay4x',
@@ -612,7 +606,6 @@ class _$PaymentDetailsTypeEnumSerializer
     'benefit': 'benefit',
     'knet': 'knet',
     'omannet': 'omannet',
-    'gopay_wallet': 'gopayWallet',
     'kcp_naverpay': 'kcpNaverpay',
     'fawry': 'fawry',
     'atome': 'atome',

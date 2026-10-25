@@ -34,7 +34,7 @@ abstract class Modification implements Built<Modification, ModificationBuilder> 
   /// The status of the transfer event.
   @BuiltValueField(wireName: r'status')
   ModificationStatusEnum? get status;
-  // enum statusEnum {  approvalPending,  atmWithdrawal,  atmWithdrawalReversalPending,  atmWithdrawalReversed,  authAdjustmentAuthorised,  authAdjustmentError,  authAdjustmentRefused,  authorised,  bankTransfer,  bankTransferPending,  booked,  bookingPending,  cancelled,  capturePending,  captureReversalPending,  captureReversed,  captured,  capturedExternally,  chargeback,  chargebackExternally,  chargebackPending,  chargebackReversalPending,  chargebackReversed,  credited,  depositCorrection,  depositCorrectionPending,  dispute,  disputeClosed,  disputeExpired,  disputeNeedsReview,  error,  expired,  failed,  fee,  feePending,  interchangeAdjusted,  internalTransfer,  internalTransferPending,  invoiceDeduction,  invoiceDeductionPending,  manualCorrectionPending,  manuallyCorrected,  matchedStatement,  matchedStatementPending,  merchantPayin,  merchantPayinPending,  merchantPayinReversed,  merchantPayinReversedPending,  miscCost,  miscCostPending,  paymentCost,  paymentCostPending,  pendingApproval,  pendingExecution,  received,  refundPending,  refundReversalPending,  refundReversed,  refunded,  refundedExternally,  refused,  rejected,  reserveAdjustment,  reserveAdjustmentPending,  returned,  secondChargeback,  secondChargebackPending,  undefined,  };
+  // enum statusEnum {  approvalPending,  atmWithdrawal,  atmWithdrawalReversalPending,  atmWithdrawalReversed,  authAdjustmentAuthorised,  authAdjustmentError,  authAdjustmentRefused,  authorised,  bankTransfer,  bankTransferPending,  booked,  bookingPending,  cancelled,  capturePending,  captureReversalPending,  captureReversed,  captured,  capturedExternally,  chargeback,  chargebackExternally,  chargebackPending,  chargebackReversalPending,  chargebackReversed,  credited,  depositCorrection,  depositCorrectionPending,  dispute,  disputeClosed,  disputeExpired,  disputeNeedsReview,  error,  expired,  failed,  fee,  feePending,  interchangeAdjusted,  internalTransfer,  internalTransferPending,  invoiceDeduction,  invoiceDeductionPending,  manualCorrectionPending,  manuallyCorrected,  matchedStatement,  matchedStatementPending,  merchantPayin,  merchantPayinPending,  merchantPayinReversed,  merchantPayinReversedPending,  miscCost,  miscCostPending,  paymentCost,  paymentCostPending,  pending,  pendingApproval,  pendingExecution,  received,  refundPending,  refundReversalPending,  refundReversed,  refunded,  refundedExternally,  refused,  rejected,  reserveAdjustment,  reserveAdjustmentPending,  returned,  reversalReceived,  reversed,  secondChargeback,  secondChargebackPending,  undefined,  };
 
   /// The type of transfer modification.
   @BuiltValueField(wireName: r'type')
@@ -344,6 +344,9 @@ class ModificationStatusEnum extends EnumClass {
   @BuiltValueEnumConst(wireName: r'paymentCostPending')
   static const ModificationStatusEnum paymentCostPending = _$modificationStatusEnum_paymentCostPending;
   /// The status of the transfer event.
+  @BuiltValueEnumConst(wireName: r'pending')
+  static const ModificationStatusEnum pending = _$modificationStatusEnum_pending;
+  /// The status of the transfer event.
   @BuiltValueEnumConst(wireName: r'pendingApproval')
   static const ModificationStatusEnum pendingApproval = _$modificationStatusEnum_pendingApproval;
   /// The status of the transfer event.
@@ -382,6 +385,12 @@ class ModificationStatusEnum extends EnumClass {
   /// The status of the transfer event.
   @BuiltValueEnumConst(wireName: r'returned')
   static const ModificationStatusEnum returned = _$modificationStatusEnum_returned;
+  /// The status of the transfer event.
+  @BuiltValueEnumConst(wireName: r'reversalReceived')
+  static const ModificationStatusEnum reversalReceived = _$modificationStatusEnum_reversalReceived;
+  /// The status of the transfer event.
+  @BuiltValueEnumConst(wireName: r'reversed')
+  static const ModificationStatusEnum reversed = _$modificationStatusEnum_reversed;
   /// The status of the transfer event.
   @BuiltValueEnumConst(wireName: r'secondChargeback')
   static const ModificationStatusEnum secondChargeback = _$modificationStatusEnum_secondChargeback;

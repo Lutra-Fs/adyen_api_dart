@@ -124,6 +124,8 @@ class _$AdditionalDataCommon extends AdditionalDataCommon {
   final String? subMerchantStreet;
   @override
   final String? subMerchantTaxId;
+  @override
+  final String? transactionLinkId;
 
   factory _$AdditionalDataCommon([
     void Function(AdditionalDataCommonBuilder)? updates,
@@ -151,6 +153,7 @@ class _$AdditionalDataCommon extends AdditionalDataCommon {
     this.subMerchantState,
     this.subMerchantStreet,
     this.subMerchantTaxId,
+    this.transactionLinkId,
   }) : super._();
   @override
   AdditionalDataCommon rebuild(
@@ -187,7 +190,8 @@ class _$AdditionalDataCommon extends AdditionalDataCommon {
         subMerchantPostalCode == other.subMerchantPostalCode &&
         subMerchantState == other.subMerchantState &&
         subMerchantStreet == other.subMerchantStreet &&
-        subMerchantTaxId == other.subMerchantTaxId;
+        subMerchantTaxId == other.subMerchantTaxId &&
+        transactionLinkId == other.transactionLinkId;
   }
 
   @override
@@ -214,6 +218,7 @@ class _$AdditionalDataCommon extends AdditionalDataCommon {
     _$hash = $jc(_$hash, subMerchantState.hashCode);
     _$hash = $jc(_$hash, subMerchantStreet.hashCode);
     _$hash = $jc(_$hash, subMerchantTaxId.hashCode);
+    _$hash = $jc(_$hash, transactionLinkId.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -247,7 +252,8 @@ class _$AdditionalDataCommon extends AdditionalDataCommon {
           ..add('subMerchantPostalCode', subMerchantPostalCode)
           ..add('subMerchantState', subMerchantState)
           ..add('subMerchantStreet', subMerchantStreet)
-          ..add('subMerchantTaxId', subMerchantTaxId))
+          ..add('subMerchantTaxId', subMerchantTaxId)
+          ..add('transactionLinkId', transactionLinkId))
         .toString();
   }
 }
@@ -365,6 +371,11 @@ class AdditionalDataCommonBuilder
   set subMerchantTaxId(String? subMerchantTaxId) =>
       _$this._subMerchantTaxId = subMerchantTaxId;
 
+  String? _transactionLinkId;
+  String? get transactionLinkId => _$this._transactionLinkId;
+  set transactionLinkId(String? transactionLinkId) =>
+      _$this._transactionLinkId = transactionLinkId;
+
   AdditionalDataCommonBuilder() {
     AdditionalDataCommon._defaults(this);
   }
@@ -393,6 +404,7 @@ class AdditionalDataCommonBuilder
       _subMerchantState = $v.subMerchantState;
       _subMerchantStreet = $v.subMerchantStreet;
       _subMerchantTaxId = $v.subMerchantTaxId;
+      _transactionLinkId = $v.transactionLinkId;
       _$v = null;
     }
     return this;
@@ -436,6 +448,7 @@ class AdditionalDataCommonBuilder
           subMerchantState: subMerchantState,
           subMerchantStreet: subMerchantStreet,
           subMerchantTaxId: subMerchantTaxId,
+          transactionLinkId: transactionLinkId,
         );
     replace(_$result);
     return _$result;

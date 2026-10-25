@@ -11,13 +11,13 @@ part 'transaction_action.g.dart';
 
 class TransactionAction extends EnumClass {
 
-  /// Action to realise on a transaction. In an `EnableService` request message:   - Starts a transaction by a swipe-ahead mechanism, with the services which are enabled.   - Aborts a swipe-ahead transaction or started by a `CardAcquisition`, and not followed by a service request from the Sale System to complete the transaction. Possible values: * **AbortTransaction** * **StartTransaction**
-  @BuiltValueEnumConst(wireName: r'AbortTransaction')
-  static const TransactionAction abortTransaction = _$abortTransaction;
-  /// Action to realise on a transaction. In an `EnableService` request message:   - Starts a transaction by a swipe-ahead mechanism, with the services which are enabled.   - Aborts a swipe-ahead transaction or started by a `CardAcquisition`, and not followed by a service request from the Sale System to complete the transaction. Possible values: * **AbortTransaction** * **StartTransaction**
+  /// Action to realise on a transaction. In an `EnableService` request message:   - Starts a transaction by a swipe-ahead mechanism, with the services which are enabled.   - Aborts a swipe-ahead transaction or started by a `CardAcquisition`, and not followed by a service request from the Sale System to complete the transaction. Possible values: * **StartTransaction** * **AbortTransaction**
   @BuiltValueEnumConst(wireName: r'StartTransaction')
   static const TransactionAction startTransaction = _$startTransaction;
-  /// Action to realise on a transaction. In an `EnableService` request message:   - Starts a transaction by a swipe-ahead mechanism, with the services which are enabled.   - Aborts a swipe-ahead transaction or started by a `CardAcquisition`, and not followed by a service request from the Sale System to complete the transaction. Possible values: * **AbortTransaction** * **StartTransaction**
+  /// Action to realise on a transaction. In an `EnableService` request message:   - Starts a transaction by a swipe-ahead mechanism, with the services which are enabled.   - Aborts a swipe-ahead transaction or started by a `CardAcquisition`, and not followed by a service request from the Sale System to complete the transaction. Possible values: * **StartTransaction** * **AbortTransaction**
+  @BuiltValueEnumConst(wireName: r'AbortTransaction')
+  static const TransactionAction abortTransaction = _$abortTransaction;
+  /// Action to realise on a transaction. In an `EnableService` request message:   - Starts a transaction by a swipe-ahead mechanism, with the services which are enabled.   - Aborts a swipe-ahead transaction or started by a `CardAcquisition`, and not followed by a service request from the Sale System to complete the transaction. Possible values: * **StartTransaction** * **AbortTransaction**
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const TransactionAction unknownDefaultOpenApi = _$unknownDefaultOpenApi;
 

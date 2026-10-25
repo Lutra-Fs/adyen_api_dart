@@ -8,6 +8,8 @@ part of 'card_brand_details.dart';
 
 class _$CardBrandDetails extends CardBrandDetails {
   @override
+  final bool? healthcare;
+  @override
   final bool? supported;
   @override
   final String? type;
@@ -16,7 +18,8 @@ class _$CardBrandDetails extends CardBrandDetails {
     void Function(CardBrandDetailsBuilder)? updates,
   ]) => (CardBrandDetailsBuilder()..update(updates))._build();
 
-  _$CardBrandDetails._({this.supported, this.type}) : super._();
+  _$CardBrandDetails._({this.healthcare, this.supported, this.type})
+    : super._();
   @override
   CardBrandDetails rebuild(void Function(CardBrandDetailsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
@@ -29,6 +32,7 @@ class _$CardBrandDetails extends CardBrandDetails {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is CardBrandDetails &&
+        healthcare == other.healthcare &&
         supported == other.supported &&
         type == other.type;
   }
@@ -36,6 +40,7 @@ class _$CardBrandDetails extends CardBrandDetails {
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, healthcare.hashCode);
     _$hash = $jc(_$hash, supported.hashCode);
     _$hash = $jc(_$hash, type.hashCode);
     _$hash = $jf(_$hash);
@@ -45,6 +50,7 @@ class _$CardBrandDetails extends CardBrandDetails {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'CardBrandDetails')
+          ..add('healthcare', healthcare)
           ..add('supported', supported)
           ..add('type', type))
         .toString();
@@ -54,6 +60,10 @@ class _$CardBrandDetails extends CardBrandDetails {
 class CardBrandDetailsBuilder
     implements Builder<CardBrandDetails, CardBrandDetailsBuilder> {
   _$CardBrandDetails? _$v;
+
+  bool? _healthcare;
+  bool? get healthcare => _$this._healthcare;
+  set healthcare(bool? healthcare) => _$this._healthcare = healthcare;
 
   bool? _supported;
   bool? get supported => _$this._supported;
@@ -70,6 +80,7 @@ class CardBrandDetailsBuilder
   CardBrandDetailsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _healthcare = $v.healthcare;
       _supported = $v.supported;
       _type = $v.type;
       _$v = null;
@@ -92,7 +103,12 @@ class CardBrandDetailsBuilder
 
   _$CardBrandDetails _build() {
     final _$result =
-        _$v ?? _$CardBrandDetails._(supported: supported, type: type);
+        _$v ??
+        _$CardBrandDetails._(
+          healthcare: healthcare,
+          supported: supported,
+          type: type,
+        );
     replace(_$result);
     return _$result;
   }

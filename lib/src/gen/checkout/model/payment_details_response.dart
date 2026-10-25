@@ -8,6 +8,7 @@ import 'package:adyen_api/src/gen/checkout/model/three_ds2_response_data.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:adyen_api/src/gen/checkout/model/response_payment_method.dart';
 import 'package:adyen_api/src/gen/checkout/model/payment_validations_response.dart';
+import 'package:adyen_api/src/gen/checkout/model/opi_response.dart';
 import 'package:adyen_api/src/gen/checkout/model/three_ds2_result.dart';
 import 'package:adyen_api/src/gen/checkout/model/checkout_order_response.dart';
 import 'package:adyen_api/src/gen/checkout/model/fraud_result.dart';
@@ -26,6 +27,7 @@ part 'payment_details_response.g.dart';
 /// * [donationToken] - Donation Token containing payment details for Adyen Giving.
 /// * [fraudResult] - The fraud result properties of the payment.
 /// * [merchantReference] - The reference used during the /payments request.
+/// * [opi] - Oracle Payment Interface (OPI) response fields such as `transToken` and `issuerId`.
 /// * [order] - Contains updated information regarding the order in case order information was provided in the request.
 /// * [paymentMethod] - Details about the payment method used in the transaction.  Only returned if `resultCode` is **Authorised**.
 /// * [paymentValidations] - The object that contains the validation outcomes. Only returned if `resultCode` is **Authorised** and if you have requested a payment validation in the request.
@@ -61,6 +63,10 @@ abstract class PaymentDetailsResponse implements Built<PaymentDetailsResponse, P
   /// The reference used during the /payments request.
   @BuiltValueField(wireName: r'merchantReference')
   String? get merchantReference;
+
+  /// Oracle Payment Interface (OPI) response fields such as `transToken` and `issuerId`.
+  @BuiltValueField(wireName: r'opi')
+  OpiResponse? get opi;
 
   /// Contains updated information regarding the order in case order information was provided in the request.
   @BuiltValueField(wireName: r'order')
@@ -170,6 +176,13 @@ class _$PaymentDetailsResponseSerializer implements PrimitiveSerializer<PaymentD
       yield serializers.serialize(
         object.merchantReference,
         specifiedType: const FullType(String),
+      );
+    }
+    if (object.opi != null) {
+      yield r'opi';
+      yield serializers.serialize(
+        object.opi,
+        specifiedType: const FullType(OpiResponse),
       );
     }
     if (object.order != null) {
@@ -313,6 +326,13 @@ class _$PaymentDetailsResponseSerializer implements PrimitiveSerializer<PaymentD
             specifiedType: const FullType(String),
           ) as String;
           result.merchantReference = valueDes;
+          break;
+        case r'opi':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(OpiResponse),
+          ) as OpiResponse;
+          result.opi.replace(valueDes);
           break;
         case r'order':
           final valueDes = serializers.deserialize(

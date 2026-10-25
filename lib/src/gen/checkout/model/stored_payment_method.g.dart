@@ -14,9 +14,13 @@ class _$StoredPaymentMethod extends StoredPaymentMethod {
   @override
   final String? brand;
   @override
+  final String? cashtag;
+  @override
   final String? expiryMonth;
   @override
   final String? expiryYear;
+  @override
+  final String? externalToken;
   @override
   final String? holderName;
   @override
@@ -50,8 +54,10 @@ class _$StoredPaymentMethod extends StoredPaymentMethod {
     this.bankAccountNumber,
     this.bankLocationId,
     this.brand,
+    this.cashtag,
     this.expiryMonth,
     this.expiryYear,
+    this.externalToken,
     this.holderName,
     this.iban,
     this.id,
@@ -81,8 +87,10 @@ class _$StoredPaymentMethod extends StoredPaymentMethod {
         bankAccountNumber == other.bankAccountNumber &&
         bankLocationId == other.bankLocationId &&
         brand == other.brand &&
+        cashtag == other.cashtag &&
         expiryMonth == other.expiryMonth &&
         expiryYear == other.expiryYear &&
+        externalToken == other.externalToken &&
         holderName == other.holderName &&
         iban == other.iban &&
         id == other.id &&
@@ -104,8 +112,10 @@ class _$StoredPaymentMethod extends StoredPaymentMethod {
     _$hash = $jc(_$hash, bankAccountNumber.hashCode);
     _$hash = $jc(_$hash, bankLocationId.hashCode);
     _$hash = $jc(_$hash, brand.hashCode);
+    _$hash = $jc(_$hash, cashtag.hashCode);
     _$hash = $jc(_$hash, expiryMonth.hashCode);
     _$hash = $jc(_$hash, expiryYear.hashCode);
+    _$hash = $jc(_$hash, externalToken.hashCode);
     _$hash = $jc(_$hash, holderName.hashCode);
     _$hash = $jc(_$hash, iban.hashCode);
     _$hash = $jc(_$hash, id.hashCode);
@@ -128,8 +138,10 @@ class _$StoredPaymentMethod extends StoredPaymentMethod {
           ..add('bankAccountNumber', bankAccountNumber)
           ..add('bankLocationId', bankLocationId)
           ..add('brand', brand)
+          ..add('cashtag', cashtag)
           ..add('expiryMonth', expiryMonth)
           ..add('expiryYear', expiryYear)
+          ..add('externalToken', externalToken)
           ..add('holderName', holderName)
           ..add('iban', iban)
           ..add('id', id)
@@ -167,6 +179,10 @@ class StoredPaymentMethodBuilder
   String? get brand => _$this._brand;
   set brand(String? brand) => _$this._brand = brand;
 
+  String? _cashtag;
+  String? get cashtag => _$this._cashtag;
+  set cashtag(String? cashtag) => _$this._cashtag = cashtag;
+
   String? _expiryMonth;
   String? get expiryMonth => _$this._expiryMonth;
   set expiryMonth(String? expiryMonth) => _$this._expiryMonth = expiryMonth;
@@ -174,6 +190,11 @@ class StoredPaymentMethodBuilder
   String? _expiryYear;
   String? get expiryYear => _$this._expiryYear;
   set expiryYear(String? expiryYear) => _$this._expiryYear = expiryYear;
+
+  String? _externalToken;
+  String? get externalToken => _$this._externalToken;
+  set externalToken(String? externalToken) =>
+      _$this._externalToken = externalToken;
 
   String? _holderName;
   String? get holderName => _$this._holderName;
@@ -241,8 +262,10 @@ class StoredPaymentMethodBuilder
       _bankAccountNumber = $v.bankAccountNumber;
       _bankLocationId = $v.bankLocationId;
       _brand = $v.brand;
+      _cashtag = $v.cashtag;
       _expiryMonth = $v.expiryMonth;
       _expiryYear = $v.expiryYear;
+      _externalToken = $v.externalToken;
       _holderName = $v.holderName;
       _iban = $v.iban;
       _id = $v.id;
@@ -285,8 +308,10 @@ class StoredPaymentMethodBuilder
             bankAccountNumber: bankAccountNumber,
             bankLocationId: bankLocationId,
             brand: brand,
+            cashtag: cashtag,
             expiryMonth: expiryMonth,
             expiryYear: expiryYear,
+            externalToken: externalToken,
             holderName: holderName,
             iban: iban,
             id: id,

@@ -28,6 +28,17 @@ abstract class ScheduleTerminalActionsRequestActionDetails implements Built<Sche
   /// One Of [ForceRebootDetails], [InstallAndroidAppDetails], [InstallAndroidCertificateDetails], [ReleaseUpdateDetails], [UninstallAndroidAppDetails], [UninstallAndroidCertificateDetails]
   OneOf get oneOf;
 
+  static const String discriminatorFieldName = r'type';
+
+  static const Map<String, Type> discriminatorMapping = {
+    r'ForceReboot': ForceRebootDetails,
+    r'InstallAndroidApp': InstallAndroidAppDetails,
+    r'InstallAndroidCertificate': InstallAndroidCertificateDetails,
+    r'ReleaseUpdate': ReleaseUpdateDetails,
+    r'UninstallAndroidApp': UninstallAndroidAppDetails,
+    r'UninstallAndroidCertificate': UninstallAndroidCertificateDetails,
+  };
+
   ScheduleTerminalActionsRequestActionDetails._();
 
   factory ScheduleTerminalActionsRequestActionDetails([void updates(ScheduleTerminalActionsRequestActionDetailsBuilder b)]) = _$ScheduleTerminalActionsRequestActionDetails;
@@ -37,6 +48,53 @@ abstract class ScheduleTerminalActionsRequestActionDetails implements Built<Sche
 
   @BuiltValueSerializer(custom: true)
   static Serializer<ScheduleTerminalActionsRequestActionDetails> get serializer => _$ScheduleTerminalActionsRequestActionDetailsSerializer();
+}
+
+extension ScheduleTerminalActionsRequestActionDetailsDiscriminatorExt on ScheduleTerminalActionsRequestActionDetails {
+    String? get discriminatorValue {
+        if (this is ForceRebootDetails) {
+            return r'ForceReboot';
+        }
+        if (this is InstallAndroidAppDetails) {
+            return r'InstallAndroidApp';
+        }
+        if (this is InstallAndroidCertificateDetails) {
+            return r'InstallAndroidCertificate';
+        }
+        if (this is ReleaseUpdateDetails) {
+            return r'ReleaseUpdate';
+        }
+        if (this is UninstallAndroidAppDetails) {
+            return r'UninstallAndroidApp';
+        }
+        if (this is UninstallAndroidCertificateDetails) {
+            return r'UninstallAndroidCertificate';
+        }
+        return null;
+    }
+}
+extension ScheduleTerminalActionsRequestActionDetailsBuilderDiscriminatorExt on ScheduleTerminalActionsRequestActionDetailsBuilder {
+    String? get discriminatorValue {
+        if (this is ForceRebootDetailsBuilder) {
+            return r'ForceReboot';
+        }
+        if (this is InstallAndroidAppDetailsBuilder) {
+            return r'InstallAndroidApp';
+        }
+        if (this is InstallAndroidCertificateDetailsBuilder) {
+            return r'InstallAndroidCertificate';
+        }
+        if (this is ReleaseUpdateDetailsBuilder) {
+            return r'ReleaseUpdate';
+        }
+        if (this is UninstallAndroidAppDetailsBuilder) {
+            return r'UninstallAndroidApp';
+        }
+        if (this is UninstallAndroidCertificateDetailsBuilder) {
+            return r'UninstallAndroidCertificate';
+        }
+        return null;
+    }
 }
 
 class _$ScheduleTerminalActionsRequestActionDetailsSerializer implements PrimitiveSerializer<ScheduleTerminalActionsRequestActionDetails> {
@@ -71,9 +129,60 @@ class _$ScheduleTerminalActionsRequestActionDetailsSerializer implements Primiti
   }) {
     final result = ScheduleTerminalActionsRequestActionDetailsBuilder();
     Object? oneOfDataSrc;
-    final targetType = const FullType(OneOf, [FullType(ForceRebootDetails), FullType(InstallAndroidAppDetails), FullType(InstallAndroidCertificateDetails), FullType(ReleaseUpdateDetails), FullType(UninstallAndroidAppDetails), FullType(UninstallAndroidCertificateDetails), ]);
+    final serializedList = (serialized as Iterable<Object?>).toList();
+    final discIndex = serializedList.indexOf(ScheduleTerminalActionsRequestActionDetails.discriminatorFieldName) + 1;
+    final discValue = serializers.deserialize(serializedList[discIndex], specifiedType: FullType(String)) as String;
     oneOfDataSrc = serialized;
-    result.oneOf = serializers.deserialize(oneOfDataSrc, specifiedType: targetType) as OneOf;
+    final oneOfTypes = [ForceRebootDetails, InstallAndroidAppDetails, InstallAndroidCertificateDetails, ReleaseUpdateDetails, UninstallAndroidAppDetails, UninstallAndroidCertificateDetails, ];
+    Object oneOfResult;
+    Type oneOfType;
+    switch (discValue) {
+      case r'ForceReboot':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(ForceRebootDetails),
+        ) as ForceRebootDetails;
+        oneOfType = ForceRebootDetails;
+        break;
+      case r'InstallAndroidApp':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(InstallAndroidAppDetails),
+        ) as InstallAndroidAppDetails;
+        oneOfType = InstallAndroidAppDetails;
+        break;
+      case r'InstallAndroidCertificate':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(InstallAndroidCertificateDetails),
+        ) as InstallAndroidCertificateDetails;
+        oneOfType = InstallAndroidCertificateDetails;
+        break;
+      case r'ReleaseUpdate':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(ReleaseUpdateDetails),
+        ) as ReleaseUpdateDetails;
+        oneOfType = ReleaseUpdateDetails;
+        break;
+      case r'UninstallAndroidApp':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(UninstallAndroidAppDetails),
+        ) as UninstallAndroidAppDetails;
+        oneOfType = UninstallAndroidAppDetails;
+        break;
+      case r'UninstallAndroidCertificate':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(UninstallAndroidCertificateDetails),
+        ) as UninstallAndroidCertificateDetails;
+        oneOfType = UninstallAndroidCertificateDetails;
+        break;
+      default:
+        throw UnsupportedError("Couldn't deserialize oneOf for the discriminator value: ${discValue}");
+    }
+    result.oneOf = OneOfDynamic(typeIndex: oneOfTypes.indexOf(oneOfType), types: oneOfTypes, value: oneOfResult);
     return result.build();
   }
 }

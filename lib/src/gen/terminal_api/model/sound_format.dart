@@ -11,12 +11,16 @@ part 'sound_format.g.dart';
 
 class SoundFormat extends EnumClass {
 
-  @BuiltValueEnumConst(wireName: r'MessageRef')
-  static const SoundFormat messageRef = _$messageRef;
+  ///  Possible values: * **SoundRef** * **MessageRef** * **Text**
   @BuiltValueEnumConst(wireName: r'SoundRef')
   static const SoundFormat soundRef = _$soundRef;
+  ///  Possible values: * **SoundRef** * **MessageRef** * **Text**
+  @BuiltValueEnumConst(wireName: r'MessageRef')
+  static const SoundFormat messageRef = _$messageRef;
+  ///  Possible values: * **SoundRef** * **MessageRef** * **Text**
   @BuiltValueEnumConst(wireName: r'Text')
   static const SoundFormat text = _$text;
+  ///  Possible values: * **SoundRef** * **MessageRef** * **Text**
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const SoundFormat unknownDefaultOpenApi = _$unknownDefaultOpenApi;
 

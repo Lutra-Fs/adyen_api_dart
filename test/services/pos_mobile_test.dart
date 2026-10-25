@@ -35,6 +35,8 @@ void main() {
       });
 
       final response = await posMobile.unwrap(
+        // Retain coverage for the upstream-deprecated POS SDK endpoint.
+        // ignore: deprecated_member_use_from_same_package
         posMobile.generalApi.postSessions(createSessionRequest: buildRequest()),
       );
 

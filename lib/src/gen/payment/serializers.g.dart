@@ -101,7 +101,6 @@ Serializers _$serializers =
           ..add(ResponseAdditionalData3DSecure.serializer)
           ..add(ResponseAdditionalDataBillingAddress.serializer)
           ..add(ResponseAdditionalDataCard.serializer)
-          ..add(ResponseAdditionalDataCardCardProductIdEnum.serializer)
           ..add(ResponseAdditionalDataCommon.serializer)
           ..add(ResponseAdditionalDataCommonFraudResultTypeEnum.serializer)
           ..add(ResponseAdditionalDataCommonFraudRiskLevelEnum.serializer)

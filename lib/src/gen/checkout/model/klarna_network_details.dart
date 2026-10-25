@@ -14,7 +14,12 @@ part 'klarna_network_details.g.dart';
 /// Properties:
 /// * [checkoutAttemptId] - The checkout attempt identifier.
 /// * [klarnaNetworkData] - A string containing a structured JSON object. This is a passthrough field used to enable custom features or data exchange with Klarna.
+/// * [klarnaNetworkPaymentAccountId] - The Klarna Network Payment Account identifier to use for the transaction. Required when `klarnaNetworkSessionToken` is provided.
+/// * [klarnaNetworkSessionToken] - The token obtained from the Klarna SDK during an Express Checkout flow.
+/// * [recurringDetailReference] - This is the `recurringDetailReference` returned in the response when you created the token.
 /// * [sdkData] - Base64-encoded JSON object containing SDK related parameters required by the SDK
+/// * [storedPaymentMethodId] - This is the `recurringDetailReference` returned in the response when you created the token.
+/// * [subtype] - The type of flow to initiate. Defaults to redirect when omitted.
 /// * [type] - **klarna_network**
 @BuiltValue()
 abstract class KlarnaNetworkDetails implements Built<KlarnaNetworkDetails, KlarnaNetworkDetailsBuilder> {
@@ -26,9 +31,31 @@ abstract class KlarnaNetworkDetails implements Built<KlarnaNetworkDetails, Klarn
   @BuiltValueField(wireName: r'klarnaNetworkData')
   String? get klarnaNetworkData;
 
+  /// The Klarna Network Payment Account identifier to use for the transaction. Required when `klarnaNetworkSessionToken` is provided.
+  @BuiltValueField(wireName: r'klarnaNetworkPaymentAccountId')
+  String? get klarnaNetworkPaymentAccountId;
+
+  /// The token obtained from the Klarna SDK during an Express Checkout flow.
+  @BuiltValueField(wireName: r'klarnaNetworkSessionToken')
+  String? get klarnaNetworkSessionToken;
+
+  /// This is the `recurringDetailReference` returned in the response when you created the token.
+  @Deprecated('recurringDetailReference has been deprecated')
+  @BuiltValueField(wireName: r'recurringDetailReference')
+  String? get recurringDetailReference;
+
   /// Base64-encoded JSON object containing SDK related parameters required by the SDK
   @BuiltValueField(wireName: r'sdkData')
   String? get sdkData;
+
+  /// This is the `recurringDetailReference` returned in the response when you created the token.
+  @BuiltValueField(wireName: r'storedPaymentMethodId')
+  String? get storedPaymentMethodId;
+
+  /// The type of flow to initiate. Defaults to redirect when omitted.
+  @BuiltValueField(wireName: r'subtype')
+  KlarnaNetworkDetailsSubtypeEnum? get subtype;
+  // enum subtypeEnum {  redirect,  sdk,  };
 
   /// **klarna_network**
   @BuiltValueField(wireName: r'type')
@@ -73,11 +100,46 @@ class _$KlarnaNetworkDetailsSerializer implements PrimitiveSerializer<KlarnaNetw
         specifiedType: const FullType(String),
       );
     }
+    if (object.klarnaNetworkPaymentAccountId != null) {
+      yield r'klarnaNetworkPaymentAccountId';
+      yield serializers.serialize(
+        object.klarnaNetworkPaymentAccountId,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.klarnaNetworkSessionToken != null) {
+      yield r'klarnaNetworkSessionToken';
+      yield serializers.serialize(
+        object.klarnaNetworkSessionToken,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.recurringDetailReference != null) {
+      yield r'recurringDetailReference';
+      yield serializers.serialize(
+        object.recurringDetailReference,
+        specifiedType: const FullType(String),
+      );
+    }
     if (object.sdkData != null) {
       yield r'sdkData';
       yield serializers.serialize(
         object.sdkData,
         specifiedType: const FullType(String),
+      );
+    }
+    if (object.storedPaymentMethodId != null) {
+      yield r'storedPaymentMethodId';
+      yield serializers.serialize(
+        object.storedPaymentMethodId,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.subtype != null) {
+      yield r'subtype';
+      yield serializers.serialize(
+        object.subtype,
+        specifiedType: const FullType(KlarnaNetworkDetailsSubtypeEnum),
       );
     }
     yield r'type';
@@ -122,12 +184,47 @@ class _$KlarnaNetworkDetailsSerializer implements PrimitiveSerializer<KlarnaNetw
           ) as String;
           result.klarnaNetworkData = valueDes;
           break;
+        case r'klarnaNetworkPaymentAccountId':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.klarnaNetworkPaymentAccountId = valueDes;
+          break;
+        case r'klarnaNetworkSessionToken':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.klarnaNetworkSessionToken = valueDes;
+          break;
+        case r'recurringDetailReference':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.recurringDetailReference = valueDes;
+          break;
         case r'sdkData':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(String),
           ) as String;
           result.sdkData = valueDes;
+          break;
+        case r'storedPaymentMethodId':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.storedPaymentMethodId = valueDes;
+          break;
+        case r'subtype':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(KlarnaNetworkDetailsSubtypeEnum),
+          ) as KlarnaNetworkDetailsSubtypeEnum;
+          result.subtype = valueDes;
           break;
         case r'type':
           final valueDes = serializers.deserialize(
@@ -163,6 +260,26 @@ class _$KlarnaNetworkDetailsSerializer implements PrimitiveSerializer<KlarnaNetw
     );
     return result.build();
   }
+}
+
+class KlarnaNetworkDetailsSubtypeEnum extends EnumClass {
+
+  /// The type of flow to initiate. Defaults to redirect when omitted.
+  @BuiltValueEnumConst(wireName: r'redirect')
+  static const KlarnaNetworkDetailsSubtypeEnum redirect = _$klarnaNetworkDetailsSubtypeEnum_redirect;
+  /// The type of flow to initiate. Defaults to redirect when omitted.
+  @BuiltValueEnumConst(wireName: r'sdk')
+  static const KlarnaNetworkDetailsSubtypeEnum sdk = _$klarnaNetworkDetailsSubtypeEnum_sdk;
+  /// The type of flow to initiate. Defaults to redirect when omitted.
+  @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
+  static const KlarnaNetworkDetailsSubtypeEnum unknownDefaultOpenApi = _$klarnaNetworkDetailsSubtypeEnum_unknownDefaultOpenApi;
+
+  static Serializer<KlarnaNetworkDetailsSubtypeEnum> get serializer => _$klarnaNetworkDetailsSubtypeEnumSerializer;
+
+  const KlarnaNetworkDetailsSubtypeEnum._(String name): super(name);
+
+  static BuiltSet<KlarnaNetworkDetailsSubtypeEnum> get values => _$klarnaNetworkDetailsSubtypeEnumValues;
+  static KlarnaNetworkDetailsSubtypeEnum valueOf(String name) => _$klarnaNetworkDetailsSubtypeEnumValueOf(name);
 }
 
 class KlarnaNetworkDetailsTypeEnum extends EnumClass {

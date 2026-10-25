@@ -18,7 +18,7 @@ abstract class CalculateTermsOfServiceStatusResponse implements Built<CalculateT
   /// The type of Terms of Service that the legal entity needs to accept. If empty, no Terms of Service needs to be accepted.
   @BuiltValueField(wireName: r'termsOfServiceTypes')
   BuiltList<CalculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum>? get termsOfServiceTypes;
-  // enum termsOfServiceTypesEnum {  adyenAccount,  adyenCapital,  adyenCard,  adyenChargeCard,  adyenForPlatformsAdvanced,  adyenForPlatformsManage,  adyenFranchisee,  adyenIssuing,  adyenPccr,  kycOnInvite,  };
+  // enum termsOfServiceTypesEnum {  adyenAccount,  adyenCapital,  adyenCapitalCashAdvance,  adyenCard,  adyenChargeCard,  adyenForPlatformsAdvanced,  adyenForPlatformsManage,  adyenFranchisee,  adyenIssuing,  adyenPccr,  directDebit,  kycOnInvite,  };
 
   CalculateTermsOfServiceStatusResponse._();
 
@@ -115,6 +115,8 @@ class CalculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum extends EnumC
   static const CalculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum adyenAccount = _$calculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum_adyenAccount;
   @BuiltValueEnumConst(wireName: r'adyenCapital')
   static const CalculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum adyenCapital = _$calculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum_adyenCapital;
+  @BuiltValueEnumConst(wireName: r'adyenCapitalCashAdvance')
+  static const CalculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum adyenCapitalCashAdvance = _$calculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum_adyenCapitalCashAdvance;
   @BuiltValueEnumConst(wireName: r'adyenCard')
   static const CalculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum adyenCard = _$calculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum_adyenCard;
   @BuiltValueEnumConst(wireName: r'adyenChargeCard')
@@ -129,6 +131,8 @@ class CalculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum extends EnumC
   static const CalculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum adyenIssuing = _$calculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum_adyenIssuing;
   @BuiltValueEnumConst(wireName: r'adyenPccr')
   static const CalculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum adyenPccr = _$calculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum_adyenPccr;
+  @BuiltValueEnumConst(wireName: r'directDebit')
+  static const CalculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum directDebit = _$calculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum_directDebit;
   @BuiltValueEnumConst(wireName: r'kycOnInvite')
   static const CalculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum kycOnInvite = _$calculateTermsOfServiceStatusResponseTermsOfServiceTypesEnum_kycOnInvite;
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)

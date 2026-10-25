@@ -27,7 +27,7 @@ abstract class MenuEntry implements Built<MenuEntry, MenuEntryBuilder> {
   /// Characteristics related to the selection of a menu entry. Possible values: * **NonSelectable** * **NonSelectableSubMenu** * **Selectable** * **SubMenu**
   @BuiltValueField(wireName: r'MenuEntryTag')
   MenuEntryTag? get menuEntryTag;
-  // enum menuEntryTagEnum {  NonSelectable,  NonSelectableSubMenu,  Selectable,  SubMenu,  };
+  // enum menuEntryTagEnum {  Selectable,  NonSelectable,  SubMenu,  NonSelectableSubMenu,  };
 
   /// Selection of a menu entry to be displayed. In Input request message, it allows selection of one or several menu entries before any user action.
   @BuiltValueField(wireName: r'DefaultSelectedFlag')
@@ -36,7 +36,7 @@ abstract class MenuEntry implements Built<MenuEntry, MenuEntryBuilder> {
   /// Possible values: * **BarCode** * **MessageRef** * **Text** * **XHTML**
   @BuiltValueField(wireName: r'OutputFormat')
   OutputFormat get outputFormat;
-  // enum outputFormatEnum {  BarCode,  MessageRef,  Text,  XHTML,  };
+  // enum outputFormatEnum {  MessageRef,  Text,  XHTML,  BarCode,  };
 
   @BuiltValueField(wireName: r'PredefinedContent')
   PredefinedContent? get predefinedContent;

@@ -6,18 +6,18 @@ part of 'character_width.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-const CharacterWidth _$doubleWidth = const CharacterWidth._('doubleWidth');
 const CharacterWidth _$singleWidth = const CharacterWidth._('singleWidth');
+const CharacterWidth _$doubleWidth = const CharacterWidth._('doubleWidth');
 const CharacterWidth _$unknownDefaultOpenApi = const CharacterWidth._(
   'unknownDefaultOpenApi',
 );
 
 CharacterWidth _$valueOf(String name) {
   switch (name) {
-    case 'doubleWidth':
-      return _$doubleWidth;
     case 'singleWidth':
       return _$singleWidth;
+    case 'doubleWidth':
+      return _$doubleWidth;
     case 'unknownDefaultOpenApi':
       return _$unknownDefaultOpenApi;
     default:
@@ -26,13 +26,13 @@ CharacterWidth _$valueOf(String name) {
 }
 
 final BuiltSet<CharacterWidth> _$values = BuiltSet<CharacterWidth>(
-  const <CharacterWidth>[_$doubleWidth, _$singleWidth, _$unknownDefaultOpenApi],
+  const <CharacterWidth>[_$singleWidth, _$doubleWidth, _$unknownDefaultOpenApi],
 );
 
 class _$CharacterWidthMeta {
   const _$CharacterWidthMeta();
-  CharacterWidth get doubleWidth => _$doubleWidth;
   CharacterWidth get singleWidth => _$singleWidth;
+  CharacterWidth get doubleWidth => _$doubleWidth;
   CharacterWidth get unknownDefaultOpenApi => _$unknownDefaultOpenApi;
   CharacterWidth valueOf(String name) => _$valueOf(name);
   BuiltSet<CharacterWidth> get values => _$values;
@@ -49,13 +49,13 @@ Serializer<CharacterWidth> _$characterWidthSerializer =
 class _$CharacterWidthSerializer
     implements PrimitiveSerializer<CharacterWidth> {
   static const Map<String, Object> _toWire = const <String, Object>{
-    'doubleWidth': 'DoubleWidth',
     'singleWidth': 'SingleWidth',
+    'doubleWidth': 'DoubleWidth',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
-    'DoubleWidth': 'doubleWidth',
     'SingleWidth': 'singleWidth',
+    'DoubleWidth': 'doubleWidth',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
 

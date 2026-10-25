@@ -6,19 +6,19 @@ part of 'result.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+const Result _$success = const Result._('success');
 const Result _$failure = const Result._('failure');
 const Result _$partial = const Result._('partial');
-const Result _$success = const Result._('success');
 const Result _$unknownDefaultOpenApi = const Result._('unknownDefaultOpenApi');
 
 Result _$valueOf(String name) {
   switch (name) {
+    case 'success':
+      return _$success;
     case 'failure':
       return _$failure;
     case 'partial':
       return _$partial;
-    case 'success':
-      return _$success;
     case 'unknownDefaultOpenApi':
       return _$unknownDefaultOpenApi;
     default:
@@ -27,17 +27,17 @@ Result _$valueOf(String name) {
 }
 
 final BuiltSet<Result> _$values = BuiltSet<Result>(const <Result>[
+  _$success,
   _$failure,
   _$partial,
-  _$success,
   _$unknownDefaultOpenApi,
 ]);
 
 class _$ResultMeta {
   const _$ResultMeta();
+  Result get success => _$success;
   Result get failure => _$failure;
   Result get partial => _$partial;
-  Result get success => _$success;
   Result get unknownDefaultOpenApi => _$unknownDefaultOpenApi;
   Result valueOf(String name) => _$valueOf(name);
   BuiltSet<Result> get values => _$values;
@@ -52,15 +52,15 @@ Serializer<Result> _$resultSerializer = _$ResultSerializer();
 
 class _$ResultSerializer implements PrimitiveSerializer<Result> {
   static const Map<String, Object> _toWire = const <String, Object>{
+    'success': 'Success',
     'failure': 'Failure',
     'partial': 'Partial',
-    'success': 'Success',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
+    'Success': 'success',
     'Failure': 'failure',
     'Partial': 'partial',
-    'Success': 'success',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
 

@@ -22,7 +22,7 @@ abstract class MessageReference implements Built<MessageReference, MessageRefere
   /// Category of message. CardAcquisition, Display, Input, Loyalty, Payment, Print, CardReaderInit, CardReaderPowerOff. Possible values: * **Abort** * **Admin** * **BalanceInquiry** * **Batch** * **CardAcquisition** * **CardReaderInit** * **CardReaderPowerOff** * **Diagnosis** * **Display** * **EnableService** * **Event** * **GetTotals** * **Input** * **InputUpdate** * **Login** * **Logout** * **Loyalty** * **None** * **PIN** * **Payment** * **Print** * **Reconciliation** * **Reversal** * **Sound** * **StoredValue** * **TransactionStatus** * **Transmit**
   @BuiltValueField(wireName: r'MessageCategory')
   MessageCategory? get messageCategory;
-  // enum messageCategoryEnum {  Abort,  Admin,  BalanceInquiry,  CardAcquisition,  Diagnosis,  Display,  EnableService,  Event,  GetTotals,  Input,  InputUpdate,  Login,  Logout,  Loyalty,  None,  Payment,  Print,  Reconciliation,  Reversal,  StoredValue,  TransactionStatus,  };
+  // enum messageCategoryEnum {  Abort,  Admin,  BalanceInquiry,  CardAcquisition,  Diagnosis,  Display,  EnableService,  Event,  GetTotals,  Input,  InputUpdate,  Login,  Logout,  Loyalty,  Payment,  Print,  Reconciliation,  Reversal,  StoredValue,  TransactionStatus,  None,  };
 
   /// Identification of a message pair, which processes a transaction.
   @BuiltValueField(wireName: r'ServiceID')

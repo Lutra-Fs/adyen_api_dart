@@ -40,7 +40,7 @@ abstract class PaymentMethodResponse implements Built<PaymentMethodResponse, Pay
   /// The payment method types that were not successfully requested and their corresponding errors.
   @BuiltValueField(wireName: r'typesWithErrors')
   BuiltList<PaymentMethodResponseTypesWithErrorsEnum>? get typesWithErrors;
-  // enum typesWithErrorsEnum {  abrapetite,  abrapetite_credit,  abrapetite_debit,  abrapetite_prepaid,  accel,  ach,  affirm,  afterpaytouch,  alelo,  alipay,  alipay_hk,  alipay_plus,  alipay_wap,  amex,  applepay,  avancard,  avancard_credit,  avancard_debit,  banese_card,  banese_card_credit,  banese_card_debit,  banese_card_prepaid,  bcmc,  blik,  blik_pos,  br_schemes,  cartebancaire,  clearpay,  clicktopay,  cooper,  cooper_credit,  cooper_debit,  cooper_food_debit,  cooper_meal_debit,  cooper_prepaid,  cooper_private_credit,  cooper_retail_credit,  credtodos,  credtodos_private_credit,  credtodos_private_debit,  cup,  diners,  directdebit_GB,  discover,  ebanking_FI,  eft_directdebit_CA,  eftpos_australia,  elo,  elocredit,  elodebit,  girocard,  givex,  googlepay,  green_card,  green_card_credit,  green_card_debit,  green_card_food_prepaid,  green_card_meal_prepaid,  green_card_prepaid,  hiper,  hipercard,  ideal,  interac_card,  jcb,  klarna,  klarna_account,  klarna_b2b,  klarna_paynow,  le_card,  le_card_credit,  le_card_debit,  maestro,  maestro_usa,  maxifrota,  maxifrota_prepaid,  mbway,  mc,  mcdebit,  mealVoucher_FR,  megaleve,  megaleve_credit,  megaleve_debit,  mobilepay,  multibanco,  nutricash,  nutricash_prepaid,  nyce,  onlineBanking_PL,  paybybank,  paybybank_plaid,  payme,  payme_pos,  paynow,  paynow_pos,  paypal,  payto,  personal_card,  personal_card_credit,  personal_card_debit,  pulse,  romcard,  romcard_credit,  romcard_debit,  senff,  senff_credit,  sepadirectdebit,  sodexo,  star,  svs,  swish,  ticket,  todo_giftcard,  trustly,  twint,  twint_pos,  up_brazil,  up_brazil_credit,  up_brazil_debit,  up_brazil_prepaid,  vale_refeicao,  vale_refeicao_prepaid,  valuelink,  vegas_card,  vegas_card_credit,  vegas_card_debit,  vero_card,  vero_card_credit,  vero_card_debit,  vero_card_prepaid,  vipps,  visa,  visadebit,  vpay,  wechatpay,  wechatpay_pos,  };
+  // enum typesWithErrorsEnum {  abrapetite,  abrapetite_credit,  abrapetite_debit,  abrapetite_prepaid,  accel,  ach,  affirm,  afterpaytouch,  alelo,  alipay,  alipay_hk,  alipay_plus,  alipay_plus_alipay_cn,  alipay_plus_alipay_hk,  alipay_plus_dana,  alipay_plus_gcash,  alipay_plus_kakaopay,  alipay_plus_kplus,  alipay_plus_naverpay,  alipay_plus_rabbitlinepay,  alipay_plus_tosspay,  alipay_plus_touchngo,  alipay_plus_truemoney,  alipay_wap,  amex,  ancv,  applepay,  avancard,  avancard_credit,  avancard_debit,  banese_card,  banese_card_credit,  banese_card_debit,  banese_card_prepaid,  bcmc,  blik,  blik_pos,  br_schemes,  carnet,  cartebancaire,  cashapp,  clearpay,  clicktopay,  cooper,  cooper_credit,  cooper_debit,  cooper_food_debit,  cooper_meal_debit,  cooper_prepaid,  cooper_private_credit,  cooper_retail_credit,  credtodos,  credtodos_private_credit,  credtodos_private_debit,  cup,  diners,  directdebit_GB,  discover,  ebanking_FI,  ebt,  eft_directdebit_CA,  eftpos_australia,  elo,  elocredit,  elodebit,  girocard,  givex,  googlepay,  green_card,  green_card_credit,  green_card_debit,  green_card_food_prepaid,  green_card_meal_prepaid,  green_card_prepaid,  hiper,  hipercard,  ideal,  interac_card,  jcb,  klarna,  klarna_account,  klarna_b2b,  klarna_paynow,  le_card,  le_card_credit,  le_card_debit,  maestro,  maestro_usa,  maxifrota,  maxifrota_prepaid,  mbway,  mc,  mcdebit,  mealVoucher_FR,  megaleve,  megaleve_credit,  megaleve_debit,  mobilepay,  multibanco,  nutricash,  nutricash_prepaid,  nyce,  onlineBanking_PL,  paybybank,  paybybank_plaid,  payme,  payme_pos,  paynow,  paynow_pos,  paypal,  payto,  personal_card,  personal_card_credit,  personal_card_debit,  pulse,  romcard,  romcard_credit,  romcard_debit,  senff,  senff_credit,  sepadirectdebit,  sodexo,  star,  svs,  swish,  ticket,  todo_giftcard,  trustly,  twint,  twint_pos,  up_brazil,  up_brazil_credit,  up_brazil_debit,  up_brazil_prepaid,  vale_refeicao,  vale_refeicao_prepaid,  valuelink,  vegas_card,  vegas_card_credit,  vegas_card_debit,  vero_card,  vero_card_credit,  vero_card_debit,  vero_card_prepaid,  vipps,  visa,  visadebit,  vpay,  wechatpay,  wechatpay_pos,  wero,  };
 
   PaymentMethodResponse._();
 
@@ -209,10 +209,34 @@ class PaymentMethodResponseTypesWithErrorsEnum extends EnumClass {
   static const PaymentMethodResponseTypesWithErrorsEnum alipayHk = _$paymentMethodResponseTypesWithErrorsEnum_alipayHk;
   @BuiltValueEnumConst(wireName: r'alipay_plus')
   static const PaymentMethodResponseTypesWithErrorsEnum alipayPlus = _$paymentMethodResponseTypesWithErrorsEnum_alipayPlus;
+  @BuiltValueEnumConst(wireName: r'alipay_plus_alipay_cn')
+  static const PaymentMethodResponseTypesWithErrorsEnum alipayPlusAlipayCn = _$paymentMethodResponseTypesWithErrorsEnum_alipayPlusAlipayCn;
+  @BuiltValueEnumConst(wireName: r'alipay_plus_alipay_hk')
+  static const PaymentMethodResponseTypesWithErrorsEnum alipayPlusAlipayHk = _$paymentMethodResponseTypesWithErrorsEnum_alipayPlusAlipayHk;
+  @BuiltValueEnumConst(wireName: r'alipay_plus_dana')
+  static const PaymentMethodResponseTypesWithErrorsEnum alipayPlusDana = _$paymentMethodResponseTypesWithErrorsEnum_alipayPlusDana;
+  @BuiltValueEnumConst(wireName: r'alipay_plus_gcash')
+  static const PaymentMethodResponseTypesWithErrorsEnum alipayPlusGcash = _$paymentMethodResponseTypesWithErrorsEnum_alipayPlusGcash;
+  @BuiltValueEnumConst(wireName: r'alipay_plus_kakaopay')
+  static const PaymentMethodResponseTypesWithErrorsEnum alipayPlusKakaopay = _$paymentMethodResponseTypesWithErrorsEnum_alipayPlusKakaopay;
+  @BuiltValueEnumConst(wireName: r'alipay_plus_kplus')
+  static const PaymentMethodResponseTypesWithErrorsEnum alipayPlusKplus = _$paymentMethodResponseTypesWithErrorsEnum_alipayPlusKplus;
+  @BuiltValueEnumConst(wireName: r'alipay_plus_naverpay')
+  static const PaymentMethodResponseTypesWithErrorsEnum alipayPlusNaverpay = _$paymentMethodResponseTypesWithErrorsEnum_alipayPlusNaverpay;
+  @BuiltValueEnumConst(wireName: r'alipay_plus_rabbitlinepay')
+  static const PaymentMethodResponseTypesWithErrorsEnum alipayPlusRabbitlinepay = _$paymentMethodResponseTypesWithErrorsEnum_alipayPlusRabbitlinepay;
+  @BuiltValueEnumConst(wireName: r'alipay_plus_tosspay')
+  static const PaymentMethodResponseTypesWithErrorsEnum alipayPlusTosspay = _$paymentMethodResponseTypesWithErrorsEnum_alipayPlusTosspay;
+  @BuiltValueEnumConst(wireName: r'alipay_plus_touchngo')
+  static const PaymentMethodResponseTypesWithErrorsEnum alipayPlusTouchngo = _$paymentMethodResponseTypesWithErrorsEnum_alipayPlusTouchngo;
+  @BuiltValueEnumConst(wireName: r'alipay_plus_truemoney')
+  static const PaymentMethodResponseTypesWithErrorsEnum alipayPlusTruemoney = _$paymentMethodResponseTypesWithErrorsEnum_alipayPlusTruemoney;
   @BuiltValueEnumConst(wireName: r'alipay_wap')
   static const PaymentMethodResponseTypesWithErrorsEnum alipayWap = _$paymentMethodResponseTypesWithErrorsEnum_alipayWap;
   @BuiltValueEnumConst(wireName: r'amex')
   static const PaymentMethodResponseTypesWithErrorsEnum amex = _$paymentMethodResponseTypesWithErrorsEnum_amex;
+  @BuiltValueEnumConst(wireName: r'ancv')
+  static const PaymentMethodResponseTypesWithErrorsEnum ancv = _$paymentMethodResponseTypesWithErrorsEnum_ancv;
   @BuiltValueEnumConst(wireName: r'applepay')
   static const PaymentMethodResponseTypesWithErrorsEnum applepay = _$paymentMethodResponseTypesWithErrorsEnum_applepay;
   @BuiltValueEnumConst(wireName: r'avancard')
@@ -237,8 +261,12 @@ class PaymentMethodResponseTypesWithErrorsEnum extends EnumClass {
   static const PaymentMethodResponseTypesWithErrorsEnum blikPos = _$paymentMethodResponseTypesWithErrorsEnum_blikPos;
   @BuiltValueEnumConst(wireName: r'br_schemes')
   static const PaymentMethodResponseTypesWithErrorsEnum brSchemes = _$paymentMethodResponseTypesWithErrorsEnum_brSchemes;
+  @BuiltValueEnumConst(wireName: r'carnet')
+  static const PaymentMethodResponseTypesWithErrorsEnum carnet = _$paymentMethodResponseTypesWithErrorsEnum_carnet;
   @BuiltValueEnumConst(wireName: r'cartebancaire')
   static const PaymentMethodResponseTypesWithErrorsEnum cartebancaire = _$paymentMethodResponseTypesWithErrorsEnum_cartebancaire;
+  @BuiltValueEnumConst(wireName: r'cashapp')
+  static const PaymentMethodResponseTypesWithErrorsEnum cashapp = _$paymentMethodResponseTypesWithErrorsEnum_cashapp;
   @BuiltValueEnumConst(wireName: r'clearpay')
   static const PaymentMethodResponseTypesWithErrorsEnum clearpay = _$paymentMethodResponseTypesWithErrorsEnum_clearpay;
   @BuiltValueEnumConst(wireName: r'clicktopay')
@@ -275,6 +303,8 @@ class PaymentMethodResponseTypesWithErrorsEnum extends EnumClass {
   static const PaymentMethodResponseTypesWithErrorsEnum discover = _$paymentMethodResponseTypesWithErrorsEnum_discover;
   @BuiltValueEnumConst(wireName: r'ebanking_FI')
   static const PaymentMethodResponseTypesWithErrorsEnum ebankingFI = _$paymentMethodResponseTypesWithErrorsEnum_ebankingFI;
+  @BuiltValueEnumConst(wireName: r'ebt')
+  static const PaymentMethodResponseTypesWithErrorsEnum ebt = _$paymentMethodResponseTypesWithErrorsEnum_ebt;
   @BuiltValueEnumConst(wireName: r'eft_directdebit_CA')
   static const PaymentMethodResponseTypesWithErrorsEnum eftDirectdebitCA = _$paymentMethodResponseTypesWithErrorsEnum_eftDirectdebitCA;
   @BuiltValueEnumConst(wireName: r'eftpos_australia')
@@ -455,6 +485,8 @@ class PaymentMethodResponseTypesWithErrorsEnum extends EnumClass {
   static const PaymentMethodResponseTypesWithErrorsEnum wechatpay = _$paymentMethodResponseTypesWithErrorsEnum_wechatpay;
   @BuiltValueEnumConst(wireName: r'wechatpay_pos')
   static const PaymentMethodResponseTypesWithErrorsEnum wechatpayPos = _$paymentMethodResponseTypesWithErrorsEnum_wechatpayPos;
+  @BuiltValueEnumConst(wireName: r'wero')
+  static const PaymentMethodResponseTypesWithErrorsEnum wero = _$paymentMethodResponseTypesWithErrorsEnum_wero;
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const PaymentMethodResponseTypesWithErrorsEnum unknownDefaultOpenApi = _$paymentMethodResponseTypesWithErrorsEnum_unknownDefaultOpenApi;
 

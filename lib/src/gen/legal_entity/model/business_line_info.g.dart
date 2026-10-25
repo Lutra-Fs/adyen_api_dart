@@ -86,6 +86,8 @@ class _$BusinessLineInfo extends BusinessLineInfo {
   @override
   final String industryCode;
   @override
+  final String? industryCodeDescription;
+  @override
   final String legalEntityId;
   @override
   final BuiltList<String>? salesChannels;
@@ -104,6 +106,7 @@ class _$BusinessLineInfo extends BusinessLineInfo {
 
   _$BusinessLineInfo._({
     required this.industryCode,
+    this.industryCodeDescription,
     required this.legalEntityId,
     this.salesChannels,
     required this.service,
@@ -124,6 +127,7 @@ class _$BusinessLineInfo extends BusinessLineInfo {
     if (identical(other, this)) return true;
     return other is BusinessLineInfo &&
         industryCode == other.industryCode &&
+        industryCodeDescription == other.industryCodeDescription &&
         legalEntityId == other.legalEntityId &&
         salesChannels == other.salesChannels &&
         service == other.service &&
@@ -136,6 +140,7 @@ class _$BusinessLineInfo extends BusinessLineInfo {
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, industryCode.hashCode);
+    _$hash = $jc(_$hash, industryCodeDescription.hashCode);
     _$hash = $jc(_$hash, legalEntityId.hashCode);
     _$hash = $jc(_$hash, salesChannels.hashCode);
     _$hash = $jc(_$hash, service.hashCode);
@@ -150,6 +155,7 @@ class _$BusinessLineInfo extends BusinessLineInfo {
   String toString() {
     return (newBuiltValueToStringHelper(r'BusinessLineInfo')
           ..add('industryCode', industryCode)
+          ..add('industryCodeDescription', industryCodeDescription)
           ..add('legalEntityId', legalEntityId)
           ..add('salesChannels', salesChannels)
           ..add('service', service)
@@ -167,6 +173,11 @@ class BusinessLineInfoBuilder
   String? _industryCode;
   String? get industryCode => _$this._industryCode;
   set industryCode(String? industryCode) => _$this._industryCode = industryCode;
+
+  String? _industryCodeDescription;
+  String? get industryCodeDescription => _$this._industryCodeDescription;
+  set industryCodeDescription(String? industryCodeDescription) =>
+      _$this._industryCodeDescription = industryCodeDescription;
 
   String? _legalEntityId;
   String? get legalEntityId => _$this._legalEntityId;
@@ -209,6 +220,7 @@ class BusinessLineInfoBuilder
     final $v = _$v;
     if ($v != null) {
       _industryCode = $v.industryCode;
+      _industryCodeDescription = $v.industryCodeDescription;
       _legalEntityId = $v.legalEntityId;
       _salesChannels = $v.salesChannels?.toBuilder();
       _service = $v.service;
@@ -244,6 +256,7 @@ class BusinessLineInfoBuilder
               r'BusinessLineInfo',
               'industryCode',
             ),
+            industryCodeDescription: industryCodeDescription,
             legalEntityId: BuiltValueNullFieldError.checkNotNull(
               legalEntityId,
               r'BusinessLineInfo',

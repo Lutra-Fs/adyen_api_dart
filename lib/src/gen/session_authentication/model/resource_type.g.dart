@@ -7,9 +7,7 @@ part of 'resource_type.dart';
 // **************************************************************************
 
 const ResourceType _$legalEntity = const ResourceType._('legalEntity');
-const ResourceType _$balanceAccount = const ResourceType._('balanceAccount');
 const ResourceType _$accountHolder = const ResourceType._('accountHolder');
-const ResourceType _$merchantAccount = const ResourceType._('merchantAccount');
 const ResourceType _$paymentInstrument = const ResourceType._(
   'paymentInstrument',
 );
@@ -21,12 +19,8 @@ ResourceType _$valueOf(String name) {
   switch (name) {
     case 'legalEntity':
       return _$legalEntity;
-    case 'balanceAccount':
-      return _$balanceAccount;
     case 'accountHolder':
       return _$accountHolder;
-    case 'merchantAccount':
-      return _$merchantAccount;
     case 'paymentInstrument':
       return _$paymentInstrument;
     case 'unknownDefaultOpenApi':
@@ -36,22 +30,19 @@ ResourceType _$valueOf(String name) {
   }
 }
 
-final BuiltSet<ResourceType> _$values =
-    BuiltSet<ResourceType>(const <ResourceType>[
-      _$legalEntity,
-      _$balanceAccount,
-      _$accountHolder,
-      _$merchantAccount,
-      _$paymentInstrument,
-      _$unknownDefaultOpenApi,
-    ]);
+final BuiltSet<ResourceType> _$values = BuiltSet<ResourceType>(
+  const <ResourceType>[
+    _$legalEntity,
+    _$accountHolder,
+    _$paymentInstrument,
+    _$unknownDefaultOpenApi,
+  ],
+);
 
 class _$ResourceTypeMeta {
   const _$ResourceTypeMeta();
   ResourceType get legalEntity => _$legalEntity;
-  ResourceType get balanceAccount => _$balanceAccount;
   ResourceType get accountHolder => _$accountHolder;
-  ResourceType get merchantAccount => _$merchantAccount;
   ResourceType get paymentInstrument => _$paymentInstrument;
   ResourceType get unknownDefaultOpenApi => _$unknownDefaultOpenApi;
   ResourceType valueOf(String name) => _$valueOf(name);
@@ -68,17 +59,13 @@ Serializer<ResourceType> _$resourceTypeSerializer = _$ResourceTypeSerializer();
 class _$ResourceTypeSerializer implements PrimitiveSerializer<ResourceType> {
   static const Map<String, Object> _toWire = const <String, Object>{
     'legalEntity': 'legalEntity',
-    'balanceAccount': 'balanceAccount',
     'accountHolder': 'accountHolder',
-    'merchantAccount': 'merchantAccount',
     'paymentInstrument': 'paymentInstrument',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'legalEntity': 'legalEntity',
-    'balanceAccount': 'balanceAccount',
     'accountHolder': 'accountHolder',
-    'merchantAccount': 'merchantAccount',
     'paymentInstrument': 'paymentInstrument',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };

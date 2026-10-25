@@ -17,7 +17,7 @@ part 'verification_error.g.dart';
 /// * [code] - The verification error code.
 /// * [message] - The verification error message.
 /// * [remediatingActions] - The actions that you can take to resolve the verification error.
-/// * [subErrors] - More granular information about the verification error.
+/// * [subErrors] 
 /// * [type] - The type of verification error.  Possible values: **invalidInput**, **dataMissing**, and **pendingStatus**.
 @BuiltValue()
 abstract class VerificationError implements Built<VerificationError, VerificationErrorBuilder> {
@@ -33,7 +33,6 @@ abstract class VerificationError implements Built<VerificationError, Verificatio
   @BuiltValueField(wireName: r'remediatingActions')
   BuiltList<RemediatingAction>? get remediatingActions;
 
-  /// More granular information about the verification error.
   @BuiltValueField(wireName: r'subErrors')
   BuiltList<VerificationErrorRecursive>? get subErrors;
 

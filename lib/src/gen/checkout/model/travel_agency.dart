@@ -11,15 +11,15 @@ part 'travel_agency.g.dart';
 /// TravelAgency
 ///
 /// Properties:
-/// * [code] - The unique identifier from IATA or ARC for the travel agency that issues the ticket. * Encoding: ASCII * minLength: 1 character * maxLength: 8 characters * Must not start with a space or be all spaces. * Must not be all zeros.
-/// * [name_] - The name of the travel agency.  * Encoding: ASCII * minLength: 1 character * maxLength: 25 characters * Must not start with a space or be all spaces. * Must not be all zeros.
+/// * [code] - The unique identifier from IATA or ARC for the travel agency that issues the ticket. * Encoding: ASCII * minLength: 1 character * maxLength: 8 characters * Must not start with a space or be all spaces. * Must not be all zeros. * **additionalData key:** `airline.travel_agency_code`
+/// * [name_] - The name of the travel agency.  * Encoding: ASCII * minLength: 1 character * maxLength: 25 characters * Must not start with a space or be all spaces. * Must not be all zeros. * **additionalData key:** `airline.travel_agency_name`
 @BuiltValue()
 abstract class TravelAgency implements Built<TravelAgency, TravelAgencyBuilder> {
-  /// The unique identifier from IATA or ARC for the travel agency that issues the ticket. * Encoding: ASCII * minLength: 1 character * maxLength: 8 characters * Must not start with a space or be all spaces. * Must not be all zeros.
+  /// The unique identifier from IATA or ARC for the travel agency that issues the ticket. * Encoding: ASCII * minLength: 1 character * maxLength: 8 characters * Must not start with a space or be all spaces. * Must not be all zeros. * **additionalData key:** `airline.travel_agency_code`
   @BuiltValueField(wireName: r'code')
   String? get code;
 
-  /// The name of the travel agency.  * Encoding: ASCII * minLength: 1 character * maxLength: 25 characters * Must not start with a space or be all spaces. * Must not be all zeros.
+  /// The name of the travel agency.  * Encoding: ASCII * minLength: 1 character * maxLength: 25 characters * Must not start with a space or be all spaces. * Must not be all zeros. * **additionalData key:** `airline.travel_agency_name`
   @BuiltValueField(wireName: r'name')
   String? get name_;
 

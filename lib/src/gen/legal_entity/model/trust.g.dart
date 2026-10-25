@@ -288,6 +288,8 @@ class _$Trust extends Trust {
   @override
   final String? registrationNumber;
   @override
+  final bool? residentialAddressIndicator;
+  @override
   final BuiltList<TaxInformation>? taxInformation;
   @override
   final TrustTypeEnum type;
@@ -311,6 +313,7 @@ class _$Trust extends Trust {
     this.principalPlaceOfBusiness,
     required this.registeredAddress,
     this.registrationNumber,
+    this.residentialAddressIndicator,
     this.taxInformation,
     required this.type,
     this.undefinedBeneficiaryInfo,
@@ -337,6 +340,7 @@ class _$Trust extends Trust {
         principalPlaceOfBusiness == other.principalPlaceOfBusiness &&
         registeredAddress == other.registeredAddress &&
         registrationNumber == other.registrationNumber &&
+        residentialAddressIndicator == other.residentialAddressIndicator &&
         taxInformation == other.taxInformation &&
         type == other.type &&
         undefinedBeneficiaryInfo == other.undefinedBeneficiaryInfo &&
@@ -356,6 +360,7 @@ class _$Trust extends Trust {
     _$hash = $jc(_$hash, principalPlaceOfBusiness.hashCode);
     _$hash = $jc(_$hash, registeredAddress.hashCode);
     _$hash = $jc(_$hash, registrationNumber.hashCode);
+    _$hash = $jc(_$hash, residentialAddressIndicator.hashCode);
     _$hash = $jc(_$hash, taxInformation.hashCode);
     _$hash = $jc(_$hash, type.hashCode);
     _$hash = $jc(_$hash, undefinedBeneficiaryInfo.hashCode);
@@ -377,6 +382,7 @@ class _$Trust extends Trust {
           ..add('principalPlaceOfBusiness', principalPlaceOfBusiness)
           ..add('registeredAddress', registeredAddress)
           ..add('registrationNumber', registrationNumber)
+          ..add('residentialAddressIndicator', residentialAddressIndicator)
           ..add('taxInformation', taxInformation)
           ..add('type', type)
           ..add('undefinedBeneficiaryInfo', undefinedBeneficiaryInfo)
@@ -434,6 +440,11 @@ class TrustBuilder implements Builder<Trust, TrustBuilder> {
   set registrationNumber(String? registrationNumber) =>
       _$this._registrationNumber = registrationNumber;
 
+  bool? _residentialAddressIndicator;
+  bool? get residentialAddressIndicator => _$this._residentialAddressIndicator;
+  set residentialAddressIndicator(bool? residentialAddressIndicator) =>
+      _$this._residentialAddressIndicator = residentialAddressIndicator;
+
   ListBuilder<TaxInformation>? _taxInformation;
   ListBuilder<TaxInformation> get taxInformation =>
       _$this._taxInformation ??= ListBuilder<TaxInformation>();
@@ -476,6 +487,7 @@ class TrustBuilder implements Builder<Trust, TrustBuilder> {
       _principalPlaceOfBusiness = $v.principalPlaceOfBusiness?.toBuilder();
       _registeredAddress = $v.registeredAddress.toBuilder();
       _registrationNumber = $v.registrationNumber;
+      _residentialAddressIndicator = $v.residentialAddressIndicator;
       _taxInformation = $v.taxInformation?.toBuilder();
       _type = $v.type;
       _undefinedBeneficiaryInfo = $v.undefinedBeneficiaryInfo?.toBuilder();
@@ -522,6 +534,7 @@ class TrustBuilder implements Builder<Trust, TrustBuilder> {
             principalPlaceOfBusiness: _principalPlaceOfBusiness?.build(),
             registeredAddress: registeredAddress.build(),
             registrationNumber: registrationNumber,
+            residentialAddressIndicator: residentialAddressIndicator,
             taxInformation: _taxInformation?.build(),
             type: BuiltValueNullFieldError.checkNotNull(type, r'Trust', 'type'),
             undefinedBeneficiaryInfo: _undefinedBeneficiaryInfo?.build(),

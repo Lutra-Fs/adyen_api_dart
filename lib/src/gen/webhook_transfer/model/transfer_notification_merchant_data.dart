@@ -14,6 +14,7 @@ part 'transfer_notification_merchant_data.g.dart';
 /// * [acquirerId] - The unique identifier of the merchant's acquirer.
 /// * [city] - The city where the merchant is located.
 /// * [country] - The country where the merchant is located.
+/// * [countryCode] - The two-character country code of the merchant's location, in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format.
 /// * [mcc] - The merchant category code.
 /// * [merchantId] - The unique identifier of the merchant.
 /// * [name_] - The name of the merchant's shop or service.
@@ -31,6 +32,10 @@ abstract class TransferNotificationMerchantData implements Built<TransferNotific
   /// The country where the merchant is located.
   @BuiltValueField(wireName: r'country')
   String? get country;
+
+  /// The two-character country code of the merchant's location, in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format.
+  @BuiltValueField(wireName: r'countryCode')
+  String? get countryCode;
 
   /// The merchant category code.
   @BuiltValueField(wireName: r'mcc')
@@ -89,6 +94,13 @@ class _$TransferNotificationMerchantDataSerializer implements PrimitiveSerialize
       yield r'country';
       yield serializers.serialize(
         object.country,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.countryCode != null) {
+      yield r'countryCode';
+      yield serializers.serialize(
+        object.countryCode,
         specifiedType: const FullType(String),
       );
     }
@@ -163,6 +175,13 @@ class _$TransferNotificationMerchantDataSerializer implements PrimitiveSerialize
             specifiedType: const FullType(String),
           ) as String;
           result.country = valueDes;
+          break;
+        case r'countryCode':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.countryCode = valueDes;
           break;
         case r'mcc':
           final valueDes = serializers.deserialize(

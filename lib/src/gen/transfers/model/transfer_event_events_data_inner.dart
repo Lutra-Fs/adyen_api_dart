@@ -30,6 +30,14 @@ abstract class TransferEventEventsDataInner implements Built<TransferEventEvents
   /// One Of [InterchangeData], [IssuingTransactionData], [MerchantPurchaseData]
   OneOf get oneOf;
 
+  static const String discriminatorFieldName = r'type';
+
+  static const Map<String, Type> discriminatorMapping = {
+    r'interchangeData': InterchangeData,
+    r'issuingTransactionData': IssuingTransactionData,
+    r'merchantPurchaseData': MerchantPurchaseData,
+  };
+
   TransferEventEventsDataInner._();
 
   factory TransferEventEventsDataInner([void updates(TransferEventEventsDataInnerBuilder b)]) = _$TransferEventEventsDataInner;
@@ -39,6 +47,35 @@ abstract class TransferEventEventsDataInner implements Built<TransferEventEvents
 
   @BuiltValueSerializer(custom: true)
   static Serializer<TransferEventEventsDataInner> get serializer => _$TransferEventEventsDataInnerSerializer();
+}
+
+extension TransferEventEventsDataInnerDiscriminatorExt on TransferEventEventsDataInner {
+    String? get discriminatorValue {
+        if (this is InterchangeData) {
+            return r'interchangeData';
+        }
+        if (this is IssuingTransactionData) {
+            return r'issuingTransactionData';
+        }
+        if (this is MerchantPurchaseData) {
+            return r'merchantPurchaseData';
+        }
+        return null;
+    }
+}
+extension TransferEventEventsDataInnerBuilderDiscriminatorExt on TransferEventEventsDataInnerBuilder {
+    String? get discriminatorValue {
+        if (this is InterchangeDataBuilder) {
+            return r'interchangeData';
+        }
+        if (this is IssuingTransactionDataBuilder) {
+            return r'issuingTransactionData';
+        }
+        if (this is MerchantPurchaseDataBuilder) {
+            return r'merchantPurchaseData';
+        }
+        return null;
+    }
 }
 
 class _$TransferEventEventsDataInnerSerializer implements PrimitiveSerializer<TransferEventEventsDataInner> {
@@ -73,9 +110,39 @@ class _$TransferEventEventsDataInnerSerializer implements PrimitiveSerializer<Tr
   }) {
     final result = TransferEventEventsDataInnerBuilder();
     Object? oneOfDataSrc;
-    final targetType = const FullType(OneOf, [FullType(InterchangeData), FullType(IssuingTransactionData), FullType(MerchantPurchaseData), ]);
+    final serializedList = (serialized as Iterable<Object?>).toList();
+    final discIndex = serializedList.indexOf(TransferEventEventsDataInner.discriminatorFieldName) + 1;
+    final discValue = serializers.deserialize(serializedList[discIndex], specifiedType: FullType(String)) as String;
     oneOfDataSrc = serialized;
-    result.oneOf = serializers.deserialize(oneOfDataSrc, specifiedType: targetType) as OneOf;
+    final oneOfTypes = [InterchangeData, IssuingTransactionData, MerchantPurchaseData, ];
+    Object oneOfResult;
+    Type oneOfType;
+    switch (discValue) {
+      case r'interchangeData':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(InterchangeData),
+        ) as InterchangeData;
+        oneOfType = InterchangeData;
+        break;
+      case r'issuingTransactionData':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(IssuingTransactionData),
+        ) as IssuingTransactionData;
+        oneOfType = IssuingTransactionData;
+        break;
+      case r'merchantPurchaseData':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(MerchantPurchaseData),
+        ) as MerchantPurchaseData;
+        oneOfType = MerchantPurchaseData;
+        break;
+      default:
+        throw UnsupportedError("Couldn't deserialize oneOf for the discriminator value: ${discValue}");
+    }
+    result.oneOf = OneOfDynamic(typeIndex: oneOfTypes.indexOf(oneOfType), types: oneOfTypes, value: oneOfResult);
     return result.build();
   }
 }

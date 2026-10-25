@@ -8,6 +8,8 @@ part of 'payment_method_upi_apps.dart';
 
 class _$PaymentMethodUPIApps extends PaymentMethodUPIApps {
   @override
+  final AppIdentifierInfo? appIdentifierInfo;
+  @override
   final String id;
   @override
   final String name_;
@@ -16,7 +18,11 @@ class _$PaymentMethodUPIApps extends PaymentMethodUPIApps {
     void Function(PaymentMethodUPIAppsBuilder)? updates,
   ]) => (PaymentMethodUPIAppsBuilder()..update(updates))._build();
 
-  _$PaymentMethodUPIApps._({required this.id, required this.name_}) : super._();
+  _$PaymentMethodUPIApps._({
+    this.appIdentifierInfo,
+    required this.id,
+    required this.name_,
+  }) : super._();
   @override
   PaymentMethodUPIApps rebuild(
     void Function(PaymentMethodUPIAppsBuilder) updates,
@@ -30,6 +36,7 @@ class _$PaymentMethodUPIApps extends PaymentMethodUPIApps {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is PaymentMethodUPIApps &&
+        appIdentifierInfo == other.appIdentifierInfo &&
         id == other.id &&
         name_ == other.name_;
   }
@@ -37,6 +44,7 @@ class _$PaymentMethodUPIApps extends PaymentMethodUPIApps {
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, appIdentifierInfo.hashCode);
     _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, name_.hashCode);
     _$hash = $jf(_$hash);
@@ -46,6 +54,7 @@ class _$PaymentMethodUPIApps extends PaymentMethodUPIApps {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'PaymentMethodUPIApps')
+          ..add('appIdentifierInfo', appIdentifierInfo)
           ..add('id', id)
           ..add('name_', name_))
         .toString();
@@ -55,6 +64,12 @@ class _$PaymentMethodUPIApps extends PaymentMethodUPIApps {
 class PaymentMethodUPIAppsBuilder
     implements Builder<PaymentMethodUPIApps, PaymentMethodUPIAppsBuilder> {
   _$PaymentMethodUPIApps? _$v;
+
+  AppIdentifierInfoBuilder? _appIdentifierInfo;
+  AppIdentifierInfoBuilder get appIdentifierInfo =>
+      _$this._appIdentifierInfo ??= AppIdentifierInfoBuilder();
+  set appIdentifierInfo(AppIdentifierInfoBuilder? appIdentifierInfo) =>
+      _$this._appIdentifierInfo = appIdentifierInfo;
 
   String? _id;
   String? get id => _$this._id;
@@ -71,6 +86,7 @@ class PaymentMethodUPIAppsBuilder
   PaymentMethodUPIAppsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _appIdentifierInfo = $v.appIdentifierInfo?.toBuilder();
       _id = $v.id;
       _name_ = $v.name_;
       _$v = null;
@@ -92,20 +108,37 @@ class PaymentMethodUPIAppsBuilder
   PaymentMethodUPIApps build() => _build();
 
   _$PaymentMethodUPIApps _build() {
-    final _$result =
-        _$v ??
-        _$PaymentMethodUPIApps._(
-          id: BuiltValueNullFieldError.checkNotNull(
-            id,
-            r'PaymentMethodUPIApps',
-            'id',
-          ),
-          name_: BuiltValueNullFieldError.checkNotNull(
-            name_,
-            r'PaymentMethodUPIApps',
-            'name_',
-          ),
+    _$PaymentMethodUPIApps _$result;
+    try {
+      _$result =
+          _$v ??
+          _$PaymentMethodUPIApps._(
+            appIdentifierInfo: _appIdentifierInfo?.build(),
+            id: BuiltValueNullFieldError.checkNotNull(
+              id,
+              r'PaymentMethodUPIApps',
+              'id',
+            ),
+            name_: BuiltValueNullFieldError.checkNotNull(
+              name_,
+              r'PaymentMethodUPIApps',
+              'name_',
+            ),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'appIdentifierInfo';
+        _appIdentifierInfo?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+          r'PaymentMethodUPIApps',
+          _$failedField,
+          e.toString(),
         );
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

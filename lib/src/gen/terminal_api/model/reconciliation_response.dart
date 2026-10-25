@@ -28,7 +28,7 @@ abstract class ReconciliationResponse implements Built<ReconciliationResponse, R
   /// Type of Reconciliation requested by the Sale to the POI. Possible values: * **AcquirerReconciliation** * **AcquirerSynchronisation** * **PreviousReconciliation** * **SaleReconciliation**
   @BuiltValueField(wireName: r'ReconciliationType')
   ReconciliationType get reconciliationType;
-  // enum reconciliationTypeEnum {  AcquirerReconciliation,  AcquirerSynchronisation,  PreviousReconciliation,  SaleReconciliation,  };
+  // enum reconciliationTypeEnum {  SaleReconciliation,  AcquirerSynchronisation,  AcquirerReconciliation,  PreviousReconciliation,  };
 
   /// Identification of the reconciliation period between Sale and POI. Absent if ReconciliationType is `AcquirerReconciliation`.
   @BuiltValueField(wireName: r'POIReconciliationID')

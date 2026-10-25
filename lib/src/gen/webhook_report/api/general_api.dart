@@ -20,7 +20,7 @@ class GeneralApi {
   const GeneralApi(this._dio, this._serializers);
 
   /// Report generated
-  /// Adyen sends this webhook after a report is generated and ready to be downloaded. The webhook contains the URL at which the report can be downloaded.  Before you download reports, ask your Adyen contact for your report credentials. You must use your the credentials to authenticate your GET request.
+  /// Adyen sends this webhook after a report is generated and ready to be downloaded. The webhook contains the URL at which the report can be downloaded.  Before you download reports, ask your Adyen contact for your report credentials. You must use your credentials to authenticate your GET request.
   ///
   /// Parameters:
   /// * [reportNotificationRequest] 

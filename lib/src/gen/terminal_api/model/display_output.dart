@@ -36,12 +36,12 @@ abstract class DisplayOutput implements Built<DisplayOutput, DisplayOutputBuilde
   /// Logical device located on a Sale Terminal or a POI Terminal, in terms of class of information to output (display, print, or store), or input (keyboard) for the Cashier or the Customer. Possible values: * **CashierDisplay** * **CashierInput** * **CustomerDisplay** * **CustomerInput**
   @BuiltValueField(wireName: r'Device')
   Device get device;
-  // enum deviceEnum {  CashierDisplay,  CashierInput,  CustomerDisplay,  CustomerInput,  };
+  // enum deviceEnum {  CashierDisplay,  CustomerDisplay,  CashierInput,  CustomerInput,  };
 
   /// Qualification of the information to sent to an output logical device, to display or print to the Cashier or the Customer. Allows the manager of the device, Sale or POI Terminal, to send the information to a particular physical device or to present the information accordingly. Possible values: * **CustomerAssistance** * **Display** * **Document** * **Error** * **Input** * **POIReplication** * **Receipt** * **Sound** * **Status** * **Voucher**
   @BuiltValueField(wireName: r'InfoQualify')
   InfoQualify get infoQualify;
-  // enum infoQualifyEnum {  CustomerAssistance,  Display,  Document,  Error,  Input,  POIReplication,  Receipt,  Sound,  Status,  Voucher,  };
+  // enum infoQualifyEnum {  Status,  Error,  Display,  Sound,  Input,  POIReplication,  CustomerAssistance,  Receipt,  Document,  Voucher,  };
 
   /// Content to display or print.
   @BuiltValueField(wireName: r'OutputContent')

@@ -6,17 +6,17 @@ part of 'info_qualify.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+const InfoQualify _$status = const InfoQualify._('status');
+const InfoQualify _$error = const InfoQualify._('error');
+const InfoQualify _$display = const InfoQualify._('display');
+const InfoQualify _$sound = const InfoQualify._('sound');
+const InfoQualify _$input = const InfoQualify._('input');
+const InfoQualify _$pOIReplication = const InfoQualify._('pOIReplication');
 const InfoQualify _$customerAssistance = const InfoQualify._(
   'customerAssistance',
 );
-const InfoQualify _$display = const InfoQualify._('display');
-const InfoQualify _$document = const InfoQualify._('document');
-const InfoQualify _$error = const InfoQualify._('error');
-const InfoQualify _$input = const InfoQualify._('input');
-const InfoQualify _$pOIReplication = const InfoQualify._('pOIReplication');
 const InfoQualify _$receipt = const InfoQualify._('receipt');
-const InfoQualify _$sound = const InfoQualify._('sound');
-const InfoQualify _$status = const InfoQualify._('status');
+const InfoQualify _$document = const InfoQualify._('document');
 const InfoQualify _$voucher = const InfoQualify._('voucher');
 const InfoQualify _$unknownDefaultOpenApi = const InfoQualify._(
   'unknownDefaultOpenApi',
@@ -24,24 +24,24 @@ const InfoQualify _$unknownDefaultOpenApi = const InfoQualify._(
 
 InfoQualify _$valueOf(String name) {
   switch (name) {
-    case 'customerAssistance':
-      return _$customerAssistance;
-    case 'display':
-      return _$display;
-    case 'document':
-      return _$document;
+    case 'status':
+      return _$status;
     case 'error':
       return _$error;
+    case 'display':
+      return _$display;
+    case 'sound':
+      return _$sound;
     case 'input':
       return _$input;
     case 'pOIReplication':
       return _$pOIReplication;
+    case 'customerAssistance':
+      return _$customerAssistance;
     case 'receipt':
       return _$receipt;
-    case 'sound':
-      return _$sound;
-    case 'status':
-      return _$status;
+    case 'document':
+      return _$document;
     case 'voucher':
       return _$voucher;
     case 'unknownDefaultOpenApi':
@@ -53,30 +53,30 @@ InfoQualify _$valueOf(String name) {
 
 final BuiltSet<InfoQualify> _$values =
     BuiltSet<InfoQualify>(const <InfoQualify>[
-      _$customerAssistance,
-      _$display,
-      _$document,
+      _$status,
       _$error,
+      _$display,
+      _$sound,
       _$input,
       _$pOIReplication,
+      _$customerAssistance,
       _$receipt,
-      _$sound,
-      _$status,
+      _$document,
       _$voucher,
       _$unknownDefaultOpenApi,
     ]);
 
 class _$InfoQualifyMeta {
   const _$InfoQualifyMeta();
-  InfoQualify get customerAssistance => _$customerAssistance;
-  InfoQualify get display => _$display;
-  InfoQualify get document => _$document;
+  InfoQualify get status => _$status;
   InfoQualify get error => _$error;
+  InfoQualify get display => _$display;
+  InfoQualify get sound => _$sound;
   InfoQualify get input => _$input;
   InfoQualify get pOIReplication => _$pOIReplication;
+  InfoQualify get customerAssistance => _$customerAssistance;
   InfoQualify get receipt => _$receipt;
-  InfoQualify get sound => _$sound;
-  InfoQualify get status => _$status;
+  InfoQualify get document => _$document;
   InfoQualify get voucher => _$voucher;
   InfoQualify get unknownDefaultOpenApi => _$unknownDefaultOpenApi;
   InfoQualify valueOf(String name) => _$valueOf(name);
@@ -92,28 +92,28 @@ Serializer<InfoQualify> _$infoQualifySerializer = _$InfoQualifySerializer();
 
 class _$InfoQualifySerializer implements PrimitiveSerializer<InfoQualify> {
   static const Map<String, Object> _toWire = const <String, Object>{
-    'customerAssistance': 'CustomerAssistance',
-    'display': 'Display',
-    'document': 'Document',
+    'status': 'Status',
     'error': 'Error',
+    'display': 'Display',
+    'sound': 'Sound',
     'input': 'Input',
     'pOIReplication': 'POIReplication',
+    'customerAssistance': 'CustomerAssistance',
     'receipt': 'Receipt',
-    'sound': 'Sound',
-    'status': 'Status',
+    'document': 'Document',
     'voucher': 'Voucher',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
-    'CustomerAssistance': 'customerAssistance',
-    'Display': 'display',
-    'Document': 'document',
+    'Status': 'status',
     'Error': 'error',
+    'Display': 'display',
+    'Sound': 'sound',
     'Input': 'input',
     'POIReplication': 'pOIReplication',
+    'CustomerAssistance': 'customerAssistance',
     'Receipt': 'receipt',
-    'Sound': 'sound',
-    'Status': 'status',
+    'Document': 'document',
     'Voucher': 'voucher',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };

@@ -11,15 +11,15 @@ part 'agency.g.dart';
 /// Agency
 ///
 /// Properties:
-/// * [invoiceNumber] - The reference number for the invoice, issued by the agency. * Encoding: ASCII * minLength: 1 character * maxLength: 6 characters
-/// * [planName] - The two-letter agency plan identifier. * Encoding: ASCII * minLength: 2 characters * maxLength: 2 characters
+/// * [invoiceNumber] - The reference number for the invoice, issued by the agency. * Encoding: ASCII * minLength: 1 character * maxLength: 6 characters * **additionalData key:** `airline.agency_invoice_number`
+/// * [planName] - The two-letter agency plan identifier. * Encoding: ASCII * minLength: 2 characters * maxLength: 2 characters * **additionalData key:** `airline.agency_plan_name`
 @BuiltValue()
 abstract class Agency implements Built<Agency, AgencyBuilder> {
-  /// The reference number for the invoice, issued by the agency. * Encoding: ASCII * minLength: 1 character * maxLength: 6 characters
+  /// The reference number for the invoice, issued by the agency. * Encoding: ASCII * minLength: 1 character * maxLength: 6 characters * **additionalData key:** `airline.agency_invoice_number`
   @BuiltValueField(wireName: r'invoiceNumber')
   String? get invoiceNumber;
 
-  /// The two-letter agency plan identifier. * Encoding: ASCII * minLength: 2 characters * maxLength: 2 characters
+  /// The two-letter agency plan identifier. * Encoding: ASCII * minLength: 2 characters * maxLength: 2 characters * **additionalData key:** `airline.agency_plan_name`
   @BuiltValueField(wireName: r'planName')
   String? get planName;
 

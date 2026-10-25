@@ -15,6 +15,7 @@ part 'balance.g.dart';
 /// * [balance] - The sum of the transactions that have already been settled.
 /// * [currency] - The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) of the balance.
 /// * [pending] - The sum of the transactions that will be settled in the future.
+/// * [pendingAvailable] - The balance that will become the available balance after the pending balance is settled.  The pending available balance is equal to the lower of the following: - The `pending` balance - The `pending` balance plus the `available` balance.
 /// * [reserved] - The balance currently held in reserve.
 @BuiltValue()
 abstract class Balance implements Built<Balance, BalanceBuilder> {
@@ -33,6 +34,10 @@ abstract class Balance implements Built<Balance, BalanceBuilder> {
   /// The sum of the transactions that will be settled in the future.
   @BuiltValueField(wireName: r'pending')
   int? get pending;
+
+  /// The balance that will become the available balance after the pending balance is settled.  The pending available balance is equal to the lower of the following: - The `pending` balance - The `pending` balance plus the `available` balance.
+  @BuiltValueField(wireName: r'pendingAvailable')
+  int? get pendingAvailable;
 
   /// The balance currently held in reserve.
   @BuiltValueField(wireName: r'reserved')
@@ -80,6 +85,13 @@ class _$BalanceSerializer implements PrimitiveSerializer<Balance> {
       yield r'pending';
       yield serializers.serialize(
         object.pending,
+        specifiedType: const FullType(int),
+      );
+    }
+    if (object.pendingAvailable != null) {
+      yield r'pendingAvailable';
+      yield serializers.serialize(
+        object.pendingAvailable,
         specifiedType: const FullType(int),
       );
     }
@@ -138,6 +150,13 @@ class _$BalanceSerializer implements PrimitiveSerializer<Balance> {
             specifiedType: const FullType(int),
           ) as int;
           result.pending = valueDes;
+          break;
+        case r'pendingAvailable':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(int),
+          ) as int;
+          result.pendingAvailable = valueDes;
           break;
         case r'reserved':
           final valueDes = serializers.deserialize(

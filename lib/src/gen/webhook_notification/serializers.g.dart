@@ -195,6 +195,7 @@ Serializers _$serializers =
           ..add(PrearbitrationIssuerWithdrawnNotificationRequest.serializer)
           ..add(PrearbitrationLostNotificationRequest.serializer)
           ..add(PrearbitrationOpenNotificationRequest.serializer)
+          ..add(PrearbitrationSchemeArbitrationNotificationRequest.serializer)
           ..add(PrearbitrationWonNotificationRequest.serializer)
           ..add(RecurringContractNotificationAdditionalData.serializer)
           ..add(
@@ -225,6 +226,15 @@ Serializers _$serializers =
           )
           ..add(RefundCaptureFailedNotificationRequestItemWrapper.serializer)
           ..add(RefundFailedAdditionalData.serializer)
+          ..add(RefundNotClearedNotificationRequest.serializer)
+          ..add(RefundNotClearedNotificationRequestItem.serializer)
+          ..add(RefundNotClearedNotificationRequestItemEventCodeEnum.serializer)
+          ..add(RefundNotClearedNotificationRequestItemRecursive.serializer)
+          ..add(
+            RefundNotClearedNotificationRequestItemRecursiveEventCodeEnum
+                .serializer,
+          )
+          ..add(RefundNotClearedNotificationRequestItemWrapper.serializer)
           ..add(RefundNotificationRequest.serializer)
           ..add(RefundNotificationRequestItem.serializer)
           ..add(RefundNotificationRequestItemEventCodeEnum.serializer)
@@ -252,7 +262,30 @@ Serializers _$serializers =
           )
           ..add(ReportAvailableNotificationRequestItemWrapper.serializer)
           ..add(RequestForInformationNotificationRequest.serializer)
+          ..add(ReversalAdditionalData.serializer)
+          ..add(ReversalAdditionalDataModificationPeriodActionEnum.serializer)
+          ..add(ReversalAdditionalDataModificationPeriodStatusEnum.serializer)
+          ..add(ReversalNotificationRequest.serializer)
+          ..add(ReversalNotificationRequestItem.serializer)
+          ..add(ReversalNotificationRequestItemEventCodeEnum.serializer)
+          ..add(ReversalNotificationRequestItemRecursive.serializer)
+          ..add(
+            ReversalNotificationRequestItemRecursiveEventCodeEnum.serializer,
+          )
+          ..add(ReversalNotificationRequestItemWrapper.serializer)
+          ..add(SchemeArbitrationLostNotificationRequest.serializer)
+          ..add(SchemeArbitrationWonNotificationRequest.serializer)
           ..add(SecondChargebackNotificationRequest.serializer)
+          ..add(SettledReversedNotificationRequest.serializer)
+          ..add(SettledReversedNotificationRequestItem.serializer)
+          ..add(SettledReversedNotificationRequestItemEventCodeEnum.serializer)
+          ..add(SettledReversedNotificationRequestItemRecursive.serializer)
+          ..add(
+            SettledReversedNotificationRequestItemRecursiveEventCodeEnum
+                .serializer,
+          )
+          ..add(SettledReversedNotificationRequestItemWrapper.serializer)
+          ..add(SettlementReversalAdditionalData.serializer)
           ..addBuilderFactory(
             const FullType(BuiltList, const [
               const FullType(
@@ -402,6 +435,24 @@ Serializers _$serializers =
           )
           ..addBuilderFactory(
             const FullType(BuiltList, const [
+              const FullType(DisputesNotificationRequestItemWrapper),
+            ]),
+            () => ListBuilder<DisputesNotificationRequestItemWrapper>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [
+              const FullType(DisputesNotificationRequestItemWrapper),
+            ]),
+            () => ListBuilder<DisputesNotificationRequestItemWrapper>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [
+              const FullType(DisputesNotificationRequestItemWrapper),
+            ]),
+            () => ListBuilder<DisputesNotificationRequestItemWrapper>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [
               const FullType(ExpireNotificationRequestItemWrapper),
             ]),
             () => ListBuilder<ExpireNotificationRequestItemWrapper>(),
@@ -460,6 +511,12 @@ Serializers _$serializers =
           )
           ..addBuilderFactory(
             const FullType(BuiltList, const [
+              const FullType(RefundNotClearedNotificationRequestItemWrapper),
+            ]),
+            () => ListBuilder<RefundNotClearedNotificationRequestItemWrapper>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [
               const FullType(RefundNotificationRequestItemWrapper),
             ]),
             () => ListBuilder<RefundNotificationRequestItemWrapper>(),
@@ -475,6 +532,18 @@ Serializers _$serializers =
               const FullType(ReportAvailableNotificationRequestItemWrapper),
             ]),
             () => ListBuilder<ReportAvailableNotificationRequestItemWrapper>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [
+              const FullType(ReversalNotificationRequestItemWrapper),
+            ]),
+            () => ListBuilder<ReversalNotificationRequestItemWrapper>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [
+              const FullType(SettledReversedNotificationRequestItemWrapper),
+            ]),
+            () => ListBuilder<SettledReversedNotificationRequestItemWrapper>(),
           )
           ..addBuilderFactory(
             const FullType(BuiltMap, const [

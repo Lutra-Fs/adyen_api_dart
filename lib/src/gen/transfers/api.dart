@@ -10,6 +10,7 @@ import 'package:adyen_api/src/gen/transfers/auth/basic_auth.dart';
 import 'package:adyen_api/src/gen/transfers/auth/bearer_auth.dart';
 import 'package:adyen_api/src/gen/transfers/auth/oauth.dart';
 import 'package:adyen_api/src/gen/transfers/api/capital_api.dart';
+import 'package:adyen_api/src/gen/transfers/api/cash_out_api.dart';
 import 'package:adyen_api/src/gen/transfers/api/transactions_api.dart';
 import 'package:adyen_api/src/gen/transfers/api/transfers_api.dart';
 
@@ -71,6 +72,12 @@ class AdyenApi {
   /// by doing that all interceptors will not be executed
   CapitalApi getCapitalApi() {
     return CapitalApi(dio, serializers);
+  }
+
+  /// Get CashOutApi instance, base route and serializer can be overridden by a given but be careful,
+  /// by doing that all interceptors will not be executed
+  CashOutApi getCashOutApi() {
+    return CashOutApi(dio, serializers);
   }
 
   /// Get TransactionsApi instance, base route and serializer can be overridden by a given but be careful,

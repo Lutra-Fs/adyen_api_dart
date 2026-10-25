@@ -16,6 +16,9 @@ part 'refund_failed_additional_data.g.dart';
 /// * [coBrandedWith] 
 /// * [hmacSignature] 
 /// * [paymentMethodVariant] 
+/// * [refusalReason] - The Adyen-mapped [refusal reason](https://docs.adyen.com/development-resources/refusal-reasons).  Example: **Refused**
+/// * [refusalReasonCode] - The Adyen code that maps to the [refusal reason](https://docs.adyen.com/development-resources/refusal-reasons).  Example: **2**
+/// * [refusalReasonRaw] - The raw refusal reason from the acquirer, where available.
 /// * [shopperCountry] 
 @BuiltValue()
 abstract class RefundFailedAdditionalData implements Built<RefundFailedAdditionalData, RefundFailedAdditionalDataBuilder> {
@@ -33,6 +36,18 @@ abstract class RefundFailedAdditionalData implements Built<RefundFailedAdditiona
 
   @BuiltValueField(wireName: r'paymentMethodVariant')
   String? get paymentMethodVariant;
+
+  /// The Adyen-mapped [refusal reason](https://docs.adyen.com/development-resources/refusal-reasons).  Example: **Refused**
+  @BuiltValueField(wireName: r'refusalReason')
+  String? get refusalReason;
+
+  /// The Adyen code that maps to the [refusal reason](https://docs.adyen.com/development-resources/refusal-reasons).  Example: **2**
+  @BuiltValueField(wireName: r'refusalReasonCode')
+  String? get refusalReasonCode;
+
+  /// The raw refusal reason from the acquirer, where available.
+  @BuiltValueField(wireName: r'refusalReasonRaw')
+  String? get refusalReasonRaw;
 
   @BuiltValueField(wireName: r'shopperCountry')
   String? get shopperCountry;
@@ -92,6 +107,27 @@ class _$RefundFailedAdditionalDataSerializer implements PrimitiveSerializer<Refu
       yield r'paymentMethodVariant';
       yield serializers.serialize(
         object.paymentMethodVariant,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.refusalReason != null) {
+      yield r'refusalReason';
+      yield serializers.serialize(
+        object.refusalReason,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.refusalReasonCode != null) {
+      yield r'refusalReasonCode';
+      yield serializers.serialize(
+        object.refusalReasonCode,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.refusalReasonRaw != null) {
+      yield r'refusalReasonRaw';
+      yield serializers.serialize(
+        object.refusalReasonRaw,
         specifiedType: const FullType(String),
       );
     }
@@ -159,6 +195,27 @@ class _$RefundFailedAdditionalDataSerializer implements PrimitiveSerializer<Refu
             specifiedType: const FullType(String),
           ) as String;
           result.paymentMethodVariant = valueDes;
+          break;
+        case r'refusalReason':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.refusalReason = valueDes;
+          break;
+        case r'refusalReasonCode':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.refusalReasonCode = valueDes;
+          break;
+        case r'refusalReasonRaw':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.refusalReasonRaw = valueDes;
           break;
         case r'shopperCountry':
           final valueDes = serializers.deserialize(

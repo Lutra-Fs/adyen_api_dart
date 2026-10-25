@@ -26,7 +26,7 @@ Map<String, dynamic> errorResponse({
   return {
     'statusCode': statusCode,
     'errorCode': errorCode,
-    if (message != null) 'message': message,
+    'message': ?message,
   };
 }
 

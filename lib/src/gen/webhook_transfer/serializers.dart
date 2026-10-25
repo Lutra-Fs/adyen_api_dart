@@ -37,6 +37,7 @@ import 'package:adyen_api/src/gen/webhook_transfer/model/direct_debit_informatio
 import 'package:adyen_api/src/gen/webhook_transfer/model/estimation_tracking_data.dart';
 import 'package:adyen_api/src/gen/webhook_transfer/model/execution_date.dart';
 import 'package:adyen_api/src/gen/webhook_transfer/model/external_reason.dart';
+import 'package:adyen_api/src/gen/webhook_transfer/model/funding_instrument.dart';
 import 'package:adyen_api/src/gen/webhook_transfer/model/hk_local_account_identification.dart';
 import 'package:adyen_api/src/gen/webhook_transfer/model/hu_local_account_identification.dart';
 import 'package:adyen_api/src/gen/webhook_transfer/model/iban_account_identification.dart';
@@ -53,6 +54,7 @@ import 'package:adyen_api/src/gen/webhook_transfer/model/modification.dart';
 import 'package:adyen_api/src/gen/webhook_transfer/model/no_local_account_identification.dart';
 import 'package:adyen_api/src/gen/webhook_transfer/model/nz_local_account_identification.dart';
 import 'package:adyen_api/src/gen/webhook_transfer/model/name_location.dart';
+import 'package:adyen_api/src/gen/webhook_transfer/model/network_reason.dart';
 import 'package:adyen_api/src/gen/webhook_transfer/model/number_and_bic_account_identification.dart';
 import 'package:adyen_api/src/gen/webhook_transfer/model/pl_local_account_identification.dart';
 import 'package:adyen_api/src/gen/webhook_transfer/model/party_identification.dart';
@@ -70,17 +72,22 @@ import 'package:adyen_api/src/gen/webhook_transfer/model/transaction_rule_source
 import 'package:adyen_api/src/gen/webhook_transfer/model/transaction_rules_result.dart';
 import 'package:adyen_api/src/gen/webhook_transfer/model/transfer_data.dart';
 import 'package:adyen_api/src/gen/webhook_transfer/model/transfer_data_category_data.dart';
+import 'package:adyen_api/src/gen/webhook_transfer/model/transfer_data_tracing.dart';
 import 'package:adyen_api/src/gen/webhook_transfer/model/transfer_data_tracking.dart';
 import 'package:adyen_api/src/gen/webhook_transfer/model/transfer_event.dart';
 import 'package:adyen_api/src/gen/webhook_transfer/model/transfer_event_events_data_inner.dart';
+import 'package:adyen_api/src/gen/webhook_transfer/model/transfer_event_tracing_data.dart';
 import 'package:adyen_api/src/gen/webhook_transfer/model/transfer_event_tracking_data.dart';
 import 'package:adyen_api/src/gen/webhook_transfer/model/transfer_notification_counter_party.dart';
 import 'package:adyen_api/src/gen/webhook_transfer/model/transfer_notification_merchant_data.dart';
 import 'package:adyen_api/src/gen/webhook_transfer/model/transfer_notification_request.dart';
 import 'package:adyen_api/src/gen/webhook_transfer/model/transfer_notification_validation_fact.dart';
 import 'package:adyen_api/src/gen/webhook_transfer/model/transfer_review.dart';
+import 'package:adyen_api/src/gen/webhook_transfer/model/uk_fps_tracing_data.dart';
 import 'package:adyen_api/src/gen/webhook_transfer/model/uk_local_account_identification.dart';
+import 'package:adyen_api/src/gen/webhook_transfer/model/us_ach_tracing_data.dart';
 import 'package:adyen_api/src/gen/webhook_transfer/model/us_local_account_identification.dart';
+import 'package:adyen_api/src/gen/webhook_transfer/model/ultimate_party_identification.dart';
 
 part 'serializers.g.dart';
 
@@ -108,6 +115,7 @@ part 'serializers.g.dart';
   EstimationTrackingData,
   ExecutionDate,
   ExternalReason,
+  FundingInstrument,
   HKLocalAccountIdentification,
   HULocalAccountIdentification,
   IbanAccountIdentification,
@@ -124,6 +132,7 @@ part 'serializers.g.dart';
   NOLocalAccountIdentification,
   NZLocalAccountIdentification,
   NameLocation,
+  NetworkReason,
   NumberAndBicAccountIdentification,
   PLLocalAccountIdentification,
   PartyIdentification,
@@ -141,17 +150,22 @@ part 'serializers.g.dart';
   TransactionRulesResult,
   TransferData,
   TransferDataCategoryData,
+  TransferDataTracing,
   TransferDataTracking,
   TransferEvent,
   TransferEventEventsDataInner,
+  TransferEventTracingData,
   TransferEventTrackingData,
   TransferNotificationCounterParty,
   TransferNotificationMerchantData,
   TransferNotificationRequest,
   TransferNotificationValidationFact,
   TransferReview,
+  UKFpsTracingData,
   UKLocalAccountIdentification,
+  USAchTracingData,
   USLocalAccountIdentification,
+  UltimatePartyIdentification,
 ])
 Serializers serializers = (_$serializers.toBuilder()
       ..add(const OneOfSerializer())

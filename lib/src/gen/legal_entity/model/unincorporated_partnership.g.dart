@@ -382,6 +382,8 @@ class _$UnincorporatedPartnership extends UnincorporatedPartnership {
   @override
   final String? registrationNumber;
   @override
+  final bool? residentialAddressIndicator;
+  @override
   final BuiltList<TaxInformation>? taxInformation;
   @override
   final UnincorporatedPartnershipTypeEnum? type;
@@ -404,6 +406,7 @@ class _$UnincorporatedPartnership extends UnincorporatedPartnership {
     this.principalPlaceOfBusiness,
     required this.registeredAddress,
     this.registrationNumber,
+    this.residentialAddressIndicator,
     this.taxInformation,
     this.type,
     this.vatAbsenceReason,
@@ -431,6 +434,7 @@ class _$UnincorporatedPartnership extends UnincorporatedPartnership {
         principalPlaceOfBusiness == other.principalPlaceOfBusiness &&
         registeredAddress == other.registeredAddress &&
         registrationNumber == other.registrationNumber &&
+        residentialAddressIndicator == other.residentialAddressIndicator &&
         taxInformation == other.taxInformation &&
         type == other.type &&
         vatAbsenceReason == other.vatAbsenceReason &&
@@ -449,6 +453,7 @@ class _$UnincorporatedPartnership extends UnincorporatedPartnership {
     _$hash = $jc(_$hash, principalPlaceOfBusiness.hashCode);
     _$hash = $jc(_$hash, registeredAddress.hashCode);
     _$hash = $jc(_$hash, registrationNumber.hashCode);
+    _$hash = $jc(_$hash, residentialAddressIndicator.hashCode);
     _$hash = $jc(_$hash, taxInformation.hashCode);
     _$hash = $jc(_$hash, type.hashCode);
     _$hash = $jc(_$hash, vatAbsenceReason.hashCode);
@@ -469,6 +474,7 @@ class _$UnincorporatedPartnership extends UnincorporatedPartnership {
           ..add('principalPlaceOfBusiness', principalPlaceOfBusiness)
           ..add('registeredAddress', registeredAddress)
           ..add('registrationNumber', registrationNumber)
+          ..add('residentialAddressIndicator', residentialAddressIndicator)
           ..add('taxInformation', taxInformation)
           ..add('type', type)
           ..add('vatAbsenceReason', vatAbsenceReason)
@@ -527,6 +533,11 @@ class UnincorporatedPartnershipBuilder
   set registrationNumber(String? registrationNumber) =>
       _$this._registrationNumber = registrationNumber;
 
+  bool? _residentialAddressIndicator;
+  bool? get residentialAddressIndicator => _$this._residentialAddressIndicator;
+  set residentialAddressIndicator(bool? residentialAddressIndicator) =>
+      _$this._residentialAddressIndicator = residentialAddressIndicator;
+
   ListBuilder<TaxInformation>? _taxInformation;
   ListBuilder<TaxInformation> get taxInformation =>
       _$this._taxInformation ??= ListBuilder<TaxInformation>();
@@ -564,6 +575,7 @@ class UnincorporatedPartnershipBuilder
       _principalPlaceOfBusiness = $v.principalPlaceOfBusiness?.toBuilder();
       _registeredAddress = $v.registeredAddress.toBuilder();
       _registrationNumber = $v.registrationNumber;
+      _residentialAddressIndicator = $v.residentialAddressIndicator;
       _taxInformation = $v.taxInformation?.toBuilder();
       _type = $v.type;
       _vatAbsenceReason = $v.vatAbsenceReason;
@@ -609,6 +621,7 @@ class UnincorporatedPartnershipBuilder
             principalPlaceOfBusiness: _principalPlaceOfBusiness?.build(),
             registeredAddress: registeredAddress.build(),
             registrationNumber: registrationNumber,
+            residentialAddressIndicator: residentialAddressIndicator,
             taxInformation: _taxInformation?.build(),
             type: type,
             vatAbsenceReason: vatAbsenceReason,

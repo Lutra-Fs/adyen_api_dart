@@ -141,7 +141,7 @@ class _$Mandate extends Mandate {
   @override
   final MandateBankAccount? counterparty;
   @override
-  final JsonObject? createdAt;
+  final DateTime? createdAt;
   @override
   final String? id;
   @override
@@ -151,7 +151,7 @@ class _$Mandate extends Mandate {
   @override
   final MandateTypeEnum? type;
   @override
-  final JsonObject? updatedAt;
+  final DateTime? updatedAt;
 
   factory _$Mandate([void Function(MandateBuilder)? updates]) =>
       (MandateBuilder()..update(updates))._build();
@@ -231,9 +231,9 @@ class MandateBuilder implements Builder<Mandate, MandateBuilder> {
   set counterparty(MandateBankAccountBuilder? counterparty) =>
       _$this._counterparty = counterparty;
 
-  JsonObject? _createdAt;
-  JsonObject? get createdAt => _$this._createdAt;
-  set createdAt(JsonObject? createdAt) => _$this._createdAt = createdAt;
+  DateTime? _createdAt;
+  DateTime? get createdAt => _$this._createdAt;
+  set createdAt(DateTime? createdAt) => _$this._createdAt = createdAt;
 
   String? _id;
   String? get id => _$this._id;
@@ -252,9 +252,9 @@ class MandateBuilder implements Builder<Mandate, MandateBuilder> {
   MandateTypeEnum? get type => _$this._type;
   set type(MandateTypeEnum? type) => _$this._type = type;
 
-  JsonObject? _updatedAt;
-  JsonObject? get updatedAt => _$this._updatedAt;
-  set updatedAt(JsonObject? updatedAt) => _$this._updatedAt = updatedAt;
+  DateTime? _updatedAt;
+  DateTime? get updatedAt => _$this._updatedAt;
+  set updatedAt(DateTime? updatedAt) => _$this._updatedAt = updatedAt;
 
   MandateBuilder() {
     Mandate._defaults(this);
