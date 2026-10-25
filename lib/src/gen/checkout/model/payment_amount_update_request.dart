@@ -4,11 +4,11 @@
 
 // ignore_for_file: unused_element
 import 'package:adyen_api/src/gen/checkout/model/amount.dart';
-import 'package:adyen_api/src/gen/checkout/model/enhanced_scheme_data.dart';
 import 'package:adyen_api/src/gen/checkout/model/line_item.dart';
 import 'package:adyen_api/src/gen/checkout/model/split.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:adyen_api/src/gen/checkout/model/application_info.dart';
+import 'package:adyen_api/src/gen/checkout/model/three_d_secure_data.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -17,16 +17,27 @@ part 'payment_amount_update_request.g.dart';
 /// PaymentAmountUpdateRequest
 ///
 /// Properties:
+/// * [adjustAuthType] - The type of adjustment. Possible values:   * **cardholderInitiatedTransaction**   * **merchantInitiatedTransaction**   
+/// * [adjustAuthorisationData] - The required data to make a [synchronous authorization adjustment](https://docs.adyen.com/online-payments/adjust-authorisation). Pass the corresponding value from the `/payments` response or webhook message.
 /// * [amount] - The updated amount. The `currency` must match the currency used in authorisation.
 /// * [applicationInfo] - Information about your application. For more details, see [Building Adyen solutions](https://docs.adyen.com/development-resources/building-adyen-solutions).
-/// * [enhancedSchemeData] - Enhanced scheme data that may be required for processing the payment. For example, airline information.
 /// * [industryUsage] - The reason for the amount update. Possible values:  * **delayedCharge**  * **noShow**  * **installment**
 /// * [lineItems] - Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). > This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.
 /// * [merchantAccount] - The merchant account that is used to process the payment.
+/// * [mpiData] - Authentication data from a [merchant plug-in (MPI)](https://en.wikipedia.org/wiki/Merchant_plug-in) like Mastercard SecureCode, Visa Secure, or Cartes Bancaires. Required for cardholder-initiated transaction (CIT) adjustments.
 /// * [reference] - Your reference for the amount update request. Maximum length: 80 characters.
 /// * [splits] - An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For more information, see how to process payments for [marketplaces](https://docs.adyen.com/marketplaces/process-payments) or [platforms](https://docs.adyen.com/platforms/process-payments).
 @BuiltValue()
 abstract class PaymentAmountUpdateRequest implements Built<PaymentAmountUpdateRequest, PaymentAmountUpdateRequestBuilder> {
+  /// The type of adjustment. Possible values:   * **cardholderInitiatedTransaction**   * **merchantInitiatedTransaction**   
+  @BuiltValueField(wireName: r'adjustAuthType')
+  PaymentAmountUpdateRequestAdjustAuthTypeEnum? get adjustAuthType;
+  // enum adjustAuthTypeEnum {  cardholderInitiatedTransaction,  merchantInitiatedTransaction,  };
+
+  /// The required data to make a [synchronous authorization adjustment](https://docs.adyen.com/online-payments/adjust-authorisation). Pass the corresponding value from the `/payments` response or webhook message.
+  @BuiltValueField(wireName: r'adjustAuthorisationData')
+  String? get adjustAuthorisationData;
+
   /// The updated amount. The `currency` must match the currency used in authorisation.
   @BuiltValueField(wireName: r'amount')
   Amount get amount;
@@ -34,10 +45,6 @@ abstract class PaymentAmountUpdateRequest implements Built<PaymentAmountUpdateRe
   /// Information about your application. For more details, see [Building Adyen solutions](https://docs.adyen.com/development-resources/building-adyen-solutions).
   @BuiltValueField(wireName: r'applicationInfo')
   ApplicationInfo? get applicationInfo;
-
-  /// Enhanced scheme data that may be required for processing the payment. For example, airline information.
-  @BuiltValueField(wireName: r'enhancedSchemeData')
-  EnhancedSchemeData? get enhancedSchemeData;
 
   /// The reason for the amount update. Possible values:  * **delayedCharge**  * **noShow**  * **installment**
   @BuiltValueField(wireName: r'industryUsage')
@@ -51,6 +58,10 @@ abstract class PaymentAmountUpdateRequest implements Built<PaymentAmountUpdateRe
   /// The merchant account that is used to process the payment.
   @BuiltValueField(wireName: r'merchantAccount')
   String get merchantAccount;
+
+  /// Authentication data from a [merchant plug-in (MPI)](https://en.wikipedia.org/wiki/Merchant_plug-in) like Mastercard SecureCode, Visa Secure, or Cartes Bancaires. Required for cardholder-initiated transaction (CIT) adjustments.
+  @BuiltValueField(wireName: r'mpiData')
+  ThreeDSecureData? get mpiData;
 
   /// Your reference for the amount update request. Maximum length: 80 characters.
   @BuiltValueField(wireName: r'reference')
@@ -83,6 +94,20 @@ class _$PaymentAmountUpdateRequestSerializer implements PrimitiveSerializer<Paym
     PaymentAmountUpdateRequest object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
+    if (object.adjustAuthType != null) {
+      yield r'adjustAuthType';
+      yield serializers.serialize(
+        object.adjustAuthType,
+        specifiedType: const FullType(PaymentAmountUpdateRequestAdjustAuthTypeEnum),
+      );
+    }
+    if (object.adjustAuthorisationData != null) {
+      yield r'adjustAuthorisationData';
+      yield serializers.serialize(
+        object.adjustAuthorisationData,
+        specifiedType: const FullType(String),
+      );
+    }
     yield r'amount';
     yield serializers.serialize(
       object.amount,
@@ -93,13 +118,6 @@ class _$PaymentAmountUpdateRequestSerializer implements PrimitiveSerializer<Paym
       yield serializers.serialize(
         object.applicationInfo,
         specifiedType: const FullType(ApplicationInfo),
-      );
-    }
-    if (object.enhancedSchemeData != null) {
-      yield r'enhancedSchemeData';
-      yield serializers.serialize(
-        object.enhancedSchemeData,
-        specifiedType: const FullType(EnhancedSchemeData),
       );
     }
     if (object.industryUsage != null) {
@@ -121,6 +139,13 @@ class _$PaymentAmountUpdateRequestSerializer implements PrimitiveSerializer<Paym
       object.merchantAccount,
       specifiedType: const FullType(String),
     );
+    if (object.mpiData != null) {
+      yield r'mpiData';
+      yield serializers.serialize(
+        object.mpiData,
+        specifiedType: const FullType(ThreeDSecureData),
+      );
+    }
     if (object.reference != null) {
       yield r'reference';
       yield serializers.serialize(
@@ -158,6 +183,20 @@ class _$PaymentAmountUpdateRequestSerializer implements PrimitiveSerializer<Paym
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
+        case r'adjustAuthType':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(PaymentAmountUpdateRequestAdjustAuthTypeEnum),
+          ) as PaymentAmountUpdateRequestAdjustAuthTypeEnum;
+          result.adjustAuthType = valueDes;
+          break;
+        case r'adjustAuthorisationData':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.adjustAuthorisationData = valueDes;
+          break;
         case r'amount':
           final valueDes = serializers.deserialize(
             value,
@@ -171,13 +210,6 @@ class _$PaymentAmountUpdateRequestSerializer implements PrimitiveSerializer<Paym
             specifiedType: const FullType(ApplicationInfo),
           ) as ApplicationInfo;
           result.applicationInfo.replace(valueDes);
-          break;
-        case r'enhancedSchemeData':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(EnhancedSchemeData),
-          ) as EnhancedSchemeData;
-          result.enhancedSchemeData.replace(valueDes);
           break;
         case r'industryUsage':
           final valueDes = serializers.deserialize(
@@ -199,6 +231,13 @@ class _$PaymentAmountUpdateRequestSerializer implements PrimitiveSerializer<Paym
             specifiedType: const FullType(String),
           ) as String;
           result.merchantAccount = valueDes;
+          break;
+        case r'mpiData':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(ThreeDSecureData),
+          ) as ThreeDSecureData;
+          result.mpiData.replace(valueDes);
           break;
         case r'reference':
           final valueDes = serializers.deserialize(
@@ -241,6 +280,26 @@ class _$PaymentAmountUpdateRequestSerializer implements PrimitiveSerializer<Paym
     );
     return result.build();
   }
+}
+
+class PaymentAmountUpdateRequestAdjustAuthTypeEnum extends EnumClass {
+
+  /// The type of adjustment. Possible values:   * **cardholderInitiatedTransaction**   * **merchantInitiatedTransaction**   
+  @BuiltValueEnumConst(wireName: r'cardholderInitiatedTransaction')
+  static const PaymentAmountUpdateRequestAdjustAuthTypeEnum cardholderInitiatedTransaction = _$paymentAmountUpdateRequestAdjustAuthTypeEnum_cardholderInitiatedTransaction;
+  /// The type of adjustment. Possible values:   * **cardholderInitiatedTransaction**   * **merchantInitiatedTransaction**   
+  @BuiltValueEnumConst(wireName: r'merchantInitiatedTransaction')
+  static const PaymentAmountUpdateRequestAdjustAuthTypeEnum merchantInitiatedTransaction = _$paymentAmountUpdateRequestAdjustAuthTypeEnum_merchantInitiatedTransaction;
+  /// The type of adjustment. Possible values:   * **cardholderInitiatedTransaction**   * **merchantInitiatedTransaction**   
+  @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
+  static const PaymentAmountUpdateRequestAdjustAuthTypeEnum unknownDefaultOpenApi = _$paymentAmountUpdateRequestAdjustAuthTypeEnum_unknownDefaultOpenApi;
+
+  static Serializer<PaymentAmountUpdateRequestAdjustAuthTypeEnum> get serializer => _$paymentAmountUpdateRequestAdjustAuthTypeEnumSerializer;
+
+  const PaymentAmountUpdateRequestAdjustAuthTypeEnum._(String name): super(name);
+
+  static BuiltSet<PaymentAmountUpdateRequestAdjustAuthTypeEnum> get values => _$paymentAmountUpdateRequestAdjustAuthTypeEnumValues;
+  static PaymentAmountUpdateRequestAdjustAuthTypeEnum valueOf(String name) => _$paymentAmountUpdateRequestAdjustAuthTypeEnumValueOf(name);
 }
 
 class PaymentAmountUpdateRequestIndustryUsageEnum extends EnumClass {

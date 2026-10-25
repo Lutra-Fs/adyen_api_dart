@@ -6,6 +6,40 @@ part of 'klarna_network_details.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+const KlarnaNetworkDetailsSubtypeEnum
+_$klarnaNetworkDetailsSubtypeEnum_redirect =
+    const KlarnaNetworkDetailsSubtypeEnum._('redirect');
+const KlarnaNetworkDetailsSubtypeEnum _$klarnaNetworkDetailsSubtypeEnum_sdk =
+    const KlarnaNetworkDetailsSubtypeEnum._('sdk');
+const KlarnaNetworkDetailsSubtypeEnum
+_$klarnaNetworkDetailsSubtypeEnum_unknownDefaultOpenApi =
+    const KlarnaNetworkDetailsSubtypeEnum._('unknownDefaultOpenApi');
+
+KlarnaNetworkDetailsSubtypeEnum _$klarnaNetworkDetailsSubtypeEnumValueOf(
+  String name,
+) {
+  switch (name) {
+    case 'redirect':
+      return _$klarnaNetworkDetailsSubtypeEnum_redirect;
+    case 'sdk':
+      return _$klarnaNetworkDetailsSubtypeEnum_sdk;
+    case 'unknownDefaultOpenApi':
+      return _$klarnaNetworkDetailsSubtypeEnum_unknownDefaultOpenApi;
+    default:
+      return _$klarnaNetworkDetailsSubtypeEnum_unknownDefaultOpenApi;
+  }
+}
+
+final BuiltSet<KlarnaNetworkDetailsSubtypeEnum>
+_$klarnaNetworkDetailsSubtypeEnumValues =
+    BuiltSet<KlarnaNetworkDetailsSubtypeEnum>(
+      const <KlarnaNetworkDetailsSubtypeEnum>[
+        _$klarnaNetworkDetailsSubtypeEnum_redirect,
+        _$klarnaNetworkDetailsSubtypeEnum_sdk,
+        _$klarnaNetworkDetailsSubtypeEnum_unknownDefaultOpenApi,
+      ],
+    );
+
 const KlarnaNetworkDetailsTypeEnum
 _$klarnaNetworkDetailsTypeEnum_klarnaNetwork =
     const KlarnaNetworkDetailsTypeEnum._('klarnaNetwork');
@@ -33,9 +67,47 @@ _$klarnaNetworkDetailsTypeEnumValues =
       _$klarnaNetworkDetailsTypeEnum_unknownDefaultOpenApi,
     ]);
 
+Serializer<KlarnaNetworkDetailsSubtypeEnum>
+_$klarnaNetworkDetailsSubtypeEnumSerializer =
+    _$KlarnaNetworkDetailsSubtypeEnumSerializer();
 Serializer<KlarnaNetworkDetailsTypeEnum>
 _$klarnaNetworkDetailsTypeEnumSerializer =
     _$KlarnaNetworkDetailsTypeEnumSerializer();
+
+class _$KlarnaNetworkDetailsSubtypeEnumSerializer
+    implements PrimitiveSerializer<KlarnaNetworkDetailsSubtypeEnum> {
+  static const Map<String, Object> _toWire = const <String, Object>{
+    'redirect': 'redirect',
+    'sdk': 'sdk',
+    'unknownDefaultOpenApi': 'unknown_default_open_api',
+  };
+  static const Map<Object, String> _fromWire = const <Object, String>{
+    'redirect': 'redirect',
+    'sdk': 'sdk',
+    'unknown_default_open_api': 'unknownDefaultOpenApi',
+  };
+
+  @override
+  final Iterable<Type> types = const <Type>[KlarnaNetworkDetailsSubtypeEnum];
+  @override
+  final String wireName = 'KlarnaNetworkDetailsSubtypeEnum';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    KlarnaNetworkDetailsSubtypeEnum object, {
+    FullType specifiedType = FullType.unspecified,
+  }) => _toWire[object.name] ?? object.name;
+
+  @override
+  KlarnaNetworkDetailsSubtypeEnum deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) => KlarnaNetworkDetailsSubtypeEnum.valueOf(
+    _fromWire[serialized] ?? (serialized is String ? serialized : ''),
+  );
+}
 
 class _$KlarnaNetworkDetailsTypeEnumSerializer
     implements PrimitiveSerializer<KlarnaNetworkDetailsTypeEnum> {
@@ -76,7 +148,17 @@ class _$KlarnaNetworkDetails extends KlarnaNetworkDetails {
   @override
   final String? klarnaNetworkData;
   @override
+  final String? klarnaNetworkPaymentAccountId;
+  @override
+  final String? klarnaNetworkSessionToken;
+  @override
+  final String? recurringDetailReference;
+  @override
   final String? sdkData;
+  @override
+  final String? storedPaymentMethodId;
+  @override
+  final KlarnaNetworkDetailsSubtypeEnum? subtype;
   @override
   final KlarnaNetworkDetailsTypeEnum type;
 
@@ -87,7 +169,12 @@ class _$KlarnaNetworkDetails extends KlarnaNetworkDetails {
   _$KlarnaNetworkDetails._({
     this.checkoutAttemptId,
     this.klarnaNetworkData,
+    this.klarnaNetworkPaymentAccountId,
+    this.klarnaNetworkSessionToken,
+    this.recurringDetailReference,
     this.sdkData,
+    this.storedPaymentMethodId,
+    this.subtype,
     required this.type,
   }) : super._();
   @override
@@ -105,7 +192,12 @@ class _$KlarnaNetworkDetails extends KlarnaNetworkDetails {
     return other is KlarnaNetworkDetails &&
         checkoutAttemptId == other.checkoutAttemptId &&
         klarnaNetworkData == other.klarnaNetworkData &&
+        klarnaNetworkPaymentAccountId == other.klarnaNetworkPaymentAccountId &&
+        klarnaNetworkSessionToken == other.klarnaNetworkSessionToken &&
+        recurringDetailReference == other.recurringDetailReference &&
         sdkData == other.sdkData &&
+        storedPaymentMethodId == other.storedPaymentMethodId &&
+        subtype == other.subtype &&
         type == other.type;
   }
 
@@ -114,7 +206,12 @@ class _$KlarnaNetworkDetails extends KlarnaNetworkDetails {
     var _$hash = 0;
     _$hash = $jc(_$hash, checkoutAttemptId.hashCode);
     _$hash = $jc(_$hash, klarnaNetworkData.hashCode);
+    _$hash = $jc(_$hash, klarnaNetworkPaymentAccountId.hashCode);
+    _$hash = $jc(_$hash, klarnaNetworkSessionToken.hashCode);
+    _$hash = $jc(_$hash, recurringDetailReference.hashCode);
     _$hash = $jc(_$hash, sdkData.hashCode);
+    _$hash = $jc(_$hash, storedPaymentMethodId.hashCode);
+    _$hash = $jc(_$hash, subtype.hashCode);
     _$hash = $jc(_$hash, type.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -125,7 +222,12 @@ class _$KlarnaNetworkDetails extends KlarnaNetworkDetails {
     return (newBuiltValueToStringHelper(r'KlarnaNetworkDetails')
           ..add('checkoutAttemptId', checkoutAttemptId)
           ..add('klarnaNetworkData', klarnaNetworkData)
+          ..add('klarnaNetworkPaymentAccountId', klarnaNetworkPaymentAccountId)
+          ..add('klarnaNetworkSessionToken', klarnaNetworkSessionToken)
+          ..add('recurringDetailReference', recurringDetailReference)
           ..add('sdkData', sdkData)
+          ..add('storedPaymentMethodId', storedPaymentMethodId)
+          ..add('subtype', subtype)
           ..add('type', type))
         .toString();
   }
@@ -145,9 +247,35 @@ class KlarnaNetworkDetailsBuilder
   set klarnaNetworkData(String? klarnaNetworkData) =>
       _$this._klarnaNetworkData = klarnaNetworkData;
 
+  String? _klarnaNetworkPaymentAccountId;
+  String? get klarnaNetworkPaymentAccountId =>
+      _$this._klarnaNetworkPaymentAccountId;
+  set klarnaNetworkPaymentAccountId(String? klarnaNetworkPaymentAccountId) =>
+      _$this._klarnaNetworkPaymentAccountId = klarnaNetworkPaymentAccountId;
+
+  String? _klarnaNetworkSessionToken;
+  String? get klarnaNetworkSessionToken => _$this._klarnaNetworkSessionToken;
+  set klarnaNetworkSessionToken(String? klarnaNetworkSessionToken) =>
+      _$this._klarnaNetworkSessionToken = klarnaNetworkSessionToken;
+
+  String? _recurringDetailReference;
+  String? get recurringDetailReference => _$this._recurringDetailReference;
+  set recurringDetailReference(String? recurringDetailReference) =>
+      _$this._recurringDetailReference = recurringDetailReference;
+
   String? _sdkData;
   String? get sdkData => _$this._sdkData;
   set sdkData(String? sdkData) => _$this._sdkData = sdkData;
+
+  String? _storedPaymentMethodId;
+  String? get storedPaymentMethodId => _$this._storedPaymentMethodId;
+  set storedPaymentMethodId(String? storedPaymentMethodId) =>
+      _$this._storedPaymentMethodId = storedPaymentMethodId;
+
+  KlarnaNetworkDetailsSubtypeEnum? _subtype;
+  KlarnaNetworkDetailsSubtypeEnum? get subtype => _$this._subtype;
+  set subtype(KlarnaNetworkDetailsSubtypeEnum? subtype) =>
+      _$this._subtype = subtype;
 
   KlarnaNetworkDetailsTypeEnum? _type;
   KlarnaNetworkDetailsTypeEnum? get type => _$this._type;
@@ -162,7 +290,12 @@ class KlarnaNetworkDetailsBuilder
     if ($v != null) {
       _checkoutAttemptId = $v.checkoutAttemptId;
       _klarnaNetworkData = $v.klarnaNetworkData;
+      _klarnaNetworkPaymentAccountId = $v.klarnaNetworkPaymentAccountId;
+      _klarnaNetworkSessionToken = $v.klarnaNetworkSessionToken;
+      _recurringDetailReference = $v.recurringDetailReference;
       _sdkData = $v.sdkData;
+      _storedPaymentMethodId = $v.storedPaymentMethodId;
+      _subtype = $v.subtype;
       _type = $v.type;
       _$v = null;
     }
@@ -188,7 +321,12 @@ class KlarnaNetworkDetailsBuilder
         _$KlarnaNetworkDetails._(
           checkoutAttemptId: checkoutAttemptId,
           klarnaNetworkData: klarnaNetworkData,
+          klarnaNetworkPaymentAccountId: klarnaNetworkPaymentAccountId,
+          klarnaNetworkSessionToken: klarnaNetworkSessionToken,
+          recurringDetailReference: recurringDetailReference,
           sdkData: sdkData,
+          storedPaymentMethodId: storedPaymentMethodId,
+          subtype: subtype,
           type: BuiltValueNullFieldError.checkNotNull(
             type,
             r'KlarnaNetworkDetails',

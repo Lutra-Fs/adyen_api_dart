@@ -17,7 +17,7 @@ part 'update_company_user_request.g.dart';
 /// * [active] - Indicates whether this user is active.
 /// * [associatedMerchantAccounts] - The list of [merchant accounts](https://docs.adyen.com/account/account-structure#merchant-accounts) to associate the user with.
 /// * [email] - The email address of the user.
-/// * [loginMethod] - The requested login method for the user. To use SSO, you must already have SSO configured with Adyen before creating the user.  Possible values: **Username & account**, **Email**, or **SSO** 
+/// * [loginMethod] - The requested login method for the user. To use SSO, you must already have SSO configured with Adyen before creating the user.  Possible values: **Email** or **SSO** 
 /// * [name_] - The user's full name.
 /// * [roles] - The list of [roles](https://docs.adyen.com/account/user-roles) for this user.
 /// * [timeZoneCode] - The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**.
@@ -39,7 +39,7 @@ abstract class UpdateCompanyUserRequest implements Built<UpdateCompanyUserReques
   @BuiltValueField(wireName: r'email')
   String? get email;
 
-  /// The requested login method for the user. To use SSO, you must already have SSO configured with Adyen before creating the user.  Possible values: **Username & account**, **Email**, or **SSO** 
+  /// The requested login method for the user. To use SSO, you must already have SSO configured with Adyen before creating the user.  Possible values: **Email** or **SSO** 
   @BuiltValueField(wireName: r'loginMethod')
   String? get loginMethod;
 

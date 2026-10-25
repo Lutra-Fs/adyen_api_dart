@@ -80,6 +80,10 @@ const ChallengeInfoFlowEnum _$challengeInfoFlowEnum_PWD_OTP_EMAIL_FL =
     const ChallengeInfoFlowEnum._('PWD_OTP_EMAIL_FL');
 const ChallengeInfoFlowEnum _$challengeInfoFlowEnum_OOB_TRIGGER_FL =
     const ChallengeInfoFlowEnum._('OOB_TRIGGER_FL');
+const ChallengeInfoFlowEnum _$challengeInfoFlowEnum_OTP_PHONE_FL =
+    const ChallengeInfoFlowEnum._('OTP_PHONE_FL');
+const ChallengeInfoFlowEnum _$challengeInfoFlowEnum_PASSKEY_TRIGGER_FL =
+    const ChallengeInfoFlowEnum._('PASSKEY_TRIGGER_FL');
 const ChallengeInfoFlowEnum _$challengeInfoFlowEnum_unknownDefaultOpenApi =
     const ChallengeInfoFlowEnum._('unknownDefaultOpenApi');
 
@@ -91,6 +95,10 @@ ChallengeInfoFlowEnum _$challengeInfoFlowEnumValueOf(String name) {
       return _$challengeInfoFlowEnum_PWD_OTP_EMAIL_FL;
     case 'OOB_TRIGGER_FL':
       return _$challengeInfoFlowEnum_OOB_TRIGGER_FL;
+    case 'OTP_PHONE_FL':
+      return _$challengeInfoFlowEnum_OTP_PHONE_FL;
+    case 'PASSKEY_TRIGGER_FL':
+      return _$challengeInfoFlowEnum_PASSKEY_TRIGGER_FL;
     case 'unknownDefaultOpenApi':
       return _$challengeInfoFlowEnum_unknownDefaultOpenApi;
     default:
@@ -103,6 +111,8 @@ final BuiltSet<ChallengeInfoFlowEnum> _$challengeInfoFlowEnumValues =
       _$challengeInfoFlowEnum_PWD_OTP_PHONE_FL,
       _$challengeInfoFlowEnum_PWD_OTP_EMAIL_FL,
       _$challengeInfoFlowEnum_OOB_TRIGGER_FL,
+      _$challengeInfoFlowEnum_OTP_PHONE_FL,
+      _$challengeInfoFlowEnum_PASSKEY_TRIGGER_FL,
       _$challengeInfoFlowEnum_unknownDefaultOpenApi,
     ]);
 
@@ -167,12 +177,16 @@ class _$ChallengeInfoFlowEnumSerializer
     'PWD_OTP_PHONE_FL': 'PWD_OTP_PHONE_FL',
     'PWD_OTP_EMAIL_FL': 'PWD_OTP_EMAIL_FL',
     'OOB_TRIGGER_FL': 'OOB_TRIGGER_FL',
+    'OTP_PHONE_FL': 'OTP_PHONE_FL',
+    'PASSKEY_TRIGGER_FL': 'PASSKEY_TRIGGER_FL',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'PWD_OTP_PHONE_FL': 'PWD_OTP_PHONE_FL',
     'PWD_OTP_EMAIL_FL': 'PWD_OTP_EMAIL_FL',
     'OOB_TRIGGER_FL': 'OOB_TRIGGER_FL',
+    'OTP_PHONE_FL': 'OTP_PHONE_FL',
+    'PASSKEY_TRIGGER_FL': 'PASSKEY_TRIGGER_FL',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
 

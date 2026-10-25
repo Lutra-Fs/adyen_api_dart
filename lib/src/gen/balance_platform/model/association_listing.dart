@@ -16,7 +16,7 @@ part 'association_listing.g.dart';
 /// Properties:
 /// * [createdAt] - The date and time when the association was created.
 /// * [entityId] - The unique identifier of the entity.
-/// * [entityType] - The type of the entity.   Possible values: **accountHolder** or **paymentInstrument**.
+/// * [entityType] - The type of the entity.   Possible values: **accountHolder**, **legalEntity** or **paymentInstrument**.
 /// * [scaDeviceId] - The unique identifier of the SCA device.
 /// * [scaDeviceName] - The human-readable name for the SCA device that was registered.
 /// * [scaDeviceType] - The type of the device.
@@ -31,10 +31,10 @@ abstract class AssociationListing implements Built<AssociationListing, Associati
   @BuiltValueField(wireName: r'entityId')
   String get entityId;
 
-  /// The type of the entity.   Possible values: **accountHolder** or **paymentInstrument**.
+  /// The type of the entity.   Possible values: **accountHolder**, **legalEntity** or **paymentInstrument**.
   @BuiltValueField(wireName: r'entityType')
   ScaEntityType get entityType;
-  // enum entityTypeEnum {  accountHolder,  paymentInstrument,  };
+  // enum entityTypeEnum {  accountHolder,  legalEntity,  paymentInstrument,  };
 
   /// The unique identifier of the SCA device.
   @BuiltValueField(wireName: r'scaDeviceId')

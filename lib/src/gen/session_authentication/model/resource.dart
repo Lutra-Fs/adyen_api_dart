@@ -3,9 +3,7 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:adyen_api/src/gen/session_authentication/model/balance_account_resource.dart';
 import 'package:adyen_api/src/gen/session_authentication/model/payment_instrument_resource.dart';
-import 'package:adyen_api/src/gen/session_authentication/model/merchant_account_resource.dart';
 import 'package:adyen_api/src/gen/session_authentication/model/legal_entity_resource.dart';
 import 'package:adyen_api/src/gen/session_authentication/model/resource_type.dart';
 import 'package:adyen_api/src/gen/session_authentication/model/account_holder_resource.dart';
@@ -23,15 +21,13 @@ abstract class Resource  {
   /// The resource type.  Possible values: **accountHolder**, **legalEntity**.  You must also include the corresponding unique identifier of the resource. For example, the account holder ID.
   @BuiltValueField(wireName: r'type')
   ResourceType? get type;
-  // enum typeEnum {  legalEntity,  balanceAccount,  accountHolder,  merchantAccount,  paymentInstrument,  };
+  // enum typeEnum {  legalEntity,  accountHolder,  paymentInstrument,  };
 
   static const String discriminatorFieldName = r'type';
 
   static const Map<String, Type> discriminatorMapping = {
     r'accountHolder': AccountHolderResource,
-    r'balanceAccount': BalanceAccountResource,
     r'legalEntity': LegalEntityResource,
-    r'merchantAccount': MerchantAccountResource,
     r'paymentInstrument': PaymentInstrumentResource,
   };
 
@@ -44,14 +40,8 @@ extension ResourceDiscriminatorExt on Resource {
         if (this is AccountHolderResource) {
             return r'accountHolder';
         }
-        if (this is BalanceAccountResource) {
-            return r'balanceAccount';
-        }
         if (this is LegalEntityResource) {
             return r'legalEntity';
-        }
-        if (this is MerchantAccountResource) {
-            return r'merchantAccount';
         }
         if (this is PaymentInstrumentResource) {
             return r'paymentInstrument';
@@ -64,14 +54,8 @@ extension ResourceBuilderDiscriminatorExt on ResourceBuilder {
         if (this is AccountHolderResourceBuilder) {
             return r'accountHolder';
         }
-        if (this is BalanceAccountResourceBuilder) {
-            return r'balanceAccount';
-        }
         if (this is LegalEntityResourceBuilder) {
             return r'legalEntity';
-        }
-        if (this is MerchantAccountResourceBuilder) {
-            return r'merchantAccount';
         }
         if (this is PaymentInstrumentResourceBuilder) {
             return r'paymentInstrument';
@@ -110,14 +94,8 @@ class _$ResourceSerializer implements PrimitiveSerializer<Resource> {
     if (object is AccountHolderResource) {
       return serializers.serialize(object, specifiedType: FullType(AccountHolderResource))!;
     }
-    if (object is BalanceAccountResource) {
-      return serializers.serialize(object, specifiedType: FullType(BalanceAccountResource))!;
-    }
     if (object is LegalEntityResource) {
       return serializers.serialize(object, specifiedType: FullType(LegalEntityResource))!;
-    }
-    if (object is MerchantAccountResource) {
-      return serializers.serialize(object, specifiedType: FullType(MerchantAccountResource))!;
     }
     if (object is PaymentInstrumentResource) {
       return serializers.serialize(object, specifiedType: FullType(PaymentInstrumentResource))!;
@@ -137,12 +115,8 @@ class _$ResourceSerializer implements PrimitiveSerializer<Resource> {
     switch (discValue) {
       case r'accountHolder':
         return serializers.deserialize(serialized, specifiedType: FullType(AccountHolderResource)) as AccountHolderResource;
-      case r'balanceAccount':
-        return serializers.deserialize(serialized, specifiedType: FullType(BalanceAccountResource)) as BalanceAccountResource;
       case r'legalEntity':
         return serializers.deserialize(serialized, specifiedType: FullType(LegalEntityResource)) as LegalEntityResource;
-      case r'merchantAccount':
-        return serializers.deserialize(serialized, specifiedType: FullType(MerchantAccountResource)) as MerchantAccountResource;
       case r'paymentInstrument':
         return serializers.deserialize(serialized, specifiedType: FullType(PaymentInstrumentResource)) as PaymentInstrumentResource;
       default:

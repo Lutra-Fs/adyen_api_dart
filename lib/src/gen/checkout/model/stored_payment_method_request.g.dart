@@ -105,6 +105,8 @@ class _$StoredPaymentMethodRequest extends StoredPaymentMethodRequest {
   @override
   final String merchantAccount;
   @override
+  final OpiRequest? opi;
+  @override
   final PaymentMethodToStore paymentMethod;
   @override
   final StoredPaymentMethodRequestRecurringProcessingModelEnum
@@ -122,6 +124,7 @@ class _$StoredPaymentMethodRequest extends StoredPaymentMethodRequest {
 
   _$StoredPaymentMethodRequest._({
     required this.merchantAccount,
+    this.opi,
     required this.paymentMethod,
     required this.recurringProcessingModel,
     this.shopperEmail,
@@ -142,6 +145,7 @@ class _$StoredPaymentMethodRequest extends StoredPaymentMethodRequest {
     if (identical(other, this)) return true;
     return other is StoredPaymentMethodRequest &&
         merchantAccount == other.merchantAccount &&
+        opi == other.opi &&
         paymentMethod == other.paymentMethod &&
         recurringProcessingModel == other.recurringProcessingModel &&
         shopperEmail == other.shopperEmail &&
@@ -153,6 +157,7 @@ class _$StoredPaymentMethodRequest extends StoredPaymentMethodRequest {
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, merchantAccount.hashCode);
+    _$hash = $jc(_$hash, opi.hashCode);
     _$hash = $jc(_$hash, paymentMethod.hashCode);
     _$hash = $jc(_$hash, recurringProcessingModel.hashCode);
     _$hash = $jc(_$hash, shopperEmail.hashCode);
@@ -166,6 +171,7 @@ class _$StoredPaymentMethodRequest extends StoredPaymentMethodRequest {
   String toString() {
     return (newBuiltValueToStringHelper(r'StoredPaymentMethodRequest')
           ..add('merchantAccount', merchantAccount)
+          ..add('opi', opi)
           ..add('paymentMethod', paymentMethod)
           ..add('recurringProcessingModel', recurringProcessingModel)
           ..add('shopperEmail', shopperEmail)
@@ -184,6 +190,10 @@ class StoredPaymentMethodRequestBuilder
   String? get merchantAccount => _$this._merchantAccount;
   set merchantAccount(String? merchantAccount) =>
       _$this._merchantAccount = merchantAccount;
+
+  OpiRequestBuilder? _opi;
+  OpiRequestBuilder get opi => _$this._opi ??= OpiRequestBuilder();
+  set opi(OpiRequestBuilder? opi) => _$this._opi = opi;
 
   PaymentMethodToStoreBuilder? _paymentMethod;
   PaymentMethodToStoreBuilder get paymentMethod =>
@@ -221,6 +231,7 @@ class StoredPaymentMethodRequestBuilder
     final $v = _$v;
     if ($v != null) {
       _merchantAccount = $v.merchantAccount;
+      _opi = $v.opi?.toBuilder();
       _paymentMethod = $v.paymentMethod.toBuilder();
       _recurringProcessingModel = $v.recurringProcessingModel;
       _shopperEmail = $v.shopperEmail;
@@ -255,6 +266,7 @@ class StoredPaymentMethodRequestBuilder
               r'StoredPaymentMethodRequest',
               'merchantAccount',
             ),
+            opi: _opi?.build(),
             paymentMethod: paymentMethod.build(),
             recurringProcessingModel: BuiltValueNullFieldError.checkNotNull(
               recurringProcessingModel,
@@ -272,6 +284,8 @@ class StoredPaymentMethodRequestBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'opi';
+        _opi?.build();
         _$failedField = 'paymentMethod';
         paymentMethod.build();
       } catch (e) {

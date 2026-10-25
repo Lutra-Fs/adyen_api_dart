@@ -21,7 +21,7 @@ abstract class SoundContent implements Built<SoundContent, SoundContentBuilder> 
   /// Possible values: * **MessageRef** * **SoundRef** * **Text**
   @BuiltValueField(wireName: r'SoundFormat')
   SoundFormat get soundFormat;
-  // enum soundFormatEnum {  MessageRef,  SoundRef,  Text,  };
+  // enum soundFormatEnum {  SoundRef,  MessageRef,  Text,  };
 
   @BuiltValueField(wireName: r'Language')
   String? get language;

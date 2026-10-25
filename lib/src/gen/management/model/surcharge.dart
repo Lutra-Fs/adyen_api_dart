@@ -15,6 +15,7 @@ part 'surcharge.g.dart';
 /// Properties:
 /// * [askConfirmation] - Show the surcharge details on the terminal, so the shopper can confirm.
 /// * [configurations] - Surcharge fees or percentages for specific cards, funding sources (credit or debit), and currencies.
+/// * [disclosureOnPresentCard] - Show the maximum surcharge rate to the shopper on the present card screen before they tap.
 /// * [excludeGratuityFromSurcharge] - Exclude the tip amount from the surcharge calculation.
 @BuiltValue()
 abstract class Surcharge implements Built<Surcharge, SurchargeBuilder> {
@@ -25,6 +26,11 @@ abstract class Surcharge implements Built<Surcharge, SurchargeBuilder> {
   /// Surcharge fees or percentages for specific cards, funding sources (credit or debit), and currencies.
   @BuiltValueField(wireName: r'configurations')
   BuiltList<Configuration>? get configurations;
+
+  /// Show the maximum surcharge rate to the shopper on the present card screen before they tap.
+  @Deprecated('disclosureOnPresentCard has been deprecated')
+  @BuiltValueField(wireName: r'disclosureOnPresentCard')
+  bool? get disclosureOnPresentCard;
 
   /// Exclude the tip amount from the surcharge calculation.
   @BuiltValueField(wireName: r'excludeGratuityFromSurcharge')
@@ -65,6 +71,13 @@ class _$SurchargeSerializer implements PrimitiveSerializer<Surcharge> {
       yield serializers.serialize(
         object.configurations,
         specifiedType: const FullType(BuiltList, [FullType(Configuration)]),
+      );
+    }
+    if (object.disclosureOnPresentCard != null) {
+      yield r'disclosureOnPresentCard';
+      yield serializers.serialize(
+        object.disclosureOnPresentCard,
+        specifiedType: const FullType(bool),
       );
     }
     if (object.excludeGratuityFromSurcharge != null) {
@@ -110,6 +123,13 @@ class _$SurchargeSerializer implements PrimitiveSerializer<Surcharge> {
             specifiedType: const FullType(BuiltList, [FullType(Configuration)]),
           ) as BuiltList<Configuration>;
           result.configurations.replace(valueDes);
+          break;
+        case r'disclosureOnPresentCard':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.disclosureOnPresentCard = valueDes;
           break;
         case r'excludeGratuityFromSurcharge':
           final valueDes = serializers.deserialize(

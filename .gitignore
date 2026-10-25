@@ -52,3 +52,6 @@ coverage/
 .flutter-plugins-dependencies
 
 packages/gen/**/pubspec.lock
+
+# FVM Version Cache
+.fvm/

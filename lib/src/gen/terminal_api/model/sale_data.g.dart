@@ -6,12 +6,12 @@ part of 'sale_data.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-const SaleDataCustomerOrderReqEnum _$saleDataCustomerOrderReqEnum_both =
-    const SaleDataCustomerOrderReqEnum._('both');
-const SaleDataCustomerOrderReqEnum _$saleDataCustomerOrderReqEnum_closed =
-    const SaleDataCustomerOrderReqEnum._('closed');
 const SaleDataCustomerOrderReqEnum _$saleDataCustomerOrderReqEnum_open =
     const SaleDataCustomerOrderReqEnum._('open');
+const SaleDataCustomerOrderReqEnum _$saleDataCustomerOrderReqEnum_closed =
+    const SaleDataCustomerOrderReqEnum._('closed');
+const SaleDataCustomerOrderReqEnum _$saleDataCustomerOrderReqEnum_both =
+    const SaleDataCustomerOrderReqEnum._('both');
 const SaleDataCustomerOrderReqEnum
 _$saleDataCustomerOrderReqEnum_unknownDefaultOpenApi =
     const SaleDataCustomerOrderReqEnum._('unknownDefaultOpenApi');
@@ -20,12 +20,12 @@ SaleDataCustomerOrderReqEnum _$saleDataCustomerOrderReqEnumValueOf(
   String name,
 ) {
   switch (name) {
-    case 'both':
-      return _$saleDataCustomerOrderReqEnum_both;
-    case 'closed':
-      return _$saleDataCustomerOrderReqEnum_closed;
     case 'open':
       return _$saleDataCustomerOrderReqEnum_open;
+    case 'closed':
+      return _$saleDataCustomerOrderReqEnum_closed;
+    case 'both':
+      return _$saleDataCustomerOrderReqEnum_both;
     case 'unknownDefaultOpenApi':
       return _$saleDataCustomerOrderReqEnum_unknownDefaultOpenApi;
     default:
@@ -36,9 +36,9 @@ SaleDataCustomerOrderReqEnum _$saleDataCustomerOrderReqEnumValueOf(
 final BuiltSet<SaleDataCustomerOrderReqEnum>
 _$saleDataCustomerOrderReqEnumValues =
     BuiltSet<SaleDataCustomerOrderReqEnum>(const <SaleDataCustomerOrderReqEnum>[
-      _$saleDataCustomerOrderReqEnum_both,
-      _$saleDataCustomerOrderReqEnum_closed,
       _$saleDataCustomerOrderReqEnum_open,
+      _$saleDataCustomerOrderReqEnum_closed,
+      _$saleDataCustomerOrderReqEnum_both,
       _$saleDataCustomerOrderReqEnum_unknownDefaultOpenApi,
     ]);
 
@@ -49,15 +49,15 @@ _$saleDataCustomerOrderReqEnumSerializer =
 class _$SaleDataCustomerOrderReqEnumSerializer
     implements PrimitiveSerializer<SaleDataCustomerOrderReqEnum> {
   static const Map<String, Object> _toWire = const <String, Object>{
-    'both': 'Both',
-    'closed': 'Closed',
     'open': 'Open',
+    'closed': 'Closed',
+    'both': 'Both',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
-    'Both': 'both',
-    'Closed': 'closed',
     'Open': 'open',
+    'Closed': 'closed',
+    'Both': 'both',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
 

@@ -28,7 +28,7 @@ abstract class PaymentDetails implements Built<PaymentDetails, PaymentDetailsBui
   /// The payment method type.
   @BuiltValueField(wireName: r'type')
   PaymentDetailsTypeEnum? get type;
-  // enum typeEnum {  alipay,  multibanco,  bankTransfer,  bankTransfer_IBAN,  paybright,  paynow,  affirm_pos,  iris,  wero,  trustly,  trustlyvector,  oney,  facilypay,  facilypay_3x,  facilypay_4x,  facilypay_6x,  facilypay_10x,  facilypay_12x,  unionpay,  kcp_banktransfer,  kcp_payco,  kcp_creditcard,  wechatpaySDK,  wechatpayQR,  wechatpayWeb,  molpay_boost,  wallet_IN,  payu_IN_cashcard,  payu_IN_nb,  paytm,  molpay_ebanking_VN,  molpay_ebanking_MY,  molpay_ebanking_direct_MY,  swish,  bizum,  walley,  walley_b2b,  paypo,  scalapay,  scalapay_3x,  scalapay_4x,  molpay_fpx,  payme,  payme_pos,  konbini,  directEbanking,  boletobancario,  cashticket,  ikano,  karenmillen,  oasis,  warehouse,  primeiropay_boleto,  mada,  benefit,  knet,  omannet,  gopay_wallet,  kcp_naverpay,  fawry,  atome,  naps,  nordea,  boletobancario_bradesco,  boletobancario_itau,  boletobancario_santander,  boletobancario_bancodobrasil,  boletobancario_hsbc,  molpay_maybank2u,  molpay_cimb,  molpay_rhb,  molpay_amb,  molpay_hlb,  molpay_affin_epg,  molpay_bankislam,  molpay_publicbank,  fpx_agrobank,  touchngo,  maybank2u_mae,  duitnow,  promptpay,  twint_pos,  alipay_hk,  alipay_hk_web,  alipay_hk_wap,  alipay_wap,  balanceplatform,  };
+  // enum typeEnum {  alipay,  multibanco,  bankTransfer,  bankTransfer_IBAN,  paynow,  affirm_pos,  iris,  wero,  trustly,  trustlyvector,  oney,  facilypay,  facilypay_3x,  facilypay_4x,  facilypay_6x,  facilypay_10x,  facilypay_12x,  unionpay,  kcp_banktransfer,  kcp_payco,  kcp_creditcard,  wechatpaySDK,  wechatpayQR,  wechatpayWeb,  molpay_boost,  wallet_IN,  payu_IN_cashcard,  payu_IN_nb,  paytm,  molpay_ebanking_VN,  molpay_ebanking_MY,  molpay_ebanking_direct_MY,  swish,  bizum,  walley,  walley_b2b,  paypo,  satispay,  scalapay,  scalapay_3x,  scalapay_4x,  molpay_fpx,  payme,  payme_pos,  konbini,  directEbanking,  boletobancario,  cashticket,  ikano,  karenmillen,  oasis,  warehouse,  primeiropay_boleto,  mada,  benefit,  knet,  omannet,  kcp_naverpay,  fawry,  atome,  naps,  nordea,  boletobancario_bradesco,  boletobancario_itau,  boletobancario_santander,  boletobancario_bancodobrasil,  boletobancario_hsbc,  molpay_maybank2u,  molpay_cimb,  molpay_rhb,  molpay_amb,  molpay_hlb,  molpay_affin_epg,  molpay_bankislam,  molpay_publicbank,  fpx_agrobank,  touchngo,  maybank2u_mae,  duitnow,  promptpay,  twint_pos,  alipay_hk,  alipay_hk_web,  alipay_hk_wap,  alipay_wap,  balanceplatform,  };
 
   PaymentDetails._();
 
@@ -162,9 +162,6 @@ class PaymentDetailsTypeEnum extends EnumClass {
   @BuiltValueEnumConst(wireName: r'bankTransfer_IBAN')
   static const PaymentDetailsTypeEnum bankTransferIBAN = _$paymentDetailsTypeEnum_bankTransferIBAN;
   /// The payment method type.
-  @BuiltValueEnumConst(wireName: r'paybright')
-  static const PaymentDetailsTypeEnum paybright = _$paymentDetailsTypeEnum_paybright;
-  /// The payment method type.
   @BuiltValueEnumConst(wireName: r'paynow')
   static const PaymentDetailsTypeEnum paynow = _$paymentDetailsTypeEnum_paynow;
   /// The payment method type.
@@ -264,6 +261,9 @@ class PaymentDetailsTypeEnum extends EnumClass {
   @BuiltValueEnumConst(wireName: r'paypo')
   static const PaymentDetailsTypeEnum paypo = _$paymentDetailsTypeEnum_paypo;
   /// The payment method type.
+  @BuiltValueEnumConst(wireName: r'satispay')
+  static const PaymentDetailsTypeEnum satispay = _$paymentDetailsTypeEnum_satispay;
+  /// The payment method type.
   @BuiltValueEnumConst(wireName: r'scalapay')
   static const PaymentDetailsTypeEnum scalapay = _$paymentDetailsTypeEnum_scalapay;
   /// The payment method type.
@@ -320,9 +320,6 @@ class PaymentDetailsTypeEnum extends EnumClass {
   /// The payment method type.
   @BuiltValueEnumConst(wireName: r'omannet')
   static const PaymentDetailsTypeEnum omannet = _$paymentDetailsTypeEnum_omannet;
-  /// The payment method type.
-  @BuiltValueEnumConst(wireName: r'gopay_wallet')
-  static const PaymentDetailsTypeEnum gopayWallet = _$paymentDetailsTypeEnum_gopayWallet;
   /// The payment method type.
   @BuiltValueEnumConst(wireName: r'kcp_naverpay')
   static const PaymentDetailsTypeEnum kcpNaverpay = _$paymentDetailsTypeEnum_kcpNaverpay;

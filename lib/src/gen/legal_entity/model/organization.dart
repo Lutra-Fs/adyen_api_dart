@@ -29,21 +29,22 @@ part 'organization.g.dart';
 /// * [economicSector] - The sector of the economy the legal entity operates within, represented by a 2-4 digit code that may include a \".\". Example: 45.11  You can locate economic sector codes for your area by referencing codes defined by the NACE (Nomenclature of Economic Activities) used in the European Union. 
 /// * [email] - The email address of the legal entity.
 /// * [financialReports] - The financial report information of the organization.
-/// * [globalLegalEntityIdentifier] - The global legal entity identifier for the organization.
+/// * [globalLegalEntityIdentifier] - The global legal entity identifier for the organization.  This field is not required if the `registrationNumber` for the organization has been provided.
 /// * [headOfficeIndicator] - Indicates that the registered business address is also the company's headquarters.
 /// * [institutionalSector] - The institutional sector the organization operates within.
 /// * [legalForm] - The type of business entity as defined in the national legal system. Use a legal form listed within the accepted legal forms compiled by the Central Bank of Europe. 
-/// * [legalName] - The organization's legal name.
+/// * [legalName] - The organization's legal name. Must be at least 3 characters.  Only the following special characters are allowed: **,**, **-**, **—**, **.**, **;**, **:**, **&**, **?**, **@**, **(**, **)**, **\"**, **'**, **!**, **\\**, **+**, **_/_**. Accents and non-Latin scripts are allowed.  The field cannot contain emojis, only one repeated character (unless two characters long), only symbols, only numbers, only spaces, or **fictitious names** such as **John Doe** or **N/A**.  For more information, see [validations on fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
 /// * [phone] - The phone number of the legal entity.
 /// * [principalPlaceOfBusiness] - The address where the organization operates from. Provide this if the principal place of business is different from the `registeredAddress`.
-/// * [registeredAddress] - The address of the organization registered at their registrar (such as the Chamber of Commerce).
+/// * [registeredAddress] - The address of the organization registered at their registrar (such as the Chamber of Commerce). If you use a PO box, you must also provide a `principalPlaceOfBusiness`. The principal place of business cannot be a PO box.  Address fields cannot contain emojis, only one repeated character (unless two characters long), only symbols, only numbers, only spaces, or **fictitious values** such as **John Doe** or **N/A**. All parts of the address must be different. For example, Spain, Spain, Spain is not allowed.  For more information, see [validations on fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
 /// * [registrationNumber] - The organization's registration number.
 /// * [registrationNumberAbsent] - Set this to **true** if the organization does not have a registration number available. Only applicable for organizations in New Zealand, and incorporated partnerships and government organizations in Australia.
+/// * [residentialAddressIndicator] - Indicates if the `registeredAddress` is a place of residence, instead of a business address.  Set to **true** if the address is a place of residence. The default value is **false**.
 /// * [statusOfLegalProceeding] - The status of any current or past legal action taken against the legal entity.  Possible values: **noLegalActionsTaken**, **underJudicialAdministration**, **bankruptcyInsolvency**, **otherLegalMeasures**  If the value of this field is **noLegalActionsTaken**, then `dateOfInitiationOfLegalProceeding` is not required. Otherwise, it is required. 
 /// * [stockData] - Information about the organization's publicly traded stock. Provide this object only if `type` is **listedPublicCompany**.
 /// * [support] - Support information for the legal entity. Required if you have a platform setup.
 /// * [taxInformation] - The tax information of the organization.
-/// * [taxReportingClassification] - The tax reporting classification (FATCA/CRS self-certification) of the organization.
+/// * [taxReportingClassification] - The tax reporting classification (FATCA/CRS self-certification) of the organization. Not required if your organization is US-based and requests business bank account capabilities.
 /// * [type] - Type of organization.  Possible values: **associationIncorporated**, **governmentalOrganization**, **listedPublicCompany**, **nonProfit**, **partnershipIncorporated**, **privateCompany**.
 /// * [vatAbsenceReason] - The reason the organization has not provided a VAT number.  Possible values: **industryExemption**, **belowTaxThreshold**.
 /// * [vatNumber] - The organization's VAT number.
@@ -86,7 +87,7 @@ abstract class Organization implements Built<Organization, OrganizationBuilder> 
   @BuiltValueField(wireName: r'financialReports')
   BuiltList<FinancialReport>? get financialReports;
 
-  /// The global legal entity identifier for the organization.
+  /// The global legal entity identifier for the organization.  This field is not required if the `registrationNumber` for the organization has been provided.
   @BuiltValueField(wireName: r'globalLegalEntityIdentifier')
   String? get globalLegalEntityIdentifier;
 
@@ -103,7 +104,7 @@ abstract class Organization implements Built<Organization, OrganizationBuilder> 
   @BuiltValueField(wireName: r'legalForm')
   String? get legalForm;
 
-  /// The organization's legal name.
+  /// The organization's legal name. Must be at least 3 characters.  Only the following special characters are allowed: **,**, **-**, **—**, **.**, **;**, **:**, **&**, **?**, **@**, **(**, **)**, **\"**, **'**, **!**, **\\**, **+**, **_/_**. Accents and non-Latin scripts are allowed.  The field cannot contain emojis, only one repeated character (unless two characters long), only symbols, only numbers, only spaces, or **fictitious names** such as **John Doe** or **N/A**.  For more information, see [validations on fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
   @BuiltValueField(wireName: r'legalName')
   String get legalName;
 
@@ -115,7 +116,7 @@ abstract class Organization implements Built<Organization, OrganizationBuilder> 
   @BuiltValueField(wireName: r'principalPlaceOfBusiness')
   Address? get principalPlaceOfBusiness;
 
-  /// The address of the organization registered at their registrar (such as the Chamber of Commerce).
+  /// The address of the organization registered at their registrar (such as the Chamber of Commerce). If you use a PO box, you must also provide a `principalPlaceOfBusiness`. The principal place of business cannot be a PO box.  Address fields cannot contain emojis, only one repeated character (unless two characters long), only symbols, only numbers, only spaces, or **fictitious values** such as **John Doe** or **N/A**. All parts of the address must be different. For example, Spain, Spain, Spain is not allowed.  For more information, see [validations on fields](https://docs.adyen.com/platforms/onboard-users/onboarding-versions/onboarding-v4/#validations).
   @BuiltValueField(wireName: r'registeredAddress')
   Address get registeredAddress;
 
@@ -126,6 +127,10 @@ abstract class Organization implements Built<Organization, OrganizationBuilder> 
   /// Set this to **true** if the organization does not have a registration number available. Only applicable for organizations in New Zealand, and incorporated partnerships and government organizations in Australia.
   @BuiltValueField(wireName: r'registrationNumberAbsent')
   bool? get registrationNumberAbsent;
+
+  /// Indicates if the `registeredAddress` is a place of residence, instead of a business address.  Set to **true** if the address is a place of residence. The default value is **false**.
+  @BuiltValueField(wireName: r'residentialAddressIndicator')
+  bool? get residentialAddressIndicator;
 
   /// The status of any current or past legal action taken against the legal entity.  Possible values: **noLegalActionsTaken**, **underJudicialAdministration**, **bankruptcyInsolvency**, **otherLegalMeasures**  If the value of this field is **noLegalActionsTaken**, then `dateOfInitiationOfLegalProceeding` is not required. Otherwise, it is required. 
   @BuiltValueField(wireName: r'statusOfLegalProceeding')
@@ -144,7 +149,7 @@ abstract class Organization implements Built<Organization, OrganizationBuilder> 
   @BuiltValueField(wireName: r'taxInformation')
   BuiltList<TaxInformation>? get taxInformation;
 
-  /// The tax reporting classification (FATCA/CRS self-certification) of the organization.
+  /// The tax reporting classification (FATCA/CRS self-certification) of the organization. Not required if your organization is US-based and requests business bank account capabilities.
   @BuiltValueField(wireName: r'taxReportingClassification')
   TaxReportingClassification? get taxReportingClassification;
 
@@ -316,6 +321,13 @@ class _$OrganizationSerializer implements PrimitiveSerializer<Organization> {
       yield r'registrationNumberAbsent';
       yield serializers.serialize(
         object.registrationNumberAbsent,
+        specifiedType: const FullType(bool),
+      );
+    }
+    if (object.residentialAddressIndicator != null) {
+      yield r'residentialAddressIndicator';
+      yield serializers.serialize(
+        object.residentialAddressIndicator,
         specifiedType: const FullType(bool),
       );
     }
@@ -537,6 +549,13 @@ class _$OrganizationSerializer implements PrimitiveSerializer<Organization> {
             specifiedType: const FullType(bool),
           ) as bool;
           result.registrationNumberAbsent = valueDes;
+          break;
+        case r'residentialAddressIndicator':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.residentialAddressIndicator = valueDes;
           break;
         case r'statusOfLegalProceeding':
           final valueDes = serializers.deserialize(

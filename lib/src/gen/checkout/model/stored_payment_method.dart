@@ -15,8 +15,10 @@ part 'stored_payment_method.g.dart';
 /// * [bankAccountNumber] - The bank account number (without separators).
 /// * [bankLocationId] - The location id of the bank. The field value is `nil` in most cases.
 /// * [brand] - The brand of the card.
+/// * [cashtag] - The shopper’s Cash App Pay Cashtag.
 /// * [expiryMonth] - The two-digit month when the card expires
 /// * [expiryYear] - The last two digits of the year the card expires. For example, **22** for the year 2022.
+/// * [externalToken] - The token issued by an external tokenization service representing the shopper's payment method
 /// * [holderName] - The name of the payment method holder.
 /// * [iban] - The IBAN of the bank account.
 /// * [id] - A unique identifier of this stored payment method.
@@ -43,6 +45,10 @@ abstract class StoredPaymentMethod implements Built<StoredPaymentMethod, StoredP
   @BuiltValueField(wireName: r'brand')
   String? get brand;
 
+  /// The shopper’s Cash App Pay Cashtag.
+  @BuiltValueField(wireName: r'cashtag')
+  String? get cashtag;
+
   /// The two-digit month when the card expires
   @BuiltValueField(wireName: r'expiryMonth')
   String? get expiryMonth;
@@ -50,6 +56,10 @@ abstract class StoredPaymentMethod implements Built<StoredPaymentMethod, StoredP
   /// The last two digits of the year the card expires. For example, **22** for the year 2022.
   @BuiltValueField(wireName: r'expiryYear')
   String? get expiryYear;
+
+  /// The token issued by an external tokenization service representing the shopper's payment method
+  @BuiltValueField(wireName: r'externalToken')
+  String? get externalToken;
 
   /// The name of the payment method holder.
   @BuiltValueField(wireName: r'holderName')
@@ -143,6 +153,13 @@ class _$StoredPaymentMethodSerializer implements PrimitiveSerializer<StoredPayme
         specifiedType: const FullType(String),
       );
     }
+    if (object.cashtag != null) {
+      yield r'cashtag';
+      yield serializers.serialize(
+        object.cashtag,
+        specifiedType: const FullType(String),
+      );
+    }
     if (object.expiryMonth != null) {
       yield r'expiryMonth';
       yield serializers.serialize(
@@ -154,6 +171,13 @@ class _$StoredPaymentMethodSerializer implements PrimitiveSerializer<StoredPayme
       yield r'expiryYear';
       yield serializers.serialize(
         object.expiryYear,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.externalToken != null) {
+      yield r'externalToken';
+      yield serializers.serialize(
+        object.externalToken,
         specifiedType: const FullType(String),
       );
     }
@@ -285,6 +309,13 @@ class _$StoredPaymentMethodSerializer implements PrimitiveSerializer<StoredPayme
           ) as String;
           result.brand = valueDes;
           break;
+        case r'cashtag':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.cashtag = valueDes;
+          break;
         case r'expiryMonth':
           final valueDes = serializers.deserialize(
             value,
@@ -298,6 +329,13 @@ class _$StoredPaymentMethodSerializer implements PrimitiveSerializer<StoredPayme
             specifiedType: const FullType(String),
           ) as String;
           result.expiryYear = valueDes;
+          break;
+        case r'externalToken':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.externalToken = valueDes;
           break;
         case r'holderName':
           final valueDes = serializers.deserialize(

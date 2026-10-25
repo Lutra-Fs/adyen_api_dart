@@ -631,6 +631,8 @@ const TransferStatusEnum _$transferStatusEnum_paymentCost =
     const TransferStatusEnum._('paymentCost');
 const TransferStatusEnum _$transferStatusEnum_paymentCostPending =
     const TransferStatusEnum._('paymentCostPending');
+const TransferStatusEnum _$transferStatusEnum_pending =
+    const TransferStatusEnum._('pending');
 const TransferStatusEnum _$transferStatusEnum_pendingApproval =
     const TransferStatusEnum._('pendingApproval');
 const TransferStatusEnum _$transferStatusEnum_pendingExecution =
@@ -657,6 +659,10 @@ const TransferStatusEnum _$transferStatusEnum_reserveAdjustmentPending =
     const TransferStatusEnum._('reserveAdjustmentPending');
 const TransferStatusEnum _$transferStatusEnum_returned =
     const TransferStatusEnum._('returned');
+const TransferStatusEnum _$transferStatusEnum_reversalReceived =
+    const TransferStatusEnum._('reversalReceived');
+const TransferStatusEnum _$transferStatusEnum_reversed =
+    const TransferStatusEnum._('reversed');
 const TransferStatusEnum _$transferStatusEnum_secondChargeback =
     const TransferStatusEnum._('secondChargeback');
 const TransferStatusEnum _$transferStatusEnum_secondChargebackPending =
@@ -772,6 +778,8 @@ TransferStatusEnum _$transferStatusEnumValueOf(String name) {
       return _$transferStatusEnum_paymentCost;
     case 'paymentCostPending':
       return _$transferStatusEnum_paymentCostPending;
+    case 'pending':
+      return _$transferStatusEnum_pending;
     case 'pendingApproval':
       return _$transferStatusEnum_pendingApproval;
     case 'pendingExecution':
@@ -798,6 +806,10 @@ TransferStatusEnum _$transferStatusEnumValueOf(String name) {
       return _$transferStatusEnum_reserveAdjustmentPending;
     case 'returned':
       return _$transferStatusEnum_returned;
+    case 'reversalReceived':
+      return _$transferStatusEnum_reversalReceived;
+    case 'reversed':
+      return _$transferStatusEnum_reversed;
     case 'secondChargeback':
       return _$transferStatusEnum_secondChargeback;
     case 'secondChargebackPending':
@@ -865,6 +877,7 @@ final BuiltSet<TransferStatusEnum> _$transferStatusEnumValues =
       _$transferStatusEnum_miscCostPending,
       _$transferStatusEnum_paymentCost,
       _$transferStatusEnum_paymentCostPending,
+      _$transferStatusEnum_pending,
       _$transferStatusEnum_pendingApproval,
       _$transferStatusEnum_pendingExecution,
       _$transferStatusEnum_received,
@@ -878,6 +891,8 @@ final BuiltSet<TransferStatusEnum> _$transferStatusEnumValues =
       _$transferStatusEnum_reserveAdjustment,
       _$transferStatusEnum_reserveAdjustmentPending,
       _$transferStatusEnum_returned,
+      _$transferStatusEnum_reversalReceived,
+      _$transferStatusEnum_reversed,
       _$transferStatusEnum_secondChargeback,
       _$transferStatusEnum_secondChargebackPending,
       _$transferStatusEnum_undefined,
@@ -968,6 +983,12 @@ const TransferTypeEnum _$transferTypeEnum_balanceRollover =
     const TransferTypeEnum._('balanceRollover');
 const TransferTypeEnum _$transferTypeEnum_balanceMigration =
     const TransferTypeEnum._('balanceMigration');
+const TransferTypeEnum _$transferTypeEnum_fxSell = const TransferTypeEnum._(
+  'fxSell',
+);
+const TransferTypeEnum _$transferTypeEnum_fxBuy = const TransferTypeEnum._(
+  'fxBuy',
+);
 const TransferTypeEnum _$transferTypeEnum_unknownDefaultOpenApi =
     const TransferTypeEnum._('unknownDefaultOpenApi');
 
@@ -1049,6 +1070,10 @@ TransferTypeEnum _$transferTypeEnumValueOf(String name) {
       return _$transferTypeEnum_balanceRollover;
     case 'balanceMigration':
       return _$transferTypeEnum_balanceMigration;
+    case 'fxSell':
+      return _$transferTypeEnum_fxSell;
+    case 'fxBuy':
+      return _$transferTypeEnum_fxBuy;
     case 'unknownDefaultOpenApi':
       return _$transferTypeEnum_unknownDefaultOpenApi;
     default:
@@ -1096,6 +1121,8 @@ final BuiltSet<TransferTypeEnum> _$transferTypeEnumValues =
       _$transferTypeEnum_balanceAdjustment,
       _$transferTypeEnum_balanceRollover,
       _$transferTypeEnum_balanceMigration,
+      _$transferTypeEnum_fxSell,
+      _$transferTypeEnum_fxBuy,
       _$transferTypeEnum_unknownDefaultOpenApi,
     ]);
 
@@ -1446,6 +1473,7 @@ class _$TransferStatusEnumSerializer
     'miscCostPending': 'miscCostPending',
     'paymentCost': 'paymentCost',
     'paymentCostPending': 'paymentCostPending',
+    'pending': 'pending',
     'pendingApproval': 'pendingApproval',
     'pendingExecution': 'pendingExecution',
     'received': 'received',
@@ -1459,6 +1487,8 @@ class _$TransferStatusEnumSerializer
     'reserveAdjustment': 'reserveAdjustment',
     'reserveAdjustmentPending': 'reserveAdjustmentPending',
     'returned': 'returned',
+    'reversalReceived': 'reversalReceived',
+    'reversed': 'reversed',
     'secondChargeback': 'secondChargeback',
     'secondChargebackPending': 'secondChargebackPending',
     'undefined': 'undefined',
@@ -1517,6 +1547,7 @@ class _$TransferStatusEnumSerializer
     'miscCostPending': 'miscCostPending',
     'paymentCost': 'paymentCost',
     'paymentCostPending': 'paymentCostPending',
+    'pending': 'pending',
     'pendingApproval': 'pendingApproval',
     'pendingExecution': 'pendingExecution',
     'received': 'received',
@@ -1530,6 +1561,8 @@ class _$TransferStatusEnumSerializer
     'reserveAdjustment': 'reserveAdjustment',
     'reserveAdjustmentPending': 'reserveAdjustmentPending',
     'returned': 'returned',
+    'reversalReceived': 'reversalReceived',
+    'reversed': 'reversed',
     'secondChargeback': 'secondChargeback',
     'secondChargebackPending': 'secondChargebackPending',
     'undefined': 'undefined',
@@ -1599,6 +1632,8 @@ class _$TransferTypeEnumSerializer
     'balanceAdjustment': 'balanceAdjustment',
     'balanceRollover': 'balanceRollover',
     'balanceMigration': 'balanceMigration',
+    'fxSell': 'fxSell',
+    'fxBuy': 'fxBuy',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
@@ -1640,6 +1675,8 @@ class _$TransferTypeEnumSerializer
     'balanceAdjustment': 'balanceAdjustment',
     'balanceRollover': 'balanceRollover',
     'balanceMigration': 'balanceMigration',
+    'fxSell': 'fxSell',
+    'fxBuy': 'fxBuy',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
 
@@ -1706,6 +1743,8 @@ class _$Transfer extends Transfer {
   final TransferStatusEnum status;
   @override
   final TransferTypeEnum? type;
+  @override
+  final UltimatePartyIdentification? ultimateParty;
 
   factory _$Transfer([void Function(TransferBuilder)? updates]) =>
       (TransferBuilder()..update(updates))._build();
@@ -1731,6 +1770,7 @@ class _$Transfer extends Transfer {
     this.review,
     required this.status,
     this.type,
+    this.ultimateParty,
   }) : super._();
   @override
   Transfer rebuild(void Function(TransferBuilder) updates) =>
@@ -1762,7 +1802,8 @@ class _$Transfer extends Transfer {
         referenceForBeneficiary == other.referenceForBeneficiary &&
         review == other.review &&
         status == other.status &&
-        type == other.type;
+        type == other.type &&
+        ultimateParty == other.ultimateParty;
   }
 
   @override
@@ -1788,6 +1829,7 @@ class _$Transfer extends Transfer {
     _$hash = $jc(_$hash, review.hashCode);
     _$hash = $jc(_$hash, status.hashCode);
     _$hash = $jc(_$hash, type.hashCode);
+    _$hash = $jc(_$hash, ultimateParty.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -1814,7 +1856,8 @@ class _$Transfer extends Transfer {
           ..add('referenceForBeneficiary', referenceForBeneficiary)
           ..add('review', review)
           ..add('status', status)
-          ..add('type', type))
+          ..add('type', type)
+          ..add('ultimateParty', ultimateParty))
         .toString();
   }
 }
@@ -1921,6 +1964,12 @@ class TransferBuilder implements Builder<Transfer, TransferBuilder> {
   TransferTypeEnum? get type => _$this._type;
   set type(TransferTypeEnum? type) => _$this._type = type;
 
+  UltimatePartyIdentificationBuilder? _ultimateParty;
+  UltimatePartyIdentificationBuilder get ultimateParty =>
+      _$this._ultimateParty ??= UltimatePartyIdentificationBuilder();
+  set ultimateParty(UltimatePartyIdentificationBuilder? ultimateParty) =>
+      _$this._ultimateParty = ultimateParty;
+
   TransferBuilder() {
     Transfer._defaults(this);
   }
@@ -1948,6 +1997,7 @@ class TransferBuilder implements Builder<Transfer, TransferBuilder> {
       _review = $v.review?.toBuilder();
       _status = $v.status;
       _type = $v.type;
+      _ultimateParty = $v.ultimateParty?.toBuilder();
       _$v = null;
     }
     return this;
@@ -2000,6 +2050,7 @@ class TransferBuilder implements Builder<Transfer, TransferBuilder> {
               'status',
             ),
             type: type,
+            ultimateParty: _ultimateParty?.build(),
           );
     } catch (_) {
       late String _$failedField;
@@ -2027,6 +2078,9 @@ class TransferBuilder implements Builder<Transfer, TransferBuilder> {
 
         _$failedField = 'review';
         _review?.build();
+
+        _$failedField = 'ultimateParty';
+        _ultimateParty?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
           r'Transfer',

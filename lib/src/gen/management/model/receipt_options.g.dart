@@ -8,6 +8,10 @@ part of 'receipt_options.dart';
 
 class _$ReceiptOptions extends ReceiptOptions {
   @override
+  final String? headerLine1;
+  @override
+  final String? headerLine2;
+  @override
   final String? logo;
   @override
   final bool? promptBeforePrinting;
@@ -17,8 +21,13 @@ class _$ReceiptOptions extends ReceiptOptions {
   factory _$ReceiptOptions([void Function(ReceiptOptionsBuilder)? updates]) =>
       (ReceiptOptionsBuilder()..update(updates))._build();
 
-  _$ReceiptOptions._({this.logo, this.promptBeforePrinting, this.qrCodeData})
-    : super._();
+  _$ReceiptOptions._({
+    this.headerLine1,
+    this.headerLine2,
+    this.logo,
+    this.promptBeforePrinting,
+    this.qrCodeData,
+  }) : super._();
   @override
   ReceiptOptions rebuild(void Function(ReceiptOptionsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
@@ -30,6 +39,8 @@ class _$ReceiptOptions extends ReceiptOptions {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is ReceiptOptions &&
+        headerLine1 == other.headerLine1 &&
+        headerLine2 == other.headerLine2 &&
         logo == other.logo &&
         promptBeforePrinting == other.promptBeforePrinting &&
         qrCodeData == other.qrCodeData;
@@ -38,6 +49,8 @@ class _$ReceiptOptions extends ReceiptOptions {
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, headerLine1.hashCode);
+    _$hash = $jc(_$hash, headerLine2.hashCode);
     _$hash = $jc(_$hash, logo.hashCode);
     _$hash = $jc(_$hash, promptBeforePrinting.hashCode);
     _$hash = $jc(_$hash, qrCodeData.hashCode);
@@ -48,6 +61,8 @@ class _$ReceiptOptions extends ReceiptOptions {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'ReceiptOptions')
+          ..add('headerLine1', headerLine1)
+          ..add('headerLine2', headerLine2)
           ..add('logo', logo)
           ..add('promptBeforePrinting', promptBeforePrinting)
           ..add('qrCodeData', qrCodeData))
@@ -58,6 +73,14 @@ class _$ReceiptOptions extends ReceiptOptions {
 class ReceiptOptionsBuilder
     implements Builder<ReceiptOptions, ReceiptOptionsBuilder> {
   _$ReceiptOptions? _$v;
+
+  String? _headerLine1;
+  String? get headerLine1 => _$this._headerLine1;
+  set headerLine1(String? headerLine1) => _$this._headerLine1 = headerLine1;
+
+  String? _headerLine2;
+  String? get headerLine2 => _$this._headerLine2;
+  set headerLine2(String? headerLine2) => _$this._headerLine2 = headerLine2;
 
   String? _logo;
   String? get logo => _$this._logo;
@@ -79,6 +102,8 @@ class ReceiptOptionsBuilder
   ReceiptOptionsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _headerLine1 = $v.headerLine1;
+      _headerLine2 = $v.headerLine2;
       _logo = $v.logo;
       _promptBeforePrinting = $v.promptBeforePrinting;
       _qrCodeData = $v.qrCodeData;
@@ -104,6 +129,8 @@ class ReceiptOptionsBuilder
     final _$result =
         _$v ??
         _$ReceiptOptions._(
+          headerLine1: headerLine1,
+          headerLine2: headerLine2,
           logo: logo,
           promptBeforePrinting: promptBeforePrinting,
           qrCodeData: qrCodeData,

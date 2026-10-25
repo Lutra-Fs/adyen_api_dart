@@ -11,14 +11,19 @@ part 'character_style.g.dart';
 
 class CharacterStyle extends EnumClass {
 
-  @BuiltValueEnumConst(wireName: r'Bold')
-  static const CharacterStyle bold = _$bold;
-  @BuiltValueEnumConst(wireName: r'Italic')
-  static const CharacterStyle italic = _$italic;
+  ///  Possible values: * **Normal** * **Bold** * **Italic** * **Underline**
   @BuiltValueEnumConst(wireName: r'Normal')
   static const CharacterStyle normal = _$normal;
+  ///  Possible values: * **Normal** * **Bold** * **Italic** * **Underline**
+  @BuiltValueEnumConst(wireName: r'Bold')
+  static const CharacterStyle bold = _$bold;
+  ///  Possible values: * **Normal** * **Bold** * **Italic** * **Underline**
+  @BuiltValueEnumConst(wireName: r'Italic')
+  static const CharacterStyle italic = _$italic;
+  ///  Possible values: * **Normal** * **Bold** * **Italic** * **Underline**
   @BuiltValueEnumConst(wireName: r'Underline')
   static const CharacterStyle underline = _$underline;
+  ///  Possible values: * **Normal** * **Bold** * **Italic** * **Underline**
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const CharacterStyle unknownDefaultOpenApi = _$unknownDefaultOpenApi;
 

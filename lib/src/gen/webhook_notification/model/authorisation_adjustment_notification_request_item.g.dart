@@ -182,6 +182,11 @@ _$authorisationAdjustmentNotificationRequestItemEventCodeEnum_REFUND_FAILED =
       'REFUND_FAILED',
     );
 const AuthorisationAdjustmentNotificationRequestItemEventCodeEnum
+_$authorisationAdjustmentNotificationRequestItemEventCodeEnum_REFUND_NOT_CLEARED =
+    const AuthorisationAdjustmentNotificationRequestItemEventCodeEnum._(
+      'REFUND_NOT_CLEARED',
+    );
+const AuthorisationAdjustmentNotificationRequestItemEventCodeEnum
 _$authorisationAdjustmentNotificationRequestItemEventCodeEnum_REFUND_WITH_DATA =
     const AuthorisationAdjustmentNotificationRequestItemEventCodeEnum._(
       'REFUND_WITH_DATA',
@@ -192,9 +197,19 @@ _$authorisationAdjustmentNotificationRequestItemEventCodeEnum_REQUEST_FOR_INFORM
       'REQUEST_FOR_INFORMATION',
     );
 const AuthorisationAdjustmentNotificationRequestItemEventCodeEnum
+_$authorisationAdjustmentNotificationRequestItemEventCodeEnum_REVERSAL =
+    const AuthorisationAdjustmentNotificationRequestItemEventCodeEnum._(
+      'REVERSAL',
+    );
+const AuthorisationAdjustmentNotificationRequestItemEventCodeEnum
 _$authorisationAdjustmentNotificationRequestItemEventCodeEnum_SECOND_CHARGEBACK =
     const AuthorisationAdjustmentNotificationRequestItemEventCodeEnum._(
       'SECOND_CHARGEBACK',
+    );
+const AuthorisationAdjustmentNotificationRequestItemEventCodeEnum
+_$authorisationAdjustmentNotificationRequestItemEventCodeEnum_SETTLED_REVERSED =
+    const AuthorisationAdjustmentNotificationRequestItemEventCodeEnum._(
+      'SETTLED_REVERSED',
     );
 const AuthorisationAdjustmentNotificationRequestItemEventCodeEnum
 _$authorisationAdjustmentNotificationRequestItemEventCodeEnum_TECHNICAL_CANCEL =
@@ -287,12 +302,18 @@ _$authorisationAdjustmentNotificationRequestItemEventCodeEnumValueOf(
       return _$authorisationAdjustmentNotificationRequestItemEventCodeEnum_REFUNDED_REVERSED;
     case 'REFUND_FAILED':
       return _$authorisationAdjustmentNotificationRequestItemEventCodeEnum_REFUND_FAILED;
+    case 'REFUND_NOT_CLEARED':
+      return _$authorisationAdjustmentNotificationRequestItemEventCodeEnum_REFUND_NOT_CLEARED;
     case 'REFUND_WITH_DATA':
       return _$authorisationAdjustmentNotificationRequestItemEventCodeEnum_REFUND_WITH_DATA;
     case 'REQUEST_FOR_INFORMATION':
       return _$authorisationAdjustmentNotificationRequestItemEventCodeEnum_REQUEST_FOR_INFORMATION;
+    case 'REVERSAL':
+      return _$authorisationAdjustmentNotificationRequestItemEventCodeEnum_REVERSAL;
     case 'SECOND_CHARGEBACK':
       return _$authorisationAdjustmentNotificationRequestItemEventCodeEnum_SECOND_CHARGEBACK;
+    case 'SETTLED_REVERSED':
+      return _$authorisationAdjustmentNotificationRequestItemEventCodeEnum_SETTLED_REVERSED;
     case 'TECHNICAL_CANCEL':
       return _$authorisationAdjustmentNotificationRequestItemEventCodeEnum_TECHNICAL_CANCEL;
     case 'VOID_PENDING_REFUND':
@@ -343,9 +364,12 @@ _$authorisationAdjustmentNotificationRequestItemEventCodeEnumValues = BuiltSet<A
   _$authorisationAdjustmentNotificationRequestItemEventCodeEnum_REFUND,
   _$authorisationAdjustmentNotificationRequestItemEventCodeEnum_REFUNDED_REVERSED,
   _$authorisationAdjustmentNotificationRequestItemEventCodeEnum_REFUND_FAILED,
+  _$authorisationAdjustmentNotificationRequestItemEventCodeEnum_REFUND_NOT_CLEARED,
   _$authorisationAdjustmentNotificationRequestItemEventCodeEnum_REFUND_WITH_DATA,
   _$authorisationAdjustmentNotificationRequestItemEventCodeEnum_REQUEST_FOR_INFORMATION,
+  _$authorisationAdjustmentNotificationRequestItemEventCodeEnum_REVERSAL,
   _$authorisationAdjustmentNotificationRequestItemEventCodeEnum_SECOND_CHARGEBACK,
+  _$authorisationAdjustmentNotificationRequestItemEventCodeEnum_SETTLED_REVERSED,
   _$authorisationAdjustmentNotificationRequestItemEventCodeEnum_TECHNICAL_CANCEL,
   _$authorisationAdjustmentNotificationRequestItemEventCodeEnum_VOID_PENDING_REFUND,
   _$authorisationAdjustmentNotificationRequestItemEventCodeEnum_unknownDefaultOpenApi,
@@ -396,9 +420,12 @@ class _$AuthorisationAdjustmentNotificationRequestItemEventCodeEnumSerializer
     'REFUND': 'REFUND',
     'REFUNDED_REVERSED': 'REFUNDED_REVERSED',
     'REFUND_FAILED': 'REFUND_FAILED',
+    'REFUND_NOT_CLEARED': 'REFUND_NOT_CLEARED',
     'REFUND_WITH_DATA': 'REFUND_WITH_DATA',
     'REQUEST_FOR_INFORMATION': 'REQUEST_FOR_INFORMATION',
+    'REVERSAL': 'REVERSAL',
     'SECOND_CHARGEBACK': 'SECOND_CHARGEBACK',
+    'SETTLED_REVERSED': 'SETTLED_REVERSED',
     'TECHNICAL_CANCEL': 'TECHNICAL_CANCEL',
     'VOID_PENDING_REFUND': 'VOID_PENDING_REFUND',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
@@ -439,9 +466,12 @@ class _$AuthorisationAdjustmentNotificationRequestItemEventCodeEnumSerializer
     'REFUND': 'REFUND',
     'REFUNDED_REVERSED': 'REFUNDED_REVERSED',
     'REFUND_FAILED': 'REFUND_FAILED',
+    'REFUND_NOT_CLEARED': 'REFUND_NOT_CLEARED',
     'REFUND_WITH_DATA': 'REFUND_WITH_DATA',
     'REQUEST_FOR_INFORMATION': 'REQUEST_FOR_INFORMATION',
+    'REVERSAL': 'REVERSAL',
     'SECOND_CHARGEBACK': 'SECOND_CHARGEBACK',
+    'SETTLED_REVERSED': 'SETTLED_REVERSED',
     'TECHNICAL_CANCEL': 'TECHNICAL_CANCEL',
     'VOID_PENDING_REFUND': 'VOID_PENDING_REFUND',
     'unknown_default_open_api': 'unknownDefaultOpenApi',

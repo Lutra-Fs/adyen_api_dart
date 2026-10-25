@@ -37,8 +37,8 @@ adyen_api_dart/
 │   │   └── core/             # Core configuration
 │   └── *.dart                # Public exports
 ├── tool/
-│   ├── codegen/              # Code generation scripts
-│   └── generate_model_exports.dart
+│   ├── codegen/              # Code generation and post-processing scripts
+│   └── generate_model_exports.sh
 ├── test/                     # Tests
 └── example/                  # Usage examples
 ```
@@ -61,7 +61,7 @@ export OPENAPI_ROOT=/path/to/local/adyen-openapi
 ./tool/generate_model_exports.sh
 
 # Run build_runner to generate .g.dart files
-fvm dart run build_runner build --delete-conflicting-outputs
+fvm dart run build_runner build
 ```
 
 ### Code Generation Details
@@ -69,7 +69,7 @@ fvm dart run build_runner build --delete-conflicting-outputs
 - **Generator**: openapi-generator v7.18.0 (dart-dio)
 - **Specs**: Locked at commit in `tool/openapi.lock.json`
 - **Output**: `lib/src/gen/` (following single package pattern)
-- **Post-processing**: `tool/codegen/generate.sh` applies discriminator type conversion fixes
+- **Post-processing**: `tool/codegen/generate.sh` invokes `tool/codegen/postprocess.sh` for discriminator and webhook import fixes
 
 ## Testing
 
@@ -81,12 +81,17 @@ fvm dart test
 fvm dart test --coverage=coverage
 
 # Run specific test file
-fvm dart test test/checkout_test.dart
+fvm dart test test/services/checkout_test.dart
 ```
 
 ## Code Style
 
-- Run `fvm dart format --set-exit-if-changed .` before committing
+- Format hand-written code before committing, excluding `lib/src/gen/`:
+
+  ```bash
+  fvm dart format --set-exit-if-changed example test tool lib/*.dart lib/src/core lib/src/constants lib/src/domain lib/src/http lib/src/security lib/src/utils
+  ```
+
 - Run `fvm dart analyze` to check for issues
 - Follow [Dart style guidelines](https://dart.dev/guides/language/effective-dart/style)
 

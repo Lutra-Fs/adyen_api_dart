@@ -46,7 +46,7 @@ abstract class Instalment implements Built<Instalment, InstalmentBuilder> {
   /// Type of instalment transaction. Possible values: * **Annual** * **Daily** * **Monthly** * **Weekly**
   @BuiltValueField(wireName: r'PeriodUnit')
   PeriodUnit? get periodUnit;
-  // enum periodUnitEnum {  Annual,  Daily,  Monthly,  Weekly,  };
+  // enum periodUnitEnum {  Daily,  Weekly,  Monthly,  Annual,  };
 
   /// First date of a payment. For instalment, the date of the first payments, if not immediate.
   @BuiltValueField(wireName: r'FirstPaymentDate')

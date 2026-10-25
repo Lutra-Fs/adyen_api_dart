@@ -8,59 +8,67 @@ part of 'update_payment_method_info.dart';
 
 class _$UpdatePaymentMethodInfo extends UpdatePaymentMethodInfo {
   @override
-  final AccelInfo? accel;
+  final AccelUpdateInfo? accel;
   @override
-  final BcmcInfo? bcmc;
+  final AffirmUpdateInfo? affirm;
   @override
-  final CartesBancairesInfo? cartesBancaires;
+  final BcmcUpdateInfo? bcmc;
+  @override
+  final GenericPmWithTdiUpdateInfo? carnet;
+  @override
+  final CartesBancairesUpdateInfo? cartesBancaires;
+  @override
+  final CashAppUpdateInfo? cashapp;
   @override
   final BuiltList<String>? countries;
   @override
-  final GenericPmWithTdiInfo? cup;
+  final GenericPmWithTdiUpdateInfo? cup;
   @override
   final BuiltList<String>? currencies;
   @override
   final BuiltList<String>? customRoutingFlags;
   @override
-  final GenericPmWithTdiInfo? diners;
+  final GenericPmWithTdiUpdateInfo? diners;
   @override
-  final GenericPmWithTdiInfo? discover;
+  final GenericPmWithTdiUpdateInfo? discover;
   @override
-  final GenericPmWithTdiInfo? eftDirectdebitCA;
+  final EbtUpdateInfo? ebt;
   @override
-  final GenericPmWithTdiInfo? eftposAustralia;
+  final GenericPmWithTdiUpdateInfo? eftDirectdebitCA;
+  @override
+  final GenericPmWithTdiUpdateInfo? eftposAustralia;
   @override
   final bool? enabled;
   @override
-  final GenericPmWithTdiInfo? girocard;
+  final GenericPmWithTdiUpdateInfo? girocard;
   @override
-  final GenericPmWithTdiInfo? ideal;
+  final GenericPmWithTdiUpdateInfo? ideal;
   @override
-  final GenericPmWithTdiInfo? interacCard;
+  final GenericPmWithTdiUpdateInfo? interacCard;
   @override
-  final GenericPmWithTdiInfo? jcb;
+  final GenericPmWithTdiUpdateInfo? jcb;
   @override
-  final GenericPmWithTdiInfo? maestro;
+  final GenericPmWithTdiUpdateInfo? maestro;
   @override
-  final GenericPmWithTdiInfo? maestroUsa;
+  final GenericPmWithTdiUpdateInfo? maestroUsa;
   @override
-  final GenericPmWithTdiInfo? mc;
+  final GenericPmWithTdiUpdateInfo? mc;
   @override
-  final NyceInfo? nyce;
+  final NyceUpdateInfo? nyce;
   @override
-  final PayByBankPlaidInfo? paybybankPlaid;
+  final PayByBankPlaidUpdateInfo? paybybankPlaid;
   @override
-  final PulseInfo? pulse;
+  final PulseUpdateInfo? pulse;
   @override
-  final SepaDirectDebitInfo? sepadirectdebit;
+  final SepaDirectDebitUpdateInfo? sepadirectdebit;
   @override
-  final StarInfo? star;
+  final StarUpdateInfo? star;
   @override
   final String? storeId;
   @override
   final BuiltList<String>? storeIds;
   @override
-  final GenericPmWithTdiInfo? visa;
+  final GenericPmWithTdiUpdateInfo? visa;
 
   factory _$UpdatePaymentMethodInfo([
     void Function(UpdatePaymentMethodInfoBuilder)? updates,
@@ -68,14 +76,18 @@ class _$UpdatePaymentMethodInfo extends UpdatePaymentMethodInfo {
 
   _$UpdatePaymentMethodInfo._({
     this.accel,
+    this.affirm,
     this.bcmc,
+    this.carnet,
     this.cartesBancaires,
+    this.cashapp,
     this.countries,
     this.cup,
     this.currencies,
     this.customRoutingFlags,
     this.diners,
     this.discover,
+    this.ebt,
     this.eftDirectdebitCA,
     this.eftposAustralia,
     this.enabled,
@@ -109,14 +121,18 @@ class _$UpdatePaymentMethodInfo extends UpdatePaymentMethodInfo {
     if (identical(other, this)) return true;
     return other is UpdatePaymentMethodInfo &&
         accel == other.accel &&
+        affirm == other.affirm &&
         bcmc == other.bcmc &&
+        carnet == other.carnet &&
         cartesBancaires == other.cartesBancaires &&
+        cashapp == other.cashapp &&
         countries == other.countries &&
         cup == other.cup &&
         currencies == other.currencies &&
         customRoutingFlags == other.customRoutingFlags &&
         diners == other.diners &&
         discover == other.discover &&
+        ebt == other.ebt &&
         eftDirectdebitCA == other.eftDirectdebitCA &&
         eftposAustralia == other.eftposAustralia &&
         enabled == other.enabled &&
@@ -141,14 +157,18 @@ class _$UpdatePaymentMethodInfo extends UpdatePaymentMethodInfo {
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, accel.hashCode);
+    _$hash = $jc(_$hash, affirm.hashCode);
     _$hash = $jc(_$hash, bcmc.hashCode);
+    _$hash = $jc(_$hash, carnet.hashCode);
     _$hash = $jc(_$hash, cartesBancaires.hashCode);
+    _$hash = $jc(_$hash, cashapp.hashCode);
     _$hash = $jc(_$hash, countries.hashCode);
     _$hash = $jc(_$hash, cup.hashCode);
     _$hash = $jc(_$hash, currencies.hashCode);
     _$hash = $jc(_$hash, customRoutingFlags.hashCode);
     _$hash = $jc(_$hash, diners.hashCode);
     _$hash = $jc(_$hash, discover.hashCode);
+    _$hash = $jc(_$hash, ebt.hashCode);
     _$hash = $jc(_$hash, eftDirectdebitCA.hashCode);
     _$hash = $jc(_$hash, eftposAustralia.hashCode);
     _$hash = $jc(_$hash, enabled.hashCode);
@@ -175,14 +195,18 @@ class _$UpdatePaymentMethodInfo extends UpdatePaymentMethodInfo {
   String toString() {
     return (newBuiltValueToStringHelper(r'UpdatePaymentMethodInfo')
           ..add('accel', accel)
+          ..add('affirm', affirm)
           ..add('bcmc', bcmc)
+          ..add('carnet', carnet)
           ..add('cartesBancaires', cartesBancaires)
+          ..add('cashapp', cashapp)
           ..add('countries', countries)
           ..add('cup', cup)
           ..add('currencies', currencies)
           ..add('customRoutingFlags', customRoutingFlags)
           ..add('diners', diners)
           ..add('discover', discover)
+          ..add('ebt', ebt)
           ..add('eftDirectdebitCA', eftDirectdebitCA)
           ..add('eftposAustralia', eftposAustralia)
           ..add('enabled', enabled)
@@ -210,19 +234,36 @@ class UpdatePaymentMethodInfoBuilder
         Builder<UpdatePaymentMethodInfo, UpdatePaymentMethodInfoBuilder> {
   _$UpdatePaymentMethodInfo? _$v;
 
-  AccelInfoBuilder? _accel;
-  AccelInfoBuilder get accel => _$this._accel ??= AccelInfoBuilder();
-  set accel(AccelInfoBuilder? accel) => _$this._accel = accel;
+  AccelUpdateInfoBuilder? _accel;
+  AccelUpdateInfoBuilder get accel =>
+      _$this._accel ??= AccelUpdateInfoBuilder();
+  set accel(AccelUpdateInfoBuilder? accel) => _$this._accel = accel;
 
-  BcmcInfoBuilder? _bcmc;
-  BcmcInfoBuilder get bcmc => _$this._bcmc ??= BcmcInfoBuilder();
-  set bcmc(BcmcInfoBuilder? bcmc) => _$this._bcmc = bcmc;
+  AffirmUpdateInfoBuilder? _affirm;
+  AffirmUpdateInfoBuilder get affirm =>
+      _$this._affirm ??= AffirmUpdateInfoBuilder();
+  set affirm(AffirmUpdateInfoBuilder? affirm) => _$this._affirm = affirm;
 
-  CartesBancairesInfoBuilder? _cartesBancaires;
-  CartesBancairesInfoBuilder get cartesBancaires =>
-      _$this._cartesBancaires ??= CartesBancairesInfoBuilder();
-  set cartesBancaires(CartesBancairesInfoBuilder? cartesBancaires) =>
+  BcmcUpdateInfoBuilder? _bcmc;
+  BcmcUpdateInfoBuilder get bcmc => _$this._bcmc ??= BcmcUpdateInfoBuilder();
+  set bcmc(BcmcUpdateInfoBuilder? bcmc) => _$this._bcmc = bcmc;
+
+  GenericPmWithTdiUpdateInfoBuilder? _carnet;
+  GenericPmWithTdiUpdateInfoBuilder get carnet =>
+      _$this._carnet ??= GenericPmWithTdiUpdateInfoBuilder();
+  set carnet(GenericPmWithTdiUpdateInfoBuilder? carnet) =>
+      _$this._carnet = carnet;
+
+  CartesBancairesUpdateInfoBuilder? _cartesBancaires;
+  CartesBancairesUpdateInfoBuilder get cartesBancaires =>
+      _$this._cartesBancaires ??= CartesBancairesUpdateInfoBuilder();
+  set cartesBancaires(CartesBancairesUpdateInfoBuilder? cartesBancaires) =>
       _$this._cartesBancaires = cartesBancaires;
+
+  CashAppUpdateInfoBuilder? _cashapp;
+  CashAppUpdateInfoBuilder get cashapp =>
+      _$this._cashapp ??= CashAppUpdateInfoBuilder();
+  set cashapp(CashAppUpdateInfoBuilder? cashapp) => _$this._cashapp = cashapp;
 
   ListBuilder<String>? _countries;
   ListBuilder<String> get countries =>
@@ -230,10 +271,10 @@ class UpdatePaymentMethodInfoBuilder
   set countries(ListBuilder<String>? countries) =>
       _$this._countries = countries;
 
-  GenericPmWithTdiInfoBuilder? _cup;
-  GenericPmWithTdiInfoBuilder get cup =>
-      _$this._cup ??= GenericPmWithTdiInfoBuilder();
-  set cup(GenericPmWithTdiInfoBuilder? cup) => _$this._cup = cup;
+  GenericPmWithTdiUpdateInfoBuilder? _cup;
+  GenericPmWithTdiUpdateInfoBuilder get cup =>
+      _$this._cup ??= GenericPmWithTdiUpdateInfoBuilder();
+  set cup(GenericPmWithTdiUpdateInfoBuilder? cup) => _$this._cup = cup;
 
   ListBuilder<String>? _currencies;
   ListBuilder<String> get currencies =>
@@ -247,95 +288,101 @@ class UpdatePaymentMethodInfoBuilder
   set customRoutingFlags(ListBuilder<String>? customRoutingFlags) =>
       _$this._customRoutingFlags = customRoutingFlags;
 
-  GenericPmWithTdiInfoBuilder? _diners;
-  GenericPmWithTdiInfoBuilder get diners =>
-      _$this._diners ??= GenericPmWithTdiInfoBuilder();
-  set diners(GenericPmWithTdiInfoBuilder? diners) => _$this._diners = diners;
+  GenericPmWithTdiUpdateInfoBuilder? _diners;
+  GenericPmWithTdiUpdateInfoBuilder get diners =>
+      _$this._diners ??= GenericPmWithTdiUpdateInfoBuilder();
+  set diners(GenericPmWithTdiUpdateInfoBuilder? diners) =>
+      _$this._diners = diners;
 
-  GenericPmWithTdiInfoBuilder? _discover;
-  GenericPmWithTdiInfoBuilder get discover =>
-      _$this._discover ??= GenericPmWithTdiInfoBuilder();
-  set discover(GenericPmWithTdiInfoBuilder? discover) =>
+  GenericPmWithTdiUpdateInfoBuilder? _discover;
+  GenericPmWithTdiUpdateInfoBuilder get discover =>
+      _$this._discover ??= GenericPmWithTdiUpdateInfoBuilder();
+  set discover(GenericPmWithTdiUpdateInfoBuilder? discover) =>
       _$this._discover = discover;
 
-  GenericPmWithTdiInfoBuilder? _eftDirectdebitCA;
-  GenericPmWithTdiInfoBuilder get eftDirectdebitCA =>
-      _$this._eftDirectdebitCA ??= GenericPmWithTdiInfoBuilder();
-  set eftDirectdebitCA(GenericPmWithTdiInfoBuilder? eftDirectdebitCA) =>
+  EbtUpdateInfoBuilder? _ebt;
+  EbtUpdateInfoBuilder get ebt => _$this._ebt ??= EbtUpdateInfoBuilder();
+  set ebt(EbtUpdateInfoBuilder? ebt) => _$this._ebt = ebt;
+
+  GenericPmWithTdiUpdateInfoBuilder? _eftDirectdebitCA;
+  GenericPmWithTdiUpdateInfoBuilder get eftDirectdebitCA =>
+      _$this._eftDirectdebitCA ??= GenericPmWithTdiUpdateInfoBuilder();
+  set eftDirectdebitCA(GenericPmWithTdiUpdateInfoBuilder? eftDirectdebitCA) =>
       _$this._eftDirectdebitCA = eftDirectdebitCA;
 
-  GenericPmWithTdiInfoBuilder? _eftposAustralia;
-  GenericPmWithTdiInfoBuilder get eftposAustralia =>
-      _$this._eftposAustralia ??= GenericPmWithTdiInfoBuilder();
-  set eftposAustralia(GenericPmWithTdiInfoBuilder? eftposAustralia) =>
+  GenericPmWithTdiUpdateInfoBuilder? _eftposAustralia;
+  GenericPmWithTdiUpdateInfoBuilder get eftposAustralia =>
+      _$this._eftposAustralia ??= GenericPmWithTdiUpdateInfoBuilder();
+  set eftposAustralia(GenericPmWithTdiUpdateInfoBuilder? eftposAustralia) =>
       _$this._eftposAustralia = eftposAustralia;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
   set enabled(bool? enabled) => _$this._enabled = enabled;
 
-  GenericPmWithTdiInfoBuilder? _girocard;
-  GenericPmWithTdiInfoBuilder get girocard =>
-      _$this._girocard ??= GenericPmWithTdiInfoBuilder();
-  set girocard(GenericPmWithTdiInfoBuilder? girocard) =>
+  GenericPmWithTdiUpdateInfoBuilder? _girocard;
+  GenericPmWithTdiUpdateInfoBuilder get girocard =>
+      _$this._girocard ??= GenericPmWithTdiUpdateInfoBuilder();
+  set girocard(GenericPmWithTdiUpdateInfoBuilder? girocard) =>
       _$this._girocard = girocard;
 
-  GenericPmWithTdiInfoBuilder? _ideal;
-  GenericPmWithTdiInfoBuilder get ideal =>
-      _$this._ideal ??= GenericPmWithTdiInfoBuilder();
-  set ideal(GenericPmWithTdiInfoBuilder? ideal) => _$this._ideal = ideal;
+  GenericPmWithTdiUpdateInfoBuilder? _ideal;
+  GenericPmWithTdiUpdateInfoBuilder get ideal =>
+      _$this._ideal ??= GenericPmWithTdiUpdateInfoBuilder();
+  set ideal(GenericPmWithTdiUpdateInfoBuilder? ideal) => _$this._ideal = ideal;
 
-  GenericPmWithTdiInfoBuilder? _interacCard;
-  GenericPmWithTdiInfoBuilder get interacCard =>
-      _$this._interacCard ??= GenericPmWithTdiInfoBuilder();
-  set interacCard(GenericPmWithTdiInfoBuilder? interacCard) =>
+  GenericPmWithTdiUpdateInfoBuilder? _interacCard;
+  GenericPmWithTdiUpdateInfoBuilder get interacCard =>
+      _$this._interacCard ??= GenericPmWithTdiUpdateInfoBuilder();
+  set interacCard(GenericPmWithTdiUpdateInfoBuilder? interacCard) =>
       _$this._interacCard = interacCard;
 
-  GenericPmWithTdiInfoBuilder? _jcb;
-  GenericPmWithTdiInfoBuilder get jcb =>
-      _$this._jcb ??= GenericPmWithTdiInfoBuilder();
-  set jcb(GenericPmWithTdiInfoBuilder? jcb) => _$this._jcb = jcb;
+  GenericPmWithTdiUpdateInfoBuilder? _jcb;
+  GenericPmWithTdiUpdateInfoBuilder get jcb =>
+      _$this._jcb ??= GenericPmWithTdiUpdateInfoBuilder();
+  set jcb(GenericPmWithTdiUpdateInfoBuilder? jcb) => _$this._jcb = jcb;
 
-  GenericPmWithTdiInfoBuilder? _maestro;
-  GenericPmWithTdiInfoBuilder get maestro =>
-      _$this._maestro ??= GenericPmWithTdiInfoBuilder();
-  set maestro(GenericPmWithTdiInfoBuilder? maestro) =>
+  GenericPmWithTdiUpdateInfoBuilder? _maestro;
+  GenericPmWithTdiUpdateInfoBuilder get maestro =>
+      _$this._maestro ??= GenericPmWithTdiUpdateInfoBuilder();
+  set maestro(GenericPmWithTdiUpdateInfoBuilder? maestro) =>
       _$this._maestro = maestro;
 
-  GenericPmWithTdiInfoBuilder? _maestroUsa;
-  GenericPmWithTdiInfoBuilder get maestroUsa =>
-      _$this._maestroUsa ??= GenericPmWithTdiInfoBuilder();
-  set maestroUsa(GenericPmWithTdiInfoBuilder? maestroUsa) =>
+  GenericPmWithTdiUpdateInfoBuilder? _maestroUsa;
+  GenericPmWithTdiUpdateInfoBuilder get maestroUsa =>
+      _$this._maestroUsa ??= GenericPmWithTdiUpdateInfoBuilder();
+  set maestroUsa(GenericPmWithTdiUpdateInfoBuilder? maestroUsa) =>
       _$this._maestroUsa = maestroUsa;
 
-  GenericPmWithTdiInfoBuilder? _mc;
-  GenericPmWithTdiInfoBuilder get mc =>
-      _$this._mc ??= GenericPmWithTdiInfoBuilder();
-  set mc(GenericPmWithTdiInfoBuilder? mc) => _$this._mc = mc;
+  GenericPmWithTdiUpdateInfoBuilder? _mc;
+  GenericPmWithTdiUpdateInfoBuilder get mc =>
+      _$this._mc ??= GenericPmWithTdiUpdateInfoBuilder();
+  set mc(GenericPmWithTdiUpdateInfoBuilder? mc) => _$this._mc = mc;
 
-  NyceInfoBuilder? _nyce;
-  NyceInfoBuilder get nyce => _$this._nyce ??= NyceInfoBuilder();
-  set nyce(NyceInfoBuilder? nyce) => _$this._nyce = nyce;
+  NyceUpdateInfoBuilder? _nyce;
+  NyceUpdateInfoBuilder get nyce => _$this._nyce ??= NyceUpdateInfoBuilder();
+  set nyce(NyceUpdateInfoBuilder? nyce) => _$this._nyce = nyce;
 
-  PayByBankPlaidInfoBuilder? _paybybankPlaid;
-  PayByBankPlaidInfoBuilder get paybybankPlaid =>
-      _$this._paybybankPlaid ??= PayByBankPlaidInfoBuilder();
-  set paybybankPlaid(PayByBankPlaidInfoBuilder? paybybankPlaid) =>
+  PayByBankPlaidUpdateInfoBuilder? _paybybankPlaid;
+  PayByBankPlaidUpdateInfoBuilder get paybybankPlaid =>
+      _$this._paybybankPlaid ??= PayByBankPlaidUpdateInfoBuilder();
+  set paybybankPlaid(PayByBankPlaidUpdateInfoBuilder? paybybankPlaid) =>
       _$this._paybybankPlaid = paybybankPlaid;
 
-  PulseInfoBuilder? _pulse;
-  PulseInfoBuilder get pulse => _$this._pulse ??= PulseInfoBuilder();
-  set pulse(PulseInfoBuilder? pulse) => _$this._pulse = pulse;
+  PulseUpdateInfoBuilder? _pulse;
+  PulseUpdateInfoBuilder get pulse =>
+      _$this._pulse ??= PulseUpdateInfoBuilder();
+  set pulse(PulseUpdateInfoBuilder? pulse) => _$this._pulse = pulse;
 
-  SepaDirectDebitInfoBuilder? _sepadirectdebit;
-  SepaDirectDebitInfoBuilder get sepadirectdebit =>
-      _$this._sepadirectdebit ??= SepaDirectDebitInfoBuilder();
-  set sepadirectdebit(SepaDirectDebitInfoBuilder? sepadirectdebit) =>
+  SepaDirectDebitUpdateInfoBuilder? _sepadirectdebit;
+  SepaDirectDebitUpdateInfoBuilder get sepadirectdebit =>
+      _$this._sepadirectdebit ??= SepaDirectDebitUpdateInfoBuilder();
+  set sepadirectdebit(SepaDirectDebitUpdateInfoBuilder? sepadirectdebit) =>
       _$this._sepadirectdebit = sepadirectdebit;
 
-  StarInfoBuilder? _star;
-  StarInfoBuilder get star => _$this._star ??= StarInfoBuilder();
-  set star(StarInfoBuilder? star) => _$this._star = star;
+  StarUpdateInfoBuilder? _star;
+  StarUpdateInfoBuilder get star => _$this._star ??= StarUpdateInfoBuilder();
+  set star(StarUpdateInfoBuilder? star) => _$this._star = star;
 
   String? _storeId;
   String? get storeId => _$this._storeId;
@@ -346,10 +393,10 @@ class UpdatePaymentMethodInfoBuilder
       _$this._storeIds ??= ListBuilder<String>();
   set storeIds(ListBuilder<String>? storeIds) => _$this._storeIds = storeIds;
 
-  GenericPmWithTdiInfoBuilder? _visa;
-  GenericPmWithTdiInfoBuilder get visa =>
-      _$this._visa ??= GenericPmWithTdiInfoBuilder();
-  set visa(GenericPmWithTdiInfoBuilder? visa) => _$this._visa = visa;
+  GenericPmWithTdiUpdateInfoBuilder? _visa;
+  GenericPmWithTdiUpdateInfoBuilder get visa =>
+      _$this._visa ??= GenericPmWithTdiUpdateInfoBuilder();
+  set visa(GenericPmWithTdiUpdateInfoBuilder? visa) => _$this._visa = visa;
 
   UpdatePaymentMethodInfoBuilder() {
     UpdatePaymentMethodInfo._defaults(this);
@@ -359,14 +406,18 @@ class UpdatePaymentMethodInfoBuilder
     final $v = _$v;
     if ($v != null) {
       _accel = $v.accel?.toBuilder();
+      _affirm = $v.affirm?.toBuilder();
       _bcmc = $v.bcmc?.toBuilder();
+      _carnet = $v.carnet?.toBuilder();
       _cartesBancaires = $v.cartesBancaires?.toBuilder();
+      _cashapp = $v.cashapp?.toBuilder();
       _countries = $v.countries?.toBuilder();
       _cup = $v.cup?.toBuilder();
       _currencies = $v.currencies?.toBuilder();
       _customRoutingFlags = $v.customRoutingFlags?.toBuilder();
       _diners = $v.diners?.toBuilder();
       _discover = $v.discover?.toBuilder();
+      _ebt = $v.ebt?.toBuilder();
       _eftDirectdebitCA = $v.eftDirectdebitCA?.toBuilder();
       _eftposAustralia = $v.eftposAustralia?.toBuilder();
       _enabled = $v.enabled;
@@ -410,14 +461,18 @@ class UpdatePaymentMethodInfoBuilder
           _$v ??
           _$UpdatePaymentMethodInfo._(
             accel: _accel?.build(),
+            affirm: _affirm?.build(),
             bcmc: _bcmc?.build(),
+            carnet: _carnet?.build(),
             cartesBancaires: _cartesBancaires?.build(),
+            cashapp: _cashapp?.build(),
             countries: _countries?.build(),
             cup: _cup?.build(),
             currencies: _currencies?.build(),
             customRoutingFlags: _customRoutingFlags?.build(),
             diners: _diners?.build(),
             discover: _discover?.build(),
+            ebt: _ebt?.build(),
             eftDirectdebitCA: _eftDirectdebitCA?.build(),
             eftposAustralia: _eftposAustralia?.build(),
             enabled: enabled,
@@ -442,10 +497,16 @@ class UpdatePaymentMethodInfoBuilder
       try {
         _$failedField = 'accel';
         _accel?.build();
+        _$failedField = 'affirm';
+        _affirm?.build();
         _$failedField = 'bcmc';
         _bcmc?.build();
+        _$failedField = 'carnet';
+        _carnet?.build();
         _$failedField = 'cartesBancaires';
         _cartesBancaires?.build();
+        _$failedField = 'cashapp';
+        _cashapp?.build();
         _$failedField = 'countries';
         _countries?.build();
         _$failedField = 'cup';
@@ -458,6 +519,8 @@ class UpdatePaymentMethodInfoBuilder
         _diners?.build();
         _$failedField = 'discover';
         _discover?.build();
+        _$failedField = 'ebt';
+        _ebt?.build();
         _$failedField = 'eftDirectdebitCA';
         _eftDirectdebitCA?.build();
         _$failedField = 'eftposAustralia';

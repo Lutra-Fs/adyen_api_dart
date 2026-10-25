@@ -9,10 +9,10 @@ part of 'stored_value_account_type.dart';
 const StoredValueAccountType _$giftCard = const StoredValueAccountType._(
   'giftCard',
 );
-const StoredValueAccountType _$other = const StoredValueAccountType._('other');
 const StoredValueAccountType _$phoneCard = const StoredValueAccountType._(
   'phoneCard',
 );
+const StoredValueAccountType _$other = const StoredValueAccountType._('other');
 const StoredValueAccountType _$unknownDefaultOpenApi =
     const StoredValueAccountType._('unknownDefaultOpenApi');
 
@@ -20,10 +20,10 @@ StoredValueAccountType _$valueOf(String name) {
   switch (name) {
     case 'giftCard':
       return _$giftCard;
-    case 'other':
-      return _$other;
     case 'phoneCard':
       return _$phoneCard;
+    case 'other':
+      return _$other;
     case 'unknownDefaultOpenApi':
       return _$unknownDefaultOpenApi;
     default:
@@ -34,16 +34,16 @@ StoredValueAccountType _$valueOf(String name) {
 final BuiltSet<StoredValueAccountType> _$values =
     BuiltSet<StoredValueAccountType>(const <StoredValueAccountType>[
       _$giftCard,
-      _$other,
       _$phoneCard,
+      _$other,
       _$unknownDefaultOpenApi,
     ]);
 
 class _$StoredValueAccountTypeMeta {
   const _$StoredValueAccountTypeMeta();
   StoredValueAccountType get giftCard => _$giftCard;
-  StoredValueAccountType get other => _$other;
   StoredValueAccountType get phoneCard => _$phoneCard;
+  StoredValueAccountType get other => _$other;
   StoredValueAccountType get unknownDefaultOpenApi => _$unknownDefaultOpenApi;
   StoredValueAccountType valueOf(String name) => _$valueOf(name);
   BuiltSet<StoredValueAccountType> get values => _$values;
@@ -62,14 +62,14 @@ class _$StoredValueAccountTypeSerializer
     implements PrimitiveSerializer<StoredValueAccountType> {
   static const Map<String, Object> _toWire = const <String, Object>{
     'giftCard': 'GiftCard',
-    'other': 'Other',
     'phoneCard': 'PhoneCard',
+    'other': 'Other',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'GiftCard': 'giftCard',
-    'Other': 'other',
     'PhoneCard': 'phoneCard',
+    'Other': 'other',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
 

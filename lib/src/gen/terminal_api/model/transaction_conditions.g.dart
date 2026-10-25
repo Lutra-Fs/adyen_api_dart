@@ -7,32 +7,26 @@ part of 'transaction_conditions.dart';
 // **************************************************************************
 
 const TransactionConditionsForceEntryModeEnum
-_$transactionConditionsForceEntryModeEnum_checkReader =
-    const TransactionConditionsForceEntryModeEnum._('checkReader');
-const TransactionConditionsForceEntryModeEnum
-_$transactionConditionsForceEntryModeEnum_contactless =
-    const TransactionConditionsForceEntryModeEnum._('contactless');
-const TransactionConditionsForceEntryModeEnum
-_$transactionConditionsForceEntryModeEnum_file =
-    const TransactionConditionsForceEntryModeEnum._('file');
-const TransactionConditionsForceEntryModeEnum
-_$transactionConditionsForceEntryModeEnum_ICC =
-    const TransactionConditionsForceEntryModeEnum._('ICC');
+_$transactionConditionsForceEntryModeEnum_RFID =
+    const TransactionConditionsForceEntryModeEnum._('RFID');
 const TransactionConditionsForceEntryModeEnum
 _$transactionConditionsForceEntryModeEnum_keyed =
     const TransactionConditionsForceEntryModeEnum._('keyed');
 const TransactionConditionsForceEntryModeEnum
-_$transactionConditionsForceEntryModeEnum_magStripe =
-    const TransactionConditionsForceEntryModeEnum._('magStripe');
-const TransactionConditionsForceEntryModeEnum
 _$transactionConditionsForceEntryModeEnum_manual =
     const TransactionConditionsForceEntryModeEnum._('manual');
 const TransactionConditionsForceEntryModeEnum
-_$transactionConditionsForceEntryModeEnum_RFID =
-    const TransactionConditionsForceEntryModeEnum._('RFID');
+_$transactionConditionsForceEntryModeEnum_file =
+    const TransactionConditionsForceEntryModeEnum._('file');
 const TransactionConditionsForceEntryModeEnum
 _$transactionConditionsForceEntryModeEnum_scanned =
     const TransactionConditionsForceEntryModeEnum._('scanned');
+const TransactionConditionsForceEntryModeEnum
+_$transactionConditionsForceEntryModeEnum_magStripe =
+    const TransactionConditionsForceEntryModeEnum._('magStripe');
+const TransactionConditionsForceEntryModeEnum
+_$transactionConditionsForceEntryModeEnum_ICC =
+    const TransactionConditionsForceEntryModeEnum._('ICC');
 const TransactionConditionsForceEntryModeEnum
 _$transactionConditionsForceEntryModeEnum_synchronousICC =
     const TransactionConditionsForceEntryModeEnum._('synchronousICC');
@@ -40,34 +34,40 @@ const TransactionConditionsForceEntryModeEnum
 _$transactionConditionsForceEntryModeEnum_tapped =
     const TransactionConditionsForceEntryModeEnum._('tapped');
 const TransactionConditionsForceEntryModeEnum
+_$transactionConditionsForceEntryModeEnum_contactless =
+    const TransactionConditionsForceEntryModeEnum._('contactless');
+const TransactionConditionsForceEntryModeEnum
+_$transactionConditionsForceEntryModeEnum_checkReader =
+    const TransactionConditionsForceEntryModeEnum._('checkReader');
+const TransactionConditionsForceEntryModeEnum
 _$transactionConditionsForceEntryModeEnum_unknownDefaultOpenApi =
     const TransactionConditionsForceEntryModeEnum._('unknownDefaultOpenApi');
 
 TransactionConditionsForceEntryModeEnum
 _$transactionConditionsForceEntryModeEnumValueOf(String name) {
   switch (name) {
-    case 'checkReader':
-      return _$transactionConditionsForceEntryModeEnum_checkReader;
-    case 'contactless':
-      return _$transactionConditionsForceEntryModeEnum_contactless;
-    case 'file':
-      return _$transactionConditionsForceEntryModeEnum_file;
-    case 'ICC':
-      return _$transactionConditionsForceEntryModeEnum_ICC;
-    case 'keyed':
-      return _$transactionConditionsForceEntryModeEnum_keyed;
-    case 'magStripe':
-      return _$transactionConditionsForceEntryModeEnum_magStripe;
-    case 'manual':
-      return _$transactionConditionsForceEntryModeEnum_manual;
     case 'RFID':
       return _$transactionConditionsForceEntryModeEnum_RFID;
+    case 'keyed':
+      return _$transactionConditionsForceEntryModeEnum_keyed;
+    case 'manual':
+      return _$transactionConditionsForceEntryModeEnum_manual;
+    case 'file':
+      return _$transactionConditionsForceEntryModeEnum_file;
     case 'scanned':
       return _$transactionConditionsForceEntryModeEnum_scanned;
+    case 'magStripe':
+      return _$transactionConditionsForceEntryModeEnum_magStripe;
+    case 'ICC':
+      return _$transactionConditionsForceEntryModeEnum_ICC;
     case 'synchronousICC':
       return _$transactionConditionsForceEntryModeEnum_synchronousICC;
     case 'tapped':
       return _$transactionConditionsForceEntryModeEnum_tapped;
+    case 'contactless':
+      return _$transactionConditionsForceEntryModeEnum_contactless;
+    case 'checkReader':
+      return _$transactionConditionsForceEntryModeEnum_checkReader;
     case 'unknownDefaultOpenApi':
       return _$transactionConditionsForceEntryModeEnum_unknownDefaultOpenApi;
     default:
@@ -79,17 +79,17 @@ final BuiltSet<TransactionConditionsForceEntryModeEnum>
 _$transactionConditionsForceEntryModeEnumValues =
     BuiltSet<TransactionConditionsForceEntryModeEnum>(
       const <TransactionConditionsForceEntryModeEnum>[
-        _$transactionConditionsForceEntryModeEnum_checkReader,
-        _$transactionConditionsForceEntryModeEnum_contactless,
-        _$transactionConditionsForceEntryModeEnum_file,
-        _$transactionConditionsForceEntryModeEnum_ICC,
-        _$transactionConditionsForceEntryModeEnum_keyed,
-        _$transactionConditionsForceEntryModeEnum_magStripe,
-        _$transactionConditionsForceEntryModeEnum_manual,
         _$transactionConditionsForceEntryModeEnum_RFID,
+        _$transactionConditionsForceEntryModeEnum_keyed,
+        _$transactionConditionsForceEntryModeEnum_manual,
+        _$transactionConditionsForceEntryModeEnum_file,
         _$transactionConditionsForceEntryModeEnum_scanned,
+        _$transactionConditionsForceEntryModeEnum_magStripe,
+        _$transactionConditionsForceEntryModeEnum_ICC,
         _$transactionConditionsForceEntryModeEnum_synchronousICC,
         _$transactionConditionsForceEntryModeEnum_tapped,
+        _$transactionConditionsForceEntryModeEnum_contactless,
+        _$transactionConditionsForceEntryModeEnum_checkReader,
         _$transactionConditionsForceEntryModeEnum_unknownDefaultOpenApi,
       ],
     );
@@ -101,31 +101,31 @@ _$transactionConditionsForceEntryModeEnumSerializer =
 class _$TransactionConditionsForceEntryModeEnumSerializer
     implements PrimitiveSerializer<TransactionConditionsForceEntryModeEnum> {
   static const Map<String, Object> _toWire = const <String, Object>{
-    'checkReader': 'CheckReader',
-    'contactless': 'Contactless',
-    'file': 'File',
-    'ICC': 'ICC',
-    'keyed': 'Keyed',
-    'magStripe': 'MagStripe',
-    'manual': 'Manual',
     'RFID': 'RFID',
+    'keyed': 'Keyed',
+    'manual': 'Manual',
+    'file': 'File',
     'scanned': 'Scanned',
+    'magStripe': 'MagStripe',
+    'ICC': 'ICC',
     'synchronousICC': 'SynchronousICC',
     'tapped': 'Tapped',
+    'contactless': 'Contactless',
+    'checkReader': 'CheckReader',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
-    'CheckReader': 'checkReader',
-    'Contactless': 'contactless',
-    'File': 'file',
-    'ICC': 'ICC',
-    'Keyed': 'keyed',
-    'MagStripe': 'magStripe',
-    'Manual': 'manual',
     'RFID': 'RFID',
+    'Keyed': 'keyed',
+    'Manual': 'manual',
+    'File': 'file',
     'Scanned': 'scanned',
+    'MagStripe': 'magStripe',
+    'ICC': 'ICC',
     'SynchronousICC': 'synchronousICC',
     'Tapped': 'tapped',
+    'Contactless': 'contactless',
+    'CheckReader': 'checkReader',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
 

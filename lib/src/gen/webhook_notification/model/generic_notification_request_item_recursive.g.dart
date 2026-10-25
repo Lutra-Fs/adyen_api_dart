@@ -172,6 +172,11 @@ _$genericNotificationRequestItemRecursiveEventCodeEnum_REFUND_FAILED =
       'REFUND_FAILED',
     );
 const GenericNotificationRequestItemRecursiveEventCodeEnum
+_$genericNotificationRequestItemRecursiveEventCodeEnum_REFUND_NOT_CLEARED =
+    const GenericNotificationRequestItemRecursiveEventCodeEnum._(
+      'REFUND_NOT_CLEARED',
+    );
+const GenericNotificationRequestItemRecursiveEventCodeEnum
 _$genericNotificationRequestItemRecursiveEventCodeEnum_REFUND_WITH_DATA =
     const GenericNotificationRequestItemRecursiveEventCodeEnum._(
       'REFUND_WITH_DATA',
@@ -182,9 +187,17 @@ _$genericNotificationRequestItemRecursiveEventCodeEnum_REQUEST_FOR_INFORMATION =
       'REQUEST_FOR_INFORMATION',
     );
 const GenericNotificationRequestItemRecursiveEventCodeEnum
+_$genericNotificationRequestItemRecursiveEventCodeEnum_REVERSAL =
+    const GenericNotificationRequestItemRecursiveEventCodeEnum._('REVERSAL');
+const GenericNotificationRequestItemRecursiveEventCodeEnum
 _$genericNotificationRequestItemRecursiveEventCodeEnum_SECOND_CHARGEBACK =
     const GenericNotificationRequestItemRecursiveEventCodeEnum._(
       'SECOND_CHARGEBACK',
+    );
+const GenericNotificationRequestItemRecursiveEventCodeEnum
+_$genericNotificationRequestItemRecursiveEventCodeEnum_SETTLED_REVERSED =
+    const GenericNotificationRequestItemRecursiveEventCodeEnum._(
+      'SETTLED_REVERSED',
     );
 const GenericNotificationRequestItemRecursiveEventCodeEnum
 _$genericNotificationRequestItemRecursiveEventCodeEnum_TECHNICAL_CANCEL =
@@ -275,12 +288,18 @@ _$genericNotificationRequestItemRecursiveEventCodeEnumValueOf(String name) {
       return _$genericNotificationRequestItemRecursiveEventCodeEnum_REFUNDED_REVERSED;
     case 'REFUND_FAILED':
       return _$genericNotificationRequestItemRecursiveEventCodeEnum_REFUND_FAILED;
+    case 'REFUND_NOT_CLEARED':
+      return _$genericNotificationRequestItemRecursiveEventCodeEnum_REFUND_NOT_CLEARED;
     case 'REFUND_WITH_DATA':
       return _$genericNotificationRequestItemRecursiveEventCodeEnum_REFUND_WITH_DATA;
     case 'REQUEST_FOR_INFORMATION':
       return _$genericNotificationRequestItemRecursiveEventCodeEnum_REQUEST_FOR_INFORMATION;
+    case 'REVERSAL':
+      return _$genericNotificationRequestItemRecursiveEventCodeEnum_REVERSAL;
     case 'SECOND_CHARGEBACK':
       return _$genericNotificationRequestItemRecursiveEventCodeEnum_SECOND_CHARGEBACK;
+    case 'SETTLED_REVERSED':
+      return _$genericNotificationRequestItemRecursiveEventCodeEnum_SETTLED_REVERSED;
     case 'TECHNICAL_CANCEL':
       return _$genericNotificationRequestItemRecursiveEventCodeEnum_TECHNICAL_CANCEL;
     case 'VOID_PENDING_REFUND':
@@ -332,9 +351,12 @@ _$genericNotificationRequestItemRecursiveEventCodeEnumValues =
       _$genericNotificationRequestItemRecursiveEventCodeEnum_REFUND,
       _$genericNotificationRequestItemRecursiveEventCodeEnum_REFUNDED_REVERSED,
       _$genericNotificationRequestItemRecursiveEventCodeEnum_REFUND_FAILED,
+      _$genericNotificationRequestItemRecursiveEventCodeEnum_REFUND_NOT_CLEARED,
       _$genericNotificationRequestItemRecursiveEventCodeEnum_REFUND_WITH_DATA,
       _$genericNotificationRequestItemRecursiveEventCodeEnum_REQUEST_FOR_INFORMATION,
+      _$genericNotificationRequestItemRecursiveEventCodeEnum_REVERSAL,
       _$genericNotificationRequestItemRecursiveEventCodeEnum_SECOND_CHARGEBACK,
+      _$genericNotificationRequestItemRecursiveEventCodeEnum_SETTLED_REVERSED,
       _$genericNotificationRequestItemRecursiveEventCodeEnum_TECHNICAL_CANCEL,
       _$genericNotificationRequestItemRecursiveEventCodeEnum_VOID_PENDING_REFUND,
       _$genericNotificationRequestItemRecursiveEventCodeEnum_unknownDefaultOpenApi,
@@ -385,9 +407,12 @@ class _$GenericNotificationRequestItemRecursiveEventCodeEnumSerializer
     'REFUND': 'REFUND',
     'REFUNDED_REVERSED': 'REFUNDED_REVERSED',
     'REFUND_FAILED': 'REFUND_FAILED',
+    'REFUND_NOT_CLEARED': 'REFUND_NOT_CLEARED',
     'REFUND_WITH_DATA': 'REFUND_WITH_DATA',
     'REQUEST_FOR_INFORMATION': 'REQUEST_FOR_INFORMATION',
+    'REVERSAL': 'REVERSAL',
     'SECOND_CHARGEBACK': 'SECOND_CHARGEBACK',
+    'SETTLED_REVERSED': 'SETTLED_REVERSED',
     'TECHNICAL_CANCEL': 'TECHNICAL_CANCEL',
     'VOID_PENDING_REFUND': 'VOID_PENDING_REFUND',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
@@ -428,9 +453,12 @@ class _$GenericNotificationRequestItemRecursiveEventCodeEnumSerializer
     'REFUND': 'REFUND',
     'REFUNDED_REVERSED': 'REFUNDED_REVERSED',
     'REFUND_FAILED': 'REFUND_FAILED',
+    'REFUND_NOT_CLEARED': 'REFUND_NOT_CLEARED',
     'REFUND_WITH_DATA': 'REFUND_WITH_DATA',
     'REQUEST_FOR_INFORMATION': 'REQUEST_FOR_INFORMATION',
+    'REVERSAL': 'REVERSAL',
     'SECOND_CHARGEBACK': 'SECOND_CHARGEBACK',
+    'SETTLED_REVERSED': 'SETTLED_REVERSED',
     'TECHNICAL_CANCEL': 'TECHNICAL_CANCEL',
     'VOID_PENDING_REFUND': 'VOID_PENDING_REFUND',
     'unknown_default_open_api': 'unknownDefaultOpenApi',

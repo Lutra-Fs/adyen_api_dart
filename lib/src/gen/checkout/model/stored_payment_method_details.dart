@@ -39,7 +39,7 @@ abstract class StoredPaymentMethodDetails implements Built<StoredPaymentMethodDe
   /// The payment method type.
   @BuiltValueField(wireName: r'type')
   StoredPaymentMethodDetailsTypeEnum? get type;
-  // enum typeEnum {  alipay_plus,  alipay_plus_alipay_cn,  alipay_plus_alipay_hk,  alipay_plus_dana,  alipay_plus_gcash,  alipay_plus_kakaopay,  alipay_plus_kplus,  alipay_plus_naverpay,  alipay_plus_rabbitlinepay,  alipay_plus_tosspay,  alipay_plus_touchngo,  alipay_plus_truemoney,  bcmc_mobile,  bcmc_mobile_QR,  bcmc_mobile_app,  momo_wallet,  momo_wallet_app,  paymaya_wallet,  grabpay_SG,  grabpay_MY,  grabpay_TH,  grabpay_ID,  grabpay_VN,  grabpay_PH,  oxxo,  gcash,  dana,  kakaopay,  truemoney,  paysafecard,  };
+  // enum typeEnum {  alipay_plus,  alipay_plus_alipay_cn,  alipay_plus_alipay_hk,  alipay_plus_dana,  alipay_plus_gcash,  alipay_plus_kakaopay,  alipay_plus_kplus,  alipay_plus_naverpay,  alipay_plus_rabbitlinepay,  alipay_plus_tosspay,  alipay_plus_touchngo,  alipay_plus_truemoney,  bcmc_mobile,  bcmc_mobile_QR,  bcmc_mobile_app,  momo_wallet,  momo_wallet_app,  revolutpay,  paymaya_wallet,  grabpay_SG,  grabpay_MY,  grabpay_TH,  grabpay_ID,  grabpay_VN,  grabpay_PH,  oxxo,  gcash,  dana,  kakaopay,  truemoney,  paysafecard,  gopay_wallet,  };
 
   StoredPaymentMethodDetails._();
 
@@ -240,6 +240,9 @@ class StoredPaymentMethodDetailsTypeEnum extends EnumClass {
   @BuiltValueEnumConst(wireName: r'momo_wallet_app')
   static const StoredPaymentMethodDetailsTypeEnum momoWalletApp = _$storedPaymentMethodDetailsTypeEnum_momoWalletApp;
   /// The payment method type.
+  @BuiltValueEnumConst(wireName: r'revolutpay')
+  static const StoredPaymentMethodDetailsTypeEnum revolutpay = _$storedPaymentMethodDetailsTypeEnum_revolutpay;
+  /// The payment method type.
   @BuiltValueEnumConst(wireName: r'paymaya_wallet')
   static const StoredPaymentMethodDetailsTypeEnum paymayaWallet = _$storedPaymentMethodDetailsTypeEnum_paymayaWallet;
   /// The payment method type.
@@ -278,6 +281,9 @@ class StoredPaymentMethodDetailsTypeEnum extends EnumClass {
   /// The payment method type.
   @BuiltValueEnumConst(wireName: r'paysafecard')
   static const StoredPaymentMethodDetailsTypeEnum paysafecard = _$storedPaymentMethodDetailsTypeEnum_paysafecard;
+  /// The payment method type.
+  @BuiltValueEnumConst(wireName: r'gopay_wallet')
+  static const StoredPaymentMethodDetailsTypeEnum gopayWallet = _$storedPaymentMethodDetailsTypeEnum_gopayWallet;
   /// The payment method type.
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const StoredPaymentMethodDetailsTypeEnum unknownDefaultOpenApi = _$storedPaymentMethodDetailsTypeEnum_unknownDefaultOpenApi;

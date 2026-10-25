@@ -4,6 +4,8 @@
 
 // ignore_for_file: unused_element
 import 'package:built_collection/built_collection.dart';
+import 'package:adyen_api/src/gen/checkout/model/opi_response.dart';
+import 'package:adyen_api/src/gen/checkout/model/address.dart';
 import 'package:adyen_api/src/gen/checkout/model/token_mandate.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -15,12 +17,15 @@ part 'stored_payment_method_resource.g.dart';
 /// Properties:
 /// * [alias] - The alias of the credit card number.  Applies only to recurring contracts storing credit card details
 /// * [aliasType] - The alias type of the credit card number.  Applies only to recurring contracts storing credit card details.
+/// * [billingAddress] - The billing address associated with the stored payment method.
 /// * [brand] - The brand of the card.
 /// * [cardBin] - The bank identification number (BIN) of the card.
+/// * [createdAt] - The date when the recurring details were created.
 /// * [expiryMonth] - The month the card expires.
 /// * [expiryYear] - The last two digits of the year the card expires. For example, **22** for the year 2022.
 /// * [externalResponseCode] - The response code returned by an external system (for example after a provisioning operation).
 /// * [externalTokenReference] - The token reference of a linked token in an external system (for example a network token reference).
+/// * [firstPspReference] - The PSP reference of the first payment that created this recurring detail.
 /// * [holderName] - The unique payment method code.
 /// * [iban] - The IBAN of the bank account.
 /// * [id] - A unique identifier of this stored payment method.
@@ -29,6 +34,7 @@ part 'stored_payment_method_resource.g.dart';
 /// * [mandate] - Mandate details for the stored payment method.
 /// * [name_] - The display name of the stored payment method.
 /// * [networkTxReference] - Returned in the response if you are not tokenizing with Adyen and are using the Merchant-initiated transactions (MIT) framework from Mastercard or Visa.  This contains either the Mastercard Trace ID or the Visa Transaction ID.
+/// * [opi] - Oracle Payment Interface (OPI) response fields such as `transToken` and `issuerId`.
 /// * [ownerName] - The name of the bank account holder.
 /// * [shopperEmail] - The shopper’s email address.
 /// * [shopperReference] - Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. > Your reference must not include personally identifiable information (PII) such as name or email address.
@@ -44,6 +50,10 @@ abstract class StoredPaymentMethodResource implements Built<StoredPaymentMethodR
   @BuiltValueField(wireName: r'aliasType')
   String? get aliasType;
 
+  /// The billing address associated with the stored payment method.
+  @BuiltValueField(wireName: r'billingAddress')
+  Address? get billingAddress;
+
   /// The brand of the card.
   @BuiltValueField(wireName: r'brand')
   String? get brand;
@@ -51,6 +61,10 @@ abstract class StoredPaymentMethodResource implements Built<StoredPaymentMethodR
   /// The bank identification number (BIN) of the card.
   @BuiltValueField(wireName: r'cardBin')
   String? get cardBin;
+
+  /// The date when the recurring details were created.
+  @BuiltValueField(wireName: r'createdAt')
+  DateTime? get createdAt;
 
   /// The month the card expires.
   @BuiltValueField(wireName: r'expiryMonth')
@@ -67,6 +81,10 @@ abstract class StoredPaymentMethodResource implements Built<StoredPaymentMethodR
   /// The token reference of a linked token in an external system (for example a network token reference).
   @BuiltValueField(wireName: r'externalTokenReference')
   String? get externalTokenReference;
+
+  /// The PSP reference of the first payment that created this recurring detail.
+  @BuiltValueField(wireName: r'firstPspReference')
+  String? get firstPspReference;
 
   /// The unique payment method code.
   @BuiltValueField(wireName: r'holderName')
@@ -99,6 +117,10 @@ abstract class StoredPaymentMethodResource implements Built<StoredPaymentMethodR
   /// Returned in the response if you are not tokenizing with Adyen and are using the Merchant-initiated transactions (MIT) framework from Mastercard or Visa.  This contains either the Mastercard Trace ID or the Visa Transaction ID.
   @BuiltValueField(wireName: r'networkTxReference')
   String? get networkTxReference;
+
+  /// Oracle Payment Interface (OPI) response fields such as `transToken` and `issuerId`.
+  @BuiltValueField(wireName: r'opi')
+  OpiResponse? get opi;
 
   /// The name of the bank account holder.
   @BuiltValueField(wireName: r'ownerName')
@@ -157,6 +179,13 @@ class _$StoredPaymentMethodResourceSerializer implements PrimitiveSerializer<Sto
         specifiedType: const FullType(String),
       );
     }
+    if (object.billingAddress != null) {
+      yield r'billingAddress';
+      yield serializers.serialize(
+        object.billingAddress,
+        specifiedType: const FullType(Address),
+      );
+    }
     if (object.brand != null) {
       yield r'brand';
       yield serializers.serialize(
@@ -169,6 +198,13 @@ class _$StoredPaymentMethodResourceSerializer implements PrimitiveSerializer<Sto
       yield serializers.serialize(
         object.cardBin,
         specifiedType: const FullType(String),
+      );
+    }
+    if (object.createdAt != null) {
+      yield r'createdAt';
+      yield serializers.serialize(
+        object.createdAt,
+        specifiedType: const FullType(DateTime),
       );
     }
     if (object.expiryMonth != null) {
@@ -196,6 +232,13 @@ class _$StoredPaymentMethodResourceSerializer implements PrimitiveSerializer<Sto
       yield r'externalTokenReference';
       yield serializers.serialize(
         object.externalTokenReference,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.firstPspReference != null) {
+      yield r'firstPspReference';
+      yield serializers.serialize(
+        object.firstPspReference,
         specifiedType: const FullType(String),
       );
     }
@@ -253,6 +296,13 @@ class _$StoredPaymentMethodResourceSerializer implements PrimitiveSerializer<Sto
       yield serializers.serialize(
         object.networkTxReference,
         specifiedType: const FullType(String),
+      );
+    }
+    if (object.opi != null) {
+      yield r'opi';
+      yield serializers.serialize(
+        object.opi,
+        specifiedType: const FullType(OpiResponse),
       );
     }
     if (object.ownerName != null) {
@@ -327,6 +377,13 @@ class _$StoredPaymentMethodResourceSerializer implements PrimitiveSerializer<Sto
           ) as String;
           result.aliasType = valueDes;
           break;
+        case r'billingAddress':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(Address),
+          ) as Address;
+          result.billingAddress.replace(valueDes);
+          break;
         case r'brand':
           final valueDes = serializers.deserialize(
             value,
@@ -340,6 +397,13 @@ class _$StoredPaymentMethodResourceSerializer implements PrimitiveSerializer<Sto
             specifiedType: const FullType(String),
           ) as String;
           result.cardBin = valueDes;
+          break;
+        case r'createdAt':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(DateTime),
+          ) as DateTime;
+          result.createdAt = valueDes;
           break;
         case r'expiryMonth':
           final valueDes = serializers.deserialize(
@@ -368,6 +432,13 @@ class _$StoredPaymentMethodResourceSerializer implements PrimitiveSerializer<Sto
             specifiedType: const FullType(String),
           ) as String;
           result.externalTokenReference = valueDes;
+          break;
+        case r'firstPspReference':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.firstPspReference = valueDes;
           break;
         case r'holderName':
           final valueDes = serializers.deserialize(
@@ -424,6 +495,13 @@ class _$StoredPaymentMethodResourceSerializer implements PrimitiveSerializer<Sto
             specifiedType: const FullType(String),
           ) as String;
           result.networkTxReference = valueDes;
+          break;
+        case r'opi':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(OpiResponse),
+          ) as OpiResponse;
+          result.opi.replace(valueDes);
           break;
         case r'ownerName':
           final valueDes = serializers.deserialize(

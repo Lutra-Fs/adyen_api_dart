@@ -18,6 +18,9 @@ import 'package:adyen_api/src/gen/webhook_configuration/model/account_holder.dar
 import 'package:adyen_api/src/gen/webhook_configuration/model/account_holder_capability.dart';
 import 'package:adyen_api/src/gen/webhook_configuration/model/account_holder_notification_data.dart';
 import 'package:adyen_api/src/gen/webhook_configuration/model/account_holder_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_configuration/model/account_payout_auto_application_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_configuration/model/account_payout_auto_application_webhook_data.dart';
+import 'package:adyen_api/src/gen/webhook_configuration/model/account_payout_config_webhook_data.dart';
 import 'package:adyen_api/src/gen/webhook_configuration/model/account_supporting_entity_capability.dart';
 import 'package:adyen_api/src/gen/webhook_configuration/model/address.dart';
 import 'package:adyen_api/src/gen/webhook_configuration/model/amount.dart';
@@ -61,25 +64,45 @@ import 'package:adyen_api/src/gen/webhook_configuration/model/network_token_trig
 import 'package:adyen_api/src/gen/webhook_configuration/model/payment_instrument.dart';
 import 'package:adyen_api/src/gen/webhook_configuration/model/payment_instrument_notification_data.dart';
 import 'package:adyen_api/src/gen/webhook_configuration/model/payment_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_configuration/model/payout_schedule_ba_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_configuration/model/payout_schedule_bp_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_configuration/model/payout_schedule_state_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_configuration/model/payout_state_webhook_data.dart';
 import 'package:adyen_api/src/gen/webhook_configuration/model/phone.dart';
 import 'package:adyen_api/src/gen/webhook_configuration/model/phone_number.dart';
 import 'package:adyen_api/src/gen/webhook_configuration/model/platform_payment_configuration.dart';
+import 'package:adyen_api/src/gen/webhook_configuration/model/platform_payout_config_webhook_data.dart';
 import 'package:adyen_api/src/gen/webhook_configuration/model/remediating_action.dart';
 import 'package:adyen_api/src/gen/webhook_configuration/model/resource.dart';
 import 'package:adyen_api/src/gen/webhook_configuration/model/resource_reference.dart';
+import 'package:adyen_api/src/gen/webhook_configuration/model/result_details.dart';
 import 'package:adyen_api/src/gen/webhook_configuration/model/score_notification_request.dart';
 import 'package:adyen_api/src/gen/webhook_configuration/model/sweep_configuration_notification_data.dart';
 import 'package:adyen_api/src/gen/webhook_configuration/model/sweep_configuration_notification_request.dart';
 import 'package:adyen_api/src/gen/webhook_configuration/model/sweep_configuration_v2.dart';
 import 'package:adyen_api/src/gen/webhook_configuration/model/sweep_counterparty.dart';
+import 'package:adyen_api/src/gen/webhook_configuration/model/sweep_execution_notification_data.dart';
+import 'package:adyen_api/src/gen/webhook_configuration/model/sweep_execution_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_configuration/model/sweep_result_details.dart';
 import 'package:adyen_api/src/gen/webhook_configuration/model/sweep_schedule.dart';
 import 'package:adyen_api/src/gen/webhook_configuration/model/token_authentication.dart';
+import 'package:adyen_api/src/gen/webhook_configuration/model/top_up_configuration_event_request.dart';
+import 'package:adyen_api/src/gen/webhook_configuration/model/top_up_configuration_updated_event_request.dart';
+import 'package:adyen_api/src/gen/webhook_configuration/model/top_up_updated_webhook_data.dart';
+import 'package:adyen_api/src/gen/webhook_configuration/model/top_up_webhook_data.dart';
 import 'package:adyen_api/src/gen/webhook_configuration/model/uk_local_mandate_account_identification.dart';
 import 'package:adyen_api/src/gen/webhook_configuration/model/validation_facts.dart';
 import 'package:adyen_api/src/gen/webhook_configuration/model/verification_deadline.dart';
 import 'package:adyen_api/src/gen/webhook_configuration/model/verification_error.dart';
 import 'package:adyen_api/src/gen/webhook_configuration/model/verification_error_recursive.dart';
 import 'package:adyen_api/src/gen/webhook_configuration/model/wallet.dart';
+import 'package:adyen_api/src/gen/webhook_configuration/model/webhook_amount.dart';
+import 'package:adyen_api/src/gen/webhook_configuration/model/webhook_top_up_amount.dart';
+import 'package:adyen_api/src/gen/webhook_configuration/model/webhook_top_up_configuration.dart';
+import 'package:adyen_api/src/gen/webhook_configuration/model/webhook_top_up_configuration_updated.dart';
+import 'package:adyen_api/src/gen/webhook_configuration/model/webhook_top_up_counterparty.dart';
+import 'package:adyen_api/src/gen/webhook_configuration/model/webhook_top_up_mandate.dart';
+import 'package:adyen_api/src/gen/webhook_configuration/model/webhook_top_up_trigger.dart';
 
 part 'serializers.g.dart';
 
@@ -88,6 +111,9 @@ part 'serializers.g.dart';
   AccountHolderCapability,
   AccountHolderNotificationData,
   AccountHolderNotificationRequest,
+  AccountPayoutAutoApplicationNotificationRequest,
+  AccountPayoutAutoApplicationWebhookData,
+  AccountPayoutConfigWebhookData,
   AccountSupportingEntityCapability,
   Address,
   Amount,
@@ -131,25 +157,45 @@ part 'serializers.g.dart';
   PaymentInstrument,
   PaymentInstrumentNotificationData,
   PaymentNotificationRequest,
+  PayoutScheduleBANotificationRequest,
+  PayoutScheduleBPNotificationRequest,
+  PayoutScheduleStateNotificationRequest,
+  PayoutStateWebhookData,
   Phone,
   PhoneNumber,
   PlatformPaymentConfiguration,
+  PlatformPayoutConfigWebhookData,
   RemediatingAction,
   Resource,
   ResourceReference,
+  ResultDetails,
   ScoreNotificationRequest,
   SweepConfigurationNotificationData,
   SweepConfigurationNotificationRequest,
   SweepConfigurationV2,
   SweepCounterparty,
+  SweepExecutionNotificationData,
+  SweepExecutionNotificationRequest,
+  SweepResultDetails,
   SweepSchedule,
   TokenAuthentication,
+  TopUpConfigurationEventRequest,
+  TopUpConfigurationUpdatedEventRequest,
+  TopUpUpdatedWebhookData,
+  TopUpWebhookData,
   UKLocalMandateAccountIdentification,
   ValidationFacts,
   VerificationDeadline,
   VerificationError,
   VerificationErrorRecursive,
   Wallet,
+  WebhookAmount,
+  WebhookTopUpAmount,
+  WebhookTopUpConfiguration,
+  WebhookTopUpConfigurationUpdated,
+  WebhookTopUpCounterparty,
+  WebhookTopUpMandate,
+  WebhookTopUpTrigger,
 ])
 Serializers serializers = (_$serializers.toBuilder()
       ..add(const OneOfSerializer())

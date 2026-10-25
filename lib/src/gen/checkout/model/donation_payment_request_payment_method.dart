@@ -3,6 +3,7 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:adyen_api/src/gen/checkout/model/sepa_direct_debit_donations.dart';
 import 'package:adyen_api/src/gen/checkout/model/apple_pay_donations.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:adyen_api/src/gen/checkout/model/pay_with_google_donations.dart';
@@ -52,8 +53,21 @@ part 'donation_payment_request_payment_method.g.dart';
 /// * [issuer] - The iDEAL issuer value of the shopper's selected bank. Set this to an **id** of an iDEAL issuer to preselect it.
 @BuiltValue()
 abstract class DonationPaymentRequestPaymentMethod implements Built<DonationPaymentRequestPaymentMethod, DonationPaymentRequestPaymentMethodBuilder> {
-  /// One Of [ApplePayDonations], [CardDonations], [GooglePayDonations], [IdealDonations], [PayWithGoogleDonations]
+  /// One Of [ApplePayDonations], [CardDonations], [GooglePayDonations], [IdealDonations], [PayWithGoogleDonations], [SepaDirectDebitDonations]
   OneOf get oneOf;
+
+  static const String discriminatorFieldName = r'type';
+
+  static const Map<String, Type> discriminatorMapping = {
+    r'applepay': ApplePayDonations,
+    r'card': CardDonations,
+    r'googlepay': GooglePayDonations,
+    r'ideal': IdealDonations,
+    r'networkToken': CardDonations,
+    r'paywithgoogle': PayWithGoogleDonations,
+    r'scheme': CardDonations,
+    r'sepadirectdebit': SepaDirectDebitDonations,
+  };
 
   DonationPaymentRequestPaymentMethod._();
 
@@ -64,6 +78,65 @@ abstract class DonationPaymentRequestPaymentMethod implements Built<DonationPaym
 
   @BuiltValueSerializer(custom: true)
   static Serializer<DonationPaymentRequestPaymentMethod> get serializer => _$DonationPaymentRequestPaymentMethodSerializer();
+}
+
+extension DonationPaymentRequestPaymentMethodDiscriminatorExt on DonationPaymentRequestPaymentMethod {
+    String? get discriminatorValue {
+        if (this is ApplePayDonations) {
+            return r'applepay';
+        }
+        if (this is CardDonations) {
+            return r'card';
+        }
+        if (this is GooglePayDonations) {
+            return r'googlepay';
+        }
+        if (this is IdealDonations) {
+            return r'ideal';
+        }
+        if (this is CardDonations) {
+            return r'networkToken';
+        }
+        if (this is PayWithGoogleDonations) {
+            return r'paywithgoogle';
+        }
+        if (this is CardDonations) {
+            return r'scheme';
+        }
+        if (this is SepaDirectDebitDonations) {
+            return r'sepadirectdebit';
+        }
+        return null;
+    }
+}
+extension DonationPaymentRequestPaymentMethodBuilderDiscriminatorExt on DonationPaymentRequestPaymentMethodBuilder {
+    String? get discriminatorValue {
+        if (this is ApplePayDonationsBuilder) {
+            return r'applepay';
+        }
+        if (this is CardDonationsBuilder) {
+            return r'card';
+        }
+        if (this is GooglePayDonationsBuilder) {
+            return r'googlepay';
+        }
+        if (this is IdealDonationsBuilder) {
+            return r'ideal';
+        }
+        if (this is CardDonationsBuilder) {
+            return r'networkToken';
+        }
+        if (this is PayWithGoogleDonationsBuilder) {
+            return r'paywithgoogle';
+        }
+        if (this is CardDonationsBuilder) {
+            return r'scheme';
+        }
+        if (this is SepaDirectDebitDonationsBuilder) {
+            return r'sepadirectdebit';
+        }
+        return null;
+    }
 }
 
 class _$DonationPaymentRequestPaymentMethodSerializer implements PrimitiveSerializer<DonationPaymentRequestPaymentMethod> {
@@ -98,9 +171,74 @@ class _$DonationPaymentRequestPaymentMethodSerializer implements PrimitiveSerial
   }) {
     final result = DonationPaymentRequestPaymentMethodBuilder();
     Object? oneOfDataSrc;
-    final targetType = const FullType(OneOf, [FullType(ApplePayDonations), FullType(CardDonations), FullType(GooglePayDonations), FullType(IdealDonations), FullType(PayWithGoogleDonations), ]);
+    final serializedList = (serialized as Iterable<Object?>).toList();
+    final discIndex = serializedList.indexOf(DonationPaymentRequestPaymentMethod.discriminatorFieldName) + 1;
+    final discValue = serializers.deserialize(serializedList[discIndex], specifiedType: FullType(String)) as String;
     oneOfDataSrc = serialized;
-    result.oneOf = serializers.deserialize(oneOfDataSrc, specifiedType: targetType) as OneOf;
+    final oneOfTypes = [ApplePayDonations, CardDonations, GooglePayDonations, IdealDonations, CardDonations, PayWithGoogleDonations, CardDonations, SepaDirectDebitDonations, ];
+    Object oneOfResult;
+    Type oneOfType;
+    switch (discValue) {
+      case r'applepay':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(ApplePayDonations),
+        ) as ApplePayDonations;
+        oneOfType = ApplePayDonations;
+        break;
+      case r'card':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(CardDonations),
+        ) as CardDonations;
+        oneOfType = CardDonations;
+        break;
+      case r'googlepay':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(GooglePayDonations),
+        ) as GooglePayDonations;
+        oneOfType = GooglePayDonations;
+        break;
+      case r'ideal':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(IdealDonations),
+        ) as IdealDonations;
+        oneOfType = IdealDonations;
+        break;
+      case r'networkToken':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(CardDonations),
+        ) as CardDonations;
+        oneOfType = CardDonations;
+        break;
+      case r'paywithgoogle':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(PayWithGoogleDonations),
+        ) as PayWithGoogleDonations;
+        oneOfType = PayWithGoogleDonations;
+        break;
+      case r'scheme':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(CardDonations),
+        ) as CardDonations;
+        oneOfType = CardDonations;
+        break;
+      case r'sepadirectdebit':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(SepaDirectDebitDonations),
+        ) as SepaDirectDebitDonations;
+        oneOfType = SepaDirectDebitDonations;
+        break;
+      default:
+        throw UnsupportedError("Couldn't deserialize oneOf for the discriminator value: ${discValue}");
+    }
+    result.oneOf = OneOfDynamic(typeIndex: oneOfTypes.indexOf(oneOfType), types: oneOfTypes, value: oneOfResult);
     return result.build();
   }
 }
@@ -160,6 +298,9 @@ class DonationPaymentRequestPaymentMethodTypeEnum extends EnumClass {
   /// **applepay**
   @BuiltValueEnumConst(wireName: r'paywithgoogle')
   static const DonationPaymentRequestPaymentMethodTypeEnum paywithgoogle = _$donationPaymentRequestPaymentMethodTypeEnum_paywithgoogle;
+  /// **applepay**
+  @BuiltValueEnumConst(wireName: r'sepadirectdebit')
+  static const DonationPaymentRequestPaymentMethodTypeEnum sepadirectdebit = _$donationPaymentRequestPaymentMethodTypeEnum_sepadirectdebit;
   /// **applepay**
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const DonationPaymentRequestPaymentMethodTypeEnum unknownDefaultOpenApi = _$donationPaymentRequestPaymentMethodTypeEnum_unknownDefaultOpenApi;

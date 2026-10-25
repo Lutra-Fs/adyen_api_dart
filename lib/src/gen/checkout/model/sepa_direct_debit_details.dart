@@ -33,11 +33,11 @@ abstract class SepaDirectDebitDetails implements Built<SepaDirectDebitDetails, S
 
   /// The International Bank Account Number (IBAN).
   @BuiltValueField(wireName: r'iban')
-  String get iban;
+  String? get iban;
 
   /// The name of the bank account holder.
   @BuiltValueField(wireName: r'ownerName')
-  String get ownerName;
+  String? get ownerName;
 
   /// This is the `recurringDetailReference` returned in the response when you created the token.
   @Deprecated('recurringDetailReference has been deprecated')
@@ -99,16 +99,20 @@ class _$SepaDirectDebitDetailsSerializer implements PrimitiveSerializer<SepaDire
         specifiedType: const FullType(String),
       );
     }
-    yield r'iban';
-    yield serializers.serialize(
-      object.iban,
-      specifiedType: const FullType(String),
-    );
-    yield r'ownerName';
-    yield serializers.serialize(
-      object.ownerName,
-      specifiedType: const FullType(String),
-    );
+    if (object.iban != null) {
+      yield r'iban';
+      yield serializers.serialize(
+        object.iban,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.ownerName != null) {
+      yield r'ownerName';
+      yield serializers.serialize(
+        object.ownerName,
+        specifiedType: const FullType(String),
+      );
+    }
     if (object.recurringDetailReference != null) {
       yield r'recurringDetailReference';
       yield serializers.serialize(

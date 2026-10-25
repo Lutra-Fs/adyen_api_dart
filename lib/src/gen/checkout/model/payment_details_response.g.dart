@@ -191,6 +191,8 @@ class _$PaymentDetailsResponse extends PaymentDetailsResponse {
   @override
   final String? merchantReference;
   @override
+  final OpiResponse? opi;
+  @override
   final CheckoutOrderResponse? order;
   @override
   final ResponsePaymentMethod? paymentMethod;
@@ -224,6 +226,7 @@ class _$PaymentDetailsResponse extends PaymentDetailsResponse {
     this.donationToken,
     this.fraudResult,
     this.merchantReference,
+    this.opi,
     this.order,
     this.paymentMethod,
     this.paymentValidations,
@@ -255,6 +258,7 @@ class _$PaymentDetailsResponse extends PaymentDetailsResponse {
         donationToken == other.donationToken &&
         fraudResult == other.fraudResult &&
         merchantReference == other.merchantReference &&
+        opi == other.opi &&
         order == other.order &&
         paymentMethod == other.paymentMethod &&
         paymentValidations == other.paymentValidations &&
@@ -277,6 +281,7 @@ class _$PaymentDetailsResponse extends PaymentDetailsResponse {
     _$hash = $jc(_$hash, donationToken.hashCode);
     _$hash = $jc(_$hash, fraudResult.hashCode);
     _$hash = $jc(_$hash, merchantReference.hashCode);
+    _$hash = $jc(_$hash, opi.hashCode);
     _$hash = $jc(_$hash, order.hashCode);
     _$hash = $jc(_$hash, paymentMethod.hashCode);
     _$hash = $jc(_$hash, paymentValidations.hashCode);
@@ -301,6 +306,7 @@ class _$PaymentDetailsResponse extends PaymentDetailsResponse {
           ..add('donationToken', donationToken)
           ..add('fraudResult', fraudResult)
           ..add('merchantReference', merchantReference)
+          ..add('opi', opi)
           ..add('order', order)
           ..add('paymentMethod', paymentMethod)
           ..add('paymentValidations', paymentValidations)
@@ -351,6 +357,10 @@ class PaymentDetailsResponseBuilder
   String? get merchantReference => _$this._merchantReference;
   set merchantReference(String? merchantReference) =>
       _$this._merchantReference = merchantReference;
+
+  OpiResponseBuilder? _opi;
+  OpiResponseBuilder get opi => _$this._opi ??= OpiResponseBuilder();
+  set opi(OpiResponseBuilder? opi) => _$this._opi = opi;
 
   CheckoutOrderResponseBuilder? _order;
   CheckoutOrderResponseBuilder get order =>
@@ -424,6 +434,7 @@ class PaymentDetailsResponseBuilder
       _donationToken = $v.donationToken;
       _fraudResult = $v.fraudResult?.toBuilder();
       _merchantReference = $v.merchantReference;
+      _opi = $v.opi?.toBuilder();
       _order = $v.order?.toBuilder();
       _paymentMethod = $v.paymentMethod?.toBuilder();
       _paymentValidations = $v.paymentValidations?.toBuilder();
@@ -465,6 +476,7 @@ class PaymentDetailsResponseBuilder
             donationToken: donationToken,
             fraudResult: _fraudResult?.build(),
             merchantReference: merchantReference,
+            opi: _opi?.build(),
             order: _order?.build(),
             paymentMethod: _paymentMethod?.build(),
             paymentValidations: _paymentValidations?.build(),
@@ -490,6 +502,8 @@ class PaymentDetailsResponseBuilder
         _$failedField = 'fraudResult';
         _fraudResult?.build();
 
+        _$failedField = 'opi';
+        _opi?.build();
         _$failedField = 'order';
         _order?.build();
         _$failedField = 'paymentMethod';

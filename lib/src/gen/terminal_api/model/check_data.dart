@@ -45,7 +45,7 @@ abstract class CheckData implements Built<CheckData, CheckDataBuilder> {
   /// Type of bank check. Possible values: * **Company** * **Personal**
   @BuiltValueField(wireName: r'TypeCode')
   TypeCode? get typeCode;
-  // enum typeCodeEnum {  Company,  Personal,  };
+  // enum typeCodeEnum {  Personal,  Company,  };
 
   /// Country of the bank check. Absent if country of the Sale system.
   @BuiltValueField(wireName: r'Country')

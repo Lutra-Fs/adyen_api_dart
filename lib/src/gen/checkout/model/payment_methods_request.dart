@@ -21,13 +21,13 @@ part 'payment_methods_request.g.dart';
 /// * [blockedPaymentMethods] - List of payment methods to be hidden from the shopper. To refer to payment methods, use their [payment method type](https://docs.adyen.com/payment-methods/payment-method-types).  Example: `\"blockedPaymentMethods\":[\"ideal\",\"applepay\"]`
 /// * [browserInfo] - The shopper's browser information. > For 3D Secure, the full object is required for web integrations. For mobile app integrations, include the `userAgent` and `acceptHeader` fields to indicate  that your integration can support a redirect in case a payment is routed to 3D Secure 2 redirect.
 /// * [channel] - The platform where a payment transaction takes place. This field can be used for filtering out payment methods that are only available on specific platforms. Possible values: * iOS * Android * Web
-/// * [countryCode] - The shopper's country code.
+/// * [countryCode] - The shopper country code.  Format: [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) Example: NL or DE
 /// * [merchantAccount] - The merchant account identifier, with which you want to process the transaction.
 /// * [order] - The order information required for partial payments.
-/// * [shopperConversionId] - A unique ID that can be used to associate `/paymentMethods` and `/payments` requests with the same shopper transaction, offering insights into conversion rates.
+/// * [shopperConversionId] - A unique ID to [connect the shopper to a single checkout session](https://docs.adyen.com/online-payments/checkout-settings#checkout-shopper-conversion-id) that uses multiple API requests. You can use this to get insights into conversion rates.
 /// * [shopperEmail] - The shopper's email address. We recommend that you provide this data, as it is used in velocity fraud checks. > Required for Visa and JCB transactions that require 3D Secure 2 authentication if you did not include the `telephoneNumber`.
 /// * [shopperIP] - The shopper's IP address. We recommend that you provide this data, as it is used in a number of risk checks (for instance, number of payment attempts or location-based checks). > Required for Visa and JCB transactions that require 3D Secure 2 authentication for all web and mobile integrations, if you did not include the `shopperEmail`. For native mobile integrations, the field is required to support cases where authentication is routed to the redirect flow. This field is also mandatory for some merchants depending on your business model. For more information, [contact Support](https://www.adyen.help/hc/en-us/requests/new).
-/// * [shopperLocale] - The combination of a language code and a country code to specify the language to be used in the payment.
+/// * [shopperLocale] - The language for the payment. The value combines the two-letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes) language code with the [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes) country code. For example, **nl-NL**.  When using Drop-in/Components, the specified language appears if your front-end global configuration does not set the `locale`.
 /// * [shopperReference] - Required for recurring payments.  Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters. > Your reference must not include personally identifiable information (PII) such as name or email address.
 /// * [splitCardFundingSources] - Boolean value indicating whether the card payment method should be split into separate debit and credit options.
 /// * [store] - Required for Adyen for Platforms integrations if you are a platform model. This is your [reference](https://docs.adyen.com/api-explorer/Management/3/post/merchants/(merchantId)/stores#request-reference) (on [balance platform](https://docs.adyen.com/platforms)) or the [storeReference](https://docs.adyen.com/api-explorer/Account/latest/post/updateAccountHolder#request-accountHolderDetails-storeDetails-storeReference) (in the [classic integration](https://docs.adyen.com/classic-platforms/processing-payments/route-payment-to-store/#route-a-payment-to-a-store)) for the ecommerce or point-of-sale store that is processing the payment.
@@ -60,7 +60,7 @@ abstract class PaymentMethodsRequest implements Built<PaymentMethodsRequest, Pay
   PaymentMethodsRequestChannelEnum? get channel;
   // enum channelEnum {  iOS,  Android,  Web,  };
 
-  /// The shopper's country code.
+  /// The shopper country code.  Format: [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) Example: NL or DE
   @BuiltValueField(wireName: r'countryCode')
   String? get countryCode;
 
@@ -72,7 +72,7 @@ abstract class PaymentMethodsRequest implements Built<PaymentMethodsRequest, Pay
   @BuiltValueField(wireName: r'order')
   EncryptedOrderData? get order;
 
-  /// A unique ID that can be used to associate `/paymentMethods` and `/payments` requests with the same shopper transaction, offering insights into conversion rates.
+  /// A unique ID to [connect the shopper to a single checkout session](https://docs.adyen.com/online-payments/checkout-settings#checkout-shopper-conversion-id) that uses multiple API requests. You can use this to get insights into conversion rates.
   @BuiltValueField(wireName: r'shopperConversionId')
   String? get shopperConversionId;
 
@@ -84,7 +84,7 @@ abstract class PaymentMethodsRequest implements Built<PaymentMethodsRequest, Pay
   @BuiltValueField(wireName: r'shopperIP')
   String? get shopperIP;
 
-  /// The combination of a language code and a country code to specify the language to be used in the payment.
+  /// The language for the payment. The value combines the two-letter [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes) language code with the [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes) country code. For example, **nl-NL**.  When using Drop-in/Components, the specified language appears if your front-end global configuration does not set the `locale`.
   @BuiltValueField(wireName: r'shopperLocale')
   String? get shopperLocale;
 

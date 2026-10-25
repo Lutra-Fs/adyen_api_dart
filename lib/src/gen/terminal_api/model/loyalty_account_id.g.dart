@@ -6,30 +6,30 @@ part of 'loyalty_account_id.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-const LoyaltyAccountIDEntryModeEnum
-_$loyaltyAccountIDEntryModeEnum_contactless =
-    const LoyaltyAccountIDEntryModeEnum._('contactless');
-const LoyaltyAccountIDEntryModeEnum _$loyaltyAccountIDEntryModeEnum_file =
-    const LoyaltyAccountIDEntryModeEnum._('file');
-const LoyaltyAccountIDEntryModeEnum _$loyaltyAccountIDEntryModeEnum_ICC =
-    const LoyaltyAccountIDEntryModeEnum._('ICC');
-const LoyaltyAccountIDEntryModeEnum _$loyaltyAccountIDEntryModeEnum_keyed =
-    const LoyaltyAccountIDEntryModeEnum._('keyed');
-const LoyaltyAccountIDEntryModeEnum _$loyaltyAccountIDEntryModeEnum_magStripe =
-    const LoyaltyAccountIDEntryModeEnum._('magStripe');
-const LoyaltyAccountIDEntryModeEnum _$loyaltyAccountIDEntryModeEnum_manual =
-    const LoyaltyAccountIDEntryModeEnum._('manual');
-const LoyaltyAccountIDEntryModeEnum _$loyaltyAccountIDEntryModeEnum_mobile =
-    const LoyaltyAccountIDEntryModeEnum._('mobile');
 const LoyaltyAccountIDEntryModeEnum _$loyaltyAccountIDEntryModeEnum_RFID =
     const LoyaltyAccountIDEntryModeEnum._('RFID');
+const LoyaltyAccountIDEntryModeEnum _$loyaltyAccountIDEntryModeEnum_keyed =
+    const LoyaltyAccountIDEntryModeEnum._('keyed');
+const LoyaltyAccountIDEntryModeEnum _$loyaltyAccountIDEntryModeEnum_manual =
+    const LoyaltyAccountIDEntryModeEnum._('manual');
+const LoyaltyAccountIDEntryModeEnum _$loyaltyAccountIDEntryModeEnum_file =
+    const LoyaltyAccountIDEntryModeEnum._('file');
 const LoyaltyAccountIDEntryModeEnum _$loyaltyAccountIDEntryModeEnum_scanned =
     const LoyaltyAccountIDEntryModeEnum._('scanned');
+const LoyaltyAccountIDEntryModeEnum _$loyaltyAccountIDEntryModeEnum_magStripe =
+    const LoyaltyAccountIDEntryModeEnum._('magStripe');
+const LoyaltyAccountIDEntryModeEnum _$loyaltyAccountIDEntryModeEnum_ICC =
+    const LoyaltyAccountIDEntryModeEnum._('ICC');
 const LoyaltyAccountIDEntryModeEnum
 _$loyaltyAccountIDEntryModeEnum_synchronousICC =
     const LoyaltyAccountIDEntryModeEnum._('synchronousICC');
 const LoyaltyAccountIDEntryModeEnum _$loyaltyAccountIDEntryModeEnum_tapped =
     const LoyaltyAccountIDEntryModeEnum._('tapped');
+const LoyaltyAccountIDEntryModeEnum
+_$loyaltyAccountIDEntryModeEnum_contactless =
+    const LoyaltyAccountIDEntryModeEnum._('contactless');
+const LoyaltyAccountIDEntryModeEnum _$loyaltyAccountIDEntryModeEnum_mobile =
+    const LoyaltyAccountIDEntryModeEnum._('mobile');
 const LoyaltyAccountIDEntryModeEnum
 _$loyaltyAccountIDEntryModeEnum_unknownDefaultOpenApi =
     const LoyaltyAccountIDEntryModeEnum._('unknownDefaultOpenApi');
@@ -38,28 +38,28 @@ LoyaltyAccountIDEntryModeEnum _$loyaltyAccountIDEntryModeEnumValueOf(
   String name,
 ) {
   switch (name) {
-    case 'contactless':
-      return _$loyaltyAccountIDEntryModeEnum_contactless;
-    case 'file':
-      return _$loyaltyAccountIDEntryModeEnum_file;
-    case 'ICC':
-      return _$loyaltyAccountIDEntryModeEnum_ICC;
-    case 'keyed':
-      return _$loyaltyAccountIDEntryModeEnum_keyed;
-    case 'magStripe':
-      return _$loyaltyAccountIDEntryModeEnum_magStripe;
-    case 'manual':
-      return _$loyaltyAccountIDEntryModeEnum_manual;
-    case 'mobile':
-      return _$loyaltyAccountIDEntryModeEnum_mobile;
     case 'RFID':
       return _$loyaltyAccountIDEntryModeEnum_RFID;
+    case 'keyed':
+      return _$loyaltyAccountIDEntryModeEnum_keyed;
+    case 'manual':
+      return _$loyaltyAccountIDEntryModeEnum_manual;
+    case 'file':
+      return _$loyaltyAccountIDEntryModeEnum_file;
     case 'scanned':
       return _$loyaltyAccountIDEntryModeEnum_scanned;
+    case 'magStripe':
+      return _$loyaltyAccountIDEntryModeEnum_magStripe;
+    case 'ICC':
+      return _$loyaltyAccountIDEntryModeEnum_ICC;
     case 'synchronousICC':
       return _$loyaltyAccountIDEntryModeEnum_synchronousICC;
     case 'tapped':
       return _$loyaltyAccountIDEntryModeEnum_tapped;
+    case 'contactless':
+      return _$loyaltyAccountIDEntryModeEnum_contactless;
+    case 'mobile':
+      return _$loyaltyAccountIDEntryModeEnum_mobile;
     case 'unknownDefaultOpenApi':
       return _$loyaltyAccountIDEntryModeEnum_unknownDefaultOpenApi;
     default:
@@ -70,17 +70,17 @@ LoyaltyAccountIDEntryModeEnum _$loyaltyAccountIDEntryModeEnumValueOf(
 final BuiltSet<LoyaltyAccountIDEntryModeEnum>
 _$loyaltyAccountIDEntryModeEnumValues = BuiltSet<LoyaltyAccountIDEntryModeEnum>(
   const <LoyaltyAccountIDEntryModeEnum>[
-    _$loyaltyAccountIDEntryModeEnum_contactless,
-    _$loyaltyAccountIDEntryModeEnum_file,
-    _$loyaltyAccountIDEntryModeEnum_ICC,
-    _$loyaltyAccountIDEntryModeEnum_keyed,
-    _$loyaltyAccountIDEntryModeEnum_magStripe,
-    _$loyaltyAccountIDEntryModeEnum_manual,
-    _$loyaltyAccountIDEntryModeEnum_mobile,
     _$loyaltyAccountIDEntryModeEnum_RFID,
+    _$loyaltyAccountIDEntryModeEnum_keyed,
+    _$loyaltyAccountIDEntryModeEnum_manual,
+    _$loyaltyAccountIDEntryModeEnum_file,
     _$loyaltyAccountIDEntryModeEnum_scanned,
+    _$loyaltyAccountIDEntryModeEnum_magStripe,
+    _$loyaltyAccountIDEntryModeEnum_ICC,
     _$loyaltyAccountIDEntryModeEnum_synchronousICC,
     _$loyaltyAccountIDEntryModeEnum_tapped,
+    _$loyaltyAccountIDEntryModeEnum_contactless,
+    _$loyaltyAccountIDEntryModeEnum_mobile,
     _$loyaltyAccountIDEntryModeEnum_unknownDefaultOpenApi,
   ],
 );
@@ -92,31 +92,31 @@ _$loyaltyAccountIDEntryModeEnumSerializer =
 class _$LoyaltyAccountIDEntryModeEnumSerializer
     implements PrimitiveSerializer<LoyaltyAccountIDEntryModeEnum> {
   static const Map<String, Object> _toWire = const <String, Object>{
-    'contactless': 'Contactless',
-    'file': 'File',
-    'ICC': 'ICC',
-    'keyed': 'Keyed',
-    'magStripe': 'MagStripe',
-    'manual': 'Manual',
-    'mobile': 'Mobile',
     'RFID': 'RFID',
+    'keyed': 'Keyed',
+    'manual': 'Manual',
+    'file': 'File',
     'scanned': 'Scanned',
+    'magStripe': 'MagStripe',
+    'ICC': 'ICC',
     'synchronousICC': 'SynchronousICC',
     'tapped': 'Tapped',
+    'contactless': 'Contactless',
+    'mobile': 'Mobile',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
-    'Contactless': 'contactless',
-    'File': 'file',
-    'ICC': 'ICC',
-    'Keyed': 'keyed',
-    'MagStripe': 'magStripe',
-    'Manual': 'manual',
-    'Mobile': 'mobile',
     'RFID': 'RFID',
+    'Keyed': 'keyed',
+    'Manual': 'manual',
+    'File': 'file',
     'Scanned': 'scanned',
+    'MagStripe': 'magStripe',
+    'ICC': 'ICC',
     'SynchronousICC': 'synchronousICC',
     'Tapped': 'tapped',
+    'Contactless': 'contactless',
+    'Mobile': 'mobile',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
 

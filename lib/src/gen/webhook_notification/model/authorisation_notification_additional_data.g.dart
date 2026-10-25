@@ -480,11 +480,15 @@ class _$AuthorisationNotificationAdditionalData
   @override
   final String? modifiedShopperReference;
   @override
+  final String? networkProcessingMode;
+  @override
   final String? networkTokenPeriodAvailable;
   @override
   final String? networkTokenPeriodBin;
   @override
   final String? networkTokenPeriodTokenSummary;
+  @override
+  final String? networkTxDate;
   @override
   final String? networkTxReference;
   @override
@@ -633,6 +637,8 @@ class _$AuthorisationNotificationAdditionalData
   @override
   final String? transactionId;
   @override
+  final String? transactionLinkId;
+  @override
   final String? txScreeningPeriodAppliedRule;
   @override
   final String? txScreeningPeriodCheckSum;
@@ -778,9 +784,11 @@ class _$AuthorisationNotificationAdditionalData
     this.merchantReference,
     this.metadata,
     this.modifiedShopperReference,
+    this.networkProcessingMode,
     this.networkTokenPeriodAvailable,
     this.networkTokenPeriodBin,
     this.networkTokenPeriodTokenSummary,
+    this.networkTxDate,
     this.networkTxReference,
     this.nfcPeriodExpire,
     this.nfcPeriodIssue,
@@ -854,6 +862,7 @@ class _$AuthorisationNotificationAdditionalData
     this.tokenizationPeriodStoredPaymentMethodId,
     this.totalFraudScore,
     this.transactionId,
+    this.transactionLinkId,
     this.txScreeningPeriodAppliedRule,
     this.txScreeningPeriodCheckSum,
     this.txScreeningPeriodResolution,
@@ -1019,10 +1028,12 @@ class _$AuthorisationNotificationAdditionalData
         merchantReference == other.merchantReference &&
         metadata == other.metadata &&
         modifiedShopperReference == other.modifiedShopperReference &&
+        networkProcessingMode == other.networkProcessingMode &&
         networkTokenPeriodAvailable == other.networkTokenPeriodAvailable &&
         networkTokenPeriodBin == other.networkTokenPeriodBin &&
         networkTokenPeriodTokenSummary ==
             other.networkTokenPeriodTokenSummary &&
+        networkTxDate == other.networkTxDate &&
         networkTxReference == other.networkTxReference &&
         nfcPeriodExpire == other.nfcPeriodExpire &&
         nfcPeriodIssue == other.nfcPeriodIssue &&
@@ -1108,6 +1119,7 @@ class _$AuthorisationNotificationAdditionalData
             other.tokenizationPeriodStoredPaymentMethodId &&
         totalFraudScore == other.totalFraudScore &&
         transactionId == other.transactionId &&
+        transactionLinkId == other.transactionLinkId &&
         txScreeningPeriodAppliedRule == other.txScreeningPeriodAppliedRule &&
         txScreeningPeriodCheckSum == other.txScreeningPeriodCheckSum &&
         txScreeningPeriodResolution == other.txScreeningPeriodResolution &&
@@ -1249,9 +1261,11 @@ class _$AuthorisationNotificationAdditionalData
     _$hash = $jc(_$hash, merchantReference.hashCode);
     _$hash = $jc(_$hash, metadata.hashCode);
     _$hash = $jc(_$hash, modifiedShopperReference.hashCode);
+    _$hash = $jc(_$hash, networkProcessingMode.hashCode);
     _$hash = $jc(_$hash, networkTokenPeriodAvailable.hashCode);
     _$hash = $jc(_$hash, networkTokenPeriodBin.hashCode);
     _$hash = $jc(_$hash, networkTokenPeriodTokenSummary.hashCode);
+    _$hash = $jc(_$hash, networkTxDate.hashCode);
     _$hash = $jc(_$hash, networkTxReference.hashCode);
     _$hash = $jc(_$hash, nfcPeriodExpire.hashCode);
     _$hash = $jc(_$hash, nfcPeriodIssue.hashCode);
@@ -1325,6 +1339,7 @@ class _$AuthorisationNotificationAdditionalData
     _$hash = $jc(_$hash, tokenizationPeriodStoredPaymentMethodId.hashCode);
     _$hash = $jc(_$hash, totalFraudScore.hashCode);
     _$hash = $jc(_$hash, transactionId.hashCode);
+    _$hash = $jc(_$hash, transactionLinkId.hashCode);
     _$hash = $jc(_$hash, txScreeningPeriodAppliedRule.hashCode);
     _$hash = $jc(_$hash, txScreeningPeriodCheckSum.hashCode);
     _$hash = $jc(_$hash, txScreeningPeriodResolution.hashCode);
@@ -1521,12 +1536,14 @@ class _$AuthorisationNotificationAdditionalData
           ..add('merchantReference', merchantReference)
           ..add('metadata', metadata)
           ..add('modifiedShopperReference', modifiedShopperReference)
+          ..add('networkProcessingMode', networkProcessingMode)
           ..add('networkTokenPeriodAvailable', networkTokenPeriodAvailable)
           ..add('networkTokenPeriodBin', networkTokenPeriodBin)
           ..add(
             'networkTokenPeriodTokenSummary',
             networkTokenPeriodTokenSummary,
           )
+          ..add('networkTxDate', networkTxDate)
           ..add('networkTxReference', networkTxReference)
           ..add('nfcPeriodExpire', nfcPeriodExpire)
           ..add('nfcPeriodIssue', nfcPeriodIssue)
@@ -1636,6 +1653,7 @@ class _$AuthorisationNotificationAdditionalData
           )
           ..add('totalFraudScore', totalFraudScore)
           ..add('transactionId', transactionId)
+          ..add('transactionLinkId', transactionLinkId)
           ..add('txScreeningPeriodAppliedRule', txScreeningPeriodAppliedRule)
           ..add('txScreeningPeriodCheckSum', txScreeningPeriodCheckSum)
           ..add('txScreeningPeriodResolution', txScreeningPeriodResolution)
@@ -2317,6 +2335,11 @@ class AuthorisationNotificationAdditionalDataBuilder
   set modifiedShopperReference(String? modifiedShopperReference) =>
       _$this._modifiedShopperReference = modifiedShopperReference;
 
+  String? _networkProcessingMode;
+  String? get networkProcessingMode => _$this._networkProcessingMode;
+  set networkProcessingMode(String? networkProcessingMode) =>
+      _$this._networkProcessingMode = networkProcessingMode;
+
   String? _networkTokenPeriodAvailable;
   String? get networkTokenPeriodAvailable =>
       _$this._networkTokenPeriodAvailable;
@@ -2333,6 +2356,11 @@ class AuthorisationNotificationAdditionalDataBuilder
       _$this._networkTokenPeriodTokenSummary;
   set networkTokenPeriodTokenSummary(String? networkTokenPeriodTokenSummary) =>
       _$this._networkTokenPeriodTokenSummary = networkTokenPeriodTokenSummary;
+
+  String? _networkTxDate;
+  String? get networkTxDate => _$this._networkTxDate;
+  set networkTxDate(String? networkTxDate) =>
+      _$this._networkTxDate = networkTxDate;
 
   String? _networkTxReference;
   String? get networkTxReference => _$this._networkTxReference;
@@ -2726,6 +2754,11 @@ class AuthorisationNotificationAdditionalDataBuilder
   set transactionId(String? transactionId) =>
       _$this._transactionId = transactionId;
 
+  String? _transactionLinkId;
+  String? get transactionLinkId => _$this._transactionLinkId;
+  set transactionLinkId(String? transactionLinkId) =>
+      _$this._transactionLinkId = transactionLinkId;
+
   String? _txScreeningPeriodAppliedRule;
   String? get txScreeningPeriodAppliedRule =>
       _$this._txScreeningPeriodAppliedRule;
@@ -2904,9 +2937,11 @@ class AuthorisationNotificationAdditionalDataBuilder
       _merchantReference = $v.merchantReference;
       _metadata = $v.metadata?.toBuilder();
       _modifiedShopperReference = $v.modifiedShopperReference;
+      _networkProcessingMode = $v.networkProcessingMode;
       _networkTokenPeriodAvailable = $v.networkTokenPeriodAvailable;
       _networkTokenPeriodBin = $v.networkTokenPeriodBin;
       _networkTokenPeriodTokenSummary = $v.networkTokenPeriodTokenSummary;
+      _networkTxDate = $v.networkTxDate;
       _networkTxReference = $v.networkTxReference;
       _nfcPeriodExpire = $v.nfcPeriodExpire;
       _nfcPeriodIssue = $v.nfcPeriodIssue;
@@ -2988,6 +3023,7 @@ class AuthorisationNotificationAdditionalDataBuilder
           $v.tokenizationPeriodStoredPaymentMethodId;
       _totalFraudScore = $v.totalFraudScore;
       _transactionId = $v.transactionId;
+      _transactionLinkId = $v.transactionLinkId;
       _txScreeningPeriodAppliedRule = $v.txScreeningPeriodAppliedRule;
       _txScreeningPeriodCheckSum = $v.txScreeningPeriodCheckSum;
       _txScreeningPeriodResolution = $v.txScreeningPeriodResolution;
@@ -3160,9 +3196,11 @@ class AuthorisationNotificationAdditionalDataBuilder
             merchantReference: merchantReference,
             metadata: _metadata?.build(),
             modifiedShopperReference: modifiedShopperReference,
+            networkProcessingMode: networkProcessingMode,
             networkTokenPeriodAvailable: networkTokenPeriodAvailable,
             networkTokenPeriodBin: networkTokenPeriodBin,
             networkTokenPeriodTokenSummary: networkTokenPeriodTokenSummary,
+            networkTxDate: networkTxDate,
             networkTxReference: networkTxReference,
             nfcPeriodExpire: nfcPeriodExpire,
             nfcPeriodIssue: nfcPeriodIssue,
@@ -3245,6 +3283,7 @@ class AuthorisationNotificationAdditionalDataBuilder
                 tokenizationPeriodStoredPaymentMethodId,
             totalFraudScore: totalFraudScore,
             transactionId: transactionId,
+            transactionLinkId: transactionLinkId,
             txScreeningPeriodAppliedRule: txScreeningPeriodAppliedRule,
             txScreeningPeriodCheckSum: txScreeningPeriodCheckSum,
             txScreeningPeriodResolution: txScreeningPeriodResolution,

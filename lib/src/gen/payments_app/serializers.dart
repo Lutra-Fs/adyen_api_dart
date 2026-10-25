@@ -20,6 +20,7 @@ import 'package:adyen_api/src/gen/payments_app/model/default_error_response_enti
 import 'package:adyen_api/src/gen/payments_app/model/invalid_field.dart';
 import 'package:adyen_api/src/gen/payments_app/model/payments_app_dto.dart';
 import 'package:adyen_api/src/gen/payments_app/model/payments_app_response.dart';
+import 'package:adyen_api/src/gen/payments_app/model/sub_merchant_data.dart';
 
 part 'serializers.g.dart';
 
@@ -30,6 +31,7 @@ part 'serializers.g.dart';
   InvalidField,
   PaymentsAppDto,
   PaymentsAppResponse,
+  SubMerchantData,
 ])
 Serializers serializers = (_$serializers.toBuilder()
       ..add(const OneOfSerializer())

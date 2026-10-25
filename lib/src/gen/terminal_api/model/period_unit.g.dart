@@ -6,24 +6,24 @@ part of 'period_unit.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-const PeriodUnit _$annual = const PeriodUnit._('annual');
 const PeriodUnit _$daily = const PeriodUnit._('daily');
-const PeriodUnit _$monthly = const PeriodUnit._('monthly');
 const PeriodUnit _$weekly = const PeriodUnit._('weekly');
+const PeriodUnit _$monthly = const PeriodUnit._('monthly');
+const PeriodUnit _$annual = const PeriodUnit._('annual');
 const PeriodUnit _$unknownDefaultOpenApi = const PeriodUnit._(
   'unknownDefaultOpenApi',
 );
 
 PeriodUnit _$valueOf(String name) {
   switch (name) {
-    case 'annual':
-      return _$annual;
     case 'daily':
       return _$daily;
-    case 'monthly':
-      return _$monthly;
     case 'weekly':
       return _$weekly;
+    case 'monthly':
+      return _$monthly;
+    case 'annual':
+      return _$annual;
     case 'unknownDefaultOpenApi':
       return _$unknownDefaultOpenApi;
     default:
@@ -32,19 +32,19 @@ PeriodUnit _$valueOf(String name) {
 }
 
 final BuiltSet<PeriodUnit> _$values = BuiltSet<PeriodUnit>(const <PeriodUnit>[
-  _$annual,
   _$daily,
-  _$monthly,
   _$weekly,
+  _$monthly,
+  _$annual,
   _$unknownDefaultOpenApi,
 ]);
 
 class _$PeriodUnitMeta {
   const _$PeriodUnitMeta();
-  PeriodUnit get annual => _$annual;
   PeriodUnit get daily => _$daily;
-  PeriodUnit get monthly => _$monthly;
   PeriodUnit get weekly => _$weekly;
+  PeriodUnit get monthly => _$monthly;
+  PeriodUnit get annual => _$annual;
   PeriodUnit get unknownDefaultOpenApi => _$unknownDefaultOpenApi;
   PeriodUnit valueOf(String name) => _$valueOf(name);
   BuiltSet<PeriodUnit> get values => _$values;
@@ -59,17 +59,17 @@ Serializer<PeriodUnit> _$periodUnitSerializer = _$PeriodUnitSerializer();
 
 class _$PeriodUnitSerializer implements PrimitiveSerializer<PeriodUnit> {
   static const Map<String, Object> _toWire = const <String, Object>{
-    'annual': 'Annual',
     'daily': 'Daily',
-    'monthly': 'Monthly',
     'weekly': 'Weekly',
+    'monthly': 'Monthly',
+    'annual': 'Annual',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
-    'Annual': 'annual',
     'Daily': 'daily',
-    'Monthly': 'monthly',
     'Weekly': 'weekly',
+    'Monthly': 'monthly',
+    'Annual': 'annual',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
 

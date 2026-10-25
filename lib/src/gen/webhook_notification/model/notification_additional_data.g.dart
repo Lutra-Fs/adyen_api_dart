@@ -272,11 +272,17 @@ class _$NotificationAdditionalData extends NotificationAdditionalData {
   @override
   final BuiltMap<String, String>? metadata;
   @override
+  final String? networkProcessingMode;
+  @override
   final String? networkTokenPeriodAvailable;
   @override
   final String? networkTokenPeriodBin;
   @override
   final String? networkTokenPeriodTokenSummary;
+  @override
+  final String? networkTxDate;
+  @override
+  final String? networkTxReference;
   @override
   final String? nfcPeriodExpire;
   @override
@@ -440,9 +446,12 @@ class _$NotificationAdditionalData extends NotificationAdditionalData {
     this.latestCardPeriodSummary,
     this.liabilityShift,
     this.metadata,
+    this.networkProcessingMode,
     this.networkTokenPeriodAvailable,
     this.networkTokenPeriodBin,
     this.networkTokenPeriodTokenSummary,
+    this.networkTxDate,
+    this.networkTxReference,
     this.nfcPeriodExpire,
     this.nfcPeriodIssue,
     this.nfcPeriodPinPeriodProvided,
@@ -590,10 +599,13 @@ class _$NotificationAdditionalData extends NotificationAdditionalData {
         latestCardPeriodSummary == other.latestCardPeriodSummary &&
         liabilityShift == other.liabilityShift &&
         metadata == other.metadata &&
+        networkProcessingMode == other.networkProcessingMode &&
         networkTokenPeriodAvailable == other.networkTokenPeriodAvailable &&
         networkTokenPeriodBin == other.networkTokenPeriodBin &&
         networkTokenPeriodTokenSummary ==
             other.networkTokenPeriodTokenSummary &&
+        networkTxDate == other.networkTxDate &&
+        networkTxReference == other.networkTxReference &&
         nfcPeriodExpire == other.nfcPeriodExpire &&
         nfcPeriodIssue == other.nfcPeriodIssue &&
         nfcPeriodPinPeriodProvided == other.nfcPeriodPinPeriodProvided &&
@@ -723,9 +735,12 @@ class _$NotificationAdditionalData extends NotificationAdditionalData {
     _$hash = $jc(_$hash, latestCardPeriodSummary.hashCode);
     _$hash = $jc(_$hash, liabilityShift.hashCode);
     _$hash = $jc(_$hash, metadata.hashCode);
+    _$hash = $jc(_$hash, networkProcessingMode.hashCode);
     _$hash = $jc(_$hash, networkTokenPeriodAvailable.hashCode);
     _$hash = $jc(_$hash, networkTokenPeriodBin.hashCode);
     _$hash = $jc(_$hash, networkTokenPeriodTokenSummary.hashCode);
+    _$hash = $jc(_$hash, networkTxDate.hashCode);
+    _$hash = $jc(_$hash, networkTxReference.hashCode);
     _$hash = $jc(_$hash, nfcPeriodExpire.hashCode);
     _$hash = $jc(_$hash, nfcPeriodIssue.hashCode);
     _$hash = $jc(_$hash, nfcPeriodPinPeriodProvided.hashCode);
@@ -894,12 +909,15 @@ class _$NotificationAdditionalData extends NotificationAdditionalData {
           ..add('latestCardPeriodSummary', latestCardPeriodSummary)
           ..add('liabilityShift', liabilityShift)
           ..add('metadata', metadata)
+          ..add('networkProcessingMode', networkProcessingMode)
           ..add('networkTokenPeriodAvailable', networkTokenPeriodAvailable)
           ..add('networkTokenPeriodBin', networkTokenPeriodBin)
           ..add(
             'networkTokenPeriodTokenSummary',
             networkTokenPeriodTokenSummary,
           )
+          ..add('networkTxDate', networkTxDate)
+          ..add('networkTxReference', networkTxReference)
           ..add('nfcPeriodExpire', nfcPeriodExpire)
           ..add('nfcPeriodIssue', nfcPeriodIssue)
           ..add('nfcPeriodPinPeriodProvided', nfcPeriodPinPeriodProvided)
@@ -1383,6 +1401,11 @@ class NotificationAdditionalDataBuilder
   set metadata(MapBuilder<String, String>? metadata) =>
       _$this._metadata = metadata;
 
+  String? _networkProcessingMode;
+  String? get networkProcessingMode => _$this._networkProcessingMode;
+  set networkProcessingMode(String? networkProcessingMode) =>
+      _$this._networkProcessingMode = networkProcessingMode;
+
   String? _networkTokenPeriodAvailable;
   String? get networkTokenPeriodAvailable =>
       _$this._networkTokenPeriodAvailable;
@@ -1399,6 +1422,16 @@ class NotificationAdditionalDataBuilder
       _$this._networkTokenPeriodTokenSummary;
   set networkTokenPeriodTokenSummary(String? networkTokenPeriodTokenSummary) =>
       _$this._networkTokenPeriodTokenSummary = networkTokenPeriodTokenSummary;
+
+  String? _networkTxDate;
+  String? get networkTxDate => _$this._networkTxDate;
+  set networkTxDate(String? networkTxDate) =>
+      _$this._networkTxDate = networkTxDate;
+
+  String? _networkTxReference;
+  String? get networkTxReference => _$this._networkTxReference;
+  set networkTxReference(String? networkTxReference) =>
+      _$this._networkTxReference = networkTxReference;
 
   String? _nfcPeriodExpire;
   String? get nfcPeriodExpire => _$this._nfcPeriodExpire;
@@ -1689,9 +1722,12 @@ class NotificationAdditionalDataBuilder
       _latestCardPeriodSummary = $v.latestCardPeriodSummary;
       _liabilityShift = $v.liabilityShift;
       _metadata = $v.metadata?.toBuilder();
+      _networkProcessingMode = $v.networkProcessingMode;
       _networkTokenPeriodAvailable = $v.networkTokenPeriodAvailable;
       _networkTokenPeriodBin = $v.networkTokenPeriodBin;
       _networkTokenPeriodTokenSummary = $v.networkTokenPeriodTokenSummary;
+      _networkTxDate = $v.networkTxDate;
+      _networkTxReference = $v.networkTxReference;
       _nfcPeriodExpire = $v.nfcPeriodExpire;
       _nfcPeriodIssue = $v.nfcPeriodIssue;
       _nfcPeriodPinPeriodProvided = $v.nfcPeriodPinPeriodProvided;
@@ -1847,9 +1883,12 @@ class NotificationAdditionalDataBuilder
             latestCardPeriodSummary: latestCardPeriodSummary,
             liabilityShift: liabilityShift,
             metadata: _metadata?.build(),
+            networkProcessingMode: networkProcessingMode,
             networkTokenPeriodAvailable: networkTokenPeriodAvailable,
             networkTokenPeriodBin: networkTokenPeriodBin,
             networkTokenPeriodTokenSummary: networkTokenPeriodTokenSummary,
+            networkTxDate: networkTxDate,
+            networkTxReference: networkTxReference,
             nfcPeriodExpire: nfcPeriodExpire,
             nfcPeriodIssue: nfcPeriodIssue,
             nfcPeriodPinPeriodProvided: nfcPeriodPinPeriodProvided,

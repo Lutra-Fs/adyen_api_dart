@@ -16,6 +16,7 @@ part 'update_merchant_api_credential_request.g.dart';
 /// * [allowedOrigins] - The new list of [allowed origins](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) for the API credential.
 /// * [description] - Description of the API credential.
 /// * [roles] - List of [roles](https://docs.adyen.com/development-resources/api-credentials#roles-1) for the API credential. Only roles assigned to 'ws@Company.<CompanyName>' can be assigned to other API credentials.
+/// * [subjectDN] - The subject DN of the certificate issued by Adyen.
 @BuiltValue()
 abstract class UpdateMerchantApiCredentialRequest implements Built<UpdateMerchantApiCredentialRequest, UpdateMerchantApiCredentialRequestBuilder> {
   /// Indicates if the API credential is enabled.
@@ -33,6 +34,10 @@ abstract class UpdateMerchantApiCredentialRequest implements Built<UpdateMerchan
   /// List of [roles](https://docs.adyen.com/development-resources/api-credentials#roles-1) for the API credential. Only roles assigned to 'ws@Company.<CompanyName>' can be assigned to other API credentials.
   @BuiltValueField(wireName: r'roles')
   BuiltList<String>? get roles;
+
+  /// The subject DN of the certificate issued by Adyen.
+  @BuiltValueField(wireName: r'subjectDN')
+  String? get subjectDN;
 
   UpdateMerchantApiCredentialRequest._();
 
@@ -85,6 +90,13 @@ class _$UpdateMerchantApiCredentialRequestSerializer implements PrimitiveSeriali
         specifiedType: const FullType(BuiltList, [FullType(String)]),
       );
     }
+    if (object.subjectDN != null) {
+      yield r'subjectDN';
+      yield serializers.serialize(
+        object.subjectDN,
+        specifiedType: const FullType(String),
+      );
+    }
   }
 
   @override
@@ -135,6 +147,13 @@ class _$UpdateMerchantApiCredentialRequestSerializer implements PrimitiveSeriali
             specifiedType: const FullType(BuiltList, [FullType(String)]),
           ) as BuiltList<String>;
           result.roles.replace(valueDes);
+          break;
+        case r'subjectDN':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.subjectDN = valueDes;
           break;
         default:
           unhandled.add(key);

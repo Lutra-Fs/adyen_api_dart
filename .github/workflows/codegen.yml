@@ -10,13 +10,17 @@ permissions:
   pull-requests: write
   actions: read
 
+concurrency:
+  group: openapi-codegen
+  cancel-in-progress: false
+
 jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-      - name: Install jq
-        run: sudo apt-get update && sudo apt-get install -y jq
+      - uses: actions/checkout@v7
+      - name: Install codegen dependencies
+        run: sudo apt-get update && sudo apt-get install -y jq ripgrep
 
       - name: Resolve OpenAPI commit
         id: openapi
@@ -25,6 +29,20 @@ jobs:
           current=$(grep '"commit"' tool/openapi.lock.json | awk -F'"' '{print $4}')
           echo "latest=$latest" >> "$GITHUB_OUTPUT"
           echo "current=$current" >> "$GITHUB_OUTPUT"
+
+      - name: Validate automation credentials
+        if: steps.openapi.outputs.latest != steps.openapi.outputs.current
+        env:
+          GH_TOKEN: ${{ secrets.AUTOMATION_PAT }}
+        run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo '::error::Set AUTOMATION_PAT to a token with Contents and Pull requests write access to this repository.'
+            exit 1
+          fi
+          if ! gh api user --silent; then
+            echo '::error::AUTOMATION_PAT is invalid or expired. Renew the repository secret before rerunning codegen.'
+            exit 1
+          fi
 
       - name: Checkout OpenAPI repo
         if: steps.openapi.outputs.latest != steps.openapi.outputs.current
@@ -58,17 +76,24 @@ jobs:
             openapitools/openapi-generator-cli:v7.18.0
         run: ./tool/codegen/generate.sh
 
-      - name: Run build_runner
+      - name: Set up Dart
         if: steps.openapi.outputs.latest != steps.openapi.outputs.current
         uses: dart-lang/setup-dart@v1
         with:
-          sdk: 3.10.3
+          sdk: stable
 
       - name: Generate .g.dart files
         if: steps.openapi.outputs.latest != steps.openapi.outputs.current
         run: |
           dart pub get
-          dart run build_runner build --delete-conflicting-outputs
+          dart run build_runner build
+
+      - name: Validate generated update
+        if: steps.openapi.outputs.latest != steps.openapi.outputs.current
+        run: |
+          ./tool/generate_model_exports.sh --check
+          dart analyze --fatal-infos
+          dart test
 
       - name: Create pull request
         if: steps.openapi.outputs.latest != steps.openapi.outputs.current

@@ -34,6 +34,18 @@ class _$LineItem extends LineItem {
   @override
   final String? receiverEmail;
   @override
+  final String? returnShippingCompany;
+  @override
+  final String? returnTrackingNumber;
+  @override
+  final String? returnTrackingUri;
+  @override
+  final String? riskCategory;
+  @override
+  final String? shippingCompany;
+  @override
+  final String? shippingMethod;
+  @override
   final String? size;
   @override
   final String? sku;
@@ -41,6 +53,10 @@ class _$LineItem extends LineItem {
   final int? taxAmount;
   @override
   final int? taxPercentage;
+  @override
+  final String? trackingNumber;
+  @override
+  final String? trackingUri;
   @override
   final String? upc;
 
@@ -61,10 +77,18 @@ class _$LineItem extends LineItem {
     this.productUrl,
     this.quantity,
     this.receiverEmail,
+    this.returnShippingCompany,
+    this.returnTrackingNumber,
+    this.returnTrackingUri,
+    this.riskCategory,
+    this.shippingCompany,
+    this.shippingMethod,
     this.size,
     this.sku,
     this.taxAmount,
     this.taxPercentage,
+    this.trackingNumber,
+    this.trackingUri,
     this.upc,
   }) : super._();
   @override
@@ -91,10 +115,18 @@ class _$LineItem extends LineItem {
         productUrl == other.productUrl &&
         quantity == other.quantity &&
         receiverEmail == other.receiverEmail &&
+        returnShippingCompany == other.returnShippingCompany &&
+        returnTrackingNumber == other.returnTrackingNumber &&
+        returnTrackingUri == other.returnTrackingUri &&
+        riskCategory == other.riskCategory &&
+        shippingCompany == other.shippingCompany &&
+        shippingMethod == other.shippingMethod &&
         size == other.size &&
         sku == other.sku &&
         taxAmount == other.taxAmount &&
         taxPercentage == other.taxPercentage &&
+        trackingNumber == other.trackingNumber &&
+        trackingUri == other.trackingUri &&
         upc == other.upc;
   }
 
@@ -114,10 +146,18 @@ class _$LineItem extends LineItem {
     _$hash = $jc(_$hash, productUrl.hashCode);
     _$hash = $jc(_$hash, quantity.hashCode);
     _$hash = $jc(_$hash, receiverEmail.hashCode);
+    _$hash = $jc(_$hash, returnShippingCompany.hashCode);
+    _$hash = $jc(_$hash, returnTrackingNumber.hashCode);
+    _$hash = $jc(_$hash, returnTrackingUri.hashCode);
+    _$hash = $jc(_$hash, riskCategory.hashCode);
+    _$hash = $jc(_$hash, shippingCompany.hashCode);
+    _$hash = $jc(_$hash, shippingMethod.hashCode);
     _$hash = $jc(_$hash, size.hashCode);
     _$hash = $jc(_$hash, sku.hashCode);
     _$hash = $jc(_$hash, taxAmount.hashCode);
     _$hash = $jc(_$hash, taxPercentage.hashCode);
+    _$hash = $jc(_$hash, trackingNumber.hashCode);
+    _$hash = $jc(_$hash, trackingUri.hashCode);
     _$hash = $jc(_$hash, upc.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -139,10 +179,18 @@ class _$LineItem extends LineItem {
           ..add('productUrl', productUrl)
           ..add('quantity', quantity)
           ..add('receiverEmail', receiverEmail)
+          ..add('returnShippingCompany', returnShippingCompany)
+          ..add('returnTrackingNumber', returnTrackingNumber)
+          ..add('returnTrackingUri', returnTrackingUri)
+          ..add('riskCategory', riskCategory)
+          ..add('shippingCompany', shippingCompany)
+          ..add('shippingMethod', shippingMethod)
           ..add('size', size)
           ..add('sku', sku)
           ..add('taxAmount', taxAmount)
           ..add('taxPercentage', taxPercentage)
+          ..add('trackingNumber', trackingNumber)
+          ..add('trackingUri', trackingUri)
           ..add('upc', upc))
         .toString();
   }
@@ -207,6 +255,35 @@ class LineItemBuilder implements Builder<LineItem, LineItemBuilder> {
   set receiverEmail(String? receiverEmail) =>
       _$this._receiverEmail = receiverEmail;
 
+  String? _returnShippingCompany;
+  String? get returnShippingCompany => _$this._returnShippingCompany;
+  set returnShippingCompany(String? returnShippingCompany) =>
+      _$this._returnShippingCompany = returnShippingCompany;
+
+  String? _returnTrackingNumber;
+  String? get returnTrackingNumber => _$this._returnTrackingNumber;
+  set returnTrackingNumber(String? returnTrackingNumber) =>
+      _$this._returnTrackingNumber = returnTrackingNumber;
+
+  String? _returnTrackingUri;
+  String? get returnTrackingUri => _$this._returnTrackingUri;
+  set returnTrackingUri(String? returnTrackingUri) =>
+      _$this._returnTrackingUri = returnTrackingUri;
+
+  String? _riskCategory;
+  String? get riskCategory => _$this._riskCategory;
+  set riskCategory(String? riskCategory) => _$this._riskCategory = riskCategory;
+
+  String? _shippingCompany;
+  String? get shippingCompany => _$this._shippingCompany;
+  set shippingCompany(String? shippingCompany) =>
+      _$this._shippingCompany = shippingCompany;
+
+  String? _shippingMethod;
+  String? get shippingMethod => _$this._shippingMethod;
+  set shippingMethod(String? shippingMethod) =>
+      _$this._shippingMethod = shippingMethod;
+
   String? _size;
   String? get size => _$this._size;
   set size(String? size) => _$this._size = size;
@@ -223,6 +300,15 @@ class LineItemBuilder implements Builder<LineItem, LineItemBuilder> {
   int? get taxPercentage => _$this._taxPercentage;
   set taxPercentage(int? taxPercentage) =>
       _$this._taxPercentage = taxPercentage;
+
+  String? _trackingNumber;
+  String? get trackingNumber => _$this._trackingNumber;
+  set trackingNumber(String? trackingNumber) =>
+      _$this._trackingNumber = trackingNumber;
+
+  String? _trackingUri;
+  String? get trackingUri => _$this._trackingUri;
+  set trackingUri(String? trackingUri) => _$this._trackingUri = trackingUri;
 
   String? _upc;
   String? get upc => _$this._upc;
@@ -248,10 +334,18 @@ class LineItemBuilder implements Builder<LineItem, LineItemBuilder> {
       _productUrl = $v.productUrl;
       _quantity = $v.quantity;
       _receiverEmail = $v.receiverEmail;
+      _returnShippingCompany = $v.returnShippingCompany;
+      _returnTrackingNumber = $v.returnTrackingNumber;
+      _returnTrackingUri = $v.returnTrackingUri;
+      _riskCategory = $v.riskCategory;
+      _shippingCompany = $v.shippingCompany;
+      _shippingMethod = $v.shippingMethod;
       _size = $v.size;
       _sku = $v.sku;
       _taxAmount = $v.taxAmount;
       _taxPercentage = $v.taxPercentage;
+      _trackingNumber = $v.trackingNumber;
+      _trackingUri = $v.trackingUri;
       _upc = $v.upc;
       _$v = null;
     }
@@ -288,10 +382,18 @@ class LineItemBuilder implements Builder<LineItem, LineItemBuilder> {
           productUrl: productUrl,
           quantity: quantity,
           receiverEmail: receiverEmail,
+          returnShippingCompany: returnShippingCompany,
+          returnTrackingNumber: returnTrackingNumber,
+          returnTrackingUri: returnTrackingUri,
+          riskCategory: riskCategory,
+          shippingCompany: shippingCompany,
+          shippingMethod: shippingMethod,
           size: size,
           sku: sku,
           taxAmount: taxAmount,
           taxPercentage: taxPercentage,
+          trackingNumber: trackingNumber,
+          trackingUri: trackingUri,
           upc: upc,
         );
     replace(_$result);

@@ -33,6 +33,7 @@ part 'recurring_detail.g.dart';
 /// * [shopperName] - The name of the shopper.
 /// * [socialSecurityNumber] - A shopper's social security number (only in countries where it is legal to collect).
 /// * [tokenDetails] 
+/// * [transactionLinkId] - The unique identifier for the transaction link, used for Mastercard recurring transactions.
 /// * [variant] - The payment method, such as “mc\", \"visa\", \"ideal\", \"paypal\".
 @BuiltValue()
 abstract class RecurringDetail implements Built<RecurringDetail, RecurringDetailBuilder> {
@@ -98,6 +99,10 @@ abstract class RecurringDetail implements Built<RecurringDetail, RecurringDetail
 
   @BuiltValueField(wireName: r'tokenDetails')
   TokenDetails? get tokenDetails;
+
+  /// The unique identifier for the transaction link, used for Mastercard recurring transactions.
+  @BuiltValueField(wireName: r'transactionLinkId')
+  String? get transactionLinkId;
 
   /// The payment method, such as “mc\", \"visa\", \"ideal\", \"paypal\".
   @BuiltValueField(wireName: r'variant')
@@ -234,6 +239,13 @@ class _$RecurringDetailSerializer implements PrimitiveSerializer<RecurringDetail
       yield serializers.serialize(
         object.tokenDetails,
         specifiedType: const FullType(TokenDetails),
+      );
+    }
+    if (object.transactionLinkId != null) {
+      yield r'transactionLinkId';
+      yield serializers.serialize(
+        object.transactionLinkId,
+        specifiedType: const FullType(String),
       );
     }
     yield r'variant';
@@ -375,6 +387,13 @@ class _$RecurringDetailSerializer implements PrimitiveSerializer<RecurringDetail
             specifiedType: const FullType(TokenDetails),
           ) as TokenDetails;
           result.tokenDetails.replace(valueDes);
+          break;
+        case r'transactionLinkId':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.transactionLinkId = valueDes;
           break;
         case r'variant':
           final valueDes = serializers.deserialize(

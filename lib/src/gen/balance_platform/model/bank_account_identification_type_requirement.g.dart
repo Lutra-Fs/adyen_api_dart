@@ -47,9 +47,29 @@ _$bankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum_iba
       'iban',
     );
 const BankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum
+_$bankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum_inLocal =
+    const BankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum._(
+      'inLocal',
+    );
+const BankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum
+_$bankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum_jpLocal =
+    const BankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum._(
+      'jpLocal',
+    );
+const BankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum
 _$bankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum_legacy =
     const BankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum._(
       'legacy',
+    );
+const BankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum
+_$bankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum_mxLocal =
+    const BankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum._(
+      'mxLocal',
+    );
+const BankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum
+_$bankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum_myLocal =
+    const BankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum._(
+      'myLocal',
     );
 const BankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum
 _$bankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum_noLocal =
@@ -118,8 +138,16 @@ _$bankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnumValu
       return _$bankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum_huLocal;
     case 'iban':
       return _$bankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum_iban;
+    case 'inLocal':
+      return _$bankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum_inLocal;
+    case 'jpLocal':
+      return _$bankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum_jpLocal;
     case 'legacy':
       return _$bankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum_legacy;
+    case 'mxLocal':
+      return _$bankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum_mxLocal;
+    case 'myLocal':
+      return _$bankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum_myLocal;
     case 'noLocal':
       return _$bankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum_noLocal;
     case 'numberAndBic':
@@ -160,7 +188,11 @@ _$bankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnumValu
       _$bankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum_hkLocal,
       _$bankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum_huLocal,
       _$bankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum_iban,
+      _$bankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum_inLocal,
+      _$bankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum_jpLocal,
       _$bankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum_legacy,
+      _$bankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum_mxLocal,
+      _$bankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum_myLocal,
       _$bankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum_noLocal,
       _$bankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum_numberAndBic,
       _$bankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEnum_nzLocal,
@@ -227,7 +259,11 @@ class _$BankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEn
     'hkLocal': 'hkLocal',
     'huLocal': 'huLocal',
     'iban': 'iban',
+    'inLocal': 'inLocal',
+    'jpLocal': 'jpLocal',
     'legacy': 'legacy',
+    'mxLocal': 'mxLocal',
+    'myLocal': 'myLocal',
     'noLocal': 'noLocal',
     'numberAndBic': 'numberAndBic',
     'nzLocal': 'nzLocal',
@@ -247,7 +283,11 @@ class _$BankAccountIdentificationTypeRequirementBankAccountIdentificationTypesEn
     'hkLocal': 'hkLocal',
     'huLocal': 'huLocal',
     'iban': 'iban',
+    'inLocal': 'inLocal',
+    'jpLocal': 'jpLocal',
     'legacy': 'legacy',
+    'mxLocal': 'mxLocal',
+    'myLocal': 'myLocal',
     'noLocal': 'noLocal',
     'numberAndBic': 'numberAndBic',
     'nzLocal': 'nzLocal',

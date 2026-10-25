@@ -34,7 +34,7 @@ abstract class ReversalRequest implements Built<ReversalRequest, ReversalRequest
   /// Reason of the payment or loyalty reversal. Possible values: * **CustCancel** * **Malfunction** * **MerchantCancel** * **Unable2Compl**
   @BuiltValueField(wireName: r'ReversalReason')
   ReversalReason get reversalReason;
-  // enum reversalReasonEnum {  CustCancel,  Malfunction,  MerchantCancel,  Unable2Compl,  };
+  // enum reversalReasonEnum {  CustCancel,  MerchantCancel,  Malfunction,  Unable2Compl,  };
 
   ReversalRequest._();
 

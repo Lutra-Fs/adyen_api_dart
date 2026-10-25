@@ -12,6 +12,8 @@ class _$TerminalSettings extends TerminalSettings {
   @override
   final Connectivity? connectivity;
   @override
+  final Dcc? dcc;
+  @override
   final BuiltList<Gratuity>? gratuities;
   @override
   final Hardware? hardware;
@@ -42,6 +44,8 @@ class _$TerminalSettings extends TerminalSettings {
   @override
   final Refunds? refunds;
   @override
+  final bool? showCalculatedPercentageTippingAmount;
+  @override
   final Signature? signature;
   @override
   final Standalone? standalone;
@@ -65,6 +69,7 @@ class _$TerminalSettings extends TerminalSettings {
   _$TerminalSettings._({
     this.cardholderReceipt,
     this.connectivity,
+    this.dcc,
     this.gratuities,
     this.hardware,
     this.homeScreen,
@@ -80,6 +85,7 @@ class _$TerminalSettings extends TerminalSettings {
     this.receiptOptions,
     this.receiptPrinting,
     this.refunds,
+    this.showCalculatedPercentageTippingAmount,
     this.signature,
     this.standalone,
     this.storeAndForward,
@@ -103,6 +109,7 @@ class _$TerminalSettings extends TerminalSettings {
     return other is TerminalSettings &&
         cardholderReceipt == other.cardholderReceipt &&
         connectivity == other.connectivity &&
+        dcc == other.dcc &&
         gratuities == other.gratuities &&
         hardware == other.hardware &&
         homeScreen == other.homeScreen &&
@@ -118,6 +125,8 @@ class _$TerminalSettings extends TerminalSettings {
         receiptOptions == other.receiptOptions &&
         receiptPrinting == other.receiptPrinting &&
         refunds == other.refunds &&
+        showCalculatedPercentageTippingAmount ==
+            other.showCalculatedPercentageTippingAmount &&
         signature == other.signature &&
         standalone == other.standalone &&
         storeAndForward == other.storeAndForward &&
@@ -133,6 +142,7 @@ class _$TerminalSettings extends TerminalSettings {
     var _$hash = 0;
     _$hash = $jc(_$hash, cardholderReceipt.hashCode);
     _$hash = $jc(_$hash, connectivity.hashCode);
+    _$hash = $jc(_$hash, dcc.hashCode);
     _$hash = $jc(_$hash, gratuities.hashCode);
     _$hash = $jc(_$hash, hardware.hashCode);
     _$hash = $jc(_$hash, homeScreen.hashCode);
@@ -148,6 +158,7 @@ class _$TerminalSettings extends TerminalSettings {
     _$hash = $jc(_$hash, receiptOptions.hashCode);
     _$hash = $jc(_$hash, receiptPrinting.hashCode);
     _$hash = $jc(_$hash, refunds.hashCode);
+    _$hash = $jc(_$hash, showCalculatedPercentageTippingAmount.hashCode);
     _$hash = $jc(_$hash, signature.hashCode);
     _$hash = $jc(_$hash, standalone.hashCode);
     _$hash = $jc(_$hash, storeAndForward.hashCode);
@@ -165,6 +176,7 @@ class _$TerminalSettings extends TerminalSettings {
     return (newBuiltValueToStringHelper(r'TerminalSettings')
           ..add('cardholderReceipt', cardholderReceipt)
           ..add('connectivity', connectivity)
+          ..add('dcc', dcc)
           ..add('gratuities', gratuities)
           ..add('hardware', hardware)
           ..add('homeScreen', homeScreen)
@@ -180,6 +192,10 @@ class _$TerminalSettings extends TerminalSettings {
           ..add('receiptOptions', receiptOptions)
           ..add('receiptPrinting', receiptPrinting)
           ..add('refunds', refunds)
+          ..add(
+            'showCalculatedPercentageTippingAmount',
+            showCalculatedPercentageTippingAmount,
+          )
           ..add('signature', signature)
           ..add('standalone', standalone)
           ..add('storeAndForward', storeAndForward)
@@ -207,6 +223,10 @@ class TerminalSettingsBuilder
       _$this._connectivity ??= ConnectivityBuilder();
   set connectivity(ConnectivityBuilder? connectivity) =>
       _$this._connectivity = connectivity;
+
+  DccBuilder? _dcc;
+  DccBuilder get dcc => _$this._dcc ??= DccBuilder();
+  set dcc(DccBuilder? dcc) => _$this._dcc = dcc;
 
   ListBuilder<Gratuity>? _gratuities;
   ListBuilder<Gratuity> get gratuities =>
@@ -284,6 +304,14 @@ class TerminalSettingsBuilder
   RefundsBuilder get refunds => _$this._refunds ??= RefundsBuilder();
   set refunds(RefundsBuilder? refunds) => _$this._refunds = refunds;
 
+  bool? _showCalculatedPercentageTippingAmount;
+  bool? get showCalculatedPercentageTippingAmount =>
+      _$this._showCalculatedPercentageTippingAmount;
+  set showCalculatedPercentageTippingAmount(
+    bool? showCalculatedPercentageTippingAmount,
+  ) => _$this._showCalculatedPercentageTippingAmount =
+      showCalculatedPercentageTippingAmount;
+
   SignatureBuilder? _signature;
   SignatureBuilder get signature => _$this._signature ??= SignatureBuilder();
   set signature(SignatureBuilder? signature) => _$this._signature = signature;
@@ -333,6 +361,7 @@ class TerminalSettingsBuilder
     if ($v != null) {
       _cardholderReceipt = $v.cardholderReceipt?.toBuilder();
       _connectivity = $v.connectivity?.toBuilder();
+      _dcc = $v.dcc?.toBuilder();
       _gratuities = $v.gratuities?.toBuilder();
       _hardware = $v.hardware?.toBuilder();
       _homeScreen = $v.homeScreen?.toBuilder();
@@ -348,6 +377,8 @@ class TerminalSettingsBuilder
       _receiptOptions = $v.receiptOptions?.toBuilder();
       _receiptPrinting = $v.receiptPrinting?.toBuilder();
       _refunds = $v.refunds?.toBuilder();
+      _showCalculatedPercentageTippingAmount =
+          $v.showCalculatedPercentageTippingAmount;
       _signature = $v.signature?.toBuilder();
       _standalone = $v.standalone?.toBuilder();
       _storeAndForward = $v.storeAndForward?.toBuilder();
@@ -382,6 +413,7 @@ class TerminalSettingsBuilder
           _$TerminalSettings._(
             cardholderReceipt: _cardholderReceipt?.build(),
             connectivity: _connectivity?.build(),
+            dcc: _dcc?.build(),
             gratuities: _gratuities?.build(),
             hardware: _hardware?.build(),
             homeScreen: _homeScreen?.build(),
@@ -397,6 +429,8 @@ class TerminalSettingsBuilder
             receiptOptions: _receiptOptions?.build(),
             receiptPrinting: _receiptPrinting?.build(),
             refunds: _refunds?.build(),
+            showCalculatedPercentageTippingAmount:
+                showCalculatedPercentageTippingAmount,
             signature: _signature?.build(),
             standalone: _standalone?.build(),
             storeAndForward: _storeAndForward?.build(),
@@ -413,6 +447,8 @@ class TerminalSettingsBuilder
         _cardholderReceipt?.build();
         _$failedField = 'connectivity';
         _connectivity?.build();
+        _$failedField = 'dcc';
+        _dcc?.build();
         _$failedField = 'gratuities';
         _gratuities?.build();
         _$failedField = 'hardware';
@@ -443,6 +479,7 @@ class TerminalSettingsBuilder
         _receiptPrinting?.build();
         _$failedField = 'refunds';
         _refunds?.build();
+
         _$failedField = 'signature';
         _signature?.build();
         _$failedField = 'standalone';

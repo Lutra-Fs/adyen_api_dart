@@ -11,19 +11,19 @@ part 'menu_entry_tag.g.dart';
 
 class MenuEntryTag extends EnumClass {
 
-  /// Characteristics related to the selection of a menu entry. Possible values: * **NonSelectable** * **NonSelectableSubMenu** * **Selectable** * **SubMenu**
-  @BuiltValueEnumConst(wireName: r'NonSelectable')
-  static const MenuEntryTag nonSelectable = _$nonSelectable;
-  /// Characteristics related to the selection of a menu entry. Possible values: * **NonSelectable** * **NonSelectableSubMenu** * **Selectable** * **SubMenu**
-  @BuiltValueEnumConst(wireName: r'NonSelectableSubMenu')
-  static const MenuEntryTag nonSelectableSubMenu = _$nonSelectableSubMenu;
-  /// Characteristics related to the selection of a menu entry. Possible values: * **NonSelectable** * **NonSelectableSubMenu** * **Selectable** * **SubMenu**
+  /// Characteristics related to the selection of a menu entry. Possible values: * **Selectable** * **NonSelectable** * **SubMenu** * **NonSelectableSubMenu**
   @BuiltValueEnumConst(wireName: r'Selectable')
   static const MenuEntryTag selectable = _$selectable;
-  /// Characteristics related to the selection of a menu entry. Possible values: * **NonSelectable** * **NonSelectableSubMenu** * **Selectable** * **SubMenu**
+  /// Characteristics related to the selection of a menu entry. Possible values: * **Selectable** * **NonSelectable** * **SubMenu** * **NonSelectableSubMenu**
+  @BuiltValueEnumConst(wireName: r'NonSelectable')
+  static const MenuEntryTag nonSelectable = _$nonSelectable;
+  /// Characteristics related to the selection of a menu entry. Possible values: * **Selectable** * **NonSelectable** * **SubMenu** * **NonSelectableSubMenu**
   @BuiltValueEnumConst(wireName: r'SubMenu')
   static const MenuEntryTag subMenu = _$subMenu;
-  /// Characteristics related to the selection of a menu entry. Possible values: * **NonSelectable** * **NonSelectableSubMenu** * **Selectable** * **SubMenu**
+  /// Characteristics related to the selection of a menu entry. Possible values: * **Selectable** * **NonSelectable** * **SubMenu** * **NonSelectableSubMenu**
+  @BuiltValueEnumConst(wireName: r'NonSelectableSubMenu')
+  static const MenuEntryTag nonSelectableSubMenu = _$nonSelectableSubMenu;
+  /// Characteristics related to the selection of a menu entry. Possible values: * **Selectable** * **NonSelectable** * **SubMenu** * **NonSelectableSubMenu**
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const MenuEntryTag unknownDefaultOpenApi = _$unknownDefaultOpenApi;
 

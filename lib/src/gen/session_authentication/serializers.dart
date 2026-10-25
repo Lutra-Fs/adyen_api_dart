@@ -17,11 +17,9 @@ import 'package:adyen_api/src/gen/session_authentication/model/date.dart';
 import 'package:adyen_api/src/gen/session_authentication/model/account_holder_resource.dart';
 import 'package:adyen_api/src/gen/session_authentication/model/authentication_session_request.dart';
 import 'package:adyen_api/src/gen/session_authentication/model/authentication_session_response.dart';
-import 'package:adyen_api/src/gen/session_authentication/model/balance_account_resource.dart';
 import 'package:adyen_api/src/gen/session_authentication/model/default_error_response_entity.dart';
 import 'package:adyen_api/src/gen/session_authentication/model/invalid_field.dart';
 import 'package:adyen_api/src/gen/session_authentication/model/legal_entity_resource.dart';
-import 'package:adyen_api/src/gen/session_authentication/model/merchant_account_resource.dart';
 import 'package:adyen_api/src/gen/session_authentication/model/payment_instrument_resource.dart';
 import 'package:adyen_api/src/gen/session_authentication/model/policy.dart';
 import 'package:adyen_api/src/gen/session_authentication/model/product_type.dart';
@@ -34,11 +32,9 @@ part 'serializers.g.dart';
   AccountHolderResource,
   AuthenticationSessionRequest,
   AuthenticationSessionResponse,
-  BalanceAccountResource,
   DefaultErrorResponseEntity,
   InvalidField,
   LegalEntityResource,
-  MerchantAccountResource,
   PaymentInstrumentResource,
   Policy,
   ProductType,

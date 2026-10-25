@@ -54,7 +54,7 @@ abstract class AfterpayDetails implements Built<AfterpayDetails, AfterpayDetails
   /// **afterpay_default**
   @BuiltValueField(wireName: r'type')
   AfterpayDetailsTypeEnum get type;
-  // enum typeEnum {  afterpay_default,  afterpaytouch,  afterpay_b2b,  clearpay,  };
+  // enum typeEnum {  afterpay_default,  afterpaytouch,  afterpaytouch_US,  afterpay_b2b,  clearpay,  };
 
   AfterpayDetails._();
 
@@ -250,6 +250,9 @@ class AfterpayDetailsTypeEnum extends EnumClass {
   /// **afterpay_default**
   @BuiltValueEnumConst(wireName: r'afterpaytouch')
   static const AfterpayDetailsTypeEnum afterpaytouch = _$afterpayDetailsTypeEnum_afterpaytouch;
+  /// **afterpay_default**
+  @BuiltValueEnumConst(wireName: r'afterpaytouch_US')
+  static const AfterpayDetailsTypeEnum afterpaytouchUS = _$afterpayDetailsTypeEnum_afterpaytouchUS;
   /// **afterpay_default**
   @BuiltValueEnumConst(wireName: r'afterpay_b2b')
   static const AfterpayDetailsTypeEnum afterpayB2b = _$afterpayDetailsTypeEnum_afterpayB2b;

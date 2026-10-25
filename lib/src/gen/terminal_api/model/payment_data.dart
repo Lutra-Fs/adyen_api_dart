@@ -27,7 +27,7 @@ abstract class PaymentData implements Built<PaymentData, PaymentDataBuilder> {
   /// Type of payment transaction. Elements requested by the Sale System that are related to the payment only. Possible values: * **CashAdvance** * **CashDeposit** * **Completion** * **FirstReservation** * **Instalment** * **IssuerInstalment** * **Normal** * **OneTimeReservation** * **PaidOut** * **Recurring** * **Refund** * **UpdateReservation**
   @BuiltValueField(wireName: r'PaymentType')
   PaymentType? get paymentType;
-  // enum paymentTypeEnum {  CashAdvance,  CashDeposit,  Completion,  FirstReservation,  Instalment,  IssuerInstalment,  Normal,  OneTimeReservation,  PaidOut,  Recurring,  Refund,  UpdateReservation,  };
+  // enum paymentTypeEnum {  Normal,  Refund,  OneTimeReservation,  FirstReservation,  UpdateReservation,  Completion,  CashAdvance,  CashDeposit,  Recurring,  Instalment,  IssuerInstalment,  PaidOut,  };
 
   /// Indicates if the payment of the Sale transaction is split. Allows the POI to decline payment means that cannot accept split payment.
   @BuiltValueField(wireName: r'SplitPaymentFlag')

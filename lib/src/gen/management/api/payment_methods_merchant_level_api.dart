@@ -10,6 +10,7 @@ import 'package:dio/dio.dart';
 
 import 'package:adyen_api/src/gen/management/api_util.dart';
 import 'package:adyen_api/src/gen/management/model/apple_pay_info.dart';
+import 'package:adyen_api/src/gen/management/model/apple_pay_response_info.dart';
 import 'package:adyen_api/src/gen/management/model/payment_method.dart';
 import 'package:adyen_api/src/gen/management/model/payment_method_response.dart';
 import 'package:adyen_api/src/gen/management/model/payment_method_setup_info.dart';
@@ -227,9 +228,9 @@ class PaymentMethodsMerchantLevelApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [ApplePayInfo] as data
+  /// Returns a [Future] containing a [Response] with a [ApplePayResponseInfo] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<ApplePayInfo>> getMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdGetApplePayDomains({ 
+  Future<Response<ApplePayResponseInfo>> getMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdGetApplePayDomains({ 
     required String merchantId,
     required String paymentMethodId,
     CancelToken? cancelToken,
@@ -271,14 +272,14 @@ class PaymentMethodsMerchantLevelApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    ApplePayInfo? _responseData;
+    ApplePayResponseInfo? _responseData;
 
     try {
       final rawResponse = _response.data;
       _responseData = rawResponse == null ? null : _serializers.deserialize(
         rawResponse,
-        specifiedType: const FullType(ApplePayInfo),
-      ) as ApplePayInfo;
+        specifiedType: const FullType(ApplePayResponseInfo),
+      ) as ApplePayResponseInfo;
 
     } catch (error, stackTrace) {
       throw DioException(
@@ -290,7 +291,7 @@ class PaymentMethodsMerchantLevelApi {
       );
     }
 
-    return Response<ApplePayInfo>(
+    return Response<ApplePayResponseInfo>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

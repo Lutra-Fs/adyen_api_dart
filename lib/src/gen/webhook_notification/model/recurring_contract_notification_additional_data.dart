@@ -94,9 +94,12 @@ part 'recurring_contract_notification_additional_data.g.dart';
 /// * [latestCardPeriodSummary] - Recurring: Latest card summary.
 /// * [liabilityShift] - Risk liability shift.
 /// * [metadata] - A set of key-value pairs provided in the request, prefixed with 'metadata.'. For example, 'metadata.myField: myValue'
+/// * [networkProcessingMode] - Indicates the processing flow.  Possible values: * **sale**: You do not need to separately capture the funds, because capture happens automatically as part of the transaction.  * **auth**: If you have not [configured automatic capture for the transaction](https://docs.adyen.com/online-payments/capture#types-of-capture), you must manually capture the funds.
 /// * [networkTokenPeriodAvailable] - Recurring related.
 /// * [networkTokenPeriodBin] - Recurring related.
 /// * [networkTokenPeriodTokenSummary] - Recurring related.
+/// * [networkTxDate] - The network transaction date for Mastercard transactions processed by Bank of America Merchant Services (BAMS).
+/// * [networkTxReference] - The network transaction reference from the scheme, when available.
 /// * [nfcPeriodExpire] - NFC related.
 /// * [nfcPeriodIssue] - NFC related.
 /// * [nfcPeriodPinPeriodProvided] - NFC related.
@@ -467,6 +470,10 @@ abstract class RecurringContractNotificationAdditionalData implements Built<Recu
   @BuiltValueField(wireName: r'metadata')
   BuiltMap<String, String>? get metadata;
 
+  /// Indicates the processing flow.  Possible values: * **sale**: You do not need to separately capture the funds, because capture happens automatically as part of the transaction.  * **auth**: If you have not [configured automatic capture for the transaction](https://docs.adyen.com/online-payments/capture#types-of-capture), you must manually capture the funds.
+  @BuiltValueField(wireName: r'networkProcessingMode')
+  String? get networkProcessingMode;
+
   /// Recurring related.
   @BuiltValueField(wireName: r'networkToken.available')
   String? get networkTokenPeriodAvailable;
@@ -478,6 +485,14 @@ abstract class RecurringContractNotificationAdditionalData implements Built<Recu
   /// Recurring related.
   @BuiltValueField(wireName: r'networkToken.tokenSummary')
   String? get networkTokenPeriodTokenSummary;
+
+  /// The network transaction date for Mastercard transactions processed by Bank of America Merchant Services (BAMS).
+  @BuiltValueField(wireName: r'networkTxDate')
+  String? get networkTxDate;
+
+  /// The network transaction reference from the scheme, when available.
+  @BuiltValueField(wireName: r'networkTxReference')
+  String? get networkTxReference;
 
   /// NFC related.
   @BuiltValueField(wireName: r'nfc.expire')
@@ -1232,6 +1247,13 @@ class _$RecurringContractNotificationAdditionalDataSerializer implements Primiti
         specifiedType: const FullType(BuiltMap, [FullType(String), FullType(String)]),
       );
     }
+    if (object.networkProcessingMode != null) {
+      yield r'networkProcessingMode';
+      yield serializers.serialize(
+        object.networkProcessingMode,
+        specifiedType: const FullType(String),
+      );
+    }
     if (object.networkTokenPeriodAvailable != null) {
       yield r'networkToken.available';
       yield serializers.serialize(
@@ -1250,6 +1272,20 @@ class _$RecurringContractNotificationAdditionalDataSerializer implements Primiti
       yield r'networkToken.tokenSummary';
       yield serializers.serialize(
         object.networkTokenPeriodTokenSummary,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.networkTxDate != null) {
+      yield r'networkTxDate';
+      yield serializers.serialize(
+        object.networkTxDate,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.networkTxReference != null) {
+      yield r'networkTxReference';
+      yield serializers.serialize(
+        object.networkTxReference,
         specifiedType: const FullType(String),
       );
     }
@@ -2123,6 +2159,13 @@ class _$RecurringContractNotificationAdditionalDataSerializer implements Primiti
           ) as BuiltMap<String, String>;
           result.metadata.replace(valueDes);
           break;
+        case r'networkProcessingMode':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.networkProcessingMode = valueDes;
+          break;
         case r'networkToken.available':
           final valueDes = serializers.deserialize(
             value,
@@ -2143,6 +2186,20 @@ class _$RecurringContractNotificationAdditionalDataSerializer implements Primiti
             specifiedType: const FullType(String),
           ) as String;
           result.networkTokenPeriodTokenSummary = valueDes;
+          break;
+        case r'networkTxDate':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.networkTxDate = valueDes;
+          break;
+        case r'networkTxReference':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.networkTxReference = valueDes;
           break;
         case r'nfc.expire':
           final valueDes = serializers.deserialize(

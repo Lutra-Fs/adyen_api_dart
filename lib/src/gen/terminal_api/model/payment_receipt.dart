@@ -22,7 +22,7 @@ abstract class PaymentReceipt implements Built<PaymentReceipt, PaymentReceiptBui
   /// Qualification of the document to print to the Cashier or the Customer. SaleReceipt or CashierReceipt. Possible values: * **CashierReceipt** * **CustomerReceipt** * **Document** * **Journal** * **SaleReceipt** * **Voucher**
   @BuiltValueField(wireName: r'DocumentQualifier')
   DocumentQualifier get documentQualifier;
-  // enum documentQualifierEnum {  CashierReceipt,  CustomerReceipt,  Document,  Journal,  SaleReceipt,  Voucher,  };
+  // enum documentQualifierEnum {  SaleReceipt,  CashierReceipt,  CustomerReceipt,  Document,  Voucher,  Journal,  };
 
   /// Type of the print integrated to other prints.
   @BuiltValueField(wireName: r'IntegratedPrintFlag')

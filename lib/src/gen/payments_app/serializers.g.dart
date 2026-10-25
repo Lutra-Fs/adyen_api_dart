@@ -14,6 +14,7 @@ Serializers _$serializers =
           ..add(InvalidField.serializer)
           ..add(PaymentsAppDto.serializer)
           ..add(PaymentsAppResponse.serializer)
+          ..add(SubMerchantData.serializer)
           ..addBuilderFactory(
             const FullType(BuiltList, const [const FullType(InvalidField)]),
             () => ListBuilder<InvalidField>(),

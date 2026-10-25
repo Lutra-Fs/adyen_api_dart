@@ -16,8 +16,9 @@ part 'issued_card.g.dart';
 ///
 /// Properties:
 /// * [authorisationType] - The authorisation type. For example, **defaultAuthorisation**, **preAuthorisation**, **finalAuthorisation**
+/// * [networkVariant] - The card variant associated with the payment network used to route or process the transaction. For single-network cards, this matches the `brandVariant`. For US dual-network cards routed over an alternate network, this value reflects the specific tier or sub-type under that processing network.
 /// * [panEntryMode] - Indicates the method used for entering the PAN to initiate a transaction.  Possible values: **manual**, **chip**, **magstripe**, **contactless**, **cof**, **ecommerce**, **token**.
-/// * [processingType] - Contains information about how the payment was processed. For example, **ecommerce** for online or **pos** for in-person payments.
+/// * [processingType] - Contains information about how the payment was processed.  Possible values: **atmWithdraw**, **balanceInquiry**, **ecommerce**, **moto**, **pos**, **purchaseWithCashback**, **recurring**, **token**.
 /// * [relayedAuthorisationData] - If you are using relayed authorisation, this object contains information from the relayed authorisation response from your server.
 /// * [schemeTraceId] - The identifier of the original payment. This ID is provided by the scheme and can be alphanumeric or numeric, depending on the scheme. The `schemeTraceID` should refer to an original `schemeUniqueTransactionID` provided in an earlier payment (not necessarily processed by Adyen). A `schemeTraceId` is typically available for authorization adjustments or recurring payments.
 /// * [schemeUniqueTransactionId] - The unique identifier created by the scheme. This ID can be alphanumeric or numeric depending on the scheme.
@@ -30,12 +31,17 @@ abstract class IssuedCard implements Built<IssuedCard, IssuedCardBuilder> {
   @BuiltValueField(wireName: r'authorisationType')
   String? get authorisationType;
 
+  /// The card variant associated with the payment network used to route or process the transaction. For single-network cards, this matches the `brandVariant`. For US dual-network cards routed over an alternate network, this value reflects the specific tier or sub-type under that processing network.
+  @BuiltValueField(wireName: r'networkVariant')
+  IssuedCardNetworkVariantEnum? get networkVariant;
+  // enum networkVariantEnum {  maestro_us,  mastercard,  visa,  };
+
   /// Indicates the method used for entering the PAN to initiate a transaction.  Possible values: **manual**, **chip**, **magstripe**, **contactless**, **cof**, **ecommerce**, **token**.
   @BuiltValueField(wireName: r'panEntryMode')
   IssuedCardPanEntryModeEnum? get panEntryMode;
   // enum panEntryModeEnum {  chip,  cof,  contactless,  ecommerce,  magstripe,  manual,  token,  };
 
-  /// Contains information about how the payment was processed. For example, **ecommerce** for online or **pos** for in-person payments.
+  /// Contains information about how the payment was processed.  Possible values: **atmWithdraw**, **balanceInquiry**, **ecommerce**, **moto**, **pos**, **purchaseWithCashback**, **recurring**, **token**.
   @BuiltValueField(wireName: r'processingType')
   IssuedCardProcessingTypeEnum? get processingType;
   // enum processingTypeEnum {  atmWithdraw,  balanceInquiry,  ecommerce,  moto,  pos,  purchaseWithCashback,  recurring,  token,  };
@@ -94,6 +100,13 @@ class _$IssuedCardSerializer implements PrimitiveSerializer<IssuedCard> {
       yield serializers.serialize(
         object.authorisationType,
         specifiedType: const FullType(String),
+      );
+    }
+    if (object.networkVariant != null) {
+      yield r'networkVariant';
+      yield serializers.serialize(
+        object.networkVariant,
+        specifiedType: const FullType(IssuedCardNetworkVariantEnum),
       );
     }
     if (object.panEntryMode != null) {
@@ -182,6 +195,13 @@ class _$IssuedCardSerializer implements PrimitiveSerializer<IssuedCard> {
           ) as String;
           result.authorisationType = valueDes;
           break;
+        case r'networkVariant':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(IssuedCardNetworkVariantEnum),
+          ) as IssuedCardNetworkVariantEnum;
+          result.networkVariant = valueDes;
+          break;
         case r'panEntryMode':
           final valueDes = serializers.deserialize(
             value,
@@ -267,6 +287,29 @@ class _$IssuedCardSerializer implements PrimitiveSerializer<IssuedCard> {
   }
 }
 
+class IssuedCardNetworkVariantEnum extends EnumClass {
+
+  /// The card variant associated with the payment network used to route or process the transaction. For single-network cards, this matches the `brandVariant`. For US dual-network cards routed over an alternate network, this value reflects the specific tier or sub-type under that processing network.
+  @BuiltValueEnumConst(wireName: r'maestro_us')
+  static const IssuedCardNetworkVariantEnum maestroUs = _$issuedCardNetworkVariantEnum_maestroUs;
+  /// The card variant associated with the payment network used to route or process the transaction. For single-network cards, this matches the `brandVariant`. For US dual-network cards routed over an alternate network, this value reflects the specific tier or sub-type under that processing network.
+  @BuiltValueEnumConst(wireName: r'mastercard')
+  static const IssuedCardNetworkVariantEnum mastercard = _$issuedCardNetworkVariantEnum_mastercard;
+  /// The card variant associated with the payment network used to route or process the transaction. For single-network cards, this matches the `brandVariant`. For US dual-network cards routed over an alternate network, this value reflects the specific tier or sub-type under that processing network.
+  @BuiltValueEnumConst(wireName: r'visa')
+  static const IssuedCardNetworkVariantEnum visa = _$issuedCardNetworkVariantEnum_visa;
+  /// The card variant associated with the payment network used to route or process the transaction. For single-network cards, this matches the `brandVariant`. For US dual-network cards routed over an alternate network, this value reflects the specific tier or sub-type under that processing network.
+  @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
+  static const IssuedCardNetworkVariantEnum unknownDefaultOpenApi = _$issuedCardNetworkVariantEnum_unknownDefaultOpenApi;
+
+  static Serializer<IssuedCardNetworkVariantEnum> get serializer => _$issuedCardNetworkVariantEnumSerializer;
+
+  const IssuedCardNetworkVariantEnum._(String name): super(name);
+
+  static BuiltSet<IssuedCardNetworkVariantEnum> get values => _$issuedCardNetworkVariantEnumValues;
+  static IssuedCardNetworkVariantEnum valueOf(String name) => _$issuedCardNetworkVariantEnumValueOf(name);
+}
+
 class IssuedCardPanEntryModeEnum extends EnumClass {
 
   /// Indicates the method used for entering the PAN to initiate a transaction.  Possible values: **manual**, **chip**, **magstripe**, **contactless**, **cof**, **ecommerce**, **token**.
@@ -304,31 +347,31 @@ class IssuedCardPanEntryModeEnum extends EnumClass {
 
 class IssuedCardProcessingTypeEnum extends EnumClass {
 
-  /// Contains information about how the payment was processed. For example, **ecommerce** for online or **pos** for in-person payments.
+  /// Contains information about how the payment was processed.  Possible values: **atmWithdraw**, **balanceInquiry**, **ecommerce**, **moto**, **pos**, **purchaseWithCashback**, **recurring**, **token**.
   @BuiltValueEnumConst(wireName: r'atmWithdraw')
   static const IssuedCardProcessingTypeEnum atmWithdraw = _$issuedCardProcessingTypeEnum_atmWithdraw;
-  /// Contains information about how the payment was processed. For example, **ecommerce** for online or **pos** for in-person payments.
+  /// Contains information about how the payment was processed.  Possible values: **atmWithdraw**, **balanceInquiry**, **ecommerce**, **moto**, **pos**, **purchaseWithCashback**, **recurring**, **token**.
   @BuiltValueEnumConst(wireName: r'balanceInquiry')
   static const IssuedCardProcessingTypeEnum balanceInquiry = _$issuedCardProcessingTypeEnum_balanceInquiry;
-  /// Contains information about how the payment was processed. For example, **ecommerce** for online or **pos** for in-person payments.
+  /// Contains information about how the payment was processed.  Possible values: **atmWithdraw**, **balanceInquiry**, **ecommerce**, **moto**, **pos**, **purchaseWithCashback**, **recurring**, **token**.
   @BuiltValueEnumConst(wireName: r'ecommerce')
   static const IssuedCardProcessingTypeEnum ecommerce = _$issuedCardProcessingTypeEnum_ecommerce;
-  /// Contains information about how the payment was processed. For example, **ecommerce** for online or **pos** for in-person payments.
+  /// Contains information about how the payment was processed.  Possible values: **atmWithdraw**, **balanceInquiry**, **ecommerce**, **moto**, **pos**, **purchaseWithCashback**, **recurring**, **token**.
   @BuiltValueEnumConst(wireName: r'moto')
   static const IssuedCardProcessingTypeEnum moto = _$issuedCardProcessingTypeEnum_moto;
-  /// Contains information about how the payment was processed. For example, **ecommerce** for online or **pos** for in-person payments.
+  /// Contains information about how the payment was processed.  Possible values: **atmWithdraw**, **balanceInquiry**, **ecommerce**, **moto**, **pos**, **purchaseWithCashback**, **recurring**, **token**.
   @BuiltValueEnumConst(wireName: r'pos')
   static const IssuedCardProcessingTypeEnum pos = _$issuedCardProcessingTypeEnum_pos;
-  /// Contains information about how the payment was processed. For example, **ecommerce** for online or **pos** for in-person payments.
+  /// Contains information about how the payment was processed.  Possible values: **atmWithdraw**, **balanceInquiry**, **ecommerce**, **moto**, **pos**, **purchaseWithCashback**, **recurring**, **token**.
   @BuiltValueEnumConst(wireName: r'purchaseWithCashback')
   static const IssuedCardProcessingTypeEnum purchaseWithCashback = _$issuedCardProcessingTypeEnum_purchaseWithCashback;
-  /// Contains information about how the payment was processed. For example, **ecommerce** for online or **pos** for in-person payments.
+  /// Contains information about how the payment was processed.  Possible values: **atmWithdraw**, **balanceInquiry**, **ecommerce**, **moto**, **pos**, **purchaseWithCashback**, **recurring**, **token**.
   @BuiltValueEnumConst(wireName: r'recurring')
   static const IssuedCardProcessingTypeEnum recurring = _$issuedCardProcessingTypeEnum_recurring;
-  /// Contains information about how the payment was processed. For example, **ecommerce** for online or **pos** for in-person payments.
+  /// Contains information about how the payment was processed.  Possible values: **atmWithdraw**, **balanceInquiry**, **ecommerce**, **moto**, **pos**, **purchaseWithCashback**, **recurring**, **token**.
   @BuiltValueEnumConst(wireName: r'token')
   static const IssuedCardProcessingTypeEnum token = _$issuedCardProcessingTypeEnum_token;
-  /// Contains information about how the payment was processed. For example, **ecommerce** for online or **pos** for in-person payments.
+  /// Contains information about how the payment was processed.  Possible values: **atmWithdraw**, **balanceInquiry**, **ecommerce**, **moto**, **pos**, **purchaseWithCashback**, **recurring**, **token**.
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const IssuedCardProcessingTypeEnum unknownDefaultOpenApi = _$issuedCardProcessingTypeEnum_unknownDefaultOpenApi;
 

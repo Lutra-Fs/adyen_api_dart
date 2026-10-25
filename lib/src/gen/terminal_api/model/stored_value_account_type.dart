@@ -11,12 +11,16 @@ part 'stored_value_account_type.g.dart';
 
 class StoredValueAccountType extends EnumClass {
 
+  ///  Possible values: * **GiftCard** * **PhoneCard** * **Other**
   @BuiltValueEnumConst(wireName: r'GiftCard')
   static const StoredValueAccountType giftCard = _$giftCard;
-  @BuiltValueEnumConst(wireName: r'Other')
-  static const StoredValueAccountType other = _$other;
+  ///  Possible values: * **GiftCard** * **PhoneCard** * **Other**
   @BuiltValueEnumConst(wireName: r'PhoneCard')
   static const StoredValueAccountType phoneCard = _$phoneCard;
+  ///  Possible values: * **GiftCard** * **PhoneCard** * **Other**
+  @BuiltValueEnumConst(wireName: r'Other')
+  static const StoredValueAccountType other = _$other;
+  ///  Possible values: * **GiftCard** * **PhoneCard** * **Other**
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const StoredValueAccountType unknownDefaultOpenApi = _$unknownDefaultOpenApi;
 

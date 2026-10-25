@@ -21,8 +21,11 @@ import 'package:adyen_api/src/gen/webhook_notification/model/prearbitration_decl
 import 'package:adyen_api/src/gen/webhook_notification/model/prearbitration_issuer_withdrawn_notification_request.dart';
 import 'package:adyen_api/src/gen/webhook_notification/model/prearbitration_lost_notification_request.dart';
 import 'package:adyen_api/src/gen/webhook_notification/model/prearbitration_open_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/prearbitration_scheme_arbitration_notification_request.dart';
 import 'package:adyen_api/src/gen/webhook_notification/model/prearbitration_won_notification_request.dart';
 import 'package:adyen_api/src/gen/webhook_notification/model/request_for_information_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/scheme_arbitration_lost_notification_request.dart';
+import 'package:adyen_api/src/gen/webhook_notification/model/scheme_arbitration_won_notification_request.dart';
 import 'package:adyen_api/src/gen/webhook_notification/model/second_chargeback_notification_request.dart';
 
 class DisputeApi {
@@ -1132,7 +1135,7 @@ class DisputeApi {
   /// The [pre-arbitration](https://docs.adyen.com/risk-management/understanding-disputes/dispute-process-and-flow#dispute-process) case was escalated by the issuer.
   ///
   /// Parameters:
-  /// * [prearbitrationIssuerWithdrawnNotificationRequest] 
+  /// * [prearbitrationSchemeArbitrationNotificationRequest] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -1143,7 +1146,7 @@ class DisputeApi {
   /// Returns a [Future]
   /// Throws [DioException] if API call or serialization fails
   Future<Response<void>> postSCHEMEARBITRATION({ 
-    PrearbitrationIssuerWithdrawnNotificationRequest? prearbitrationIssuerWithdrawnNotificationRequest,
+    PrearbitrationSchemeArbitrationNotificationRequest? prearbitrationSchemeArbitrationNotificationRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -1174,8 +1177,154 @@ class DisputeApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(PrearbitrationIssuerWithdrawnNotificationRequest);
-      _bodyData = prearbitrationIssuerWithdrawnNotificationRequest == null ? null : _serializers.serialize(prearbitrationIssuerWithdrawnNotificationRequest, specifiedType: _type);
+      const _type = FullType(PrearbitrationSchemeArbitrationNotificationRequest);
+      _bodyData = prearbitrationSchemeArbitrationNotificationRequest == null ? null : _serializers.serialize(prearbitrationSchemeArbitrationNotificationRequest, specifiedType: _type);
+
+    } catch(error, stackTrace) {
+      throw DioException(
+         requestOptions: _options.compose(
+          _dio.options,
+          _path,
+        ),
+        type: DioExceptionType.unknown,
+        error: error,
+        stackTrace: stackTrace,
+      );
+    }
+
+    final _response = await _dio.request<Object>(
+      _path,
+      data: _bodyData,
+      options: _options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    return _response;
+  }
+
+  /// The scheme has ruled in favor of the issuer.
+  /// The pre-arbitration case was escalated to [scheme arbitration](https://docs.adyen.com/risk-management/understanding-disputes/dispute-process-and-flow#dispute-process), and the case was lost. The payment scheme has ruled that you are liable for the dispute.
+  ///
+  /// Parameters:
+  /// * [schemeArbitrationLostNotificationRequest] 
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future]
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> postSCHEMEARBITRATIONLOST({ 
+    SchemeArbitrationLostNotificationRequest? schemeArbitrationLostNotificationRequest,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async {
+    final _path = r'/SCHEME_ARBITRATION_LOST';
+    final _options = Options(
+      method: r'POST',
+      headers: <String, dynamic>{
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'http',
+            'scheme': 'basic',
+            'name': 'BasicAuth',
+          },
+        ],
+        ...?extra,
+      },
+      contentType: '',
+      validateStatus: validateStatus,
+    );
+
+    dynamic _bodyData;
+
+    try {
+      const _type = FullType(SchemeArbitrationLostNotificationRequest);
+      _bodyData = schemeArbitrationLostNotificationRequest == null ? null : _serializers.serialize(schemeArbitrationLostNotificationRequest, specifiedType: _type);
+
+    } catch(error, stackTrace) {
+      throw DioException(
+         requestOptions: _options.compose(
+          _dio.options,
+          _path,
+        ),
+        type: DioExceptionType.unknown,
+        error: error,
+        stackTrace: stackTrace,
+      );
+    }
+
+    final _response = await _dio.request<Object>(
+      _path,
+      data: _bodyData,
+      options: _options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    return _response;
+  }
+
+  /// The scheme has ruled in your favor.
+  /// The pre-arbitration case was escalated to [scheme arbitration](https://docs.adyen.com/risk-management/understanding-disputes/dispute-process-and-flow#dispute-process), and the case was won. The payment scheme has ruled that the issuer is liable for the dispute. The dispute is closed.
+  ///
+  /// Parameters:
+  /// * [schemeArbitrationWonNotificationRequest] 
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future]
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> postSCHEMEARBITRATIONWON({ 
+    SchemeArbitrationWonNotificationRequest? schemeArbitrationWonNotificationRequest,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async {
+    final _path = r'/SCHEME_ARBITRATION_WON';
+    final _options = Options(
+      method: r'POST',
+      headers: <String, dynamic>{
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'http',
+            'scheme': 'basic',
+            'name': 'BasicAuth',
+          },
+        ],
+        ...?extra,
+      },
+      contentType: '',
+      validateStatus: validateStatus,
+    );
+
+    dynamic _bodyData;
+
+    try {
+      const _type = FullType(SchemeArbitrationWonNotificationRequest);
+      _bodyData = schemeArbitrationWonNotificationRequest == null ? null : _serializers.serialize(schemeArbitrationWonNotificationRequest, specifiedType: _type);
 
     } catch(error, stackTrace) {
       throw DioException(

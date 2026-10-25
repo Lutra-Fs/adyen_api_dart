@@ -31,6 +31,8 @@ class _$CreateCompanyApiCredentialResponse
   @override
   final BuiltList<String> roles;
   @override
+  final String? subjectDN;
+  @override
   final String username;
 
   factory _$CreateCompanyApiCredentialResponse([
@@ -49,6 +51,7 @@ class _$CreateCompanyApiCredentialResponse
     required this.id,
     required this.password,
     required this.roles,
+    this.subjectDN,
     required this.username,
   }) : super._();
   @override
@@ -75,6 +78,7 @@ class _$CreateCompanyApiCredentialResponse
         id == other.id &&
         password == other.password &&
         roles == other.roles &&
+        subjectDN == other.subjectDN &&
         username == other.username;
   }
 
@@ -92,6 +96,7 @@ class _$CreateCompanyApiCredentialResponse
     _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, password.hashCode);
     _$hash = $jc(_$hash, roles.hashCode);
+    _$hash = $jc(_$hash, subjectDN.hashCode);
     _$hash = $jc(_$hash, username.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -111,6 +116,7 @@ class _$CreateCompanyApiCredentialResponse
           ..add('id', id)
           ..add('password', password)
           ..add('roles', roles)
+          ..add('subjectDN', subjectDN)
           ..add('username', username))
         .toString();
   }
@@ -176,6 +182,10 @@ class CreateCompanyApiCredentialResponseBuilder
   ListBuilder<String> get roles => _$this._roles ??= ListBuilder<String>();
   set roles(ListBuilder<String>? roles) => _$this._roles = roles;
 
+  String? _subjectDN;
+  String? get subjectDN => _$this._subjectDN;
+  set subjectDN(String? subjectDN) => _$this._subjectDN = subjectDN;
+
   String? _username;
   String? get username => _$this._username;
   set username(String? username) => _$this._username = username;
@@ -198,6 +208,7 @@ class CreateCompanyApiCredentialResponseBuilder
       _id = $v.id;
       _password = $v.password;
       _roles = $v.roles.toBuilder();
+      _subjectDN = $v.subjectDN;
       _username = $v.username;
       _$v = null;
     }
@@ -256,6 +267,7 @@ class CreateCompanyApiCredentialResponseBuilder
               'password',
             ),
             roles: roles.build(),
+            subjectDN: subjectDN,
             username: BuiltValueNullFieldError.checkNotNull(
               username,
               r'CreateCompanyApiCredentialResponse',

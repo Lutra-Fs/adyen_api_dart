@@ -25,8 +25,9 @@ part 'transfer_view_category_data.g.dart';
 /// * [modificationMerchantReference] - The capture's merchant reference included in the transfer.
 /// * [modificationPspReference] - The capture reference included in the transfer.
 /// * [authorisationType] - The authorisation type. For example, **defaultAuthorisation**, **preAuthorisation**, **finalAuthorisation**
+/// * [networkVariant] - The card variant associated with the payment network used to route or process the transaction. For single-network cards, this matches the `brandVariant`. For US dual-network cards routed over an alternate network, this value reflects the specific tier or sub-type under that processing network.
 /// * [panEntryMode] - Indicates the method used for entering the PAN to initiate a transaction.  Possible values: **manual**, **chip**, **magstripe**, **contactless**, **cof**, **ecommerce**, **token**.
-/// * [processingType] - Contains information about how the payment was processed. For example, **ecommerce** for online or **pos** for in-person payments.
+/// * [processingType] - Contains information about how the payment was processed.  Possible values: **atmWithdraw**, **balanceInquiry**, **ecommerce**, **moto**, **pos**, **purchaseWithCashback**, **recurring**, **token**.
 /// * [relayedAuthorisationData] - If you are using relayed authorisation, this object contains information from the relayed authorisation response from your server.
 /// * [schemeTraceId] - The identifier of the original payment. This ID is provided by the scheme and can be alphanumeric or numeric, depending on the scheme. The `schemeTraceID` should refer to an original `schemeUniqueTransactionID` provided in an earlier payment (not necessarily processed by Adyen). A `schemeTraceId` is typically available for authorization adjustments or recurring payments.
 /// * [schemeUniqueTransactionId] - The unique identifier created by the scheme. This ID can be alphanumeric or numeric depending on the scheme.
@@ -40,6 +41,15 @@ abstract class TransferViewCategoryData implements Built<TransferViewCategoryDat
   /// One Of [BankCategoryData], [InternalCategoryData], [IssuedCard], [PlatformPayment]
   OneOf get oneOf;
 
+  static const String discriminatorFieldName = r'type';
+
+  static const Map<String, Type> discriminatorMapping = {
+    r'bank': BankCategoryData,
+    r'internal': InternalCategoryData,
+    r'issuedCard': IssuedCard,
+    r'platformPayment': PlatformPayment,
+  };
+
   TransferViewCategoryData._();
 
   factory TransferViewCategoryData([void updates(TransferViewCategoryDataBuilder b)]) = _$TransferViewCategoryData;
@@ -49,6 +59,41 @@ abstract class TransferViewCategoryData implements Built<TransferViewCategoryDat
 
   @BuiltValueSerializer(custom: true)
   static Serializer<TransferViewCategoryData> get serializer => _$TransferViewCategoryDataSerializer();
+}
+
+extension TransferViewCategoryDataDiscriminatorExt on TransferViewCategoryData {
+    String? get discriminatorValue {
+        if (this is BankCategoryData) {
+            return r'bank';
+        }
+        if (this is InternalCategoryData) {
+            return r'internal';
+        }
+        if (this is IssuedCard) {
+            return r'issuedCard';
+        }
+        if (this is PlatformPayment) {
+            return r'platformPayment';
+        }
+        return null;
+    }
+}
+extension TransferViewCategoryDataBuilderDiscriminatorExt on TransferViewCategoryDataBuilder {
+    String? get discriminatorValue {
+        if (this is BankCategoryDataBuilder) {
+            return r'bank';
+        }
+        if (this is InternalCategoryDataBuilder) {
+            return r'internal';
+        }
+        if (this is IssuedCardBuilder) {
+            return r'issuedCard';
+        }
+        if (this is PlatformPaymentBuilder) {
+            return r'platformPayment';
+        }
+        return null;
+    }
 }
 
 class _$TransferViewCategoryDataSerializer implements PrimitiveSerializer<TransferViewCategoryData> {
@@ -83,9 +128,46 @@ class _$TransferViewCategoryDataSerializer implements PrimitiveSerializer<Transf
   }) {
     final result = TransferViewCategoryDataBuilder();
     Object? oneOfDataSrc;
-    final targetType = const FullType(OneOf, [FullType(BankCategoryData), FullType(InternalCategoryData), FullType(IssuedCard), FullType(PlatformPayment), ]);
+    final serializedList = (serialized as Iterable<Object?>).toList();
+    final discIndex = serializedList.indexOf(TransferViewCategoryData.discriminatorFieldName) + 1;
+    final discValue = serializers.deserialize(serializedList[discIndex], specifiedType: FullType(String)) as String;
     oneOfDataSrc = serialized;
-    result.oneOf = serializers.deserialize(oneOfDataSrc, specifiedType: targetType) as OneOf;
+    final oneOfTypes = [BankCategoryData, InternalCategoryData, IssuedCard, PlatformPayment, ];
+    Object oneOfResult;
+    Type oneOfType;
+    switch (discValue) {
+      case r'bank':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(BankCategoryData),
+        ) as BankCategoryData;
+        oneOfType = BankCategoryData;
+        break;
+      case r'internal':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(InternalCategoryData),
+        ) as InternalCategoryData;
+        oneOfType = InternalCategoryData;
+        break;
+      case r'issuedCard':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(IssuedCard),
+        ) as IssuedCard;
+        oneOfType = IssuedCard;
+        break;
+      case r'platformPayment':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(PlatformPayment),
+        ) as PlatformPayment;
+        oneOfType = PlatformPayment;
+        break;
+      default:
+        throw UnsupportedError("Couldn't deserialize oneOf for the discriminator value: ${discValue}");
+    }
+    result.oneOf = OneOfDynamic(typeIndex: oneOfTypes.indexOf(oneOfType), types: oneOfTypes, value: oneOfResult);
     return result.build();
   }
 }
@@ -148,6 +230,29 @@ class TransferViewCategoryDataTypeEnum extends EnumClass {
   static TransferViewCategoryDataTypeEnum valueOf(String name) => _$transferViewCategoryDataTypeEnumValueOf(name);
 }
 
+class TransferViewCategoryDataNetworkVariantEnum extends EnumClass {
+
+  /// The card variant associated with the payment network used to route or process the transaction. For single-network cards, this matches the `brandVariant`. For US dual-network cards routed over an alternate network, this value reflects the specific tier or sub-type under that processing network.
+  @BuiltValueEnumConst(wireName: r'maestro_us')
+  static const TransferViewCategoryDataNetworkVariantEnum maestroUs = _$transferViewCategoryDataNetworkVariantEnum_maestroUs;
+  /// The card variant associated with the payment network used to route or process the transaction. For single-network cards, this matches the `brandVariant`. For US dual-network cards routed over an alternate network, this value reflects the specific tier or sub-type under that processing network.
+  @BuiltValueEnumConst(wireName: r'mastercard')
+  static const TransferViewCategoryDataNetworkVariantEnum mastercard = _$transferViewCategoryDataNetworkVariantEnum_mastercard;
+  /// The card variant associated with the payment network used to route or process the transaction. For single-network cards, this matches the `brandVariant`. For US dual-network cards routed over an alternate network, this value reflects the specific tier or sub-type under that processing network.
+  @BuiltValueEnumConst(wireName: r'visa')
+  static const TransferViewCategoryDataNetworkVariantEnum visa = _$transferViewCategoryDataNetworkVariantEnum_visa;
+  /// The card variant associated with the payment network used to route or process the transaction. For single-network cards, this matches the `brandVariant`. For US dual-network cards routed over an alternate network, this value reflects the specific tier or sub-type under that processing network.
+  @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
+  static const TransferViewCategoryDataNetworkVariantEnum unknownDefaultOpenApi = _$transferViewCategoryDataNetworkVariantEnum_unknownDefaultOpenApi;
+
+  static Serializer<TransferViewCategoryDataNetworkVariantEnum> get serializer => _$transferViewCategoryDataNetworkVariantEnumSerializer;
+
+  const TransferViewCategoryDataNetworkVariantEnum._(String name): super(name);
+
+  static BuiltSet<TransferViewCategoryDataNetworkVariantEnum> get values => _$transferViewCategoryDataNetworkVariantEnumValues;
+  static TransferViewCategoryDataNetworkVariantEnum valueOf(String name) => _$transferViewCategoryDataNetworkVariantEnumValueOf(name);
+}
+
 class TransferViewCategoryDataPanEntryModeEnum extends EnumClass {
 
   /// Indicates the method used for entering the PAN to initiate a transaction.  Possible values: **manual**, **chip**, **magstripe**, **contactless**, **cof**, **ecommerce**, **token**.
@@ -185,31 +290,31 @@ class TransferViewCategoryDataPanEntryModeEnum extends EnumClass {
 
 class TransferViewCategoryDataProcessingTypeEnum extends EnumClass {
 
-  /// Contains information about how the payment was processed. For example, **ecommerce** for online or **pos** for in-person payments.
+  /// Contains information about how the payment was processed.  Possible values: **atmWithdraw**, **balanceInquiry**, **ecommerce**, **moto**, **pos**, **purchaseWithCashback**, **recurring**, **token**.
   @BuiltValueEnumConst(wireName: r'atmWithdraw')
   static const TransferViewCategoryDataProcessingTypeEnum atmWithdraw = _$transferViewCategoryDataProcessingTypeEnum_atmWithdraw;
-  /// Contains information about how the payment was processed. For example, **ecommerce** for online or **pos** for in-person payments.
+  /// Contains information about how the payment was processed.  Possible values: **atmWithdraw**, **balanceInquiry**, **ecommerce**, **moto**, **pos**, **purchaseWithCashback**, **recurring**, **token**.
   @BuiltValueEnumConst(wireName: r'balanceInquiry')
   static const TransferViewCategoryDataProcessingTypeEnum balanceInquiry = _$transferViewCategoryDataProcessingTypeEnum_balanceInquiry;
-  /// Contains information about how the payment was processed. For example, **ecommerce** for online or **pos** for in-person payments.
+  /// Contains information about how the payment was processed.  Possible values: **atmWithdraw**, **balanceInquiry**, **ecommerce**, **moto**, **pos**, **purchaseWithCashback**, **recurring**, **token**.
   @BuiltValueEnumConst(wireName: r'ecommerce')
   static const TransferViewCategoryDataProcessingTypeEnum ecommerce = _$transferViewCategoryDataProcessingTypeEnum_ecommerce;
-  /// Contains information about how the payment was processed. For example, **ecommerce** for online or **pos** for in-person payments.
+  /// Contains information about how the payment was processed.  Possible values: **atmWithdraw**, **balanceInquiry**, **ecommerce**, **moto**, **pos**, **purchaseWithCashback**, **recurring**, **token**.
   @BuiltValueEnumConst(wireName: r'moto')
   static const TransferViewCategoryDataProcessingTypeEnum moto = _$transferViewCategoryDataProcessingTypeEnum_moto;
-  /// Contains information about how the payment was processed. For example, **ecommerce** for online or **pos** for in-person payments.
+  /// Contains information about how the payment was processed.  Possible values: **atmWithdraw**, **balanceInquiry**, **ecommerce**, **moto**, **pos**, **purchaseWithCashback**, **recurring**, **token**.
   @BuiltValueEnumConst(wireName: r'pos')
   static const TransferViewCategoryDataProcessingTypeEnum pos = _$transferViewCategoryDataProcessingTypeEnum_pos;
-  /// Contains information about how the payment was processed. For example, **ecommerce** for online or **pos** for in-person payments.
+  /// Contains information about how the payment was processed.  Possible values: **atmWithdraw**, **balanceInquiry**, **ecommerce**, **moto**, **pos**, **purchaseWithCashback**, **recurring**, **token**.
   @BuiltValueEnumConst(wireName: r'purchaseWithCashback')
   static const TransferViewCategoryDataProcessingTypeEnum purchaseWithCashback = _$transferViewCategoryDataProcessingTypeEnum_purchaseWithCashback;
-  /// Contains information about how the payment was processed. For example, **ecommerce** for online or **pos** for in-person payments.
+  /// Contains information about how the payment was processed.  Possible values: **atmWithdraw**, **balanceInquiry**, **ecommerce**, **moto**, **pos**, **purchaseWithCashback**, **recurring**, **token**.
   @BuiltValueEnumConst(wireName: r'recurring')
   static const TransferViewCategoryDataProcessingTypeEnum recurring = _$transferViewCategoryDataProcessingTypeEnum_recurring;
-  /// Contains information about how the payment was processed. For example, **ecommerce** for online or **pos** for in-person payments.
+  /// Contains information about how the payment was processed.  Possible values: **atmWithdraw**, **balanceInquiry**, **ecommerce**, **moto**, **pos**, **purchaseWithCashback**, **recurring**, **token**.
   @BuiltValueEnumConst(wireName: r'token')
   static const TransferViewCategoryDataProcessingTypeEnum token = _$transferViewCategoryDataProcessingTypeEnum_token;
-  /// Contains information about how the payment was processed. For example, **ecommerce** for online or **pos** for in-person payments.
+  /// Contains information about how the payment was processed.  Possible values: **atmWithdraw**, **balanceInquiry**, **ecommerce**, **moto**, **pos**, **purchaseWithCashback**, **recurring**, **token**.
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const TransferViewCategoryDataProcessingTypeEnum unknownDefaultOpenApi = _$transferViewCategoryDataProcessingTypeEnum_unknownDefaultOpenApi;
 

@@ -11,19 +11,19 @@ part 'period_unit.g.dart';
 
 class PeriodUnit extends EnumClass {
 
-  /// Type of instalment transaction. Possible values: * **Annual** * **Daily** * **Monthly** * **Weekly**
-  @BuiltValueEnumConst(wireName: r'Annual')
-  static const PeriodUnit annual = _$annual;
-  /// Type of instalment transaction. Possible values: * **Annual** * **Daily** * **Monthly** * **Weekly**
+  /// Type of instalment transaction. Possible values: * **Daily** * **Weekly** * **Monthly** * **Annual**
   @BuiltValueEnumConst(wireName: r'Daily')
   static const PeriodUnit daily = _$daily;
-  /// Type of instalment transaction. Possible values: * **Annual** * **Daily** * **Monthly** * **Weekly**
-  @BuiltValueEnumConst(wireName: r'Monthly')
-  static const PeriodUnit monthly = _$monthly;
-  /// Type of instalment transaction. Possible values: * **Annual** * **Daily** * **Monthly** * **Weekly**
+  /// Type of instalment transaction. Possible values: * **Daily** * **Weekly** * **Monthly** * **Annual**
   @BuiltValueEnumConst(wireName: r'Weekly')
   static const PeriodUnit weekly = _$weekly;
-  /// Type of instalment transaction. Possible values: * **Annual** * **Daily** * **Monthly** * **Weekly**
+  /// Type of instalment transaction. Possible values: * **Daily** * **Weekly** * **Monthly** * **Annual**
+  @BuiltValueEnumConst(wireName: r'Monthly')
+  static const PeriodUnit monthly = _$monthly;
+  /// Type of instalment transaction. Possible values: * **Daily** * **Weekly** * **Monthly** * **Annual**
+  @BuiltValueEnumConst(wireName: r'Annual')
+  static const PeriodUnit annual = _$annual;
+  /// Type of instalment transaction. Possible values: * **Daily** * **Weekly** * **Monthly** * **Annual**
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const PeriodUnit unknownDefaultOpenApi = _$unknownDefaultOpenApi;
 

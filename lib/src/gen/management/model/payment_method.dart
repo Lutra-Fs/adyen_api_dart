@@ -3,41 +3,55 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:adyen_api/src/gen/management/model/twint_info.dart';
-import 'package:adyen_api/src/gen/management/model/cartes_bancaires_info.dart';
-import 'package:adyen_api/src/gen/management/model/pay_by_bank_plaid_info.dart';
-import 'package:adyen_api/src/gen/management/model/we_chat_pay_info.dart';
-import 'package:adyen_api/src/gen/management/model/sofort_info.dart';
-import 'package:adyen_api/src/gen/management/model/afterpay_touch_info.dart';
-import 'package:adyen_api/src/gen/management/model/svs_info.dart';
-import 'package:adyen_api/src/gen/management/model/givex_info.dart';
-import 'package:adyen_api/src/gen/management/model/generic_pm_with_tdi_info.dart';
-import 'package:adyen_api/src/gen/management/model/star_info.dart';
-import 'package:adyen_api/src/gen/management/model/accel_info.dart';
-import 'package:adyen_api/src/gen/management/model/vipps_info.dart';
-import 'package:adyen_api/src/gen/management/model/bcmc_info.dart';
-import 'package:adyen_api/src/gen/management/model/alipay_plus_info.dart';
-import 'package:adyen_api/src/gen/management/model/sepa_direct_debit_info.dart';
-import 'package:adyen_api/src/gen/management/model/pay_me_info.dart';
-import 'package:adyen_api/src/gen/management/model/clearpay_info.dart';
-import 'package:adyen_api/src/gen/management/model/we_chat_pay_pos_info.dart';
-import 'package:adyen_api/src/gen/management/model/diners_info.dart';
-import 'package:adyen_api/src/gen/management/model/meal_voucher_fr_info.dart';
-import 'package:adyen_api/src/gen/management/model/pulse_info.dart';
-import 'package:adyen_api/src/gen/management/model/amex_info.dart';
-import 'package:adyen_api/src/gen/management/model/sodexo_info.dart';
-import 'package:adyen_api/src/gen/management/model/apple_pay_info.dart';
-import 'package:adyen_api/src/gen/management/model/swish_info.dart';
-import 'package:adyen_api/src/gen/management/model/valuelink_info.dart';
-import 'package:adyen_api/src/gen/management/model/pay_to_info.dart';
-import 'package:adyen_api/src/gen/management/model/nyce_info.dart';
-import 'package:adyen_api/src/gen/management/model/ticket_info.dart';
-import 'package:adyen_api/src/gen/management/model/klarna_info.dart';
-import 'package:adyen_api/src/gen/management/model/affirm_info.dart';
+import 'package:adyen_api/src/gen/management/model/jcb_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/klarna_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/amex_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/cup_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/affirm_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/eft_pos_australia_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/apple_pay_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/givex_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/swish_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/ticket_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/afterpay_touch_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/maestro_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/meal_voucher_fr_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/pay_to_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/nyce_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/ebt_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/diners_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/svs_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/visa_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/valuelink_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/carnet_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/mc_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/cartes_bancaires_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/vipps_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/alipay_plus_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/pulse_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/google_pay_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/bcmc_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/interac_card_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/pay_pal_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/sofort_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/star_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/clearpay_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/sepa_direct_debit_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/accel_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/discover_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/associated_payment_method.dart';
+import 'package:adyen_api/src/gen/management/model/pay_by_bank_plaid_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/maestro_usa_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/we_chat_pay_pos_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/girocard_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/sodexo_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/twint_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/we_chat_pay_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/eft_direct_debit_ca_response_info.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:adyen_api/src/gen/management/model/jcb_info.dart';
-import 'package:adyen_api/src/gen/management/model/google_pay_info.dart';
-import 'package:adyen_api/src/gen/management/model/pay_pal_info.dart';
+import 'package:adyen_api/src/gen/management/model/pay_me_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/ancv_response_info.dart';
+import 'package:adyen_api/src/gen/management/model/ideal_response_info.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -46,115 +60,133 @@ part 'payment_method.g.dart';
 /// PaymentMethod
 ///
 /// Properties:
-/// * [accel] - Details to provide if `type` is **accel**.
-/// * [affirm] - Details to provide if `type` is **affirm**.
-/// * [afterpayTouch] - Details to provide if `type` is **afterpaytouch**.
-/// * [alipayPlus] - Details to provide if `type` is **alipay_plus**.
+/// * [accel] - **accel** details
+/// * [affirm] - **affirm** details
+/// * [afterpayTouch] - **afterpaytouch** details
+/// * [alipayPlus] - **alipay_plus** details
 /// * [allowed] - Indicates whether receiving payments is allowed. This value is set to **true** by Adyen after screening your merchant account.
-/// * [amex] - Details to provide if `type` is **amex**.
-/// * [applePay] - Details to provide if `type` is **applepay**.
-/// * [bcmc] - Details to provide if `type` is **bcmc** (Bancontact).
+/// * [amex] - **amex** details
+/// * [ancv] - **ancv** details
+/// * [applePay] - **applepay** details
+/// * [associatedPaymentMethods] - Payment methods that were also updated as part of an associated transition.
+/// * [bcmc] - **bcmc** (Bancontact) details
 /// * [businessLineId] - The unique identifier of the business line. Required if you are a [platform model](https://docs.adyen.com/platforms).
-/// * [cartesBancaires] - Details to provide if `type` is **cartebancaire**.
-/// * [clearpay] - Details to provide if `type` is **clearpay**.
+/// * [carnet] - **carnet** details
+/// * [cartesBancaires] - **cartesbancaires** details
+/// * [clearpay] - **clearpay** details
 /// * [countries] - The list of countries where a payment method is available. By default, all countries supported by the payment method.
-/// * [cup] - Details to provide if `type` is **cup** (China Union Pay).
+/// * [cup] - **cup** (China Union Pay) details
 /// * [currencies] - The list of currencies that a payment method supports. By default, all currencies supported by the payment method.
 /// * [customRoutingFlags] - The list of custom routing flags to route payment to the intended acquirer.
-/// * [diners] - Details to provide if `type` is **diners**. For merchants operating in Japan, Diners payments are processed through the JCB network. This means that you must include [JCB-specific fields](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings/(paymentMethodId)#request-jcb) in this object.
-/// * [discover] - Details to provide if `type` is **discover**. For merchants operating in Japan, request [Diners](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings/(paymentMethodId)#request-diners) payment method instead. Discover is automatically requested, together with Diners.
-/// * [eftDirectdebitCA] - Details to provide if `type` is **eft_directdebit_CA** (EFT PAD).
-/// * [eftposAustralia] - Details to provide if `type` is **eftpos_australia**.
+/// * [diners] - **diners** details
+/// * [discover] - **discover** details
+/// * [ebt] - **ebt** details
+/// * [eftDirectdebitCA] - **eft_directdebit_CA** (EFT PAD) details
+/// * [eftposAustralia] - **eftpos_australia** details
 /// * [enabled] - Indicates whether the payment method is enabled (**true**) or disabled (**false**).
-/// * [girocard] - Details to provide if `type` is **girocard**.
-/// * [givex] - Details to provide if `type` is **givex**.
-/// * [googlePay] - Details to provide if `type` is **googlepay**.
+/// * [girocard] - **girocard** details
+/// * [givex] - **givex** details
+/// * [googlePay] - **googlepay** details
 /// * [id] - The identifier of the resource.
-/// * [ideal] - Details to provide if `type` is **ideal**.
-/// * [interacCard] - Details to provide if `type` is **interac_card**.
-/// * [jcb] - Details to provide if `type` is **jcb**. For merchants operating in Japan, `midNumber`, `reuseMidNumber`, and `serviceLevel` fields are required. For merchants operating outside of Japan, these fields are not required.
-/// * [klarna] - Details to provide if `type` is **klarna** or its variant.  You can use the following payment method `type` values for Klarna: * **klarna**: Klarna Pay Later * **klarna_account**: Klarna Pay over time * **klarna_paynow**: Klarna Pay now * **klarna_b2b**: [Billie via Klarna](https://docs.adyen.com/payment-methods/klarna/billie) 
-/// * [maestro] - Details to provide if `type` is **maestro**. In the US, `maestro` is not supported; use `maestro_usa` instead. 
-/// * [maestroUsa] - Details to provide if `type` is **maestro_usa**. Only for Maestro USA, otherwise use `maestro`.
-/// * [mc] - Details to provide if `type` is **mc**.
-/// * [mealVoucherFR] - Details to provide if `type` is **mealVoucher_FR**.
-/// * [nyce] - Details to provide if `type` is **nyce**.
-/// * [paybybankPlaid] - Details to provide if `type` is **paybybank_plaid**.
-/// * [payme] - Details to provide if `type` is **payme**.
-/// * [paypal] - Details to provide if `type` is **paypal**.
-/// * [payto] - Details to provide if `type` is **payto**.
-/// * [pulse] - Details to provide if `type` is **pulse**.
+/// * [ideal] - **ideal** details
+/// * [interacCard] - **interac_card** details
+/// * [jcb] - **jcb** details
+/// * [klarna] - **klarna** or its variant details
+/// * [maestro] - **maestro** details
+/// * [maestroUsa] - **maestro_usa** details
+/// * [mc] - **mc** details
+/// * [mealVoucherFR] - **mealVoucher_FR** details
+/// * [merchantCategoryCode] - The Merchant Category Code (MCC) associated with the payment method.
+/// * [mid] - The Merchant Identifier (MID) associated with the payment method.
+/// * [nyce] - **nyce** details
+/// * [paybybankPlaid] - **paybybank_plaid** details
+/// * [payme] - **payme** details
+/// * [paypal] - **paypal** details
+/// * [payto] - **payto** details
+/// * [pulse] - **pulse** details
 /// * [reference] - Your reference for the payment method. Supported characters a-z, A-Z, 0-9.
-/// * [sepadirectdebit] - Details to provide if `type` is **sepadirectdebit**.
+/// * [sepadirectdebit] - **sepadirectdebit** details
 /// * [shopperInteraction] - The sales channel.
-/// * [sodexo] - Details to provide if `type` is **sodexo**.
+/// * [sodexo] - **sodexo** details
 /// * [sofort] - Sofort details.
-/// * [star] - Details to provide if `type` is **star**.
+/// * [star] - **star** details
 /// * [storeIds] - The unique identifier of the store for which to configure the payment method, if any.
-/// * [svs] - Details to provide if `type` is **svs**.
-/// * [swish] - Details to provide if `type` is **swish**.  - This field is required only if you have a contract with Swish. Swish handles settlement directly with you (not through Adyen).  - If not specified then it's assumed that you are using Adyen's contract with Swish.You don't have a direct relationship with Swish. 
-/// * [ticket] - Details to provide if `type` is **ticket** (Edenred Brazil).
-/// * [twint] - Details to provide if `type` is **twint**.
-/// * [type] - Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
-/// * [valuelink] - Details to provide if `type` is **valuelink**.
+/// * [svs] - **svs** details
+/// * [swish] - **swish** or its variant details
+/// * [ticket] - **ticket** (Edenred Brazil) details
+/// * [twint] - **twint** details
+/// * [type] - Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object.
+/// * [valuelink] - **valuelink** details
 /// * [verificationStatus] - Payment method status. Possible values: * **valid** * **pending** * **invalid** * **rejected**
-/// * [vipps] - Details to provide if `type` is **vipps**.
-/// * [visa] - Details to provide if `type` is **visa**.
-/// * [wechatpay] - Details to provide if `type` is **wechatpay**.
-/// * [wechatpayPos] - Details to provide if `type` is **wechatpay_pos**.
+/// * [vipps] - **vipps** details
+/// * [visa] - **visa** details
+/// * [wechatpay] - **wechatpay** details
+/// * [wechatpayPos] - **wechatpay_pos** details
 @BuiltValue()
 abstract class PaymentMethod implements Built<PaymentMethod, PaymentMethodBuilder> {
-  /// Details to provide if `type` is **accel**.
+  /// **accel** details
   @BuiltValueField(wireName: r'accel')
-  AccelInfo? get accel;
+  AccelResponseInfo? get accel;
 
-  /// Details to provide if `type` is **affirm**.
+  /// **affirm** details
   @BuiltValueField(wireName: r'affirm')
-  AffirmInfo? get affirm;
+  AffirmResponseInfo? get affirm;
 
-  /// Details to provide if `type` is **afterpaytouch**.
+  /// **afterpaytouch** details
   @BuiltValueField(wireName: r'afterpayTouch')
-  AfterpayTouchInfo? get afterpayTouch;
+  AfterpayTouchResponseInfo? get afterpayTouch;
 
-  /// Details to provide if `type` is **alipay_plus**.
+  /// **alipay_plus** details
   @BuiltValueField(wireName: r'alipayPlus')
-  AlipayPlusInfo? get alipayPlus;
+  AlipayPlusResponseInfo? get alipayPlus;
 
   /// Indicates whether receiving payments is allowed. This value is set to **true** by Adyen after screening your merchant account.
   @BuiltValueField(wireName: r'allowed')
   bool? get allowed;
 
-  /// Details to provide if `type` is **amex**.
+  /// **amex** details
   @BuiltValueField(wireName: r'amex')
-  AmexInfo? get amex;
+  AmexResponseInfo? get amex;
 
-  /// Details to provide if `type` is **applepay**.
+  /// **ancv** details
+  @BuiltValueField(wireName: r'ancv')
+  AncvResponseInfo? get ancv;
+
+  /// **applepay** details
   @BuiltValueField(wireName: r'applePay')
-  ApplePayInfo? get applePay;
+  ApplePayResponseInfo? get applePay;
 
-  /// Details to provide if `type` is **bcmc** (Bancontact).
+  /// Payment methods that were also updated as part of an associated transition.
+  @BuiltValueField(wireName: r'associatedPaymentMethods')
+  BuiltList<AssociatedPaymentMethod>? get associatedPaymentMethods;
+
+  /// **bcmc** (Bancontact) details
   @BuiltValueField(wireName: r'bcmc')
-  BcmcInfo? get bcmc;
+  BcmcResponseInfo? get bcmc;
 
   /// The unique identifier of the business line. Required if you are a [platform model](https://docs.adyen.com/platforms).
   @BuiltValueField(wireName: r'businessLineId')
   String? get businessLineId;
 
-  /// Details to provide if `type` is **cartebancaire**.
-  @BuiltValueField(wireName: r'cartesBancaires')
-  CartesBancairesInfo? get cartesBancaires;
+  /// **carnet** details
+  @BuiltValueField(wireName: r'carnet')
+  CarnetResponseInfo? get carnet;
 
-  /// Details to provide if `type` is **clearpay**.
+  /// **cartesbancaires** details
+  @BuiltValueField(wireName: r'cartesBancaires')
+  CartesBancairesResponseInfo? get cartesBancaires;
+
+  /// **clearpay** details
   @BuiltValueField(wireName: r'clearpay')
-  ClearpayInfo? get clearpay;
+  ClearpayResponseInfo? get clearpay;
 
   /// The list of countries where a payment method is available. By default, all countries supported by the payment method.
   @BuiltValueField(wireName: r'countries')
   BuiltList<String>? get countries;
 
-  /// Details to provide if `type` is **cup** (China Union Pay).
+  /// **cup** (China Union Pay) details
   @BuiltValueField(wireName: r'cup')
-  GenericPmWithTdiInfo? get cup;
+  CupResponseInfo? get cup;
 
   /// The list of currencies that a payment method supports. By default, all currencies supported by the payment method.
   @BuiltValueField(wireName: r'currencies')
@@ -164,171 +196,183 @@ abstract class PaymentMethod implements Built<PaymentMethod, PaymentMethodBuilde
   @BuiltValueField(wireName: r'customRoutingFlags')
   BuiltList<String>? get customRoutingFlags;
 
-  /// Details to provide if `type` is **diners**. For merchants operating in Japan, Diners payments are processed through the JCB network. This means that you must include [JCB-specific fields](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings/(paymentMethodId)#request-jcb) in this object.
+  /// **diners** details
   @BuiltValueField(wireName: r'diners')
-  DinersInfo? get diners;
+  DinersResponseInfo? get diners;
 
-  /// Details to provide if `type` is **discover**. For merchants operating in Japan, request [Diners](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings/(paymentMethodId)#request-diners) payment method instead. Discover is automatically requested, together with Diners.
+  /// **discover** details
   @BuiltValueField(wireName: r'discover')
-  GenericPmWithTdiInfo? get discover;
+  DiscoverResponseInfo? get discover;
 
-  /// Details to provide if `type` is **eft_directdebit_CA** (EFT PAD).
+  /// **ebt** details
+  @BuiltValueField(wireName: r'ebt')
+  EbtResponseInfo? get ebt;
+
+  /// **eft_directdebit_CA** (EFT PAD) details
   @BuiltValueField(wireName: r'eft_directdebit_CA')
-  GenericPmWithTdiInfo? get eftDirectdebitCA;
+  EFTDirectDebitCAResponseInfo? get eftDirectdebitCA;
 
-  /// Details to provide if `type` is **eftpos_australia**.
+  /// **eftpos_australia** details
   @BuiltValueField(wireName: r'eftpos_australia')
-  GenericPmWithTdiInfo? get eftposAustralia;
+  EftPosAustraliaResponseInfo? get eftposAustralia;
 
   /// Indicates whether the payment method is enabled (**true**) or disabled (**false**).
   @BuiltValueField(wireName: r'enabled')
   bool? get enabled;
 
-  /// Details to provide if `type` is **girocard**.
+  /// **girocard** details
   @BuiltValueField(wireName: r'girocard')
-  GenericPmWithTdiInfo? get girocard;
+  GirocardResponseInfo? get girocard;
 
-  /// Details to provide if `type` is **givex**.
+  /// **givex** details
   @BuiltValueField(wireName: r'givex')
-  GivexInfo? get givex;
+  GivexResponseInfo? get givex;
 
-  /// Details to provide if `type` is **googlepay**.
+  /// **googlepay** details
   @BuiltValueField(wireName: r'googlePay')
-  GooglePayInfo? get googlePay;
+  GooglePayResponseInfo? get googlePay;
 
   /// The identifier of the resource.
   @BuiltValueField(wireName: r'id')
   String get id;
 
-  /// Details to provide if `type` is **ideal**.
+  /// **ideal** details
   @BuiltValueField(wireName: r'ideal')
-  GenericPmWithTdiInfo? get ideal;
+  IdealResponseInfo? get ideal;
 
-  /// Details to provide if `type` is **interac_card**.
+  /// **interac_card** details
   @BuiltValueField(wireName: r'interac_card')
-  GenericPmWithTdiInfo? get interacCard;
+  InteracCardResponseInfo? get interacCard;
 
-  /// Details to provide if `type` is **jcb**. For merchants operating in Japan, `midNumber`, `reuseMidNumber`, and `serviceLevel` fields are required. For merchants operating outside of Japan, these fields are not required.
+  /// **jcb** details
   @BuiltValueField(wireName: r'jcb')
-  JCBInfo? get jcb;
+  JCBResponseInfo? get jcb;
 
-  /// Details to provide if `type` is **klarna** or its variant.  You can use the following payment method `type` values for Klarna: * **klarna**: Klarna Pay Later * **klarna_account**: Klarna Pay over time * **klarna_paynow**: Klarna Pay now * **klarna_b2b**: [Billie via Klarna](https://docs.adyen.com/payment-methods/klarna/billie) 
+  /// **klarna** or its variant details
   @BuiltValueField(wireName: r'klarna')
-  KlarnaInfo? get klarna;
+  KlarnaResponseInfo? get klarna;
 
-  /// Details to provide if `type` is **maestro**. In the US, `maestro` is not supported; use `maestro_usa` instead. 
+  /// **maestro** details
   @BuiltValueField(wireName: r'maestro')
-  GenericPmWithTdiInfo? get maestro;
+  MaestroResponseInfo? get maestro;
 
-  /// Details to provide if `type` is **maestro_usa**. Only for Maestro USA, otherwise use `maestro`.
+  /// **maestro_usa** details
   @BuiltValueField(wireName: r'maestro_usa')
-  GenericPmWithTdiInfo? get maestroUsa;
+  MaestroUSAResponseInfo? get maestroUsa;
 
-  /// Details to provide if `type` is **mc**.
+  /// **mc** details
   @BuiltValueField(wireName: r'mc')
-  GenericPmWithTdiInfo? get mc;
+  MCResponseInfo? get mc;
 
-  /// Details to provide if `type` is **mealVoucher_FR**.
+  /// **mealVoucher_FR** details
   @BuiltValueField(wireName: r'mealVoucher_FR')
-  MealVoucherFRInfo? get mealVoucherFR;
+  MealVoucherFRResponseInfo? get mealVoucherFR;
 
-  /// Details to provide if `type` is **nyce**.
+  /// The Merchant Category Code (MCC) associated with the payment method.
+  @BuiltValueField(wireName: r'merchantCategoryCode')
+  String? get merchantCategoryCode;
+
+  /// The Merchant Identifier (MID) associated with the payment method.
+  @BuiltValueField(wireName: r'mid')
+  String? get mid;
+
+  /// **nyce** details
   @BuiltValueField(wireName: r'nyce')
-  NyceInfo? get nyce;
+  NyceResponseInfo? get nyce;
 
-  /// Details to provide if `type` is **paybybank_plaid**.
+  /// **paybybank_plaid** details
   @BuiltValueField(wireName: r'paybybank_plaid')
-  PayByBankPlaidInfo? get paybybankPlaid;
+  PayByBankPlaidResponseInfo? get paybybankPlaid;
 
-  /// Details to provide if `type` is **payme**.
+  /// **payme** details
   @BuiltValueField(wireName: r'payme')
-  PayMeInfo? get payme;
+  PayMeResponseInfo? get payme;
 
-  /// Details to provide if `type` is **paypal**.
+  /// **paypal** details
   @BuiltValueField(wireName: r'paypal')
-  PayPalInfo? get paypal;
+  PayPalResponseInfo? get paypal;
 
-  /// Details to provide if `type` is **payto**.
+  /// **payto** details
   @BuiltValueField(wireName: r'payto')
-  PayToInfo? get payto;
+  PayToResponseInfo? get payto;
 
-  /// Details to provide if `type` is **pulse**.
+  /// **pulse** details
   @BuiltValueField(wireName: r'pulse')
-  PulseInfo? get pulse;
+  PulseResponseInfo? get pulse;
 
   /// Your reference for the payment method. Supported characters a-z, A-Z, 0-9.
   @BuiltValueField(wireName: r'reference')
   String? get reference;
 
-  /// Details to provide if `type` is **sepadirectdebit**.
+  /// **sepadirectdebit** details
   @BuiltValueField(wireName: r'sepadirectdebit')
-  SepaDirectDebitInfo? get sepadirectdebit;
+  SepaDirectDebitResponseInfo? get sepadirectdebit;
 
   /// The sales channel.
   @BuiltValueField(wireName: r'shopperInteraction')
   String? get shopperInteraction;
 
-  /// Details to provide if `type` is **sodexo**.
+  /// **sodexo** details
   @BuiltValueField(wireName: r'sodexo')
-  SodexoInfo? get sodexo;
+  SodexoResponseInfo? get sodexo;
 
   /// Sofort details.
   @Deprecated('sofort has been deprecated')
   @BuiltValueField(wireName: r'sofort')
-  SofortInfo? get sofort;
+  SofortResponseInfo? get sofort;
 
-  /// Details to provide if `type` is **star**.
+  /// **star** details
   @BuiltValueField(wireName: r'star')
-  StarInfo? get star;
+  StarResponseInfo? get star;
 
   /// The unique identifier of the store for which to configure the payment method, if any.
   @BuiltValueField(wireName: r'storeIds')
   BuiltList<String>? get storeIds;
 
-  /// Details to provide if `type` is **svs**.
+  /// **svs** details
   @BuiltValueField(wireName: r'svs')
-  SvsInfo? get svs;
+  SvsResponseInfo? get svs;
 
-  /// Details to provide if `type` is **swish**.  - This field is required only if you have a contract with Swish. Swish handles settlement directly with you (not through Adyen).  - If not specified then it's assumed that you are using Adyen's contract with Swish.You don't have a direct relationship with Swish. 
+  /// **swish** or its variant details
   @BuiltValueField(wireName: r'swish')
-  SwishInfo? get swish;
+  SwishResponseInfo? get swish;
 
-  /// Details to provide if `type` is **ticket** (Edenred Brazil).
+  /// **ticket** (Edenred Brazil) details
   @BuiltValueField(wireName: r'ticket')
-  TicketInfo? get ticket;
+  TicketResponseInfo? get ticket;
 
-  /// Details to provide if `type` is **twint**.
+  /// **twint** details
   @BuiltValueField(wireName: r'twint')
-  TwintInfo? get twint;
+  TwintResponseInfo? get twint;
 
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object.
   @BuiltValueField(wireName: r'type')
   String? get type;
 
-  /// Details to provide if `type` is **valuelink**.
+  /// **valuelink** details
   @BuiltValueField(wireName: r'valuelink')
-  ValuelinkInfo? get valuelink;
+  ValuelinkResponseInfo? get valuelink;
 
   /// Payment method status. Possible values: * **valid** * **pending** * **invalid** * **rejected**
   @BuiltValueField(wireName: r'verificationStatus')
   PaymentMethodVerificationStatusEnum? get verificationStatus;
   // enum verificationStatusEnum {  valid,  pending,  invalid,  rejected,  };
 
-  /// Details to provide if `type` is **vipps**.
+  /// **vipps** details
   @BuiltValueField(wireName: r'vipps')
-  VippsInfo? get vipps;
+  VippsResponseInfo? get vipps;
 
-  /// Details to provide if `type` is **visa**.
+  /// **visa** details
   @BuiltValueField(wireName: r'visa')
-  GenericPmWithTdiInfo? get visa;
+  VisaResponseInfo? get visa;
 
-  /// Details to provide if `type` is **wechatpay**.
+  /// **wechatpay** details
   @BuiltValueField(wireName: r'wechatpay')
-  WeChatPayInfo? get wechatpay;
+  WeChatPayResponseInfo? get wechatpay;
 
-  /// Details to provide if `type` is **wechatpay_pos**.
+  /// **wechatpay_pos** details
   @BuiltValueField(wireName: r'wechatpay_pos')
-  WeChatPayPosInfo? get wechatpayPos;
+  WeChatPayPosResponseInfo? get wechatpayPos;
 
   PaymentMethod._();
 
@@ -357,28 +401,28 @@ class _$PaymentMethodSerializer implements PrimitiveSerializer<PaymentMethod> {
       yield r'accel';
       yield serializers.serialize(
         object.accel,
-        specifiedType: const FullType(AccelInfo),
+        specifiedType: const FullType(AccelResponseInfo),
       );
     }
     if (object.affirm != null) {
       yield r'affirm';
       yield serializers.serialize(
         object.affirm,
-        specifiedType: const FullType(AffirmInfo),
+        specifiedType: const FullType(AffirmResponseInfo),
       );
     }
     if (object.afterpayTouch != null) {
       yield r'afterpayTouch';
       yield serializers.serialize(
         object.afterpayTouch,
-        specifiedType: const FullType(AfterpayTouchInfo),
+        specifiedType: const FullType(AfterpayTouchResponseInfo),
       );
     }
     if (object.alipayPlus != null) {
       yield r'alipayPlus';
       yield serializers.serialize(
         object.alipayPlus,
-        specifiedType: const FullType(AlipayPlusInfo),
+        specifiedType: const FullType(AlipayPlusResponseInfo),
       );
     }
     if (object.allowed != null) {
@@ -392,21 +436,35 @@ class _$PaymentMethodSerializer implements PrimitiveSerializer<PaymentMethod> {
       yield r'amex';
       yield serializers.serialize(
         object.amex,
-        specifiedType: const FullType(AmexInfo),
+        specifiedType: const FullType(AmexResponseInfo),
+      );
+    }
+    if (object.ancv != null) {
+      yield r'ancv';
+      yield serializers.serialize(
+        object.ancv,
+        specifiedType: const FullType(AncvResponseInfo),
       );
     }
     if (object.applePay != null) {
       yield r'applePay';
       yield serializers.serialize(
         object.applePay,
-        specifiedType: const FullType(ApplePayInfo),
+        specifiedType: const FullType(ApplePayResponseInfo),
+      );
+    }
+    if (object.associatedPaymentMethods != null) {
+      yield r'associatedPaymentMethods';
+      yield serializers.serialize(
+        object.associatedPaymentMethods,
+        specifiedType: const FullType(BuiltList, [FullType(AssociatedPaymentMethod)]),
       );
     }
     if (object.bcmc != null) {
       yield r'bcmc';
       yield serializers.serialize(
         object.bcmc,
-        specifiedType: const FullType(BcmcInfo),
+        specifiedType: const FullType(BcmcResponseInfo),
       );
     }
     if (object.businessLineId != null) {
@@ -416,18 +474,25 @@ class _$PaymentMethodSerializer implements PrimitiveSerializer<PaymentMethod> {
         specifiedType: const FullType(String),
       );
     }
+    if (object.carnet != null) {
+      yield r'carnet';
+      yield serializers.serialize(
+        object.carnet,
+        specifiedType: const FullType(CarnetResponseInfo),
+      );
+    }
     if (object.cartesBancaires != null) {
       yield r'cartesBancaires';
       yield serializers.serialize(
         object.cartesBancaires,
-        specifiedType: const FullType(CartesBancairesInfo),
+        specifiedType: const FullType(CartesBancairesResponseInfo),
       );
     }
     if (object.clearpay != null) {
       yield r'clearpay';
       yield serializers.serialize(
         object.clearpay,
-        specifiedType: const FullType(ClearpayInfo),
+        specifiedType: const FullType(ClearpayResponseInfo),
       );
     }
     if (object.countries != null) {
@@ -441,7 +506,7 @@ class _$PaymentMethodSerializer implements PrimitiveSerializer<PaymentMethod> {
       yield r'cup';
       yield serializers.serialize(
         object.cup,
-        specifiedType: const FullType(GenericPmWithTdiInfo),
+        specifiedType: const FullType(CupResponseInfo),
       );
     }
     if (object.currencies != null) {
@@ -462,28 +527,35 @@ class _$PaymentMethodSerializer implements PrimitiveSerializer<PaymentMethod> {
       yield r'diners';
       yield serializers.serialize(
         object.diners,
-        specifiedType: const FullType(DinersInfo),
+        specifiedType: const FullType(DinersResponseInfo),
       );
     }
     if (object.discover != null) {
       yield r'discover';
       yield serializers.serialize(
         object.discover,
-        specifiedType: const FullType(GenericPmWithTdiInfo),
+        specifiedType: const FullType(DiscoverResponseInfo),
+      );
+    }
+    if (object.ebt != null) {
+      yield r'ebt';
+      yield serializers.serialize(
+        object.ebt,
+        specifiedType: const FullType(EbtResponseInfo),
       );
     }
     if (object.eftDirectdebitCA != null) {
       yield r'eft_directdebit_CA';
       yield serializers.serialize(
         object.eftDirectdebitCA,
-        specifiedType: const FullType(GenericPmWithTdiInfo),
+        specifiedType: const FullType(EFTDirectDebitCAResponseInfo),
       );
     }
     if (object.eftposAustralia != null) {
       yield r'eftpos_australia';
       yield serializers.serialize(
         object.eftposAustralia,
-        specifiedType: const FullType(GenericPmWithTdiInfo),
+        specifiedType: const FullType(EftPosAustraliaResponseInfo),
       );
     }
     if (object.enabled != null) {
@@ -497,21 +569,21 @@ class _$PaymentMethodSerializer implements PrimitiveSerializer<PaymentMethod> {
       yield r'girocard';
       yield serializers.serialize(
         object.girocard,
-        specifiedType: const FullType(GenericPmWithTdiInfo),
+        specifiedType: const FullType(GirocardResponseInfo),
       );
     }
     if (object.givex != null) {
       yield r'givex';
       yield serializers.serialize(
         object.givex,
-        specifiedType: const FullType(GivexInfo),
+        specifiedType: const FullType(GivexResponseInfo),
       );
     }
     if (object.googlePay != null) {
       yield r'googlePay';
       yield serializers.serialize(
         object.googlePay,
-        specifiedType: const FullType(GooglePayInfo),
+        specifiedType: const FullType(GooglePayResponseInfo),
       );
     }
     yield r'id';
@@ -523,98 +595,112 @@ class _$PaymentMethodSerializer implements PrimitiveSerializer<PaymentMethod> {
       yield r'ideal';
       yield serializers.serialize(
         object.ideal,
-        specifiedType: const FullType(GenericPmWithTdiInfo),
+        specifiedType: const FullType(IdealResponseInfo),
       );
     }
     if (object.interacCard != null) {
       yield r'interac_card';
       yield serializers.serialize(
         object.interacCard,
-        specifiedType: const FullType(GenericPmWithTdiInfo),
+        specifiedType: const FullType(InteracCardResponseInfo),
       );
     }
     if (object.jcb != null) {
       yield r'jcb';
       yield serializers.serialize(
         object.jcb,
-        specifiedType: const FullType(JCBInfo),
+        specifiedType: const FullType(JCBResponseInfo),
       );
     }
     if (object.klarna != null) {
       yield r'klarna';
       yield serializers.serialize(
         object.klarna,
-        specifiedType: const FullType(KlarnaInfo),
+        specifiedType: const FullType(KlarnaResponseInfo),
       );
     }
     if (object.maestro != null) {
       yield r'maestro';
       yield serializers.serialize(
         object.maestro,
-        specifiedType: const FullType(GenericPmWithTdiInfo),
+        specifiedType: const FullType(MaestroResponseInfo),
       );
     }
     if (object.maestroUsa != null) {
       yield r'maestro_usa';
       yield serializers.serialize(
         object.maestroUsa,
-        specifiedType: const FullType(GenericPmWithTdiInfo),
+        specifiedType: const FullType(MaestroUSAResponseInfo),
       );
     }
     if (object.mc != null) {
       yield r'mc';
       yield serializers.serialize(
         object.mc,
-        specifiedType: const FullType(GenericPmWithTdiInfo),
+        specifiedType: const FullType(MCResponseInfo),
       );
     }
     if (object.mealVoucherFR != null) {
       yield r'mealVoucher_FR';
       yield serializers.serialize(
         object.mealVoucherFR,
-        specifiedType: const FullType(MealVoucherFRInfo),
+        specifiedType: const FullType(MealVoucherFRResponseInfo),
+      );
+    }
+    if (object.merchantCategoryCode != null) {
+      yield r'merchantCategoryCode';
+      yield serializers.serialize(
+        object.merchantCategoryCode,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.mid != null) {
+      yield r'mid';
+      yield serializers.serialize(
+        object.mid,
+        specifiedType: const FullType(String),
       );
     }
     if (object.nyce != null) {
       yield r'nyce';
       yield serializers.serialize(
         object.nyce,
-        specifiedType: const FullType(NyceInfo),
+        specifiedType: const FullType(NyceResponseInfo),
       );
     }
     if (object.paybybankPlaid != null) {
       yield r'paybybank_plaid';
       yield serializers.serialize(
         object.paybybankPlaid,
-        specifiedType: const FullType(PayByBankPlaidInfo),
+        specifiedType: const FullType(PayByBankPlaidResponseInfo),
       );
     }
     if (object.payme != null) {
       yield r'payme';
       yield serializers.serialize(
         object.payme,
-        specifiedType: const FullType(PayMeInfo),
+        specifiedType: const FullType(PayMeResponseInfo),
       );
     }
     if (object.paypal != null) {
       yield r'paypal';
       yield serializers.serialize(
         object.paypal,
-        specifiedType: const FullType(PayPalInfo),
+        specifiedType: const FullType(PayPalResponseInfo),
       );
     }
     if (object.payto != null) {
       yield r'payto';
       yield serializers.serialize(
         object.payto,
-        specifiedType: const FullType(PayToInfo),
+        specifiedType: const FullType(PayToResponseInfo),
       );
     }
     if (object.pulse != null) {
       yield r'pulse';
       yield serializers.serialize(
         object.pulse,
-        specifiedType: const FullType(PulseInfo),
+        specifiedType: const FullType(PulseResponseInfo),
       );
     }
     if (object.reference != null) {
@@ -628,7 +714,7 @@ class _$PaymentMethodSerializer implements PrimitiveSerializer<PaymentMethod> {
       yield r'sepadirectdebit';
       yield serializers.serialize(
         object.sepadirectdebit,
-        specifiedType: const FullType(SepaDirectDebitInfo),
+        specifiedType: const FullType(SepaDirectDebitResponseInfo),
       );
     }
     if (object.shopperInteraction != null) {
@@ -642,21 +728,21 @@ class _$PaymentMethodSerializer implements PrimitiveSerializer<PaymentMethod> {
       yield r'sodexo';
       yield serializers.serialize(
         object.sodexo,
-        specifiedType: const FullType(SodexoInfo),
+        specifiedType: const FullType(SodexoResponseInfo),
       );
     }
     if (object.sofort != null) {
       yield r'sofort';
       yield serializers.serialize(
         object.sofort,
-        specifiedType: const FullType(SofortInfo),
+        specifiedType: const FullType(SofortResponseInfo),
       );
     }
     if (object.star != null) {
       yield r'star';
       yield serializers.serialize(
         object.star,
-        specifiedType: const FullType(StarInfo),
+        specifiedType: const FullType(StarResponseInfo),
       );
     }
     if (object.storeIds != null) {
@@ -670,28 +756,28 @@ class _$PaymentMethodSerializer implements PrimitiveSerializer<PaymentMethod> {
       yield r'svs';
       yield serializers.serialize(
         object.svs,
-        specifiedType: const FullType(SvsInfo),
+        specifiedType: const FullType(SvsResponseInfo),
       );
     }
     if (object.swish != null) {
       yield r'swish';
       yield serializers.serialize(
         object.swish,
-        specifiedType: const FullType(SwishInfo),
+        specifiedType: const FullType(SwishResponseInfo),
       );
     }
     if (object.ticket != null) {
       yield r'ticket';
       yield serializers.serialize(
         object.ticket,
-        specifiedType: const FullType(TicketInfo),
+        specifiedType: const FullType(TicketResponseInfo),
       );
     }
     if (object.twint != null) {
       yield r'twint';
       yield serializers.serialize(
         object.twint,
-        specifiedType: const FullType(TwintInfo),
+        specifiedType: const FullType(TwintResponseInfo),
       );
     }
     if (object.type != null) {
@@ -705,7 +791,7 @@ class _$PaymentMethodSerializer implements PrimitiveSerializer<PaymentMethod> {
       yield r'valuelink';
       yield serializers.serialize(
         object.valuelink,
-        specifiedType: const FullType(ValuelinkInfo),
+        specifiedType: const FullType(ValuelinkResponseInfo),
       );
     }
     if (object.verificationStatus != null) {
@@ -719,28 +805,28 @@ class _$PaymentMethodSerializer implements PrimitiveSerializer<PaymentMethod> {
       yield r'vipps';
       yield serializers.serialize(
         object.vipps,
-        specifiedType: const FullType(VippsInfo),
+        specifiedType: const FullType(VippsResponseInfo),
       );
     }
     if (object.visa != null) {
       yield r'visa';
       yield serializers.serialize(
         object.visa,
-        specifiedType: const FullType(GenericPmWithTdiInfo),
+        specifiedType: const FullType(VisaResponseInfo),
       );
     }
     if (object.wechatpay != null) {
       yield r'wechatpay';
       yield serializers.serialize(
         object.wechatpay,
-        specifiedType: const FullType(WeChatPayInfo),
+        specifiedType: const FullType(WeChatPayResponseInfo),
       );
     }
     if (object.wechatpayPos != null) {
       yield r'wechatpay_pos';
       yield serializers.serialize(
         object.wechatpayPos,
-        specifiedType: const FullType(WeChatPayPosInfo),
+        specifiedType: const FullType(WeChatPayPosResponseInfo),
       );
     }
   }
@@ -769,29 +855,29 @@ class _$PaymentMethodSerializer implements PrimitiveSerializer<PaymentMethod> {
         case r'accel':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(AccelInfo),
-          ) as AccelInfo;
+            specifiedType: const FullType(AccelResponseInfo),
+          ) as AccelResponseInfo;
           result.accel.replace(valueDes);
           break;
         case r'affirm':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(AffirmInfo),
-          ) as AffirmInfo;
+            specifiedType: const FullType(AffirmResponseInfo),
+          ) as AffirmResponseInfo;
           result.affirm.replace(valueDes);
           break;
         case r'afterpayTouch':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(AfterpayTouchInfo),
-          ) as AfterpayTouchInfo;
+            specifiedType: const FullType(AfterpayTouchResponseInfo),
+          ) as AfterpayTouchResponseInfo;
           result.afterpayTouch.replace(valueDes);
           break;
         case r'alipayPlus':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(AlipayPlusInfo),
-          ) as AlipayPlusInfo;
+            specifiedType: const FullType(AlipayPlusResponseInfo),
+          ) as AlipayPlusResponseInfo;
           result.alipayPlus.replace(valueDes);
           break;
         case r'allowed':
@@ -804,22 +890,36 @@ class _$PaymentMethodSerializer implements PrimitiveSerializer<PaymentMethod> {
         case r'amex':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(AmexInfo),
-          ) as AmexInfo;
+            specifiedType: const FullType(AmexResponseInfo),
+          ) as AmexResponseInfo;
           result.amex.replace(valueDes);
+          break;
+        case r'ancv':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(AncvResponseInfo),
+          ) as AncvResponseInfo;
+          result.ancv.replace(valueDes);
           break;
         case r'applePay':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(ApplePayInfo),
-          ) as ApplePayInfo;
+            specifiedType: const FullType(ApplePayResponseInfo),
+          ) as ApplePayResponseInfo;
           result.applePay.replace(valueDes);
+          break;
+        case r'associatedPaymentMethods':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(BuiltList, [FullType(AssociatedPaymentMethod)]),
+          ) as BuiltList<AssociatedPaymentMethod>;
+          result.associatedPaymentMethods.replace(valueDes);
           break;
         case r'bcmc':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BcmcInfo),
-          ) as BcmcInfo;
+            specifiedType: const FullType(BcmcResponseInfo),
+          ) as BcmcResponseInfo;
           result.bcmc.replace(valueDes);
           break;
         case r'businessLineId':
@@ -829,18 +929,25 @@ class _$PaymentMethodSerializer implements PrimitiveSerializer<PaymentMethod> {
           ) as String;
           result.businessLineId = valueDes;
           break;
+        case r'carnet':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(CarnetResponseInfo),
+          ) as CarnetResponseInfo;
+          result.carnet.replace(valueDes);
+          break;
         case r'cartesBancaires':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(CartesBancairesInfo),
-          ) as CartesBancairesInfo;
+            specifiedType: const FullType(CartesBancairesResponseInfo),
+          ) as CartesBancairesResponseInfo;
           result.cartesBancaires.replace(valueDes);
           break;
         case r'clearpay':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(ClearpayInfo),
-          ) as ClearpayInfo;
+            specifiedType: const FullType(ClearpayResponseInfo),
+          ) as ClearpayResponseInfo;
           result.clearpay.replace(valueDes);
           break;
         case r'countries':
@@ -853,8 +960,8 @@ class _$PaymentMethodSerializer implements PrimitiveSerializer<PaymentMethod> {
         case r'cup':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(GenericPmWithTdiInfo),
-          ) as GenericPmWithTdiInfo;
+            specifiedType: const FullType(CupResponseInfo),
+          ) as CupResponseInfo;
           result.cup.replace(valueDes);
           break;
         case r'currencies':
@@ -874,29 +981,36 @@ class _$PaymentMethodSerializer implements PrimitiveSerializer<PaymentMethod> {
         case r'diners':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(DinersInfo),
-          ) as DinersInfo;
+            specifiedType: const FullType(DinersResponseInfo),
+          ) as DinersResponseInfo;
           result.diners.replace(valueDes);
           break;
         case r'discover':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(GenericPmWithTdiInfo),
-          ) as GenericPmWithTdiInfo;
+            specifiedType: const FullType(DiscoverResponseInfo),
+          ) as DiscoverResponseInfo;
           result.discover.replace(valueDes);
+          break;
+        case r'ebt':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(EbtResponseInfo),
+          ) as EbtResponseInfo;
+          result.ebt.replace(valueDes);
           break;
         case r'eft_directdebit_CA':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(GenericPmWithTdiInfo),
-          ) as GenericPmWithTdiInfo;
+            specifiedType: const FullType(EFTDirectDebitCAResponseInfo),
+          ) as EFTDirectDebitCAResponseInfo;
           result.eftDirectdebitCA.replace(valueDes);
           break;
         case r'eftpos_australia':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(GenericPmWithTdiInfo),
-          ) as GenericPmWithTdiInfo;
+            specifiedType: const FullType(EftPosAustraliaResponseInfo),
+          ) as EftPosAustraliaResponseInfo;
           result.eftposAustralia.replace(valueDes);
           break;
         case r'enabled':
@@ -909,22 +1023,22 @@ class _$PaymentMethodSerializer implements PrimitiveSerializer<PaymentMethod> {
         case r'girocard':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(GenericPmWithTdiInfo),
-          ) as GenericPmWithTdiInfo;
+            specifiedType: const FullType(GirocardResponseInfo),
+          ) as GirocardResponseInfo;
           result.girocard.replace(valueDes);
           break;
         case r'givex':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(GivexInfo),
-          ) as GivexInfo;
+            specifiedType: const FullType(GivexResponseInfo),
+          ) as GivexResponseInfo;
           result.givex.replace(valueDes);
           break;
         case r'googlePay':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(GooglePayInfo),
-          ) as GooglePayInfo;
+            specifiedType: const FullType(GooglePayResponseInfo),
+          ) as GooglePayResponseInfo;
           result.googlePay.replace(valueDes);
           break;
         case r'id':
@@ -937,99 +1051,113 @@ class _$PaymentMethodSerializer implements PrimitiveSerializer<PaymentMethod> {
         case r'ideal':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(GenericPmWithTdiInfo),
-          ) as GenericPmWithTdiInfo;
+            specifiedType: const FullType(IdealResponseInfo),
+          ) as IdealResponseInfo;
           result.ideal.replace(valueDes);
           break;
         case r'interac_card':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(GenericPmWithTdiInfo),
-          ) as GenericPmWithTdiInfo;
+            specifiedType: const FullType(InteracCardResponseInfo),
+          ) as InteracCardResponseInfo;
           result.interacCard.replace(valueDes);
           break;
         case r'jcb':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(JCBInfo),
-          ) as JCBInfo;
+            specifiedType: const FullType(JCBResponseInfo),
+          ) as JCBResponseInfo;
           result.jcb.replace(valueDes);
           break;
         case r'klarna':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(KlarnaInfo),
-          ) as KlarnaInfo;
+            specifiedType: const FullType(KlarnaResponseInfo),
+          ) as KlarnaResponseInfo;
           result.klarna.replace(valueDes);
           break;
         case r'maestro':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(GenericPmWithTdiInfo),
-          ) as GenericPmWithTdiInfo;
+            specifiedType: const FullType(MaestroResponseInfo),
+          ) as MaestroResponseInfo;
           result.maestro.replace(valueDes);
           break;
         case r'maestro_usa':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(GenericPmWithTdiInfo),
-          ) as GenericPmWithTdiInfo;
+            specifiedType: const FullType(MaestroUSAResponseInfo),
+          ) as MaestroUSAResponseInfo;
           result.maestroUsa.replace(valueDes);
           break;
         case r'mc':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(GenericPmWithTdiInfo),
-          ) as GenericPmWithTdiInfo;
+            specifiedType: const FullType(MCResponseInfo),
+          ) as MCResponseInfo;
           result.mc.replace(valueDes);
           break;
         case r'mealVoucher_FR':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(MealVoucherFRInfo),
-          ) as MealVoucherFRInfo;
+            specifiedType: const FullType(MealVoucherFRResponseInfo),
+          ) as MealVoucherFRResponseInfo;
           result.mealVoucherFR.replace(valueDes);
+          break;
+        case r'merchantCategoryCode':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.merchantCategoryCode = valueDes;
+          break;
+        case r'mid':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.mid = valueDes;
           break;
         case r'nyce':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(NyceInfo),
-          ) as NyceInfo;
+            specifiedType: const FullType(NyceResponseInfo),
+          ) as NyceResponseInfo;
           result.nyce.replace(valueDes);
           break;
         case r'paybybank_plaid':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(PayByBankPlaidInfo),
-          ) as PayByBankPlaidInfo;
+            specifiedType: const FullType(PayByBankPlaidResponseInfo),
+          ) as PayByBankPlaidResponseInfo;
           result.paybybankPlaid.replace(valueDes);
           break;
         case r'payme':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(PayMeInfo),
-          ) as PayMeInfo;
+            specifiedType: const FullType(PayMeResponseInfo),
+          ) as PayMeResponseInfo;
           result.payme.replace(valueDes);
           break;
         case r'paypal':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(PayPalInfo),
-          ) as PayPalInfo;
+            specifiedType: const FullType(PayPalResponseInfo),
+          ) as PayPalResponseInfo;
           result.paypal.replace(valueDes);
           break;
         case r'payto':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(PayToInfo),
-          ) as PayToInfo;
+            specifiedType: const FullType(PayToResponseInfo),
+          ) as PayToResponseInfo;
           result.payto.replace(valueDes);
           break;
         case r'pulse':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(PulseInfo),
-          ) as PulseInfo;
+            specifiedType: const FullType(PulseResponseInfo),
+          ) as PulseResponseInfo;
           result.pulse.replace(valueDes);
           break;
         case r'reference':
@@ -1042,8 +1170,8 @@ class _$PaymentMethodSerializer implements PrimitiveSerializer<PaymentMethod> {
         case r'sepadirectdebit':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(SepaDirectDebitInfo),
-          ) as SepaDirectDebitInfo;
+            specifiedType: const FullType(SepaDirectDebitResponseInfo),
+          ) as SepaDirectDebitResponseInfo;
           result.sepadirectdebit.replace(valueDes);
           break;
         case r'shopperInteraction':
@@ -1056,22 +1184,22 @@ class _$PaymentMethodSerializer implements PrimitiveSerializer<PaymentMethod> {
         case r'sodexo':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(SodexoInfo),
-          ) as SodexoInfo;
+            specifiedType: const FullType(SodexoResponseInfo),
+          ) as SodexoResponseInfo;
           result.sodexo.replace(valueDes);
           break;
         case r'sofort':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(SofortInfo),
-          ) as SofortInfo;
+            specifiedType: const FullType(SofortResponseInfo),
+          ) as SofortResponseInfo;
           result.sofort.replace(valueDes);
           break;
         case r'star':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(StarInfo),
-          ) as StarInfo;
+            specifiedType: const FullType(StarResponseInfo),
+          ) as StarResponseInfo;
           result.star.replace(valueDes);
           break;
         case r'storeIds':
@@ -1084,29 +1212,29 @@ class _$PaymentMethodSerializer implements PrimitiveSerializer<PaymentMethod> {
         case r'svs':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(SvsInfo),
-          ) as SvsInfo;
+            specifiedType: const FullType(SvsResponseInfo),
+          ) as SvsResponseInfo;
           result.svs.replace(valueDes);
           break;
         case r'swish':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(SwishInfo),
-          ) as SwishInfo;
+            specifiedType: const FullType(SwishResponseInfo),
+          ) as SwishResponseInfo;
           result.swish.replace(valueDes);
           break;
         case r'ticket':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(TicketInfo),
-          ) as TicketInfo;
+            specifiedType: const FullType(TicketResponseInfo),
+          ) as TicketResponseInfo;
           result.ticket.replace(valueDes);
           break;
         case r'twint':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(TwintInfo),
-          ) as TwintInfo;
+            specifiedType: const FullType(TwintResponseInfo),
+          ) as TwintResponseInfo;
           result.twint.replace(valueDes);
           break;
         case r'type':
@@ -1119,8 +1247,8 @@ class _$PaymentMethodSerializer implements PrimitiveSerializer<PaymentMethod> {
         case r'valuelink':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(ValuelinkInfo),
-          ) as ValuelinkInfo;
+            specifiedType: const FullType(ValuelinkResponseInfo),
+          ) as ValuelinkResponseInfo;
           result.valuelink.replace(valueDes);
           break;
         case r'verificationStatus':
@@ -1133,29 +1261,29 @@ class _$PaymentMethodSerializer implements PrimitiveSerializer<PaymentMethod> {
         case r'vipps':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(VippsInfo),
-          ) as VippsInfo;
+            specifiedType: const FullType(VippsResponseInfo),
+          ) as VippsResponseInfo;
           result.vipps.replace(valueDes);
           break;
         case r'visa':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(GenericPmWithTdiInfo),
-          ) as GenericPmWithTdiInfo;
+            specifiedType: const FullType(VisaResponseInfo),
+          ) as VisaResponseInfo;
           result.visa.replace(valueDes);
           break;
         case r'wechatpay':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(WeChatPayInfo),
-          ) as WeChatPayInfo;
+            specifiedType: const FullType(WeChatPayResponseInfo),
+          ) as WeChatPayResponseInfo;
           result.wechatpay.replace(valueDes);
           break;
         case r'wechatpay_pos':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(WeChatPayPosInfo),
-          ) as WeChatPayPosInfo;
+            specifiedType: const FullType(WeChatPayPosResponseInfo),
+          ) as WeChatPayPosResponseInfo;
           result.wechatpayPos.replace(valueDes);
           break;
         default:

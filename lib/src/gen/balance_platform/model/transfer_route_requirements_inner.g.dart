@@ -265,9 +265,29 @@ _$transferRouteRequirementsInnerBankAccountIdentificationTypesEnum_iban =
       'iban',
     );
 const TransferRouteRequirementsInnerBankAccountIdentificationTypesEnum
+_$transferRouteRequirementsInnerBankAccountIdentificationTypesEnum_inLocal =
+    const TransferRouteRequirementsInnerBankAccountIdentificationTypesEnum._(
+      'inLocal',
+    );
+const TransferRouteRequirementsInnerBankAccountIdentificationTypesEnum
+_$transferRouteRequirementsInnerBankAccountIdentificationTypesEnum_jpLocal =
+    const TransferRouteRequirementsInnerBankAccountIdentificationTypesEnum._(
+      'jpLocal',
+    );
+const TransferRouteRequirementsInnerBankAccountIdentificationTypesEnum
 _$transferRouteRequirementsInnerBankAccountIdentificationTypesEnum_legacy =
     const TransferRouteRequirementsInnerBankAccountIdentificationTypesEnum._(
       'legacy',
+    );
+const TransferRouteRequirementsInnerBankAccountIdentificationTypesEnum
+_$transferRouteRequirementsInnerBankAccountIdentificationTypesEnum_mxLocal =
+    const TransferRouteRequirementsInnerBankAccountIdentificationTypesEnum._(
+      'mxLocal',
+    );
+const TransferRouteRequirementsInnerBankAccountIdentificationTypesEnum
+_$transferRouteRequirementsInnerBankAccountIdentificationTypesEnum_myLocal =
+    const TransferRouteRequirementsInnerBankAccountIdentificationTypesEnum._(
+      'myLocal',
     );
 const TransferRouteRequirementsInnerBankAccountIdentificationTypesEnum
 _$transferRouteRequirementsInnerBankAccountIdentificationTypesEnum_noLocal =
@@ -336,8 +356,16 @@ _$transferRouteRequirementsInnerBankAccountIdentificationTypesEnumValueOf(
       return _$transferRouteRequirementsInnerBankAccountIdentificationTypesEnum_huLocal;
     case 'iban':
       return _$transferRouteRequirementsInnerBankAccountIdentificationTypesEnum_iban;
+    case 'inLocal':
+      return _$transferRouteRequirementsInnerBankAccountIdentificationTypesEnum_inLocal;
+    case 'jpLocal':
+      return _$transferRouteRequirementsInnerBankAccountIdentificationTypesEnum_jpLocal;
     case 'legacy':
       return _$transferRouteRequirementsInnerBankAccountIdentificationTypesEnum_legacy;
+    case 'mxLocal':
+      return _$transferRouteRequirementsInnerBankAccountIdentificationTypesEnum_mxLocal;
+    case 'myLocal':
+      return _$transferRouteRequirementsInnerBankAccountIdentificationTypesEnum_myLocal;
     case 'noLocal':
       return _$transferRouteRequirementsInnerBankAccountIdentificationTypesEnum_noLocal;
     case 'numberAndBic':
@@ -374,7 +402,11 @@ _$transferRouteRequirementsInnerBankAccountIdentificationTypesEnumValues =
       _$transferRouteRequirementsInnerBankAccountIdentificationTypesEnum_hkLocal,
       _$transferRouteRequirementsInnerBankAccountIdentificationTypesEnum_huLocal,
       _$transferRouteRequirementsInnerBankAccountIdentificationTypesEnum_iban,
+      _$transferRouteRequirementsInnerBankAccountIdentificationTypesEnum_inLocal,
+      _$transferRouteRequirementsInnerBankAccountIdentificationTypesEnum_jpLocal,
       _$transferRouteRequirementsInnerBankAccountIdentificationTypesEnum_legacy,
+      _$transferRouteRequirementsInnerBankAccountIdentificationTypesEnum_mxLocal,
+      _$transferRouteRequirementsInnerBankAccountIdentificationTypesEnum_myLocal,
       _$transferRouteRequirementsInnerBankAccountIdentificationTypesEnum_noLocal,
       _$transferRouteRequirementsInnerBankAccountIdentificationTypesEnum_numberAndBic,
       _$transferRouteRequirementsInnerBankAccountIdentificationTypesEnum_nzLocal,
@@ -611,7 +643,11 @@ class _$TransferRouteRequirementsInnerBankAccountIdentificationTypesEnumSerializ
     'hkLocal': 'hkLocal',
     'huLocal': 'huLocal',
     'iban': 'iban',
+    'inLocal': 'inLocal',
+    'jpLocal': 'jpLocal',
     'legacy': 'legacy',
+    'mxLocal': 'mxLocal',
+    'myLocal': 'myLocal',
     'noLocal': 'noLocal',
     'numberAndBic': 'numberAndBic',
     'nzLocal': 'nzLocal',
@@ -631,7 +667,11 @@ class _$TransferRouteRequirementsInnerBankAccountIdentificationTypesEnumSerializ
     'hkLocal': 'hkLocal',
     'huLocal': 'huLocal',
     'iban': 'iban',
+    'inLocal': 'inLocal',
+    'jpLocal': 'jpLocal',
     'legacy': 'legacy',
+    'mxLocal': 'mxLocal',
+    'myLocal': 'myLocal',
     'noLocal': 'noLocal',
     'numberAndBic': 'numberAndBic',
     'nzLocal': 'nzLocal',

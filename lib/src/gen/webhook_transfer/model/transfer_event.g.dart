@@ -592,6 +592,8 @@ const TransferEventStatusEnum _$transferEventStatusEnum_paymentCost =
     const TransferEventStatusEnum._('paymentCost');
 const TransferEventStatusEnum _$transferEventStatusEnum_paymentCostPending =
     const TransferEventStatusEnum._('paymentCostPending');
+const TransferEventStatusEnum _$transferEventStatusEnum_pending =
+    const TransferEventStatusEnum._('pending');
 const TransferEventStatusEnum _$transferEventStatusEnum_pendingApproval =
     const TransferEventStatusEnum._('pendingApproval');
 const TransferEventStatusEnum _$transferEventStatusEnum_pendingExecution =
@@ -619,6 +621,10 @@ _$transferEventStatusEnum_reserveAdjustmentPending =
     const TransferEventStatusEnum._('reserveAdjustmentPending');
 const TransferEventStatusEnum _$transferEventStatusEnum_returned =
     const TransferEventStatusEnum._('returned');
+const TransferEventStatusEnum _$transferEventStatusEnum_reversalReceived =
+    const TransferEventStatusEnum._('reversalReceived');
+const TransferEventStatusEnum _$transferEventStatusEnum_reversed =
+    const TransferEventStatusEnum._('reversed');
 const TransferEventStatusEnum _$transferEventStatusEnum_secondChargeback =
     const TransferEventStatusEnum._('secondChargeback');
 const TransferEventStatusEnum
@@ -735,6 +741,8 @@ TransferEventStatusEnum _$transferEventStatusEnumValueOf(String name) {
       return _$transferEventStatusEnum_paymentCost;
     case 'paymentCostPending':
       return _$transferEventStatusEnum_paymentCostPending;
+    case 'pending':
+      return _$transferEventStatusEnum_pending;
     case 'pendingApproval':
       return _$transferEventStatusEnum_pendingApproval;
     case 'pendingExecution':
@@ -761,6 +769,10 @@ TransferEventStatusEnum _$transferEventStatusEnumValueOf(String name) {
       return _$transferEventStatusEnum_reserveAdjustmentPending;
     case 'returned':
       return _$transferEventStatusEnum_returned;
+    case 'reversalReceived':
+      return _$transferEventStatusEnum_reversalReceived;
+    case 'reversed':
+      return _$transferEventStatusEnum_reversed;
     case 'secondChargeback':
       return _$transferEventStatusEnum_secondChargeback;
     case 'secondChargebackPending':
@@ -828,6 +840,7 @@ final BuiltSet<TransferEventStatusEnum> _$transferEventStatusEnumValues =
       _$transferEventStatusEnum_miscCostPending,
       _$transferEventStatusEnum_paymentCost,
       _$transferEventStatusEnum_paymentCostPending,
+      _$transferEventStatusEnum_pending,
       _$transferEventStatusEnum_pendingApproval,
       _$transferEventStatusEnum_pendingExecution,
       _$transferEventStatusEnum_received,
@@ -841,6 +854,8 @@ final BuiltSet<TransferEventStatusEnum> _$transferEventStatusEnumValues =
       _$transferEventStatusEnum_reserveAdjustment,
       _$transferEventStatusEnum_reserveAdjustmentPending,
       _$transferEventStatusEnum_returned,
+      _$transferEventStatusEnum_reversalReceived,
+      _$transferEventStatusEnum_reversed,
       _$transferEventStatusEnum_secondChargeback,
       _$transferEventStatusEnum_secondChargebackPending,
       _$transferEventStatusEnum_undefined,
@@ -1144,6 +1159,7 @@ class _$TransferEventStatusEnumSerializer
     'miscCostPending': 'miscCostPending',
     'paymentCost': 'paymentCost',
     'paymentCostPending': 'paymentCostPending',
+    'pending': 'pending',
     'pendingApproval': 'pendingApproval',
     'pendingExecution': 'pendingExecution',
     'received': 'received',
@@ -1157,6 +1173,8 @@ class _$TransferEventStatusEnumSerializer
     'reserveAdjustment': 'reserveAdjustment',
     'reserveAdjustmentPending': 'reserveAdjustmentPending',
     'returned': 'returned',
+    'reversalReceived': 'reversalReceived',
+    'reversed': 'reversed',
     'secondChargeback': 'secondChargeback',
     'secondChargebackPending': 'secondChargebackPending',
     'undefined': 'undefined',
@@ -1215,6 +1233,7 @@ class _$TransferEventStatusEnumSerializer
     'miscCostPending': 'miscCostPending',
     'paymentCost': 'paymentCost',
     'paymentCostPending': 'paymentCostPending',
+    'pending': 'pending',
     'pendingApproval': 'pendingApproval',
     'pendingExecution': 'pendingExecution',
     'received': 'received',
@@ -1228,6 +1247,8 @@ class _$TransferEventStatusEnumSerializer
     'reserveAdjustment': 'reserveAdjustment',
     'reserveAdjustmentPending': 'reserveAdjustmentPending',
     'returned': 'returned',
+    'reversalReceived': 'reversalReceived',
+    'reversed': 'reversed',
     'secondChargeback': 'secondChargeback',
     'secondChargebackPending': 'secondChargebackPending',
     'undefined': 'undefined',
@@ -1321,6 +1342,8 @@ class _$TransferEvent extends TransferEvent {
   @override
   final TransferEventStatusEnum? status;
   @override
+  final TransferEventTracingData? tracingData;
+  @override
   final TransferEventTrackingData? trackingData;
   @override
   final String? transactionId;
@@ -1348,6 +1371,7 @@ class _$TransferEvent extends TransferEvent {
     this.originalAmount,
     this.reason,
     this.status,
+    this.tracingData,
     this.trackingData,
     this.transactionId,
     this.type,
@@ -1378,6 +1402,7 @@ class _$TransferEvent extends TransferEvent {
         originalAmount == other.originalAmount &&
         reason == other.reason &&
         status == other.status &&
+        tracingData == other.tracingData &&
         trackingData == other.trackingData &&
         transactionId == other.transactionId &&
         type == other.type &&
@@ -1401,6 +1426,7 @@ class _$TransferEvent extends TransferEvent {
     _$hash = $jc(_$hash, originalAmount.hashCode);
     _$hash = $jc(_$hash, reason.hashCode);
     _$hash = $jc(_$hash, status.hashCode);
+    _$hash = $jc(_$hash, tracingData.hashCode);
     _$hash = $jc(_$hash, trackingData.hashCode);
     _$hash = $jc(_$hash, transactionId.hashCode);
     _$hash = $jc(_$hash, type.hashCode);
@@ -1426,6 +1452,7 @@ class _$TransferEvent extends TransferEvent {
           ..add('originalAmount', originalAmount)
           ..add('reason', reason)
           ..add('status', status)
+          ..add('tracingData', tracingData)
           ..add('trackingData', trackingData)
           ..add('transactionId', transactionId)
           ..add('type', type)
@@ -1504,6 +1531,12 @@ class TransferEventBuilder
   TransferEventStatusEnum? get status => _$this._status;
   set status(TransferEventStatusEnum? status) => _$this._status = status;
 
+  TransferEventTracingDataBuilder? _tracingData;
+  TransferEventTracingDataBuilder get tracingData =>
+      _$this._tracingData ??= TransferEventTracingDataBuilder();
+  set tracingData(TransferEventTracingDataBuilder? tracingData) =>
+      _$this._tracingData = tracingData;
+
   TransferEventTrackingDataBuilder? _trackingData;
   TransferEventTrackingDataBuilder get trackingData =>
       _$this._trackingData ??= TransferEventTrackingDataBuilder();
@@ -1547,6 +1580,7 @@ class TransferEventBuilder
       _originalAmount = $v.originalAmount?.toBuilder();
       _reason = $v.reason;
       _status = $v.status;
+      _tracingData = $v.tracingData?.toBuilder();
       _trackingData = $v.trackingData?.toBuilder();
       _transactionId = $v.transactionId;
       _type = $v.type;
@@ -1589,6 +1623,7 @@ class TransferEventBuilder
             originalAmount: _originalAmount?.build(),
             reason: reason,
             status: status,
+            tracingData: _tracingData?.build(),
             trackingData: _trackingData?.build(),
             transactionId: transactionId,
             type: type,
@@ -1615,6 +1650,8 @@ class TransferEventBuilder
         _$failedField = 'originalAmount';
         _originalAmount?.build();
 
+        _$failedField = 'tracingData';
+        _tracingData?.build();
         _$failedField = 'trackingData';
         _trackingData?.build();
       } catch (e) {

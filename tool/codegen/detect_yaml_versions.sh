@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-OPENAPI_ROOT="${OPENAPI_ROOT:-.cache/openapi}"
+ROOT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)
+export OPENAPI_ROOT="${OPENAPI_ROOT:-$ROOT_DIR/.cache/openapi}"
 YAML_DIR="$OPENAPI_ROOT/yaml"
 
 if [ ! -d "$YAML_DIR" ]; then
@@ -13,14 +14,14 @@ fi
 python3 <<'PYTHON_SCRIPT'
 import os
 import re
+import json
 from pathlib import Path
-from collections import defaultdict
 
-yaml_dir = os.environ.get('OPENAPI_ROOT', '.cache/openapi') + '/yaml'
+yaml_dir = Path(os.environ['OPENAPI_ROOT']) / 'yaml'
 latest = {}
 
 # Process each yaml file
-for yaml_file in Path(yaml_dir).glob('*.yaml'):
+for yaml_file in yaml_dir.glob('*.yaml'):
     filename = yaml_file.name
     basename_no_ext = filename[:-5]  # Remove .yaml
     
@@ -38,12 +39,8 @@ for yaml_file in Path(yaml_dir).glob('*.yaml'):
         latest[service] = (version, filename)
 
 # Output JSON
-items = []
-for service, (version, filename) in sorted(latest.items()):
-    items.append(f'  {{"service": "{service}", "file": "{filename}"}}')
-
-print("[")
-if items:
-    print(",\n".join(items))
-print("]")
+print(json.dumps([
+    {'service': service, 'file': filename}
+    for service, (_, filename) in sorted(latest.items())
+], indent=2))
 PYTHON_SCRIPT

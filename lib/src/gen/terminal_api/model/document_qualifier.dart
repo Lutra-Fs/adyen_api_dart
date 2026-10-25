@@ -11,18 +11,25 @@ part 'document_qualifier.g.dart';
 
 class DocumentQualifier extends EnumClass {
 
-  @BuiltValueEnumConst(wireName: r'CashierReceipt')
-  static const DocumentQualifier cashierReceipt = _$cashierReceipt;
-  @BuiltValueEnumConst(wireName: r'CustomerReceipt')
-  static const DocumentQualifier customerReceipt = _$customerReceipt;
-  @BuiltValueEnumConst(wireName: r'Document')
-  static const DocumentQualifier document = _$document;
-  @BuiltValueEnumConst(wireName: r'Journal')
-  static const DocumentQualifier journal = _$journal;
+  ///  Possible values: * **SaleReceipt** * **CashierReceipt** * **CustomerReceipt** * **Document** * **Voucher** * **Journal**
   @BuiltValueEnumConst(wireName: r'SaleReceipt')
   static const DocumentQualifier saleReceipt = _$saleReceipt;
+  ///  Possible values: * **SaleReceipt** * **CashierReceipt** * **CustomerReceipt** * **Document** * **Voucher** * **Journal**
+  @BuiltValueEnumConst(wireName: r'CashierReceipt')
+  static const DocumentQualifier cashierReceipt = _$cashierReceipt;
+  ///  Possible values: * **SaleReceipt** * **CashierReceipt** * **CustomerReceipt** * **Document** * **Voucher** * **Journal**
+  @BuiltValueEnumConst(wireName: r'CustomerReceipt')
+  static const DocumentQualifier customerReceipt = _$customerReceipt;
+  ///  Possible values: * **SaleReceipt** * **CashierReceipt** * **CustomerReceipt** * **Document** * **Voucher** * **Journal**
+  @BuiltValueEnumConst(wireName: r'Document')
+  static const DocumentQualifier document = _$document;
+  ///  Possible values: * **SaleReceipt** * **CashierReceipt** * **CustomerReceipt** * **Document** * **Voucher** * **Journal**
   @BuiltValueEnumConst(wireName: r'Voucher')
   static const DocumentQualifier voucher = _$voucher;
+  ///  Possible values: * **SaleReceipt** * **CashierReceipt** * **CustomerReceipt** * **Document** * **Voucher** * **Journal**
+  @BuiltValueEnumConst(wireName: r'Journal')
+  static const DocumentQualifier journal = _$journal;
+  ///  Possible values: * **SaleReceipt** * **CashierReceipt** * **CustomerReceipt** * **Document** * **Voucher** * **Journal**
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const DocumentQualifier unknownDefaultOpenApi = _$unknownDefaultOpenApi;
 

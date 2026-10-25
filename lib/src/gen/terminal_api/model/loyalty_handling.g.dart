@@ -6,9 +6,9 @@ part of 'loyalty_handling.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-const LoyaltyHandling _$allowed = const LoyaltyHandling._('allowed');
 const LoyaltyHandling _$forbidden = const LoyaltyHandling._('forbidden');
 const LoyaltyHandling _$processed = const LoyaltyHandling._('processed');
+const LoyaltyHandling _$allowed = const LoyaltyHandling._('allowed');
 const LoyaltyHandling _$proposed = const LoyaltyHandling._('proposed');
 const LoyaltyHandling _$required_ = const LoyaltyHandling._('required_');
 const LoyaltyHandling _$unknownDefaultOpenApi = const LoyaltyHandling._(
@@ -17,12 +17,12 @@ const LoyaltyHandling _$unknownDefaultOpenApi = const LoyaltyHandling._(
 
 LoyaltyHandling _$valueOf(String name) {
   switch (name) {
-    case 'allowed':
-      return _$allowed;
     case 'forbidden':
       return _$forbidden;
     case 'processed':
       return _$processed;
+    case 'allowed':
+      return _$allowed;
     case 'proposed':
       return _$proposed;
     case 'required_':
@@ -34,22 +34,21 @@ LoyaltyHandling _$valueOf(String name) {
   }
 }
 
-final BuiltSet<LoyaltyHandling> _$values = BuiltSet<LoyaltyHandling>(
-  const <LoyaltyHandling>[
-    _$allowed,
-    _$forbidden,
-    _$processed,
-    _$proposed,
-    _$required_,
-    _$unknownDefaultOpenApi,
-  ],
-);
+final BuiltSet<LoyaltyHandling> _$values =
+    BuiltSet<LoyaltyHandling>(const <LoyaltyHandling>[
+      _$forbidden,
+      _$processed,
+      _$allowed,
+      _$proposed,
+      _$required_,
+      _$unknownDefaultOpenApi,
+    ]);
 
 class _$LoyaltyHandlingMeta {
   const _$LoyaltyHandlingMeta();
-  LoyaltyHandling get allowed => _$allowed;
   LoyaltyHandling get forbidden => _$forbidden;
   LoyaltyHandling get processed => _$processed;
+  LoyaltyHandling get allowed => _$allowed;
   LoyaltyHandling get proposed => _$proposed;
   LoyaltyHandling get required_ => _$required_;
   LoyaltyHandling get unknownDefaultOpenApi => _$unknownDefaultOpenApi;
@@ -68,17 +67,17 @@ Serializer<LoyaltyHandling> _$loyaltyHandlingSerializer =
 class _$LoyaltyHandlingSerializer
     implements PrimitiveSerializer<LoyaltyHandling> {
   static const Map<String, Object> _toWire = const <String, Object>{
-    'allowed': 'Allowed',
     'forbidden': 'Forbidden',
     'processed': 'Processed',
+    'allowed': 'Allowed',
     'proposed': 'Proposed',
     'required_': 'Required',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
-    'Allowed': 'allowed',
     'Forbidden': 'forbidden',
     'Processed': 'processed',
+    'Allowed': 'allowed',
     'Proposed': 'proposed',
     'Required': 'required_',
     'unknown_default_open_api': 'unknownDefaultOpenApi',

@@ -11,10 +11,15 @@ part 'card_brand_details.g.dart';
 /// CardBrandDetails
 ///
 /// Properties:
+/// * [healthcare] - Indicates if the card supports FSA/HSA healthcare payments.
 /// * [supported] - Indicates if you support the card brand.
 /// * [type] - The name of the card brand.
 @BuiltValue()
 abstract class CardBrandDetails implements Built<CardBrandDetails, CardBrandDetailsBuilder> {
+  /// Indicates if the card supports FSA/HSA healthcare payments.
+  @BuiltValueField(wireName: r'healthcare')
+  bool? get healthcare;
+
   /// Indicates if you support the card brand.
   @BuiltValueField(wireName: r'supported')
   bool? get supported;
@@ -46,6 +51,13 @@ class _$CardBrandDetailsSerializer implements PrimitiveSerializer<CardBrandDetai
     CardBrandDetails object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
+    if (object.healthcare != null) {
+      yield r'healthcare';
+      yield serializers.serialize(
+        object.healthcare,
+        specifiedType: const FullType(bool),
+      );
+    }
     if (object.supported != null) {
       yield r'supported';
       yield serializers.serialize(
@@ -83,6 +95,13 @@ class _$CardBrandDetailsSerializer implements PrimitiveSerializer<CardBrandDetai
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
+        case r'healthcare':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.healthcare = valueDes;
+          break;
         case r'supported':
           final valueDes = serializers.deserialize(
             value,

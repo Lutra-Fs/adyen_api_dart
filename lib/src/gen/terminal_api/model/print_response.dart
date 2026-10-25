@@ -20,7 +20,7 @@ abstract class PrintResponse implements Built<PrintResponse, PrintResponseBuilde
   /// Qualification of the document to print to the Cashier or the Customer. Allows the manager of the printer, Sale or POI Terminal, to send information to a physical printer or to use the paper type accordingly. Possible values: * **CashierReceipt** * **CustomerReceipt** * **Document** * **Journal** * **SaleReceipt** * **Voucher**
   @BuiltValueField(wireName: r'DocumentQualifier')
   DocumentQualifier get documentQualifier;
-  // enum documentQualifierEnum {  CashierReceipt,  CustomerReceipt,  Document,  Journal,  SaleReceipt,  Voucher,  };
+  // enum documentQualifierEnum {  SaleReceipt,  CashierReceipt,  CustomerReceipt,  Document,  Voucher,  Journal,  };
 
   /// Result of a message request processing.
   @BuiltValueField(wireName: r'Response')

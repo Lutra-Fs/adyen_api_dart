@@ -34,6 +34,8 @@ class _$CardConfiguration extends CardConfiguration {
   @override
   final String? pinMailer;
   @override
+  final String? printLine;
+  @override
   final String? shipmentMethod;
 
   factory _$CardConfiguration([
@@ -54,6 +56,7 @@ class _$CardConfiguration extends CardConfiguration {
     this.language,
     this.logoImageId,
     this.pinMailer,
+    this.printLine,
     this.shipmentMethod,
   }) : super._();
   @override
@@ -81,6 +84,7 @@ class _$CardConfiguration extends CardConfiguration {
         language == other.language &&
         logoImageId == other.logoImageId &&
         pinMailer == other.pinMailer &&
+        printLine == other.printLine &&
         shipmentMethod == other.shipmentMethod;
   }
 
@@ -100,6 +104,7 @@ class _$CardConfiguration extends CardConfiguration {
     _$hash = $jc(_$hash, language.hashCode);
     _$hash = $jc(_$hash, logoImageId.hashCode);
     _$hash = $jc(_$hash, pinMailer.hashCode);
+    _$hash = $jc(_$hash, printLine.hashCode);
     _$hash = $jc(_$hash, shipmentMethod.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -121,6 +126,7 @@ class _$CardConfiguration extends CardConfiguration {
           ..add('language', language)
           ..add('logoImageId', logoImageId)
           ..add('pinMailer', pinMailer)
+          ..add('printLine', printLine)
           ..add('shipmentMethod', shipmentMethod))
         .toString();
   }
@@ -187,6 +193,10 @@ class CardConfigurationBuilder
   String? get pinMailer => _$this._pinMailer;
   set pinMailer(String? pinMailer) => _$this._pinMailer = pinMailer;
 
+  String? _printLine;
+  String? get printLine => _$this._printLine;
+  set printLine(String? printLine) => _$this._printLine = printLine;
+
   String? _shipmentMethod;
   String? get shipmentMethod => _$this._shipmentMethod;
   set shipmentMethod(String? shipmentMethod) =>
@@ -212,6 +222,7 @@ class CardConfigurationBuilder
       _language = $v.language;
       _logoImageId = $v.logoImageId;
       _pinMailer = $v.pinMailer;
+      _printLine = $v.printLine;
       _shipmentMethod = $v.shipmentMethod;
       _$v = null;
     }
@@ -254,6 +265,7 @@ class CardConfigurationBuilder
             language: language,
             logoImageId: logoImageId,
             pinMailer: pinMailer,
+            printLine: printLine,
             shipmentMethod: shipmentMethod,
           );
     } catch (_) {

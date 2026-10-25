@@ -122,6 +122,9 @@ const GenericNotificationRequestItemEventCodeEnum
 _$genericNotificationRequestItemEventCodeEnum_REFUND_FAILED =
     const GenericNotificationRequestItemEventCodeEnum._('REFUND_FAILED');
 const GenericNotificationRequestItemEventCodeEnum
+_$genericNotificationRequestItemEventCodeEnum_REFUND_NOT_CLEARED =
+    const GenericNotificationRequestItemEventCodeEnum._('REFUND_NOT_CLEARED');
+const GenericNotificationRequestItemEventCodeEnum
 _$genericNotificationRequestItemEventCodeEnum_REFUND_WITH_DATA =
     const GenericNotificationRequestItemEventCodeEnum._('REFUND_WITH_DATA');
 const GenericNotificationRequestItemEventCodeEnum
@@ -130,8 +133,14 @@ _$genericNotificationRequestItemEventCodeEnum_REQUEST_FOR_INFORMATION =
       'REQUEST_FOR_INFORMATION',
     );
 const GenericNotificationRequestItemEventCodeEnum
+_$genericNotificationRequestItemEventCodeEnum_REVERSAL =
+    const GenericNotificationRequestItemEventCodeEnum._('REVERSAL');
+const GenericNotificationRequestItemEventCodeEnum
 _$genericNotificationRequestItemEventCodeEnum_SECOND_CHARGEBACK =
     const GenericNotificationRequestItemEventCodeEnum._('SECOND_CHARGEBACK');
+const GenericNotificationRequestItemEventCodeEnum
+_$genericNotificationRequestItemEventCodeEnum_SETTLED_REVERSED =
+    const GenericNotificationRequestItemEventCodeEnum._('SETTLED_REVERSED');
 const GenericNotificationRequestItemEventCodeEnum
 _$genericNotificationRequestItemEventCodeEnum_TECHNICAL_CANCEL =
     const GenericNotificationRequestItemEventCodeEnum._('TECHNICAL_CANCEL');
@@ -217,12 +226,18 @@ _$genericNotificationRequestItemEventCodeEnumValueOf(String name) {
       return _$genericNotificationRequestItemEventCodeEnum_REFUNDED_REVERSED;
     case 'REFUND_FAILED':
       return _$genericNotificationRequestItemEventCodeEnum_REFUND_FAILED;
+    case 'REFUND_NOT_CLEARED':
+      return _$genericNotificationRequestItemEventCodeEnum_REFUND_NOT_CLEARED;
     case 'REFUND_WITH_DATA':
       return _$genericNotificationRequestItemEventCodeEnum_REFUND_WITH_DATA;
     case 'REQUEST_FOR_INFORMATION':
       return _$genericNotificationRequestItemEventCodeEnum_REQUEST_FOR_INFORMATION;
+    case 'REVERSAL':
+      return _$genericNotificationRequestItemEventCodeEnum_REVERSAL;
     case 'SECOND_CHARGEBACK':
       return _$genericNotificationRequestItemEventCodeEnum_SECOND_CHARGEBACK;
+    case 'SETTLED_REVERSED':
+      return _$genericNotificationRequestItemEventCodeEnum_SETTLED_REVERSED;
     case 'TECHNICAL_CANCEL':
       return _$genericNotificationRequestItemEventCodeEnum_TECHNICAL_CANCEL;
     case 'VOID_PENDING_REFUND':
@@ -274,9 +289,12 @@ _$genericNotificationRequestItemEventCodeEnumValues =
       _$genericNotificationRequestItemEventCodeEnum_REFUND,
       _$genericNotificationRequestItemEventCodeEnum_REFUNDED_REVERSED,
       _$genericNotificationRequestItemEventCodeEnum_REFUND_FAILED,
+      _$genericNotificationRequestItemEventCodeEnum_REFUND_NOT_CLEARED,
       _$genericNotificationRequestItemEventCodeEnum_REFUND_WITH_DATA,
       _$genericNotificationRequestItemEventCodeEnum_REQUEST_FOR_INFORMATION,
+      _$genericNotificationRequestItemEventCodeEnum_REVERSAL,
       _$genericNotificationRequestItemEventCodeEnum_SECOND_CHARGEBACK,
+      _$genericNotificationRequestItemEventCodeEnum_SETTLED_REVERSED,
       _$genericNotificationRequestItemEventCodeEnum_TECHNICAL_CANCEL,
       _$genericNotificationRequestItemEventCodeEnum_VOID_PENDING_REFUND,
       _$genericNotificationRequestItemEventCodeEnum_unknownDefaultOpenApi,
@@ -325,9 +343,12 @@ class _$GenericNotificationRequestItemEventCodeEnumSerializer
     'REFUND': 'REFUND',
     'REFUNDED_REVERSED': 'REFUNDED_REVERSED',
     'REFUND_FAILED': 'REFUND_FAILED',
+    'REFUND_NOT_CLEARED': 'REFUND_NOT_CLEARED',
     'REFUND_WITH_DATA': 'REFUND_WITH_DATA',
     'REQUEST_FOR_INFORMATION': 'REQUEST_FOR_INFORMATION',
+    'REVERSAL': 'REVERSAL',
     'SECOND_CHARGEBACK': 'SECOND_CHARGEBACK',
+    'SETTLED_REVERSED': 'SETTLED_REVERSED',
     'TECHNICAL_CANCEL': 'TECHNICAL_CANCEL',
     'VOID_PENDING_REFUND': 'VOID_PENDING_REFUND',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
@@ -368,9 +389,12 @@ class _$GenericNotificationRequestItemEventCodeEnumSerializer
     'REFUND': 'REFUND',
     'REFUNDED_REVERSED': 'REFUNDED_REVERSED',
     'REFUND_FAILED': 'REFUND_FAILED',
+    'REFUND_NOT_CLEARED': 'REFUND_NOT_CLEARED',
     'REFUND_WITH_DATA': 'REFUND_WITH_DATA',
     'REQUEST_FOR_INFORMATION': 'REQUEST_FOR_INFORMATION',
+    'REVERSAL': 'REVERSAL',
     'SECOND_CHARGEBACK': 'SECOND_CHARGEBACK',
+    'SETTLED_REVERSED': 'SETTLED_REVERSED',
     'TECHNICAL_CANCEL': 'TECHNICAL_CANCEL',
     'VOID_PENDING_REFUND': 'VOID_PENDING_REFUND',
     'unknown_default_open_api': 'unknownDefaultOpenApi',

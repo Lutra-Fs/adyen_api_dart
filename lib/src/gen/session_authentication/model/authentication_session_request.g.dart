@@ -8,7 +8,7 @@ part of 'authentication_session_request.dart';
 
 class _$AuthenticationSessionRequest extends AuthenticationSessionRequest {
   @override
-  final String allowOrigin;
+  final String? allowOrigin;
   @override
   final Policy policy;
   @override
@@ -19,7 +19,7 @@ class _$AuthenticationSessionRequest extends AuthenticationSessionRequest {
   ]) => (AuthenticationSessionRequestBuilder()..update(updates))._build();
 
   _$AuthenticationSessionRequest._({
-    required this.allowOrigin,
+    this.allowOrigin,
     required this.policy,
     required this.product,
   }) : super._();
@@ -115,11 +115,7 @@ class AuthenticationSessionRequestBuilder
       _$result =
           _$v ??
           _$AuthenticationSessionRequest._(
-            allowOrigin: BuiltValueNullFieldError.checkNotNull(
-              allowOrigin,
-              r'AuthenticationSessionRequest',
-              'allowOrigin',
-            ),
+            allowOrigin: allowOrigin,
             policy: policy.build(),
             product: BuiltValueNullFieldError.checkNotNull(
               product,

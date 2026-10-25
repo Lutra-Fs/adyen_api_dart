@@ -15,6 +15,8 @@ class _$TransferNotificationMerchantData
   @override
   final String? country;
   @override
+  final String? countryCode;
+  @override
   final String? mcc;
   @override
   final String? merchantId;
@@ -31,6 +33,7 @@ class _$TransferNotificationMerchantData
     this.acquirerId,
     this.city,
     this.country,
+    this.countryCode,
     this.mcc,
     this.merchantId,
     this.name_,
@@ -52,6 +55,7 @@ class _$TransferNotificationMerchantData
         acquirerId == other.acquirerId &&
         city == other.city &&
         country == other.country &&
+        countryCode == other.countryCode &&
         mcc == other.mcc &&
         merchantId == other.merchantId &&
         name_ == other.name_ &&
@@ -64,6 +68,7 @@ class _$TransferNotificationMerchantData
     _$hash = $jc(_$hash, acquirerId.hashCode);
     _$hash = $jc(_$hash, city.hashCode);
     _$hash = $jc(_$hash, country.hashCode);
+    _$hash = $jc(_$hash, countryCode.hashCode);
     _$hash = $jc(_$hash, mcc.hashCode);
     _$hash = $jc(_$hash, merchantId.hashCode);
     _$hash = $jc(_$hash, name_.hashCode);
@@ -78,6 +83,7 @@ class _$TransferNotificationMerchantData
           ..add('acquirerId', acquirerId)
           ..add('city', city)
           ..add('country', country)
+          ..add('countryCode', countryCode)
           ..add('mcc', mcc)
           ..add('merchantId', merchantId)
           ..add('name_', name_)
@@ -106,6 +112,10 @@ class TransferNotificationMerchantDataBuilder
   String? get country => _$this._country;
   set country(String? country) => _$this._country = country;
 
+  String? _countryCode;
+  String? get countryCode => _$this._countryCode;
+  set countryCode(String? countryCode) => _$this._countryCode = countryCode;
+
   String? _mcc;
   String? get mcc => _$this._mcc;
   set mcc(String? mcc) => _$this._mcc = mcc;
@@ -132,6 +142,7 @@ class TransferNotificationMerchantDataBuilder
       _acquirerId = $v.acquirerId;
       _city = $v.city;
       _country = $v.country;
+      _countryCode = $v.countryCode;
       _mcc = $v.mcc;
       _merchantId = $v.merchantId;
       _name_ = $v.name_;
@@ -161,6 +172,7 @@ class TransferNotificationMerchantDataBuilder
           acquirerId: acquirerId,
           city: city,
           country: country,
+          countryCode: countryCode,
           mcc: mcc,
           merchantId: merchantId,
           name_: name_,

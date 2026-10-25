@@ -45,22 +45,22 @@ abstract class OutputText implements Built<OutputText, OutputTextBuilder> {
   /// Character width of the text string to display or print. Absence of this data element means the characters have normal width. Possible values: * **DoubleWidth** * **SingleWidth**
   @BuiltValueField(wireName: r'CharacterWidth')
   CharacterWidth? get characterWidth;
-  // enum characterWidthEnum {  DoubleWidth,  SingleWidth,  };
+  // enum characterWidthEnum {  SingleWidth,  DoubleWidth,  };
 
   /// Character height of the text string to display or print. Absence of this data element means the characters have normal height. Possible values: * **DoubleHeight** * **HalfHeight** * **SingleHeight**
   @BuiltValueField(wireName: r'CharacterHeight')
   CharacterHeight? get characterHeight;
-  // enum characterHeightEnum {  DoubleHeight,  HalfHeight,  SingleHeight,  };
+  // enum characterHeightEnum {  SingleHeight,  DoubleHeight,  HalfHeight,  };
 
   /// Typographic style of the sequence of characters to display or print. Absence of this data element means the characters have normal style. Possible values: * **Bold** * **Italic** * **Normal** * **Underline**
   @BuiltValueField(wireName: r'CharacterStyle')
   CharacterStyle? get characterStyle;
-  // enum characterStyleEnum {  Bold,  Italic,  Normal,  Underline,  };
+  // enum characterStyleEnum {  Normal,  Bold,  Italic,  Underline,  };
 
   /// Alignment of the text string on the display line or print line. Absence of this data element means the characters have normal alignment. Possible values: * **Centred** * **Justified** * **Left** * **Right**
   @BuiltValueField(wireName: r'Alignment')
   Alignment? get alignment;
-  // enum alignmentEnum {  Centred,  Justified,  Left,  Right,  };
+  // enum alignmentEnum {  Left,  Right,  Centred,  Justified,  };
 
   /// Indicates if the text is at the end of a line. Allows the display or the print of a new line and a carry-over return characters after the formatted text.
   @BuiltValueField(wireName: r'EndOfLineFlag')

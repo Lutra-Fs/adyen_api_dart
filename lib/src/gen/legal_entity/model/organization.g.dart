@@ -506,6 +506,8 @@ class _$Organization extends Organization {
   @override
   final bool? registrationNumberAbsent;
   @override
+  final bool? residentialAddressIndicator;
+  @override
   final OrganizationStatusOfLegalProceedingEnum? statusOfLegalProceeding;
   @override
   final StockData? stockData;
@@ -547,6 +549,7 @@ class _$Organization extends Organization {
     required this.registeredAddress,
     this.registrationNumber,
     this.registrationNumberAbsent,
+    this.residentialAddressIndicator,
     this.statusOfLegalProceeding,
     this.stockData,
     this.support,
@@ -588,6 +591,7 @@ class _$Organization extends Organization {
         registeredAddress == other.registeredAddress &&
         registrationNumber == other.registrationNumber &&
         registrationNumberAbsent == other.registrationNumberAbsent &&
+        residentialAddressIndicator == other.residentialAddressIndicator &&
         statusOfLegalProceeding == other.statusOfLegalProceeding &&
         stockData == other.stockData &&
         support == other.support &&
@@ -621,6 +625,7 @@ class _$Organization extends Organization {
     _$hash = $jc(_$hash, registeredAddress.hashCode);
     _$hash = $jc(_$hash, registrationNumber.hashCode);
     _$hash = $jc(_$hash, registrationNumberAbsent.hashCode);
+    _$hash = $jc(_$hash, residentialAddressIndicator.hashCode);
     _$hash = $jc(_$hash, statusOfLegalProceeding.hashCode);
     _$hash = $jc(_$hash, stockData.hashCode);
     _$hash = $jc(_$hash, support.hashCode);
@@ -659,6 +664,7 @@ class _$Organization extends Organization {
           ..add('registeredAddress', registeredAddress)
           ..add('registrationNumber', registrationNumber)
           ..add('registrationNumberAbsent', registrationNumberAbsent)
+          ..add('residentialAddressIndicator', residentialAddressIndicator)
           ..add('statusOfLegalProceeding', statusOfLegalProceeding)
           ..add('stockData', stockData)
           ..add('support', support)
@@ -775,6 +781,11 @@ class OrganizationBuilder
   set registrationNumberAbsent(bool? registrationNumberAbsent) =>
       _$this._registrationNumberAbsent = registrationNumberAbsent;
 
+  bool? _residentialAddressIndicator;
+  bool? get residentialAddressIndicator => _$this._residentialAddressIndicator;
+  set residentialAddressIndicator(bool? residentialAddressIndicator) =>
+      _$this._residentialAddressIndicator = residentialAddressIndicator;
+
   OrganizationStatusOfLegalProceedingEnum? _statusOfLegalProceeding;
   OrganizationStatusOfLegalProceedingEnum? get statusOfLegalProceeding =>
       _$this._statusOfLegalProceeding;
@@ -848,6 +859,7 @@ class OrganizationBuilder
       _registeredAddress = $v.registeredAddress.toBuilder();
       _registrationNumber = $v.registrationNumber;
       _registrationNumberAbsent = $v.registrationNumberAbsent;
+      _residentialAddressIndicator = $v.residentialAddressIndicator;
       _statusOfLegalProceeding = $v.statusOfLegalProceeding;
       _stockData = $v.stockData?.toBuilder();
       _support = $v.support?.toBuilder();
@@ -905,6 +917,7 @@ class OrganizationBuilder
             registeredAddress: registeredAddress.build(),
             registrationNumber: registrationNumber,
             registrationNumberAbsent: registrationNumberAbsent,
+            residentialAddressIndicator: residentialAddressIndicator,
             statusOfLegalProceeding: statusOfLegalProceeding,
             stockData: _stockData?.build(),
             support: _support?.build(),

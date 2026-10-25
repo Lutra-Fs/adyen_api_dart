@@ -13,7 +13,7 @@ part 'financial_report.g.dart';
 /// Properties:
 /// * [annualTurnover] - The annual turnover of the business.
 /// * [balanceSheetTotal] - The balance sheet total of the business.
-/// * [currencyOfFinancialData] - The currency used for the annual turnover, balance sheet total, and net assets.
+/// * [currencyOfFinancialData] - The currency used for the financial data.
 /// * [dateOfFinancialData] - The date the financial data were provided, in YYYY-MM-DD format.
 /// * [employeeCount] - The number of employees of the business.
 /// * [netAssets] - The net assets of the business.
@@ -27,7 +27,7 @@ abstract class FinancialReport implements Built<FinancialReport, FinancialReport
   @BuiltValueField(wireName: r'balanceSheetTotal')
   String? get balanceSheetTotal;
 
-  /// The currency used for the annual turnover, balance sheet total, and net assets.
+  /// The currency used for the financial data.
   @BuiltValueField(wireName: r'currencyOfFinancialData')
   String? get currencyOfFinancialData;
 

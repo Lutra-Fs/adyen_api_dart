@@ -26,7 +26,7 @@ abstract class StoredValueResult implements Built<StoredValueResult, StoredValue
   /// Identification of operation to proceed on the stored value account or the stored value card. Copy. Possible values: * **Activate** * **Duplicate** * **Load** * **Reserve** * **Reverse** * **Unload**
   @BuiltValueField(wireName: r'StoredValueTransactionType')
   StoredValueTransactionType get storedValueTransactionType;
-  // enum storedValueTransactionTypeEnum {  Activate,  Duplicate,  Load,  Reserve,  Reverse,  Unload,  };
+  // enum storedValueTransactionTypeEnum {  Reserve,  Activate,  Load,  Unload,  Reverse,  Duplicate,  };
 
   /// Product code of item purchased with the transaction. Copy.
   @BuiltValueField(wireName: r'ProductCode')

@@ -12,6 +12,8 @@ class _$Surcharge extends Surcharge {
   @override
   final BuiltList<Configuration>? configurations;
   @override
+  final bool? disclosureOnPresentCard;
+  @override
   final bool? excludeGratuityFromSurcharge;
 
   factory _$Surcharge([void Function(SurchargeBuilder)? updates]) =>
@@ -20,6 +22,7 @@ class _$Surcharge extends Surcharge {
   _$Surcharge._({
     this.askConfirmation,
     this.configurations,
+    this.disclosureOnPresentCard,
     this.excludeGratuityFromSurcharge,
   }) : super._();
   @override
@@ -35,6 +38,7 @@ class _$Surcharge extends Surcharge {
     return other is Surcharge &&
         askConfirmation == other.askConfirmation &&
         configurations == other.configurations &&
+        disclosureOnPresentCard == other.disclosureOnPresentCard &&
         excludeGratuityFromSurcharge == other.excludeGratuityFromSurcharge;
   }
 
@@ -43,6 +47,7 @@ class _$Surcharge extends Surcharge {
     var _$hash = 0;
     _$hash = $jc(_$hash, askConfirmation.hashCode);
     _$hash = $jc(_$hash, configurations.hashCode);
+    _$hash = $jc(_$hash, disclosureOnPresentCard.hashCode);
     _$hash = $jc(_$hash, excludeGratuityFromSurcharge.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -53,6 +58,7 @@ class _$Surcharge extends Surcharge {
     return (newBuiltValueToStringHelper(r'Surcharge')
           ..add('askConfirmation', askConfirmation)
           ..add('configurations', configurations)
+          ..add('disclosureOnPresentCard', disclosureOnPresentCard)
           ..add('excludeGratuityFromSurcharge', excludeGratuityFromSurcharge))
         .toString();
   }
@@ -72,6 +78,11 @@ class SurchargeBuilder implements Builder<Surcharge, SurchargeBuilder> {
   set configurations(ListBuilder<Configuration>? configurations) =>
       _$this._configurations = configurations;
 
+  bool? _disclosureOnPresentCard;
+  bool? get disclosureOnPresentCard => _$this._disclosureOnPresentCard;
+  set disclosureOnPresentCard(bool? disclosureOnPresentCard) =>
+      _$this._disclosureOnPresentCard = disclosureOnPresentCard;
+
   bool? _excludeGratuityFromSurcharge;
   bool? get excludeGratuityFromSurcharge =>
       _$this._excludeGratuityFromSurcharge;
@@ -87,6 +98,7 @@ class SurchargeBuilder implements Builder<Surcharge, SurchargeBuilder> {
     if ($v != null) {
       _askConfirmation = $v.askConfirmation;
       _configurations = $v.configurations?.toBuilder();
+      _disclosureOnPresentCard = $v.disclosureOnPresentCard;
       _excludeGratuityFromSurcharge = $v.excludeGratuityFromSurcharge;
       _$v = null;
     }
@@ -114,6 +126,7 @@ class SurchargeBuilder implements Builder<Surcharge, SurchargeBuilder> {
           _$Surcharge._(
             askConfirmation: askConfirmation,
             configurations: _configurations?.build(),
+            disclosureOnPresentCard: disclosureOnPresentCard,
             excludeGratuityFromSurcharge: excludeGratuityFromSurcharge,
           );
     } catch (_) {

@@ -40,17 +40,17 @@ abstract class InputData implements Built<InputData, InputDataBuilder> {
   /// Logical device located on a Sale Terminal or a POI Terminal, regarding the class of information to output (display, print or store), or input (keyboard) for the Cashier or the Customer. Possible values: * **CashierDisplay** * **CashierInput** * **CustomerDisplay** * **CustomerInput**
   @BuiltValueField(wireName: r'Device')
   Device get device;
-  // enum deviceEnum {  CashierDisplay,  CashierInput,  CustomerDisplay,  CustomerInput,  };
+  // enum deviceEnum {  CashierDisplay,  CustomerDisplay,  CashierInput,  CustomerInput,  };
 
   /// Qualification of the information to send to an output logical device, to display or print to the Cashier or the Customer. Possible values: * **CustomerAssistance** * **Display** * **Document** * **Error** * **Input** * **POIReplication** * **Receipt** * **Sound** * **Status** * **Voucher**
   @BuiltValueField(wireName: r'InfoQualify')
   InfoQualify get infoQualify;
-  // enum infoQualifyEnum {  CustomerAssistance,  Display,  Document,  Error,  Input,  POIReplication,  Receipt,  Sound,  Status,  Voucher,  };
+  // enum infoQualifyEnum {  Status,  Error,  Display,  Sound,  Input,  POIReplication,  CustomerAssistance,  Receipt,  Document,  Voucher,  };
 
   /// Type of requested input. Can be: **GetConfirmation**, **TextString**, **DigitString**, **DecimalString** or **GetMenuEntry**. Possible values: * **DecimalString** * **DigitString** * **GetAnyKey** * **GetConfirmation** * **GetFunctionKey** * **GetMenuEntry** * **Password** * **SiteManager** * **TextString**
   @BuiltValueField(wireName: r'InputCommand')
   InputCommand get inputCommand;
-  // enum inputCommandEnum {  DecimalString,  DigitString,  GetAnyKey,  GetConfirmation,  GetFunctionKey,  GetMenuEntry,  Password,  SiteManager,  TextString,  };
+  // enum inputCommandEnum {  GetAnyKey,  GetConfirmation,  SiteManager,  TextString,  DigitString,  DecimalString,  GetFunctionKey,  GetMenuEntry,  Password,  };
 
   /// Request Notification of the card entered in the POI card reader.
   @BuiltValueField(wireName: r'NotifyCardInputFlag')

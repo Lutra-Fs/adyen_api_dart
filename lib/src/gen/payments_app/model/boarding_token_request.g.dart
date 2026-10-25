@@ -9,12 +9,17 @@ part of 'boarding_token_request.dart';
 class _$BoardingTokenRequest extends BoardingTokenRequest {
   @override
   final String boardingRequestToken;
+  @override
+  final SubMerchantData? subMerchantData;
 
   factory _$BoardingTokenRequest([
     void Function(BoardingTokenRequestBuilder)? updates,
   ]) => (BoardingTokenRequestBuilder()..update(updates))._build();
 
-  _$BoardingTokenRequest._({required this.boardingRequestToken}) : super._();
+  _$BoardingTokenRequest._({
+    required this.boardingRequestToken,
+    this.subMerchantData,
+  }) : super._();
   @override
   BoardingTokenRequest rebuild(
     void Function(BoardingTokenRequestBuilder) updates,
@@ -28,22 +33,25 @@ class _$BoardingTokenRequest extends BoardingTokenRequest {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is BoardingTokenRequest &&
-        boardingRequestToken == other.boardingRequestToken;
+        boardingRequestToken == other.boardingRequestToken &&
+        subMerchantData == other.subMerchantData;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, boardingRequestToken.hashCode);
+    _$hash = $jc(_$hash, subMerchantData.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(
-      r'BoardingTokenRequest',
-    )..add('boardingRequestToken', boardingRequestToken)).toString();
+    return (newBuiltValueToStringHelper(r'BoardingTokenRequest')
+          ..add('boardingRequestToken', boardingRequestToken)
+          ..add('subMerchantData', subMerchantData))
+        .toString();
   }
 }
 
@@ -56,6 +64,12 @@ class BoardingTokenRequestBuilder
   set boardingRequestToken(String? boardingRequestToken) =>
       _$this._boardingRequestToken = boardingRequestToken;
 
+  SubMerchantDataBuilder? _subMerchantData;
+  SubMerchantDataBuilder get subMerchantData =>
+      _$this._subMerchantData ??= SubMerchantDataBuilder();
+  set subMerchantData(SubMerchantDataBuilder? subMerchantData) =>
+      _$this._subMerchantData = subMerchantData;
+
   BoardingTokenRequestBuilder() {
     BoardingTokenRequest._defaults(this);
   }
@@ -64,6 +78,7 @@ class BoardingTokenRequestBuilder
     final $v = _$v;
     if ($v != null) {
       _boardingRequestToken = $v.boardingRequestToken;
+      _subMerchantData = $v.subMerchantData?.toBuilder();
       _$v = null;
     }
     return this;
@@ -83,15 +98,32 @@ class BoardingTokenRequestBuilder
   BoardingTokenRequest build() => _build();
 
   _$BoardingTokenRequest _build() {
-    final _$result =
-        _$v ??
-        _$BoardingTokenRequest._(
-          boardingRequestToken: BuiltValueNullFieldError.checkNotNull(
-            boardingRequestToken,
-            r'BoardingTokenRequest',
-            'boardingRequestToken',
-          ),
+    _$BoardingTokenRequest _$result;
+    try {
+      _$result =
+          _$v ??
+          _$BoardingTokenRequest._(
+            boardingRequestToken: BuiltValueNullFieldError.checkNotNull(
+              boardingRequestToken,
+              r'BoardingTokenRequest',
+              'boardingRequestToken',
+            ),
+            subMerchantData: _subMerchantData?.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'subMerchantData';
+        _subMerchantData?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+          r'BoardingTokenRequest',
+          _$failedField,
+          e.toString(),
         );
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

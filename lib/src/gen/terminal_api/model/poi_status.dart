@@ -25,7 +25,7 @@ abstract class POIStatus implements Built<POIStatus, POIStatusBuilder> {
   /// Global status of a POI Server or POI Terminal. Possible values: * **Busy** * **Maintenance** * **OK** * **Unreachable**
   @BuiltValueField(wireName: r'GlobalStatus')
   GlobalStatus get globalStatus;
-  // enum globalStatusEnum {  Busy,  Maintenance,  OK,  Unreachable,  };
+  // enum globalStatusEnum {  OK,  Busy,  Maintenance,  Unreachable,  };
 
   /// Indicates if the security module of the POI is working and usable. If security module present.
   @BuiltValueField(wireName: r'SecurityOKFlag')
@@ -42,7 +42,7 @@ abstract class POIStatus implements Built<POIStatus, POIStatusBuilder> {
   /// Possible values: * **NoPaper** * **OK** * **OutOfOrder** * **PaperJam** * **PaperLow**
   @BuiltValueField(wireName: r'PrinterStatus')
   PrinterStatus? get printerStatus;
-  // enum printerStatusEnum {  NoPaper,  OK,  OutOfOrder,  PaperJam,  PaperLow,  };
+  // enum printerStatusEnum {  OK,  PaperLow,  NoPaper,  PaperJam,  OutOfOrder,  };
 
   /// Indicates if the communication infrastructure is working and usable. If communication infrastructure present.
   @BuiltValueField(wireName: r'CommunicationOKFlag')

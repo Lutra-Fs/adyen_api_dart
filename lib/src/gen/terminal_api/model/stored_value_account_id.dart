@@ -26,7 +26,7 @@ abstract class StoredValueAccountID implements Built<StoredValueAccountID, Store
   /// Type of stored value account. Allows the distinction of the stored value instrument to access the stored value account. Possible values: * **GiftCard** * **Other** * **PhoneCard**
   @BuiltValueField(wireName: r'StoredValueAccountType')
   StoredValueAccountType get storedValueAccountType;
-  // enum storedValueAccountTypeEnum {  GiftCard,  Other,  PhoneCard,  };
+  // enum storedValueAccountTypeEnum {  GiftCard,  PhoneCard,  Other,  };
 
   /// Identification of the provider of the stored value account load/reload. When the ProductCode is not sufficient to identify the provider host which delivers the load or reload of the stored value account (for example if it contains the identification of the application.)
   @BuiltValueField(wireName: r'StoredValueProvider')
@@ -43,12 +43,12 @@ abstract class StoredValueAccountID implements Built<StoredValueAccountID, Store
   /// Entry mode of the payment instrument information. In the Payment, Loyalty, or StoredValue Request messages, it informs the POI System the entry mode of the payment instrument information when read by the Sale Terminal. (e.g. because the payment instrument information are a barcode read by the Cashier on a scanner device). Possible values: * **Contactless** * **File** * **ICC** * **Keyed** * **MagStripe** * **Manual** * **Mobile** * **RFID** * **Scanned** * **SynchronousICC** * **Tapped**
   @BuiltValueField(wireName: r'EntryMode')
   BuiltList<StoredValueAccountIDEntryModeEnum> get entryMode;
-  // enum entryModeEnum {  Contactless,  File,  ICC,  Keyed,  MagStripe,  Manual,  Mobile,  RFID,  Scanned,  SynchronousICC,  Tapped,  };
+  // enum entryModeEnum {  RFID,  Keyed,  Manual,  File,  Scanned,  MagStripe,  ICC,  SynchronousICC,  Tapped,  Contactless,  Mobile,  };
 
   /// Type of account identification. In a request message, it informs the POI System the type of the account or card identification, when provided by the Sale Terminal. (e.g. because the card information is a barcode read by the Cashier on a scanner device). In a response message, it informs the Sale System the type of the account or card identification. Possible values: * **AccountNumber** * **BarCode** * **ISOTrack2** * **PAN** * **PhoneNumber**
   @BuiltValueField(wireName: r'IdentificationType')
   IdentificationType get identificationType;
-  // enum identificationTypeEnum {  AccountNumber,  BarCode,  ISOTrack2,  PAN,  PhoneNumber,  };
+  // enum identificationTypeEnum {  PAN,  ISOTrack2,  BarCode,  AccountNumber,  PhoneNumber,  };
 
   /// Stored value account identification. The identification of the stored value account conforming to the IdentificationType.
   @BuiltValueField(wireName: r'StoredValueID')
@@ -221,28 +221,28 @@ class _$StoredValueAccountIDSerializer implements PrimitiveSerializer<StoredValu
 
 class StoredValueAccountIDEntryModeEnum extends EnumClass {
 
-  @BuiltValueEnumConst(wireName: r'Contactless')
-  static const StoredValueAccountIDEntryModeEnum contactless = _$storedValueAccountIDEntryModeEnum_contactless;
-  @BuiltValueEnumConst(wireName: r'File')
-  static const StoredValueAccountIDEntryModeEnum file = _$storedValueAccountIDEntryModeEnum_file;
-  @BuiltValueEnumConst(wireName: r'ICC')
-  static const StoredValueAccountIDEntryModeEnum ICC = _$storedValueAccountIDEntryModeEnum_ICC;
-  @BuiltValueEnumConst(wireName: r'Keyed')
-  static const StoredValueAccountIDEntryModeEnum keyed = _$storedValueAccountIDEntryModeEnum_keyed;
-  @BuiltValueEnumConst(wireName: r'MagStripe')
-  static const StoredValueAccountIDEntryModeEnum magStripe = _$storedValueAccountIDEntryModeEnum_magStripe;
-  @BuiltValueEnumConst(wireName: r'Manual')
-  static const StoredValueAccountIDEntryModeEnum manual = _$storedValueAccountIDEntryModeEnum_manual;
-  @BuiltValueEnumConst(wireName: r'Mobile')
-  static const StoredValueAccountIDEntryModeEnum mobile = _$storedValueAccountIDEntryModeEnum_mobile;
   @BuiltValueEnumConst(wireName: r'RFID')
   static const StoredValueAccountIDEntryModeEnum RFID = _$storedValueAccountIDEntryModeEnum_RFID;
+  @BuiltValueEnumConst(wireName: r'Keyed')
+  static const StoredValueAccountIDEntryModeEnum keyed = _$storedValueAccountIDEntryModeEnum_keyed;
+  @BuiltValueEnumConst(wireName: r'Manual')
+  static const StoredValueAccountIDEntryModeEnum manual = _$storedValueAccountIDEntryModeEnum_manual;
+  @BuiltValueEnumConst(wireName: r'File')
+  static const StoredValueAccountIDEntryModeEnum file = _$storedValueAccountIDEntryModeEnum_file;
   @BuiltValueEnumConst(wireName: r'Scanned')
   static const StoredValueAccountIDEntryModeEnum scanned = _$storedValueAccountIDEntryModeEnum_scanned;
+  @BuiltValueEnumConst(wireName: r'MagStripe')
+  static const StoredValueAccountIDEntryModeEnum magStripe = _$storedValueAccountIDEntryModeEnum_magStripe;
+  @BuiltValueEnumConst(wireName: r'ICC')
+  static const StoredValueAccountIDEntryModeEnum ICC = _$storedValueAccountIDEntryModeEnum_ICC;
   @BuiltValueEnumConst(wireName: r'SynchronousICC')
   static const StoredValueAccountIDEntryModeEnum synchronousICC = _$storedValueAccountIDEntryModeEnum_synchronousICC;
   @BuiltValueEnumConst(wireName: r'Tapped')
   static const StoredValueAccountIDEntryModeEnum tapped = _$storedValueAccountIDEntryModeEnum_tapped;
+  @BuiltValueEnumConst(wireName: r'Contactless')
+  static const StoredValueAccountIDEntryModeEnum contactless = _$storedValueAccountIDEntryModeEnum_contactless;
+  @BuiltValueEnumConst(wireName: r'Mobile')
+  static const StoredValueAccountIDEntryModeEnum mobile = _$storedValueAccountIDEntryModeEnum_mobile;
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const StoredValueAccountIDEntryModeEnum unknownDefaultOpenApi = _$storedValueAccountIDEntryModeEnum_unknownDefaultOpenApi;
 

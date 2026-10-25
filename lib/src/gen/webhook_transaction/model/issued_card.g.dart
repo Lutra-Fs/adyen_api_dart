@@ -6,6 +6,42 @@ part of 'issued_card.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+const IssuedCardNetworkVariantEnum _$issuedCardNetworkVariantEnum_maestroUs =
+    const IssuedCardNetworkVariantEnum._('maestroUs');
+const IssuedCardNetworkVariantEnum _$issuedCardNetworkVariantEnum_mastercard =
+    const IssuedCardNetworkVariantEnum._('mastercard');
+const IssuedCardNetworkVariantEnum _$issuedCardNetworkVariantEnum_visa =
+    const IssuedCardNetworkVariantEnum._('visa');
+const IssuedCardNetworkVariantEnum
+_$issuedCardNetworkVariantEnum_unknownDefaultOpenApi =
+    const IssuedCardNetworkVariantEnum._('unknownDefaultOpenApi');
+
+IssuedCardNetworkVariantEnum _$issuedCardNetworkVariantEnumValueOf(
+  String name,
+) {
+  switch (name) {
+    case 'maestroUs':
+      return _$issuedCardNetworkVariantEnum_maestroUs;
+    case 'mastercard':
+      return _$issuedCardNetworkVariantEnum_mastercard;
+    case 'visa':
+      return _$issuedCardNetworkVariantEnum_visa;
+    case 'unknownDefaultOpenApi':
+      return _$issuedCardNetworkVariantEnum_unknownDefaultOpenApi;
+    default:
+      return _$issuedCardNetworkVariantEnum_unknownDefaultOpenApi;
+  }
+}
+
+final BuiltSet<IssuedCardNetworkVariantEnum>
+_$issuedCardNetworkVariantEnumValues =
+    BuiltSet<IssuedCardNetworkVariantEnum>(const <IssuedCardNetworkVariantEnum>[
+      _$issuedCardNetworkVariantEnum_maestroUs,
+      _$issuedCardNetworkVariantEnum_mastercard,
+      _$issuedCardNetworkVariantEnum_visa,
+      _$issuedCardNetworkVariantEnum_unknownDefaultOpenApi,
+    ]);
+
 const IssuedCardPanEntryModeEnum _$issuedCardPanEntryModeEnum_chip =
     const IssuedCardPanEntryModeEnum._('chip');
 const IssuedCardPanEntryModeEnum _$issuedCardPanEntryModeEnum_cof =
@@ -144,6 +180,9 @@ final BuiltSet<IssuedCardTypeEnum> _$issuedCardTypeEnumValues =
       _$issuedCardTypeEnum_unknownDefaultOpenApi,
     ]);
 
+Serializer<IssuedCardNetworkVariantEnum>
+_$issuedCardNetworkVariantEnumSerializer =
+    _$IssuedCardNetworkVariantEnumSerializer();
 Serializer<IssuedCardPanEntryModeEnum> _$issuedCardPanEntryModeEnumSerializer =
     _$IssuedCardPanEntryModeEnumSerializer();
 Serializer<IssuedCardProcessingTypeEnum>
@@ -151,6 +190,43 @@ _$issuedCardProcessingTypeEnumSerializer =
     _$IssuedCardProcessingTypeEnumSerializer();
 Serializer<IssuedCardTypeEnum> _$issuedCardTypeEnumSerializer =
     _$IssuedCardTypeEnumSerializer();
+
+class _$IssuedCardNetworkVariantEnumSerializer
+    implements PrimitiveSerializer<IssuedCardNetworkVariantEnum> {
+  static const Map<String, Object> _toWire = const <String, Object>{
+    'maestroUs': 'maestro_us',
+    'mastercard': 'mastercard',
+    'visa': 'visa',
+    'unknownDefaultOpenApi': 'unknown_default_open_api',
+  };
+  static const Map<Object, String> _fromWire = const <Object, String>{
+    'maestro_us': 'maestroUs',
+    'mastercard': 'mastercard',
+    'visa': 'visa',
+    'unknown_default_open_api': 'unknownDefaultOpenApi',
+  };
+
+  @override
+  final Iterable<Type> types = const <Type>[IssuedCardNetworkVariantEnum];
+  @override
+  final String wireName = 'IssuedCardNetworkVariantEnum';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    IssuedCardNetworkVariantEnum object, {
+    FullType specifiedType = FullType.unspecified,
+  }) => _toWire[object.name] ?? object.name;
+
+  @override
+  IssuedCardNetworkVariantEnum deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) => IssuedCardNetworkVariantEnum.valueOf(
+    _fromWire[serialized] ?? (serialized is String ? serialized : ''),
+  );
+}
 
 class _$IssuedCardPanEntryModeEnumSerializer
     implements PrimitiveSerializer<IssuedCardPanEntryModeEnum> {
@@ -281,6 +357,8 @@ class _$IssuedCard extends IssuedCard {
   @override
   final String? authorisationType;
   @override
+  final IssuedCardNetworkVariantEnum? networkVariant;
+  @override
   final IssuedCardPanEntryModeEnum? panEntryMode;
   @override
   final IssuedCardProcessingTypeEnum? processingType;
@@ -302,6 +380,7 @@ class _$IssuedCard extends IssuedCard {
 
   _$IssuedCard._({
     this.authorisationType,
+    this.networkVariant,
     this.panEntryMode,
     this.processingType,
     this.relayedAuthorisationData,
@@ -323,6 +402,7 @@ class _$IssuedCard extends IssuedCard {
     if (identical(other, this)) return true;
     return other is IssuedCard &&
         authorisationType == other.authorisationType &&
+        networkVariant == other.networkVariant &&
         panEntryMode == other.panEntryMode &&
         processingType == other.processingType &&
         relayedAuthorisationData == other.relayedAuthorisationData &&
@@ -337,6 +417,7 @@ class _$IssuedCard extends IssuedCard {
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, authorisationType.hashCode);
+    _$hash = $jc(_$hash, networkVariant.hashCode);
     _$hash = $jc(_$hash, panEntryMode.hashCode);
     _$hash = $jc(_$hash, processingType.hashCode);
     _$hash = $jc(_$hash, relayedAuthorisationData.hashCode);
@@ -353,6 +434,7 @@ class _$IssuedCard extends IssuedCard {
   String toString() {
     return (newBuiltValueToStringHelper(r'IssuedCard')
           ..add('authorisationType', authorisationType)
+          ..add('networkVariant', networkVariant)
           ..add('panEntryMode', panEntryMode)
           ..add('processingType', processingType)
           ..add('relayedAuthorisationData', relayedAuthorisationData)
@@ -372,6 +454,11 @@ class IssuedCardBuilder implements Builder<IssuedCard, IssuedCardBuilder> {
   String? get authorisationType => _$this._authorisationType;
   set authorisationType(String? authorisationType) =>
       _$this._authorisationType = authorisationType;
+
+  IssuedCardNetworkVariantEnum? _networkVariant;
+  IssuedCardNetworkVariantEnum? get networkVariant => _$this._networkVariant;
+  set networkVariant(IssuedCardNetworkVariantEnum? networkVariant) =>
+      _$this._networkVariant = networkVariant;
 
   IssuedCardPanEntryModeEnum? _panEntryMode;
   IssuedCardPanEntryModeEnum? get panEntryMode => _$this._panEntryMode;
@@ -426,6 +513,7 @@ class IssuedCardBuilder implements Builder<IssuedCard, IssuedCardBuilder> {
     final $v = _$v;
     if ($v != null) {
       _authorisationType = $v.authorisationType;
+      _networkVariant = $v.networkVariant;
       _panEntryMode = $v.panEntryMode;
       _processingType = $v.processingType;
       _relayedAuthorisationData = $v.relayedAuthorisationData?.toBuilder();
@@ -459,6 +547,7 @@ class IssuedCardBuilder implements Builder<IssuedCard, IssuedCardBuilder> {
           _$v ??
           _$IssuedCard._(
             authorisationType: authorisationType,
+            networkVariant: networkVariant,
             panEntryMode: panEntryMode,
             processingType: processingType,
             relayedAuthorisationData: _relayedAuthorisationData?.build(),

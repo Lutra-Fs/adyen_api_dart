@@ -9,10 +9,53 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **Testing**: Added nine request-level tests for newly exposed API groups,
+  including authentication headers, routing, and cash-out serialization. Recorded
+  a coverage audit and isolated test-removal/fault-injection experiments.
+- **APIs**: Exposed new Balance Platform payout schedule and recurring top-up
+  clients, Management client certificate, donation campaign and terminal theme
+  clients, and the Transfers cash-out client.
+- **Testing**: Added Checkout v72 endpoint and polymorphic UK mandate account
+  serialization regression coverage.
+- **Development**: Pinned Flutter 3.47.8 / Dart 3.13.7 in `.fvmrc` and added a
+  regression check that keeps request header metadata aligned with the package version.
+- **CI**: Test both Dart 3.10.3 and the latest stable SDK; validate generated
+  OpenAPI updates with analysis and tests before opening a pull request.
+
 ### Changed
+
+- **Testing**: Consolidated Checkout version proof at the resolved request
+  boundary and removed duplicate API-key, method, and mock-status assertions
+  following the OpenClaw test-audit authoring and retention rules.
+- **Adyen API Specs**: Regenerated all 35 configured APIs and webhook clients
+  from upstream commit `2c1f3ab1e0385815899db9364a95e5aa5cf5568a`
+  (2026-10-22), including Checkout v72 and refreshed public model exports.
+- **Public API (Breaking)**: Balance Platform sweep methods moved from
+  `balanceAccountsApi` to `customPayoutSchedulesSweepsApi`. Upstream renamed
+  `PatchableMandate` to `MandateUpdate` and Checkout's
+  `DefaultErrorResponseEntity` to `CheckoutErrorResponseEntity`, and removed
+  Checkout's `InvalidField` and Session Authentication's `BalanceAccountResource`
+  and `MerchantAccountResource` models.
+- **Dependencies**: Updated compatible minimum versions for `built_value`, `dio`,
+  `build_runner`, `built_value_generator`, `lints`, and `test`; constrained the
+  previously unbounded `convert` development dependency.
+- **CI**: Updated Checkout and Codecov actions to v7 and GitHub Release to v3.
+- **Documentation**: Updated the installation example to 0.3.0 and documented FVM,
+  code generation, version metadata, and automation credential maintenance.
+- **Documentation**: Corrected contributor commands to exclude generated files
+  from formatting and use the current export script and test paths.
 
 ### Fixed
 
+- **Code Generation**: Extracted repeatable post-processing, fixed the new UK
+  mandate account discriminator default, preserved quoted generator arguments,
+  and propagated specification parsing failures before generating clients.
+- **HTTP**: Report library version 0.3.0 in request headers instead of 0.0.1.
+- **Code Generation**: Resolve the default OpenAPI checkout relative to the
+  project and export its path consistently to the version detection subprocess.
+- **CI**: Check automation credentials before regeneration, install `ripgrep`
+  for model export generation, and serialize scheduled and manual codegen runs.
+- **Analysis**: Use a null-aware map entry in the shared mock error helper.
 - **Balance Control**: Updated the hand-written wrapper and service tests to use
   the regenerated Balance Control v2 client surface, fixing CI on the OpenAPI
   update branch.

@@ -653,6 +653,8 @@ const TransferDataStatusEnum _$transferDataStatusEnum_paymentCost =
     const TransferDataStatusEnum._('paymentCost');
 const TransferDataStatusEnum _$transferDataStatusEnum_paymentCostPending =
     const TransferDataStatusEnum._('paymentCostPending');
+const TransferDataStatusEnum _$transferDataStatusEnum_pending =
+    const TransferDataStatusEnum._('pending');
 const TransferDataStatusEnum _$transferDataStatusEnum_pendingApproval =
     const TransferDataStatusEnum._('pendingApproval');
 const TransferDataStatusEnum _$transferDataStatusEnum_pendingExecution =
@@ -679,6 +681,10 @@ const TransferDataStatusEnum _$transferDataStatusEnum_reserveAdjustmentPending =
     const TransferDataStatusEnum._('reserveAdjustmentPending');
 const TransferDataStatusEnum _$transferDataStatusEnum_returned =
     const TransferDataStatusEnum._('returned');
+const TransferDataStatusEnum _$transferDataStatusEnum_reversalReceived =
+    const TransferDataStatusEnum._('reversalReceived');
+const TransferDataStatusEnum _$transferDataStatusEnum_reversed =
+    const TransferDataStatusEnum._('reversed');
 const TransferDataStatusEnum _$transferDataStatusEnum_secondChargeback =
     const TransferDataStatusEnum._('secondChargeback');
 const TransferDataStatusEnum _$transferDataStatusEnum_secondChargebackPending =
@@ -794,6 +800,8 @@ TransferDataStatusEnum _$transferDataStatusEnumValueOf(String name) {
       return _$transferDataStatusEnum_paymentCost;
     case 'paymentCostPending':
       return _$transferDataStatusEnum_paymentCostPending;
+    case 'pending':
+      return _$transferDataStatusEnum_pending;
     case 'pendingApproval':
       return _$transferDataStatusEnum_pendingApproval;
     case 'pendingExecution':
@@ -820,6 +828,10 @@ TransferDataStatusEnum _$transferDataStatusEnumValueOf(String name) {
       return _$transferDataStatusEnum_reserveAdjustmentPending;
     case 'returned':
       return _$transferDataStatusEnum_returned;
+    case 'reversalReceived':
+      return _$transferDataStatusEnum_reversalReceived;
+    case 'reversed':
+      return _$transferDataStatusEnum_reversed;
     case 'secondChargeback':
       return _$transferDataStatusEnum_secondChargeback;
     case 'secondChargebackPending':
@@ -887,6 +899,7 @@ final BuiltSet<TransferDataStatusEnum> _$transferDataStatusEnumValues =
       _$transferDataStatusEnum_miscCostPending,
       _$transferDataStatusEnum_paymentCost,
       _$transferDataStatusEnum_paymentCostPending,
+      _$transferDataStatusEnum_pending,
       _$transferDataStatusEnum_pendingApproval,
       _$transferDataStatusEnum_pendingExecution,
       _$transferDataStatusEnum_received,
@@ -900,6 +913,8 @@ final BuiltSet<TransferDataStatusEnum> _$transferDataStatusEnumValues =
       _$transferDataStatusEnum_reserveAdjustment,
       _$transferDataStatusEnum_reserveAdjustmentPending,
       _$transferDataStatusEnum_returned,
+      _$transferDataStatusEnum_reversalReceived,
+      _$transferDataStatusEnum_reversed,
       _$transferDataStatusEnum_secondChargeback,
       _$transferDataStatusEnum_secondChargebackPending,
       _$transferDataStatusEnum_undefined,
@@ -982,6 +997,10 @@ const TransferDataTypeEnum _$transferDataTypeEnum_balanceRollover =
     const TransferDataTypeEnum._('balanceRollover');
 const TransferDataTypeEnum _$transferDataTypeEnum_balanceMigration =
     const TransferDataTypeEnum._('balanceMigration');
+const TransferDataTypeEnum _$transferDataTypeEnum_fxSell =
+    const TransferDataTypeEnum._('fxSell');
+const TransferDataTypeEnum _$transferDataTypeEnum_fxBuy =
+    const TransferDataTypeEnum._('fxBuy');
 const TransferDataTypeEnum _$transferDataTypeEnum_unknownDefaultOpenApi =
     const TransferDataTypeEnum._('unknownDefaultOpenApi');
 
@@ -1063,6 +1082,10 @@ TransferDataTypeEnum _$transferDataTypeEnumValueOf(String name) {
       return _$transferDataTypeEnum_balanceRollover;
     case 'balanceMigration':
       return _$transferDataTypeEnum_balanceMigration;
+    case 'fxSell':
+      return _$transferDataTypeEnum_fxSell;
+    case 'fxBuy':
+      return _$transferDataTypeEnum_fxBuy;
     case 'unknownDefaultOpenApi':
       return _$transferDataTypeEnum_unknownDefaultOpenApi;
     default:
@@ -1110,6 +1133,8 @@ final BuiltSet<TransferDataTypeEnum> _$transferDataTypeEnumValues =
       _$transferDataTypeEnum_balanceAdjustment,
       _$transferDataTypeEnum_balanceRollover,
       _$transferDataTypeEnum_balanceMigration,
+      _$transferDataTypeEnum_fxSell,
+      _$transferDataTypeEnum_fxBuy,
       _$transferDataTypeEnum_unknownDefaultOpenApi,
     ]);
 
@@ -1460,6 +1485,7 @@ class _$TransferDataStatusEnumSerializer
     'miscCostPending': 'miscCostPending',
     'paymentCost': 'paymentCost',
     'paymentCostPending': 'paymentCostPending',
+    'pending': 'pending',
     'pendingApproval': 'pendingApproval',
     'pendingExecution': 'pendingExecution',
     'received': 'received',
@@ -1473,6 +1499,8 @@ class _$TransferDataStatusEnumSerializer
     'reserveAdjustment': 'reserveAdjustment',
     'reserveAdjustmentPending': 'reserveAdjustmentPending',
     'returned': 'returned',
+    'reversalReceived': 'reversalReceived',
+    'reversed': 'reversed',
     'secondChargeback': 'secondChargeback',
     'secondChargebackPending': 'secondChargebackPending',
     'undefined': 'undefined',
@@ -1531,6 +1559,7 @@ class _$TransferDataStatusEnumSerializer
     'miscCostPending': 'miscCostPending',
     'paymentCost': 'paymentCost',
     'paymentCostPending': 'paymentCostPending',
+    'pending': 'pending',
     'pendingApproval': 'pendingApproval',
     'pendingExecution': 'pendingExecution',
     'received': 'received',
@@ -1544,6 +1573,8 @@ class _$TransferDataStatusEnumSerializer
     'reserveAdjustment': 'reserveAdjustment',
     'reserveAdjustmentPending': 'reserveAdjustmentPending',
     'returned': 'returned',
+    'reversalReceived': 'reversalReceived',
+    'reversed': 'reversed',
     'secondChargeback': 'secondChargeback',
     'secondChargebackPending': 'secondChargebackPending',
     'undefined': 'undefined',
@@ -1613,6 +1644,8 @@ class _$TransferDataTypeEnumSerializer
     'balanceAdjustment': 'balanceAdjustment',
     'balanceRollover': 'balanceRollover',
     'balanceMigration': 'balanceMigration',
+    'fxSell': 'fxSell',
+    'fxBuy': 'fxBuy',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
@@ -1654,6 +1687,8 @@ class _$TransferDataTypeEnumSerializer
     'balanceAdjustment': 'balanceAdjustment',
     'balanceRollover': 'balanceRollover',
     'balanceMigration': 'balanceMigration',
+    'fxSell': 'fxSell',
+    'fxBuy': 'fxBuy',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
 
@@ -1717,6 +1752,8 @@ class _$TransferData extends TransferData {
   @override
   final String? id;
   @override
+  final NetworkReason? networkReason;
+  @override
   final PaymentInstrument? paymentInstrument;
   @override
   final TransferDataReasonEnum? reason;
@@ -1731,11 +1768,15 @@ class _$TransferData extends TransferData {
   @override
   final TransferDataStatusEnum status;
   @override
+  final TransferDataTracing? tracing;
+  @override
   final TransferDataTracking? tracking;
   @override
   final TransactionRulesResult? transactionRulesResult;
   @override
   final TransferDataTypeEnum? type;
+  @override
+  final UltimatePartyIdentification? ultimateParty;
   @override
   final DateTime? updatedAt;
 
@@ -1761,6 +1802,7 @@ class _$TransferData extends TransferData {
     this.executionDate,
     this.externalReason,
     this.id,
+    this.networkReason,
     this.paymentInstrument,
     this.reason,
     this.reference,
@@ -1768,9 +1810,11 @@ class _$TransferData extends TransferData {
     this.review,
     this.sequenceNumber,
     required this.status,
+    this.tracing,
     this.tracking,
     this.transactionRulesResult,
     this.type,
+    this.ultimateParty,
     this.updatedAt,
   }) : super._();
   @override
@@ -1802,6 +1846,7 @@ class _$TransferData extends TransferData {
         executionDate == other.executionDate &&
         externalReason == other.externalReason &&
         id == other.id &&
+        networkReason == other.networkReason &&
         paymentInstrument == other.paymentInstrument &&
         reason == other.reason &&
         reference == other.reference &&
@@ -1809,9 +1854,11 @@ class _$TransferData extends TransferData {
         review == other.review &&
         sequenceNumber == other.sequenceNumber &&
         status == other.status &&
+        tracing == other.tracing &&
         tracking == other.tracking &&
         transactionRulesResult == other.transactionRulesResult &&
         type == other.type &&
+        ultimateParty == other.ultimateParty &&
         updatedAt == other.updatedAt;
   }
 
@@ -1836,6 +1883,7 @@ class _$TransferData extends TransferData {
     _$hash = $jc(_$hash, executionDate.hashCode);
     _$hash = $jc(_$hash, externalReason.hashCode);
     _$hash = $jc(_$hash, id.hashCode);
+    _$hash = $jc(_$hash, networkReason.hashCode);
     _$hash = $jc(_$hash, paymentInstrument.hashCode);
     _$hash = $jc(_$hash, reason.hashCode);
     _$hash = $jc(_$hash, reference.hashCode);
@@ -1843,9 +1891,11 @@ class _$TransferData extends TransferData {
     _$hash = $jc(_$hash, review.hashCode);
     _$hash = $jc(_$hash, sequenceNumber.hashCode);
     _$hash = $jc(_$hash, status.hashCode);
+    _$hash = $jc(_$hash, tracing.hashCode);
     _$hash = $jc(_$hash, tracking.hashCode);
     _$hash = $jc(_$hash, transactionRulesResult.hashCode);
     _$hash = $jc(_$hash, type.hashCode);
+    _$hash = $jc(_$hash, ultimateParty.hashCode);
     _$hash = $jc(_$hash, updatedAt.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -1872,6 +1922,7 @@ class _$TransferData extends TransferData {
           ..add('executionDate', executionDate)
           ..add('externalReason', externalReason)
           ..add('id', id)
+          ..add('networkReason', networkReason)
           ..add('paymentInstrument', paymentInstrument)
           ..add('reason', reason)
           ..add('reference', reference)
@@ -1879,9 +1930,11 @@ class _$TransferData extends TransferData {
           ..add('review', review)
           ..add('sequenceNumber', sequenceNumber)
           ..add('status', status)
+          ..add('tracing', tracing)
           ..add('tracking', tracking)
           ..add('transactionRulesResult', transactionRulesResult)
           ..add('type', type)
+          ..add('ultimateParty', ultimateParty)
           ..add('updatedAt', updatedAt))
         .toString();
   }
@@ -1985,6 +2038,12 @@ class TransferDataBuilder
   String? get id => _$this._id;
   set id(String? id) => _$this._id = id;
 
+  NetworkReasonBuilder? _networkReason;
+  NetworkReasonBuilder get networkReason =>
+      _$this._networkReason ??= NetworkReasonBuilder();
+  set networkReason(NetworkReasonBuilder? networkReason) =>
+      _$this._networkReason = networkReason;
+
   PaymentInstrumentBuilder? _paymentInstrument;
   PaymentInstrumentBuilder get paymentInstrument =>
       _$this._paymentInstrument ??= PaymentInstrumentBuilder();
@@ -2018,6 +2077,11 @@ class TransferDataBuilder
   TransferDataStatusEnum? get status => _$this._status;
   set status(TransferDataStatusEnum? status) => _$this._status = status;
 
+  TransferDataTracingBuilder? _tracing;
+  TransferDataTracingBuilder get tracing =>
+      _$this._tracing ??= TransferDataTracingBuilder();
+  set tracing(TransferDataTracingBuilder? tracing) => _$this._tracing = tracing;
+
   TransferDataTrackingBuilder? _tracking;
   TransferDataTrackingBuilder get tracking =>
       _$this._tracking ??= TransferDataTrackingBuilder();
@@ -2034,6 +2098,12 @@ class TransferDataBuilder
   TransferDataTypeEnum? _type;
   TransferDataTypeEnum? get type => _$this._type;
   set type(TransferDataTypeEnum? type) => _$this._type = type;
+
+  UltimatePartyIdentificationBuilder? _ultimateParty;
+  UltimatePartyIdentificationBuilder get ultimateParty =>
+      _$this._ultimateParty ??= UltimatePartyIdentificationBuilder();
+  set ultimateParty(UltimatePartyIdentificationBuilder? ultimateParty) =>
+      _$this._ultimateParty = ultimateParty;
 
   DateTime? _updatedAt;
   DateTime? get updatedAt => _$this._updatedAt;
@@ -2064,6 +2134,7 @@ class TransferDataBuilder
       _executionDate = $v.executionDate?.toBuilder();
       _externalReason = $v.externalReason?.toBuilder();
       _id = $v.id;
+      _networkReason = $v.networkReason?.toBuilder();
       _paymentInstrument = $v.paymentInstrument?.toBuilder();
       _reason = $v.reason;
       _reference = $v.reference;
@@ -2071,9 +2142,11 @@ class TransferDataBuilder
       _review = $v.review?.toBuilder();
       _sequenceNumber = $v.sequenceNumber;
       _status = $v.status;
+      _tracing = $v.tracing?.toBuilder();
       _tracking = $v.tracking?.toBuilder();
       _transactionRulesResult = $v.transactionRulesResult?.toBuilder();
       _type = $v.type;
+      _ultimateParty = $v.ultimateParty?.toBuilder();
       _updatedAt = $v.updatedAt;
       _$v = null;
     }
@@ -2121,6 +2194,7 @@ class TransferDataBuilder
             executionDate: _executionDate?.build(),
             externalReason: _externalReason?.build(),
             id: id,
+            networkReason: _networkReason?.build(),
             paymentInstrument: _paymentInstrument?.build(),
             reason: reason,
             reference: reference,
@@ -2132,9 +2206,11 @@ class TransferDataBuilder
               r'TransferData',
               'status',
             ),
+            tracing: _tracing?.build(),
             tracking: _tracking?.build(),
             transactionRulesResult: _transactionRulesResult?.build(),
             type: type,
+            ultimateParty: _ultimateParty?.build(),
             updatedAt: updatedAt,
           );
     } catch (_) {
@@ -2165,16 +2241,23 @@ class TransferDataBuilder
         _$failedField = 'externalReason';
         _externalReason?.build();
 
+        _$failedField = 'networkReason';
+        _networkReason?.build();
         _$failedField = 'paymentInstrument';
         _paymentInstrument?.build();
 
         _$failedField = 'review';
         _review?.build();
 
+        _$failedField = 'tracing';
+        _tracing?.build();
         _$failedField = 'tracking';
         _tracking?.build();
         _$failedField = 'transactionRulesResult';
         _transactionRulesResult?.build();
+
+        _$failedField = 'ultimateParty';
+        _ultimateParty?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
           r'TransferData',

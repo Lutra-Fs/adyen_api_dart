@@ -11,16 +11,22 @@ part 'loyalty_handling.g.dart';
 
 class LoyaltyHandling extends EnumClass {
 
-  @BuiltValueEnumConst(wireName: r'Allowed')
-  static const LoyaltyHandling allowed = _$allowed;
+  ///  Possible values: * **Forbidden** * **Processed** * **Allowed** * **Proposed** * **Required**
   @BuiltValueEnumConst(wireName: r'Forbidden')
   static const LoyaltyHandling forbidden = _$forbidden;
+  ///  Possible values: * **Forbidden** * **Processed** * **Allowed** * **Proposed** * **Required**
   @BuiltValueEnumConst(wireName: r'Processed')
   static const LoyaltyHandling processed = _$processed;
+  ///  Possible values: * **Forbidden** * **Processed** * **Allowed** * **Proposed** * **Required**
+  @BuiltValueEnumConst(wireName: r'Allowed')
+  static const LoyaltyHandling allowed = _$allowed;
+  ///  Possible values: * **Forbidden** * **Processed** * **Allowed** * **Proposed** * **Required**
   @BuiltValueEnumConst(wireName: r'Proposed')
   static const LoyaltyHandling proposed = _$proposed;
+  ///  Possible values: * **Forbidden** * **Processed** * **Allowed** * **Proposed** * **Required**
   @BuiltValueEnumConst(wireName: r'Required')
   static const LoyaltyHandling required_ = _$required_;
+  ///  Possible values: * **Forbidden** * **Processed** * **Allowed** * **Proposed** * **Required**
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const LoyaltyHandling unknownDefaultOpenApi = _$unknownDefaultOpenApi;
 

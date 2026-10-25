@@ -13,6 +13,7 @@ part 'affirm_details.g.dart';
 ///
 /// Properties:
 /// * [checkoutAttemptId] - The checkout attempt identifier.
+/// * [financingProgram] - The Affirm financing program to apply to this transaction.
 /// * [sdkData] - Base64-encoded JSON object containing SDK related parameters required by the SDK
 /// * [type] - **affirm**
 @BuiltValue()
@@ -20,6 +21,10 @@ abstract class AffirmDetails implements Built<AffirmDetails, AffirmDetailsBuilde
   /// The checkout attempt identifier.
   @BuiltValueField(wireName: r'checkoutAttemptId')
   String? get checkoutAttemptId;
+
+  /// The Affirm financing program to apply to this transaction.
+  @BuiltValueField(wireName: r'financingProgram')
+  String? get financingProgram;
 
   /// Base64-encoded JSON object containing SDK related parameters required by the SDK
   @BuiltValueField(wireName: r'sdkData')
@@ -58,6 +63,13 @@ class _$AffirmDetailsSerializer implements PrimitiveSerializer<AffirmDetails> {
       yield r'checkoutAttemptId';
       yield serializers.serialize(
         object.checkoutAttemptId,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.financingProgram != null) {
+      yield r'financingProgram';
+      yield serializers.serialize(
+        object.financingProgram,
         specifiedType: const FullType(String),
       );
     }
@@ -104,6 +116,13 @@ class _$AffirmDetailsSerializer implements PrimitiveSerializer<AffirmDetails> {
             specifiedType: const FullType(String),
           ) as String;
           result.checkoutAttemptId = valueDes;
+          break;
+        case r'financingProgram':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.financingProgram = valueDes;
           break;
         case r'sdkData':
           final valueDes = serializers.deserialize(

@@ -186,6 +186,8 @@ const TransactionRuleInfoTypeEnum _$transactionRuleInfoTypeEnum_allowList =
     const TransactionRuleInfoTypeEnum._('allowList');
 const TransactionRuleInfoTypeEnum _$transactionRuleInfoTypeEnum_blockList =
     const TransactionRuleInfoTypeEnum._('blockList');
+const TransactionRuleInfoTypeEnum _$transactionRuleInfoTypeEnum_bypass =
+    const TransactionRuleInfoTypeEnum._('bypass');
 const TransactionRuleInfoTypeEnum _$transactionRuleInfoTypeEnum_maxUsage =
     const TransactionRuleInfoTypeEnum._('maxUsage');
 const TransactionRuleInfoTypeEnum _$transactionRuleInfoTypeEnum_velocity =
@@ -200,6 +202,8 @@ TransactionRuleInfoTypeEnum _$transactionRuleInfoTypeEnumValueOf(String name) {
       return _$transactionRuleInfoTypeEnum_allowList;
     case 'blockList':
       return _$transactionRuleInfoTypeEnum_blockList;
+    case 'bypass':
+      return _$transactionRuleInfoTypeEnum_bypass;
     case 'maxUsage':
       return _$transactionRuleInfoTypeEnum_maxUsage;
     case 'velocity':
@@ -216,6 +220,7 @@ _$transactionRuleInfoTypeEnumValues =
     BuiltSet<TransactionRuleInfoTypeEnum>(const <TransactionRuleInfoTypeEnum>[
       _$transactionRuleInfoTypeEnum_allowList,
       _$transactionRuleInfoTypeEnum_blockList,
+      _$transactionRuleInfoTypeEnum_bypass,
       _$transactionRuleInfoTypeEnum_maxUsage,
       _$transactionRuleInfoTypeEnum_velocity,
       _$transactionRuleInfoTypeEnum_unknownDefaultOpenApi,
@@ -396,6 +401,7 @@ class _$TransactionRuleInfoTypeEnumSerializer
   static const Map<String, Object> _toWire = const <String, Object>{
     'allowList': 'allowList',
     'blockList': 'blockList',
+    'bypass': 'bypass',
     'maxUsage': 'maxUsage',
     'velocity': 'velocity',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
@@ -403,6 +409,7 @@ class _$TransactionRuleInfoTypeEnumSerializer
   static const Map<Object, String> _fromWire = const <Object, String>{
     'allowList': 'allowList',
     'blockList': 'blockList',
+    'bypass': 'bypass',
     'maxUsage': 'maxUsage',
     'velocity': 'velocity',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
@@ -444,6 +451,8 @@ class _$TransactionRuleInfo extends TransactionRuleInfo {
   @override
   final TransactionRuleInfoOutcomeTypeEnum? outcomeType;
   @override
+  final String? overridesRule;
+  @override
   final TransactionRuleInfoPurposeEnum? purpose;
   @override
   final String reference;
@@ -471,6 +480,7 @@ class _$TransactionRuleInfo extends TransactionRuleInfo {
     required this.entityKey,
     required this.interval,
     this.outcomeType,
+    this.overridesRule,
     this.purpose,
     required this.reference,
     this.requestType,
@@ -499,6 +509,7 @@ class _$TransactionRuleInfo extends TransactionRuleInfo {
         entityKey == other.entityKey &&
         interval == other.interval &&
         outcomeType == other.outcomeType &&
+        overridesRule == other.overridesRule &&
         purpose == other.purpose &&
         reference == other.reference &&
         requestType == other.requestType &&
@@ -518,6 +529,7 @@ class _$TransactionRuleInfo extends TransactionRuleInfo {
     _$hash = $jc(_$hash, entityKey.hashCode);
     _$hash = $jc(_$hash, interval.hashCode);
     _$hash = $jc(_$hash, outcomeType.hashCode);
+    _$hash = $jc(_$hash, overridesRule.hashCode);
     _$hash = $jc(_$hash, purpose.hashCode);
     _$hash = $jc(_$hash, reference.hashCode);
     _$hash = $jc(_$hash, requestType.hashCode);
@@ -539,6 +551,7 @@ class _$TransactionRuleInfo extends TransactionRuleInfo {
           ..add('entityKey', entityKey)
           ..add('interval', interval)
           ..add('outcomeType', outcomeType)
+          ..add('overridesRule', overridesRule)
           ..add('purpose', purpose)
           ..add('reference', reference)
           ..add('requestType', requestType)
@@ -584,6 +597,11 @@ class TransactionRuleInfoBuilder
   TransactionRuleInfoOutcomeTypeEnum? get outcomeType => _$this._outcomeType;
   set outcomeType(TransactionRuleInfoOutcomeTypeEnum? outcomeType) =>
       _$this._outcomeType = outcomeType;
+
+  String? _overridesRule;
+  String? get overridesRule => _$this._overridesRule;
+  set overridesRule(String? overridesRule) =>
+      _$this._overridesRule = overridesRule;
 
   TransactionRuleInfoPurposeEnum? _purpose;
   TransactionRuleInfoPurposeEnum? get purpose => _$this._purpose;
@@ -634,6 +652,7 @@ class TransactionRuleInfoBuilder
       _entityKey = $v.entityKey.toBuilder();
       _interval = $v.interval.toBuilder();
       _outcomeType = $v.outcomeType;
+      _overridesRule = $v.overridesRule;
       _purpose = $v.purpose;
       _reference = $v.reference;
       _requestType = $v.requestType;
@@ -676,6 +695,7 @@ class TransactionRuleInfoBuilder
             entityKey: entityKey.build(),
             interval: interval.build(),
             outcomeType: outcomeType,
+            overridesRule: overridesRule,
             purpose: purpose,
             reference: BuiltValueNullFieldError.checkNotNull(
               reference,

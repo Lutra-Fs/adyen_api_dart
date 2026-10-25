@@ -23,17 +23,17 @@ abstract class LoyaltyAccountID implements Built<LoyaltyAccountID, LoyaltyAccoun
   /// Entry mode of the payment instrument information. In the Payment, Loyalty or StoredValue Request messages, it informs the POI System the entry mode of the payment instrument information when read by the Sale Terminal. In the Payment, Loyalty or StoredValue Response messages, it informs the Sale System the entry mode of the payment instrument. Possible values: * **Contactless** * **File** * **ICC** * **Keyed** * **MagStripe** * **Manual** * **Mobile** * **RFID** * **Scanned** * **SynchronousICC** * **Tapped**
   @BuiltValueField(wireName: r'EntryMode')
   BuiltList<LoyaltyAccountIDEntryModeEnum> get entryMode;
-  // enum entryModeEnum {  Contactless,  File,  ICC,  Keyed,  MagStripe,  Manual,  Mobile,  RFID,  Scanned,  SynchronousICC,  Tapped,  };
+  // enum entryModeEnum {  RFID,  Keyed,  Manual,  File,  Scanned,  MagStripe,  ICC,  SynchronousICC,  Tapped,  Contactless,  Mobile,  };
 
   /// Type of account identification. In a request message, it informs the POI System the type of the account or card identification, when provided by the Sale Terminal. (e.g. because the card information is a barcode read by the Cashier on a scanner device). In a response message, it informs the Sale System the type of the account or card identification. Possible values: * **AccountNumber** * **BarCode** * **ISOTrack2** * **PAN** * **PhoneNumber**
   @BuiltValueField(wireName: r'IdentificationType')
   IdentificationType get identificationType;
-  // enum identificationTypeEnum {  AccountNumber,  BarCode,  ISOTrack2,  PAN,  PhoneNumber,  };
+  // enum identificationTypeEnum {  PAN,  ISOTrack2,  BarCode,  AccountNumber,  PhoneNumber,  };
 
   /// Support of the loyalty account identification. Allows knowing where and how you have found the loyalty account identification. Possible values: * **HybridCard** * **LinkedCard** * **LoyaltyCard** * **NoCard**
   @BuiltValueField(wireName: r'IdentificationSupport')
   IdentificationSupport? get identificationSupport;
-  // enum identificationSupportEnum {  HybridCard,  LinkedCard,  LoyaltyCard,  NoCard,  };
+  // enum identificationSupportEnum {  NoCard,  LoyaltyCard,  HybridCard,  LinkedCard,  };
 
   /// Loyalty account identification conforming to the IdentificationType.
   @BuiltValueField(wireName: r'LoyaltyID')
@@ -166,28 +166,28 @@ class _$LoyaltyAccountIDSerializer implements PrimitiveSerializer<LoyaltyAccount
 
 class LoyaltyAccountIDEntryModeEnum extends EnumClass {
 
-  @BuiltValueEnumConst(wireName: r'Contactless')
-  static const LoyaltyAccountIDEntryModeEnum contactless = _$loyaltyAccountIDEntryModeEnum_contactless;
-  @BuiltValueEnumConst(wireName: r'File')
-  static const LoyaltyAccountIDEntryModeEnum file = _$loyaltyAccountIDEntryModeEnum_file;
-  @BuiltValueEnumConst(wireName: r'ICC')
-  static const LoyaltyAccountIDEntryModeEnum ICC = _$loyaltyAccountIDEntryModeEnum_ICC;
-  @BuiltValueEnumConst(wireName: r'Keyed')
-  static const LoyaltyAccountIDEntryModeEnum keyed = _$loyaltyAccountIDEntryModeEnum_keyed;
-  @BuiltValueEnumConst(wireName: r'MagStripe')
-  static const LoyaltyAccountIDEntryModeEnum magStripe = _$loyaltyAccountIDEntryModeEnum_magStripe;
-  @BuiltValueEnumConst(wireName: r'Manual')
-  static const LoyaltyAccountIDEntryModeEnum manual = _$loyaltyAccountIDEntryModeEnum_manual;
-  @BuiltValueEnumConst(wireName: r'Mobile')
-  static const LoyaltyAccountIDEntryModeEnum mobile = _$loyaltyAccountIDEntryModeEnum_mobile;
   @BuiltValueEnumConst(wireName: r'RFID')
   static const LoyaltyAccountIDEntryModeEnum RFID = _$loyaltyAccountIDEntryModeEnum_RFID;
+  @BuiltValueEnumConst(wireName: r'Keyed')
+  static const LoyaltyAccountIDEntryModeEnum keyed = _$loyaltyAccountIDEntryModeEnum_keyed;
+  @BuiltValueEnumConst(wireName: r'Manual')
+  static const LoyaltyAccountIDEntryModeEnum manual = _$loyaltyAccountIDEntryModeEnum_manual;
+  @BuiltValueEnumConst(wireName: r'File')
+  static const LoyaltyAccountIDEntryModeEnum file = _$loyaltyAccountIDEntryModeEnum_file;
   @BuiltValueEnumConst(wireName: r'Scanned')
   static const LoyaltyAccountIDEntryModeEnum scanned = _$loyaltyAccountIDEntryModeEnum_scanned;
+  @BuiltValueEnumConst(wireName: r'MagStripe')
+  static const LoyaltyAccountIDEntryModeEnum magStripe = _$loyaltyAccountIDEntryModeEnum_magStripe;
+  @BuiltValueEnumConst(wireName: r'ICC')
+  static const LoyaltyAccountIDEntryModeEnum ICC = _$loyaltyAccountIDEntryModeEnum_ICC;
   @BuiltValueEnumConst(wireName: r'SynchronousICC')
   static const LoyaltyAccountIDEntryModeEnum synchronousICC = _$loyaltyAccountIDEntryModeEnum_synchronousICC;
   @BuiltValueEnumConst(wireName: r'Tapped')
   static const LoyaltyAccountIDEntryModeEnum tapped = _$loyaltyAccountIDEntryModeEnum_tapped;
+  @BuiltValueEnumConst(wireName: r'Contactless')
+  static const LoyaltyAccountIDEntryModeEnum contactless = _$loyaltyAccountIDEntryModeEnum_contactless;
+  @BuiltValueEnumConst(wireName: r'Mobile')
+  static const LoyaltyAccountIDEntryModeEnum mobile = _$loyaltyAccountIDEntryModeEnum_mobile;
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const LoyaltyAccountIDEntryModeEnum unknownDefaultOpenApi = _$loyaltyAccountIDEntryModeEnum_unknownDefaultOpenApi;
 

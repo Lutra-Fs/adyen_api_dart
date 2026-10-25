@@ -13,7 +13,7 @@ part 'challenge_info.g.dart';
 ///
 /// Properties:
 /// * [challengeCancel] - Indicator informing the Access Control Server (ACS) and the Directory Server (DS) that the authentication has been cancelled. Possible values: * **00**: Data element is absent or value has been sent back with the key `challengeCancel`. * **01**: Cardholder selected **Cancel**. * **02**: 3DS Requestor cancelled Authentication. * **03**: Transaction abandoned. * **04**: Transaction timed out at ACS — other timeouts. * **05**: Transaction timed out at ACS — first CReq not received by ACS. * **06**: Transaction error. * **07**: Unknown. * **08**: Transaction time out at SDK.
-/// * [flow] - The flow used in the challenge. Possible values:  * **PWD_OTP_PHONE_FL**: one-time password (OTP) flow via SMS * **PWD_OTP_EMAIL_FL**: one-time password (OTP) flow via email * **OOB_TRIGGER_FL**: out-of-band (OOB) flow
+/// * [flow] - The flow used in the challenge. Possible values:  * **PWD_OTP_PHONE_FL**: one-time password (OTP) flow via SMS * **PWD_OTP_EMAIL_FL**: one-time password (OTP) flow via email * **OOB_TRIGGER_FL**: out-of-band (OOB) flow * **OTP_PHONE_FL**: one-time password (OTP) flow via SMS with no passcode * **PASSKEY_TRIGGER_FL**: passkey flow
 /// * [lastInteraction] - The last time of interaction with the challenge.
 /// * [phoneNumber] - The last four digits of the phone number used in the challenge.
 /// * [resends] - The number of times the one-time password (OTP) was resent during the challenge.
@@ -25,10 +25,10 @@ abstract class ChallengeInfo implements Built<ChallengeInfo, ChallengeInfoBuilde
   ChallengeInfoChallengeCancelEnum? get challengeCancel;
   // enum challengeCancelEnum {  00,  01,  02,  03,  04,  05,  06,  07,  08,  };
 
-  /// The flow used in the challenge. Possible values:  * **PWD_OTP_PHONE_FL**: one-time password (OTP) flow via SMS * **PWD_OTP_EMAIL_FL**: one-time password (OTP) flow via email * **OOB_TRIGGER_FL**: out-of-band (OOB) flow
+  /// The flow used in the challenge. Possible values:  * **PWD_OTP_PHONE_FL**: one-time password (OTP) flow via SMS * **PWD_OTP_EMAIL_FL**: one-time password (OTP) flow via email * **OOB_TRIGGER_FL**: out-of-band (OOB) flow * **OTP_PHONE_FL**: one-time password (OTP) flow via SMS with no passcode * **PASSKEY_TRIGGER_FL**: passkey flow
   @BuiltValueField(wireName: r'flow')
   ChallengeInfoFlowEnum get flow;
-  // enum flowEnum {  PWD_OTP_PHONE_FL,  PWD_OTP_EMAIL_FL,  OOB_TRIGGER_FL,  };
+  // enum flowEnum {  PWD_OTP_PHONE_FL,  PWD_OTP_EMAIL_FL,  OOB_TRIGGER_FL,  OTP_PHONE_FL,  PASSKEY_TRIGGER_FL,  };
 
   /// The last time of interaction with the challenge.
   @BuiltValueField(wireName: r'lastInteraction')
@@ -244,16 +244,22 @@ class ChallengeInfoChallengeCancelEnum extends EnumClass {
 
 class ChallengeInfoFlowEnum extends EnumClass {
 
-  /// The flow used in the challenge. Possible values:  * **PWD_OTP_PHONE_FL**: one-time password (OTP) flow via SMS * **PWD_OTP_EMAIL_FL**: one-time password (OTP) flow via email * **OOB_TRIGGER_FL**: out-of-band (OOB) flow
+  /// The flow used in the challenge. Possible values:  * **PWD_OTP_PHONE_FL**: one-time password (OTP) flow via SMS * **PWD_OTP_EMAIL_FL**: one-time password (OTP) flow via email * **OOB_TRIGGER_FL**: out-of-band (OOB) flow * **OTP_PHONE_FL**: one-time password (OTP) flow via SMS with no passcode * **PASSKEY_TRIGGER_FL**: passkey flow
   @BuiltValueEnumConst(wireName: r'PWD_OTP_PHONE_FL')
   static const ChallengeInfoFlowEnum PWD_OTP_PHONE_FL = _$challengeInfoFlowEnum_PWD_OTP_PHONE_FL;
-  /// The flow used in the challenge. Possible values:  * **PWD_OTP_PHONE_FL**: one-time password (OTP) flow via SMS * **PWD_OTP_EMAIL_FL**: one-time password (OTP) flow via email * **OOB_TRIGGER_FL**: out-of-band (OOB) flow
+  /// The flow used in the challenge. Possible values:  * **PWD_OTP_PHONE_FL**: one-time password (OTP) flow via SMS * **PWD_OTP_EMAIL_FL**: one-time password (OTP) flow via email * **OOB_TRIGGER_FL**: out-of-band (OOB) flow * **OTP_PHONE_FL**: one-time password (OTP) flow via SMS with no passcode * **PASSKEY_TRIGGER_FL**: passkey flow
   @BuiltValueEnumConst(wireName: r'PWD_OTP_EMAIL_FL')
   static const ChallengeInfoFlowEnum PWD_OTP_EMAIL_FL = _$challengeInfoFlowEnum_PWD_OTP_EMAIL_FL;
-  /// The flow used in the challenge. Possible values:  * **PWD_OTP_PHONE_FL**: one-time password (OTP) flow via SMS * **PWD_OTP_EMAIL_FL**: one-time password (OTP) flow via email * **OOB_TRIGGER_FL**: out-of-band (OOB) flow
+  /// The flow used in the challenge. Possible values:  * **PWD_OTP_PHONE_FL**: one-time password (OTP) flow via SMS * **PWD_OTP_EMAIL_FL**: one-time password (OTP) flow via email * **OOB_TRIGGER_FL**: out-of-band (OOB) flow * **OTP_PHONE_FL**: one-time password (OTP) flow via SMS with no passcode * **PASSKEY_TRIGGER_FL**: passkey flow
   @BuiltValueEnumConst(wireName: r'OOB_TRIGGER_FL')
   static const ChallengeInfoFlowEnum OOB_TRIGGER_FL = _$challengeInfoFlowEnum_OOB_TRIGGER_FL;
-  /// The flow used in the challenge. Possible values:  * **PWD_OTP_PHONE_FL**: one-time password (OTP) flow via SMS * **PWD_OTP_EMAIL_FL**: one-time password (OTP) flow via email * **OOB_TRIGGER_FL**: out-of-band (OOB) flow
+  /// The flow used in the challenge. Possible values:  * **PWD_OTP_PHONE_FL**: one-time password (OTP) flow via SMS * **PWD_OTP_EMAIL_FL**: one-time password (OTP) flow via email * **OOB_TRIGGER_FL**: out-of-band (OOB) flow * **OTP_PHONE_FL**: one-time password (OTP) flow via SMS with no passcode * **PASSKEY_TRIGGER_FL**: passkey flow
+  @BuiltValueEnumConst(wireName: r'OTP_PHONE_FL')
+  static const ChallengeInfoFlowEnum OTP_PHONE_FL = _$challengeInfoFlowEnum_OTP_PHONE_FL;
+  /// The flow used in the challenge. Possible values:  * **PWD_OTP_PHONE_FL**: one-time password (OTP) flow via SMS * **PWD_OTP_EMAIL_FL**: one-time password (OTP) flow via email * **OOB_TRIGGER_FL**: out-of-band (OOB) flow * **OTP_PHONE_FL**: one-time password (OTP) flow via SMS with no passcode * **PASSKEY_TRIGGER_FL**: passkey flow
+  @BuiltValueEnumConst(wireName: r'PASSKEY_TRIGGER_FL')
+  static const ChallengeInfoFlowEnum PASSKEY_TRIGGER_FL = _$challengeInfoFlowEnum_PASSKEY_TRIGGER_FL;
+  /// The flow used in the challenge. Possible values:  * **PWD_OTP_PHONE_FL**: one-time password (OTP) flow via SMS * **PWD_OTP_EMAIL_FL**: one-time password (OTP) flow via email * **OOB_TRIGGER_FL**: out-of-band (OOB) flow * **OTP_PHONE_FL**: one-time password (OTP) flow via SMS with no passcode * **PASSKEY_TRIGGER_FL**: passkey flow
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const ChallengeInfoFlowEnum unknownDefaultOpenApi = _$challengeInfoFlowEnum_unknownDefaultOpenApi;
 

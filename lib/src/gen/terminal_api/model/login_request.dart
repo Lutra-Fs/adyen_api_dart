@@ -58,12 +58,12 @@ abstract class LoginRequest implements Built<LoginRequest, LoginRequestBuilder> 
   /// Type of token replacing the PAN of a payment card to identify the payment  mean of the customer. It allows, for a merchant, to use a token for a transaction  only or for a longer period. Possible values: * **Customer** * **Transaction**
   @BuiltValueField(wireName: r'TokenRequestedType')
   TokenRequestedType? get tokenRequestedType;
-  // enum tokenRequestedTypeEnum {  Customer,  Transaction,  };
+  // enum tokenRequestedTypeEnum {  Transaction,  Customer,  };
 
   /// List of customer order open, closed or both to be sent in the response messages. Possible values: * **Both** * **Closed** * **Open**
   @BuiltValueField(wireName: r'CustomerOrderReq')
   BuiltList<LoginRequestCustomerOrderReqEnum>? get customerOrderReq;
-  // enum customerOrderReqEnum {  Both,  Closed,  Open,  };
+  // enum customerOrderReqEnum {  Open,  Closed,  Both,  };
 
   /// Serial number of a POI Terminal. If the login involve a POI Terminal and not the first Login to the POI System.
   @BuiltValueField(wireName: r'POISerialNumber')
@@ -281,12 +281,12 @@ class _$LoginRequestSerializer implements PrimitiveSerializer<LoginRequest> {
 
 class LoginRequestCustomerOrderReqEnum extends EnumClass {
 
-  @BuiltValueEnumConst(wireName: r'Both')
-  static const LoginRequestCustomerOrderReqEnum both = _$loginRequestCustomerOrderReqEnum_both;
-  @BuiltValueEnumConst(wireName: r'Closed')
-  static const LoginRequestCustomerOrderReqEnum closed = _$loginRequestCustomerOrderReqEnum_closed;
   @BuiltValueEnumConst(wireName: r'Open')
   static const LoginRequestCustomerOrderReqEnum open = _$loginRequestCustomerOrderReqEnum_open;
+  @BuiltValueEnumConst(wireName: r'Closed')
+  static const LoginRequestCustomerOrderReqEnum closed = _$loginRequestCustomerOrderReqEnum_closed;
+  @BuiltValueEnumConst(wireName: r'Both')
+  static const LoginRequestCustomerOrderReqEnum both = _$loginRequestCustomerOrderReqEnum_both;
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const LoginRequestCustomerOrderReqEnum unknownDefaultOpenApi = _$loginRequestCustomerOrderReqEnum_unknownDefaultOpenApi;
 

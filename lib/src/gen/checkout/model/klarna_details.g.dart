@@ -114,6 +114,8 @@ class _$KlarnaDetails extends KlarnaDetails {
   @override
   final String? deliveryAddress;
   @override
+  final String? merchantData;
+  @override
   final String? personalDetails;
   @override
   final String? recurringDetailReference;
@@ -133,6 +135,7 @@ class _$KlarnaDetails extends KlarnaDetails {
     this.billingAddress,
     this.checkoutAttemptId,
     this.deliveryAddress,
+    this.merchantData,
     this.personalDetails,
     this.recurringDetailReference,
     this.sdkData,
@@ -154,6 +157,7 @@ class _$KlarnaDetails extends KlarnaDetails {
         billingAddress == other.billingAddress &&
         checkoutAttemptId == other.checkoutAttemptId &&
         deliveryAddress == other.deliveryAddress &&
+        merchantData == other.merchantData &&
         personalDetails == other.personalDetails &&
         recurringDetailReference == other.recurringDetailReference &&
         sdkData == other.sdkData &&
@@ -168,6 +172,7 @@ class _$KlarnaDetails extends KlarnaDetails {
     _$hash = $jc(_$hash, billingAddress.hashCode);
     _$hash = $jc(_$hash, checkoutAttemptId.hashCode);
     _$hash = $jc(_$hash, deliveryAddress.hashCode);
+    _$hash = $jc(_$hash, merchantData.hashCode);
     _$hash = $jc(_$hash, personalDetails.hashCode);
     _$hash = $jc(_$hash, recurringDetailReference.hashCode);
     _$hash = $jc(_$hash, sdkData.hashCode);
@@ -184,6 +189,7 @@ class _$KlarnaDetails extends KlarnaDetails {
           ..add('billingAddress', billingAddress)
           ..add('checkoutAttemptId', checkoutAttemptId)
           ..add('deliveryAddress', deliveryAddress)
+          ..add('merchantData', merchantData)
           ..add('personalDetails', personalDetails)
           ..add('recurringDetailReference', recurringDetailReference)
           ..add('sdkData', sdkData)
@@ -212,6 +218,10 @@ class KlarnaDetailsBuilder
   String? get deliveryAddress => _$this._deliveryAddress;
   set deliveryAddress(String? deliveryAddress) =>
       _$this._deliveryAddress = deliveryAddress;
+
+  String? _merchantData;
+  String? get merchantData => _$this._merchantData;
+  set merchantData(String? merchantData) => _$this._merchantData = merchantData;
 
   String? _personalDetails;
   String? get personalDetails => _$this._personalDetails;
@@ -250,6 +260,7 @@ class KlarnaDetailsBuilder
       _billingAddress = $v.billingAddress;
       _checkoutAttemptId = $v.checkoutAttemptId;
       _deliveryAddress = $v.deliveryAddress;
+      _merchantData = $v.merchantData;
       _personalDetails = $v.personalDetails;
       _recurringDetailReference = $v.recurringDetailReference;
       _sdkData = $v.sdkData;
@@ -281,6 +292,7 @@ class KlarnaDetailsBuilder
           billingAddress: billingAddress,
           checkoutAttemptId: checkoutAttemptId,
           deliveryAddress: deliveryAddress,
+          merchantData: merchantData,
           personalDetails: personalDetails,
           recurringDetailReference: recurringDetailReference,
           sdkData: sdkData,

@@ -22,12 +22,12 @@ abstract class EnableServiceRequest implements Built<EnableServiceRequest, Enabl
   /// Action to realise on a transaction. In an `EnableService` request message:   - Starts a transaction by a swipe-ahead mechanism, with the services which are enabled.   - Aborts a swipe-ahead transaction or started by a `CardAcquisition`, and not followed by a service request from the Sale System to complete the transaction. Possible values: * **AbortTransaction** * **StartTransaction**
   @BuiltValueField(wireName: r'TransactionAction')
   TransactionAction get transactionAction;
-  // enum transactionActionEnum {  AbortTransaction,  StartTransaction,  };
+  // enum transactionActionEnum {  StartTransaction,  AbortTransaction,  };
 
   /// Services which are enabled before the start-up of a transaction. Mandatory if `TransactionAction` is `StartTransaction`, absent if not. Possible values: * **CardAcquisition** * **Loyalty** * **Payment**
   @BuiltValueField(wireName: r'ServicesEnabled')
   BuiltList<EnableServiceRequestServicesEnabledEnum>? get servicesEnabled;
-  // enum servicesEnabledEnum {  CardAcquisition,  Loyalty,  Payment,  };
+  // enum servicesEnabledEnum {  CardAcquisition,  Payment,  Loyalty,  };
 
   /// Information to display and the way to process the display.
   @BuiltValueField(wireName: r'DisplayOutput')
@@ -152,10 +152,10 @@ class EnableServiceRequestServicesEnabledEnum extends EnumClass {
 
   @BuiltValueEnumConst(wireName: r'CardAcquisition')
   static const EnableServiceRequestServicesEnabledEnum cardAcquisition = _$enableServiceRequestServicesEnabledEnum_cardAcquisition;
-  @BuiltValueEnumConst(wireName: r'Loyalty')
-  static const EnableServiceRequestServicesEnabledEnum loyalty = _$enableServiceRequestServicesEnabledEnum_loyalty;
   @BuiltValueEnumConst(wireName: r'Payment')
   static const EnableServiceRequestServicesEnabledEnum payment = _$enableServiceRequestServicesEnabledEnum_payment;
+  @BuiltValueEnumConst(wireName: r'Loyalty')
+  static const EnableServiceRequestServicesEnabledEnum loyalty = _$enableServiceRequestServicesEnabledEnum_loyalty;
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const EnableServiceRequestServicesEnabledEnum unknownDefaultOpenApi = _$enableServiceRequestServicesEnabledEnum_unknownDefaultOpenApi;
 

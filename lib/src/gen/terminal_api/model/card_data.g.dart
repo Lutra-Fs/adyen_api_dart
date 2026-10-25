@@ -6,55 +6,55 @@ part of 'card_data.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-const CardDataEntryModeEnum _$cardDataEntryModeEnum_contactless =
-    const CardDataEntryModeEnum._('contactless');
-const CardDataEntryModeEnum _$cardDataEntryModeEnum_file =
-    const CardDataEntryModeEnum._('file');
-const CardDataEntryModeEnum _$cardDataEntryModeEnum_ICC =
-    const CardDataEntryModeEnum._('ICC');
-const CardDataEntryModeEnum _$cardDataEntryModeEnum_keyed =
-    const CardDataEntryModeEnum._('keyed');
-const CardDataEntryModeEnum _$cardDataEntryModeEnum_magStripe =
-    const CardDataEntryModeEnum._('magStripe');
-const CardDataEntryModeEnum _$cardDataEntryModeEnum_manual =
-    const CardDataEntryModeEnum._('manual');
-const CardDataEntryModeEnum _$cardDataEntryModeEnum_mobile =
-    const CardDataEntryModeEnum._('mobile');
 const CardDataEntryModeEnum _$cardDataEntryModeEnum_RFID =
     const CardDataEntryModeEnum._('RFID');
+const CardDataEntryModeEnum _$cardDataEntryModeEnum_keyed =
+    const CardDataEntryModeEnum._('keyed');
+const CardDataEntryModeEnum _$cardDataEntryModeEnum_manual =
+    const CardDataEntryModeEnum._('manual');
+const CardDataEntryModeEnum _$cardDataEntryModeEnum_file =
+    const CardDataEntryModeEnum._('file');
 const CardDataEntryModeEnum _$cardDataEntryModeEnum_scanned =
     const CardDataEntryModeEnum._('scanned');
+const CardDataEntryModeEnum _$cardDataEntryModeEnum_magStripe =
+    const CardDataEntryModeEnum._('magStripe');
+const CardDataEntryModeEnum _$cardDataEntryModeEnum_ICC =
+    const CardDataEntryModeEnum._('ICC');
 const CardDataEntryModeEnum _$cardDataEntryModeEnum_synchronousICC =
     const CardDataEntryModeEnum._('synchronousICC');
 const CardDataEntryModeEnum _$cardDataEntryModeEnum_tapped =
     const CardDataEntryModeEnum._('tapped');
+const CardDataEntryModeEnum _$cardDataEntryModeEnum_contactless =
+    const CardDataEntryModeEnum._('contactless');
+const CardDataEntryModeEnum _$cardDataEntryModeEnum_mobile =
+    const CardDataEntryModeEnum._('mobile');
 const CardDataEntryModeEnum _$cardDataEntryModeEnum_unknownDefaultOpenApi =
     const CardDataEntryModeEnum._('unknownDefaultOpenApi');
 
 CardDataEntryModeEnum _$cardDataEntryModeEnumValueOf(String name) {
   switch (name) {
-    case 'contactless':
-      return _$cardDataEntryModeEnum_contactless;
-    case 'file':
-      return _$cardDataEntryModeEnum_file;
-    case 'ICC':
-      return _$cardDataEntryModeEnum_ICC;
-    case 'keyed':
-      return _$cardDataEntryModeEnum_keyed;
-    case 'magStripe':
-      return _$cardDataEntryModeEnum_magStripe;
-    case 'manual':
-      return _$cardDataEntryModeEnum_manual;
-    case 'mobile':
-      return _$cardDataEntryModeEnum_mobile;
     case 'RFID':
       return _$cardDataEntryModeEnum_RFID;
+    case 'keyed':
+      return _$cardDataEntryModeEnum_keyed;
+    case 'manual':
+      return _$cardDataEntryModeEnum_manual;
+    case 'file':
+      return _$cardDataEntryModeEnum_file;
     case 'scanned':
       return _$cardDataEntryModeEnum_scanned;
+    case 'magStripe':
+      return _$cardDataEntryModeEnum_magStripe;
+    case 'ICC':
+      return _$cardDataEntryModeEnum_ICC;
     case 'synchronousICC':
       return _$cardDataEntryModeEnum_synchronousICC;
     case 'tapped':
       return _$cardDataEntryModeEnum_tapped;
+    case 'contactless':
+      return _$cardDataEntryModeEnum_contactless;
+    case 'mobile':
+      return _$cardDataEntryModeEnum_mobile;
     case 'unknownDefaultOpenApi':
       return _$cardDataEntryModeEnum_unknownDefaultOpenApi;
     default:
@@ -64,17 +64,17 @@ CardDataEntryModeEnum _$cardDataEntryModeEnumValueOf(String name) {
 
 final BuiltSet<CardDataEntryModeEnum> _$cardDataEntryModeEnumValues =
     BuiltSet<CardDataEntryModeEnum>(const <CardDataEntryModeEnum>[
-      _$cardDataEntryModeEnum_contactless,
-      _$cardDataEntryModeEnum_file,
-      _$cardDataEntryModeEnum_ICC,
-      _$cardDataEntryModeEnum_keyed,
-      _$cardDataEntryModeEnum_magStripe,
-      _$cardDataEntryModeEnum_manual,
-      _$cardDataEntryModeEnum_mobile,
       _$cardDataEntryModeEnum_RFID,
+      _$cardDataEntryModeEnum_keyed,
+      _$cardDataEntryModeEnum_manual,
+      _$cardDataEntryModeEnum_file,
       _$cardDataEntryModeEnum_scanned,
+      _$cardDataEntryModeEnum_magStripe,
+      _$cardDataEntryModeEnum_ICC,
       _$cardDataEntryModeEnum_synchronousICC,
       _$cardDataEntryModeEnum_tapped,
+      _$cardDataEntryModeEnum_contactless,
+      _$cardDataEntryModeEnum_mobile,
       _$cardDataEntryModeEnum_unknownDefaultOpenApi,
     ]);
 
@@ -84,31 +84,31 @@ Serializer<CardDataEntryModeEnum> _$cardDataEntryModeEnumSerializer =
 class _$CardDataEntryModeEnumSerializer
     implements PrimitiveSerializer<CardDataEntryModeEnum> {
   static const Map<String, Object> _toWire = const <String, Object>{
-    'contactless': 'Contactless',
-    'file': 'File',
-    'ICC': 'ICC',
-    'keyed': 'Keyed',
-    'magStripe': 'MagStripe',
-    'manual': 'Manual',
-    'mobile': 'Mobile',
     'RFID': 'RFID',
+    'keyed': 'Keyed',
+    'manual': 'Manual',
+    'file': 'File',
     'scanned': 'Scanned',
+    'magStripe': 'MagStripe',
+    'ICC': 'ICC',
     'synchronousICC': 'SynchronousICC',
     'tapped': 'Tapped',
+    'contactless': 'Contactless',
+    'mobile': 'Mobile',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
-    'Contactless': 'contactless',
-    'File': 'file',
-    'ICC': 'ICC',
-    'Keyed': 'keyed',
-    'MagStripe': 'magStripe',
-    'Manual': 'manual',
-    'Mobile': 'mobile',
     'RFID': 'RFID',
+    'Keyed': 'keyed',
+    'Manual': 'manual',
+    'File': 'file',
     'Scanned': 'scanned',
+    'MagStripe': 'magStripe',
+    'ICC': 'ICC',
     'SynchronousICC': 'synchronousICC',
     'Tapped': 'tapped',
+    'Contactless': 'contactless',
+    'Mobile': 'mobile',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
 

@@ -175,6 +175,8 @@ const TransactionRuleTypeEnum _$transactionRuleTypeEnum_allowList =
     const TransactionRuleTypeEnum._('allowList');
 const TransactionRuleTypeEnum _$transactionRuleTypeEnum_blockList =
     const TransactionRuleTypeEnum._('blockList');
+const TransactionRuleTypeEnum _$transactionRuleTypeEnum_bypass =
+    const TransactionRuleTypeEnum._('bypass');
 const TransactionRuleTypeEnum _$transactionRuleTypeEnum_maxUsage =
     const TransactionRuleTypeEnum._('maxUsage');
 const TransactionRuleTypeEnum _$transactionRuleTypeEnum_velocity =
@@ -188,6 +190,8 @@ TransactionRuleTypeEnum _$transactionRuleTypeEnumValueOf(String name) {
       return _$transactionRuleTypeEnum_allowList;
     case 'blockList':
       return _$transactionRuleTypeEnum_blockList;
+    case 'bypass':
+      return _$transactionRuleTypeEnum_bypass;
     case 'maxUsage':
       return _$transactionRuleTypeEnum_maxUsage;
     case 'velocity':
@@ -203,6 +207,7 @@ final BuiltSet<TransactionRuleTypeEnum> _$transactionRuleTypeEnumValues =
     BuiltSet<TransactionRuleTypeEnum>(const <TransactionRuleTypeEnum>[
       _$transactionRuleTypeEnum_allowList,
       _$transactionRuleTypeEnum_blockList,
+      _$transactionRuleTypeEnum_bypass,
       _$transactionRuleTypeEnum_maxUsage,
       _$transactionRuleTypeEnum_velocity,
       _$transactionRuleTypeEnum_unknownDefaultOpenApi,
@@ -380,6 +385,7 @@ class _$TransactionRuleTypeEnumSerializer
   static const Map<String, Object> _toWire = const <String, Object>{
     'allowList': 'allowList',
     'blockList': 'blockList',
+    'bypass': 'bypass',
     'maxUsage': 'maxUsage',
     'velocity': 'velocity',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
@@ -387,6 +393,7 @@ class _$TransactionRuleTypeEnumSerializer
   static const Map<Object, String> _fromWire = const <Object, String>{
     'allowList': 'allowList',
     'blockList': 'blockList',
+    'bypass': 'bypass',
     'maxUsage': 'maxUsage',
     'velocity': 'velocity',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
@@ -430,6 +437,8 @@ class _$TransactionRule extends TransactionRule {
   @override
   final TransactionRuleOutcomeTypeEnum? outcomeType;
   @override
+  final String? overridesRule;
+  @override
   final TransactionRulePurposeEnum? purpose;
   @override
   final String reference;
@@ -457,6 +466,7 @@ class _$TransactionRule extends TransactionRule {
     this.id,
     required this.interval,
     this.outcomeType,
+    this.overridesRule,
     this.purpose,
     required this.reference,
     this.requestType,
@@ -484,6 +494,7 @@ class _$TransactionRule extends TransactionRule {
         id == other.id &&
         interval == other.interval &&
         outcomeType == other.outcomeType &&
+        overridesRule == other.overridesRule &&
         purpose == other.purpose &&
         reference == other.reference &&
         requestType == other.requestType &&
@@ -504,6 +515,7 @@ class _$TransactionRule extends TransactionRule {
     _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, interval.hashCode);
     _$hash = $jc(_$hash, outcomeType.hashCode);
+    _$hash = $jc(_$hash, overridesRule.hashCode);
     _$hash = $jc(_$hash, purpose.hashCode);
     _$hash = $jc(_$hash, reference.hashCode);
     _$hash = $jc(_$hash, requestType.hashCode);
@@ -526,6 +538,7 @@ class _$TransactionRule extends TransactionRule {
           ..add('id', id)
           ..add('interval', interval)
           ..add('outcomeType', outcomeType)
+          ..add('overridesRule', overridesRule)
           ..add('purpose', purpose)
           ..add('reference', reference)
           ..add('requestType', requestType)
@@ -576,6 +589,11 @@ class TransactionRuleBuilder
   set outcomeType(TransactionRuleOutcomeTypeEnum? outcomeType) =>
       _$this._outcomeType = outcomeType;
 
+  String? _overridesRule;
+  String? get overridesRule => _$this._overridesRule;
+  set overridesRule(String? overridesRule) =>
+      _$this._overridesRule = overridesRule;
+
   TransactionRulePurposeEnum? _purpose;
   TransactionRulePurposeEnum? get purpose => _$this._purpose;
   set purpose(TransactionRulePurposeEnum? purpose) => _$this._purpose = purpose;
@@ -625,6 +643,7 @@ class TransactionRuleBuilder
       _id = $v.id;
       _interval = $v.interval.toBuilder();
       _outcomeType = $v.outcomeType;
+      _overridesRule = $v.overridesRule;
       _purpose = $v.purpose;
       _reference = $v.reference;
       _requestType = $v.requestType;
@@ -668,6 +687,7 @@ class TransactionRuleBuilder
             id: id,
             interval: interval.build(),
             outcomeType: outcomeType,
+            overridesRule: overridesRule,
             purpose: purpose,
             reference: BuiltValueNullFieldError.checkNotNull(
               reference,

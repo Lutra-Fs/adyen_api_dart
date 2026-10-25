@@ -31,17 +31,17 @@ abstract class MessageHeader implements Built<MessageHeader, MessageHeaderBuilde
   /// Class of the message. Possible values: * **Device** * **Event** * **Service**
   @BuiltValueField(wireName: r'MessageClass')
   MessageClass get messageClass;
-  // enum messageClassEnum {  Device,  Event,  Service,  };
+  // enum messageClassEnum {  Service,  Device,  Event,  };
 
   /// Category of message. Possible values: * **Abort** * **Admin** * **BalanceInquiry** * **Batch** * **CardAcquisition** * **CardReaderInit** * **CardReaderPowerOff** * **Diagnosis** * **Display** * **EnableService** * **Event** * **GetTotals** * **Input** * **InputUpdate** * **Login** * **Logout** * **Loyalty** * **None** * **PIN** * **Payment** * **Print** * **Reconciliation** * **Reversal** * **Sound** * **StoredValue** * **TransactionStatus** * **Transmit**
   @BuiltValueField(wireName: r'MessageCategory')
   MessageCategory get messageCategory;
-  // enum messageCategoryEnum {  Abort,  Admin,  BalanceInquiry,  CardAcquisition,  Diagnosis,  Display,  EnableService,  Event,  GetTotals,  Input,  InputUpdate,  Login,  Logout,  Loyalty,  None,  Payment,  Print,  Reconciliation,  Reversal,  StoredValue,  TransactionStatus,  };
+  // enum messageCategoryEnum {  Abort,  Admin,  BalanceInquiry,  CardAcquisition,  Diagnosis,  Display,  EnableService,  Event,  GetTotals,  Input,  InputUpdate,  Login,  Logout,  Loyalty,  Payment,  Print,  Reconciliation,  Reversal,  StoredValue,  TransactionStatus,  None,  };
 
   /// Type of message of the Sale to POI protocol. Possible values: * **Notification** * **Request** * **Response**
   @BuiltValueField(wireName: r'MessageType')
   MessageType get messageType;
-  // enum messageTypeEnum {  Notification,  Request,  Response,  };
+  // enum messageTypeEnum {  Request,  Response,  Notification,  };
 
   /// Identification of a message pair, which processes a transaction. Required if Service or Event MessageClass message or if Device MessageClass and request from POI or response from Sale.
   @BuiltValueField(wireName: r'ServiceID')

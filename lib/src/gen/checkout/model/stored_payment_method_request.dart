@@ -3,6 +3,7 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:adyen_api/src/gen/checkout/model/opi_request.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:adyen_api/src/gen/checkout/model/payment_method_to_store.dart';
 import 'package:built_value/built_value.dart';
@@ -14,6 +15,7 @@ part 'stored_payment_method_request.g.dart';
 ///
 /// Properties:
 /// * [merchantAccount] - The merchant account identifier, with which you want to process the transaction.
+/// * [opi] - Configuration for Oracle Payment Interface (OPI) integrations.
 /// * [paymentMethod] - Contains the information required to store a payment method.
 /// * [recurringProcessingModel] - Defines a recurring payment type. Required when creating a token to store payment details. Allowed values: * `Subscription` – A transaction for a fixed or variable amount, which follows a fixed schedule. * `CardOnFile` – With a card-on-file (CoF) transaction, card details are stored to enable one-click or omnichannel journeys, or simply to streamline the checkout process. Any subscription not following a fixed schedule is also considered a card-on-file transaction. * `UnscheduledCardOnFile` – An unscheduled card-on-file (UCoF) transaction is a transaction that occurs on a non-fixed schedule and/or have variable amounts. For example, automatic top-ups when a cardholder's balance drops below a certain amount. 
 /// * [shopperEmail] - The shopper's email address. We recommend that you provide this data, as it is used in velocity fraud checks.
@@ -24,6 +26,10 @@ abstract class StoredPaymentMethodRequest implements Built<StoredPaymentMethodRe
   /// The merchant account identifier, with which you want to process the transaction.
   @BuiltValueField(wireName: r'merchantAccount')
   String get merchantAccount;
+
+  /// Configuration for Oracle Payment Interface (OPI) integrations.
+  @BuiltValueField(wireName: r'opi')
+  OpiRequest? get opi;
 
   /// Contains the information required to store a payment method.
   @BuiltValueField(wireName: r'paymentMethod')
@@ -74,6 +80,13 @@ class _$StoredPaymentMethodRequestSerializer implements PrimitiveSerializer<Stor
       object.merchantAccount,
       specifiedType: const FullType(String),
     );
+    if (object.opi != null) {
+      yield r'opi';
+      yield serializers.serialize(
+        object.opi,
+        specifiedType: const FullType(OpiRequest),
+      );
+    }
     yield r'paymentMethod';
     yield serializers.serialize(
       object.paymentMethod,
@@ -132,6 +145,13 @@ class _$StoredPaymentMethodRequestSerializer implements PrimitiveSerializer<Stor
             specifiedType: const FullType(String),
           ) as String;
           result.merchantAccount = valueDes;
+          break;
+        case r'opi':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(OpiRequest),
+          ) as OpiRequest;
+          result.opi.replace(valueDes);
           break;
         case r'paymentMethod':
           final valueDes = serializers.deserialize(

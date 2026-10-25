@@ -10,7 +10,9 @@ import 'package:dio/dio.dart';
 
 import 'package:adyen_api/src/gen/checkout/model/apple_pay_session_request.dart';
 import 'package:adyen_api/src/gen/checkout/model/apple_pay_session_response.dart';
-import 'package:adyen_api/src/gen/checkout/model/default_error_response_entity.dart';
+import 'package:adyen_api/src/gen/checkout/model/calculate_tax_request.dart';
+import 'package:adyen_api/src/gen/checkout/model/calculate_tax_response.dart';
+import 'package:adyen_api/src/gen/checkout/model/checkout_error_response_entity.dart';
 import 'package:adyen_api/src/gen/checkout/model/paypal_update_order_request.dart';
 import 'package:adyen_api/src/gen/checkout/model/paypal_update_order_response.dart';
 import 'package:adyen_api/src/gen/checkout/model/service_error.dart';
@@ -18,6 +20,8 @@ import 'package:adyen_api/src/gen/checkout/model/utility_request.dart';
 import 'package:adyen_api/src/gen/checkout/model/utility_response.dart';
 import 'package:adyen_api/src/gen/checkout/model/validate_shopper_id_request.dart';
 import 'package:adyen_api/src/gen/checkout/model/validate_shopper_id_response.dart';
+import 'package:adyen_api/src/gen/checkout/model/verify_shopper_tax_identification_request.dart';
+import 'package:adyen_api/src/gen/checkout/model/verify_shopper_tax_identification_response.dart';
 
 class UtilityApi {
 
@@ -125,6 +129,101 @@ class UtilityApi {
     }
 
     return Response<ApplePaySessionResponse>(
+      data: _responseData,
+      headers: _response.headers,
+      isRedirect: _response.isRedirect,
+      requestOptions: _response.requestOptions,
+      redirects: _response.redirects,
+      statusCode: _response.statusCode,
+      statusMessage: _response.statusMessage,
+      extra: _response.extra,
+    );
+  }
+
+  /// Calculate the tax for a transaction.
+  /// Calculates the applicable tax, for example the India Liberalised Remittance Scheme Tax Collected at Source, based on the taxable amount and the tax calculation context. The response returns the canonical calculation and an opaque token that you submit in /payments. Use taxCalculation.totalAmount as the amount in /payments.
+  ///
+  /// Parameters:
+  /// * [calculateTaxRequest] 
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future] containing a [Response] with a [CalculateTaxResponse] as data
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<CalculateTaxResponse>> postCalculateTax({ 
+    required CalculateTaxRequest calculateTaxRequest,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async {
+    final _path = r'/calculateTax';
+    final _options = Options(
+      method: r'POST',
+      headers: <String, dynamic>{
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[],
+        ...?extra,
+      },
+      contentType: 'application/json',
+      validateStatus: validateStatus,
+    );
+
+    dynamic _bodyData;
+
+    try {
+      const _type = FullType(CalculateTaxRequest);
+      _bodyData = _serializers.serialize(calculateTaxRequest, specifiedType: _type);
+
+    } catch(error, stackTrace) {
+      throw DioException(
+         requestOptions: _options.compose(
+          _dio.options,
+          _path,
+        ),
+        type: DioExceptionType.unknown,
+        error: error,
+        stackTrace: stackTrace,
+      );
+    }
+
+    final _response = await _dio.request<Object>(
+      _path,
+      data: _bodyData,
+      options: _options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    CalculateTaxResponse? _responseData;
+
+    try {
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(CalculateTaxResponse),
+      ) as CalculateTaxResponse;
+
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _response.requestOptions,
+        response: _response,
+        type: DioExceptionType.unknown,
+        error: error,
+        stackTrace: stackTrace,
+      );
+    }
+
+    return Response<CalculateTaxResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -439,6 +538,101 @@ class UtilityApi {
     }
 
     return Response<ValidateShopperIdResponse>(
+      data: _responseData,
+      headers: _response.headers,
+      isRedirect: _response.isRedirect,
+      requestOptions: _response.requestOptions,
+      redirects: _response.redirects,
+      statusCode: _response.statusCode,
+      statusMessage: _response.statusMessage,
+      extra: _response.extra,
+    );
+  }
+
+  /// Verify the shopper&#39;s tax identification.
+  /// In some countries, collecting and verifying tax information is required for regulatory compliance. Submit the shopper&#39;s tax identification for verification; when the verification succeeds, the response returns an opaque token that you submit in /payments.
+  ///
+  /// Parameters:
+  /// * [verifyShopperTaxIdentificationRequest] 
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future] containing a [Response] with a [VerifyShopperTaxIdentificationResponse] as data
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<VerifyShopperTaxIdentificationResponse>> postVerifyShopperTaxIdentification({ 
+    required VerifyShopperTaxIdentificationRequest verifyShopperTaxIdentificationRequest,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async {
+    final _path = r'/verifyShopperTaxIdentification';
+    final _options = Options(
+      method: r'POST',
+      headers: <String, dynamic>{
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[],
+        ...?extra,
+      },
+      contentType: 'application/json',
+      validateStatus: validateStatus,
+    );
+
+    dynamic _bodyData;
+
+    try {
+      const _type = FullType(VerifyShopperTaxIdentificationRequest);
+      _bodyData = _serializers.serialize(verifyShopperTaxIdentificationRequest, specifiedType: _type);
+
+    } catch(error, stackTrace) {
+      throw DioException(
+         requestOptions: _options.compose(
+          _dio.options,
+          _path,
+        ),
+        type: DioExceptionType.unknown,
+        error: error,
+        stackTrace: stackTrace,
+      );
+    }
+
+    final _response = await _dio.request<Object>(
+      _path,
+      data: _bodyData,
+      options: _options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    VerifyShopperTaxIdentificationResponse? _responseData;
+
+    try {
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(VerifyShopperTaxIdentificationResponse),
+      ) as VerifyShopperTaxIdentificationResponse;
+
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _response.requestOptions,
+        response: _response,
+        type: DioExceptionType.unknown,
+        error: error,
+        stackTrace: stackTrace,
+      );
+    }
+
+    return Response<VerifyShopperTaxIdentificationResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

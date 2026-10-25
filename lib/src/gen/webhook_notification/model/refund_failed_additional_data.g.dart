@@ -18,6 +18,12 @@ class _$RefundFailedAdditionalData extends RefundFailedAdditionalData {
   @override
   final String? paymentMethodVariant;
   @override
+  final String? refusalReason;
+  @override
+  final String? refusalReasonCode;
+  @override
+  final String? refusalReasonRaw;
+  @override
   final String? shopperCountry;
 
   factory _$RefundFailedAdditionalData([
@@ -30,6 +36,9 @@ class _$RefundFailedAdditionalData extends RefundFailedAdditionalData {
     this.coBrandedWith,
     this.hmacSignature,
     this.paymentMethodVariant,
+    this.refusalReason,
+    this.refusalReasonCode,
+    this.refusalReasonRaw,
     this.shopperCountry,
   }) : super._();
   @override
@@ -50,6 +59,9 @@ class _$RefundFailedAdditionalData extends RefundFailedAdditionalData {
         coBrandedWith == other.coBrandedWith &&
         hmacSignature == other.hmacSignature &&
         paymentMethodVariant == other.paymentMethodVariant &&
+        refusalReason == other.refusalReason &&
+        refusalReasonCode == other.refusalReasonCode &&
+        refusalReasonRaw == other.refusalReasonRaw &&
         shopperCountry == other.shopperCountry;
   }
 
@@ -61,6 +73,9 @@ class _$RefundFailedAdditionalData extends RefundFailedAdditionalData {
     _$hash = $jc(_$hash, coBrandedWith.hashCode);
     _$hash = $jc(_$hash, hmacSignature.hashCode);
     _$hash = $jc(_$hash, paymentMethodVariant.hashCode);
+    _$hash = $jc(_$hash, refusalReason.hashCode);
+    _$hash = $jc(_$hash, refusalReasonCode.hashCode);
+    _$hash = $jc(_$hash, refusalReasonRaw.hashCode);
     _$hash = $jc(_$hash, shopperCountry.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -74,6 +89,9 @@ class _$RefundFailedAdditionalData extends RefundFailedAdditionalData {
           ..add('coBrandedWith', coBrandedWith)
           ..add('hmacSignature', hmacSignature)
           ..add('paymentMethodVariant', paymentMethodVariant)
+          ..add('refusalReason', refusalReason)
+          ..add('refusalReasonCode', refusalReasonCode)
+          ..add('refusalReasonRaw', refusalReasonRaw)
           ..add('shopperCountry', shopperCountry))
         .toString();
   }
@@ -108,6 +126,21 @@ class RefundFailedAdditionalDataBuilder
   set paymentMethodVariant(String? paymentMethodVariant) =>
       _$this._paymentMethodVariant = paymentMethodVariant;
 
+  String? _refusalReason;
+  String? get refusalReason => _$this._refusalReason;
+  set refusalReason(String? refusalReason) =>
+      _$this._refusalReason = refusalReason;
+
+  String? _refusalReasonCode;
+  String? get refusalReasonCode => _$this._refusalReasonCode;
+  set refusalReasonCode(String? refusalReasonCode) =>
+      _$this._refusalReasonCode = refusalReasonCode;
+
+  String? _refusalReasonRaw;
+  String? get refusalReasonRaw => _$this._refusalReasonRaw;
+  set refusalReasonRaw(String? refusalReasonRaw) =>
+      _$this._refusalReasonRaw = refusalReasonRaw;
+
   String? _shopperCountry;
   String? get shopperCountry => _$this._shopperCountry;
   set shopperCountry(String? shopperCountry) =>
@@ -125,6 +158,9 @@ class RefundFailedAdditionalDataBuilder
       _coBrandedWith = $v.coBrandedWith;
       _hmacSignature = $v.hmacSignature;
       _paymentMethodVariant = $v.paymentMethodVariant;
+      _refusalReason = $v.refusalReason;
+      _refusalReasonCode = $v.refusalReasonCode;
+      _refusalReasonRaw = $v.refusalReasonRaw;
       _shopperCountry = $v.shopperCountry;
       _$v = null;
     }
@@ -153,6 +189,9 @@ class RefundFailedAdditionalDataBuilder
           coBrandedWith: coBrandedWith,
           hmacSignature: hmacSignature,
           paymentMethodVariant: paymentMethodVariant,
+          refusalReason: refusalReason,
+          refusalReasonCode: refusalReasonCode,
+          refusalReasonRaw: refusalReasonRaw,
           shopperCountry: shopperCountry,
         );
     replace(_$result);

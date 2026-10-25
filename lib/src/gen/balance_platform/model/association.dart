@@ -14,7 +14,7 @@ part 'association.g.dart';
 ///
 /// Properties:
 /// * [entityId] - The unique identifier of the entity.
-/// * [entityType] - The type of entity you are associating the device with.   Possible values: **accountHolder** or **paymentInstrument**.
+/// * [entityType] - The type of entity you are associating the device with.   Possible values: **accountHolder**, **legalEntity** or **paymentInstrument**.
 /// * [scaDeviceId] - The unique identifier for the SCA device.
 /// * [status] - The status of the association.   Possible values: **active** or **pendingApproval**.
 @BuiltValue()
@@ -23,10 +23,10 @@ abstract class Association implements Built<Association, AssociationBuilder> {
   @BuiltValueField(wireName: r'entityId')
   String get entityId;
 
-  /// The type of entity you are associating the device with.   Possible values: **accountHolder** or **paymentInstrument**.
+  /// The type of entity you are associating the device with.   Possible values: **accountHolder**, **legalEntity** or **paymentInstrument**.
   @BuiltValueField(wireName: r'entityType')
   ScaEntityType get entityType;
-  // enum entityTypeEnum {  accountHolder,  paymentInstrument,  };
+  // enum entityTypeEnum {  accountHolder,  legalEntity,  paymentInstrument,  };
 
   /// The unique identifier for the SCA device.
   @BuiltValueField(wireName: r'scaDeviceId')

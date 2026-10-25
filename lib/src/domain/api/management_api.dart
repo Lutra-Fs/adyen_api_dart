@@ -22,6 +22,17 @@ import '../../gen/management/api/terminal_settings_merchant_level_api.dart'
 import '../../gen/management/api/users_merchant_level_api.dart' as management;
 import '../../gen/management/api/webhooks_merchant_level_api.dart'
     as management;
+import '../../gen/management/api/client_certificates_company_level_api.dart'
+    as management;
+import '../../gen/management/api/donation_campaigns_api.dart' as management;
+import '../../gen/management/api/terminal_themes_company_level_api.dart'
+    as management;
+import '../../gen/management/api/terminal_themes_merchant_level_api.dart'
+    as management;
+import '../../gen/management/api/terminal_themes_store_level_api.dart'
+    as management;
+import '../../gen/management/api/terminal_themes_terminal_level_api.dart'
+    as management;
 import '../../gen/management/serializers.dart' as management_serializers;
 
 /// API service for Account Management operations.
@@ -33,6 +44,25 @@ class ManagementAPI extends ApiService {
   ManagementAPI(super.client)
     : serializers = management_serializers.standardSerializers,
       super(baseUrl: buildBaseUrl(client.config, _basePath)) {
+    clientCertificatesCompanyLevelApi =
+        management.ClientCertificatesCompanyLevelApi(dio, serializers);
+    donationCampaignsApi = management.DonationCampaignsApi(dio, serializers);
+    terminalThemesCompanyLevelApi = management.TerminalThemesCompanyLevelApi(
+      dio,
+      serializers,
+    );
+    terminalThemesMerchantLevelApi = management.TerminalThemesMerchantLevelApi(
+      dio,
+      serializers,
+    );
+    terminalThemesStoreLevelApi = management.TerminalThemesStoreLevelApi(
+      dio,
+      serializers,
+    );
+    terminalThemesTerminalLevelApi = management.TerminalThemesTerminalLevelApi(
+      dio,
+      serializers,
+    );
     myApiCredentialApi = management.MyAPICredentialApi(dio, serializers);
     accountMerchantLevelApi = management.AccountMerchantLevelApi(
       dio,
@@ -121,4 +151,26 @@ class ManagementAPI extends ApiService {
 
   /// API for managing webhooks at merchant level.
   late final management.WebhooksMerchantLevelApi webhooksMerchantLevelApi;
+
+  /// API for managing client certificates at company level.
+  late final management.ClientCertificatesCompanyLevelApi
+  clientCertificatesCompanyLevelApi;
+
+  /// API for managing donation campaigns.
+  late final management.DonationCampaignsApi donationCampaignsApi;
+
+  /// API for managing terminal themes at company level.
+  late final management.TerminalThemesCompanyLevelApi
+  terminalThemesCompanyLevelApi;
+
+  /// API for managing terminal themes at merchant level.
+  late final management.TerminalThemesMerchantLevelApi
+  terminalThemesMerchantLevelApi;
+
+  /// API for managing terminal themes at store level.
+  late final management.TerminalThemesStoreLevelApi terminalThemesStoreLevelApi;
+
+  /// API for managing terminal themes at terminal level.
+  late final management.TerminalThemesTerminalLevelApi
+  terminalThemesTerminalLevelApi;
 }

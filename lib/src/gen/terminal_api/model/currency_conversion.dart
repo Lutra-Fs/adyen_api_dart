@@ -30,11 +30,11 @@ abstract class CurrencyConversion implements Built<CurrencyConversion, CurrencyC
 
   /// Rate of currency conversion.
   @BuiltValueField(wireName: r'Rate')
-  String? get rate;
+  num? get rate;
 
   /// Markup of a currency conversion amount as a percentage.
   @BuiltValueField(wireName: r'Markup')
-  String? get markup;
+  num? get markup;
 
   /// Commission for a currency conversion.
   @BuiltValueField(wireName: r'Commission')
@@ -84,14 +84,14 @@ class _$CurrencyConversionSerializer implements PrimitiveSerializer<CurrencyConv
       yield r'Rate';
       yield serializers.serialize(
         object.rate,
-        specifiedType: const FullType(String),
+        specifiedType: const FullType(num),
       );
     }
     if (object.markup != null) {
       yield r'Markup';
       yield serializers.serialize(
         object.markup,
-        specifiedType: const FullType(String),
+        specifiedType: const FullType(num),
       );
     }
     if (object.commission != null) {
@@ -148,15 +148,15 @@ class _$CurrencyConversionSerializer implements PrimitiveSerializer<CurrencyConv
         case r'Rate':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(String),
-          ) as String;
+            specifiedType: const FullType(num),
+          ) as num;
           result.rate = valueDes;
           break;
         case r'Markup':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(String),
-          ) as String;
+            specifiedType: const FullType(num),
+          ) as num;
           result.markup = valueDes;
           break;
         case r'Commission':

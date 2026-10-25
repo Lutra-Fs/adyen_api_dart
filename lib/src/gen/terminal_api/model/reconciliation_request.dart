@@ -21,7 +21,7 @@ abstract class ReconciliationRequest implements Built<ReconciliationRequest, Rec
   /// Type of Reconciliation requested by the Sale to the POI. Possible values: * **AcquirerReconciliation** * **AcquirerSynchronisation** * **PreviousReconciliation** * **SaleReconciliation**
   @BuiltValueField(wireName: r'ReconciliationType')
   ReconciliationType get reconciliationType;
-  // enum reconciliationTypeEnum {  AcquirerReconciliation,  AcquirerSynchronisation,  PreviousReconciliation,  SaleReconciliation,  };
+  // enum reconciliationTypeEnum {  SaleReconciliation,  AcquirerSynchronisation,  AcquirerReconciliation,  PreviousReconciliation,  };
 
   /// Identification of the Acquirer. Could be present only if ReconciliationType is AcquirerReconciliation or AcquirerSynchronisation.
   @BuiltValueField(wireName: r'AcquirerID')

@@ -11,11 +11,21 @@ part 'receipt_options.g.dart';
 /// ReceiptOptions
 ///
 /// Properties:
+/// * [headerLine1] - The text of the first header line to be shown on the receipt.
+/// * [headerLine2] - The text of the second header line to be shown on the receipt.
 /// * [logo] - The receipt logo converted to a Base64-encoded string. The image must be a .bmp file of < 256 KB, dimensions 240 (H) x 384 (W) px.
 /// * [promptBeforePrinting] - Indicates whether a screen appears asking if you want to print the shopper receipt.
 /// * [qrCodeData] - Data to print on the receipt as a QR code. This can include static text and the following variables:  - `${merchantreference}`: the merchant reference of the transaction. - `${pspreference}`: the PSP reference of the transaction.   For example, **http://www.example.com/order/${pspreference}/${merchantreference}**.
 @BuiltValue()
 abstract class ReceiptOptions implements Built<ReceiptOptions, ReceiptOptionsBuilder> {
+  /// The text of the first header line to be shown on the receipt.
+  @BuiltValueField(wireName: r'headerLine1')
+  String? get headerLine1;
+
+  /// The text of the second header line to be shown on the receipt.
+  @BuiltValueField(wireName: r'headerLine2')
+  String? get headerLine2;
+
   /// The receipt logo converted to a Base64-encoded string. The image must be a .bmp file of < 256 KB, dimensions 240 (H) x 384 (W) px.
   @BuiltValueField(wireName: r'logo')
   String? get logo;
@@ -51,6 +61,20 @@ class _$ReceiptOptionsSerializer implements PrimitiveSerializer<ReceiptOptions> 
     ReceiptOptions object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
+    if (object.headerLine1 != null) {
+      yield r'headerLine1';
+      yield serializers.serialize(
+        object.headerLine1,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.headerLine2 != null) {
+      yield r'headerLine2';
+      yield serializers.serialize(
+        object.headerLine2,
+        specifiedType: const FullType(String),
+      );
+    }
     if (object.logo != null) {
       yield r'logo';
       yield serializers.serialize(
@@ -95,6 +119,20 @@ class _$ReceiptOptionsSerializer implements PrimitiveSerializer<ReceiptOptions> 
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
+        case r'headerLine1':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.headerLine1 = valueDes;
+          break;
+        case r'headerLine2':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.headerLine2 = valueDes;
+          break;
         case r'logo':
           final valueDes = serializers.deserialize(
             value,

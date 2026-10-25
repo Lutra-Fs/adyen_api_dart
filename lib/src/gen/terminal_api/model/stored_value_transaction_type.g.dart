@@ -6,39 +6,39 @@ part of 'stored_value_transaction_type.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-const StoredValueTransactionType _$activate =
-    const StoredValueTransactionType._('activate');
-const StoredValueTransactionType _$duplicate =
-    const StoredValueTransactionType._('duplicate');
-const StoredValueTransactionType _$load = const StoredValueTransactionType._(
-  'load',
-);
 const StoredValueTransactionType _$reserve = const StoredValueTransactionType._(
   'reserve',
 );
-const StoredValueTransactionType _$reverse = const StoredValueTransactionType._(
-  'reverse',
+const StoredValueTransactionType _$activate =
+    const StoredValueTransactionType._('activate');
+const StoredValueTransactionType _$load = const StoredValueTransactionType._(
+  'load',
 );
 const StoredValueTransactionType _$unload = const StoredValueTransactionType._(
   'unload',
 );
+const StoredValueTransactionType _$reverse = const StoredValueTransactionType._(
+  'reverse',
+);
+const StoredValueTransactionType _$duplicate =
+    const StoredValueTransactionType._('duplicate');
 const StoredValueTransactionType _$unknownDefaultOpenApi =
     const StoredValueTransactionType._('unknownDefaultOpenApi');
 
 StoredValueTransactionType _$valueOf(String name) {
   switch (name) {
-    case 'activate':
-      return _$activate;
-    case 'duplicate':
-      return _$duplicate;
-    case 'load':
-      return _$load;
     case 'reserve':
       return _$reserve;
-    case 'reverse':
-      return _$reverse;
+    case 'activate':
+      return _$activate;
+    case 'load':
+      return _$load;
     case 'unload':
       return _$unload;
+    case 'reverse':
+      return _$reverse;
+    case 'duplicate':
+      return _$duplicate;
     case 'unknownDefaultOpenApi':
       return _$unknownDefaultOpenApi;
     default:
@@ -48,23 +48,23 @@ StoredValueTransactionType _$valueOf(String name) {
 
 final BuiltSet<StoredValueTransactionType> _$values =
     BuiltSet<StoredValueTransactionType>(const <StoredValueTransactionType>[
-      _$activate,
-      _$duplicate,
-      _$load,
       _$reserve,
-      _$reverse,
+      _$activate,
+      _$load,
       _$unload,
+      _$reverse,
+      _$duplicate,
       _$unknownDefaultOpenApi,
     ]);
 
 class _$StoredValueTransactionTypeMeta {
   const _$StoredValueTransactionTypeMeta();
-  StoredValueTransactionType get activate => _$activate;
-  StoredValueTransactionType get duplicate => _$duplicate;
-  StoredValueTransactionType get load => _$load;
   StoredValueTransactionType get reserve => _$reserve;
-  StoredValueTransactionType get reverse => _$reverse;
+  StoredValueTransactionType get activate => _$activate;
+  StoredValueTransactionType get load => _$load;
   StoredValueTransactionType get unload => _$unload;
+  StoredValueTransactionType get reverse => _$reverse;
+  StoredValueTransactionType get duplicate => _$duplicate;
   StoredValueTransactionType get unknownDefaultOpenApi =>
       _$unknownDefaultOpenApi;
   StoredValueTransactionType valueOf(String name) => _$valueOf(name);
@@ -83,21 +83,21 @@ Serializer<StoredValueTransactionType> _$storedValueTransactionTypeSerializer =
 class _$StoredValueTransactionTypeSerializer
     implements PrimitiveSerializer<StoredValueTransactionType> {
   static const Map<String, Object> _toWire = const <String, Object>{
-    'activate': 'Activate',
-    'duplicate': 'Duplicate',
-    'load': 'Load',
     'reserve': 'Reserve',
-    'reverse': 'Reverse',
+    'activate': 'Activate',
+    'load': 'Load',
     'unload': 'Unload',
+    'reverse': 'Reverse',
+    'duplicate': 'Duplicate',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
-    'Activate': 'activate',
-    'Duplicate': 'duplicate',
-    'Load': 'load',
     'Reserve': 'reserve',
-    'Reverse': 'reverse',
+    'Activate': 'activate',
+    'Load': 'load',
     'Unload': 'unload',
+    'Reverse': 'reverse',
+    'Duplicate': 'duplicate',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
 

@@ -11,10 +11,13 @@ part 'type_code.g.dart';
 
 class TypeCode extends EnumClass {
 
-  @BuiltValueEnumConst(wireName: r'Company')
-  static const TypeCode company = _$company;
+  ///  Possible values: * **Personal** * **Company**
   @BuiltValueEnumConst(wireName: r'Personal')
   static const TypeCode personal = _$personal;
+  ///  Possible values: * **Personal** * **Company**
+  @BuiltValueEnumConst(wireName: r'Company')
+  static const TypeCode company = _$company;
+  ///  Possible values: * **Personal** * **Company**
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const TypeCode unknownDefaultOpenApi = _$unknownDefaultOpenApi;
 

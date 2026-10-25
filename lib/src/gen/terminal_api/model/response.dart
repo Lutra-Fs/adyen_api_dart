@@ -21,12 +21,12 @@ abstract class Response implements Built<Response, ResponseBuilder> {
   /// Result of the processing of the message. Possible values: * **Failure** * **Partial** * **Success**
   @BuiltValueField(wireName: r'Result')
   Result get result;
-  // enum resultEnum {  Failure,  Partial,  Success,  };
+  // enum resultEnum {  Success,  Failure,  Partial,  };
 
   /// Condition that has produced an error on the processing of a message request. Returned if Result is not Success. Possible values: * **Aborted** * **Busy** * **Cancel** * **DeviceOut** * **InProgress** * **InsertedCard** * **InvalidCard** * **LoggedOut** * **MessageFormat** * **NotAllowed** * **NotFound** * **PaymentRestriction** * **Refusal** * **UnavailableDevice** * **UnavailableService** * **UnreachableHost** * **WrongPIN**
   @BuiltValueField(wireName: r'ErrorCondition')
   ErrorCondition? get errorCondition;
-  // enum errorConditionEnum {  Aborted,  Busy,  Cancel,  DeviceOut,  InProgress,  InsertedCard,  InvalidCard,  LoggedOut,  MessageFormat,  NotAllowed,  NotFound,  PaymentRestriction,  Refusal,  UnavailableDevice,  UnavailableService,  UnreachableHost,  WrongPIN,  };
+  // enum errorConditionEnum {  Aborted,  Busy,  Cancel,  DeviceOut,  InsertedCard,  InProgress,  LoggedOut,  MessageFormat,  NotAllowed,  NotFound,  PaymentRestriction,  Refusal,  UnavailableDevice,  UnavailableService,  InvalidCard,  UnreachableHost,  WrongPIN,  };
 
   /// Additional information related to processing status of a message request. If present, the POI logs it for further examination.
   @BuiltValueField(wireName: r'AdditionalResponse')

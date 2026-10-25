@@ -15,7 +15,7 @@ part 'create_merchant_user_request.g.dart';
 /// Properties:
 /// * [accountGroups] - The list of [account groups](https://docs.adyen.com/account/account-structure#account-groups) associated with this user.
 /// * [email] - The email address of the user.
-/// * [loginMethod] - The requested login method for the user. To use SSO, you must already have SSO configured with Adyen before creating the user.  Possible values: **Username & account**, **Email**, or **SSO** 
+/// * [loginMethod] - The requested login method for the user. To use SSO, you must already have SSO configured with Adyen before creating the user.  Possible values: **Email** or **SSO** 
 /// * [name_] - The user's full name.  Allowed length: 1—80 characters.
 /// * [roles] - The list of [roles](https://docs.adyen.com/account/user-roles) for this user.
 /// * [timeZoneCode] - The [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the time zone of the user. For example, **Europe/Amsterdam**.
@@ -30,7 +30,7 @@ abstract class CreateMerchantUserRequest implements Built<CreateMerchantUserRequ
   @BuiltValueField(wireName: r'email')
   String get email;
 
-  /// The requested login method for the user. To use SSO, you must already have SSO configured with Adyen before creating the user.  Possible values: **Username & account**, **Email**, or **SSO** 
+  /// The requested login method for the user. To use SSO, you must already have SSO configured with Adyen before creating the user.  Possible values: **Email** or **SSO** 
   @BuiltValueField(wireName: r'loginMethod')
   String? get loginMethod;
 

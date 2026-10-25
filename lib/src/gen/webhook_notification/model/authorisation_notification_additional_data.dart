@@ -139,10 +139,12 @@ part 'authorisation_notification_additional_data.g.dart';
 /// * [merchantReference] 
 /// * [metadata] - A set of key-value pairs provided in the request, prefixed with 'metadata.'. For example, 'metadata.myField: myValue'
 /// * [modifiedShopperReference] 
+/// * [networkProcessingMode] - Indicates the processing flow.  Possible values: * **sale**: You do not need to separately capture the funds, because capture happens automatically as part of the transaction.  * **auth**: If you have not [configured automatic capture for the transaction](https://docs.adyen.com/online-payments/capture#types-of-capture), you must manually capture the funds.
 /// * [networkTokenPeriodAvailable] 
 /// * [networkTokenPeriodBin] 
 /// * [networkTokenPeriodTokenSummary] 
-/// * [networkTxReference] 
+/// * [networkTxDate] - The network transaction date for Mastercard transactions processed by Bank of America Merchant Services (BAMS).
+/// * [networkTxReference] - The network transaction reference from the scheme, when available.
 /// * [nfcPeriodExpire] - NFC related.
 /// * [nfcPeriodIssue] - NFC related.
 /// * [nfcPeriodPinPeriodProvided] - NFC related.
@@ -215,6 +217,7 @@ part 'authorisation_notification_additional_data.g.dart';
 /// * [tokenizationPeriodStoredPaymentMethodId] - The reference that uniquely identifies tokenized payment details.
 /// * [totalFraudScore] - Total fraud score from risk.
 /// * [transactionId] 
+/// * [transactionLinkId] 
 /// * [txScreeningPeriodAppliedRule] 
 /// * [txScreeningPeriodCheckSum] 
 /// * [txScreeningPeriodResolution] 
@@ -679,6 +682,10 @@ abstract class AuthorisationNotificationAdditionalData implements Built<Authoris
   @BuiltValueField(wireName: r'modifiedShopperReference')
   String? get modifiedShopperReference;
 
+  /// Indicates the processing flow.  Possible values: * **sale**: You do not need to separately capture the funds, because capture happens automatically as part of the transaction.  * **auth**: If you have not [configured automatic capture for the transaction](https://docs.adyen.com/online-payments/capture#types-of-capture), you must manually capture the funds.
+  @BuiltValueField(wireName: r'networkProcessingMode')
+  String? get networkProcessingMode;
+
   @BuiltValueField(wireName: r'networkToken.available')
   String? get networkTokenPeriodAvailable;
 
@@ -688,6 +695,11 @@ abstract class AuthorisationNotificationAdditionalData implements Built<Authoris
   @BuiltValueField(wireName: r'networkToken.tokenSummary')
   String? get networkTokenPeriodTokenSummary;
 
+  /// The network transaction date for Mastercard transactions processed by Bank of America Merchant Services (BAMS).
+  @BuiltValueField(wireName: r'networkTxDate')
+  String? get networkTxDate;
+
+  /// The network transaction reference from the scheme, when available.
   @BuiltValueField(wireName: r'networkTxReference')
   String? get networkTxReference;
 
@@ -960,6 +972,9 @@ abstract class AuthorisationNotificationAdditionalData implements Built<Authoris
 
   @BuiltValueField(wireName: r'transactionId')
   String? get transactionId;
+
+  @BuiltValueField(wireName: r'transactionLinkId')
+  String? get transactionLinkId;
 
   @BuiltValueField(wireName: r'txScreening.appliedRule')
   String? get txScreeningPeriodAppliedRule;
@@ -1893,6 +1908,13 @@ class _$AuthorisationNotificationAdditionalDataSerializer implements PrimitiveSe
         specifiedType: const FullType(String),
       );
     }
+    if (object.networkProcessingMode != null) {
+      yield r'networkProcessingMode';
+      yield serializers.serialize(
+        object.networkProcessingMode,
+        specifiedType: const FullType(String),
+      );
+    }
     if (object.networkTokenPeriodAvailable != null) {
       yield r'networkToken.available';
       yield serializers.serialize(
@@ -1911,6 +1933,13 @@ class _$AuthorisationNotificationAdditionalDataSerializer implements PrimitiveSe
       yield r'networkToken.tokenSummary';
       yield serializers.serialize(
         object.networkTokenPeriodTokenSummary,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.networkTxDate != null) {
+      yield r'networkTxDate';
+      yield serializers.serialize(
+        object.networkTxDate,
         specifiedType: const FullType(String),
       );
     }
@@ -2422,6 +2451,13 @@ class _$AuthorisationNotificationAdditionalDataSerializer implements PrimitiveSe
       yield r'transactionId';
       yield serializers.serialize(
         object.transactionId,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.transactionLinkId != null) {
+      yield r'transactionLinkId';
+      yield serializers.serialize(
+        object.transactionLinkId,
         specifiedType: const FullType(String),
       );
     }
@@ -3379,6 +3415,13 @@ class _$AuthorisationNotificationAdditionalDataSerializer implements PrimitiveSe
           ) as String;
           result.modifiedShopperReference = valueDes;
           break;
+        case r'networkProcessingMode':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.networkProcessingMode = valueDes;
+          break;
         case r'networkToken.available':
           final valueDes = serializers.deserialize(
             value,
@@ -3399,6 +3442,13 @@ class _$AuthorisationNotificationAdditionalDataSerializer implements PrimitiveSe
             specifiedType: const FullType(String),
           ) as String;
           result.networkTokenPeriodTokenSummary = valueDes;
+          break;
+        case r'networkTxDate':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.networkTxDate = valueDes;
           break;
         case r'networkTxReference':
           final valueDes = serializers.deserialize(
@@ -3910,6 +3960,13 @@ class _$AuthorisationNotificationAdditionalDataSerializer implements PrimitiveSe
             specifiedType: const FullType(String),
           ) as String;
           result.transactionId = valueDes;
+          break;
+        case r'transactionLinkId':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.transactionLinkId = valueDes;
           break;
         case r'txScreening.appliedRule':
           final valueDes = serializers.deserialize(

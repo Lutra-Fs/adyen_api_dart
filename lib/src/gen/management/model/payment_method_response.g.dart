@@ -43,11 +43,47 @@ const PaymentMethodResponseTypesWithErrorsEnum
 _$paymentMethodResponseTypesWithErrorsEnum_alipayPlus =
     const PaymentMethodResponseTypesWithErrorsEnum._('alipayPlus');
 const PaymentMethodResponseTypesWithErrorsEnum
+_$paymentMethodResponseTypesWithErrorsEnum_alipayPlusAlipayCn =
+    const PaymentMethodResponseTypesWithErrorsEnum._('alipayPlusAlipayCn');
+const PaymentMethodResponseTypesWithErrorsEnum
+_$paymentMethodResponseTypesWithErrorsEnum_alipayPlusAlipayHk =
+    const PaymentMethodResponseTypesWithErrorsEnum._('alipayPlusAlipayHk');
+const PaymentMethodResponseTypesWithErrorsEnum
+_$paymentMethodResponseTypesWithErrorsEnum_alipayPlusDana =
+    const PaymentMethodResponseTypesWithErrorsEnum._('alipayPlusDana');
+const PaymentMethodResponseTypesWithErrorsEnum
+_$paymentMethodResponseTypesWithErrorsEnum_alipayPlusGcash =
+    const PaymentMethodResponseTypesWithErrorsEnum._('alipayPlusGcash');
+const PaymentMethodResponseTypesWithErrorsEnum
+_$paymentMethodResponseTypesWithErrorsEnum_alipayPlusKakaopay =
+    const PaymentMethodResponseTypesWithErrorsEnum._('alipayPlusKakaopay');
+const PaymentMethodResponseTypesWithErrorsEnum
+_$paymentMethodResponseTypesWithErrorsEnum_alipayPlusKplus =
+    const PaymentMethodResponseTypesWithErrorsEnum._('alipayPlusKplus');
+const PaymentMethodResponseTypesWithErrorsEnum
+_$paymentMethodResponseTypesWithErrorsEnum_alipayPlusNaverpay =
+    const PaymentMethodResponseTypesWithErrorsEnum._('alipayPlusNaverpay');
+const PaymentMethodResponseTypesWithErrorsEnum
+_$paymentMethodResponseTypesWithErrorsEnum_alipayPlusRabbitlinepay =
+    const PaymentMethodResponseTypesWithErrorsEnum._('alipayPlusRabbitlinepay');
+const PaymentMethodResponseTypesWithErrorsEnum
+_$paymentMethodResponseTypesWithErrorsEnum_alipayPlusTosspay =
+    const PaymentMethodResponseTypesWithErrorsEnum._('alipayPlusTosspay');
+const PaymentMethodResponseTypesWithErrorsEnum
+_$paymentMethodResponseTypesWithErrorsEnum_alipayPlusTouchngo =
+    const PaymentMethodResponseTypesWithErrorsEnum._('alipayPlusTouchngo');
+const PaymentMethodResponseTypesWithErrorsEnum
+_$paymentMethodResponseTypesWithErrorsEnum_alipayPlusTruemoney =
+    const PaymentMethodResponseTypesWithErrorsEnum._('alipayPlusTruemoney');
+const PaymentMethodResponseTypesWithErrorsEnum
 _$paymentMethodResponseTypesWithErrorsEnum_alipayWap =
     const PaymentMethodResponseTypesWithErrorsEnum._('alipayWap');
 const PaymentMethodResponseTypesWithErrorsEnum
 _$paymentMethodResponseTypesWithErrorsEnum_amex =
     const PaymentMethodResponseTypesWithErrorsEnum._('amex');
+const PaymentMethodResponseTypesWithErrorsEnum
+_$paymentMethodResponseTypesWithErrorsEnum_ancv =
+    const PaymentMethodResponseTypesWithErrorsEnum._('ancv');
 const PaymentMethodResponseTypesWithErrorsEnum
 _$paymentMethodResponseTypesWithErrorsEnum_applepay =
     const PaymentMethodResponseTypesWithErrorsEnum._('applepay');
@@ -85,8 +121,14 @@ const PaymentMethodResponseTypesWithErrorsEnum
 _$paymentMethodResponseTypesWithErrorsEnum_brSchemes =
     const PaymentMethodResponseTypesWithErrorsEnum._('brSchemes');
 const PaymentMethodResponseTypesWithErrorsEnum
+_$paymentMethodResponseTypesWithErrorsEnum_carnet =
+    const PaymentMethodResponseTypesWithErrorsEnum._('carnet');
+const PaymentMethodResponseTypesWithErrorsEnum
 _$paymentMethodResponseTypesWithErrorsEnum_cartebancaire =
     const PaymentMethodResponseTypesWithErrorsEnum._('cartebancaire');
+const PaymentMethodResponseTypesWithErrorsEnum
+_$paymentMethodResponseTypesWithErrorsEnum_cashapp =
+    const PaymentMethodResponseTypesWithErrorsEnum._('cashapp');
 const PaymentMethodResponseTypesWithErrorsEnum
 _$paymentMethodResponseTypesWithErrorsEnum_clearpay =
     const PaymentMethodResponseTypesWithErrorsEnum._('clearpay');
@@ -141,6 +183,9 @@ _$paymentMethodResponseTypesWithErrorsEnum_discover =
 const PaymentMethodResponseTypesWithErrorsEnum
 _$paymentMethodResponseTypesWithErrorsEnum_ebankingFI =
     const PaymentMethodResponseTypesWithErrorsEnum._('ebankingFI');
+const PaymentMethodResponseTypesWithErrorsEnum
+_$paymentMethodResponseTypesWithErrorsEnum_ebt =
+    const PaymentMethodResponseTypesWithErrorsEnum._('ebt');
 const PaymentMethodResponseTypesWithErrorsEnum
 _$paymentMethodResponseTypesWithErrorsEnum_eftDirectdebitCA =
     const PaymentMethodResponseTypesWithErrorsEnum._('eftDirectdebitCA');
@@ -412,6 +457,9 @@ const PaymentMethodResponseTypesWithErrorsEnum
 _$paymentMethodResponseTypesWithErrorsEnum_wechatpayPos =
     const PaymentMethodResponseTypesWithErrorsEnum._('wechatpayPos');
 const PaymentMethodResponseTypesWithErrorsEnum
+_$paymentMethodResponseTypesWithErrorsEnum_wero =
+    const PaymentMethodResponseTypesWithErrorsEnum._('wero');
+const PaymentMethodResponseTypesWithErrorsEnum
 _$paymentMethodResponseTypesWithErrorsEnum_unknownDefaultOpenApi =
     const PaymentMethodResponseTypesWithErrorsEnum._('unknownDefaultOpenApi');
 
@@ -442,10 +490,34 @@ _$paymentMethodResponseTypesWithErrorsEnumValueOf(String name) {
       return _$paymentMethodResponseTypesWithErrorsEnum_alipayHk;
     case 'alipayPlus':
       return _$paymentMethodResponseTypesWithErrorsEnum_alipayPlus;
+    case 'alipayPlusAlipayCn':
+      return _$paymentMethodResponseTypesWithErrorsEnum_alipayPlusAlipayCn;
+    case 'alipayPlusAlipayHk':
+      return _$paymentMethodResponseTypesWithErrorsEnum_alipayPlusAlipayHk;
+    case 'alipayPlusDana':
+      return _$paymentMethodResponseTypesWithErrorsEnum_alipayPlusDana;
+    case 'alipayPlusGcash':
+      return _$paymentMethodResponseTypesWithErrorsEnum_alipayPlusGcash;
+    case 'alipayPlusKakaopay':
+      return _$paymentMethodResponseTypesWithErrorsEnum_alipayPlusKakaopay;
+    case 'alipayPlusKplus':
+      return _$paymentMethodResponseTypesWithErrorsEnum_alipayPlusKplus;
+    case 'alipayPlusNaverpay':
+      return _$paymentMethodResponseTypesWithErrorsEnum_alipayPlusNaverpay;
+    case 'alipayPlusRabbitlinepay':
+      return _$paymentMethodResponseTypesWithErrorsEnum_alipayPlusRabbitlinepay;
+    case 'alipayPlusTosspay':
+      return _$paymentMethodResponseTypesWithErrorsEnum_alipayPlusTosspay;
+    case 'alipayPlusTouchngo':
+      return _$paymentMethodResponseTypesWithErrorsEnum_alipayPlusTouchngo;
+    case 'alipayPlusTruemoney':
+      return _$paymentMethodResponseTypesWithErrorsEnum_alipayPlusTruemoney;
     case 'alipayWap':
       return _$paymentMethodResponseTypesWithErrorsEnum_alipayWap;
     case 'amex':
       return _$paymentMethodResponseTypesWithErrorsEnum_amex;
+    case 'ancv':
+      return _$paymentMethodResponseTypesWithErrorsEnum_ancv;
     case 'applepay':
       return _$paymentMethodResponseTypesWithErrorsEnum_applepay;
     case 'avancard':
@@ -470,8 +542,12 @@ _$paymentMethodResponseTypesWithErrorsEnumValueOf(String name) {
       return _$paymentMethodResponseTypesWithErrorsEnum_blikPos;
     case 'brSchemes':
       return _$paymentMethodResponseTypesWithErrorsEnum_brSchemes;
+    case 'carnet':
+      return _$paymentMethodResponseTypesWithErrorsEnum_carnet;
     case 'cartebancaire':
       return _$paymentMethodResponseTypesWithErrorsEnum_cartebancaire;
+    case 'cashapp':
+      return _$paymentMethodResponseTypesWithErrorsEnum_cashapp;
     case 'clearpay':
       return _$paymentMethodResponseTypesWithErrorsEnum_clearpay;
     case 'clicktopay':
@@ -508,6 +584,8 @@ _$paymentMethodResponseTypesWithErrorsEnumValueOf(String name) {
       return _$paymentMethodResponseTypesWithErrorsEnum_discover;
     case 'ebankingFI':
       return _$paymentMethodResponseTypesWithErrorsEnum_ebankingFI;
+    case 'ebt':
+      return _$paymentMethodResponseTypesWithErrorsEnum_ebt;
     case 'eftDirectdebitCA':
       return _$paymentMethodResponseTypesWithErrorsEnum_eftDirectdebitCA;
     case 'eftposAustralia':
@@ -688,6 +766,8 @@ _$paymentMethodResponseTypesWithErrorsEnumValueOf(String name) {
       return _$paymentMethodResponseTypesWithErrorsEnum_wechatpay;
     case 'wechatpayPos':
       return _$paymentMethodResponseTypesWithErrorsEnum_wechatpayPos;
+    case 'wero':
+      return _$paymentMethodResponseTypesWithErrorsEnum_wero;
     case 'unknownDefaultOpenApi':
       return _$paymentMethodResponseTypesWithErrorsEnum_unknownDefaultOpenApi;
     default:
@@ -711,8 +791,20 @@ _$paymentMethodResponseTypesWithErrorsEnumValues =
         _$paymentMethodResponseTypesWithErrorsEnum_alipay,
         _$paymentMethodResponseTypesWithErrorsEnum_alipayHk,
         _$paymentMethodResponseTypesWithErrorsEnum_alipayPlus,
+        _$paymentMethodResponseTypesWithErrorsEnum_alipayPlusAlipayCn,
+        _$paymentMethodResponseTypesWithErrorsEnum_alipayPlusAlipayHk,
+        _$paymentMethodResponseTypesWithErrorsEnum_alipayPlusDana,
+        _$paymentMethodResponseTypesWithErrorsEnum_alipayPlusGcash,
+        _$paymentMethodResponseTypesWithErrorsEnum_alipayPlusKakaopay,
+        _$paymentMethodResponseTypesWithErrorsEnum_alipayPlusKplus,
+        _$paymentMethodResponseTypesWithErrorsEnum_alipayPlusNaverpay,
+        _$paymentMethodResponseTypesWithErrorsEnum_alipayPlusRabbitlinepay,
+        _$paymentMethodResponseTypesWithErrorsEnum_alipayPlusTosspay,
+        _$paymentMethodResponseTypesWithErrorsEnum_alipayPlusTouchngo,
+        _$paymentMethodResponseTypesWithErrorsEnum_alipayPlusTruemoney,
         _$paymentMethodResponseTypesWithErrorsEnum_alipayWap,
         _$paymentMethodResponseTypesWithErrorsEnum_amex,
+        _$paymentMethodResponseTypesWithErrorsEnum_ancv,
         _$paymentMethodResponseTypesWithErrorsEnum_applepay,
         _$paymentMethodResponseTypesWithErrorsEnum_avancard,
         _$paymentMethodResponseTypesWithErrorsEnum_avancardCredit,
@@ -725,7 +817,9 @@ _$paymentMethodResponseTypesWithErrorsEnumValues =
         _$paymentMethodResponseTypesWithErrorsEnum_blik,
         _$paymentMethodResponseTypesWithErrorsEnum_blikPos,
         _$paymentMethodResponseTypesWithErrorsEnum_brSchemes,
+        _$paymentMethodResponseTypesWithErrorsEnum_carnet,
         _$paymentMethodResponseTypesWithErrorsEnum_cartebancaire,
+        _$paymentMethodResponseTypesWithErrorsEnum_cashapp,
         _$paymentMethodResponseTypesWithErrorsEnum_clearpay,
         _$paymentMethodResponseTypesWithErrorsEnum_clicktopay,
         _$paymentMethodResponseTypesWithErrorsEnum_cooper,
@@ -744,6 +838,7 @@ _$paymentMethodResponseTypesWithErrorsEnumValues =
         _$paymentMethodResponseTypesWithErrorsEnum_directdebitGB,
         _$paymentMethodResponseTypesWithErrorsEnum_discover,
         _$paymentMethodResponseTypesWithErrorsEnum_ebankingFI,
+        _$paymentMethodResponseTypesWithErrorsEnum_ebt,
         _$paymentMethodResponseTypesWithErrorsEnum_eftDirectdebitCA,
         _$paymentMethodResponseTypesWithErrorsEnum_eftposAustralia,
         _$paymentMethodResponseTypesWithErrorsEnum_elo,
@@ -834,6 +929,7 @@ _$paymentMethodResponseTypesWithErrorsEnumValues =
         _$paymentMethodResponseTypesWithErrorsEnum_vpay,
         _$paymentMethodResponseTypesWithErrorsEnum_wechatpay,
         _$paymentMethodResponseTypesWithErrorsEnum_wechatpayPos,
+        _$paymentMethodResponseTypesWithErrorsEnum_wero,
         _$paymentMethodResponseTypesWithErrorsEnum_unknownDefaultOpenApi,
       ],
     );
@@ -857,8 +953,20 @@ class _$PaymentMethodResponseTypesWithErrorsEnumSerializer
     'alipay': 'alipay',
     'alipayHk': 'alipay_hk',
     'alipayPlus': 'alipay_plus',
+    'alipayPlusAlipayCn': 'alipay_plus_alipay_cn',
+    'alipayPlusAlipayHk': 'alipay_plus_alipay_hk',
+    'alipayPlusDana': 'alipay_plus_dana',
+    'alipayPlusGcash': 'alipay_plus_gcash',
+    'alipayPlusKakaopay': 'alipay_plus_kakaopay',
+    'alipayPlusKplus': 'alipay_plus_kplus',
+    'alipayPlusNaverpay': 'alipay_plus_naverpay',
+    'alipayPlusRabbitlinepay': 'alipay_plus_rabbitlinepay',
+    'alipayPlusTosspay': 'alipay_plus_tosspay',
+    'alipayPlusTouchngo': 'alipay_plus_touchngo',
+    'alipayPlusTruemoney': 'alipay_plus_truemoney',
     'alipayWap': 'alipay_wap',
     'amex': 'amex',
+    'ancv': 'ancv',
     'applepay': 'applepay',
     'avancard': 'avancard',
     'avancardCredit': 'avancard_credit',
@@ -871,7 +979,9 @@ class _$PaymentMethodResponseTypesWithErrorsEnumSerializer
     'blik': 'blik',
     'blikPos': 'blik_pos',
     'brSchemes': 'br_schemes',
+    'carnet': 'carnet',
     'cartebancaire': 'cartebancaire',
+    'cashapp': 'cashapp',
     'clearpay': 'clearpay',
     'clicktopay': 'clicktopay',
     'cooper': 'cooper',
@@ -890,6 +1000,7 @@ class _$PaymentMethodResponseTypesWithErrorsEnumSerializer
     'directdebitGB': 'directdebit_GB',
     'discover': 'discover',
     'ebankingFI': 'ebanking_FI',
+    'ebt': 'ebt',
     'eftDirectdebitCA': 'eft_directdebit_CA',
     'eftposAustralia': 'eftpos_australia',
     'elo': 'elo',
@@ -980,6 +1091,7 @@ class _$PaymentMethodResponseTypesWithErrorsEnumSerializer
     'vpay': 'vpay',
     'wechatpay': 'wechatpay',
     'wechatpayPos': 'wechatpay_pos',
+    'wero': 'wero',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
@@ -995,8 +1107,20 @@ class _$PaymentMethodResponseTypesWithErrorsEnumSerializer
     'alipay': 'alipay',
     'alipay_hk': 'alipayHk',
     'alipay_plus': 'alipayPlus',
+    'alipay_plus_alipay_cn': 'alipayPlusAlipayCn',
+    'alipay_plus_alipay_hk': 'alipayPlusAlipayHk',
+    'alipay_plus_dana': 'alipayPlusDana',
+    'alipay_plus_gcash': 'alipayPlusGcash',
+    'alipay_plus_kakaopay': 'alipayPlusKakaopay',
+    'alipay_plus_kplus': 'alipayPlusKplus',
+    'alipay_plus_naverpay': 'alipayPlusNaverpay',
+    'alipay_plus_rabbitlinepay': 'alipayPlusRabbitlinepay',
+    'alipay_plus_tosspay': 'alipayPlusTosspay',
+    'alipay_plus_touchngo': 'alipayPlusTouchngo',
+    'alipay_plus_truemoney': 'alipayPlusTruemoney',
     'alipay_wap': 'alipayWap',
     'amex': 'amex',
+    'ancv': 'ancv',
     'applepay': 'applepay',
     'avancard': 'avancard',
     'avancard_credit': 'avancardCredit',
@@ -1009,7 +1133,9 @@ class _$PaymentMethodResponseTypesWithErrorsEnumSerializer
     'blik': 'blik',
     'blik_pos': 'blikPos',
     'br_schemes': 'brSchemes',
+    'carnet': 'carnet',
     'cartebancaire': 'cartebancaire',
+    'cashapp': 'cashapp',
     'clearpay': 'clearpay',
     'clicktopay': 'clicktopay',
     'cooper': 'cooper',
@@ -1028,6 +1154,7 @@ class _$PaymentMethodResponseTypesWithErrorsEnumSerializer
     'directdebit_GB': 'directdebitGB',
     'discover': 'discover',
     'ebanking_FI': 'ebankingFI',
+    'ebt': 'ebt',
     'eft_directdebit_CA': 'eftDirectdebitCA',
     'eftpos_australia': 'eftposAustralia',
     'elo': 'elo',
@@ -1118,6 +1245,7 @@ class _$PaymentMethodResponseTypesWithErrorsEnumSerializer
     'vpay': 'vpay',
     'wechatpay': 'wechatpay',
     'wechatpay_pos': 'wechatpayPos',
+    'wero': 'wero',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
 

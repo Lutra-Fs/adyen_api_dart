@@ -86,9 +86,9 @@ class _$SepaDirectDebitDetails extends SepaDirectDebitDetails {
   @override
   final String? dueDate;
   @override
-  final String iban;
+  final String? iban;
   @override
-  final String ownerName;
+  final String? ownerName;
   @override
   final String? recurringDetailReference;
   @override
@@ -107,8 +107,8 @@ class _$SepaDirectDebitDetails extends SepaDirectDebitDetails {
   _$SepaDirectDebitDetails._({
     this.checkoutAttemptId,
     this.dueDate,
-    required this.iban,
-    required this.ownerName,
+    this.iban,
+    this.ownerName,
     this.recurringDetailReference,
     this.sdkData,
     this.storedPaymentMethodId,
@@ -255,16 +255,8 @@ class SepaDirectDebitDetailsBuilder
         _$SepaDirectDebitDetails._(
           checkoutAttemptId: checkoutAttemptId,
           dueDate: dueDate,
-          iban: BuiltValueNullFieldError.checkNotNull(
-            iban,
-            r'SepaDirectDebitDetails',
-            'iban',
-          ),
-          ownerName: BuiltValueNullFieldError.checkNotNull(
-            ownerName,
-            r'SepaDirectDebitDetails',
-            'ownerName',
-          ),
+          iban: iban,
+          ownerName: ownerName,
           recurringDetailReference: recurringDetailReference,
           sdkData: sdkData,
           storedPaymentMethodId: storedPaymentMethodId,

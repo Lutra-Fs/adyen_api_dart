@@ -3,6 +3,7 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:adyen_api/src/gen/checkout/model/app_identifier_info.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -11,10 +12,15 @@ part 'payment_method_upi_apps.g.dart';
 /// PaymentMethodUPIApps
 ///
 /// Properties:
+/// * [appIdentifierInfo] - The app identifier information containing iOS scheme and Android package ID.
 /// * [id] - The unique identifier of this app, to submit in requests to /payments.
 /// * [name_] - A localized name of the app.
 @BuiltValue()
 abstract class PaymentMethodUPIApps implements Built<PaymentMethodUPIApps, PaymentMethodUPIAppsBuilder> {
+  /// The app identifier information containing iOS scheme and Android package ID.
+  @BuiltValueField(wireName: r'appIdentifierInfo')
+  AppIdentifierInfo? get appIdentifierInfo;
+
   /// The unique identifier of this app, to submit in requests to /payments.
   @BuiltValueField(wireName: r'id')
   String get id;
@@ -46,6 +52,13 @@ class _$PaymentMethodUPIAppsSerializer implements PrimitiveSerializer<PaymentMet
     PaymentMethodUPIApps object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
+    if (object.appIdentifierInfo != null) {
+      yield r'appIdentifierInfo';
+      yield serializers.serialize(
+        object.appIdentifierInfo,
+        specifiedType: const FullType(AppIdentifierInfo),
+      );
+    }
     yield r'id';
     yield serializers.serialize(
       object.id,
@@ -79,6 +92,13 @@ class _$PaymentMethodUPIAppsSerializer implements PrimitiveSerializer<PaymentMet
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
+        case r'appIdentifierInfo':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(AppIdentifierInfo),
+          ) as AppIdentifierInfo;
+          result.appIdentifierInfo.replace(valueDes);
+          break;
         case r'id':
           final valueDes = serializers.deserialize(
             value,

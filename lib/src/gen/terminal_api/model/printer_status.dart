@@ -11,22 +11,22 @@ part 'printer_status.g.dart';
 
 class PrinterStatus extends EnumClass {
 
-  /// Indicates if the printer is working and usable. Possible values: * **NoPaper** * **OK** * **OutOfOrder** * **PaperJam** * **PaperLow**
-  @BuiltValueEnumConst(wireName: r'NoPaper')
-  static const PrinterStatus noPaper = _$noPaper;
-  /// Indicates if the printer is working and usable. Possible values: * **NoPaper** * **OK** * **OutOfOrder** * **PaperJam** * **PaperLow**
+  /// Indicates if the printer is working and usable. Possible values: * **OK** * **PaperLow** * **NoPaper** * **PaperJam** * **OutOfOrder**
   @BuiltValueEnumConst(wireName: r'OK')
   static const PrinterStatus OK = _$OK;
-  /// Indicates if the printer is working and usable. Possible values: * **NoPaper** * **OK** * **OutOfOrder** * **PaperJam** * **PaperLow**
-  @BuiltValueEnumConst(wireName: r'OutOfOrder')
-  static const PrinterStatus outOfOrder = _$outOfOrder;
-  /// Indicates if the printer is working and usable. Possible values: * **NoPaper** * **OK** * **OutOfOrder** * **PaperJam** * **PaperLow**
-  @BuiltValueEnumConst(wireName: r'PaperJam')
-  static const PrinterStatus paperJam = _$paperJam;
-  /// Indicates if the printer is working and usable. Possible values: * **NoPaper** * **OK** * **OutOfOrder** * **PaperJam** * **PaperLow**
+  /// Indicates if the printer is working and usable. Possible values: * **OK** * **PaperLow** * **NoPaper** * **PaperJam** * **OutOfOrder**
   @BuiltValueEnumConst(wireName: r'PaperLow')
   static const PrinterStatus paperLow = _$paperLow;
-  /// Indicates if the printer is working and usable. Possible values: * **NoPaper** * **OK** * **OutOfOrder** * **PaperJam** * **PaperLow**
+  /// Indicates if the printer is working and usable. Possible values: * **OK** * **PaperLow** * **NoPaper** * **PaperJam** * **OutOfOrder**
+  @BuiltValueEnumConst(wireName: r'NoPaper')
+  static const PrinterStatus noPaper = _$noPaper;
+  /// Indicates if the printer is working and usable. Possible values: * **OK** * **PaperLow** * **NoPaper** * **PaperJam** * **OutOfOrder**
+  @BuiltValueEnumConst(wireName: r'PaperJam')
+  static const PrinterStatus paperJam = _$paperJam;
+  /// Indicates if the printer is working and usable. Possible values: * **OK** * **PaperLow** * **NoPaper** * **PaperJam** * **OutOfOrder**
+  @BuiltValueEnumConst(wireName: r'OutOfOrder')
+  static const PrinterStatus outOfOrder = _$outOfOrder;
+  /// Indicates if the printer is working and usable. Possible values: * **OK** * **PaperLow** * **NoPaper** * **PaperJam** * **OutOfOrder**
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const PrinterStatus unknownDefaultOpenApi = _$unknownDefaultOpenApi;
 

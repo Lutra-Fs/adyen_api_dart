@@ -11,18 +11,25 @@ part 'stored_value_transaction_type.g.dart';
 
 class StoredValueTransactionType extends EnumClass {
 
-  @BuiltValueEnumConst(wireName: r'Activate')
-  static const StoredValueTransactionType activate = _$activate;
-  @BuiltValueEnumConst(wireName: r'Duplicate')
-  static const StoredValueTransactionType duplicate = _$duplicate;
-  @BuiltValueEnumConst(wireName: r'Load')
-  static const StoredValueTransactionType load = _$load;
+  ///  Possible values: * **Reserve** * **Activate** * **Load** * **Unload** * **Reverse** * **Duplicate**
   @BuiltValueEnumConst(wireName: r'Reserve')
   static const StoredValueTransactionType reserve = _$reserve;
-  @BuiltValueEnumConst(wireName: r'Reverse')
-  static const StoredValueTransactionType reverse = _$reverse;
+  ///  Possible values: * **Reserve** * **Activate** * **Load** * **Unload** * **Reverse** * **Duplicate**
+  @BuiltValueEnumConst(wireName: r'Activate')
+  static const StoredValueTransactionType activate = _$activate;
+  ///  Possible values: * **Reserve** * **Activate** * **Load** * **Unload** * **Reverse** * **Duplicate**
+  @BuiltValueEnumConst(wireName: r'Load')
+  static const StoredValueTransactionType load = _$load;
+  ///  Possible values: * **Reserve** * **Activate** * **Load** * **Unload** * **Reverse** * **Duplicate**
   @BuiltValueEnumConst(wireName: r'Unload')
   static const StoredValueTransactionType unload = _$unload;
+  ///  Possible values: * **Reserve** * **Activate** * **Load** * **Unload** * **Reverse** * **Duplicate**
+  @BuiltValueEnumConst(wireName: r'Reverse')
+  static const StoredValueTransactionType reverse = _$reverse;
+  ///  Possible values: * **Reserve** * **Activate** * **Load** * **Unload** * **Reverse** * **Duplicate**
+  @BuiltValueEnumConst(wireName: r'Duplicate')
+  static const StoredValueTransactionType duplicate = _$duplicate;
+  ///  Possible values: * **Reserve** * **Activate** * **Load** * **Unload** * **Reverse** * **Duplicate**
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const StoredValueTransactionType unknownDefaultOpenApi = _$unknownDefaultOpenApi;
 

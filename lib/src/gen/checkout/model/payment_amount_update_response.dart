@@ -15,6 +15,7 @@ part 'payment_amount_update_response.g.dart';
 /// PaymentAmountUpdateResponse
 ///
 /// Properties:
+/// * [adjustAuthorisationData] - The data blob for subsequent synchronous adjust authorisation calls. Returned when the synchronous flow is used.
 /// * [amount] - The updated amount.
 /// * [industryUsage] - The reason for the amount update. Possible values:  * **delayedCharge**  * **noShow**  * **installment**
 /// * [lineItems] - Price and product information of the refunded items, required for [partial refunds](https://docs.adyen.com/online-payments/refund#refund-a-payment). > This field is required for partial refunds with 3x 4x Oney, Affirm, Afterpay, Atome, Clearpay, Klarna, Ratepay, Walley, and Zip.
@@ -23,9 +24,13 @@ part 'payment_amount_update_response.g.dart';
 /// * [pspReference] - Adyen's 16-character reference associated with the amount update request.
 /// * [reference] - Your reference for the amount update request. Maximum length: 80 characters.
 /// * [splits] - An array of objects specifying how the amount should be split between accounts when using Adyen for Platforms. For more information, see how to process payments for [marketplaces](https://docs.adyen.com/marketplaces/process-payments) or [platforms](https://docs.adyen.com/platforms/process-payments).
-/// * [status] - The status of your request. This will always have the value **received**.
+/// * [status] - The status of your request.   If you included `adjustAuthorisationData` in your request, possible values are the following:   * **authorised**   * **refused**   Otherwise, the value is **received**.
 @BuiltValue()
 abstract class PaymentAmountUpdateResponse implements Built<PaymentAmountUpdateResponse, PaymentAmountUpdateResponseBuilder> {
+  /// The data blob for subsequent synchronous adjust authorisation calls. Returned when the synchronous flow is used.
+  @BuiltValueField(wireName: r'adjustAuthorisationData')
+  String? get adjustAuthorisationData;
+
   /// The updated amount.
   @BuiltValueField(wireName: r'amount')
   Amount get amount;
@@ -59,10 +64,10 @@ abstract class PaymentAmountUpdateResponse implements Built<PaymentAmountUpdateR
   @BuiltValueField(wireName: r'splits')
   BuiltList<Split>? get splits;
 
-  /// The status of your request. This will always have the value **received**.
+  /// The status of your request.   If you included `adjustAuthorisationData` in your request, possible values are the following:   * **authorised**   * **refused**   Otherwise, the value is **received**.
   @BuiltValueField(wireName: r'status')
   PaymentAmountUpdateResponseStatusEnum get status;
-  // enum statusEnum {  received,  };
+  // enum statusEnum {  authorised,  received,  refused,  };
 
   PaymentAmountUpdateResponse._();
 
@@ -87,6 +92,13 @@ class _$PaymentAmountUpdateResponseSerializer implements PrimitiveSerializer<Pay
     PaymentAmountUpdateResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
+    if (object.adjustAuthorisationData != null) {
+      yield r'adjustAuthorisationData';
+      yield serializers.serialize(
+        object.adjustAuthorisationData,
+        specifiedType: const FullType(String),
+      );
+    }
     yield r'amount';
     yield serializers.serialize(
       object.amount,
@@ -161,6 +173,13 @@ class _$PaymentAmountUpdateResponseSerializer implements PrimitiveSerializer<Pay
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
+        case r'adjustAuthorisationData':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.adjustAuthorisationData = valueDes;
+          break;
         case r'amount':
           final valueDes = serializers.deserialize(
             value,
@@ -278,10 +297,16 @@ class PaymentAmountUpdateResponseIndustryUsageEnum extends EnumClass {
 
 class PaymentAmountUpdateResponseStatusEnum extends EnumClass {
 
-  /// The status of your request. This will always have the value **received**.
+  /// The status of your request.   If you included `adjustAuthorisationData` in your request, possible values are the following:   * **authorised**   * **refused**   Otherwise, the value is **received**.
+  @BuiltValueEnumConst(wireName: r'authorised')
+  static const PaymentAmountUpdateResponseStatusEnum authorised = _$paymentAmountUpdateResponseStatusEnum_authorised;
+  /// The status of your request.   If you included `adjustAuthorisationData` in your request, possible values are the following:   * **authorised**   * **refused**   Otherwise, the value is **received**.
   @BuiltValueEnumConst(wireName: r'received')
   static const PaymentAmountUpdateResponseStatusEnum received = _$paymentAmountUpdateResponseStatusEnum_received;
-  /// The status of your request. This will always have the value **received**.
+  /// The status of your request.   If you included `adjustAuthorisationData` in your request, possible values are the following:   * **authorised**   * **refused**   Otherwise, the value is **received**.
+  @BuiltValueEnumConst(wireName: r'refused')
+  static const PaymentAmountUpdateResponseStatusEnum refused = _$paymentAmountUpdateResponseStatusEnum_refused;
+  /// The status of your request.   If you included `adjustAuthorisationData` in your request, possible values are the following:   * **authorised**   * **refused**   Otherwise, the value is **received**.
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const PaymentAmountUpdateResponseStatusEnum unknownDefaultOpenApi = _$paymentAmountUpdateResponseStatusEnum_unknownDefaultOpenApi;
 

@@ -6,156 +6,6 @@ part of 'response_additional_data_card.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-const ResponseAdditionalDataCardCardProductIdEnum
-_$responseAdditionalDataCardCardProductIdEnum_A =
-    const ResponseAdditionalDataCardCardProductIdEnum._('A');
-const ResponseAdditionalDataCardCardProductIdEnum
-_$responseAdditionalDataCardCardProductIdEnum_B =
-    const ResponseAdditionalDataCardCardProductIdEnum._('B');
-const ResponseAdditionalDataCardCardProductIdEnum
-_$responseAdditionalDataCardCardProductIdEnum_C =
-    const ResponseAdditionalDataCardCardProductIdEnum._('C');
-const ResponseAdditionalDataCardCardProductIdEnum
-_$responseAdditionalDataCardCardProductIdEnum_D =
-    const ResponseAdditionalDataCardCardProductIdEnum._('D');
-const ResponseAdditionalDataCardCardProductIdEnum
-_$responseAdditionalDataCardCardProductIdEnum_F =
-    const ResponseAdditionalDataCardCardProductIdEnum._('F');
-const ResponseAdditionalDataCardCardProductIdEnum
-_$responseAdditionalDataCardCardProductIdEnum_MCC =
-    const ResponseAdditionalDataCardCardProductIdEnum._('MCC');
-const ResponseAdditionalDataCardCardProductIdEnum
-_$responseAdditionalDataCardCardProductIdEnum_MCE =
-    const ResponseAdditionalDataCardCardProductIdEnum._('MCE');
-const ResponseAdditionalDataCardCardProductIdEnum
-_$responseAdditionalDataCardCardProductIdEnum_MCF =
-    const ResponseAdditionalDataCardCardProductIdEnum._('MCF');
-const ResponseAdditionalDataCardCardProductIdEnum
-_$responseAdditionalDataCardCardProductIdEnum_MCG =
-    const ResponseAdditionalDataCardCardProductIdEnum._('MCG');
-const ResponseAdditionalDataCardCardProductIdEnum
-_$responseAdditionalDataCardCardProductIdEnum_MCH =
-    const ResponseAdditionalDataCardCardProductIdEnum._('MCH');
-const ResponseAdditionalDataCardCardProductIdEnum
-_$responseAdditionalDataCardCardProductIdEnum_MCI =
-    const ResponseAdditionalDataCardCardProductIdEnum._('MCI');
-const ResponseAdditionalDataCardCardProductIdEnum
-_$responseAdditionalDataCardCardProductIdEnum_unknownDefaultOpenApi =
-    const ResponseAdditionalDataCardCardProductIdEnum._(
-      'unknownDefaultOpenApi',
-    );
-
-ResponseAdditionalDataCardCardProductIdEnum
-_$responseAdditionalDataCardCardProductIdEnumValueOf(String name) {
-  switch (name) {
-    case 'A':
-      return _$responseAdditionalDataCardCardProductIdEnum_A;
-    case 'B':
-      return _$responseAdditionalDataCardCardProductIdEnum_B;
-    case 'C':
-      return _$responseAdditionalDataCardCardProductIdEnum_C;
-    case 'D':
-      return _$responseAdditionalDataCardCardProductIdEnum_D;
-    case 'F':
-      return _$responseAdditionalDataCardCardProductIdEnum_F;
-    case 'MCC':
-      return _$responseAdditionalDataCardCardProductIdEnum_MCC;
-    case 'MCE':
-      return _$responseAdditionalDataCardCardProductIdEnum_MCE;
-    case 'MCF':
-      return _$responseAdditionalDataCardCardProductIdEnum_MCF;
-    case 'MCG':
-      return _$responseAdditionalDataCardCardProductIdEnum_MCG;
-    case 'MCH':
-      return _$responseAdditionalDataCardCardProductIdEnum_MCH;
-    case 'MCI':
-      return _$responseAdditionalDataCardCardProductIdEnum_MCI;
-    case 'unknownDefaultOpenApi':
-      return _$responseAdditionalDataCardCardProductIdEnum_unknownDefaultOpenApi;
-    default:
-      return _$responseAdditionalDataCardCardProductIdEnum_unknownDefaultOpenApi;
-  }
-}
-
-final BuiltSet<ResponseAdditionalDataCardCardProductIdEnum>
-_$responseAdditionalDataCardCardProductIdEnumValues =
-    BuiltSet<ResponseAdditionalDataCardCardProductIdEnum>(
-      const <ResponseAdditionalDataCardCardProductIdEnum>[
-        _$responseAdditionalDataCardCardProductIdEnum_A,
-        _$responseAdditionalDataCardCardProductIdEnum_B,
-        _$responseAdditionalDataCardCardProductIdEnum_C,
-        _$responseAdditionalDataCardCardProductIdEnum_D,
-        _$responseAdditionalDataCardCardProductIdEnum_F,
-        _$responseAdditionalDataCardCardProductIdEnum_MCC,
-        _$responseAdditionalDataCardCardProductIdEnum_MCE,
-        _$responseAdditionalDataCardCardProductIdEnum_MCF,
-        _$responseAdditionalDataCardCardProductIdEnum_MCG,
-        _$responseAdditionalDataCardCardProductIdEnum_MCH,
-        _$responseAdditionalDataCardCardProductIdEnum_MCI,
-        _$responseAdditionalDataCardCardProductIdEnum_unknownDefaultOpenApi,
-      ],
-    );
-
-Serializer<ResponseAdditionalDataCardCardProductIdEnum>
-_$responseAdditionalDataCardCardProductIdEnumSerializer =
-    _$ResponseAdditionalDataCardCardProductIdEnumSerializer();
-
-class _$ResponseAdditionalDataCardCardProductIdEnumSerializer
-    implements
-        PrimitiveSerializer<ResponseAdditionalDataCardCardProductIdEnum> {
-  static const Map<String, Object> _toWire = const <String, Object>{
-    'A': 'A',
-    'B': 'B',
-    'C': 'C',
-    'D': 'D',
-    'F': 'F',
-    'MCC': 'MCC',
-    'MCE': 'MCE',
-    'MCF': 'MCF',
-    'MCG': 'MCG',
-    'MCH': 'MCH',
-    'MCI': 'MCI',
-    'unknownDefaultOpenApi': 'unknown_default_open_api',
-  };
-  static const Map<Object, String> _fromWire = const <Object, String>{
-    'A': 'A',
-    'B': 'B',
-    'C': 'C',
-    'D': 'D',
-    'F': 'F',
-    'MCC': 'MCC',
-    'MCE': 'MCE',
-    'MCF': 'MCF',
-    'MCG': 'MCG',
-    'MCH': 'MCH',
-    'MCI': 'MCI',
-    'unknown_default_open_api': 'unknownDefaultOpenApi',
-  };
-
-  @override
-  final Iterable<Type> types = const <Type>[
-    ResponseAdditionalDataCardCardProductIdEnum,
-  ];
-  @override
-  final String wireName = 'ResponseAdditionalDataCardCardProductIdEnum';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    ResponseAdditionalDataCardCardProductIdEnum object, {
-    FullType specifiedType = FullType.unspecified,
-  }) => _toWire[object.name] ?? object.name;
-
-  @override
-  ResponseAdditionalDataCardCardProductIdEnum deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) => ResponseAdditionalDataCardCardProductIdEnum.valueOf(
-    _fromWire[serialized] ?? (serialized is String ? serialized : ''),
-  );
-}
-
 class _$ResponseAdditionalDataCard extends ResponseAdditionalDataCard {
   @override
   final String? cardAltID;
@@ -172,7 +22,7 @@ class _$ResponseAdditionalDataCard extends ResponseAdditionalDataCard {
   @override
   final String? cardPaymentMethod;
   @override
-  final ResponseAdditionalDataCardCardProductIdEnum? cardProductId;
+  final String? cardProductId;
   @override
   final String? cardSummary;
   @override
@@ -291,12 +141,10 @@ class ResponseAdditionalDataCardBuilder
   set cardPaymentMethod(String? cardPaymentMethod) =>
       _$this._cardPaymentMethod = cardPaymentMethod;
 
-  ResponseAdditionalDataCardCardProductIdEnum? _cardProductId;
-  ResponseAdditionalDataCardCardProductIdEnum? get cardProductId =>
-      _$this._cardProductId;
-  set cardProductId(
-    ResponseAdditionalDataCardCardProductIdEnum? cardProductId,
-  ) => _$this._cardProductId = cardProductId;
+  String? _cardProductId;
+  String? get cardProductId => _$this._cardProductId;
+  set cardProductId(String? cardProductId) =>
+      _$this._cardProductId = cardProductId;
 
   String? _cardSummary;
   String? get cardSummary => _$this._cardSummary;

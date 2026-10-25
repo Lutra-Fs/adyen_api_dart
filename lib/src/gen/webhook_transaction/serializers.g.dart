@@ -16,6 +16,7 @@ Serializers _$serializers =
           ..add(InternalCategoryData.serializer)
           ..add(InternalCategoryDataTypeEnum.serializer)
           ..add(IssuedCard.serializer)
+          ..add(IssuedCardNetworkVariantEnum.serializer)
           ..add(IssuedCardPanEntryModeEnum.serializer)
           ..add(IssuedCardProcessingTypeEnum.serializer)
           ..add(IssuedCardTypeEnum.serializer)

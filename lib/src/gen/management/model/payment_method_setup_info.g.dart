@@ -85,10 +85,45 @@ const PaymentMethodSetupInfoTypeEnum
 _$paymentMethodSetupInfoTypeEnum_alipayPlus =
     const PaymentMethodSetupInfoTypeEnum._('alipayPlus');
 const PaymentMethodSetupInfoTypeEnum
+_$paymentMethodSetupInfoTypeEnum_alipayPlusAlipayCn =
+    const PaymentMethodSetupInfoTypeEnum._('alipayPlusAlipayCn');
+const PaymentMethodSetupInfoTypeEnum
+_$paymentMethodSetupInfoTypeEnum_alipayPlusAlipayHk =
+    const PaymentMethodSetupInfoTypeEnum._('alipayPlusAlipayHk');
+const PaymentMethodSetupInfoTypeEnum
+_$paymentMethodSetupInfoTypeEnum_alipayPlusDana =
+    const PaymentMethodSetupInfoTypeEnum._('alipayPlusDana');
+const PaymentMethodSetupInfoTypeEnum
+_$paymentMethodSetupInfoTypeEnum_alipayPlusGcash =
+    const PaymentMethodSetupInfoTypeEnum._('alipayPlusGcash');
+const PaymentMethodSetupInfoTypeEnum
+_$paymentMethodSetupInfoTypeEnum_alipayPlusKakaopay =
+    const PaymentMethodSetupInfoTypeEnum._('alipayPlusKakaopay');
+const PaymentMethodSetupInfoTypeEnum
+_$paymentMethodSetupInfoTypeEnum_alipayPlusKplus =
+    const PaymentMethodSetupInfoTypeEnum._('alipayPlusKplus');
+const PaymentMethodSetupInfoTypeEnum
+_$paymentMethodSetupInfoTypeEnum_alipayPlusNaverpay =
+    const PaymentMethodSetupInfoTypeEnum._('alipayPlusNaverpay');
+const PaymentMethodSetupInfoTypeEnum
+_$paymentMethodSetupInfoTypeEnum_alipayPlusRabbitlinepay =
+    const PaymentMethodSetupInfoTypeEnum._('alipayPlusRabbitlinepay');
+const PaymentMethodSetupInfoTypeEnum
+_$paymentMethodSetupInfoTypeEnum_alipayPlusTosspay =
+    const PaymentMethodSetupInfoTypeEnum._('alipayPlusTosspay');
+const PaymentMethodSetupInfoTypeEnum
+_$paymentMethodSetupInfoTypeEnum_alipayPlusTouchngo =
+    const PaymentMethodSetupInfoTypeEnum._('alipayPlusTouchngo');
+const PaymentMethodSetupInfoTypeEnum
+_$paymentMethodSetupInfoTypeEnum_alipayPlusTruemoney =
+    const PaymentMethodSetupInfoTypeEnum._('alipayPlusTruemoney');
+const PaymentMethodSetupInfoTypeEnum
 _$paymentMethodSetupInfoTypeEnum_alipayWap =
     const PaymentMethodSetupInfoTypeEnum._('alipayWap');
 const PaymentMethodSetupInfoTypeEnum _$paymentMethodSetupInfoTypeEnum_amex =
     const PaymentMethodSetupInfoTypeEnum._('amex');
+const PaymentMethodSetupInfoTypeEnum _$paymentMethodSetupInfoTypeEnum_ancv =
+    const PaymentMethodSetupInfoTypeEnum._('ancv');
 const PaymentMethodSetupInfoTypeEnum _$paymentMethodSetupInfoTypeEnum_applepay =
     const PaymentMethodSetupInfoTypeEnum._('applepay');
 const PaymentMethodSetupInfoTypeEnum _$paymentMethodSetupInfoTypeEnum_avancard =
@@ -120,9 +155,13 @@ const PaymentMethodSetupInfoTypeEnum _$paymentMethodSetupInfoTypeEnum_blikPos =
 const PaymentMethodSetupInfoTypeEnum
 _$paymentMethodSetupInfoTypeEnum_brSchemes =
     const PaymentMethodSetupInfoTypeEnum._('brSchemes');
+const PaymentMethodSetupInfoTypeEnum _$paymentMethodSetupInfoTypeEnum_carnet =
+    const PaymentMethodSetupInfoTypeEnum._('carnet');
 const PaymentMethodSetupInfoTypeEnum
 _$paymentMethodSetupInfoTypeEnum_cartebancaire =
     const PaymentMethodSetupInfoTypeEnum._('cartebancaire');
+const PaymentMethodSetupInfoTypeEnum _$paymentMethodSetupInfoTypeEnum_cashapp =
+    const PaymentMethodSetupInfoTypeEnum._('cashapp');
 const PaymentMethodSetupInfoTypeEnum _$paymentMethodSetupInfoTypeEnum_clearpay =
     const PaymentMethodSetupInfoTypeEnum._('clearpay');
 const PaymentMethodSetupInfoTypeEnum
@@ -172,6 +211,8 @@ const PaymentMethodSetupInfoTypeEnum _$paymentMethodSetupInfoTypeEnum_discover =
 const PaymentMethodSetupInfoTypeEnum
 _$paymentMethodSetupInfoTypeEnum_ebankingFI =
     const PaymentMethodSetupInfoTypeEnum._('ebankingFI');
+const PaymentMethodSetupInfoTypeEnum _$paymentMethodSetupInfoTypeEnum_ebt =
+    const PaymentMethodSetupInfoTypeEnum._('ebt');
 const PaymentMethodSetupInfoTypeEnum
 _$paymentMethodSetupInfoTypeEnum_eftDirectdebitCA =
     const PaymentMethodSetupInfoTypeEnum._('eftDirectdebitCA');
@@ -406,6 +447,8 @@ _$paymentMethodSetupInfoTypeEnum_wechatpay =
 const PaymentMethodSetupInfoTypeEnum
 _$paymentMethodSetupInfoTypeEnum_wechatpayPos =
     const PaymentMethodSetupInfoTypeEnum._('wechatpayPos');
+const PaymentMethodSetupInfoTypeEnum _$paymentMethodSetupInfoTypeEnum_wero =
+    const PaymentMethodSetupInfoTypeEnum._('wero');
 const PaymentMethodSetupInfoTypeEnum
 _$paymentMethodSetupInfoTypeEnum_unknownDefaultOpenApi =
     const PaymentMethodSetupInfoTypeEnum._('unknownDefaultOpenApi');
@@ -438,10 +481,34 @@ PaymentMethodSetupInfoTypeEnum _$paymentMethodSetupInfoTypeEnumValueOf(
       return _$paymentMethodSetupInfoTypeEnum_alipayHk;
     case 'alipayPlus':
       return _$paymentMethodSetupInfoTypeEnum_alipayPlus;
+    case 'alipayPlusAlipayCn':
+      return _$paymentMethodSetupInfoTypeEnum_alipayPlusAlipayCn;
+    case 'alipayPlusAlipayHk':
+      return _$paymentMethodSetupInfoTypeEnum_alipayPlusAlipayHk;
+    case 'alipayPlusDana':
+      return _$paymentMethodSetupInfoTypeEnum_alipayPlusDana;
+    case 'alipayPlusGcash':
+      return _$paymentMethodSetupInfoTypeEnum_alipayPlusGcash;
+    case 'alipayPlusKakaopay':
+      return _$paymentMethodSetupInfoTypeEnum_alipayPlusKakaopay;
+    case 'alipayPlusKplus':
+      return _$paymentMethodSetupInfoTypeEnum_alipayPlusKplus;
+    case 'alipayPlusNaverpay':
+      return _$paymentMethodSetupInfoTypeEnum_alipayPlusNaverpay;
+    case 'alipayPlusRabbitlinepay':
+      return _$paymentMethodSetupInfoTypeEnum_alipayPlusRabbitlinepay;
+    case 'alipayPlusTosspay':
+      return _$paymentMethodSetupInfoTypeEnum_alipayPlusTosspay;
+    case 'alipayPlusTouchngo':
+      return _$paymentMethodSetupInfoTypeEnum_alipayPlusTouchngo;
+    case 'alipayPlusTruemoney':
+      return _$paymentMethodSetupInfoTypeEnum_alipayPlusTruemoney;
     case 'alipayWap':
       return _$paymentMethodSetupInfoTypeEnum_alipayWap;
     case 'amex':
       return _$paymentMethodSetupInfoTypeEnum_amex;
+    case 'ancv':
+      return _$paymentMethodSetupInfoTypeEnum_ancv;
     case 'applepay':
       return _$paymentMethodSetupInfoTypeEnum_applepay;
     case 'avancard':
@@ -466,8 +533,12 @@ PaymentMethodSetupInfoTypeEnum _$paymentMethodSetupInfoTypeEnumValueOf(
       return _$paymentMethodSetupInfoTypeEnum_blikPos;
     case 'brSchemes':
       return _$paymentMethodSetupInfoTypeEnum_brSchemes;
+    case 'carnet':
+      return _$paymentMethodSetupInfoTypeEnum_carnet;
     case 'cartebancaire':
       return _$paymentMethodSetupInfoTypeEnum_cartebancaire;
+    case 'cashapp':
+      return _$paymentMethodSetupInfoTypeEnum_cashapp;
     case 'clearpay':
       return _$paymentMethodSetupInfoTypeEnum_clearpay;
     case 'clicktopay':
@@ -504,6 +575,8 @@ PaymentMethodSetupInfoTypeEnum _$paymentMethodSetupInfoTypeEnumValueOf(
       return _$paymentMethodSetupInfoTypeEnum_discover;
     case 'ebankingFI':
       return _$paymentMethodSetupInfoTypeEnum_ebankingFI;
+    case 'ebt':
+      return _$paymentMethodSetupInfoTypeEnum_ebt;
     case 'eftDirectdebitCA':
       return _$paymentMethodSetupInfoTypeEnum_eftDirectdebitCA;
     case 'eftposAustralia':
@@ -684,6 +757,8 @@ PaymentMethodSetupInfoTypeEnum _$paymentMethodSetupInfoTypeEnumValueOf(
       return _$paymentMethodSetupInfoTypeEnum_wechatpay;
     case 'wechatpayPos':
       return _$paymentMethodSetupInfoTypeEnum_wechatpayPos;
+    case 'wero':
+      return _$paymentMethodSetupInfoTypeEnum_wero;
     case 'unknownDefaultOpenApi':
       return _$paymentMethodSetupInfoTypeEnum_unknownDefaultOpenApi;
     default:
@@ -707,8 +782,20 @@ _$paymentMethodSetupInfoTypeEnumValues =
         _$paymentMethodSetupInfoTypeEnum_alipay,
         _$paymentMethodSetupInfoTypeEnum_alipayHk,
         _$paymentMethodSetupInfoTypeEnum_alipayPlus,
+        _$paymentMethodSetupInfoTypeEnum_alipayPlusAlipayCn,
+        _$paymentMethodSetupInfoTypeEnum_alipayPlusAlipayHk,
+        _$paymentMethodSetupInfoTypeEnum_alipayPlusDana,
+        _$paymentMethodSetupInfoTypeEnum_alipayPlusGcash,
+        _$paymentMethodSetupInfoTypeEnum_alipayPlusKakaopay,
+        _$paymentMethodSetupInfoTypeEnum_alipayPlusKplus,
+        _$paymentMethodSetupInfoTypeEnum_alipayPlusNaverpay,
+        _$paymentMethodSetupInfoTypeEnum_alipayPlusRabbitlinepay,
+        _$paymentMethodSetupInfoTypeEnum_alipayPlusTosspay,
+        _$paymentMethodSetupInfoTypeEnum_alipayPlusTouchngo,
+        _$paymentMethodSetupInfoTypeEnum_alipayPlusTruemoney,
         _$paymentMethodSetupInfoTypeEnum_alipayWap,
         _$paymentMethodSetupInfoTypeEnum_amex,
+        _$paymentMethodSetupInfoTypeEnum_ancv,
         _$paymentMethodSetupInfoTypeEnum_applepay,
         _$paymentMethodSetupInfoTypeEnum_avancard,
         _$paymentMethodSetupInfoTypeEnum_avancardCredit,
@@ -721,7 +808,9 @@ _$paymentMethodSetupInfoTypeEnumValues =
         _$paymentMethodSetupInfoTypeEnum_blik,
         _$paymentMethodSetupInfoTypeEnum_blikPos,
         _$paymentMethodSetupInfoTypeEnum_brSchemes,
+        _$paymentMethodSetupInfoTypeEnum_carnet,
         _$paymentMethodSetupInfoTypeEnum_cartebancaire,
+        _$paymentMethodSetupInfoTypeEnum_cashapp,
         _$paymentMethodSetupInfoTypeEnum_clearpay,
         _$paymentMethodSetupInfoTypeEnum_clicktopay,
         _$paymentMethodSetupInfoTypeEnum_cooper,
@@ -740,6 +829,7 @@ _$paymentMethodSetupInfoTypeEnumValues =
         _$paymentMethodSetupInfoTypeEnum_directdebitGB,
         _$paymentMethodSetupInfoTypeEnum_discover,
         _$paymentMethodSetupInfoTypeEnum_ebankingFI,
+        _$paymentMethodSetupInfoTypeEnum_ebt,
         _$paymentMethodSetupInfoTypeEnum_eftDirectdebitCA,
         _$paymentMethodSetupInfoTypeEnum_eftposAustralia,
         _$paymentMethodSetupInfoTypeEnum_elo,
@@ -830,6 +920,7 @@ _$paymentMethodSetupInfoTypeEnumValues =
         _$paymentMethodSetupInfoTypeEnum_vpay,
         _$paymentMethodSetupInfoTypeEnum_wechatpay,
         _$paymentMethodSetupInfoTypeEnum_wechatpayPos,
+        _$paymentMethodSetupInfoTypeEnum_wero,
         _$paymentMethodSetupInfoTypeEnum_unknownDefaultOpenApi,
       ],
     );
@@ -898,8 +989,20 @@ class _$PaymentMethodSetupInfoTypeEnumSerializer
     'alipay': 'alipay',
     'alipayHk': 'alipay_hk',
     'alipayPlus': 'alipay_plus',
+    'alipayPlusAlipayCn': 'alipay_plus_alipay_cn',
+    'alipayPlusAlipayHk': 'alipay_plus_alipay_hk',
+    'alipayPlusDana': 'alipay_plus_dana',
+    'alipayPlusGcash': 'alipay_plus_gcash',
+    'alipayPlusKakaopay': 'alipay_plus_kakaopay',
+    'alipayPlusKplus': 'alipay_plus_kplus',
+    'alipayPlusNaverpay': 'alipay_plus_naverpay',
+    'alipayPlusRabbitlinepay': 'alipay_plus_rabbitlinepay',
+    'alipayPlusTosspay': 'alipay_plus_tosspay',
+    'alipayPlusTouchngo': 'alipay_plus_touchngo',
+    'alipayPlusTruemoney': 'alipay_plus_truemoney',
     'alipayWap': 'alipay_wap',
     'amex': 'amex',
+    'ancv': 'ancv',
     'applepay': 'applepay',
     'avancard': 'avancard',
     'avancardCredit': 'avancard_credit',
@@ -912,7 +1015,9 @@ class _$PaymentMethodSetupInfoTypeEnumSerializer
     'blik': 'blik',
     'blikPos': 'blik_pos',
     'brSchemes': 'br_schemes',
+    'carnet': 'carnet',
     'cartebancaire': 'cartebancaire',
+    'cashapp': 'cashapp',
     'clearpay': 'clearpay',
     'clicktopay': 'clicktopay',
     'cooper': 'cooper',
@@ -931,6 +1036,7 @@ class _$PaymentMethodSetupInfoTypeEnumSerializer
     'directdebitGB': 'directdebit_GB',
     'discover': 'discover',
     'ebankingFI': 'ebanking_FI',
+    'ebt': 'ebt',
     'eftDirectdebitCA': 'eft_directdebit_CA',
     'eftposAustralia': 'eftpos_australia',
     'elo': 'elo',
@@ -1021,6 +1127,7 @@ class _$PaymentMethodSetupInfoTypeEnumSerializer
     'vpay': 'vpay',
     'wechatpay': 'wechatpay',
     'wechatpayPos': 'wechatpay_pos',
+    'wero': 'wero',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
@@ -1036,8 +1143,20 @@ class _$PaymentMethodSetupInfoTypeEnumSerializer
     'alipay': 'alipay',
     'alipay_hk': 'alipayHk',
     'alipay_plus': 'alipayPlus',
+    'alipay_plus_alipay_cn': 'alipayPlusAlipayCn',
+    'alipay_plus_alipay_hk': 'alipayPlusAlipayHk',
+    'alipay_plus_dana': 'alipayPlusDana',
+    'alipay_plus_gcash': 'alipayPlusGcash',
+    'alipay_plus_kakaopay': 'alipayPlusKakaopay',
+    'alipay_plus_kplus': 'alipayPlusKplus',
+    'alipay_plus_naverpay': 'alipayPlusNaverpay',
+    'alipay_plus_rabbitlinepay': 'alipayPlusRabbitlinepay',
+    'alipay_plus_tosspay': 'alipayPlusTosspay',
+    'alipay_plus_touchngo': 'alipayPlusTouchngo',
+    'alipay_plus_truemoney': 'alipayPlusTruemoney',
     'alipay_wap': 'alipayWap',
     'amex': 'amex',
+    'ancv': 'ancv',
     'applepay': 'applepay',
     'avancard': 'avancard',
     'avancard_credit': 'avancardCredit',
@@ -1050,7 +1169,9 @@ class _$PaymentMethodSetupInfoTypeEnumSerializer
     'blik': 'blik',
     'blik_pos': 'blikPos',
     'br_schemes': 'brSchemes',
+    'carnet': 'carnet',
     'cartebancaire': 'cartebancaire',
+    'cashapp': 'cashapp',
     'clearpay': 'clearpay',
     'clicktopay': 'clicktopay',
     'cooper': 'cooper',
@@ -1069,6 +1190,7 @@ class _$PaymentMethodSetupInfoTypeEnumSerializer
     'directdebit_GB': 'directdebitGB',
     'discover': 'discover',
     'ebanking_FI': 'ebankingFI',
+    'ebt': 'ebt',
     'eft_directdebit_CA': 'eftDirectdebitCA',
     'eftpos_australia': 'eftposAustralia',
     'elo': 'elo',
@@ -1159,6 +1281,7 @@ class _$PaymentMethodSetupInfoTypeEnumSerializer
     'vpay': 'vpay',
     'wechatpay': 'wechatpay',
     'wechatpay_pos': 'wechatpayPos',
+    'wero': 'wero',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
 
@@ -1196,11 +1319,15 @@ class _$PaymentMethodSetupInfo extends PaymentMethodSetupInfo {
   @override
   final AmexInfo? amex;
   @override
+  final AncvInfo? ancv;
+  @override
   final ApplePayInfo? applePay;
   @override
   final BcmcInfo? bcmc;
   @override
   final String? businessLineId;
+  @override
+  final CarnetInfo? carnet;
   @override
   final CartesBancairesInfo? cartesBancaires;
   @override
@@ -1217,6 +1344,8 @@ class _$PaymentMethodSetupInfo extends PaymentMethodSetupInfo {
   final DinersInfo? diners;
   @override
   final GenericPmWithTdiInfo? discover;
+  @override
+  final EbtInfo? ebt;
   @override
   final GenericPmWithTdiInfo? eftDirectdebitCA;
   @override
@@ -1300,9 +1429,11 @@ class _$PaymentMethodSetupInfo extends PaymentMethodSetupInfo {
     this.afterpayTouch,
     this.alipayPlus,
     this.amex,
+    this.ancv,
     this.applePay,
     this.bcmc,
     this.businessLineId,
+    this.carnet,
     this.cartesBancaires,
     this.clearpay,
     this.countries,
@@ -1311,6 +1442,7 @@ class _$PaymentMethodSetupInfo extends PaymentMethodSetupInfo {
     this.customRoutingFlags,
     this.diners,
     this.discover,
+    this.ebt,
     this.eftDirectdebitCA,
     this.eftposAustralia,
     this.girocard,
@@ -1366,9 +1498,11 @@ class _$PaymentMethodSetupInfo extends PaymentMethodSetupInfo {
         afterpayTouch == other.afterpayTouch &&
         alipayPlus == other.alipayPlus &&
         amex == other.amex &&
+        ancv == other.ancv &&
         applePay == other.applePay &&
         bcmc == other.bcmc &&
         businessLineId == other.businessLineId &&
+        carnet == other.carnet &&
         cartesBancaires == other.cartesBancaires &&
         clearpay == other.clearpay &&
         countries == other.countries &&
@@ -1377,6 +1511,7 @@ class _$PaymentMethodSetupInfo extends PaymentMethodSetupInfo {
         customRoutingFlags == other.customRoutingFlags &&
         diners == other.diners &&
         discover == other.discover &&
+        ebt == other.ebt &&
         eftDirectdebitCA == other.eftDirectdebitCA &&
         eftposAustralia == other.eftposAustralia &&
         girocard == other.girocard &&
@@ -1423,9 +1558,11 @@ class _$PaymentMethodSetupInfo extends PaymentMethodSetupInfo {
     _$hash = $jc(_$hash, afterpayTouch.hashCode);
     _$hash = $jc(_$hash, alipayPlus.hashCode);
     _$hash = $jc(_$hash, amex.hashCode);
+    _$hash = $jc(_$hash, ancv.hashCode);
     _$hash = $jc(_$hash, applePay.hashCode);
     _$hash = $jc(_$hash, bcmc.hashCode);
     _$hash = $jc(_$hash, businessLineId.hashCode);
+    _$hash = $jc(_$hash, carnet.hashCode);
     _$hash = $jc(_$hash, cartesBancaires.hashCode);
     _$hash = $jc(_$hash, clearpay.hashCode);
     _$hash = $jc(_$hash, countries.hashCode);
@@ -1434,6 +1571,7 @@ class _$PaymentMethodSetupInfo extends PaymentMethodSetupInfo {
     _$hash = $jc(_$hash, customRoutingFlags.hashCode);
     _$hash = $jc(_$hash, diners.hashCode);
     _$hash = $jc(_$hash, discover.hashCode);
+    _$hash = $jc(_$hash, ebt.hashCode);
     _$hash = $jc(_$hash, eftDirectdebitCA.hashCode);
     _$hash = $jc(_$hash, eftposAustralia.hashCode);
     _$hash = $jc(_$hash, girocard.hashCode);
@@ -1482,9 +1620,11 @@ class _$PaymentMethodSetupInfo extends PaymentMethodSetupInfo {
           ..add('afterpayTouch', afterpayTouch)
           ..add('alipayPlus', alipayPlus)
           ..add('amex', amex)
+          ..add('ancv', ancv)
           ..add('applePay', applePay)
           ..add('bcmc', bcmc)
           ..add('businessLineId', businessLineId)
+          ..add('carnet', carnet)
           ..add('cartesBancaires', cartesBancaires)
           ..add('clearpay', clearpay)
           ..add('countries', countries)
@@ -1493,6 +1633,7 @@ class _$PaymentMethodSetupInfo extends PaymentMethodSetupInfo {
           ..add('customRoutingFlags', customRoutingFlags)
           ..add('diners', diners)
           ..add('discover', discover)
+          ..add('ebt', ebt)
           ..add('eftDirectdebitCA', eftDirectdebitCA)
           ..add('eftposAustralia', eftposAustralia)
           ..add('girocard', girocard)
@@ -1561,6 +1702,10 @@ class PaymentMethodSetupInfoBuilder
   AmexInfoBuilder get amex => _$this._amex ??= AmexInfoBuilder();
   set amex(AmexInfoBuilder? amex) => _$this._amex = amex;
 
+  AncvInfoBuilder? _ancv;
+  AncvInfoBuilder get ancv => _$this._ancv ??= AncvInfoBuilder();
+  set ancv(AncvInfoBuilder? ancv) => _$this._ancv = ancv;
+
   ApplePayInfoBuilder? _applePay;
   ApplePayInfoBuilder get applePay =>
       _$this._applePay ??= ApplePayInfoBuilder();
@@ -1574,6 +1719,10 @@ class PaymentMethodSetupInfoBuilder
   String? get businessLineId => _$this._businessLineId;
   set businessLineId(String? businessLineId) =>
       _$this._businessLineId = businessLineId;
+
+  CarnetInfoBuilder? _carnet;
+  CarnetInfoBuilder get carnet => _$this._carnet ??= CarnetInfoBuilder();
+  set carnet(CarnetInfoBuilder? carnet) => _$this._carnet = carnet;
 
   CartesBancairesInfoBuilder? _cartesBancaires;
   CartesBancairesInfoBuilder get cartesBancaires =>
@@ -1618,6 +1767,10 @@ class PaymentMethodSetupInfoBuilder
       _$this._discover ??= GenericPmWithTdiInfoBuilder();
   set discover(GenericPmWithTdiInfoBuilder? discover) =>
       _$this._discover = discover;
+
+  EbtInfoBuilder? _ebt;
+  EbtInfoBuilder get ebt => _$this._ebt ??= EbtInfoBuilder();
+  set ebt(EbtInfoBuilder? ebt) => _$this._ebt = ebt;
 
   GenericPmWithTdiInfoBuilder? _eftDirectdebitCA;
   GenericPmWithTdiInfoBuilder get eftDirectdebitCA =>
@@ -1808,9 +1961,11 @@ class PaymentMethodSetupInfoBuilder
       _afterpayTouch = $v.afterpayTouch?.toBuilder();
       _alipayPlus = $v.alipayPlus?.toBuilder();
       _amex = $v.amex?.toBuilder();
+      _ancv = $v.ancv?.toBuilder();
       _applePay = $v.applePay?.toBuilder();
       _bcmc = $v.bcmc?.toBuilder();
       _businessLineId = $v.businessLineId;
+      _carnet = $v.carnet?.toBuilder();
       _cartesBancaires = $v.cartesBancaires?.toBuilder();
       _clearpay = $v.clearpay?.toBuilder();
       _countries = $v.countries?.toBuilder();
@@ -1819,6 +1974,7 @@ class PaymentMethodSetupInfoBuilder
       _customRoutingFlags = $v.customRoutingFlags?.toBuilder();
       _diners = $v.diners?.toBuilder();
       _discover = $v.discover?.toBuilder();
+      _ebt = $v.ebt?.toBuilder();
       _eftDirectdebitCA = $v.eftDirectdebitCA?.toBuilder();
       _eftposAustralia = $v.eftposAustralia?.toBuilder();
       _girocard = $v.girocard?.toBuilder();
@@ -1884,9 +2040,11 @@ class PaymentMethodSetupInfoBuilder
             afterpayTouch: _afterpayTouch?.build(),
             alipayPlus: _alipayPlus?.build(),
             amex: _amex?.build(),
+            ancv: _ancv?.build(),
             applePay: _applePay?.build(),
             bcmc: _bcmc?.build(),
             businessLineId: businessLineId,
+            carnet: _carnet?.build(),
             cartesBancaires: _cartesBancaires?.build(),
             clearpay: _clearpay?.build(),
             countries: _countries?.build(),
@@ -1895,6 +2053,7 @@ class PaymentMethodSetupInfoBuilder
             customRoutingFlags: _customRoutingFlags?.build(),
             diners: _diners?.build(),
             discover: _discover?.build(),
+            ebt: _ebt?.build(),
             eftDirectdebitCA: _eftDirectdebitCA?.build(),
             eftposAustralia: _eftposAustralia?.build(),
             girocard: _girocard?.build(),
@@ -1949,11 +2108,15 @@ class PaymentMethodSetupInfoBuilder
         _alipayPlus?.build();
         _$failedField = 'amex';
         _amex?.build();
+        _$failedField = 'ancv';
+        _ancv?.build();
         _$failedField = 'applePay';
         _applePay?.build();
         _$failedField = 'bcmc';
         _bcmc?.build();
 
+        _$failedField = 'carnet';
+        _carnet?.build();
         _$failedField = 'cartesBancaires';
         _cartesBancaires?.build();
         _$failedField = 'clearpay';
@@ -1970,6 +2133,8 @@ class PaymentMethodSetupInfoBuilder
         _diners?.build();
         _$failedField = 'discover';
         _discover?.build();
+        _$failedField = 'ebt';
+        _ebt?.build();
         _$failedField = 'eftDirectdebitCA';
         _eftDirectdebitCA?.build();
         _$failedField = 'eftposAustralia';

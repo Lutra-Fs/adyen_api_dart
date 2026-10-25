@@ -6,8 +6,8 @@ part of 'response_mode.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-const ResponseMode _$immediate = const ResponseMode._('immediate');
 const ResponseMode _$notRequired = const ResponseMode._('notRequired');
+const ResponseMode _$immediate = const ResponseMode._('immediate');
 const ResponseMode _$printEnd = const ResponseMode._('printEnd');
 const ResponseMode _$soundEnd = const ResponseMode._('soundEnd');
 const ResponseMode _$unknownDefaultOpenApi = const ResponseMode._(
@@ -16,10 +16,10 @@ const ResponseMode _$unknownDefaultOpenApi = const ResponseMode._(
 
 ResponseMode _$valueOf(String name) {
   switch (name) {
-    case 'immediate':
-      return _$immediate;
     case 'notRequired':
       return _$notRequired;
+    case 'immediate':
+      return _$immediate;
     case 'printEnd':
       return _$printEnd;
     case 'soundEnd':
@@ -33,8 +33,8 @@ ResponseMode _$valueOf(String name) {
 
 final BuiltSet<ResponseMode> _$values = BuiltSet<ResponseMode>(
   const <ResponseMode>[
-    _$immediate,
     _$notRequired,
+    _$immediate,
     _$printEnd,
     _$soundEnd,
     _$unknownDefaultOpenApi,
@@ -43,8 +43,8 @@ final BuiltSet<ResponseMode> _$values = BuiltSet<ResponseMode>(
 
 class _$ResponseModeMeta {
   const _$ResponseModeMeta();
-  ResponseMode get immediate => _$immediate;
   ResponseMode get notRequired => _$notRequired;
+  ResponseMode get immediate => _$immediate;
   ResponseMode get printEnd => _$printEnd;
   ResponseMode get soundEnd => _$soundEnd;
   ResponseMode get unknownDefaultOpenApi => _$unknownDefaultOpenApi;
@@ -61,15 +61,15 @@ Serializer<ResponseMode> _$responseModeSerializer = _$ResponseModeSerializer();
 
 class _$ResponseModeSerializer implements PrimitiveSerializer<ResponseMode> {
   static const Map<String, Object> _toWire = const <String, Object>{
-    'immediate': 'Immediate',
     'notRequired': 'NotRequired',
+    'immediate': 'Immediate',
     'printEnd': 'PrintEnd',
     'soundEnd': 'SoundEnd',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
-    'Immediate': 'immediate',
     'NotRequired': 'notRequired',
+    'Immediate': 'immediate',
     'PrintEnd': 'printEnd',
     'SoundEnd': 'soundEnd',
     'unknown_default_open_api': 'unknownDefaultOpenApi',

@@ -7,6 +7,7 @@ part of 'sca_entity_type.dart';
 // **************************************************************************
 
 const ScaEntityType _$accountHolder = const ScaEntityType._('accountHolder');
+const ScaEntityType _$legalEntity = const ScaEntityType._('legalEntity');
 const ScaEntityType _$paymentInstrument = const ScaEntityType._(
   'paymentInstrument',
 );
@@ -18,6 +19,8 @@ ScaEntityType _$valueOf(String name) {
   switch (name) {
     case 'accountHolder':
       return _$accountHolder;
+    case 'legalEntity':
+      return _$legalEntity;
     case 'paymentInstrument':
       return _$paymentInstrument;
     case 'unknownDefaultOpenApi':
@@ -30,6 +33,7 @@ ScaEntityType _$valueOf(String name) {
 final BuiltSet<ScaEntityType> _$values = BuiltSet<ScaEntityType>(
   const <ScaEntityType>[
     _$accountHolder,
+    _$legalEntity,
     _$paymentInstrument,
     _$unknownDefaultOpenApi,
   ],
@@ -38,6 +42,7 @@ final BuiltSet<ScaEntityType> _$values = BuiltSet<ScaEntityType>(
 class _$ScaEntityTypeMeta {
   const _$ScaEntityTypeMeta();
   ScaEntityType get accountHolder => _$accountHolder;
+  ScaEntityType get legalEntity => _$legalEntity;
   ScaEntityType get paymentInstrument => _$paymentInstrument;
   ScaEntityType get unknownDefaultOpenApi => _$unknownDefaultOpenApi;
   ScaEntityType valueOf(String name) => _$valueOf(name);
@@ -55,11 +60,13 @@ Serializer<ScaEntityType> _$scaEntityTypeSerializer =
 class _$ScaEntityTypeSerializer implements PrimitiveSerializer<ScaEntityType> {
   static const Map<String, Object> _toWire = const <String, Object>{
     'accountHolder': 'accountHolder',
+    'legalEntity': 'legalEntity',
     'paymentInstrument': 'paymentInstrument',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'accountHolder': 'accountHolder',
+    'legalEntity': 'legalEntity',
     'paymentInstrument': 'paymentInstrument',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };

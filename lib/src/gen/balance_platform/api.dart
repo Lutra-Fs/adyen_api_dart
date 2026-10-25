@@ -15,15 +15,18 @@ import 'package:adyen_api/src/gen/balance_platform/api/balance_accounts_api.dart
 import 'package:adyen_api/src/gen/balance_platform/api/balances_api.dart';
 import 'package:adyen_api/src/gen/balance_platform/api/bank_account_validation_api.dart';
 import 'package:adyen_api/src/gen/balance_platform/api/card_orders_api.dart';
+import 'package:adyen_api/src/gen/balance_platform/api/custom_payout_schedules_sweeps_api.dart';
 import 'package:adyen_api/src/gen/balance_platform/api/direct_debit_mandates_api.dart';
 import 'package:adyen_api/src/gen/balance_platform/api/grant_accounts_api.dart';
 import 'package:adyen_api/src/gen/balance_platform/api/grant_offers_api.dart';
 import 'package:adyen_api/src/gen/balance_platform/api/manage_card_pin_api.dart';
 import 'package:adyen_api/src/gen/balance_platform/api/manage_sca_devices_api.dart';
+import 'package:adyen_api/src/gen/balance_platform/api/managed_payout_schedules_api.dart';
 import 'package:adyen_api/src/gen/balance_platform/api/network_tokens_api.dart';
 import 'package:adyen_api/src/gen/balance_platform/api/payment_instrument_groups_api.dart';
 import 'package:adyen_api/src/gen/balance_platform/api/payment_instruments_api.dart';
 import 'package:adyen_api/src/gen/balance_platform/api/platform_api.dart';
+import 'package:adyen_api/src/gen/balance_platform/api/recurring_top_ups_api.dart';
 import 'package:adyen_api/src/gen/balance_platform/api/sca_association_management_api.dart';
 import 'package:adyen_api/src/gen/balance_platform/api/sca_device_management_api.dart';
 import 'package:adyen_api/src/gen/balance_platform/api/transaction_rules_api.dart';
@@ -121,6 +124,12 @@ class AdyenApi {
     return CardOrdersApi(dio, serializers);
   }
 
+  /// Get CustomPayoutSchedulesSweepsApi instance, base route and serializer can be overridden by a given but be careful,
+  /// by doing that all interceptors will not be executed
+  CustomPayoutSchedulesSweepsApi getCustomPayoutSchedulesSweepsApi() {
+    return CustomPayoutSchedulesSweepsApi(dio, serializers);
+  }
+
   /// Get DirectDebitMandatesApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
   DirectDebitMandatesApi getDirectDebitMandatesApi() {
@@ -151,6 +160,12 @@ class AdyenApi {
     return ManageSCADevicesApi(dio, serializers);
   }
 
+  /// Get ManagedPayoutSchedulesApi instance, base route and serializer can be overridden by a given but be careful,
+  /// by doing that all interceptors will not be executed
+  ManagedPayoutSchedulesApi getManagedPayoutSchedulesApi() {
+    return ManagedPayoutSchedulesApi(dio, serializers);
+  }
+
   /// Get NetworkTokensApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
   NetworkTokensApi getNetworkTokensApi() {
@@ -173,6 +188,12 @@ class AdyenApi {
   /// by doing that all interceptors will not be executed
   PlatformApi getPlatformApi() {
     return PlatformApi(dio, serializers);
+  }
+
+  /// Get RecurringTopUpsApi instance, base route and serializer can be overridden by a given but be careful,
+  /// by doing that all interceptors will not be executed
+  RecurringTopUpsApi getRecurringTopUpsApi() {
+    return RecurringTopUpsApi(dio, serializers);
   }
 
   /// Get SCAAssociationManagementApi instance, base route and serializer can be overridden by a given but be careful,

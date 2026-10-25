@@ -26,7 +26,7 @@ abstract class OutputContent implements Built<OutputContent, OutputContentBuilde
   /// Format of the content to display or print. Possible values: * **BarCode** * **MessageRef** * **Text** * **XHTML**
   @BuiltValueField(wireName: r'OutputFormat')
   OutputFormat get outputFormat;
-  // enum outputFormatEnum {  BarCode,  MessageRef,  Text,  XHTML,  };
+  // enum outputFormatEnum {  MessageRef,  Text,  XHTML,  BarCode,  };
 
   /// Reference of a predefined message to display or print. Mandatory, if `OutputFormat` is MessageRef, not allowed otherwise.
   @BuiltValueField(wireName: r'PredefinedContent')

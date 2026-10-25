@@ -27,7 +27,7 @@ abstract class PaymentInstrumentData implements Built<PaymentInstrumentData, Pay
   /// Type of payment instrument. Possible values: * **Card** * **Cash** * **Check** * **Mobile** * **StoredValue**
   @BuiltValueField(wireName: r'PaymentInstrumentType')
   PaymentInstrumentType get paymentInstrumentType;
-  // enum paymentInstrumentTypeEnum {  Card,  Cash,  Check,  Mobile,  StoredValue,  };
+  // enum paymentInstrumentTypeEnum {  Card,  Check,  Mobile,  StoredValue,  Cash,  };
 
   /// Sensitive information related to the payment card, protected by CMS. SensitiveCardData protected by CMS EnvelopedData.
   @BuiltValueField(wireName: r'ProtectedCardData')

@@ -68,6 +68,8 @@ class _$AffirmDetails extends AffirmDetails {
   @override
   final String? checkoutAttemptId;
   @override
+  final String? financingProgram;
+  @override
   final String? sdkData;
   @override
   final AffirmDetailsTypeEnum? type;
@@ -75,8 +77,12 @@ class _$AffirmDetails extends AffirmDetails {
   factory _$AffirmDetails([void Function(AffirmDetailsBuilder)? updates]) =>
       (AffirmDetailsBuilder()..update(updates))._build();
 
-  _$AffirmDetails._({this.checkoutAttemptId, this.sdkData, this.type})
-    : super._();
+  _$AffirmDetails._({
+    this.checkoutAttemptId,
+    this.financingProgram,
+    this.sdkData,
+    this.type,
+  }) : super._();
   @override
   AffirmDetails rebuild(void Function(AffirmDetailsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
@@ -89,6 +95,7 @@ class _$AffirmDetails extends AffirmDetails {
     if (identical(other, this)) return true;
     return other is AffirmDetails &&
         checkoutAttemptId == other.checkoutAttemptId &&
+        financingProgram == other.financingProgram &&
         sdkData == other.sdkData &&
         type == other.type;
   }
@@ -97,6 +104,7 @@ class _$AffirmDetails extends AffirmDetails {
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, checkoutAttemptId.hashCode);
+    _$hash = $jc(_$hash, financingProgram.hashCode);
     _$hash = $jc(_$hash, sdkData.hashCode);
     _$hash = $jc(_$hash, type.hashCode);
     _$hash = $jf(_$hash);
@@ -107,6 +115,7 @@ class _$AffirmDetails extends AffirmDetails {
   String toString() {
     return (newBuiltValueToStringHelper(r'AffirmDetails')
           ..add('checkoutAttemptId', checkoutAttemptId)
+          ..add('financingProgram', financingProgram)
           ..add('sdkData', sdkData)
           ..add('type', type))
         .toString();
@@ -121,6 +130,11 @@ class AffirmDetailsBuilder
   String? get checkoutAttemptId => _$this._checkoutAttemptId;
   set checkoutAttemptId(String? checkoutAttemptId) =>
       _$this._checkoutAttemptId = checkoutAttemptId;
+
+  String? _financingProgram;
+  String? get financingProgram => _$this._financingProgram;
+  set financingProgram(String? financingProgram) =>
+      _$this._financingProgram = financingProgram;
 
   String? _sdkData;
   String? get sdkData => _$this._sdkData;
@@ -138,6 +152,7 @@ class AffirmDetailsBuilder
     final $v = _$v;
     if ($v != null) {
       _checkoutAttemptId = $v.checkoutAttemptId;
+      _financingProgram = $v.financingProgram;
       _sdkData = $v.sdkData;
       _type = $v.type;
       _$v = null;
@@ -163,6 +178,7 @@ class AffirmDetailsBuilder
         _$v ??
         _$AffirmDetails._(
           checkoutAttemptId: checkoutAttemptId,
+          financingProgram: financingProgram,
           sdkData: sdkData,
           type: type,
         );

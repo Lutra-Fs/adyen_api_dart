@@ -13,6 +13,9 @@ const TermsOfServiceAcceptanceInfoTypeEnum
 _$termsOfServiceAcceptanceInfoTypeEnum_adyenCapital =
     const TermsOfServiceAcceptanceInfoTypeEnum._('adyenCapital');
 const TermsOfServiceAcceptanceInfoTypeEnum
+_$termsOfServiceAcceptanceInfoTypeEnum_adyenCapitalCashAdvance =
+    const TermsOfServiceAcceptanceInfoTypeEnum._('adyenCapitalCashAdvance');
+const TermsOfServiceAcceptanceInfoTypeEnum
 _$termsOfServiceAcceptanceInfoTypeEnum_adyenCard =
     const TermsOfServiceAcceptanceInfoTypeEnum._('adyenCard');
 const TermsOfServiceAcceptanceInfoTypeEnum
@@ -34,6 +37,9 @@ const TermsOfServiceAcceptanceInfoTypeEnum
 _$termsOfServiceAcceptanceInfoTypeEnum_adyenPccr =
     const TermsOfServiceAcceptanceInfoTypeEnum._('adyenPccr');
 const TermsOfServiceAcceptanceInfoTypeEnum
+_$termsOfServiceAcceptanceInfoTypeEnum_directDebit =
+    const TermsOfServiceAcceptanceInfoTypeEnum._('directDebit');
+const TermsOfServiceAcceptanceInfoTypeEnum
 _$termsOfServiceAcceptanceInfoTypeEnum_kycOnInvite =
     const TermsOfServiceAcceptanceInfoTypeEnum._('kycOnInvite');
 const TermsOfServiceAcceptanceInfoTypeEnum
@@ -47,6 +53,8 @@ _$termsOfServiceAcceptanceInfoTypeEnumValueOf(String name) {
       return _$termsOfServiceAcceptanceInfoTypeEnum_adyenAccount;
     case 'adyenCapital':
       return _$termsOfServiceAcceptanceInfoTypeEnum_adyenCapital;
+    case 'adyenCapitalCashAdvance':
+      return _$termsOfServiceAcceptanceInfoTypeEnum_adyenCapitalCashAdvance;
     case 'adyenCard':
       return _$termsOfServiceAcceptanceInfoTypeEnum_adyenCard;
     case 'adyenChargeCard':
@@ -61,6 +69,8 @@ _$termsOfServiceAcceptanceInfoTypeEnumValueOf(String name) {
       return _$termsOfServiceAcceptanceInfoTypeEnum_adyenIssuing;
     case 'adyenPccr':
       return _$termsOfServiceAcceptanceInfoTypeEnum_adyenPccr;
+    case 'directDebit':
+      return _$termsOfServiceAcceptanceInfoTypeEnum_directDebit;
     case 'kycOnInvite':
       return _$termsOfServiceAcceptanceInfoTypeEnum_kycOnInvite;
     case 'unknownDefaultOpenApi':
@@ -76,6 +86,7 @@ _$termsOfServiceAcceptanceInfoTypeEnumValues =
       const <TermsOfServiceAcceptanceInfoTypeEnum>[
         _$termsOfServiceAcceptanceInfoTypeEnum_adyenAccount,
         _$termsOfServiceAcceptanceInfoTypeEnum_adyenCapital,
+        _$termsOfServiceAcceptanceInfoTypeEnum_adyenCapitalCashAdvance,
         _$termsOfServiceAcceptanceInfoTypeEnum_adyenCard,
         _$termsOfServiceAcceptanceInfoTypeEnum_adyenChargeCard,
         _$termsOfServiceAcceptanceInfoTypeEnum_adyenForPlatformsAdvanced,
@@ -83,6 +94,7 @@ _$termsOfServiceAcceptanceInfoTypeEnumValues =
         _$termsOfServiceAcceptanceInfoTypeEnum_adyenFranchisee,
         _$termsOfServiceAcceptanceInfoTypeEnum_adyenIssuing,
         _$termsOfServiceAcceptanceInfoTypeEnum_adyenPccr,
+        _$termsOfServiceAcceptanceInfoTypeEnum_directDebit,
         _$termsOfServiceAcceptanceInfoTypeEnum_kycOnInvite,
         _$termsOfServiceAcceptanceInfoTypeEnum_unknownDefaultOpenApi,
       ],
@@ -97,6 +109,7 @@ class _$TermsOfServiceAcceptanceInfoTypeEnumSerializer
   static const Map<String, Object> _toWire = const <String, Object>{
     'adyenAccount': 'adyenAccount',
     'adyenCapital': 'adyenCapital',
+    'adyenCapitalCashAdvance': 'adyenCapitalCashAdvance',
     'adyenCard': 'adyenCard',
     'adyenChargeCard': 'adyenChargeCard',
     'adyenForPlatformsAdvanced': 'adyenForPlatformsAdvanced',
@@ -104,12 +117,14 @@ class _$TermsOfServiceAcceptanceInfoTypeEnumSerializer
     'adyenFranchisee': 'adyenFranchisee',
     'adyenIssuing': 'adyenIssuing',
     'adyenPccr': 'adyenPccr',
+    'directDebit': 'directDebit',
     'kycOnInvite': 'kycOnInvite',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'adyenAccount': 'adyenAccount',
     'adyenCapital': 'adyenCapital',
+    'adyenCapitalCashAdvance': 'adyenCapitalCashAdvance',
     'adyenCard': 'adyenCard',
     'adyenChargeCard': 'adyenChargeCard',
     'adyenForPlatformsAdvanced': 'adyenForPlatformsAdvanced',
@@ -117,6 +132,7 @@ class _$TermsOfServiceAcceptanceInfoTypeEnumSerializer
     'adyenFranchisee': 'adyenFranchisee',
     'adyenIssuing': 'adyenIssuing',
     'adyenPccr': 'adyenPccr',
+    'directDebit': 'directDebit',
     'kycOnInvite': 'kycOnInvite',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };

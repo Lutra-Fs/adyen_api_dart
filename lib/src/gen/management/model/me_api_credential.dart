@@ -23,6 +23,7 @@ part 'me_api_credential.g.dart';
 /// * [description] - Description of the API credential.
 /// * [id] - Unique identifier of the API credential.
 /// * [roles] - List of [roles](https://docs.adyen.com/development-resources/api-credentials#roles-1) for the API credential.
+/// * [subjectDN] - The subject DN of the certificate issued by Adyen.
 /// * [username] - The name of the [API credential](https://docs.adyen.com/development-resources/api-credentials), for example **ws@Company.TestCompany**.
 @BuiltValue()
 abstract class MeApiCredential implements Built<MeApiCredential, MeApiCredentialBuilder> {
@@ -61,6 +62,10 @@ abstract class MeApiCredential implements Built<MeApiCredential, MeApiCredential
   /// List of [roles](https://docs.adyen.com/development-resources/api-credentials#roles-1) for the API credential.
   @BuiltValueField(wireName: r'roles')
   BuiltList<String> get roles;
+
+  /// The subject DN of the certificate issued by Adyen.
+  @BuiltValueField(wireName: r'subjectDN')
+  String? get subjectDN;
 
   /// The name of the [API credential](https://docs.adyen.com/development-resources/api-credentials), for example **ws@Company.TestCompany**.
   @BuiltValueField(wireName: r'username')
@@ -142,6 +147,13 @@ class _$MeApiCredentialSerializer implements PrimitiveSerializer<MeApiCredential
       object.roles,
       specifiedType: const FullType(BuiltList, [FullType(String)]),
     );
+    if (object.subjectDN != null) {
+      yield r'subjectDN';
+      yield serializers.serialize(
+        object.subjectDN,
+        specifiedType: const FullType(String),
+      );
+    }
     yield r'username';
     yield serializers.serialize(
       object.username,
@@ -232,6 +244,13 @@ class _$MeApiCredentialSerializer implements PrimitiveSerializer<MeApiCredential
             specifiedType: const FullType(BuiltList, [FullType(String)]),
           ) as BuiltList<String>;
           result.roles.replace(valueDes);
+          break;
+        case r'subjectDN':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.subjectDN = valueDes;
           break;
         case r'username':
           final valueDes = serializers.deserialize(

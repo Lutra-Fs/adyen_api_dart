@@ -6,9 +6,9 @@ part of 'character_style.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+const CharacterStyle _$normal = const CharacterStyle._('normal');
 const CharacterStyle _$bold = const CharacterStyle._('bold');
 const CharacterStyle _$italic = const CharacterStyle._('italic');
-const CharacterStyle _$normal = const CharacterStyle._('normal');
 const CharacterStyle _$underline = const CharacterStyle._('underline');
 const CharacterStyle _$unknownDefaultOpenApi = const CharacterStyle._(
   'unknownDefaultOpenApi',
@@ -16,12 +16,12 @@ const CharacterStyle _$unknownDefaultOpenApi = const CharacterStyle._(
 
 CharacterStyle _$valueOf(String name) {
   switch (name) {
+    case 'normal':
+      return _$normal;
     case 'bold':
       return _$bold;
     case 'italic':
       return _$italic;
-    case 'normal':
-      return _$normal;
     case 'underline':
       return _$underline;
     case 'unknownDefaultOpenApi':
@@ -33,9 +33,9 @@ CharacterStyle _$valueOf(String name) {
 
 final BuiltSet<CharacterStyle> _$values = BuiltSet<CharacterStyle>(
   const <CharacterStyle>[
+    _$normal,
     _$bold,
     _$italic,
-    _$normal,
     _$underline,
     _$unknownDefaultOpenApi,
   ],
@@ -43,9 +43,9 @@ final BuiltSet<CharacterStyle> _$values = BuiltSet<CharacterStyle>(
 
 class _$CharacterStyleMeta {
   const _$CharacterStyleMeta();
+  CharacterStyle get normal => _$normal;
   CharacterStyle get bold => _$bold;
   CharacterStyle get italic => _$italic;
-  CharacterStyle get normal => _$normal;
   CharacterStyle get underline => _$underline;
   CharacterStyle get unknownDefaultOpenApi => _$unknownDefaultOpenApi;
   CharacterStyle valueOf(String name) => _$valueOf(name);
@@ -63,16 +63,16 @@ Serializer<CharacterStyle> _$characterStyleSerializer =
 class _$CharacterStyleSerializer
     implements PrimitiveSerializer<CharacterStyle> {
   static const Map<String, Object> _toWire = const <String, Object>{
+    'normal': 'Normal',
     'bold': 'Bold',
     'italic': 'Italic',
-    'normal': 'Normal',
     'underline': 'Underline',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
+    'Normal': 'normal',
     'Bold': 'bold',
     'Italic': 'italic',
-    'Normal': 'normal',
     'Underline': 'underline',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };

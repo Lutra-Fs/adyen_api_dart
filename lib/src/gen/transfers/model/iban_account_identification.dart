@@ -12,10 +12,15 @@ part 'iban_account_identification.g.dart';
 /// IbanAccountIdentification
 ///
 /// Properties:
+/// * [bic] - The bank's 8- or 11-character BIC or SWIFT code.
 /// * [iban] - The international bank account number as defined in the [ISO-13616](https://www.iso.org/standard/81090.html) standard.
 /// * [type] - **iban**
 @BuiltValue()
 abstract class IbanAccountIdentification implements Built<IbanAccountIdentification, IbanAccountIdentificationBuilder> {
+  /// The bank's 8- or 11-character BIC or SWIFT code.
+  @BuiltValueField(wireName: r'bic')
+  String? get bic;
+
   /// The international bank account number as defined in the [ISO-13616](https://www.iso.org/standard/81090.html) standard.
   @BuiltValueField(wireName: r'iban')
   String get iban;
@@ -49,6 +54,13 @@ class _$IbanAccountIdentificationSerializer implements PrimitiveSerializer<IbanA
     IbanAccountIdentification object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
+    if (object.bic != null) {
+      yield r'bic';
+      yield serializers.serialize(
+        object.bic,
+        specifiedType: const FullType(String),
+      );
+    }
     yield r'iban';
     yield serializers.serialize(
       object.iban,
@@ -82,6 +94,13 @@ class _$IbanAccountIdentificationSerializer implements PrimitiveSerializer<IbanA
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
+        case r'bic':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.bic = valueDes;
+          break;
         case r'iban':
           final valueDes = serializers.deserialize(
             value,

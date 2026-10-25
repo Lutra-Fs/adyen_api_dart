@@ -4,5 +4,5 @@ class LibraryConstants {
   static const libName = 'adyen_api';
 
   /// Current library version.
-  static const libVersion = '0.0.1';
+  static const libVersion = '0.3.0';
 }

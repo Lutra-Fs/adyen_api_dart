@@ -12,12 +12,12 @@ part 'checkout_session_installment_option.g.dart';
 /// CheckoutSessionInstallmentOption
 ///
 /// Properties:
-/// * [plans] - Defines the type of installment plan. If not set, defaults to **regular**.  Possible values: * **regular** * **revolving** * **bonus** * **with_interest** * **buynow_paylater** * **nointerest_bonus** * **interest_bonus** * **refund_prctg** * **nointeres_refund_prctg** * **interes_refund_prctg**
+/// * [plans] - Defines the type of installment plan. If not set, defaults to **regular**.  Possible values: * **regular** * **revolving** * **bonus**
 /// * [preselectedValue] - Preselected number of installments offered for this payment method.
-/// * [values] - An array of the number of installments that the shopper can choose from. For example, **[2,3,5]**. This cannot be specified simultaneously with `maxValue`.
+/// * [values] - An array of the number of installments that the shopper can choose from. For example, **[2,3,5]**.
 @BuiltValue()
 abstract class CheckoutSessionInstallmentOption implements Built<CheckoutSessionInstallmentOption, CheckoutSessionInstallmentOptionBuilder> {
-  /// Defines the type of installment plan. If not set, defaults to **regular**.  Possible values: * **regular** * **revolving** * **bonus** * **with_interest** * **buynow_paylater** * **nointerest_bonus** * **interest_bonus** * **refund_prctg** * **nointeres_refund_prctg** * **interes_refund_prctg**
+  /// Defines the type of installment plan. If not set, defaults to **regular**.  Possible values: * **regular** * **revolving** * **bonus**
   @BuiltValueField(wireName: r'plans')
   BuiltList<CheckoutSessionInstallmentOptionPlansEnum>? get plans;
   // enum plansEnum {  bonus,  buynow_paylater,  interes_refund_prctg,  interest_bonus,  nointeres_refund_prctg,  nointerest_bonus,  refund_prctg,  regular,  revolving,  with_interest,  };
@@ -26,7 +26,7 @@ abstract class CheckoutSessionInstallmentOption implements Built<CheckoutSession
   @BuiltValueField(wireName: r'preselectedValue')
   int? get preselectedValue;
 
-  /// An array of the number of installments that the shopper can choose from. For example, **[2,3,5]**. This cannot be specified simultaneously with `maxValue`.
+  /// An array of the number of installments that the shopper can choose from. For example, **[2,3,5]**.
   @BuiltValueField(wireName: r'values')
   BuiltList<int>? get values;
 

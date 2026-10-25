@@ -19,7 +19,7 @@ part 'mid_service_notification_data.g.dart';
 /// * [reference] - Your reference for the payment method.
 /// * [status] - The status of the request to add a payment method. Possible values:  * **success**: the payment method was added. * **failure**: the request failed. * **capabilityPending**: the **receivePayments** capability is not allowed. 
 /// * [storeId] - The unique identifier of the [store](https://docs.adyen.com/api-explorer/#/ManagementService/latest/post/merchants/{id}/paymentMethodSettings__reqParam_storeId), if any.
-/// * [type] - Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+/// * [type] - Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
 /// * [verificationStatus] - Payment method status. Possible values: * **valid** * **pending** * **invalid** * **rejected**
 @BuiltValue()
 abstract class MidServiceNotificationData implements Built<MidServiceNotificationData, MidServiceNotificationDataBuilder> {
@@ -52,7 +52,7 @@ abstract class MidServiceNotificationData implements Built<MidServiceNotificatio
   @BuiltValueField(wireName: r'storeId')
   String? get storeId;
 
-  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).
+  /// Payment method [variant](https://docs.adyen.com/development-resources/paymentmethodvariant#management-api).  For payment method variant **cartebancaire**, method-specific details are returned in the [`cartesBancaires`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings#responses-200-cartesBancaires) object of the response.
   @BuiltValueField(wireName: r'type')
   String get type;
 

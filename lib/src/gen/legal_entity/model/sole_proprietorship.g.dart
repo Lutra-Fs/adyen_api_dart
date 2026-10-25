@@ -83,7 +83,7 @@ class _$SoleProprietorshipVatAbsenceReasonEnumSerializer
 
 class _$SoleProprietorship extends SoleProprietorship {
   @override
-  final String countryOfGoverningLaw;
+  final String? countryOfGoverningLaw;
   @override
   final String? dateOfIncorporation;
   @override
@@ -101,6 +101,8 @@ class _$SoleProprietorship extends SoleProprietorship {
   @override
   final String? registrationNumber;
   @override
+  final bool? residentialAddressIndicator;
+  @override
   final bool? taxAbsent;
   @override
   final BuiltList<TaxInformation>? taxInformation;
@@ -114,7 +116,7 @@ class _$SoleProprietorship extends SoleProprietorship {
   ]) => (SoleProprietorshipBuilder()..update(updates))._build();
 
   _$SoleProprietorship._({
-    required this.countryOfGoverningLaw,
+    this.countryOfGoverningLaw,
     this.dateOfIncorporation,
     this.doingBusinessAs,
     this.doingBusinessAsAbsent,
@@ -123,6 +125,7 @@ class _$SoleProprietorship extends SoleProprietorship {
     this.principalPlaceOfBusiness,
     required this.registeredAddress,
     this.registrationNumber,
+    this.residentialAddressIndicator,
     this.taxAbsent,
     this.taxInformation,
     this.vatAbsenceReason,
@@ -150,6 +153,7 @@ class _$SoleProprietorship extends SoleProprietorship {
         principalPlaceOfBusiness == other.principalPlaceOfBusiness &&
         registeredAddress == other.registeredAddress &&
         registrationNumber == other.registrationNumber &&
+        residentialAddressIndicator == other.residentialAddressIndicator &&
         taxAbsent == other.taxAbsent &&
         taxInformation == other.taxInformation &&
         vatAbsenceReason == other.vatAbsenceReason &&
@@ -168,6 +172,7 @@ class _$SoleProprietorship extends SoleProprietorship {
     _$hash = $jc(_$hash, principalPlaceOfBusiness.hashCode);
     _$hash = $jc(_$hash, registeredAddress.hashCode);
     _$hash = $jc(_$hash, registrationNumber.hashCode);
+    _$hash = $jc(_$hash, residentialAddressIndicator.hashCode);
     _$hash = $jc(_$hash, taxAbsent.hashCode);
     _$hash = $jc(_$hash, taxInformation.hashCode);
     _$hash = $jc(_$hash, vatAbsenceReason.hashCode);
@@ -188,6 +193,7 @@ class _$SoleProprietorship extends SoleProprietorship {
           ..add('principalPlaceOfBusiness', principalPlaceOfBusiness)
           ..add('registeredAddress', registeredAddress)
           ..add('registrationNumber', registrationNumber)
+          ..add('residentialAddressIndicator', residentialAddressIndicator)
           ..add('taxAbsent', taxAbsent)
           ..add('taxInformation', taxInformation)
           ..add('vatAbsenceReason', vatAbsenceReason)
@@ -247,6 +253,11 @@ class SoleProprietorshipBuilder
   set registrationNumber(String? registrationNumber) =>
       _$this._registrationNumber = registrationNumber;
 
+  bool? _residentialAddressIndicator;
+  bool? get residentialAddressIndicator => _$this._residentialAddressIndicator;
+  set residentialAddressIndicator(bool? residentialAddressIndicator) =>
+      _$this._residentialAddressIndicator = residentialAddressIndicator;
+
   bool? _taxAbsent;
   bool? get taxAbsent => _$this._taxAbsent;
   set taxAbsent(bool? taxAbsent) => _$this._taxAbsent = taxAbsent;
@@ -284,6 +295,7 @@ class SoleProprietorshipBuilder
       _principalPlaceOfBusiness = $v.principalPlaceOfBusiness?.toBuilder();
       _registeredAddress = $v.registeredAddress.toBuilder();
       _registrationNumber = $v.registrationNumber;
+      _residentialAddressIndicator = $v.residentialAddressIndicator;
       _taxAbsent = $v.taxAbsent;
       _taxInformation = $v.taxInformation?.toBuilder();
       _vatAbsenceReason = $v.vatAbsenceReason;
@@ -312,11 +324,7 @@ class SoleProprietorshipBuilder
       _$result =
           _$v ??
           _$SoleProprietorship._(
-            countryOfGoverningLaw: BuiltValueNullFieldError.checkNotNull(
-              countryOfGoverningLaw,
-              r'SoleProprietorship',
-              'countryOfGoverningLaw',
-            ),
+            countryOfGoverningLaw: countryOfGoverningLaw,
             dateOfIncorporation: dateOfIncorporation,
             doingBusinessAs: doingBusinessAs,
             doingBusinessAsAbsent: doingBusinessAsAbsent,
@@ -329,6 +337,7 @@ class SoleProprietorshipBuilder
             principalPlaceOfBusiness: _principalPlaceOfBusiness?.build(),
             registeredAddress: registeredAddress.build(),
             registrationNumber: registrationNumber,
+            residentialAddressIndicator: residentialAddressIndicator,
             taxAbsent: taxAbsent,
             taxInformation: _taxInformation?.build(),
             vatAbsenceReason: vatAbsenceReason,

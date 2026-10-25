@@ -11,44 +11,64 @@ part 'transaction_type.g.dart';
 
 class TransactionType extends EnumClass {
 
-  @BuiltValueEnumConst(wireName: r'Award')
-  static const TransactionType award = _$award;
-  @BuiltValueEnumConst(wireName: r'CashAdvance')
-  static const TransactionType cashAdvance = _$cashAdvance;
-  @BuiltValueEnumConst(wireName: r'CompletedDeffered')
-  static const TransactionType completedDeffered = _$completedDeffered;
-  @BuiltValueEnumConst(wireName: r'CompletedReservation')
-  static const TransactionType completedReservation = _$completedReservation;
-  @BuiltValueEnumConst(wireName: r'Credit')
-  static const TransactionType credit = _$credit;
+  ///  Possible values: * **Debit** * **Credit** * **ReverseDebit** * **ReverseCredit** * **OneTimeReservation** * **CompletedDeffered** * **FirstReservation** * **UpdateReservation** * **CompletedReservation** * **CashAdvance** * **IssuerInstalment** * **Declined** * **Failed** * **Award** * **ReverseAward** * **Redemption** * **ReverseRedemption** * **Rebate** * **ReverseRebate**
   @BuiltValueEnumConst(wireName: r'Debit')
   static const TransactionType debit = _$debit;
-  @BuiltValueEnumConst(wireName: r'Declined')
-  static const TransactionType declined = _$declined;
-  @BuiltValueEnumConst(wireName: r'Failed')
-  static const TransactionType failed = _$failed;
-  @BuiltValueEnumConst(wireName: r'FirstReservation')
-  static const TransactionType firstReservation = _$firstReservation;
-  @BuiltValueEnumConst(wireName: r'IssuerInstalment')
-  static const TransactionType issuerInstalment = _$issuerInstalment;
-  @BuiltValueEnumConst(wireName: r'OneTimeReservation')
-  static const TransactionType oneTimeReservation = _$oneTimeReservation;
-  @BuiltValueEnumConst(wireName: r'Rebate')
-  static const TransactionType rebate = _$rebate;
-  @BuiltValueEnumConst(wireName: r'Redemption')
-  static const TransactionType redemption = _$redemption;
-  @BuiltValueEnumConst(wireName: r'ReverseAward')
-  static const TransactionType reverseAward = _$reverseAward;
-  @BuiltValueEnumConst(wireName: r'ReverseCredit')
-  static const TransactionType reverseCredit = _$reverseCredit;
+  ///  Possible values: * **Debit** * **Credit** * **ReverseDebit** * **ReverseCredit** * **OneTimeReservation** * **CompletedDeffered** * **FirstReservation** * **UpdateReservation** * **CompletedReservation** * **CashAdvance** * **IssuerInstalment** * **Declined** * **Failed** * **Award** * **ReverseAward** * **Redemption** * **ReverseRedemption** * **Rebate** * **ReverseRebate**
+  @BuiltValueEnumConst(wireName: r'Credit')
+  static const TransactionType credit = _$credit;
+  ///  Possible values: * **Debit** * **Credit** * **ReverseDebit** * **ReverseCredit** * **OneTimeReservation** * **CompletedDeffered** * **FirstReservation** * **UpdateReservation** * **CompletedReservation** * **CashAdvance** * **IssuerInstalment** * **Declined** * **Failed** * **Award** * **ReverseAward** * **Redemption** * **ReverseRedemption** * **Rebate** * **ReverseRebate**
   @BuiltValueEnumConst(wireName: r'ReverseDebit')
   static const TransactionType reverseDebit = _$reverseDebit;
-  @BuiltValueEnumConst(wireName: r'ReverseRebate')
-  static const TransactionType reverseRebate = _$reverseRebate;
-  @BuiltValueEnumConst(wireName: r'ReverseRedemption')
-  static const TransactionType reverseRedemption = _$reverseRedemption;
+  ///  Possible values: * **Debit** * **Credit** * **ReverseDebit** * **ReverseCredit** * **OneTimeReservation** * **CompletedDeffered** * **FirstReservation** * **UpdateReservation** * **CompletedReservation** * **CashAdvance** * **IssuerInstalment** * **Declined** * **Failed** * **Award** * **ReverseAward** * **Redemption** * **ReverseRedemption** * **Rebate** * **ReverseRebate**
+  @BuiltValueEnumConst(wireName: r'ReverseCredit')
+  static const TransactionType reverseCredit = _$reverseCredit;
+  ///  Possible values: * **Debit** * **Credit** * **ReverseDebit** * **ReverseCredit** * **OneTimeReservation** * **CompletedDeffered** * **FirstReservation** * **UpdateReservation** * **CompletedReservation** * **CashAdvance** * **IssuerInstalment** * **Declined** * **Failed** * **Award** * **ReverseAward** * **Redemption** * **ReverseRedemption** * **Rebate** * **ReverseRebate**
+  @BuiltValueEnumConst(wireName: r'OneTimeReservation')
+  static const TransactionType oneTimeReservation = _$oneTimeReservation;
+  ///  Possible values: * **Debit** * **Credit** * **ReverseDebit** * **ReverseCredit** * **OneTimeReservation** * **CompletedDeffered** * **FirstReservation** * **UpdateReservation** * **CompletedReservation** * **CashAdvance** * **IssuerInstalment** * **Declined** * **Failed** * **Award** * **ReverseAward** * **Redemption** * **ReverseRedemption** * **Rebate** * **ReverseRebate**
+  @BuiltValueEnumConst(wireName: r'CompletedDeffered')
+  static const TransactionType completedDeffered = _$completedDeffered;
+  ///  Possible values: * **Debit** * **Credit** * **ReverseDebit** * **ReverseCredit** * **OneTimeReservation** * **CompletedDeffered** * **FirstReservation** * **UpdateReservation** * **CompletedReservation** * **CashAdvance** * **IssuerInstalment** * **Declined** * **Failed** * **Award** * **ReverseAward** * **Redemption** * **ReverseRedemption** * **Rebate** * **ReverseRebate**
+  @BuiltValueEnumConst(wireName: r'FirstReservation')
+  static const TransactionType firstReservation = _$firstReservation;
+  ///  Possible values: * **Debit** * **Credit** * **ReverseDebit** * **ReverseCredit** * **OneTimeReservation** * **CompletedDeffered** * **FirstReservation** * **UpdateReservation** * **CompletedReservation** * **CashAdvance** * **IssuerInstalment** * **Declined** * **Failed** * **Award** * **ReverseAward** * **Redemption** * **ReverseRedemption** * **Rebate** * **ReverseRebate**
   @BuiltValueEnumConst(wireName: r'UpdateReservation')
   static const TransactionType updateReservation = _$updateReservation;
+  ///  Possible values: * **Debit** * **Credit** * **ReverseDebit** * **ReverseCredit** * **OneTimeReservation** * **CompletedDeffered** * **FirstReservation** * **UpdateReservation** * **CompletedReservation** * **CashAdvance** * **IssuerInstalment** * **Declined** * **Failed** * **Award** * **ReverseAward** * **Redemption** * **ReverseRedemption** * **Rebate** * **ReverseRebate**
+  @BuiltValueEnumConst(wireName: r'CompletedReservation')
+  static const TransactionType completedReservation = _$completedReservation;
+  ///  Possible values: * **Debit** * **Credit** * **ReverseDebit** * **ReverseCredit** * **OneTimeReservation** * **CompletedDeffered** * **FirstReservation** * **UpdateReservation** * **CompletedReservation** * **CashAdvance** * **IssuerInstalment** * **Declined** * **Failed** * **Award** * **ReverseAward** * **Redemption** * **ReverseRedemption** * **Rebate** * **ReverseRebate**
+  @BuiltValueEnumConst(wireName: r'CashAdvance')
+  static const TransactionType cashAdvance = _$cashAdvance;
+  ///  Possible values: * **Debit** * **Credit** * **ReverseDebit** * **ReverseCredit** * **OneTimeReservation** * **CompletedDeffered** * **FirstReservation** * **UpdateReservation** * **CompletedReservation** * **CashAdvance** * **IssuerInstalment** * **Declined** * **Failed** * **Award** * **ReverseAward** * **Redemption** * **ReverseRedemption** * **Rebate** * **ReverseRebate**
+  @BuiltValueEnumConst(wireName: r'IssuerInstalment')
+  static const TransactionType issuerInstalment = _$issuerInstalment;
+  ///  Possible values: * **Debit** * **Credit** * **ReverseDebit** * **ReverseCredit** * **OneTimeReservation** * **CompletedDeffered** * **FirstReservation** * **UpdateReservation** * **CompletedReservation** * **CashAdvance** * **IssuerInstalment** * **Declined** * **Failed** * **Award** * **ReverseAward** * **Redemption** * **ReverseRedemption** * **Rebate** * **ReverseRebate**
+  @BuiltValueEnumConst(wireName: r'Declined')
+  static const TransactionType declined = _$declined;
+  ///  Possible values: * **Debit** * **Credit** * **ReverseDebit** * **ReverseCredit** * **OneTimeReservation** * **CompletedDeffered** * **FirstReservation** * **UpdateReservation** * **CompletedReservation** * **CashAdvance** * **IssuerInstalment** * **Declined** * **Failed** * **Award** * **ReverseAward** * **Redemption** * **ReverseRedemption** * **Rebate** * **ReverseRebate**
+  @BuiltValueEnumConst(wireName: r'Failed')
+  static const TransactionType failed = _$failed;
+  ///  Possible values: * **Debit** * **Credit** * **ReverseDebit** * **ReverseCredit** * **OneTimeReservation** * **CompletedDeffered** * **FirstReservation** * **UpdateReservation** * **CompletedReservation** * **CashAdvance** * **IssuerInstalment** * **Declined** * **Failed** * **Award** * **ReverseAward** * **Redemption** * **ReverseRedemption** * **Rebate** * **ReverseRebate**
+  @BuiltValueEnumConst(wireName: r'Award')
+  static const TransactionType award = _$award;
+  ///  Possible values: * **Debit** * **Credit** * **ReverseDebit** * **ReverseCredit** * **OneTimeReservation** * **CompletedDeffered** * **FirstReservation** * **UpdateReservation** * **CompletedReservation** * **CashAdvance** * **IssuerInstalment** * **Declined** * **Failed** * **Award** * **ReverseAward** * **Redemption** * **ReverseRedemption** * **Rebate** * **ReverseRebate**
+  @BuiltValueEnumConst(wireName: r'ReverseAward')
+  static const TransactionType reverseAward = _$reverseAward;
+  ///  Possible values: * **Debit** * **Credit** * **ReverseDebit** * **ReverseCredit** * **OneTimeReservation** * **CompletedDeffered** * **FirstReservation** * **UpdateReservation** * **CompletedReservation** * **CashAdvance** * **IssuerInstalment** * **Declined** * **Failed** * **Award** * **ReverseAward** * **Redemption** * **ReverseRedemption** * **Rebate** * **ReverseRebate**
+  @BuiltValueEnumConst(wireName: r'Redemption')
+  static const TransactionType redemption = _$redemption;
+  ///  Possible values: * **Debit** * **Credit** * **ReverseDebit** * **ReverseCredit** * **OneTimeReservation** * **CompletedDeffered** * **FirstReservation** * **UpdateReservation** * **CompletedReservation** * **CashAdvance** * **IssuerInstalment** * **Declined** * **Failed** * **Award** * **ReverseAward** * **Redemption** * **ReverseRedemption** * **Rebate** * **ReverseRebate**
+  @BuiltValueEnumConst(wireName: r'ReverseRedemption')
+  static const TransactionType reverseRedemption = _$reverseRedemption;
+  ///  Possible values: * **Debit** * **Credit** * **ReverseDebit** * **ReverseCredit** * **OneTimeReservation** * **CompletedDeffered** * **FirstReservation** * **UpdateReservation** * **CompletedReservation** * **CashAdvance** * **IssuerInstalment** * **Declined** * **Failed** * **Award** * **ReverseAward** * **Redemption** * **ReverseRedemption** * **Rebate** * **ReverseRebate**
+  @BuiltValueEnumConst(wireName: r'Rebate')
+  static const TransactionType rebate = _$rebate;
+  ///  Possible values: * **Debit** * **Credit** * **ReverseDebit** * **ReverseCredit** * **OneTimeReservation** * **CompletedDeffered** * **FirstReservation** * **UpdateReservation** * **CompletedReservation** * **CashAdvance** * **IssuerInstalment** * **Declined** * **Failed** * **Award** * **ReverseAward** * **Redemption** * **ReverseRedemption** * **Rebate** * **ReverseRebate**
+  @BuiltValueEnumConst(wireName: r'ReverseRebate')
+  static const TransactionType reverseRebate = _$reverseRebate;
+  ///  Possible values: * **Debit** * **Credit** * **ReverseDebit** * **ReverseCredit** * **OneTimeReservation** * **CompletedDeffered** * **FirstReservation** * **UpdateReservation** * **CompletedReservation** * **CashAdvance** * **IssuerInstalment** * **Declined** * **Failed** * **Award** * **ReverseAward** * **Redemption** * **ReverseRedemption** * **Rebate** * **ReverseRebate**
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const TransactionType unknownDefaultOpenApi = _$unknownDefaultOpenApi;
 

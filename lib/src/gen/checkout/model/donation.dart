@@ -24,8 +24,9 @@ abstract class Donation implements Built<Donation, DonationBuilder> {
   String get currency;
 
   /// The [type of donation](https://docs.adyen.com/online-payments/donations/#donation-types).  Possible values: * **roundup**: a donation where the original transaction amount is rounded up as a donation. * **fixedAmounts**: a donation where you show fixed donations amounts that the shopper can select from.
+  @Deprecated('donationType has been deprecated')
   @BuiltValueField(wireName: r'donationType')
-  String get donationType;
+  String? get donationType;
 
   /// The maximum amount a transaction can be rounded up to make a donation. This field is only present when `donationType` is **roundup**.
   @BuiltValueField(wireName: r'maxRoundupAmount')
@@ -67,11 +68,13 @@ class _$DonationSerializer implements PrimitiveSerializer<Donation> {
       object.currency,
       specifiedType: const FullType(String),
     );
-    yield r'donationType';
-    yield serializers.serialize(
-      object.donationType,
-      specifiedType: const FullType(String),
-    );
+    if (object.donationType != null) {
+      yield r'donationType';
+      yield serializers.serialize(
+        object.donationType,
+        specifiedType: const FullType(String),
+      );
+    }
     if (object.maxRoundupAmount != null) {
       yield r'maxRoundupAmount';
       yield serializers.serialize(

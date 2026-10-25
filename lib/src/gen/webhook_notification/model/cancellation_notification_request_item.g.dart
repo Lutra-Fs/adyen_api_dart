@@ -150,6 +150,11 @@ const CancellationNotificationRequestItemEventCodeEnum
 _$cancellationNotificationRequestItemEventCodeEnum_REFUND_FAILED =
     const CancellationNotificationRequestItemEventCodeEnum._('REFUND_FAILED');
 const CancellationNotificationRequestItemEventCodeEnum
+_$cancellationNotificationRequestItemEventCodeEnum_REFUND_NOT_CLEARED =
+    const CancellationNotificationRequestItemEventCodeEnum._(
+      'REFUND_NOT_CLEARED',
+    );
+const CancellationNotificationRequestItemEventCodeEnum
 _$cancellationNotificationRequestItemEventCodeEnum_REFUND_WITH_DATA =
     const CancellationNotificationRequestItemEventCodeEnum._(
       'REFUND_WITH_DATA',
@@ -160,9 +165,17 @@ _$cancellationNotificationRequestItemEventCodeEnum_REQUEST_FOR_INFORMATION =
       'REQUEST_FOR_INFORMATION',
     );
 const CancellationNotificationRequestItemEventCodeEnum
+_$cancellationNotificationRequestItemEventCodeEnum_REVERSAL =
+    const CancellationNotificationRequestItemEventCodeEnum._('REVERSAL');
+const CancellationNotificationRequestItemEventCodeEnum
 _$cancellationNotificationRequestItemEventCodeEnum_SECOND_CHARGEBACK =
     const CancellationNotificationRequestItemEventCodeEnum._(
       'SECOND_CHARGEBACK',
+    );
+const CancellationNotificationRequestItemEventCodeEnum
+_$cancellationNotificationRequestItemEventCodeEnum_SETTLED_REVERSED =
+    const CancellationNotificationRequestItemEventCodeEnum._(
+      'SETTLED_REVERSED',
     );
 const CancellationNotificationRequestItemEventCodeEnum
 _$cancellationNotificationRequestItemEventCodeEnum_TECHNICAL_CANCEL =
@@ -253,12 +266,18 @@ _$cancellationNotificationRequestItemEventCodeEnumValueOf(String name) {
       return _$cancellationNotificationRequestItemEventCodeEnum_REFUNDED_REVERSED;
     case 'REFUND_FAILED':
       return _$cancellationNotificationRequestItemEventCodeEnum_REFUND_FAILED;
+    case 'REFUND_NOT_CLEARED':
+      return _$cancellationNotificationRequestItemEventCodeEnum_REFUND_NOT_CLEARED;
     case 'REFUND_WITH_DATA':
       return _$cancellationNotificationRequestItemEventCodeEnum_REFUND_WITH_DATA;
     case 'REQUEST_FOR_INFORMATION':
       return _$cancellationNotificationRequestItemEventCodeEnum_REQUEST_FOR_INFORMATION;
+    case 'REVERSAL':
+      return _$cancellationNotificationRequestItemEventCodeEnum_REVERSAL;
     case 'SECOND_CHARGEBACK':
       return _$cancellationNotificationRequestItemEventCodeEnum_SECOND_CHARGEBACK;
+    case 'SETTLED_REVERSED':
+      return _$cancellationNotificationRequestItemEventCodeEnum_SETTLED_REVERSED;
     case 'TECHNICAL_CANCEL':
       return _$cancellationNotificationRequestItemEventCodeEnum_TECHNICAL_CANCEL;
     case 'VOID_PENDING_REFUND':
@@ -310,9 +329,12 @@ _$cancellationNotificationRequestItemEventCodeEnumValues =
       _$cancellationNotificationRequestItemEventCodeEnum_REFUND,
       _$cancellationNotificationRequestItemEventCodeEnum_REFUNDED_REVERSED,
       _$cancellationNotificationRequestItemEventCodeEnum_REFUND_FAILED,
+      _$cancellationNotificationRequestItemEventCodeEnum_REFUND_NOT_CLEARED,
       _$cancellationNotificationRequestItemEventCodeEnum_REFUND_WITH_DATA,
       _$cancellationNotificationRequestItemEventCodeEnum_REQUEST_FOR_INFORMATION,
+      _$cancellationNotificationRequestItemEventCodeEnum_REVERSAL,
       _$cancellationNotificationRequestItemEventCodeEnum_SECOND_CHARGEBACK,
+      _$cancellationNotificationRequestItemEventCodeEnum_SETTLED_REVERSED,
       _$cancellationNotificationRequestItemEventCodeEnum_TECHNICAL_CANCEL,
       _$cancellationNotificationRequestItemEventCodeEnum_VOID_PENDING_REFUND,
       _$cancellationNotificationRequestItemEventCodeEnum_unknownDefaultOpenApi,
@@ -361,9 +383,12 @@ class _$CancellationNotificationRequestItemEventCodeEnumSerializer
     'REFUND': 'REFUND',
     'REFUNDED_REVERSED': 'REFUNDED_REVERSED',
     'REFUND_FAILED': 'REFUND_FAILED',
+    'REFUND_NOT_CLEARED': 'REFUND_NOT_CLEARED',
     'REFUND_WITH_DATA': 'REFUND_WITH_DATA',
     'REQUEST_FOR_INFORMATION': 'REQUEST_FOR_INFORMATION',
+    'REVERSAL': 'REVERSAL',
     'SECOND_CHARGEBACK': 'SECOND_CHARGEBACK',
+    'SETTLED_REVERSED': 'SETTLED_REVERSED',
     'TECHNICAL_CANCEL': 'TECHNICAL_CANCEL',
     'VOID_PENDING_REFUND': 'VOID_PENDING_REFUND',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
@@ -404,9 +429,12 @@ class _$CancellationNotificationRequestItemEventCodeEnumSerializer
     'REFUND': 'REFUND',
     'REFUNDED_REVERSED': 'REFUNDED_REVERSED',
     'REFUND_FAILED': 'REFUND_FAILED',
+    'REFUND_NOT_CLEARED': 'REFUND_NOT_CLEARED',
     'REFUND_WITH_DATA': 'REFUND_WITH_DATA',
     'REQUEST_FOR_INFORMATION': 'REQUEST_FOR_INFORMATION',
+    'REVERSAL': 'REVERSAL',
     'SECOND_CHARGEBACK': 'SECOND_CHARGEBACK',
+    'SETTLED_REVERSED': 'SETTLED_REVERSED',
     'TECHNICAL_CANCEL': 'TECHNICAL_CANCEL',
     'VOID_PENDING_REFUND': 'VOID_PENDING_REFUND',
     'unknown_default_open_api': 'unknownDefaultOpenApi',

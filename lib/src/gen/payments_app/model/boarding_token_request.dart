@@ -3,6 +3,7 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:adyen_api/src/gen/payments_app/model/sub_merchant_data.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -12,11 +13,16 @@ part 'boarding_token_request.g.dart';
 ///
 /// Properties:
 /// * [boardingRequestToken] - The boardingToken request token.
+/// * [subMerchantData] - Data of the sub-merchant.
 @BuiltValue()
 abstract class BoardingTokenRequest implements Built<BoardingTokenRequest, BoardingTokenRequestBuilder> {
   /// The boardingToken request token.
   @BuiltValueField(wireName: r'boardingRequestToken')
   String get boardingRequestToken;
+
+  /// Data of the sub-merchant.
+  @BuiltValueField(wireName: r'subMerchantData')
+  SubMerchantData? get subMerchantData;
 
   BoardingTokenRequest._();
 
@@ -46,6 +52,13 @@ class _$BoardingTokenRequestSerializer implements PrimitiveSerializer<BoardingTo
       object.boardingRequestToken,
       specifiedType: const FullType(String),
     );
+    if (object.subMerchantData != null) {
+      yield r'subMerchantData';
+      yield serializers.serialize(
+        object.subMerchantData,
+        specifiedType: const FullType(SubMerchantData),
+      );
+    }
   }
 
   @override
@@ -75,6 +88,13 @@ class _$BoardingTokenRequestSerializer implements PrimitiveSerializer<BoardingTo
             specifiedType: const FullType(String),
           ) as String;
           result.boardingRequestToken = valueDes;
+          break;
+        case r'subMerchantData':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(SubMerchantData),
+          ) as SubMerchantData;
+          result.subMerchantData.replace(valueDes);
           break;
         default:
           unhandled.add(key);

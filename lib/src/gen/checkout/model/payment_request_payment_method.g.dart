@@ -124,6 +124,9 @@ const PaymentRequestPaymentMethodTypeEnum
 _$paymentRequestPaymentMethodTypeEnum_afterpaytouch =
     const PaymentRequestPaymentMethodTypeEnum._('afterpaytouch');
 const PaymentRequestPaymentMethodTypeEnum
+_$paymentRequestPaymentMethodTypeEnum_afterpaytouchUS =
+    const PaymentRequestPaymentMethodTypeEnum._('afterpaytouchUS');
+const PaymentRequestPaymentMethodTypeEnum
 _$paymentRequestPaymentMethodTypeEnum_afterpayB2b =
     const PaymentRequestPaymentMethodTypeEnum._('afterpayB2b');
 const PaymentRequestPaymentMethodTypeEnum
@@ -144,6 +147,9 @@ _$paymentRequestPaymentMethodTypeEnum_androidpay =
 const PaymentRequestPaymentMethodTypeEnum
 _$paymentRequestPaymentMethodTypeEnum_applepay =
     const PaymentRequestPaymentMethodTypeEnum._('applepay');
+const PaymentRequestPaymentMethodTypeEnum
+_$paymentRequestPaymentMethodTypeEnum_aupay =
+    const PaymentRequestPaymentMethodTypeEnum._('aupay');
 const PaymentRequestPaymentMethodTypeEnum
 _$paymentRequestPaymentMethodTypeEnum_directdebitGB =
     const PaymentRequestPaymentMethodTypeEnum._('directdebitGB');
@@ -180,6 +186,9 @@ _$paymentRequestPaymentMethodTypeEnum_cashapp =
 const PaymentRequestPaymentMethodTypeEnum
 _$paymentRequestPaymentMethodTypeEnum_cellulant =
     const PaymentRequestPaymentMethodTypeEnum._('cellulant');
+const PaymentRequestPaymentMethodTypeEnum
+_$paymentRequestPaymentMethodTypeEnum_dbarai =
+    const PaymentRequestPaymentMethodTypeEnum._('dbarai');
 const PaymentRequestPaymentMethodTypeEnum
 _$paymentRequestPaymentMethodTypeEnum_directdebitAU =
     const PaymentRequestPaymentMethodTypeEnum._('directdebitAU');
@@ -328,6 +337,9 @@ const PaymentRequestPaymentMethodTypeEnum
 _$paymentRequestPaymentMethodTypeEnum_paybybankAISDD =
     const PaymentRequestPaymentMethodTypeEnum._('paybybankAISDD');
 const PaymentRequestPaymentMethodTypeEnum
+_$paymentRequestPaymentMethodTypeEnum_paybybankCa =
+    const PaymentRequestPaymentMethodTypeEnum._('paybybankCa');
+const PaymentRequestPaymentMethodTypeEnum
 _$paymentRequestPaymentMethodTypeEnum_paybybank =
     const PaymentRequestPaymentMethodTypeEnum._('paybybank');
 const PaymentRequestPaymentMethodTypeEnum
@@ -357,9 +369,6 @@ _$paymentRequestPaymentMethodTypeEnum_bankTransfer =
 const PaymentRequestPaymentMethodTypeEnum
 _$paymentRequestPaymentMethodTypeEnum_bankTransferIBAN =
     const PaymentRequestPaymentMethodTypeEnum._('bankTransferIBAN');
-const PaymentRequestPaymentMethodTypeEnum
-_$paymentRequestPaymentMethodTypeEnum_paybright =
-    const PaymentRequestPaymentMethodTypeEnum._('paybright');
 const PaymentRequestPaymentMethodTypeEnum
 _$paymentRequestPaymentMethodTypeEnum_paynow =
     const PaymentRequestPaymentMethodTypeEnum._('paynow');
@@ -460,6 +469,9 @@ const PaymentRequestPaymentMethodTypeEnum
 _$paymentRequestPaymentMethodTypeEnum_paypo =
     const PaymentRequestPaymentMethodTypeEnum._('paypo');
 const PaymentRequestPaymentMethodTypeEnum
+_$paymentRequestPaymentMethodTypeEnum_satispay =
+    const PaymentRequestPaymentMethodTypeEnum._('satispay');
+const PaymentRequestPaymentMethodTypeEnum
 _$paymentRequestPaymentMethodTypeEnum_scalapay =
     const PaymentRequestPaymentMethodTypeEnum._('scalapay');
 const PaymentRequestPaymentMethodTypeEnum
@@ -516,9 +528,6 @@ _$paymentRequestPaymentMethodTypeEnum_knet =
 const PaymentRequestPaymentMethodTypeEnum
 _$paymentRequestPaymentMethodTypeEnum_omannet =
     const PaymentRequestPaymentMethodTypeEnum._('omannet');
-const PaymentRequestPaymentMethodTypeEnum
-_$paymentRequestPaymentMethodTypeEnum_gopayWallet =
-    const PaymentRequestPaymentMethodTypeEnum._('gopayWallet');
 const PaymentRequestPaymentMethodTypeEnum
 _$paymentRequestPaymentMethodTypeEnum_kcpNaverpay =
     const PaymentRequestPaymentMethodTypeEnum._('kcpNaverpay');
@@ -697,6 +706,9 @@ const PaymentRequestPaymentMethodTypeEnum
 _$paymentRequestPaymentMethodTypeEnum_momoWalletApp =
     const PaymentRequestPaymentMethodTypeEnum._('momoWalletApp');
 const PaymentRequestPaymentMethodTypeEnum
+_$paymentRequestPaymentMethodTypeEnum_revolutpay =
+    const PaymentRequestPaymentMethodTypeEnum._('revolutpay');
+const PaymentRequestPaymentMethodTypeEnum
 _$paymentRequestPaymentMethodTypeEnum_paymayaWallet =
     const PaymentRequestPaymentMethodTypeEnum._('paymayaWallet');
 const PaymentRequestPaymentMethodTypeEnum
@@ -735,6 +747,9 @@ _$paymentRequestPaymentMethodTypeEnum_truemoney =
 const PaymentRequestPaymentMethodTypeEnum
 _$paymentRequestPaymentMethodTypeEnum_paysafecard =
     const PaymentRequestPaymentMethodTypeEnum._('paysafecard');
+const PaymentRequestPaymentMethodTypeEnum
+_$paymentRequestPaymentMethodTypeEnum_gopayWallet =
+    const PaymentRequestPaymentMethodTypeEnum._('gopayWallet');
 const PaymentRequestPaymentMethodTypeEnum
 _$paymentRequestPaymentMethodTypeEnum_twint =
     const PaymentRequestPaymentMethodTypeEnum._('twint');
@@ -785,6 +800,8 @@ _$paymentRequestPaymentMethodTypeEnumValueOf(String name) {
       return _$paymentRequestPaymentMethodTypeEnum_afterpayDefault;
     case 'afterpaytouch':
       return _$paymentRequestPaymentMethodTypeEnum_afterpaytouch;
+    case 'afterpaytouchUS':
+      return _$paymentRequestPaymentMethodTypeEnum_afterpaytouchUS;
     case 'afterpayB2b':
       return _$paymentRequestPaymentMethodTypeEnum_afterpayB2b;
     case 'clearpay':
@@ -799,6 +816,8 @@ _$paymentRequestPaymentMethodTypeEnumValueOf(String name) {
       return _$paymentRequestPaymentMethodTypeEnum_androidpay;
     case 'applepay':
       return _$paymentRequestPaymentMethodTypeEnum_applepay;
+    case 'aupay':
+      return _$paymentRequestPaymentMethodTypeEnum_aupay;
     case 'directdebitGB':
       return _$paymentRequestPaymentMethodTypeEnum_directdebitGB;
     case 'billdeskOnline':
@@ -823,6 +842,8 @@ _$paymentRequestPaymentMethodTypeEnumValueOf(String name) {
       return _$paymentRequestPaymentMethodTypeEnum_cashapp;
     case 'cellulant':
       return _$paymentRequestPaymentMethodTypeEnum_cellulant;
+    case 'dbarai':
+      return _$paymentRequestPaymentMethodTypeEnum_dbarai;
     case 'directdebitAU':
       return _$paymentRequestPaymentMethodTypeEnum_directdebitAU;
     case 'dokuMandiriVa':
@@ -921,6 +942,8 @@ _$paymentRequestPaymentMethodTypeEnumValueOf(String name) {
       return _$paymentRequestPaymentMethodTypeEnum_atomePos;
     case 'paybybankAISDD':
       return _$paymentRequestPaymentMethodTypeEnum_paybybankAISDD;
+    case 'paybybankCa':
+      return _$paymentRequestPaymentMethodTypeEnum_paybybankCa;
     case 'paybybank':
       return _$paymentRequestPaymentMethodTypeEnum_paybybank;
     case 'paypal':
@@ -941,8 +964,6 @@ _$paymentRequestPaymentMethodTypeEnumValueOf(String name) {
       return _$paymentRequestPaymentMethodTypeEnum_bankTransfer;
     case 'bankTransferIBAN':
       return _$paymentRequestPaymentMethodTypeEnum_bankTransferIBAN;
-    case 'paybright':
-      return _$paymentRequestPaymentMethodTypeEnum_paybright;
     case 'paynow':
       return _$paymentRequestPaymentMethodTypeEnum_paynow;
     case 'affirmPos':
@@ -1009,6 +1030,8 @@ _$paymentRequestPaymentMethodTypeEnumValueOf(String name) {
       return _$paymentRequestPaymentMethodTypeEnum_walleyB2b;
     case 'paypo':
       return _$paymentRequestPaymentMethodTypeEnum_paypo;
+    case 'satispay':
+      return _$paymentRequestPaymentMethodTypeEnum_satispay;
     case 'scalapay':
       return _$paymentRequestPaymentMethodTypeEnum_scalapay;
     case 'scalapay3x':
@@ -1047,8 +1070,6 @@ _$paymentRequestPaymentMethodTypeEnumValueOf(String name) {
       return _$paymentRequestPaymentMethodTypeEnum_knet;
     case 'omannet':
       return _$paymentRequestPaymentMethodTypeEnum_omannet;
-    case 'gopayWallet':
-      return _$paymentRequestPaymentMethodTypeEnum_gopayWallet;
     case 'kcpNaverpay':
       return _$paymentRequestPaymentMethodTypeEnum_kcpNaverpay;
     case 'fawry':
@@ -1167,6 +1188,8 @@ _$paymentRequestPaymentMethodTypeEnumValueOf(String name) {
       return _$paymentRequestPaymentMethodTypeEnum_momoWallet;
     case 'momoWalletApp':
       return _$paymentRequestPaymentMethodTypeEnum_momoWalletApp;
+    case 'revolutpay':
+      return _$paymentRequestPaymentMethodTypeEnum_revolutpay;
     case 'paymayaWallet':
       return _$paymentRequestPaymentMethodTypeEnum_paymayaWallet;
     case 'grabpaySG':
@@ -1193,6 +1216,8 @@ _$paymentRequestPaymentMethodTypeEnumValueOf(String name) {
       return _$paymentRequestPaymentMethodTypeEnum_truemoney;
     case 'paysafecard':
       return _$paymentRequestPaymentMethodTypeEnum_paysafecard;
+    case 'gopayWallet':
+      return _$paymentRequestPaymentMethodTypeEnum_gopayWallet;
     case 'twint':
       return _$paymentRequestPaymentMethodTypeEnum_twint;
     case 'upiCollect':
@@ -1231,6 +1256,7 @@ _$paymentRequestPaymentMethodTypeEnumValues =
         _$paymentRequestPaymentMethodTypeEnum_affirm,
         _$paymentRequestPaymentMethodTypeEnum_afterpayDefault,
         _$paymentRequestPaymentMethodTypeEnum_afterpaytouch,
+        _$paymentRequestPaymentMethodTypeEnum_afterpaytouchUS,
         _$paymentRequestPaymentMethodTypeEnum_afterpayB2b,
         _$paymentRequestPaymentMethodTypeEnum_clearpay,
         _$paymentRequestPaymentMethodTypeEnum_alma,
@@ -1238,6 +1264,7 @@ _$paymentRequestPaymentMethodTypeEnumValues =
         _$paymentRequestPaymentMethodTypeEnum_ancv,
         _$paymentRequestPaymentMethodTypeEnum_androidpay,
         _$paymentRequestPaymentMethodTypeEnum_applepay,
+        _$paymentRequestPaymentMethodTypeEnum_aupay,
         _$paymentRequestPaymentMethodTypeEnum_directdebitGB,
         _$paymentRequestPaymentMethodTypeEnum_billdeskOnline,
         _$paymentRequestPaymentMethodTypeEnum_billdeskWallet,
@@ -1250,6 +1277,7 @@ _$paymentRequestPaymentMethodTypeEnumValues =
         _$paymentRequestPaymentMethodTypeEnum_clicktopay,
         _$paymentRequestPaymentMethodTypeEnum_cashapp,
         _$paymentRequestPaymentMethodTypeEnum_cellulant,
+        _$paymentRequestPaymentMethodTypeEnum_dbarai,
         _$paymentRequestPaymentMethodTypeEnum_directdebitAU,
         _$paymentRequestPaymentMethodTypeEnum_dokuMandiriVa,
         _$paymentRequestPaymentMethodTypeEnum_dokuCimbVa,
@@ -1299,6 +1327,7 @@ _$paymentRequestPaymentMethodTypeEnumValues =
         _$paymentRequestPaymentMethodTypeEnum_afterpayDirectdebit,
         _$paymentRequestPaymentMethodTypeEnum_atomePos,
         _$paymentRequestPaymentMethodTypeEnum_paybybankAISDD,
+        _$paymentRequestPaymentMethodTypeEnum_paybybankCa,
         _$paymentRequestPaymentMethodTypeEnum_paybybank,
         _$paymentRequestPaymentMethodTypeEnum_paypal,
         _$paymentRequestPaymentMethodTypeEnum_paypay,
@@ -1309,7 +1338,6 @@ _$paymentRequestPaymentMethodTypeEnumValues =
         _$paymentRequestPaymentMethodTypeEnum_multibanco,
         _$paymentRequestPaymentMethodTypeEnum_bankTransfer,
         _$paymentRequestPaymentMethodTypeEnum_bankTransferIBAN,
-        _$paymentRequestPaymentMethodTypeEnum_paybright,
         _$paymentRequestPaymentMethodTypeEnum_paynow,
         _$paymentRequestPaymentMethodTypeEnum_affirmPos,
         _$paymentRequestPaymentMethodTypeEnum_iris,
@@ -1343,6 +1371,7 @@ _$paymentRequestPaymentMethodTypeEnumValues =
         _$paymentRequestPaymentMethodTypeEnum_walley,
         _$paymentRequestPaymentMethodTypeEnum_walleyB2b,
         _$paymentRequestPaymentMethodTypeEnum_paypo,
+        _$paymentRequestPaymentMethodTypeEnum_satispay,
         _$paymentRequestPaymentMethodTypeEnum_scalapay,
         _$paymentRequestPaymentMethodTypeEnum_scalapay3x,
         _$paymentRequestPaymentMethodTypeEnum_scalapay4x,
@@ -1362,7 +1391,6 @@ _$paymentRequestPaymentMethodTypeEnumValues =
         _$paymentRequestPaymentMethodTypeEnum_benefit,
         _$paymentRequestPaymentMethodTypeEnum_knet,
         _$paymentRequestPaymentMethodTypeEnum_omannet,
-        _$paymentRequestPaymentMethodTypeEnum_gopayWallet,
         _$paymentRequestPaymentMethodTypeEnum_kcpNaverpay,
         _$paymentRequestPaymentMethodTypeEnum_fawry,
         _$paymentRequestPaymentMethodTypeEnum_atome,
@@ -1422,6 +1450,7 @@ _$paymentRequestPaymentMethodTypeEnumValues =
         _$paymentRequestPaymentMethodTypeEnum_bcmcMobileApp,
         _$paymentRequestPaymentMethodTypeEnum_momoWallet,
         _$paymentRequestPaymentMethodTypeEnum_momoWalletApp,
+        _$paymentRequestPaymentMethodTypeEnum_revolutpay,
         _$paymentRequestPaymentMethodTypeEnum_paymayaWallet,
         _$paymentRequestPaymentMethodTypeEnum_grabpaySG,
         _$paymentRequestPaymentMethodTypeEnum_grabpayMY,
@@ -1435,6 +1464,7 @@ _$paymentRequestPaymentMethodTypeEnumValues =
         _$paymentRequestPaymentMethodTypeEnum_kakaopay,
         _$paymentRequestPaymentMethodTypeEnum_truemoney,
         _$paymentRequestPaymentMethodTypeEnum_paysafecard,
+        _$paymentRequestPaymentMethodTypeEnum_gopayWallet,
         _$paymentRequestPaymentMethodTypeEnum_twint,
         _$paymentRequestPaymentMethodTypeEnum_upiCollect,
         _$paymentRequestPaymentMethodTypeEnum_upiIntent,
@@ -1636,6 +1666,7 @@ class _$PaymentRequestPaymentMethodTypeEnumSerializer
     'affirm': 'affirm',
     'afterpayDefault': 'afterpay_default',
     'afterpaytouch': 'afterpaytouch',
+    'afterpaytouchUS': 'afterpaytouch_US',
     'afterpayB2b': 'afterpay_b2b',
     'clearpay': 'clearpay',
     'alma': 'alma',
@@ -1643,6 +1674,7 @@ class _$PaymentRequestPaymentMethodTypeEnumSerializer
     'ancv': 'ancv',
     'androidpay': 'androidpay',
     'applepay': 'applepay',
+    'aupay': 'aupay',
     'directdebitGB': 'directdebit_GB',
     'billdeskOnline': 'billdesk_online',
     'billdeskWallet': 'billdesk_wallet',
@@ -1655,6 +1687,7 @@ class _$PaymentRequestPaymentMethodTypeEnumSerializer
     'clicktopay': 'clicktopay',
     'cashapp': 'cashapp',
     'cellulant': 'cellulant',
+    'dbarai': 'dbarai',
     'directdebitAU': 'directdebit_AU',
     'dokuMandiriVa': 'doku_mandiri_va',
     'dokuCimbVa': 'doku_cimb_va',
@@ -1704,6 +1737,7 @@ class _$PaymentRequestPaymentMethodTypeEnumSerializer
     'afterpayDirectdebit': 'afterpay_directdebit',
     'atomePos': 'atome_pos',
     'paybybankAISDD': 'paybybank_AIS_DD',
+    'paybybankCa': 'paybybank_ca',
     'paybybank': 'paybybank',
     'paypal': 'paypal',
     'paypay': 'paypay',
@@ -1714,7 +1748,6 @@ class _$PaymentRequestPaymentMethodTypeEnumSerializer
     'multibanco': 'multibanco',
     'bankTransfer': 'bankTransfer',
     'bankTransferIBAN': 'bankTransfer_IBAN',
-    'paybright': 'paybright',
     'paynow': 'paynow',
     'affirmPos': 'affirm_pos',
     'iris': 'iris',
@@ -1748,6 +1781,7 @@ class _$PaymentRequestPaymentMethodTypeEnumSerializer
     'walley': 'walley',
     'walleyB2b': 'walley_b2b',
     'paypo': 'paypo',
+    'satispay': 'satispay',
     'scalapay': 'scalapay',
     'scalapay3x': 'scalapay_3x',
     'scalapay4x': 'scalapay_4x',
@@ -1767,7 +1801,6 @@ class _$PaymentRequestPaymentMethodTypeEnumSerializer
     'benefit': 'benefit',
     'knet': 'knet',
     'omannet': 'omannet',
-    'gopayWallet': 'gopay_wallet',
     'kcpNaverpay': 'kcp_naverpay',
     'fawry': 'fawry',
     'atome': 'atome',
@@ -1827,6 +1860,7 @@ class _$PaymentRequestPaymentMethodTypeEnumSerializer
     'bcmcMobileApp': 'bcmc_mobile_app',
     'momoWallet': 'momo_wallet',
     'momoWalletApp': 'momo_wallet_app',
+    'revolutpay': 'revolutpay',
     'paymayaWallet': 'paymaya_wallet',
     'grabpaySG': 'grabpay_SG',
     'grabpayMY': 'grabpay_MY',
@@ -1840,6 +1874,7 @@ class _$PaymentRequestPaymentMethodTypeEnumSerializer
     'kakaopay': 'kakaopay',
     'truemoney': 'truemoney',
     'paysafecard': 'paysafecard',
+    'gopayWallet': 'gopay_wallet',
     'twint': 'twint',
     'upiCollect': 'upi_collect',
     'upiIntent': 'upi_intent',
@@ -1859,6 +1894,7 @@ class _$PaymentRequestPaymentMethodTypeEnumSerializer
     'affirm': 'affirm',
     'afterpay_default': 'afterpayDefault',
     'afterpaytouch': 'afterpaytouch',
+    'afterpaytouch_US': 'afterpaytouchUS',
     'afterpay_b2b': 'afterpayB2b',
     'clearpay': 'clearpay',
     'alma': 'alma',
@@ -1866,6 +1902,7 @@ class _$PaymentRequestPaymentMethodTypeEnumSerializer
     'ancv': 'ancv',
     'androidpay': 'androidpay',
     'applepay': 'applepay',
+    'aupay': 'aupay',
     'directdebit_GB': 'directdebitGB',
     'billdesk_online': 'billdeskOnline',
     'billdesk_wallet': 'billdeskWallet',
@@ -1878,6 +1915,7 @@ class _$PaymentRequestPaymentMethodTypeEnumSerializer
     'clicktopay': 'clicktopay',
     'cashapp': 'cashapp',
     'cellulant': 'cellulant',
+    'dbarai': 'dbarai',
     'directdebit_AU': 'directdebitAU',
     'doku_mandiri_va': 'dokuMandiriVa',
     'doku_cimb_va': 'dokuCimbVa',
@@ -1927,6 +1965,7 @@ class _$PaymentRequestPaymentMethodTypeEnumSerializer
     'afterpay_directdebit': 'afterpayDirectdebit',
     'atome_pos': 'atomePos',
     'paybybank_AIS_DD': 'paybybankAISDD',
+    'paybybank_ca': 'paybybankCa',
     'paybybank': 'paybybank',
     'paypal': 'paypal',
     'paypay': 'paypay',
@@ -1937,7 +1976,6 @@ class _$PaymentRequestPaymentMethodTypeEnumSerializer
     'multibanco': 'multibanco',
     'bankTransfer': 'bankTransfer',
     'bankTransfer_IBAN': 'bankTransferIBAN',
-    'paybright': 'paybright',
     'paynow': 'paynow',
     'affirm_pos': 'affirmPos',
     'iris': 'iris',
@@ -1971,6 +2009,7 @@ class _$PaymentRequestPaymentMethodTypeEnumSerializer
     'walley': 'walley',
     'walley_b2b': 'walleyB2b',
     'paypo': 'paypo',
+    'satispay': 'satispay',
     'scalapay': 'scalapay',
     'scalapay_3x': 'scalapay3x',
     'scalapay_4x': 'scalapay4x',
@@ -1990,7 +2029,6 @@ class _$PaymentRequestPaymentMethodTypeEnumSerializer
     'benefit': 'benefit',
     'knet': 'knet',
     'omannet': 'omannet',
-    'gopay_wallet': 'gopayWallet',
     'kcp_naverpay': 'kcpNaverpay',
     'fawry': 'fawry',
     'atome': 'atome',
@@ -2050,6 +2088,7 @@ class _$PaymentRequestPaymentMethodTypeEnumSerializer
     'bcmc_mobile_app': 'bcmcMobileApp',
     'momo_wallet': 'momoWallet',
     'momo_wallet_app': 'momoWalletApp',
+    'revolutpay': 'revolutpay',
     'paymaya_wallet': 'paymayaWallet',
     'grabpay_SG': 'grabpaySG',
     'grabpay_MY': 'grabpayMY',
@@ -2063,6 +2102,7 @@ class _$PaymentRequestPaymentMethodTypeEnumSerializer
     'kakaopay': 'kakaopay',
     'truemoney': 'truemoney',
     'paysafecard': 'paysafecard',
+    'gopay_wallet': 'gopayWallet',
     'twint': 'twint',
     'upi_collect': 'upiCollect',
     'upi_intent': 'upiIntent',

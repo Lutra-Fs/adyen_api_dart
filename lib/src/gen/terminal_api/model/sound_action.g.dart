@@ -6,21 +6,21 @@ part of 'sound_action.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-const SoundAction _$setDefaultVolume = const SoundAction._('setDefaultVolume');
 const SoundAction _$startSound = const SoundAction._('startSound');
 const SoundAction _$stopSound = const SoundAction._('stopSound');
+const SoundAction _$setDefaultVolume = const SoundAction._('setDefaultVolume');
 const SoundAction _$unknownDefaultOpenApi = const SoundAction._(
   'unknownDefaultOpenApi',
 );
 
 SoundAction _$valueOf(String name) {
   switch (name) {
-    case 'setDefaultVolume':
-      return _$setDefaultVolume;
     case 'startSound':
       return _$startSound;
     case 'stopSound':
       return _$stopSound;
+    case 'setDefaultVolume':
+      return _$setDefaultVolume;
     case 'unknownDefaultOpenApi':
       return _$unknownDefaultOpenApi;
     default:
@@ -30,18 +30,18 @@ SoundAction _$valueOf(String name) {
 
 final BuiltSet<SoundAction> _$values = BuiltSet<SoundAction>(
   const <SoundAction>[
-    _$setDefaultVolume,
     _$startSound,
     _$stopSound,
+    _$setDefaultVolume,
     _$unknownDefaultOpenApi,
   ],
 );
 
 class _$SoundActionMeta {
   const _$SoundActionMeta();
-  SoundAction get setDefaultVolume => _$setDefaultVolume;
   SoundAction get startSound => _$startSound;
   SoundAction get stopSound => _$stopSound;
+  SoundAction get setDefaultVolume => _$setDefaultVolume;
   SoundAction get unknownDefaultOpenApi => _$unknownDefaultOpenApi;
   SoundAction valueOf(String name) => _$valueOf(name);
   BuiltSet<SoundAction> get values => _$values;
@@ -56,15 +56,15 @@ Serializer<SoundAction> _$soundActionSerializer = _$SoundActionSerializer();
 
 class _$SoundActionSerializer implements PrimitiveSerializer<SoundAction> {
   static const Map<String, Object> _toWire = const <String, Object>{
-    'setDefaultVolume': 'SetDefaultVolume',
     'startSound': 'StartSound',
     'stopSound': 'StopSound',
+    'setDefaultVolume': 'SetDefaultVolume',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
-    'SetDefaultVolume': 'setDefaultVolume',
     'StartSound': 'startSound',
     'StopSound': 'stopSound',
+    'SetDefaultVolume': 'setDefaultVolume',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
 

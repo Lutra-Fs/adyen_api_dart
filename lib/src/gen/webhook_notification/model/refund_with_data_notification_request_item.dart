@@ -38,7 +38,7 @@ abstract class RefundWithDataNotificationRequestItem implements Built<RefundWith
   /// The type of event the notification item is for.
   @BuiltValueField(wireName: r'eventCode')
   RefundWithDataNotificationRequestItemEventCodeEnum get eventCode;
-  // enum eventCodeEnum {  AUTHENTICATION,  AUTHORISATION,  AUTHORISATION_ADJUSTMENT,  AUTORESCUE,  CANCELLATION,  CANCEL_AUTORESCUE,  CANCEL_OR_REFUND,  CAPTURE,  CAPTURE_FAILED,  CHARGEBACK,  CHARGEBACK_REVERSED,  DISPUTE_DEFENSE_PERIOD_ENDED,  EXPIRE,  HANDLED_EXTERNALLY,  INFORMATION_SUPPLIED,  ISSUER_COMMENTS,  ISSUER_RESPONSE_TIMEFRAME_EXPIRED,  MANUAL_REVIEW_ACCEPT,  MANUAL_REVIEW_REJECT,  NOTIFICATION_OF_CHARGEBACK,  NOTIFICATION_OF_FRAUD,  OFFER_CLOSED,  ORDER_CLOSED,  ORDER_OPENED,  PAYOUT_DECLINE,  PAYOUT_EXPIRE,  PAYOUT_THIRDPARTY,  POSTPONED_REFUND,  PREARBITRATION_LOST,  PREARBITRATION_OPEN,  PREARBITRATION_WON,  RECURRING_CONTRACT,  REFUND,  REFUNDED_REVERSED,  REFUND_FAILED,  REFUND_WITH_DATA,  REQUEST_FOR_INFORMATION,  SECOND_CHARGEBACK,  TECHNICAL_CANCEL,  VOID_PENDING_REFUND,  };
+  // enum eventCodeEnum {  AUTHENTICATION,  AUTHORISATION,  AUTHORISATION_ADJUSTMENT,  AUTORESCUE,  CANCELLATION,  CANCEL_AUTORESCUE,  CANCEL_OR_REFUND,  CAPTURE,  CAPTURE_FAILED,  CHARGEBACK,  CHARGEBACK_REVERSED,  DISPUTE_DEFENSE_PERIOD_ENDED,  EXPIRE,  HANDLED_EXTERNALLY,  INFORMATION_SUPPLIED,  ISSUER_COMMENTS,  ISSUER_RESPONSE_TIMEFRAME_EXPIRED,  MANUAL_REVIEW_ACCEPT,  MANUAL_REVIEW_REJECT,  NOTIFICATION_OF_CHARGEBACK,  NOTIFICATION_OF_FRAUD,  OFFER_CLOSED,  ORDER_CLOSED,  ORDER_OPENED,  PAYOUT_DECLINE,  PAYOUT_EXPIRE,  PAYOUT_THIRDPARTY,  POSTPONED_REFUND,  PREARBITRATION_LOST,  PREARBITRATION_OPEN,  PREARBITRATION_WON,  RECURRING_CONTRACT,  REFUND,  REFUNDED_REVERSED,  REFUND_FAILED,  REFUND_NOT_CLEARED,  REFUND_WITH_DATA,  REQUEST_FOR_INFORMATION,  REVERSAL,  SECOND_CHARGEBACK,  SETTLED_REVERSED,  TECHNICAL_CANCEL,  VOID_PENDING_REFUND,  };
 
   /// The time when the event was generated. Format: ISO 8601; yyyy-MM-DDThh:mm:ssTZD
   @BuiltValueField(wireName: r'eventDate')
@@ -395,14 +395,23 @@ class RefundWithDataNotificationRequestItemEventCodeEnum extends EnumClass {
   @BuiltValueEnumConst(wireName: r'REFUND_FAILED')
   static const RefundWithDataNotificationRequestItemEventCodeEnum REFUND_FAILED = _$refundWithDataNotificationRequestItemEventCodeEnum_REFUND_FAILED;
   /// The type of event the notification item is for.
+  @BuiltValueEnumConst(wireName: r'REFUND_NOT_CLEARED')
+  static const RefundWithDataNotificationRequestItemEventCodeEnum REFUND_NOT_CLEARED = _$refundWithDataNotificationRequestItemEventCodeEnum_REFUND_NOT_CLEARED;
+  /// The type of event the notification item is for.
   @BuiltValueEnumConst(wireName: r'REFUND_WITH_DATA')
   static const RefundWithDataNotificationRequestItemEventCodeEnum REFUND_WITH_DATA = _$refundWithDataNotificationRequestItemEventCodeEnum_REFUND_WITH_DATA;
   /// The type of event the notification item is for.
   @BuiltValueEnumConst(wireName: r'REQUEST_FOR_INFORMATION')
   static const RefundWithDataNotificationRequestItemEventCodeEnum REQUEST_FOR_INFORMATION = _$refundWithDataNotificationRequestItemEventCodeEnum_REQUEST_FOR_INFORMATION;
   /// The type of event the notification item is for.
+  @BuiltValueEnumConst(wireName: r'REVERSAL')
+  static const RefundWithDataNotificationRequestItemEventCodeEnum REVERSAL = _$refundWithDataNotificationRequestItemEventCodeEnum_REVERSAL;
+  /// The type of event the notification item is for.
   @BuiltValueEnumConst(wireName: r'SECOND_CHARGEBACK')
   static const RefundWithDataNotificationRequestItemEventCodeEnum SECOND_CHARGEBACK = _$refundWithDataNotificationRequestItemEventCodeEnum_SECOND_CHARGEBACK;
+  /// The type of event the notification item is for.
+  @BuiltValueEnumConst(wireName: r'SETTLED_REVERSED')
+  static const RefundWithDataNotificationRequestItemEventCodeEnum SETTLED_REVERSED = _$refundWithDataNotificationRequestItemEventCodeEnum_SETTLED_REVERSED;
   /// The type of event the notification item is for.
   @BuiltValueEnumConst(wireName: r'TECHNICAL_CANCEL')
   static const RefundWithDataNotificationRequestItemEventCodeEnum TECHNICAL_CANCEL = _$refundWithDataNotificationRequestItemEventCodeEnum_TECHNICAL_CANCEL;

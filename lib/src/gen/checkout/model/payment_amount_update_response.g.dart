@@ -49,8 +49,14 @@ _$paymentAmountUpdateResponseIndustryUsageEnumValues =
     );
 
 const PaymentAmountUpdateResponseStatusEnum
+_$paymentAmountUpdateResponseStatusEnum_authorised =
+    const PaymentAmountUpdateResponseStatusEnum._('authorised');
+const PaymentAmountUpdateResponseStatusEnum
 _$paymentAmountUpdateResponseStatusEnum_received =
     const PaymentAmountUpdateResponseStatusEnum._('received');
+const PaymentAmountUpdateResponseStatusEnum
+_$paymentAmountUpdateResponseStatusEnum_refused =
+    const PaymentAmountUpdateResponseStatusEnum._('refused');
 const PaymentAmountUpdateResponseStatusEnum
 _$paymentAmountUpdateResponseStatusEnum_unknownDefaultOpenApi =
     const PaymentAmountUpdateResponseStatusEnum._('unknownDefaultOpenApi');
@@ -58,8 +64,12 @@ _$paymentAmountUpdateResponseStatusEnum_unknownDefaultOpenApi =
 PaymentAmountUpdateResponseStatusEnum
 _$paymentAmountUpdateResponseStatusEnumValueOf(String name) {
   switch (name) {
+    case 'authorised':
+      return _$paymentAmountUpdateResponseStatusEnum_authorised;
     case 'received':
       return _$paymentAmountUpdateResponseStatusEnum_received;
+    case 'refused':
+      return _$paymentAmountUpdateResponseStatusEnum_refused;
     case 'unknownDefaultOpenApi':
       return _$paymentAmountUpdateResponseStatusEnum_unknownDefaultOpenApi;
     default:
@@ -71,7 +81,9 @@ final BuiltSet<PaymentAmountUpdateResponseStatusEnum>
 _$paymentAmountUpdateResponseStatusEnumValues =
     BuiltSet<PaymentAmountUpdateResponseStatusEnum>(
       const <PaymentAmountUpdateResponseStatusEnum>[
+        _$paymentAmountUpdateResponseStatusEnum_authorised,
         _$paymentAmountUpdateResponseStatusEnum_received,
+        _$paymentAmountUpdateResponseStatusEnum_refused,
         _$paymentAmountUpdateResponseStatusEnum_unknownDefaultOpenApi,
       ],
     );
@@ -126,11 +138,15 @@ class _$PaymentAmountUpdateResponseIndustryUsageEnumSerializer
 class _$PaymentAmountUpdateResponseStatusEnumSerializer
     implements PrimitiveSerializer<PaymentAmountUpdateResponseStatusEnum> {
   static const Map<String, Object> _toWire = const <String, Object>{
+    'authorised': 'authorised',
     'received': 'received',
+    'refused': 'refused',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
+    'authorised': 'authorised',
     'received': 'received',
+    'refused': 'refused',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
 
@@ -160,6 +176,8 @@ class _$PaymentAmountUpdateResponseStatusEnumSerializer
 
 class _$PaymentAmountUpdateResponse extends PaymentAmountUpdateResponse {
   @override
+  final String? adjustAuthorisationData;
+  @override
   final Amount amount;
   @override
   final PaymentAmountUpdateResponseIndustryUsageEnum? industryUsage;
@@ -183,6 +201,7 @@ class _$PaymentAmountUpdateResponse extends PaymentAmountUpdateResponse {
   ]) => (PaymentAmountUpdateResponseBuilder()..update(updates))._build();
 
   _$PaymentAmountUpdateResponse._({
+    this.adjustAuthorisationData,
     required this.amount,
     this.industryUsage,
     this.lineItems,
@@ -206,6 +225,7 @@ class _$PaymentAmountUpdateResponse extends PaymentAmountUpdateResponse {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is PaymentAmountUpdateResponse &&
+        adjustAuthorisationData == other.adjustAuthorisationData &&
         amount == other.amount &&
         industryUsage == other.industryUsage &&
         lineItems == other.lineItems &&
@@ -220,6 +240,7 @@ class _$PaymentAmountUpdateResponse extends PaymentAmountUpdateResponse {
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, adjustAuthorisationData.hashCode);
     _$hash = $jc(_$hash, amount.hashCode);
     _$hash = $jc(_$hash, industryUsage.hashCode);
     _$hash = $jc(_$hash, lineItems.hashCode);
@@ -236,6 +257,7 @@ class _$PaymentAmountUpdateResponse extends PaymentAmountUpdateResponse {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'PaymentAmountUpdateResponse')
+          ..add('adjustAuthorisationData', adjustAuthorisationData)
           ..add('amount', amount)
           ..add('industryUsage', industryUsage)
           ..add('lineItems', lineItems)
@@ -256,6 +278,11 @@ class PaymentAmountUpdateResponseBuilder
           PaymentAmountUpdateResponseBuilder
         > {
   _$PaymentAmountUpdateResponse? _$v;
+
+  String? _adjustAuthorisationData;
+  String? get adjustAuthorisationData => _$this._adjustAuthorisationData;
+  set adjustAuthorisationData(String? adjustAuthorisationData) =>
+      _$this._adjustAuthorisationData = adjustAuthorisationData;
 
   AmountBuilder? _amount;
   AmountBuilder get amount => _$this._amount ??= AmountBuilder();
@@ -308,6 +335,7 @@ class PaymentAmountUpdateResponseBuilder
   PaymentAmountUpdateResponseBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _adjustAuthorisationData = $v.adjustAuthorisationData;
       _amount = $v.amount.toBuilder();
       _industryUsage = $v.industryUsage;
       _lineItems = $v.lineItems?.toBuilder();
@@ -341,6 +369,7 @@ class PaymentAmountUpdateResponseBuilder
       _$result =
           _$v ??
           _$PaymentAmountUpdateResponse._(
+            adjustAuthorisationData: adjustAuthorisationData,
             amount: amount.build(),
             industryUsage: industryUsage,
             lineItems: _lineItems?.build(),

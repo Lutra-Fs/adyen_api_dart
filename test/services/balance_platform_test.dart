@@ -264,7 +264,7 @@ void main() {
         });
 
         final response = await balancePlatform.unwrap(
-          balancePlatform.balanceAccountsApi
+          balancePlatform.customPayoutSchedulesSweepsApi
               .getBalanceAccountsBalanceAccountIdSweeps(
                 balanceAccountId: 'BA32272223222B59CZ3T52DKZ',
               ),
@@ -304,7 +304,7 @@ void main() {
         );
 
         final response = await balancePlatform.unwrap(
-          balancePlatform.balanceAccountsApi
+          balancePlatform.customPayoutSchedulesSweepsApi
               .postBalanceAccountsBalanceAccountIdSweeps(
                 balanceAccountId: 'BA32272223222B59CZ3T52DKZ',
                 createSweepConfigurationV2: request,
@@ -330,7 +330,7 @@ void main() {
         );
 
         final response = await balancePlatform.unwrap(
-          balancePlatform.balanceAccountsApi
+          balancePlatform.customPayoutSchedulesSweepsApi
               .getBalanceAccountsBalanceAccountIdSweepsSweepId(
                 balanceAccountId: 'BA32272223222B59CZ3T52DKZ',
                 sweepId: 'SWPC4227C224555B5FTD2NT2JV4WN5',
@@ -365,7 +365,7 @@ void main() {
         );
 
         final response = await balancePlatform.unwrap(
-          balancePlatform.balanceAccountsApi
+          balancePlatform.customPayoutSchedulesSweepsApi
               .patchBalanceAccountsBalanceAccountIdSweepsSweepId(
                 balanceAccountId: 'BA32272223222B59CZ3T52DKZ',
                 sweepId: 'SWPC4227C224555B5FTD2NT2JV4WN5',
@@ -385,7 +385,7 @@ void main() {
         );
 
         await balancePlatform.unwrap(
-          balancePlatform.balanceAccountsApi
+          balancePlatform.customPayoutSchedulesSweepsApi
               .deleteBalanceAccountsBalanceAccountIdSweepsSweepId(
                 balanceAccountId: 'BA32272223222B59CZ3T52DKZ',
                 sweepId: 'SWPC4227C224555B5FTD2NT2JV4WN5',

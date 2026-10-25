@@ -20,7 +20,7 @@ part 'authorisation_notification_request_item.g.dart';
 /// * [eventDate] - The time when the event was generated. Format: ISO 8601; yyyy-MM-DDThh:mm:ssTZD
 /// * [merchantAccountCode] - The merchant account identifier used in the transaction the notification item is for.
 /// * [merchantReference] - Your reference to uniquely identify the payment.
-/// * [operations] - The operations indicate the supported follow-up actions concerning the payment. > This is an **experimental field**. Do not base your code on this field. Not all specific cases are covered yet. It's possible that the field is empty or contains generic information.
+/// * [operations] - The possible follow-up actions for the payment. For example, an authorized payment that has been captured can only have the refund action as a follow-up.  Possible values:   * **CAPTURE**: The funds for the authorized payment can be captured.   * **CANCEL**: The authorized payment can be cancelled.   * **REFUND**: The payment can be refunded.  The list can be empty, for example for a payment that was declined.
 /// * [paymentMethod] - The payment method used in the transaction.
 /// * [pspReference] - Adyen's 16-character unique reference associated with the transaction or request. This value is globally unique. Use it when communicating with us about this request.
 /// * [reason] - If `success` = `true` and `paymentMethod` = `visa`, `mc`, or `amex` then this field contains the following details:  Authorisation code, last 4 digits of the card, card expiry date.   In case of failure, this contains information about the authorisation failure
@@ -52,7 +52,7 @@ abstract class AuthorisationNotificationRequestItem implements Built<Authorisati
   @BuiltValueField(wireName: r'merchantReference')
   String get merchantReference;
 
-  /// The operations indicate the supported follow-up actions concerning the payment. > This is an **experimental field**. Do not base your code on this field. Not all specific cases are covered yet. It's possible that the field is empty or contains generic information.
+  /// The possible follow-up actions for the payment. For example, an authorized payment that has been captured can only have the refund action as a follow-up.  Possible values:   * **CAPTURE**: The funds for the authorized payment can be captured.   * **CANCEL**: The authorized payment can be cancelled.   * **REFUND**: The payment can be refunded.  The list can be empty, for example for a payment that was declined.
   @BuiltValueField(wireName: r'operations')
   BuiltList<AuthorisationNotificationRequestItemOperationsEnum>? get operations;
   // enum operationsEnum {  CAPTURE,  CANCEL,  REFUND,  };

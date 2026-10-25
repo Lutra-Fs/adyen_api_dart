@@ -11,30 +11,43 @@ part 'payment_type.g.dart';
 
 class PaymentType extends EnumClass {
 
-  @BuiltValueEnumConst(wireName: r'CashAdvance')
-  static const PaymentType cashAdvance = _$cashAdvance;
-  @BuiltValueEnumConst(wireName: r'CashDeposit')
-  static const PaymentType cashDeposit = _$cashDeposit;
-  @BuiltValueEnumConst(wireName: r'Completion')
-  static const PaymentType completion = _$completion;
-  @BuiltValueEnumConst(wireName: r'FirstReservation')
-  static const PaymentType firstReservation = _$firstReservation;
-  @BuiltValueEnumConst(wireName: r'Instalment')
-  static const PaymentType instalment = _$instalment;
-  @BuiltValueEnumConst(wireName: r'IssuerInstalment')
-  static const PaymentType issuerInstalment = _$issuerInstalment;
+  ///  Possible values: * **Normal** * **Refund** * **OneTimeReservation** * **FirstReservation** * **UpdateReservation** * **Completion** * **CashAdvance** * **CashDeposit** * **Recurring** * **Instalment** * **IssuerInstalment** * **PaidOut**
   @BuiltValueEnumConst(wireName: r'Normal')
   static const PaymentType normal = _$normal;
-  @BuiltValueEnumConst(wireName: r'OneTimeReservation')
-  static const PaymentType oneTimeReservation = _$oneTimeReservation;
-  @BuiltValueEnumConst(wireName: r'PaidOut')
-  static const PaymentType paidOut = _$paidOut;
-  @BuiltValueEnumConst(wireName: r'Recurring')
-  static const PaymentType recurring = _$recurring;
+  ///  Possible values: * **Normal** * **Refund** * **OneTimeReservation** * **FirstReservation** * **UpdateReservation** * **Completion** * **CashAdvance** * **CashDeposit** * **Recurring** * **Instalment** * **IssuerInstalment** * **PaidOut**
   @BuiltValueEnumConst(wireName: r'Refund')
   static const PaymentType refund = _$refund;
+  ///  Possible values: * **Normal** * **Refund** * **OneTimeReservation** * **FirstReservation** * **UpdateReservation** * **Completion** * **CashAdvance** * **CashDeposit** * **Recurring** * **Instalment** * **IssuerInstalment** * **PaidOut**
+  @BuiltValueEnumConst(wireName: r'OneTimeReservation')
+  static const PaymentType oneTimeReservation = _$oneTimeReservation;
+  ///  Possible values: * **Normal** * **Refund** * **OneTimeReservation** * **FirstReservation** * **UpdateReservation** * **Completion** * **CashAdvance** * **CashDeposit** * **Recurring** * **Instalment** * **IssuerInstalment** * **PaidOut**
+  @BuiltValueEnumConst(wireName: r'FirstReservation')
+  static const PaymentType firstReservation = _$firstReservation;
+  ///  Possible values: * **Normal** * **Refund** * **OneTimeReservation** * **FirstReservation** * **UpdateReservation** * **Completion** * **CashAdvance** * **CashDeposit** * **Recurring** * **Instalment** * **IssuerInstalment** * **PaidOut**
   @BuiltValueEnumConst(wireName: r'UpdateReservation')
   static const PaymentType updateReservation = _$updateReservation;
+  ///  Possible values: * **Normal** * **Refund** * **OneTimeReservation** * **FirstReservation** * **UpdateReservation** * **Completion** * **CashAdvance** * **CashDeposit** * **Recurring** * **Instalment** * **IssuerInstalment** * **PaidOut**
+  @BuiltValueEnumConst(wireName: r'Completion')
+  static const PaymentType completion = _$completion;
+  ///  Possible values: * **Normal** * **Refund** * **OneTimeReservation** * **FirstReservation** * **UpdateReservation** * **Completion** * **CashAdvance** * **CashDeposit** * **Recurring** * **Instalment** * **IssuerInstalment** * **PaidOut**
+  @BuiltValueEnumConst(wireName: r'CashAdvance')
+  static const PaymentType cashAdvance = _$cashAdvance;
+  ///  Possible values: * **Normal** * **Refund** * **OneTimeReservation** * **FirstReservation** * **UpdateReservation** * **Completion** * **CashAdvance** * **CashDeposit** * **Recurring** * **Instalment** * **IssuerInstalment** * **PaidOut**
+  @BuiltValueEnumConst(wireName: r'CashDeposit')
+  static const PaymentType cashDeposit = _$cashDeposit;
+  ///  Possible values: * **Normal** * **Refund** * **OneTimeReservation** * **FirstReservation** * **UpdateReservation** * **Completion** * **CashAdvance** * **CashDeposit** * **Recurring** * **Instalment** * **IssuerInstalment** * **PaidOut**
+  @BuiltValueEnumConst(wireName: r'Recurring')
+  static const PaymentType recurring = _$recurring;
+  ///  Possible values: * **Normal** * **Refund** * **OneTimeReservation** * **FirstReservation** * **UpdateReservation** * **Completion** * **CashAdvance** * **CashDeposit** * **Recurring** * **Instalment** * **IssuerInstalment** * **PaidOut**
+  @BuiltValueEnumConst(wireName: r'Instalment')
+  static const PaymentType instalment = _$instalment;
+  ///  Possible values: * **Normal** * **Refund** * **OneTimeReservation** * **FirstReservation** * **UpdateReservation** * **Completion** * **CashAdvance** * **CashDeposit** * **Recurring** * **Instalment** * **IssuerInstalment** * **PaidOut**
+  @BuiltValueEnumConst(wireName: r'IssuerInstalment')
+  static const PaymentType issuerInstalment = _$issuerInstalment;
+  ///  Possible values: * **Normal** * **Refund** * **OneTimeReservation** * **FirstReservation** * **UpdateReservation** * **Completion** * **CashAdvance** * **CashDeposit** * **Recurring** * **Instalment** * **IssuerInstalment** * **PaidOut**
+  @BuiltValueEnumConst(wireName: r'PaidOut')
+  static const PaymentType paidOut = _$paidOut;
+  ///  Possible values: * **Normal** * **Refund** * **OneTimeReservation** * **FirstReservation** * **UpdateReservation** * **Completion** * **CashAdvance** * **CashDeposit** * **Recurring** * **Instalment** * **IssuerInstalment** * **PaidOut**
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const PaymentType unknownDefaultOpenApi = _$unknownDefaultOpenApi;
 

@@ -105,6 +105,46 @@ _$transferCategoryDataTypeEnumValues =
       _$transferCategoryDataTypeEnum_unknownDefaultOpenApi,
     ]);
 
+const TransferCategoryDataNetworkVariantEnum
+_$transferCategoryDataNetworkVariantEnum_maestroUs =
+    const TransferCategoryDataNetworkVariantEnum._('maestroUs');
+const TransferCategoryDataNetworkVariantEnum
+_$transferCategoryDataNetworkVariantEnum_mastercard =
+    const TransferCategoryDataNetworkVariantEnum._('mastercard');
+const TransferCategoryDataNetworkVariantEnum
+_$transferCategoryDataNetworkVariantEnum_visa =
+    const TransferCategoryDataNetworkVariantEnum._('visa');
+const TransferCategoryDataNetworkVariantEnum
+_$transferCategoryDataNetworkVariantEnum_unknownDefaultOpenApi =
+    const TransferCategoryDataNetworkVariantEnum._('unknownDefaultOpenApi');
+
+TransferCategoryDataNetworkVariantEnum
+_$transferCategoryDataNetworkVariantEnumValueOf(String name) {
+  switch (name) {
+    case 'maestroUs':
+      return _$transferCategoryDataNetworkVariantEnum_maestroUs;
+    case 'mastercard':
+      return _$transferCategoryDataNetworkVariantEnum_mastercard;
+    case 'visa':
+      return _$transferCategoryDataNetworkVariantEnum_visa;
+    case 'unknownDefaultOpenApi':
+      return _$transferCategoryDataNetworkVariantEnum_unknownDefaultOpenApi;
+    default:
+      return _$transferCategoryDataNetworkVariantEnum_unknownDefaultOpenApi;
+  }
+}
+
+final BuiltSet<TransferCategoryDataNetworkVariantEnum>
+_$transferCategoryDataNetworkVariantEnumValues =
+    BuiltSet<TransferCategoryDataNetworkVariantEnum>(
+      const <TransferCategoryDataNetworkVariantEnum>[
+        _$transferCategoryDataNetworkVariantEnum_maestroUs,
+        _$transferCategoryDataNetworkVariantEnum_mastercard,
+        _$transferCategoryDataNetworkVariantEnum_visa,
+        _$transferCategoryDataNetworkVariantEnum_unknownDefaultOpenApi,
+      ],
+    );
+
 const TransferCategoryDataPanEntryModeEnum
 _$transferCategoryDataPanEntryModeEnum_chip =
     const TransferCategoryDataPanEntryModeEnum._('chip');
@@ -379,6 +419,9 @@ _$transferCategoryDataPriorityEnumSerializer =
 Serializer<TransferCategoryDataTypeEnum>
 _$transferCategoryDataTypeEnumSerializer =
     _$TransferCategoryDataTypeEnumSerializer();
+Serializer<TransferCategoryDataNetworkVariantEnum>
+_$transferCategoryDataNetworkVariantEnumSerializer =
+    _$TransferCategoryDataNetworkVariantEnumSerializer();
 Serializer<TransferCategoryDataPanEntryModeEnum>
 _$transferCategoryDataPanEntryModeEnumSerializer =
     _$TransferCategoryDataPanEntryModeEnumSerializer();
@@ -467,6 +510,45 @@ class _$TransferCategoryDataTypeEnumSerializer
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) => TransferCategoryDataTypeEnum.valueOf(
+    _fromWire[serialized] ?? (serialized is String ? serialized : ''),
+  );
+}
+
+class _$TransferCategoryDataNetworkVariantEnumSerializer
+    implements PrimitiveSerializer<TransferCategoryDataNetworkVariantEnum> {
+  static const Map<String, Object> _toWire = const <String, Object>{
+    'maestroUs': 'maestro_us',
+    'mastercard': 'mastercard',
+    'visa': 'visa',
+    'unknownDefaultOpenApi': 'unknown_default_open_api',
+  };
+  static const Map<Object, String> _fromWire = const <Object, String>{
+    'maestro_us': 'maestroUs',
+    'mastercard': 'mastercard',
+    'visa': 'visa',
+    'unknown_default_open_api': 'unknownDefaultOpenApi',
+  };
+
+  @override
+  final Iterable<Type> types = const <Type>[
+    TransferCategoryDataNetworkVariantEnum,
+  ];
+  @override
+  final String wireName = 'TransferCategoryDataNetworkVariantEnum';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    TransferCategoryDataNetworkVariantEnum object, {
+    FullType specifiedType = FullType.unspecified,
+  }) => _toWire[object.name] ?? object.name;
+
+  @override
+  TransferCategoryDataNetworkVariantEnum deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) => TransferCategoryDataNetworkVariantEnum.valueOf(
     _fromWire[serialized] ?? (serialized is String ? serialized : ''),
   );
 }

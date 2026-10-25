@@ -22,7 +22,7 @@ abstract class PaymentAccountReq implements Built<PaymentAccountReq, PaymentAcco
   /// Type of cardholder account used for the transaction. Allows a cardholder to select the type of account used for the transaction. Possible values: * **CardTotals** * **Checking** * **CreditCard** * **Default** * **EpurseCard** * **Investment** * **Savings** * **Universal**
   @BuiltValueField(wireName: r'AccountType')
   AccountType? get accountType;
-  // enum accountTypeEnum {  CardTotals,  Checking,  CreditCard,  Default,  EpurseCard,  Investment,  Savings,  Universal,  };
+  // enum accountTypeEnum {  Default,  Savings,  Checking,  CreditCard,  Universal,  Investment,  CardTotals,  EpurseCard,  };
 
   @BuiltValueField(wireName: r'CardAcquisitionReference')
   TransactionIDType? get cardAcquisitionReference;

@@ -16,6 +16,12 @@ const DisputeEventNotificationTypeEnum
 _$disputeEventNotificationTypeEnum_duplicate =
     const DisputeEventNotificationTypeEnum._('duplicate');
 const DisputeEventNotificationTypeEnum
+_$disputeEventNotificationTypeEnum_notAsDescribed =
+    const DisputeEventNotificationTypeEnum._('notAsDescribed');
+const DisputeEventNotificationTypeEnum
+_$disputeEventNotificationTypeEnum_cancelled =
+    const DisputeEventNotificationTypeEnum._('cancelled');
+const DisputeEventNotificationTypeEnum
 _$disputeEventNotificationTypeEnum_other =
     const DisputeEventNotificationTypeEnum._('other');
 const DisputeEventNotificationTypeEnum
@@ -32,6 +38,10 @@ DisputeEventNotificationTypeEnum _$disputeEventNotificationTypeEnumValueOf(
       return _$disputeEventNotificationTypeEnum_notDelivered;
     case 'duplicate':
       return _$disputeEventNotificationTypeEnum_duplicate;
+    case 'notAsDescribed':
+      return _$disputeEventNotificationTypeEnum_notAsDescribed;
+    case 'cancelled':
+      return _$disputeEventNotificationTypeEnum_cancelled;
     case 'other':
       return _$disputeEventNotificationTypeEnum_other;
     case 'unknownDefaultOpenApi':
@@ -48,6 +58,8 @@ _$disputeEventNotificationTypeEnumValues =
         _$disputeEventNotificationTypeEnum_fraud,
         _$disputeEventNotificationTypeEnum_notDelivered,
         _$disputeEventNotificationTypeEnum_duplicate,
+        _$disputeEventNotificationTypeEnum_notAsDescribed,
+        _$disputeEventNotificationTypeEnum_cancelled,
         _$disputeEventNotificationTypeEnum_other,
         _$disputeEventNotificationTypeEnum_unknownDefaultOpenApi,
       ],
@@ -63,6 +75,8 @@ class _$DisputeEventNotificationTypeEnumSerializer
     'fraud': 'fraud',
     'notDelivered': 'notDelivered',
     'duplicate': 'duplicate',
+    'notAsDescribed': 'notAsDescribed',
+    'cancelled': 'cancelled',
     'other': 'other',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
@@ -70,6 +84,8 @@ class _$DisputeEventNotificationTypeEnumSerializer
     'fraud': 'fraud',
     'notDelivered': 'notDelivered',
     'duplicate': 'duplicate',
+    'notAsDescribed': 'notAsDescribed',
+    'cancelled': 'cancelled',
     'other': 'other',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };

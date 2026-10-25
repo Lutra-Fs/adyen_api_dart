@@ -429,8 +429,6 @@ class _$PaymentRequest extends PaymentRequest {
   @override
   final Company? company;
   @override
-  final String? conversionId;
-  @override
   final String? countryCode;
   @override
   final DateTime? dateOfBirth;
@@ -482,6 +480,8 @@ class _$PaymentRequest extends PaymentRequest {
   final BuiltMap<String, String>? metadata;
   @override
   final ThreeDSecureData? mpiData;
+  @override
+  final OpiRequest? opi;
   @override
   final EncryptedOrderData? order;
   @override
@@ -545,6 +545,8 @@ class _$PaymentRequest extends PaymentRequest {
   @override
   final String? telephoneNumber;
   @override
+  final ThirdPartyTokenRedundancyInfo? thirdPartyTokenRedundancyInfo;
+  @override
   final ThreeDS2RequestFields? threeDS2RequestData;
   @override
   final bool? threeDSAuthenticationOnly;
@@ -568,7 +570,6 @@ class _$PaymentRequest extends PaymentRequest {
     this.channel,
     this.checkoutAttemptId,
     this.company,
-    this.conversionId,
     this.countryCode,
     this.dateOfBirth,
     this.dccQuote,
@@ -595,6 +596,7 @@ class _$PaymentRequest extends PaymentRequest {
     this.merchantRiskIndicator,
     this.metadata,
     this.mpiData,
+    this.opi,
     this.order,
     this.orderReference,
     this.origin,
@@ -626,6 +628,7 @@ class _$PaymentRequest extends PaymentRequest {
     this.subMerchants,
     this.surcharge,
     this.telephoneNumber,
+    this.thirdPartyTokenRedundancyInfo,
     this.threeDS2RequestData,
     this.threeDSAuthenticationOnly,
     this.trustedShopper,
@@ -654,7 +657,6 @@ class _$PaymentRequest extends PaymentRequest {
         channel == other.channel &&
         checkoutAttemptId == other.checkoutAttemptId &&
         company == other.company &&
-        conversionId == other.conversionId &&
         countryCode == other.countryCode &&
         dateOfBirth == other.dateOfBirth &&
         dccQuote == other.dccQuote &&
@@ -681,6 +683,7 @@ class _$PaymentRequest extends PaymentRequest {
         merchantRiskIndicator == other.merchantRiskIndicator &&
         metadata == other.metadata &&
         mpiData == other.mpiData &&
+        opi == other.opi &&
         order == other.order &&
         orderReference == other.orderReference &&
         origin == other.origin &&
@@ -712,6 +715,7 @@ class _$PaymentRequest extends PaymentRequest {
         subMerchants == other.subMerchants &&
         surcharge == other.surcharge &&
         telephoneNumber == other.telephoneNumber &&
+        thirdPartyTokenRedundancyInfo == other.thirdPartyTokenRedundancyInfo &&
         threeDS2RequestData == other.threeDS2RequestData &&
         threeDSAuthenticationOnly == other.threeDSAuthenticationOnly &&
         trustedShopper == other.trustedShopper;
@@ -733,7 +737,6 @@ class _$PaymentRequest extends PaymentRequest {
     _$hash = $jc(_$hash, channel.hashCode);
     _$hash = $jc(_$hash, checkoutAttemptId.hashCode);
     _$hash = $jc(_$hash, company.hashCode);
-    _$hash = $jc(_$hash, conversionId.hashCode);
     _$hash = $jc(_$hash, countryCode.hashCode);
     _$hash = $jc(_$hash, dateOfBirth.hashCode);
     _$hash = $jc(_$hash, dccQuote.hashCode);
@@ -760,6 +763,7 @@ class _$PaymentRequest extends PaymentRequest {
     _$hash = $jc(_$hash, merchantRiskIndicator.hashCode);
     _$hash = $jc(_$hash, metadata.hashCode);
     _$hash = $jc(_$hash, mpiData.hashCode);
+    _$hash = $jc(_$hash, opi.hashCode);
     _$hash = $jc(_$hash, order.hashCode);
     _$hash = $jc(_$hash, orderReference.hashCode);
     _$hash = $jc(_$hash, origin.hashCode);
@@ -791,6 +795,7 @@ class _$PaymentRequest extends PaymentRequest {
     _$hash = $jc(_$hash, subMerchants.hashCode);
     _$hash = $jc(_$hash, surcharge.hashCode);
     _$hash = $jc(_$hash, telephoneNumber.hashCode);
+    _$hash = $jc(_$hash, thirdPartyTokenRedundancyInfo.hashCode);
     _$hash = $jc(_$hash, threeDS2RequestData.hashCode);
     _$hash = $jc(_$hash, threeDSAuthenticationOnly.hashCode);
     _$hash = $jc(_$hash, trustedShopper.hashCode);
@@ -814,7 +819,6 @@ class _$PaymentRequest extends PaymentRequest {
           ..add('channel', channel)
           ..add('checkoutAttemptId', checkoutAttemptId)
           ..add('company', company)
-          ..add('conversionId', conversionId)
           ..add('countryCode', countryCode)
           ..add('dateOfBirth', dateOfBirth)
           ..add('dccQuote', dccQuote)
@@ -841,6 +845,7 @@ class _$PaymentRequest extends PaymentRequest {
           ..add('merchantRiskIndicator', merchantRiskIndicator)
           ..add('metadata', metadata)
           ..add('mpiData', mpiData)
+          ..add('opi', opi)
           ..add('order', order)
           ..add('orderReference', orderReference)
           ..add('origin', origin)
@@ -872,6 +877,7 @@ class _$PaymentRequest extends PaymentRequest {
           ..add('subMerchants', subMerchants)
           ..add('surcharge', surcharge)
           ..add('telephoneNumber', telephoneNumber)
+          ..add('thirdPartyTokenRedundancyInfo', thirdPartyTokenRedundancyInfo)
           ..add('threeDS2RequestData', threeDS2RequestData)
           ..add('threeDSAuthenticationOnly', threeDSAuthenticationOnly)
           ..add('trustedShopper', trustedShopper))
@@ -952,10 +958,6 @@ class PaymentRequestBuilder
   CompanyBuilder? _company;
   CompanyBuilder get company => _$this._company ??= CompanyBuilder();
   set company(CompanyBuilder? company) => _$this._company = company;
-
-  String? _conversionId;
-  String? get conversionId => _$this._conversionId;
-  set conversionId(String? conversionId) => _$this._conversionId = conversionId;
 
   String? _countryCode;
   String? get countryCode => _$this._countryCode;
@@ -1089,6 +1091,10 @@ class PaymentRequestBuilder
   ThreeDSecureDataBuilder get mpiData =>
       _$this._mpiData ??= ThreeDSecureDataBuilder();
   set mpiData(ThreeDSecureDataBuilder? mpiData) => _$this._mpiData = mpiData;
+
+  OpiRequestBuilder? _opi;
+  OpiRequestBuilder get opi => _$this._opi ??= OpiRequestBuilder();
+  set opi(OpiRequestBuilder? opi) => _$this._opi = opi;
 
   EncryptedOrderDataBuilder? _order;
   EncryptedOrderDataBuilder get order =>
@@ -1247,6 +1253,14 @@ class PaymentRequestBuilder
   set telephoneNumber(String? telephoneNumber) =>
       _$this._telephoneNumber = telephoneNumber;
 
+  ThirdPartyTokenRedundancyInfoBuilder? _thirdPartyTokenRedundancyInfo;
+  ThirdPartyTokenRedundancyInfoBuilder get thirdPartyTokenRedundancyInfo =>
+      _$this._thirdPartyTokenRedundancyInfo ??=
+          ThirdPartyTokenRedundancyInfoBuilder();
+  set thirdPartyTokenRedundancyInfo(
+    ThirdPartyTokenRedundancyInfoBuilder? thirdPartyTokenRedundancyInfo,
+  ) => _$this._thirdPartyTokenRedundancyInfo = thirdPartyTokenRedundancyInfo;
+
   ThreeDS2RequestFieldsBuilder? _threeDS2RequestData;
   ThreeDS2RequestFieldsBuilder get threeDS2RequestData =>
       _$this._threeDS2RequestData ??= ThreeDS2RequestFieldsBuilder();
@@ -1283,7 +1297,6 @@ class PaymentRequestBuilder
       _channel = $v.channel;
       _checkoutAttemptId = $v.checkoutAttemptId;
       _company = $v.company?.toBuilder();
-      _conversionId = $v.conversionId;
       _countryCode = $v.countryCode;
       _dateOfBirth = $v.dateOfBirth;
       _dccQuote = $v.dccQuote?.toBuilder();
@@ -1310,6 +1323,7 @@ class PaymentRequestBuilder
       _merchantRiskIndicator = $v.merchantRiskIndicator?.toBuilder();
       _metadata = $v.metadata?.toBuilder();
       _mpiData = $v.mpiData?.toBuilder();
+      _opi = $v.opi?.toBuilder();
       _order = $v.order?.toBuilder();
       _orderReference = $v.orderReference;
       _origin = $v.origin;
@@ -1341,6 +1355,8 @@ class PaymentRequestBuilder
       _subMerchants = $v.subMerchants?.toBuilder();
       _surcharge = $v.surcharge?.toBuilder();
       _telephoneNumber = $v.telephoneNumber;
+      _thirdPartyTokenRedundancyInfo = $v.thirdPartyTokenRedundancyInfo
+          ?.toBuilder();
       _threeDS2RequestData = $v.threeDS2RequestData?.toBuilder();
       _threeDSAuthenticationOnly = $v.threeDSAuthenticationOnly;
       _trustedShopper = $v.trustedShopper;
@@ -1381,7 +1397,6 @@ class PaymentRequestBuilder
             channel: channel,
             checkoutAttemptId: checkoutAttemptId,
             company: _company?.build(),
-            conversionId: conversionId,
             countryCode: countryCode,
             dateOfBirth: dateOfBirth,
             dccQuote: _dccQuote?.build(),
@@ -1412,6 +1427,7 @@ class PaymentRequestBuilder
             merchantRiskIndicator: _merchantRiskIndicator?.build(),
             metadata: _metadata?.build(),
             mpiData: _mpiData?.build(),
+            opi: _opi?.build(),
             order: _order?.build(),
             orderReference: orderReference,
             origin: origin,
@@ -1451,6 +1467,8 @@ class PaymentRequestBuilder
             subMerchants: _subMerchants?.build(),
             surcharge: _surcharge?.build(),
             telephoneNumber: telephoneNumber,
+            thirdPartyTokenRedundancyInfo: _thirdPartyTokenRedundancyInfo
+                ?.build(),
             threeDS2RequestData: _threeDS2RequestData?.build(),
             threeDSAuthenticationOnly: threeDSAuthenticationOnly,
             trustedShopper: trustedShopper,
@@ -1509,6 +1527,8 @@ class PaymentRequestBuilder
         _metadata?.build();
         _$failedField = 'mpiData';
         _mpiData?.build();
+        _$failedField = 'opi';
+        _opi?.build();
         _$failedField = 'order';
         _order?.build();
 
@@ -1536,6 +1556,8 @@ class PaymentRequestBuilder
         _$failedField = 'surcharge';
         _surcharge?.build();
 
+        _$failedField = 'thirdPartyTokenRedundancyInfo';
+        _thirdPartyTokenRedundancyInfo?.build();
         _$failedField = 'threeDS2RequestData';
         _threeDS2RequestData?.build();
       } catch (e) {

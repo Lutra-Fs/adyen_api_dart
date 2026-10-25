@@ -24,7 +24,9 @@ part 'token_mandate.g.dart';
 /// * [mandateId] - The unique identifier of the mandate.
 /// * [maskedAccountId] - The masked account number associated with the mandate.
 /// * [minAmount] - For a billing plan where the payment amounts are variable, the minimum amount to charge the shopper for each recurring payment. When a shopper approves the billing plan, they can also specify a maximum amount in their banking app.
+/// * [previousMandateId] - The previous value of the `mandateId`, if the scheme has replaced it.  For UPI mandates, the `mandateId` is the Unique Mandate Number (UMN), which the scheme replaces when the mandate moves to another payment provider. In that case, this field holds the UMN the mandate was registered with before the move.
 /// * [providerId] - The provider-specific identifier for this mandate.
+/// * [purposeCode] - The purpose code the mandate is registered with at the scheme.  Possible values for UPI mandates:   * **14**: The mandate can only be debited by the payment provider that registered it.   * **AZ**: The mandate can be debited by any payment provider.  
 /// * [recurringAmount] - For a billing plan where the payment amount is fixed, the amount the shopper will be charged for each recurring payment.
 /// * [recurringStatement] - The text that will be shown on the shopper's bank statement for the recurring payments. We recommend to add a descriptive text about the subscription to let your shoppers recognize your recurring payments. Maximum length: 35 characters.
 /// * [remarks] - Additional remarks or notes about the mandate.
@@ -85,9 +87,17 @@ abstract class TokenMandate implements Built<TokenMandate, TokenMandateBuilder> 
   @BuiltValueField(wireName: r'minAmount')
   String? get minAmount;
 
+  /// The previous value of the `mandateId`, if the scheme has replaced it.  For UPI mandates, the `mandateId` is the Unique Mandate Number (UMN), which the scheme replaces when the mandate moves to another payment provider. In that case, this field holds the UMN the mandate was registered with before the move.
+  @BuiltValueField(wireName: r'previousMandateId')
+  String? get previousMandateId;
+
   /// The provider-specific identifier for this mandate.
   @BuiltValueField(wireName: r'providerId')
   String get providerId;
+
+  /// The purpose code the mandate is registered with at the scheme.  Possible values for UPI mandates:   * **14**: The mandate can only be debited by the payment provider that registered it.   * **AZ**: The mandate can be debited by any payment provider.  
+  @BuiltValueField(wireName: r'purposeCode')
+  String? get purposeCode;
 
   /// For a billing plan where the payment amount is fixed, the amount the shopper will be charged for each recurring payment.
   @BuiltValueField(wireName: r'recurringAmount')
@@ -215,11 +225,25 @@ class _$TokenMandateSerializer implements PrimitiveSerializer<TokenMandate> {
         specifiedType: const FullType(String),
       );
     }
+    if (object.previousMandateId != null) {
+      yield r'previousMandateId';
+      yield serializers.serialize(
+        object.previousMandateId,
+        specifiedType: const FullType(String),
+      );
+    }
     yield r'providerId';
     yield serializers.serialize(
       object.providerId,
       specifiedType: const FullType(String),
     );
+    if (object.purposeCode != null) {
+      yield r'purposeCode';
+      yield serializers.serialize(
+        object.purposeCode,
+        specifiedType: const FullType(String),
+      );
+    }
     if (object.recurringAmount != null) {
       yield r'recurringAmount';
       yield serializers.serialize(
@@ -372,12 +396,26 @@ class _$TokenMandateSerializer implements PrimitiveSerializer<TokenMandate> {
           ) as String;
           result.minAmount = valueDes;
           break;
+        case r'previousMandateId':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.previousMandateId = valueDes;
+          break;
         case r'providerId':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(String),
           ) as String;
           result.providerId = valueDes;
+          break;
+        case r'purposeCode':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.purposeCode = valueDes;
           break;
         case r'recurringAmount':
           final valueDes = serializers.deserialize(

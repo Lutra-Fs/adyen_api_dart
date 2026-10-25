@@ -20,7 +20,7 @@ abstract class GetTotalsRequest implements Built<GetTotalsRequest, GetTotalsRequ
   /// Indicates the hierarchical structure of the reconciliation result of the Sale to POI reconciliation. Required to present totals per value of element included in this cluster (POI Terminal, Sale Terminal, Cashier, Shift, TotalsGroupID). Possible values: * **OperatorID** * **POIID** * **SaleID** * **ShiftNumber** * **TotalsGroupID**
   @BuiltValueField(wireName: r'TotalDetails')
   BuiltList<GetTotalsRequestTotalDetailsEnum>? get totalDetails;
-  // enum totalDetailsEnum {  OperatorID,  POIID,  SaleID,  ShiftNumber,  TotalsGroupID,  };
+  // enum totalDetailsEnum {  POIID,  SaleID,  OperatorID,  ShiftNumber,  TotalsGroupID,  };
 
   /// Filter to compute the totals. Used for the Get Totals, to request totals for a (or a combination of) particular value of the POI Terminal, Sale Terminal, Cashier, Shift, or TotalsGroupID.
   @BuiltValueField(wireName: r'TotalFilter')
@@ -131,12 +131,12 @@ class _$GetTotalsRequestSerializer implements PrimitiveSerializer<GetTotalsReque
 
 class GetTotalsRequestTotalDetailsEnum extends EnumClass {
 
-  @BuiltValueEnumConst(wireName: r'OperatorID')
-  static const GetTotalsRequestTotalDetailsEnum operatorID = _$getTotalsRequestTotalDetailsEnum_operatorID;
   @BuiltValueEnumConst(wireName: r'POIID')
   static const GetTotalsRequestTotalDetailsEnum POIID = _$getTotalsRequestTotalDetailsEnum_POIID;
   @BuiltValueEnumConst(wireName: r'SaleID')
   static const GetTotalsRequestTotalDetailsEnum saleID = _$getTotalsRequestTotalDetailsEnum_saleID;
+  @BuiltValueEnumConst(wireName: r'OperatorID')
+  static const GetTotalsRequestTotalDetailsEnum operatorID = _$getTotalsRequestTotalDetailsEnum_operatorID;
   @BuiltValueEnumConst(wireName: r'ShiftNumber')
   static const GetTotalsRequestTotalDetailsEnum shiftNumber = _$getTotalsRequestTotalDetailsEnum_shiftNumber;
   @BuiltValueEnumConst(wireName: r'TotalsGroupID')

@@ -22,12 +22,12 @@ abstract class OutputResult implements Built<OutputResult, OutputResultBuilder> 
   /// Logical device located on a Sale Terminal or a POI Terminal, in term of class of information to output (display, print or store), or input (keyboard) for the Cashier or the Customer. Copy. Possible values: * **CashierDisplay** * **CashierInput** * **CustomerDisplay** * **CustomerInput**
   @BuiltValueField(wireName: r'Device')
   Device get device;
-  // enum deviceEnum {  CashierDisplay,  CashierInput,  CustomerDisplay,  CustomerInput,  };
+  // enum deviceEnum {  CashierDisplay,  CustomerDisplay,  CashierInput,  CustomerInput,  };
 
   /// Qualification of the information to sent to an output logical device, to display or print to the Cashier or the Customer. Copy. Possible values: * **CustomerAssistance** * **Display** * **Document** * **Error** * **Input** * **POIReplication** * **Receipt** * **Sound** * **Status** * **Voucher**
   @BuiltValueField(wireName: r'InfoQualify')
   InfoQualify get infoQualify;
-  // enum infoQualifyEnum {  CustomerAssistance,  Display,  Document,  Error,  Input,  POIReplication,  Receipt,  Sound,  Status,  Voucher,  };
+  // enum infoQualifyEnum {  Status,  Error,  Display,  Sound,  Input,  POIReplication,  CustomerAssistance,  Receipt,  Document,  Voucher,  };
 
   /// Result of a message request processing.
   @BuiltValueField(wireName: r'Response')

@@ -30,7 +30,7 @@ abstract class UKLocalMandateAccountIdentification implements MandateAccountIden
   factory UKLocalMandateAccountIdentification([void updates(UKLocalMandateAccountIdentificationBuilder b)]) = _$UKLocalMandateAccountIdentification;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(UKLocalMandateAccountIdentificationBuilder b) => b..type=b.discriminatorValue;
+  static void _defaults(UKLocalMandateAccountIdentificationBuilder b) => b..type = b.discriminatorValue ?? '';
 
   @BuiltValueSerializer(custom: true)
   static Serializer<UKLocalMandateAccountIdentification> get serializer => _$UKLocalMandateAccountIdentificationSerializer();

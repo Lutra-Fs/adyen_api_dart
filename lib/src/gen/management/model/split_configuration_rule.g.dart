@@ -10,6 +10,9 @@ const SplitConfigurationRuleCardRegionEnum
 _$splitConfigurationRuleCardRegionEnum_international =
     const SplitConfigurationRuleCardRegionEnum._('international');
 const SplitConfigurationRuleCardRegionEnum
+_$splitConfigurationRuleCardRegionEnum_intraEEA =
+    const SplitConfigurationRuleCardRegionEnum._('intraEEA');
+const SplitConfigurationRuleCardRegionEnum
 _$splitConfigurationRuleCardRegionEnum_intraRegional =
     const SplitConfigurationRuleCardRegionEnum._('intraRegional');
 const SplitConfigurationRuleCardRegionEnum
@@ -30,6 +33,8 @@ _$splitConfigurationRuleCardRegionEnumValueOf(String name) {
   switch (name) {
     case 'international':
       return _$splitConfigurationRuleCardRegionEnum_international;
+    case 'intraEEA':
+      return _$splitConfigurationRuleCardRegionEnum_intraEEA;
     case 'intraRegional':
       return _$splitConfigurationRuleCardRegionEnum_intraRegional;
     case 'interRegional':
@@ -50,11 +55,52 @@ _$splitConfigurationRuleCardRegionEnumValues =
     BuiltSet<SplitConfigurationRuleCardRegionEnum>(
       const <SplitConfigurationRuleCardRegionEnum>[
         _$splitConfigurationRuleCardRegionEnum_international,
+        _$splitConfigurationRuleCardRegionEnum_intraEEA,
         _$splitConfigurationRuleCardRegionEnum_intraRegional,
         _$splitConfigurationRuleCardRegionEnum_interRegional,
         _$splitConfigurationRuleCardRegionEnum_domestic,
         _$splitConfigurationRuleCardRegionEnum_ANY,
         _$splitConfigurationRuleCardRegionEnum_unknownDefaultOpenApi,
+      ],
+    );
+
+const SplitConfigurationRuleCardUsageTypeEnum
+_$splitConfigurationRuleCardUsageTypeEnum_commercial =
+    const SplitConfigurationRuleCardUsageTypeEnum._('commercial');
+const SplitConfigurationRuleCardUsageTypeEnum
+_$splitConfigurationRuleCardUsageTypeEnum_consumer =
+    const SplitConfigurationRuleCardUsageTypeEnum._('consumer');
+const SplitConfigurationRuleCardUsageTypeEnum
+_$splitConfigurationRuleCardUsageTypeEnum_ANY =
+    const SplitConfigurationRuleCardUsageTypeEnum._('ANY');
+const SplitConfigurationRuleCardUsageTypeEnum
+_$splitConfigurationRuleCardUsageTypeEnum_unknownDefaultOpenApi =
+    const SplitConfigurationRuleCardUsageTypeEnum._('unknownDefaultOpenApi');
+
+SplitConfigurationRuleCardUsageTypeEnum
+_$splitConfigurationRuleCardUsageTypeEnumValueOf(String name) {
+  switch (name) {
+    case 'commercial':
+      return _$splitConfigurationRuleCardUsageTypeEnum_commercial;
+    case 'consumer':
+      return _$splitConfigurationRuleCardUsageTypeEnum_consumer;
+    case 'ANY':
+      return _$splitConfigurationRuleCardUsageTypeEnum_ANY;
+    case 'unknownDefaultOpenApi':
+      return _$splitConfigurationRuleCardUsageTypeEnum_unknownDefaultOpenApi;
+    default:
+      return _$splitConfigurationRuleCardUsageTypeEnum_unknownDefaultOpenApi;
+  }
+}
+
+final BuiltSet<SplitConfigurationRuleCardUsageTypeEnum>
+_$splitConfigurationRuleCardUsageTypeEnumValues =
+    BuiltSet<SplitConfigurationRuleCardUsageTypeEnum>(
+      const <SplitConfigurationRuleCardUsageTypeEnum>[
+        _$splitConfigurationRuleCardUsageTypeEnum_commercial,
+        _$splitConfigurationRuleCardUsageTypeEnum_consumer,
+        _$splitConfigurationRuleCardUsageTypeEnum_ANY,
+        _$splitConfigurationRuleCardUsageTypeEnum_unknownDefaultOpenApi,
       ],
     );
 
@@ -173,6 +219,9 @@ _$splitConfigurationRuleShopperInteractionEnumValues =
 Serializer<SplitConfigurationRuleCardRegionEnum>
 _$splitConfigurationRuleCardRegionEnumSerializer =
     _$SplitConfigurationRuleCardRegionEnumSerializer();
+Serializer<SplitConfigurationRuleCardUsageTypeEnum>
+_$splitConfigurationRuleCardUsageTypeEnumSerializer =
+    _$SplitConfigurationRuleCardUsageTypeEnumSerializer();
 Serializer<SplitConfigurationRuleFundingSourceEnum>
 _$splitConfigurationRuleFundingSourceEnumSerializer =
     _$SplitConfigurationRuleFundingSourceEnumSerializer();
@@ -184,6 +233,7 @@ class _$SplitConfigurationRuleCardRegionEnumSerializer
     implements PrimitiveSerializer<SplitConfigurationRuleCardRegionEnum> {
   static const Map<String, Object> _toWire = const <String, Object>{
     'international': 'international',
+    'intraEEA': 'intraEEA',
     'intraRegional': 'intraRegional',
     'interRegional': 'interRegional',
     'domestic': 'domestic',
@@ -192,6 +242,7 @@ class _$SplitConfigurationRuleCardRegionEnumSerializer
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'international': 'international',
+    'intraEEA': 'intraEEA',
     'intraRegional': 'intraRegional',
     'interRegional': 'interRegional',
     'domestic': 'domestic',
@@ -219,6 +270,45 @@ class _$SplitConfigurationRuleCardRegionEnumSerializer
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) => SplitConfigurationRuleCardRegionEnum.valueOf(
+    _fromWire[serialized] ?? (serialized is String ? serialized : ''),
+  );
+}
+
+class _$SplitConfigurationRuleCardUsageTypeEnumSerializer
+    implements PrimitiveSerializer<SplitConfigurationRuleCardUsageTypeEnum> {
+  static const Map<String, Object> _toWire = const <String, Object>{
+    'commercial': 'commercial',
+    'consumer': 'consumer',
+    'ANY': 'ANY',
+    'unknownDefaultOpenApi': 'unknown_default_open_api',
+  };
+  static const Map<Object, String> _fromWire = const <Object, String>{
+    'commercial': 'commercial',
+    'consumer': 'consumer',
+    'ANY': 'ANY',
+    'unknown_default_open_api': 'unknownDefaultOpenApi',
+  };
+
+  @override
+  final Iterable<Type> types = const <Type>[
+    SplitConfigurationRuleCardUsageTypeEnum,
+  ];
+  @override
+  final String wireName = 'SplitConfigurationRuleCardUsageTypeEnum';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    SplitConfigurationRuleCardUsageTypeEnum object, {
+    FullType specifiedType = FullType.unspecified,
+  }) => _toWire[object.name] ?? object.name;
+
+  @override
+  SplitConfigurationRuleCardUsageTypeEnum deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) => SplitConfigurationRuleCardUsageTypeEnum.valueOf(
     _fromWire[serialized] ?? (serialized is String ? serialized : ''),
   );
 }
@@ -316,6 +406,8 @@ class _$SplitConfigurationRule extends SplitConfigurationRule {
   @override
   final SplitConfigurationRuleCardRegionEnum? cardRegion;
   @override
+  final SplitConfigurationRuleCardUsageTypeEnum? cardUsageType;
+  @override
   final String currency;
   @override
   final SplitConfigurationRuleFundingSourceEnum fundingSource;
@@ -334,6 +426,7 @@ class _$SplitConfigurationRule extends SplitConfigurationRule {
 
   _$SplitConfigurationRule._({
     this.cardRegion,
+    this.cardUsageType,
     required this.currency,
     required this.fundingSource,
     required this.paymentMethod,
@@ -355,6 +448,7 @@ class _$SplitConfigurationRule extends SplitConfigurationRule {
     if (identical(other, this)) return true;
     return other is SplitConfigurationRule &&
         cardRegion == other.cardRegion &&
+        cardUsageType == other.cardUsageType &&
         currency == other.currency &&
         fundingSource == other.fundingSource &&
         paymentMethod == other.paymentMethod &&
@@ -367,6 +461,7 @@ class _$SplitConfigurationRule extends SplitConfigurationRule {
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, cardRegion.hashCode);
+    _$hash = $jc(_$hash, cardUsageType.hashCode);
     _$hash = $jc(_$hash, currency.hashCode);
     _$hash = $jc(_$hash, fundingSource.hashCode);
     _$hash = $jc(_$hash, paymentMethod.hashCode);
@@ -381,6 +476,7 @@ class _$SplitConfigurationRule extends SplitConfigurationRule {
   String toString() {
     return (newBuiltValueToStringHelper(r'SplitConfigurationRule')
           ..add('cardRegion', cardRegion)
+          ..add('cardUsageType', cardUsageType)
           ..add('currency', currency)
           ..add('fundingSource', fundingSource)
           ..add('paymentMethod', paymentMethod)
@@ -399,6 +495,12 @@ class SplitConfigurationRuleBuilder
   SplitConfigurationRuleCardRegionEnum? get cardRegion => _$this._cardRegion;
   set cardRegion(SplitConfigurationRuleCardRegionEnum? cardRegion) =>
       _$this._cardRegion = cardRegion;
+
+  SplitConfigurationRuleCardUsageTypeEnum? _cardUsageType;
+  SplitConfigurationRuleCardUsageTypeEnum? get cardUsageType =>
+      _$this._cardUsageType;
+  set cardUsageType(SplitConfigurationRuleCardUsageTypeEnum? cardUsageType) =>
+      _$this._cardUsageType = cardUsageType;
 
   String? _currency;
   String? get currency => _$this._currency;
@@ -440,6 +542,7 @@ class SplitConfigurationRuleBuilder
     final $v = _$v;
     if ($v != null) {
       _cardRegion = $v.cardRegion;
+      _cardUsageType = $v.cardUsageType;
       _currency = $v.currency;
       _fundingSource = $v.fundingSource;
       _paymentMethod = $v.paymentMethod;
@@ -471,6 +574,7 @@ class SplitConfigurationRuleBuilder
           _$v ??
           _$SplitConfigurationRule._(
             cardRegion: cardRegion,
+            cardUsageType: cardUsageType,
             currency: BuiltValueNullFieldError.checkNotNull(
               currency,
               r'SplitConfigurationRule',

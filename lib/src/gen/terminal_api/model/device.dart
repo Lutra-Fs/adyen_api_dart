@@ -11,14 +11,19 @@ part 'device.g.dart';
 
 class Device extends EnumClass {
 
+  ///  Possible values: * **CashierDisplay** * **CustomerDisplay** * **CashierInput** * **CustomerInput**
   @BuiltValueEnumConst(wireName: r'CashierDisplay')
   static const Device cashierDisplay = _$cashierDisplay;
-  @BuiltValueEnumConst(wireName: r'CashierInput')
-  static const Device cashierInput = _$cashierInput;
+  ///  Possible values: * **CashierDisplay** * **CustomerDisplay** * **CashierInput** * **CustomerInput**
   @BuiltValueEnumConst(wireName: r'CustomerDisplay')
   static const Device customerDisplay = _$customerDisplay;
+  ///  Possible values: * **CashierDisplay** * **CustomerDisplay** * **CashierInput** * **CustomerInput**
+  @BuiltValueEnumConst(wireName: r'CashierInput')
+  static const Device cashierInput = _$cashierInput;
+  ///  Possible values: * **CashierDisplay** * **CustomerDisplay** * **CashierInput** * **CustomerInput**
   @BuiltValueEnumConst(wireName: r'CustomerInput')
   static const Device customerInput = _$customerInput;
+  ///  Possible values: * **CashierDisplay** * **CustomerDisplay** * **CashierInput** * **CustomerInput**
   @BuiltValueEnumConst(wireName: r'unknown_default_open_api', fallback: true)
   static const Device unknownDefaultOpenApi = _$unknownDefaultOpenApi;
 

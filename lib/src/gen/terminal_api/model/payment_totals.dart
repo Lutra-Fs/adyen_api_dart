@@ -20,7 +20,7 @@ abstract class PaymentTotals implements Built<PaymentTotals, PaymentTotalsBuilde
   /// Type of transaction for which totals are grouped. Debit, Credit, ReverseDebit, ReverseCredit, OneTimeReservation, CompletedDeffered, FirstReservation, UpdateReservation, CompletedReservation, CashAdvance. Possible values: * **Award** * **CashAdvance** * **CompletedDeffered** * **CompletedReservation** * **Credit** * **Debit** * **Declined** * **Failed** * **FirstReservation** * **IssuerInstalment** * **OneTimeReservation** * **Rebate** * **Redemption** * **ReverseAward** * **ReverseCredit** * **ReverseDebit** * **ReverseRebate** * **ReverseRedemption** * **UpdateReservation**
   @BuiltValueField(wireName: r'TransactionType')
   TransactionType get transactionType;
-  // enum transactionTypeEnum {  Award,  CashAdvance,  CompletedDeffered,  CompletedReservation,  Credit,  Debit,  Declined,  Failed,  FirstReservation,  IssuerInstalment,  OneTimeReservation,  Rebate,  Redemption,  ReverseAward,  ReverseCredit,  ReverseDebit,  ReverseRebate,  ReverseRedemption,  UpdateReservation,  };
+  // enum transactionTypeEnum {  Debit,  Credit,  ReverseDebit,  ReverseCredit,  OneTimeReservation,  CompletedDeffered,  FirstReservation,  UpdateReservation,  CompletedReservation,  CashAdvance,  IssuerInstalment,  Declined,  Failed,  Award,  ReverseAward,  Redemption,  ReverseRedemption,  Rebate,  ReverseRebate,  };
 
   /// Number of processed transaction during the period.
   @BuiltValueField(wireName: r'TransactionCount')

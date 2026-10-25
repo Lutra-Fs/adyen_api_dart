@@ -6,13 +6,13 @@ part of 'login_request.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-const LoginRequestCustomerOrderReqEnum _$loginRequestCustomerOrderReqEnum_both =
-    const LoginRequestCustomerOrderReqEnum._('both');
+const LoginRequestCustomerOrderReqEnum _$loginRequestCustomerOrderReqEnum_open =
+    const LoginRequestCustomerOrderReqEnum._('open');
 const LoginRequestCustomerOrderReqEnum
 _$loginRequestCustomerOrderReqEnum_closed =
     const LoginRequestCustomerOrderReqEnum._('closed');
-const LoginRequestCustomerOrderReqEnum _$loginRequestCustomerOrderReqEnum_open =
-    const LoginRequestCustomerOrderReqEnum._('open');
+const LoginRequestCustomerOrderReqEnum _$loginRequestCustomerOrderReqEnum_both =
+    const LoginRequestCustomerOrderReqEnum._('both');
 const LoginRequestCustomerOrderReqEnum
 _$loginRequestCustomerOrderReqEnum_unknownDefaultOpenApi =
     const LoginRequestCustomerOrderReqEnum._('unknownDefaultOpenApi');
@@ -21,12 +21,12 @@ LoginRequestCustomerOrderReqEnum _$loginRequestCustomerOrderReqEnumValueOf(
   String name,
 ) {
   switch (name) {
-    case 'both':
-      return _$loginRequestCustomerOrderReqEnum_both;
-    case 'closed':
-      return _$loginRequestCustomerOrderReqEnum_closed;
     case 'open':
       return _$loginRequestCustomerOrderReqEnum_open;
+    case 'closed':
+      return _$loginRequestCustomerOrderReqEnum_closed;
+    case 'both':
+      return _$loginRequestCustomerOrderReqEnum_both;
     case 'unknownDefaultOpenApi':
       return _$loginRequestCustomerOrderReqEnum_unknownDefaultOpenApi;
     default:
@@ -38,9 +38,9 @@ final BuiltSet<LoginRequestCustomerOrderReqEnum>
 _$loginRequestCustomerOrderReqEnumValues =
     BuiltSet<LoginRequestCustomerOrderReqEnum>(
       const <LoginRequestCustomerOrderReqEnum>[
-        _$loginRequestCustomerOrderReqEnum_both,
-        _$loginRequestCustomerOrderReqEnum_closed,
         _$loginRequestCustomerOrderReqEnum_open,
+        _$loginRequestCustomerOrderReqEnum_closed,
+        _$loginRequestCustomerOrderReqEnum_both,
         _$loginRequestCustomerOrderReqEnum_unknownDefaultOpenApi,
       ],
     );
@@ -52,15 +52,15 @@ _$loginRequestCustomerOrderReqEnumSerializer =
 class _$LoginRequestCustomerOrderReqEnumSerializer
     implements PrimitiveSerializer<LoginRequestCustomerOrderReqEnum> {
   static const Map<String, Object> _toWire = const <String, Object>{
-    'both': 'Both',
-    'closed': 'Closed',
     'open': 'Open',
+    'closed': 'Closed',
+    'both': 'Both',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
-    'Both': 'both',
-    'Closed': 'closed',
     'Open': 'open',
+    'Closed': 'closed',
+    'Both': 'both',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
 

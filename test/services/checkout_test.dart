@@ -255,7 +255,7 @@ void main() {
       );
     });
 
-    test('gets payment methods', () async {
+    test('gets payment methods through the Checkout v72 endpoint', () async {
       adapter.onPost('/paymentMethods', (server) {
         server.reply(200, {
           'paymentMethods': [
@@ -264,13 +264,15 @@ void main() {
         });
       });
 
-      final response = await checkoutService.unwrap(
-        checkoutService.paymentsApi.postPaymentMethods(
-          paymentMethodsRequest: buildPaymentMethodsRequest(),
-        ),
+      final response = await checkoutService.paymentsApi.postPaymentMethods(
+        paymentMethodsRequest: buildPaymentMethodsRequest(),
       );
 
-      expect(response!.paymentMethods?.isNotEmpty, isTrue);
+      expect(
+        response.requestOptions.uri.toString(),
+        'https://checkout-test.adyen.com/v72/paymentMethods',
+      );
+      expect(response.data!.paymentMethods?.isNotEmpty, isTrue);
     });
 
     test('creates and updates payment link', () async {

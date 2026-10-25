@@ -13,17 +13,17 @@ part 'sca_entity.g.dart';
 ///
 /// Properties:
 /// * [id] - The unique identifier of the entity.
-/// * [type] - The type of the entity that you are associating with the SCA device.   Possible values: **accountHolder** or **paymentInstrument**.
+/// * [type] - The type of the entity that you are associating with the SCA device.   Possible values: **accountHolder**, **legalEntity** or **paymentInstrument**.
 @BuiltValue()
 abstract class ScaEntity implements Built<ScaEntity, ScaEntityBuilder> {
   /// The unique identifier of the entity.
   @BuiltValueField(wireName: r'id')
   String get id;
 
-  /// The type of the entity that you are associating with the SCA device.   Possible values: **accountHolder** or **paymentInstrument**.
+  /// The type of the entity that you are associating with the SCA device.   Possible values: **accountHolder**, **legalEntity** or **paymentInstrument**.
   @BuiltValueField(wireName: r'type')
   ScaEntityType get type;
-  // enum typeEnum {  accountHolder,  paymentInstrument,  };
+  // enum typeEnum {  accountHolder,  legalEntity,  paymentInstrument,  };
 
   ScaEntity._();
 

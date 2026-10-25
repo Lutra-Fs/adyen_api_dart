@@ -16,7 +16,9 @@ part 'terminal.g.dart';
 ///
 /// Properties:
 /// * [assignment] - Indicates the account level to which the terminal is assigned, the [assignment status](https://docs.adyen.com/point-of-sale/automating-terminal-management/assign-terminals-api), and where the terminals is in the process of being reassigned to.
+/// * [cloudDeviceApiEndpoint] - The [regional base URL](https://docs.adyen.com/api-explorer/terminal-api/1/overview#endpoints-for-cloud-communications) to use for sending Terminal API requests when using cloud communications.
 /// * [connectivity] - Information about bluetooth, cellular, ethernet and wifi connectivity for the terminal.
+/// * [countryCode] - The country code of the country where the terminal is located.
 /// * [firmwareVersion] - The software release currently in use on the terminal.
 /// * [id] - The unique identifier of the terminal.
 /// * [installedAPKs] - A list of Android apps installed on the terminal.
@@ -31,9 +33,17 @@ abstract class Terminal implements Built<Terminal, TerminalBuilder> {
   @BuiltValueField(wireName: r'assignment')
   TerminalAssignment? get assignment;
 
+  /// The [regional base URL](https://docs.adyen.com/api-explorer/terminal-api/1/overview#endpoints-for-cloud-communications) to use for sending Terminal API requests when using cloud communications.
+  @BuiltValueField(wireName: r'cloudDeviceApiEndpoint')
+  String? get cloudDeviceApiEndpoint;
+
   /// Information about bluetooth, cellular, ethernet and wifi connectivity for the terminal.
   @BuiltValueField(wireName: r'connectivity')
   TerminalConnectivity? get connectivity;
+
+  /// The country code of the country where the terminal is located.
+  @BuiltValueField(wireName: r'countryCode')
+  String? get countryCode;
 
   /// The software release currently in use on the terminal.
   @BuiltValueField(wireName: r'firmwareVersion')
@@ -97,11 +107,25 @@ class _$TerminalSerializer implements PrimitiveSerializer<Terminal> {
         specifiedType: const FullType(TerminalAssignment),
       );
     }
+    if (object.cloudDeviceApiEndpoint != null) {
+      yield r'cloudDeviceApiEndpoint';
+      yield serializers.serialize(
+        object.cloudDeviceApiEndpoint,
+        specifiedType: const FullType(String),
+      );
+    }
     if (object.connectivity != null) {
       yield r'connectivity';
       yield serializers.serialize(
         object.connectivity,
         specifiedType: const FullType(TerminalConnectivity),
+      );
+    }
+    if (object.countryCode != null) {
+      yield r'countryCode';
+      yield serializers.serialize(
+        object.countryCode,
+        specifiedType: const FullType(String),
       );
     }
     if (object.firmwareVersion != null) {
@@ -190,12 +214,26 @@ class _$TerminalSerializer implements PrimitiveSerializer<Terminal> {
           ) as TerminalAssignment;
           result.assignment.replace(valueDes);
           break;
+        case r'cloudDeviceApiEndpoint':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.cloudDeviceApiEndpoint = valueDes;
+          break;
         case r'connectivity':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(TerminalConnectivity),
           ) as TerminalConnectivity;
           result.connectivity.replace(valueDes);
+          break;
+        case r'countryCode':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.countryCode = valueDes;
           break;
         case r'firmwareVersion':
           final valueDes = serializers.deserialize(

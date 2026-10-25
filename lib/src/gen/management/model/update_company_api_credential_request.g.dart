@@ -18,6 +18,8 @@ class _$UpdateCompanyApiCredentialRequest
   final String? description;
   @override
   final BuiltList<String>? roles;
+  @override
+  final String? subjectDN;
 
   factory _$UpdateCompanyApiCredentialRequest([
     void Function(UpdateCompanyApiCredentialRequestBuilder)? updates,
@@ -29,6 +31,7 @@ class _$UpdateCompanyApiCredentialRequest
     this.associatedMerchantAccounts,
     this.description,
     this.roles,
+    this.subjectDN,
   }) : super._();
   @override
   UpdateCompanyApiCredentialRequest rebuild(
@@ -47,7 +50,8 @@ class _$UpdateCompanyApiCredentialRequest
         allowedOrigins == other.allowedOrigins &&
         associatedMerchantAccounts == other.associatedMerchantAccounts &&
         description == other.description &&
-        roles == other.roles;
+        roles == other.roles &&
+        subjectDN == other.subjectDN;
   }
 
   @override
@@ -58,6 +62,7 @@ class _$UpdateCompanyApiCredentialRequest
     _$hash = $jc(_$hash, associatedMerchantAccounts.hashCode);
     _$hash = $jc(_$hash, description.hashCode);
     _$hash = $jc(_$hash, roles.hashCode);
+    _$hash = $jc(_$hash, subjectDN.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -69,7 +74,8 @@ class _$UpdateCompanyApiCredentialRequest
           ..add('allowedOrigins', allowedOrigins)
           ..add('associatedMerchantAccounts', associatedMerchantAccounts)
           ..add('description', description)
-          ..add('roles', roles))
+          ..add('roles', roles)
+          ..add('subjectDN', subjectDN))
         .toString();
   }
 }
@@ -107,6 +113,10 @@ class UpdateCompanyApiCredentialRequestBuilder
   ListBuilder<String> get roles => _$this._roles ??= ListBuilder<String>();
   set roles(ListBuilder<String>? roles) => _$this._roles = roles;
 
+  String? _subjectDN;
+  String? get subjectDN => _$this._subjectDN;
+  set subjectDN(String? subjectDN) => _$this._subjectDN = subjectDN;
+
   UpdateCompanyApiCredentialRequestBuilder() {
     UpdateCompanyApiCredentialRequest._defaults(this);
   }
@@ -119,6 +129,7 @@ class UpdateCompanyApiCredentialRequestBuilder
       _associatedMerchantAccounts = $v.associatedMerchantAccounts?.toBuilder();
       _description = $v.description;
       _roles = $v.roles?.toBuilder();
+      _subjectDN = $v.subjectDN;
       _$v = null;
     }
     return this;
@@ -150,6 +161,7 @@ class UpdateCompanyApiCredentialRequestBuilder
             associatedMerchantAccounts: _associatedMerchantAccounts?.build(),
             description: description,
             roles: _roles?.build(),
+            subjectDN: subjectDN,
           );
     } catch (_) {
       late String _$failedField;

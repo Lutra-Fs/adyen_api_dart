@@ -17,6 +17,7 @@ part 'pay_by_bank_plaid_info.g.dart';
 @BuiltValue()
 abstract class PayByBankPlaidInfo implements Built<PayByBankPlaidInfo, PayByBankPlaidInfoBuilder> {
   /// Merchant logo (max. size 150kB). Format: Base64-encoded string.
+  @Deprecated('logo has been deprecated')
   @BuiltValueField(wireName: r'logo')
   String? get logo;
 

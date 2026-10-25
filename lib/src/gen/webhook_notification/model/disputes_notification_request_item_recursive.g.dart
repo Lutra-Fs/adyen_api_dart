@@ -172,6 +172,11 @@ _$disputesNotificationRequestItemRecursiveEventCodeEnum_REFUND_FAILED =
       'REFUND_FAILED',
     );
 const DisputesNotificationRequestItemRecursiveEventCodeEnum
+_$disputesNotificationRequestItemRecursiveEventCodeEnum_REFUND_NOT_CLEARED =
+    const DisputesNotificationRequestItemRecursiveEventCodeEnum._(
+      'REFUND_NOT_CLEARED',
+    );
+const DisputesNotificationRequestItemRecursiveEventCodeEnum
 _$disputesNotificationRequestItemRecursiveEventCodeEnum_REFUND_WITH_DATA =
     const DisputesNotificationRequestItemRecursiveEventCodeEnum._(
       'REFUND_WITH_DATA',
@@ -182,9 +187,17 @@ _$disputesNotificationRequestItemRecursiveEventCodeEnum_REQUEST_FOR_INFORMATION 
       'REQUEST_FOR_INFORMATION',
     );
 const DisputesNotificationRequestItemRecursiveEventCodeEnum
+_$disputesNotificationRequestItemRecursiveEventCodeEnum_REVERSAL =
+    const DisputesNotificationRequestItemRecursiveEventCodeEnum._('REVERSAL');
+const DisputesNotificationRequestItemRecursiveEventCodeEnum
 _$disputesNotificationRequestItemRecursiveEventCodeEnum_SECOND_CHARGEBACK =
     const DisputesNotificationRequestItemRecursiveEventCodeEnum._(
       'SECOND_CHARGEBACK',
+    );
+const DisputesNotificationRequestItemRecursiveEventCodeEnum
+_$disputesNotificationRequestItemRecursiveEventCodeEnum_SETTLED_REVERSED =
+    const DisputesNotificationRequestItemRecursiveEventCodeEnum._(
+      'SETTLED_REVERSED',
     );
 const DisputesNotificationRequestItemRecursiveEventCodeEnum
 _$disputesNotificationRequestItemRecursiveEventCodeEnum_TECHNICAL_CANCEL =
@@ -275,12 +288,18 @@ _$disputesNotificationRequestItemRecursiveEventCodeEnumValueOf(String name) {
       return _$disputesNotificationRequestItemRecursiveEventCodeEnum_REFUNDED_REVERSED;
     case 'REFUND_FAILED':
       return _$disputesNotificationRequestItemRecursiveEventCodeEnum_REFUND_FAILED;
+    case 'REFUND_NOT_CLEARED':
+      return _$disputesNotificationRequestItemRecursiveEventCodeEnum_REFUND_NOT_CLEARED;
     case 'REFUND_WITH_DATA':
       return _$disputesNotificationRequestItemRecursiveEventCodeEnum_REFUND_WITH_DATA;
     case 'REQUEST_FOR_INFORMATION':
       return _$disputesNotificationRequestItemRecursiveEventCodeEnum_REQUEST_FOR_INFORMATION;
+    case 'REVERSAL':
+      return _$disputesNotificationRequestItemRecursiveEventCodeEnum_REVERSAL;
     case 'SECOND_CHARGEBACK':
       return _$disputesNotificationRequestItemRecursiveEventCodeEnum_SECOND_CHARGEBACK;
+    case 'SETTLED_REVERSED':
+      return _$disputesNotificationRequestItemRecursiveEventCodeEnum_SETTLED_REVERSED;
     case 'TECHNICAL_CANCEL':
       return _$disputesNotificationRequestItemRecursiveEventCodeEnum_TECHNICAL_CANCEL;
     case 'VOID_PENDING_REFUND':
@@ -332,9 +351,12 @@ _$disputesNotificationRequestItemRecursiveEventCodeEnumValues =
       _$disputesNotificationRequestItemRecursiveEventCodeEnum_REFUND,
       _$disputesNotificationRequestItemRecursiveEventCodeEnum_REFUNDED_REVERSED,
       _$disputesNotificationRequestItemRecursiveEventCodeEnum_REFUND_FAILED,
+      _$disputesNotificationRequestItemRecursiveEventCodeEnum_REFUND_NOT_CLEARED,
       _$disputesNotificationRequestItemRecursiveEventCodeEnum_REFUND_WITH_DATA,
       _$disputesNotificationRequestItemRecursiveEventCodeEnum_REQUEST_FOR_INFORMATION,
+      _$disputesNotificationRequestItemRecursiveEventCodeEnum_REVERSAL,
       _$disputesNotificationRequestItemRecursiveEventCodeEnum_SECOND_CHARGEBACK,
+      _$disputesNotificationRequestItemRecursiveEventCodeEnum_SETTLED_REVERSED,
       _$disputesNotificationRequestItemRecursiveEventCodeEnum_TECHNICAL_CANCEL,
       _$disputesNotificationRequestItemRecursiveEventCodeEnum_VOID_PENDING_REFUND,
       _$disputesNotificationRequestItemRecursiveEventCodeEnum_unknownDefaultOpenApi,
@@ -385,9 +407,12 @@ class _$DisputesNotificationRequestItemRecursiveEventCodeEnumSerializer
     'REFUND': 'REFUND',
     'REFUNDED_REVERSED': 'REFUNDED_REVERSED',
     'REFUND_FAILED': 'REFUND_FAILED',
+    'REFUND_NOT_CLEARED': 'REFUND_NOT_CLEARED',
     'REFUND_WITH_DATA': 'REFUND_WITH_DATA',
     'REQUEST_FOR_INFORMATION': 'REQUEST_FOR_INFORMATION',
+    'REVERSAL': 'REVERSAL',
     'SECOND_CHARGEBACK': 'SECOND_CHARGEBACK',
+    'SETTLED_REVERSED': 'SETTLED_REVERSED',
     'TECHNICAL_CANCEL': 'TECHNICAL_CANCEL',
     'VOID_PENDING_REFUND': 'VOID_PENDING_REFUND',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
@@ -428,9 +453,12 @@ class _$DisputesNotificationRequestItemRecursiveEventCodeEnumSerializer
     'REFUND': 'REFUND',
     'REFUNDED_REVERSED': 'REFUNDED_REVERSED',
     'REFUND_FAILED': 'REFUND_FAILED',
+    'REFUND_NOT_CLEARED': 'REFUND_NOT_CLEARED',
     'REFUND_WITH_DATA': 'REFUND_WITH_DATA',
     'REQUEST_FOR_INFORMATION': 'REQUEST_FOR_INFORMATION',
+    'REVERSAL': 'REVERSAL',
     'SECOND_CHARGEBACK': 'SECOND_CHARGEBACK',
+    'SETTLED_REVERSED': 'SETTLED_REVERSED',
     'TECHNICAL_CANCEL': 'TECHNICAL_CANCEL',
     'VOID_PENDING_REFUND': 'VOID_PENDING_REFUND',
     'unknown_default_open_api': 'unknownDefaultOpenApi',

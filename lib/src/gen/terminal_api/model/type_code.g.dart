@@ -6,18 +6,18 @@ part of 'type_code.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-const TypeCode _$company = const TypeCode._('company');
 const TypeCode _$personal = const TypeCode._('personal');
+const TypeCode _$company = const TypeCode._('company');
 const TypeCode _$unknownDefaultOpenApi = const TypeCode._(
   'unknownDefaultOpenApi',
 );
 
 TypeCode _$valueOf(String name) {
   switch (name) {
-    case 'company':
-      return _$company;
     case 'personal':
       return _$personal;
+    case 'company':
+      return _$company;
     case 'unknownDefaultOpenApi':
       return _$unknownDefaultOpenApi;
     default:
@@ -26,15 +26,15 @@ TypeCode _$valueOf(String name) {
 }
 
 final BuiltSet<TypeCode> _$values = BuiltSet<TypeCode>(const <TypeCode>[
-  _$company,
   _$personal,
+  _$company,
   _$unknownDefaultOpenApi,
 ]);
 
 class _$TypeCodeMeta {
   const _$TypeCodeMeta();
-  TypeCode get company => _$company;
   TypeCode get personal => _$personal;
+  TypeCode get company => _$company;
   TypeCode get unknownDefaultOpenApi => _$unknownDefaultOpenApi;
   TypeCode valueOf(String name) => _$valueOf(name);
   BuiltSet<TypeCode> get values => _$values;
@@ -49,13 +49,13 @@ Serializer<TypeCode> _$typeCodeSerializer = _$TypeCodeSerializer();
 
 class _$TypeCodeSerializer implements PrimitiveSerializer<TypeCode> {
   static const Map<String, Object> _toWire = const <String, Object>{
-    'company': 'Company',
     'personal': 'Personal',
+    'company': 'Company',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
-    'Company': 'company',
     'Personal': 'personal',
+    'Company': 'company',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
 

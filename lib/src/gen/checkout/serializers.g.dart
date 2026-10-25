@@ -63,6 +63,7 @@ Serializers _$serializers =
           ..add(AncvDetailsTypeEnum.serializer)
           ..add(AndroidPayDetails.serializer)
           ..add(AndroidPayDetailsTypeEnum.serializer)
+          ..add(AppIdentifierInfo.serializer)
           ..add(ApplePayDetails.serializer)
           ..add(ApplePayDetailsFundingSourceEnum.serializer)
           ..add(ApplePayDetailsTypeEnum.serializer)
@@ -72,6 +73,8 @@ Serializers _$serializers =
           ..add(ApplePaySessionRequest.serializer)
           ..add(ApplePaySessionResponse.serializer)
           ..add(ApplicationInfo.serializer)
+          ..add(AuPayDetails.serializer)
+          ..add(AuPayDetailsTypeEnum.serializer)
           ..add(AuthenticationData.serializer)
           ..add(AuthenticationDataAttemptAuthenticationEnum.serializer)
           ..add(BacsDirectDebitDetails.serializer)
@@ -87,9 +90,14 @@ Serializers _$serializers =
           ..add(BlikDetails.serializer)
           ..add(BlikDetailsTypeEnum.serializer)
           ..add(BrowserInfo.serializer)
+          ..add(CalculateTaxRequest.serializer)
+          ..add(CalculateTaxResponse.serializer)
+          ..add(CalculationType.serializer)
           ..add(CancelOrderRequest.serializer)
           ..add(CancelOrderResponse.serializer)
           ..add(CancelOrderResponseResultCodeEnum.serializer)
+          ..add(CarRental.serializer)
+          ..add(CarRentalRateTypeEnum.serializer)
           ..add(CardBrandDetails.serializer)
           ..add(CardDetails.serializer)
           ..add(CardDetailsFundingSourceEnum.serializer)
@@ -111,6 +119,10 @@ Serializers _$serializers =
           ..add(CheckoutBankTransferActionTypeEnum.serializer)
           ..add(CheckoutDelegatedAuthenticationAction.serializer)
           ..add(CheckoutDelegatedAuthenticationActionTypeEnum.serializer)
+          ..add(CheckoutErrorResponseEntity.serializer)
+          ..add(CheckoutForwardAccountUpdateResult.serializer)
+          ..add(CheckoutForwardAccountUpdateResultResultEnum.serializer)
+          ..add(CheckoutForwardNetworkTokenResult.serializer)
           ..add(CheckoutForwardRequest.serializer)
           ..add(CheckoutForwardRequestCard.serializer)
           ..add(CheckoutForwardRequestCardTypeEnum.serializer)
@@ -131,6 +143,8 @@ Serializers _$serializers =
           ..add(CheckoutSDKActionTypeEnum.serializer)
           ..add(CheckoutSessionInstallmentOption.serializer)
           ..add(CheckoutSessionInstallmentOptionPlansEnum.serializer)
+          ..add(CheckoutSessionPatchSessionRequest.serializer)
+          ..add(CheckoutSessionPatchSessionResponse.serializer)
           ..add(CheckoutSessionThreeDS2RequestData.serializer)
           ..add(
             CheckoutSessionThreeDS2RequestDataThreeDSRequestorChallengeIndEnum
@@ -169,7 +183,8 @@ Serializers _$serializers =
           ..add(CreateOrderRequest.serializer)
           ..add(CreateOrderResponse.serializer)
           ..add(CreateOrderResponseResultCodeEnum.serializer)
-          ..add(DefaultErrorResponseEntity.serializer)
+          ..add(DBaraiDetails.serializer)
+          ..add(DBaraiDetailsTypeEnum.serializer)
           ..add(DeliveryAddress.serializer)
           ..add(DeliveryMethod.serializer)
           ..add(DeliveryMethodTypeEnum.serializer)
@@ -209,6 +224,7 @@ Serializers _$serializers =
           ..add(ExternalTokenDetailsTypeEnum.serializer)
           ..add(FastlaneDetails.serializer)
           ..add(FastlaneDetailsTypeEnum.serializer)
+          ..add(Folio.serializer)
           ..add(ForexQuote.serializer)
           ..add(FraudCheckResult.serializer)
           ..add(FraudResult.serializer)
@@ -223,6 +239,7 @@ Serializers _$serializers =
           ..add(GooglePayDonations.serializer)
           ..add(GooglePayDonationsFundingSourceEnum.serializer)
           ..add(GooglePayDonationsTypeEnum.serializer)
+          ..add(Healthcare.serializer)
           ..add(IdealDetails.serializer)
           ..add(IdealDetailsTypeEnum.serializer)
           ..add(IdealDonations.serializer)
@@ -232,17 +249,20 @@ Serializers _$serializers =
           ..add(InstallmentOptionPlansEnum.serializer)
           ..add(Installments.serializer)
           ..add(InstallmentsPlanEnum.serializer)
-          ..add(InvalidField.serializer)
           ..add(Item.serializer)
           ..add(ItemDetailLine.serializer)
           ..add(KlarnaDetails.serializer)
           ..add(KlarnaDetailsTypeEnum.serializer)
           ..add(KlarnaNetworkDetails.serializer)
+          ..add(KlarnaNetworkDetailsSubtypeEnum.serializer)
           ..add(KlarnaNetworkDetailsTypeEnum.serializer)
           ..add(Leg.serializer)
           ..add(LevelTwoThree.serializer)
           ..add(LineItem.serializer)
           ..add(ListStoredPaymentMethodsResponse.serializer)
+          ..add(Lodging.serializer)
+          ..add(LodgingLodgingChargeTypeEnum.serializer)
+          ..add(LrsContext.serializer)
           ..add(Mandate.serializer)
           ..add(MandateAmountRuleEnum.serializer)
           ..add(MandateBillingAttemptsRuleEnum.serializer)
@@ -263,9 +283,13 @@ Serializers _$serializers =
           ..add(Name.serializer)
           ..add(OpenInvoiceDetails.serializer)
           ..add(OpenInvoiceDetailsTypeEnum.serializer)
+          ..add(OpiRequest.serializer)
+          ..add(OpiResponse.serializer)
           ..add(Passenger.serializer)
           ..add(PayByBankAISDirectDebitDetails.serializer)
           ..add(PayByBankAISDirectDebitDetailsTypeEnum.serializer)
+          ..add(PayByBankCADirectDebitDetails.serializer)
+          ..add(PayByBankCADirectDebitDetailsTypeEnum.serializer)
           ..add(PayByBankDetails.serializer)
           ..add(PayByBankDetailsTypeEnum.serializer)
           ..add(PayPalDetails.serializer)
@@ -286,6 +310,7 @@ Serializers _$serializers =
           ..add(PayWithGoogleDonationsTypeEnum.serializer)
           ..add(Payment.serializer)
           ..add(PaymentAmountUpdateRequest.serializer)
+          ..add(PaymentAmountUpdateRequestAdjustAuthTypeEnum.serializer)
           ..add(PaymentAmountUpdateRequestIndustryUsageEnum.serializer)
           ..add(PaymentAmountUpdateResponse.serializer)
           ..add(PaymentAmountUpdateResponseIndustryUsageEnum.serializer)
@@ -352,6 +377,7 @@ Serializers _$serializers =
           ..add(PaypalUpdateOrderResponse.serializer)
           ..add(PaypalUpdateOrderResponseStatusEnum.serializer)
           ..add(Phone.serializer)
+          ..add(PickupInfo.serializer)
           ..add(PixDetails.serializer)
           ..add(PixDetailsTypeEnum.serializer)
           ..add(PixPayByBankDetails.serializer)
@@ -370,10 +396,11 @@ Serializers _$serializers =
           ..add(Recurring.serializer)
           ..add(RecurringContractEnum.serializer)
           ..add(RecurringTokenServiceEnum.serializer)
+          ..add(RemittancePurpose.serializer)
+          ..add(RentalSurcharges.serializer)
           ..add(ResponseAdditionalData3DSecure.serializer)
           ..add(ResponseAdditionalDataBillingAddress.serializer)
           ..add(ResponseAdditionalDataCard.serializer)
-          ..add(ResponseAdditionalDataCardCardProductIdEnum.serializer)
           ..add(ResponseAdditionalDataCommon.serializer)
           ..add(ResponseAdditionalDataCommonFraudResultTypeEnum.serializer)
           ..add(ResponseAdditionalDataCommonFraudRiskLevelEnum.serializer)
@@ -392,9 +419,11 @@ Serializers _$serializers =
           ..add(ResponseAdditionalDataSwish.serializer)
           ..add(ResponsePaymentMethod.serializer)
           ..add(Result.serializer)
+          ..add(ReturnInfo.serializer)
           ..add(RiskData.serializer)
           ..add(RivertyDetails.serializer)
           ..add(RivertyDetailsTypeEnum.serializer)
+          ..add(Room.serializer)
           ..add(SDKEphemPubKey.serializer)
           ..add(SamsungPayDetails.serializer)
           ..add(SamsungPayDetailsFundingSourceEnum.serializer)
@@ -402,11 +431,15 @@ Serializers _$serializers =
           ..add(ScreenDimensions.serializer)
           ..add(SepaDirectDebitDetails.serializer)
           ..add(SepaDirectDebitDetailsTypeEnum.serializer)
+          ..add(SepaDirectDebitDonations.serializer)
+          ..add(SepaDirectDebitDonationsTypeEnum.serializer)
           ..add(ServiceError.serializer)
+          ..add(SessionAmountUpdate.serializer)
           ..add(SessionResultResponse.serializer)
           ..add(SessionResultResponseStatusEnum.serializer)
           ..add(ShopperInteractionDevice.serializer)
           ..add(ShopperName.serializer)
+          ..add(ShopperTaxIdentification.serializer)
           ..add(ShopperTaxInfo.serializer)
           ..add(Split.serializer)
           ..add(SplitAmount.serializer)
@@ -425,8 +458,17 @@ Serializers _$serializers =
           ..add(SubInputDetail.serializer)
           ..add(SubMerchant.serializer)
           ..add(SubMerchantInfo.serializer)
+          ..add(SublimitStatus.serializer)
           ..add(Surcharge.serializer)
+          ..add(TaxAmount.serializer)
+          ..add(TaxCalculation.serializer)
+          ..add(TaxCalculationComponent.serializer)
+          ..add(TaxCalculationContext.serializer)
+          ..add(TaxIdentificationType.serializer)
           ..add(TaxTotal.serializer)
+          ..add(TaxableAmount.serializer)
+          ..add(TemporaryServices.serializer)
+          ..add(ThirdPartyTokenRedundancyInfo.serializer)
           ..add(ThreeDS2RequestData.serializer)
           ..add(ThreeDS2RequestDataAcctTypeEnum.serializer)
           ..add(ThreeDS2RequestDataAddrMatchEnum.serializer)
@@ -489,6 +531,9 @@ Serializers _$serializers =
           ..add(UtilityResponse.serializer)
           ..add(ValidateShopperIdRequest.serializer)
           ..add(ValidateShopperIdResponse.serializer)
+          ..add(VerifiedShopperTaxIdentification.serializer)
+          ..add(VerifyShopperTaxIdentificationRequest.serializer)
+          ..add(VerifyShopperTaxIdentificationResponse.serializer)
           ..add(VippsDetails.serializer)
           ..add(VippsDetailsTypeEnum.serializer)
           ..add(VisaCheckoutDetails.serializer)
@@ -541,10 +586,6 @@ Serializers _$serializers =
           ..addBuilderFactory(
             const FullType(BuiltList, const [const FullType(int)]),
             () => ListBuilder<int>(),
-          )
-          ..addBuilderFactory(
-            const FullType(BuiltList, const [const FullType(InvalidField)]),
-            () => ListBuilder<InvalidField>(),
           )
           ..addBuilderFactory(
             const FullType(BuiltList, const [const FullType(ItemDetailLine)]),
@@ -615,6 +656,17 @@ Serializers _$serializers =
             () => ListBuilder<SubMerchantInfo>(),
           )
           ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(LineItem)]),
+            () => ListBuilder<LineItem>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltMap, const [
+              const FullType(String),
+              const FullType(String),
+            ]),
+            () => MapBuilder<String, String>(),
+          )
+          ..addBuilderFactory(
             const FullType(BuiltList, const [const FullType(PaymentMethod)]),
             () => ListBuilder<PaymentMethod>(),
           )
@@ -652,10 +704,18 @@ Serializers _$serializers =
             () => ListBuilder<PaymentMethodIssuer>(),
           )
           ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(Room)]),
+            () => ListBuilder<Room>(),
+          )
+          ..addBuilderFactory(
             const FullType(BuiltList, const [
               const FullType(StoredPaymentMethodResource),
             ]),
             () => ListBuilder<StoredPaymentMethodResource>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, const [const FullType(String)]),
+            () => ListBuilder<String>(),
           )
           ..addBuilderFactory(
             const FullType(BuiltList, const [const FullType(String)]),
@@ -758,12 +818,25 @@ Serializers _$serializers =
             () => ListBuilder<Split>(),
           )
           ..addBuilderFactory(
+            const FullType(BuiltList, const [
+              const FullType(TaxCalculationComponent),
+            ]),
+            () => ListBuilder<TaxCalculationComponent>(),
+          )
+          ..addBuilderFactory(
             const FullType(BuiltList, const [const FullType(int)]),
             () => ListBuilder<int>(),
           )
           ..addBuilderFactory(
             const FullType(BuiltList, const [const FullType(int)]),
             () => ListBuilder<int>(),
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltMap, const [
+              const FullType(String),
+              const FullType(String),
+            ]),
+            () => MapBuilder<String, String>(),
           )
           ..addBuilderFactory(
             const FullType(BuiltMap, const [
@@ -859,24 +932,6 @@ Serializers _$serializers =
           ..addBuilderFactory(
             const FullType(BuiltList, const [const FullType(Item)]),
             () => ListBuilder<Item>(),
-          )
-          ..addBuilderFactory(
-            const FullType(BuiltMap, const [
-              const FullType(String),
-              const FullType(String),
-            ]),
-            () => MapBuilder<String, String>(),
-          )
-          ..addBuilderFactory(
-            const FullType(BuiltList, const [const FullType(LineItem)]),
-            () => ListBuilder<LineItem>(),
-          )
-          ..addBuilderFactory(
-            const FullType(BuiltMap, const [
-              const FullType(String),
-              const FullType(String),
-            ]),
-            () => MapBuilder<String, String>(),
           )
           ..addBuilderFactory(
             const FullType(BuiltMap, const [

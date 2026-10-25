@@ -13,6 +13,11 @@ const GetTermsOfServiceDocumentResponseTypeEnum
 _$getTermsOfServiceDocumentResponseTypeEnum_adyenCapital =
     const GetTermsOfServiceDocumentResponseTypeEnum._('adyenCapital');
 const GetTermsOfServiceDocumentResponseTypeEnum
+_$getTermsOfServiceDocumentResponseTypeEnum_adyenCapitalCashAdvance =
+    const GetTermsOfServiceDocumentResponseTypeEnum._(
+      'adyenCapitalCashAdvance',
+    );
+const GetTermsOfServiceDocumentResponseTypeEnum
 _$getTermsOfServiceDocumentResponseTypeEnum_adyenCard =
     const GetTermsOfServiceDocumentResponseTypeEnum._('adyenCard');
 const GetTermsOfServiceDocumentResponseTypeEnum
@@ -38,6 +43,9 @@ const GetTermsOfServiceDocumentResponseTypeEnum
 _$getTermsOfServiceDocumentResponseTypeEnum_adyenPccr =
     const GetTermsOfServiceDocumentResponseTypeEnum._('adyenPccr');
 const GetTermsOfServiceDocumentResponseTypeEnum
+_$getTermsOfServiceDocumentResponseTypeEnum_directDebit =
+    const GetTermsOfServiceDocumentResponseTypeEnum._('directDebit');
+const GetTermsOfServiceDocumentResponseTypeEnum
 _$getTermsOfServiceDocumentResponseTypeEnum_kycOnInvite =
     const GetTermsOfServiceDocumentResponseTypeEnum._('kycOnInvite');
 const GetTermsOfServiceDocumentResponseTypeEnum
@@ -51,6 +59,8 @@ _$getTermsOfServiceDocumentResponseTypeEnumValueOf(String name) {
       return _$getTermsOfServiceDocumentResponseTypeEnum_adyenAccount;
     case 'adyenCapital':
       return _$getTermsOfServiceDocumentResponseTypeEnum_adyenCapital;
+    case 'adyenCapitalCashAdvance':
+      return _$getTermsOfServiceDocumentResponseTypeEnum_adyenCapitalCashAdvance;
     case 'adyenCard':
       return _$getTermsOfServiceDocumentResponseTypeEnum_adyenCard;
     case 'adyenChargeCard':
@@ -65,6 +75,8 @@ _$getTermsOfServiceDocumentResponseTypeEnumValueOf(String name) {
       return _$getTermsOfServiceDocumentResponseTypeEnum_adyenIssuing;
     case 'adyenPccr':
       return _$getTermsOfServiceDocumentResponseTypeEnum_adyenPccr;
+    case 'directDebit':
+      return _$getTermsOfServiceDocumentResponseTypeEnum_directDebit;
     case 'kycOnInvite':
       return _$getTermsOfServiceDocumentResponseTypeEnum_kycOnInvite;
     case 'unknownDefaultOpenApi':
@@ -80,6 +92,7 @@ _$getTermsOfServiceDocumentResponseTypeEnumValues =
       const <GetTermsOfServiceDocumentResponseTypeEnum>[
         _$getTermsOfServiceDocumentResponseTypeEnum_adyenAccount,
         _$getTermsOfServiceDocumentResponseTypeEnum_adyenCapital,
+        _$getTermsOfServiceDocumentResponseTypeEnum_adyenCapitalCashAdvance,
         _$getTermsOfServiceDocumentResponseTypeEnum_adyenCard,
         _$getTermsOfServiceDocumentResponseTypeEnum_adyenChargeCard,
         _$getTermsOfServiceDocumentResponseTypeEnum_adyenForPlatformsAdvanced,
@@ -87,6 +100,7 @@ _$getTermsOfServiceDocumentResponseTypeEnumValues =
         _$getTermsOfServiceDocumentResponseTypeEnum_adyenFranchisee,
         _$getTermsOfServiceDocumentResponseTypeEnum_adyenIssuing,
         _$getTermsOfServiceDocumentResponseTypeEnum_adyenPccr,
+        _$getTermsOfServiceDocumentResponseTypeEnum_directDebit,
         _$getTermsOfServiceDocumentResponseTypeEnum_kycOnInvite,
         _$getTermsOfServiceDocumentResponseTypeEnum_unknownDefaultOpenApi,
       ],
@@ -101,6 +115,7 @@ class _$GetTermsOfServiceDocumentResponseTypeEnumSerializer
   static const Map<String, Object> _toWire = const <String, Object>{
     'adyenAccount': 'adyenAccount',
     'adyenCapital': 'adyenCapital',
+    'adyenCapitalCashAdvance': 'adyenCapitalCashAdvance',
     'adyenCard': 'adyenCard',
     'adyenChargeCard': 'adyenChargeCard',
     'adyenForPlatformsAdvanced': 'adyenForPlatformsAdvanced',
@@ -108,12 +123,14 @@ class _$GetTermsOfServiceDocumentResponseTypeEnumSerializer
     'adyenFranchisee': 'adyenFranchisee',
     'adyenIssuing': 'adyenIssuing',
     'adyenPccr': 'adyenPccr',
+    'directDebit': 'directDebit',
     'kycOnInvite': 'kycOnInvite',
     'unknownDefaultOpenApi': 'unknown_default_open_api',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'adyenAccount': 'adyenAccount',
     'adyenCapital': 'adyenCapital',
+    'adyenCapitalCashAdvance': 'adyenCapitalCashAdvance',
     'adyenCard': 'adyenCard',
     'adyenChargeCard': 'adyenChargeCard',
     'adyenForPlatformsAdvanced': 'adyenForPlatformsAdvanced',
@@ -121,6 +138,7 @@ class _$GetTermsOfServiceDocumentResponseTypeEnumSerializer
     'adyenFranchisee': 'adyenFranchisee',
     'adyenIssuing': 'adyenIssuing',
     'adyenPccr': 'adyenPccr',
+    'directDebit': 'directDebit',
     'kycOnInvite': 'kycOnInvite',
     'unknown_default_open_api': 'unknownDefaultOpenApi',
   };
