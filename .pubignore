@@ -11,3 +11,6 @@ analysis_options.yaml
 .github/
 tool/
 test/
+
+# Repository-only test and configuration audit reports
+/docs/
