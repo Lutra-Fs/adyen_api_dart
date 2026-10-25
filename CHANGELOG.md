@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **Testing**: Added 35 request/configuration behavior cases and a scoped Dio audit
+  with nine independently detected fault-injection regressions.
+
 - **Testing**: Added nine request-level tests for newly exposed API groups,
   including authentication headers, routing, and cash-out serialization. Recorded
   a coverage audit and isolated test-removal/fault-injection experiments.
@@ -23,6 +26,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   OpenAPI updates with analysis and tests before opening a pull request.
 
 ### Changed
+
+- **HTTP clients**: Share raw JSON request assembly while retaining independent
+  module Dio instances, caller-owned transports, and Cloud/Local retry policies.
 
 - **Testing**: Consolidated Checkout version proof at the resolved request
   boundary and removed duplicate API-key, method, and mock-status assertions
@@ -46,6 +52,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   from formatting and use the current export script and test paths.
 
 ### Fixed
+
+- **HTTP configuration**: Honor per-request connection/receive timeouts without
+  mutating injected Dio defaults, including redirects and terminal handshake retries.
+- **Endpoint configuration**: Preserve explicit Cloud and MarketPay service roots,
+  default LIVE Cloud to EU when no region is supplied, normalize trailing slashes,
+  and reject invalid service roots. Require LIVE prefixes only for PAL/Checkout.
 
 - **Code Generation**: Extracted repeatable post-processing, fixed the new UK
   mandate account discriminator default, preserved quoted generator arguments,

@@ -108,7 +108,11 @@ class Config {
   /// The API environment (test or live).
   EnvironmentEnum? environment;
 
-  /// The MarketPay API endpoint URL.
+  /// The MarketPay service root (for example, https://cal-live.adyen.com/cal/services).
+  ///
+  /// Explicit values override environment defaults. Each Platforms module captures
+  /// this root at construction, then appends its service name and version.
+  /// Must be an absolute HTTP(S) URL without query or fragment.
   String? marketPayEndpoint;
 
   /// The name of the application using the client.
@@ -117,13 +121,21 @@ class Config {
   /// The API key for authentication.
   String? apiKey;
 
-  /// The connection timeout in milliseconds.
+  /// Default connection and receive timeout in milliseconds for built-in Dio.
+  ///
+  /// Generated API modules capture this value at construction. Raw clients read it
+  /// on each attempt; injected Dio keeps its own defaults unless a request overrides
+  /// them with AdyenRequestOptions.timeoutMillis.
   int connectionTimeoutMillis;
 
   /// The path to the client certificate file.
   String? certificatePath;
 
-  /// The Terminal API cloud endpoint URL.
+  /// The Terminal Cloud service root, captured when the Cloud module is created.
+  ///
+  /// Explicit values override environment and region defaults. Without an override,
+  /// Client selects TEST or the LIVE region (EU when no region is specified).
+  /// Must be an absolute HTTP(S) URL without query or fragment.
   String? terminalApiCloudEndpoint;
 
   /// The Terminal API local endpoint URL.

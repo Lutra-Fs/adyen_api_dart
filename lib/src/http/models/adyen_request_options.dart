@@ -12,7 +12,7 @@ class AdyenRequestOptions {
   /// The [params] are query parameters to add to the URL.
   /// The [idempotencyKey] ensures exactly-once request processing.
   /// The [method] is the HTTP method (defaults to POST).
-  /// The [timeoutMillis] overrides the default timeout.
+  /// The [timeoutMillis] overrides connection and receive timeouts for this request.
   /// The [terminalLocalConnection] configures Terminal Local API connections.
   /// The [useLegacyTerminalHost] enables legacy hostname for terminal connections.
   AdyenRequestOptions({
@@ -37,7 +37,12 @@ class AdyenRequestOptions {
   /// HTTP method for the request (defaults to POST).
   final String? method;
 
-  /// Request timeout in milliseconds.
+  /// Connection and receive timeout in milliseconds for the built-in raw clients.
+  ///
+  /// Overrides Config defaults or injected Dio defaults for this request only,
+  /// including redirect and handshake retries. Zero disables these limits;
+  /// negative values are rejected. This is not a total request deadline.
+  /// Send timeout and generated API request options are unaffected.
   final int? timeoutMillis;
 
   /// Configuration for Terminal Local API connections.

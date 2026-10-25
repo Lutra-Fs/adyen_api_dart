@@ -1,0 +1,354 @@
+{
+  "date": "2026-10-25",
+  "base_revision": "82758574878d5dddf139edfda7b54ee79a08f223",
+  "sdk": "Dart 3.13.7 via FVM",
+  "baseline": {
+    "new_cases": 35,
+    "passed": 7,
+    "behavior_failures": 28,
+    "load_failures": 0
+  },
+  "full_suite": {
+    "passed": 493,
+    "skipped": 0
+  },
+  "coverage": {
+    "handwritten": {
+      "covered": 1117,
+      "total": 1295,
+      "percent": 86.25
+    },
+    "generated": {
+      "covered": 32876,
+      "total": 241034,
+      "percent": 13.64
+    }
+  },
+  "diff_lines_including_comments_and_blanks": {
+    "production": {
+      "added": 188,
+      "removed": 163
+    },
+    "tests": {
+      "added": 452,
+      "removed": 0
+    }
+  },
+  "test_sha256": {
+    "test/http/client/request_configuration_test.dart": "85cc48a7be207924d5278273ac937a6270ed365f88a5e1bcd1bf4c9f8cfb4ce2",
+    "test/core/endpoint_routing_test.dart": "191ceca96cb083bc5e8af14f6b1a32095991be0a7d702d8a497275bfe82b1f02",
+    "test/http/support/recording_adapter.dart": "6a0befc634ecae58de2a8cdec6ee3211c87d84536abe9cc4cacd59a9f19f60d1"
+  },
+  "verification": [
+    {
+      "check": "format",
+      "exit": 0,
+      "seconds": 0.647
+    },
+    {
+      "check": "analyze",
+      "exit": 0,
+      "seconds": 5.489
+    },
+    {
+      "check": "exports",
+      "exit": 0,
+      "seconds": 16.723
+    },
+    {
+      "check": "test",
+      "exit": 0,
+      "seconds": 68.239
+    },
+    {
+      "check": "coverage",
+      "exit": 0,
+      "seconds": 4.06
+    }
+  ],
+  "ablation": {
+    "scope": "59 retained sibling cases versus 35 added owner cases; not full-suite mutation coverage",
+    "without_new_owners_detected": 0,
+    "with_new_owners_detected": 9,
+    "faults": 9
+  },
+  "experiments": [
+    {
+      "name": "original-implementation",
+      "exit": 1,
+      "wall_seconds": 2.535,
+      "failed_tests": [
+        "request timeout overrides defaults without changing the next request",
+        "default borrowed Dio keeps its defaults across concurrent overrides",
+        "local borrowed Dio keeps its defaults across concurrent overrides",
+        "308 redirect retains the request timeout",
+        "terminal handshake fallback retains timeout, query and request data",
+        "zero timeout disables the connection and receive limits",
+        "negative request timeout is rejected before sending",
+        "Cloud routes LIVE/null to its default endpoint",
+        "explicit Cloud endpoint wins in LIVE and is scoped to the module",
+        "explicit Cloud endpoint wins in TEST and is scoped to the module",
+        "Platforms Account/v6/createAccount respects LIVE root null without a PAL prefix",
+        "Platforms Fund/v6/accountHolderBalance respects LIVE root null without a PAL prefix",
+        "Platforms Hop/v6/getOnboardingUrl respects LIVE root null without a PAL prefix",
+        "Platforms Notification/v6/getNotificationConfigurationList respects LIVE root null without a PAL prefix",
+        "Platforms Account/v6/createAccount respects TEST root https://proxy-test.fixture.invalid/custom/cal/ without a PAL prefix",
+        "Platforms Fund/v6/accountHolderBalance respects TEST root https://proxy-test.fixture.invalid/custom/cal/ without a PAL prefix",
+        "Platforms Hop/v6/getOnboardingUrl respects TEST root https://proxy-test.fixture.invalid/custom/cal/ without a PAL prefix",
+        "Platforms Notification/v6/getNotificationConfigurationList respects TEST root https://proxy-test.fixture.invalid/custom/cal/ without a PAL prefix",
+        "Platforms Account/v6/createAccount respects LIVE root https://proxy-test.fixture.invalid/custom/cal/ without a PAL prefix",
+        "Platforms Fund/v6/accountHolderBalance respects LIVE root https://proxy-test.fixture.invalid/custom/cal/ without a PAL prefix",
+        "Platforms Hop/v6/getOnboardingUrl respects LIVE root https://proxy-test.fixture.invalid/custom/cal/ without a PAL prefix",
+        "Platforms Notification/v6/getNotificationConfigurationList respects LIVE root https://proxy-test.fixture.invalid/custom/cal/ without a PAL prefix",
+        "Platforms modules retain their root when later modules use a new root",
+        "invalid service root  fails at module construction",
+        "invalid service root /relative fails at module construction",
+        "invalid service root ftp://fixture.invalid fails at module construction",
+        "invalid service root https://fixture.invalid/?key=value fails at module construction",
+        "invalid service root https://fixture.invalid/#fragment fails at module construction"
+      ],
+      "passed": 7,
+      "load_error": false,
+      "first_error": "Expected: Duration:<0:00:00.017000>\n  Actual: Duration:<0:00:02.000000>\n"
+    },
+    {
+      "name": "ignore-request-timeout-without-new-owners",
+      "exit": 0,
+      "wall_seconds": 3.327,
+      "failed_tests": [],
+      "passed": 59,
+      "load_error": false,
+      "first_error": null
+    },
+    {
+      "name": "ignore-request-timeout-with-new-owners",
+      "exit": 1,
+      "wall_seconds": 1.734,
+      "failed_tests": [
+        "request timeout overrides defaults without changing the next request",
+        "default borrowed Dio keeps its defaults across concurrent overrides",
+        "local borrowed Dio keeps its defaults across concurrent overrides",
+        "308 redirect retains the request timeout",
+        "terminal handshake fallback retains timeout, query and request data",
+        "zero timeout disables the connection and receive limits"
+      ],
+      "passed": 29,
+      "load_error": false,
+      "first_error": "Expected: Duration:<0:00:00.017000>\n  Actual: Duration:<0:00:02.000000>\n"
+    },
+    {
+      "name": "ignore-config-timeout-without-new-owners",
+      "exit": 0,
+      "wall_seconds": 3.253,
+      "failed_tests": [],
+      "passed": 59,
+      "load_error": false,
+      "first_error": null
+    },
+    {
+      "name": "ignore-config-timeout-with-new-owners",
+      "exit": 1,
+      "wall_seconds": 1.654,
+      "failed_tests": [
+        "request timeout overrides defaults without changing the next request"
+      ],
+      "passed": 34,
+      "load_error": false,
+      "first_error": "Expected: Duration:<0:00:02.000000>\n  Actual: Duration:<0:00:30.000000>\n"
+    },
+    {
+      "name": "injected-adapter-loses-priority-without-new-owners",
+      "exit": 0,
+      "wall_seconds": 3.24,
+      "failed_tests": [],
+      "passed": 59,
+      "load_error": false,
+      "first_error": null
+    },
+    {
+      "name": "injected-adapter-loses-priority-with-new-owners",
+      "exit": 1,
+      "wall_seconds": 1.686,
+      "failed_tests": [
+        "default borrowed Dio keeps its defaults across concurrent overrides",
+        "local borrowed Dio keeps its defaults across concurrent overrides"
+      ],
+      "passed": 33,
+      "load_error": false,
+      "first_error": "Expected: empty\n  Actual: [\n            Instance of 'RequestOptions',\n            Instance of 'RequestOptions',\n            Instance of 'RequestOptions'\n          ]\n"
+    },
+    {
+      "name": "overwrite-explicit-cloud-root-without-new-owners",
+      "exit": 0,
+      "wall_seconds": 3.287,
+      "failed_tests": [],
+      "passed": 59,
+      "load_error": false,
+      "first_error": null
+    },
+    {
+      "name": "overwrite-explicit-cloud-root-with-new-owners",
+      "exit": 1,
+      "wall_seconds": 1.661,
+      "failed_tests": [
+        "explicit Cloud endpoint wins in LIVE and is scoped to the module",
+        "explicit Cloud endpoint wins in TEST and is scoped to the module",
+        "invalid service root  fails at module construction",
+        "invalid service root /relative fails at module construction",
+        "invalid service root ftp://fixture.invalid fails at module construction",
+        "invalid service root https://fixture.invalid/?key=value fails at module construction",
+        "invalid service root https://fixture.invalid/#fragment fails at module construction"
+      ],
+      "passed": 28,
+      "load_error": false,
+      "first_error": "Expected: [\n            'https://cloud-test.fixture.invalid/tenant/sync',\n            'https://cloud-test.fixture.invalid/tenant/async',\n            'https://second.fixture.invalid/sync'\n          ]\n  Actual: MappedListIterable<RequestOptions, String>:[\n            'https://terminal-api-live-us.adyen.com/sync',\n            'https://terminal-api-live-us.adyen.com/async',\n            'https://second.fixture.invalid/sync'\n          ]\n   Which: at location [0] is 'https://terminal-api-live-us.adyen.com/sync' instead of 'https://cloud-test.fixture.invalid/tenant/sync'\n"
+    },
+    {
+      "name": "omit-live-eu-default-without-new-owners",
+      "exit": 0,
+      "wall_seconds": 3.251,
+      "failed_tests": [],
+      "passed": 59,
+      "load_error": false,
+      "first_error": null
+    },
+    {
+      "name": "omit-live-eu-default-with-new-owners",
+      "exit": 1,
+      "wall_seconds": 1.65,
+      "failed_tests": [
+        "Cloud routes LIVE/null to its default endpoint"
+      ],
+      "passed": 34,
+      "load_error": false,
+      "first_error": "Invalid argument (terminalApiCloudEndpoint): Must be an absolute HTTP(S) service root without query or fragment: null"
+    },
+    {
+      "name": "ignore-marketpay-root-without-new-owners",
+      "exit": 0,
+      "wall_seconds": 4.284,
+      "failed_tests": [],
+      "passed": 59,
+      "load_error": false,
+      "first_error": null
+    },
+    {
+      "name": "ignore-marketpay-root-with-new-owners",
+      "exit": 1,
+      "wall_seconds": 2.101,
+      "failed_tests": [
+        "Platforms Account/v6/createAccount respects TEST root https://proxy-test.fixture.invalid/custom/cal/ without a PAL prefix",
+        "Platforms Fund/v6/accountHolderBalance respects TEST root https://proxy-test.fixture.invalid/custom/cal/ without a PAL prefix",
+        "Platforms Hop/v6/getOnboardingUrl respects TEST root https://proxy-test.fixture.invalid/custom/cal/ without a PAL prefix",
+        "Platforms Notification/v6/getNotificationConfigurationList respects TEST root https://proxy-test.fixture.invalid/custom/cal/ without a PAL prefix",
+        "Platforms Account/v6/createAccount respects LIVE root https://proxy-test.fixture.invalid/custom/cal/ without a PAL prefix",
+        "Platforms Fund/v6/accountHolderBalance respects LIVE root https://proxy-test.fixture.invalid/custom/cal/ without a PAL prefix",
+        "Platforms Hop/v6/getOnboardingUrl respects LIVE root https://proxy-test.fixture.invalid/custom/cal/ without a PAL prefix",
+        "Platforms Notification/v6/getNotificationConfigurationList respects LIVE root https://proxy-test.fixture.invalid/custom/cal/ without a PAL prefix",
+        "Platforms modules retain their root when later modules use a new root",
+        "invalid service root  fails at module construction",
+        "invalid service root /relative fails at module construction",
+        "invalid service root ftp://fixture.invalid fails at module construction",
+        "invalid service root https://fixture.invalid/?key=value fails at module construction",
+        "invalid service root https://fixture.invalid/#fragment fails at module construction"
+      ],
+      "passed": 21,
+      "load_error": false,
+      "first_error": "Expected: 'https://proxy-test.fixture.invalid/custom/cal/Account/v6/createAccount'\n  Actual: 'https://cal-test.adyen.com/cal/services/Account/v6/createAccount'\n   Which: is different.\n          Expected: https://proxy-test ...\n            Actual: https://cal-test.a ...\n                            ^\n           Differ at offset 8\n"
+    },
+    {
+      "name": "require-unrelated-live-prefix-without-new-owners",
+      "exit": 0,
+      "wall_seconds": 3.747,
+      "failed_tests": [],
+      "passed": 59,
+      "load_error": false,
+      "first_error": null
+    },
+    {
+      "name": "require-unrelated-live-prefix-with-new-owners",
+      "exit": 1,
+      "wall_seconds": 1.743,
+      "failed_tests": [
+        "Platforms Account/v6/createAccount respects LIVE root null without a PAL prefix",
+        "Platforms Fund/v6/accountHolderBalance respects LIVE root null without a PAL prefix",
+        "Platforms Hop/v6/getOnboardingUrl respects LIVE root null without a PAL prefix",
+        "Platforms Notification/v6/getNotificationConfigurationList respects LIVE root null without a PAL prefix",
+        "Platforms Account/v6/createAccount respects LIVE root https://proxy-test.fixture.invalid/custom/cal/ without a PAL prefix",
+        "Platforms Fund/v6/accountHolderBalance respects LIVE root https://proxy-test.fixture.invalid/custom/cal/ without a PAL prefix",
+        "Platforms Hop/v6/getOnboardingUrl respects LIVE root https://proxy-test.fixture.invalid/custom/cal/ without a PAL prefix",
+        "Platforms Notification/v6/getNotificationConfigurationList respects LIVE root https://proxy-test.fixture.invalid/custom/cal/ without a PAL prefix"
+      ],
+      "passed": 27,
+      "load_error": false,
+      "first_error": "Invalid argument(s): Missing live prefix"
+    },
+    {
+      "name": "disable-local-handshake-fallback-without-new-owners",
+      "exit": 0,
+      "wall_seconds": 3.375,
+      "failed_tests": [],
+      "passed": 59,
+      "load_error": false,
+      "first_error": null
+    },
+    {
+      "name": "disable-local-handshake-fallback-with-new-owners",
+      "exit": 1,
+      "wall_seconds": 1.647,
+      "failed_tests": [
+        "terminal handshake fallback retains timeout, query and request data"
+      ],
+      "passed": 34,
+      "load_error": false,
+      "first_error": "Request failed (DioType: DioExceptionType.unknown, Error: HandshakeException: fixture)"
+    },
+    {
+      "name": "skip-endpoint-validation-without-new-owners",
+      "exit": 0,
+      "wall_seconds": 3.297,
+      "failed_tests": [],
+      "passed": 59,
+      "load_error": false,
+      "first_error": null
+    },
+    {
+      "name": "skip-endpoint-validation-with-new-owners",
+      "exit": 1,
+      "wall_seconds": 1.635,
+      "failed_tests": [
+        "invalid service root  fails at module construction",
+        "invalid service root /relative fails at module construction",
+        "invalid service root ftp://fixture.invalid fails at module construction",
+        "invalid service root https://fixture.invalid/?key=value fails at module construction",
+        "invalid service root https://fixture.invalid/#fragment fails at module construction"
+      ],
+      "passed": 30,
+      "load_error": false,
+      "first_error": "Expected: throws <Instance of 'ArgumentError'>\n  Actual: <Closure: () => TerminalCloudAPI>\n   Which: returned <Instance of 'TerminalCloudAPI'>\n"
+    },
+    {
+      "name": "final-request_configuration_test",
+      "exit": 0,
+      "wall_seconds": 1.716,
+      "failed_tests": [],
+      "passed": 7,
+      "load_error": false,
+      "first_error": null
+    },
+    {
+      "name": "final-endpoint_routing_test",
+      "exit": 0,
+      "wall_seconds": 1.537,
+      "failed_tests": [],
+      "passed": 28,
+      "load_error": false,
+      "first_error": null
+    }
+  ],
+  "limits": [
+    "No live provider or physical terminal calls",
+    "No real network timeout measurement or certificate handshake proof",
+    "Independent autoreview and remote CI are recorded in the pull request rather than self-certified here"
+  ]
+}

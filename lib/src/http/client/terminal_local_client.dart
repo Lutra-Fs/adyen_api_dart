@@ -3,13 +3,12 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 
 import '../../core/config.dart';
-import '../../constants/api_constants.dart';
 import '../exceptions/api_exception.dart';
 import '../exceptions/exception_parser.dart';
-import '../headers/header_builder.dart';
 import '../models/adyen_request_options.dart';
 import '../terminal_local/sni_config.dart';
 import 'client_interface.dart';
+import 'raw_request.dart';
 
 /// HTTP client for Adyen Terminal Local API.
 ///
@@ -80,34 +79,27 @@ class TerminalLocalHttpClient implements ClientInterface {
       );
     }
 
-    final dio = _buildDio(config, requestOptions);
-    final headers = buildHeaders(
+    final dio = createRawDio(
       config,
-      headers: requestOptions.headers,
-      idempotencyKey: requestOptions.idempotencyKey,
+      dio: _dioOverride,
+      adapter: _adapterOverride,
     );
-    final method = requestOptions.method ?? ApiConstants.methodPost;
-    final endpointUri = Uri.parse(endpoint);
-    final mergedParams = <String, dynamic>{
-      ...endpointUri.queryParameters,
-      ...?requestOptions.params,
-    };
-    final resolvedEndpoint = endpointUri.hasQuery
-        ? _stripQuery(endpointUri)
-        : endpoint;
+    if (_dioOverride == null && _adapterOverride == null) {
+      configureTerminalLocalSni(
+        dio,
+        config,
+        localOptions,
+        useLegacyHost: requestOptions.useLegacyTerminalHost,
+      );
+    }
     Response<String> response;
     try {
-      response = await dio.request<String>(
-        resolvedEndpoint,
-        data: json,
-        options: Options(
-          method: method,
-          headers: headers,
-          responseType: ResponseType.plain,
-          followRedirects: false,
-          validateStatus: (status) => true,
-        ),
-        queryParameters: mergedParams.isEmpty ? null : mergedParams,
+      response = await sendRawJsonRequest(
+        dio,
+        endpoint: endpoint,
+        json: json,
+        config: config,
+        requestOptions: requestOptions,
       );
     } on DioException catch (e) {
       if (!requestOptions.useLegacyTerminalHost && _isHandshakeError(e.error)) {
@@ -137,48 +129,6 @@ class TerminalLocalHttpClient implements ClientInterface {
     }
 
     return response;
-  }
-
-  Dio _buildDio(Config config, AdyenRequestOptions requestOptions) {
-    final dioOverride = _dioOverride;
-    if (dioOverride != null) {
-      return dioOverride;
-    }
-
-    final dio = Dio(
-      BaseOptions(
-        connectTimeout: Duration(milliseconds: config.connectionTimeoutMillis),
-        receiveTimeout: Duration(milliseconds: config.connectionTimeoutMillis),
-      ),
-    );
-
-    final adapterOverride = _adapterOverride;
-    if (adapterOverride != null) {
-      dio.httpClientAdapter = adapterOverride;
-    } else {
-      final localOptions = requestOptions.terminalLocalConnection;
-      if (localOptions == null) {
-        throw ArgumentError(
-          'Terminal Local requests require terminalLocalConnection options.',
-        );
-      }
-      configureTerminalLocalSni(
-        dio,
-        config,
-        localOptions,
-        useLegacyHost: requestOptions.useLegacyTerminalHost,
-      );
-    }
-
-    return dio;
-  }
-
-  String _stripQuery(Uri uri) {
-    var resolved = uri.replace(queryParameters: const {}).toString();
-    if (resolved.endsWith('?')) {
-      resolved = resolved.substring(0, resolved.length - 1);
-    }
-    return resolved;
   }
 
   bool _isHandshakeError(Object? error) {
