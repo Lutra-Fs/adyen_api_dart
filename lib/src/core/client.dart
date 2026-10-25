@@ -20,7 +20,8 @@ class Client {
   ///
   /// Optional [httpClient] and [terminalLocalHttpClient] allow custom HTTP clients.
   ///
-  /// Throws [ArgumentError] if environment is undefined or region is invalid.
+  /// Fills missing Cloud and MarketPay endpoints without replacing explicit values.
+  /// Throws [ArgumentError] if environment is undefined.
   Client(
     this.config, {
     ClientInterface? httpClient,
@@ -30,24 +31,13 @@ class Client {
       throw ArgumentError('Environment must be defined');
     }
 
-    if (config.environment == EnvironmentEnum.test) {
-      config.terminalApiCloudEndpoint = terminalApiEndpointTest;
-    } else if (config.environment == EnvironmentEnum.live) {
-      if (config.region != null) {
-        if (!Config.isRegionValid(config.region)) {
-          throw ArgumentError('Invalid region provided: ${config.region}');
-        }
-        config.terminalApiCloudEndpoint = Config.getTerminalApiEndpoint(
-          config.region!,
-        );
-      }
-    }
-
-    if (config.environment == EnvironmentEnum.test) {
-      config.marketPayEndpoint = marketPayEndpointTest;
-    } else if (config.environment == EnvironmentEnum.live) {
-      config.marketPayEndpoint = marketPayEndpointLive;
-    }
+    config.terminalApiCloudEndpoint ??=
+        config.environment == EnvironmentEnum.test
+        ? terminalApiEndpointTest
+        : Config.getTerminalApiEndpoint(config.region ?? RegionEnum.eu);
+    config.marketPayEndpoint ??= config.environment == EnvironmentEnum.test
+        ? marketPayEndpointTest
+        : marketPayEndpointLive;
 
     if (httpClient != null) {
       _httpClient = httpClient;

@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import '../../core/resource.dart';
+import '../../core/endpoint.dart';
 import '../../core/service.dart';
 import 'models.dart';
 
@@ -12,14 +13,12 @@ class TerminalCloudAPI extends Service {
   /// Creates a new Terminal Cloud API instance.
   TerminalCloudAPI(super.client) {
     apiKeyRequired = true;
-    _terminalApiAsync = Resource(
-      this,
-      '${client.config.terminalApiCloudEndpoint}/async',
+    final endpoint = normalizeEndpoint(
+      client.config.terminalApiCloudEndpoint,
+      'terminalApiCloudEndpoint',
     );
-    _terminalApiSync = Resource(
-      this,
-      '${client.config.terminalApiCloudEndpoint}/sync',
-    );
+    _terminalApiAsync = Resource(this, '$endpoint/async');
+    _terminalApiSync = Resource(this, '$endpoint/sync');
   }
 
   /// Async resource for terminal API communication.

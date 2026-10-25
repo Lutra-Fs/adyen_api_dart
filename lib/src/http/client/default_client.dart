@@ -1,12 +1,11 @@
 import 'package:dio/dio.dart';
 
 import '../../core/config.dart';
-import '../../constants/api_constants.dart';
 import '../exceptions/api_exception.dart';
 import '../exceptions/exception_parser.dart';
-import '../headers/header_builder.dart';
 import '../models/adyen_request_options.dart';
 import 'client_interface.dart';
+import 'raw_request.dart';
 
 /// Default HTTP client implementation for Adyen API requests.
 ///
@@ -92,34 +91,19 @@ class DefaultHttpClient implements ClientInterface {
     required AdyenRequestOptions? requestOptions,
     required bool allowRedirect,
   }) async {
-    final dio = _buildDio(config);
-    final headers = buildHeaders(
+    final dio = createRawDio(
       config,
-      headers: requestOptions?.headers,
-      idempotencyKey: requestOptions?.idempotencyKey,
+      dio: _dioOverride,
+      adapter: _adapterOverride,
     );
-    final method = requestOptions?.method ?? ApiConstants.methodPost;
-    final endpointUri = Uri.parse(endpoint);
-    final mergedParams = <String, dynamic>{
-      ...endpointUri.queryParameters,
-      ...?requestOptions?.params,
-    };
-    final resolvedEndpoint = endpointUri.hasQuery
-        ? _stripQuery(endpointUri)
-        : endpoint;
     Response<String> response;
     try {
-      response = await dio.request<String>(
-        resolvedEndpoint,
-        data: json,
-        options: Options(
-          method: method,
-          headers: headers,
-          responseType: ResponseType.plain,
-          followRedirects: false,
-          validateStatus: (status) => true,
-        ),
-        queryParameters: mergedParams.isEmpty ? null : mergedParams,
+      response = await sendRawJsonRequest(
+        dio,
+        endpoint: endpoint,
+        json: json,
+        config: config,
+        requestOptions: requestOptions,
       );
     } on DioException catch (e) {
       final message = e.message ?? 'Request failed';
@@ -162,34 +146,5 @@ class DefaultHttpClient implements ClientInterface {
     }
 
     return response;
-  }
-
-  Dio _buildDio(Config config) {
-    final dioOverride = _dioOverride;
-    if (dioOverride != null) {
-      return dioOverride;
-    }
-
-    final dio = Dio(
-      BaseOptions(
-        connectTimeout: Duration(milliseconds: config.connectionTimeoutMillis),
-        receiveTimeout: Duration(milliseconds: config.connectionTimeoutMillis),
-      ),
-    );
-
-    final adapterOverride = _adapterOverride;
-    if (adapterOverride != null) {
-      dio.httpClientAdapter = adapterOverride;
-    }
-
-    return dio;
-  }
-
-  String _stripQuery(Uri uri) {
-    var resolved = uri.replace(queryParameters: const {}).toString();
-    if (resolved.endsWith('?')) {
-      resolved = resolved.substring(0, resolved.length - 1);
-    }
-    return resolved;
   }
 }
