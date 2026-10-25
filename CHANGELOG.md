@@ -53,6 +53,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- **Documentation**: Removed the retired pub popularity badge from the README.
+
 - **HTTP configuration**: Honor per-request connection/receive timeouts without
   mutating injected Dio defaults, including redirects and terminal handshake retries.
 - **Endpoint configuration**: Preserve explicit Cloud and MarketPay service roots,
