@@ -33,7 +33,7 @@ A type-safe Dart library for Adyen's payment APIs, generated from official OpenA
 
 ```yaml
 dependencies:
-  adyen_api: ^0.3.0
+  adyen_api: ^0.4.0
 ```
 
 ```bash

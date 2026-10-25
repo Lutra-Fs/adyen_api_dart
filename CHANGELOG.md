@@ -7,72 +7,56 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-10-25
+
 ### Added
 
-- **Testing**: Added 35 request/configuration behavior cases and a scoped Dio audit
-  with nine independently detected fault-injection regressions.
-
-- **Testing**: Added nine request-level tests for newly exposed API groups,
-  including authentication headers, routing, and cash-out serialization. Recorded
-  a coverage audit and isolated test-removal/fault-injection experiments.
-- **APIs**: Exposed new Balance Platform payout schedule and recurring top-up
-  clients, Management client certificate, donation campaign and terminal theme
-  clients, and the Transfers cash-out client.
-- **Testing**: Added Checkout v72 endpoint and polymorphic UK mandate account
-  serialization regression coverage.
-- **Development**: Pinned Flutter 3.47.8 / Dart 3.13.7 in `.fvmrc` and added a
-  regression check that keeps request header metadata aligned with the package version.
-- **CI**: Test both Dart 3.10.3 and the latest stable SDK; validate generated
-  OpenAPI updates with analysis and tests before opening a pull request.
+- **APIs**: Exposed Balance Platform payout schedule and recurring top-up clients,
+  Management client certificate, donation campaign and terminal theme clients,
+  and the Transfers cash-out client.
+- **Testing**: Added request-level routing, authentication, serialization and
+  timeout regression coverage; recorded coverage and fault-injection audits.
+- **Development**: Pinned Flutter 3.47.8 / Dart 3.13.7 with FVM. CI verifies
+  Dart 3.10.3 and the latest stable SDK.
 
 ### Changed
 
-- **HTTP clients**: Share raw JSON request assembly while retaining independent
-  module Dio instances, caller-owned transports, and Cloud/Local retry policies.
-
-- **Testing**: Consolidated Checkout version proof at the resolved request
-  boundary and removed duplicate API-key, method, and mock-status assertions
-  following the OpenClaw test-audit authoring and retention rules.
 - **Adyen API Specs**: Regenerated all 35 configured APIs and webhook clients
   from upstream commit `2c1f3ab1e0385815899db9364a95e5aa5cf5568a`
-  (2026-10-22), including Checkout v72 and refreshed public model exports.
+  (2026-10-22), including Checkout v72, Balance Control v2 and refreshed model exports.
 - **Public API (Breaking)**: Balance Platform sweep methods moved from
   `balanceAccountsApi` to `customPayoutSchedulesSweepsApi`. Upstream renamed
   `PatchableMandate` to `MandateUpdate` and Checkout's
-  `DefaultErrorResponseEntity` to `CheckoutErrorResponseEntity`, and removed
-  Checkout's `InvalidField` and Session Authentication's `BalanceAccountResource`
-  and `MerchantAccountResource` models.
-- **Dependencies**: Updated compatible minimum versions for `built_value`, `dio`,
-  `build_runner`, `built_value_generator`, `lints`, and `test`; constrained the
-  previously unbounded `convert` development dependency.
-- **CI**: Updated Checkout and Codecov actions to v7 and GitHub Release to v3.
-- **Documentation**: Updated the installation example to 0.3.0 and documented FVM,
-  code generation, version metadata, and automation credential maintenance.
-- **Documentation**: Corrected contributor commands to exclude generated files
-  from formatting and use the current export script and test paths.
+  `DefaultErrorResponseEntity` to `CheckoutErrorResponseEntity`.
+- **HTTP clients**: Shared raw JSON request assembly while retaining independent
+  module Dio instances, caller-owned transports, and Cloud/Local retry policies.
+- **Dependencies**: Updated compatible dependency constraints and retained the
+  Dart 3.10.3 minimum SDK.
+- **CI**: Updated Checkout and Codecov actions to v7 and GitHub Release to v3;
+  added credential preflight, serialized codegen runs and validation of generated updates.
+- **Documentation**: Updated installation and contributor guidance, API metadata,
+  configuration scope and migration details in the audits. Repository-only audit
+  reports are excluded from the published package.
+
+### Removed
+
+- **Public API (Breaking)**: Upstream removed Checkout's `InvalidField` and
+  Session Authentication's `BalanceAccountResource` and `MerchantAccountResource` models.
+- **Documentation**: Removed the retired pub popularity badge.
 
 ### Fixed
 
-- **Documentation**: Removed the retired pub popularity badge from the README.
-
-- **HTTP configuration**: Honor per-request connection/receive timeouts without
+- **HTTP configuration**: Honored per-request connection/receive timeouts without
   mutating injected Dio defaults, including redirects and terminal handshake retries.
-- **Endpoint configuration**: Preserve explicit Cloud and MarketPay service roots,
-  default LIVE Cloud to EU when no region is supplied, normalize trailing slashes,
-  and reject invalid service roots. Require LIVE prefixes only for PAL/Checkout.
-
-- **Code Generation**: Extracted repeatable post-processing, fixed the new UK
-  mandate account discriminator default, preserved quoted generator arguments,
-  and propagated specification parsing failures before generating clients.
-- **HTTP**: Report library version 0.3.0 in request headers instead of 0.0.1.
-- **Code Generation**: Resolve the default OpenAPI checkout relative to the
-  project and export its path consistently to the version detection subprocess.
-- **CI**: Check automation credentials before regeneration, install `ripgrep`
-  for model export generation, and serialize scheduled and manual codegen runs.
-- **Analysis**: Use a null-aware map entry in the shared mock error helper.
-- **Balance Control**: Updated the hand-written wrapper and service tests to use
-  the regenerated Balance Control v2 client surface, fixing CI on the OpenAPI
-  update branch.
+- **Endpoint configuration**: Preserved explicit Cloud and MarketPay service roots,
+  defaulted LIVE Cloud to EU when no region is supplied, normalized trailing slashes,
+  and rejected invalid service roots. LIVE prefixes are required only for PAL/Checkout.
+- **HTTP metadata**: Kept request header library versions synchronized with the
+  package version instead of reporting `0.0.1`.
+- **Code Generation**: Fixed the UK mandate account discriminator default,
+  preserved quoted generator arguments, propagated specification parsing failures,
+  and resolved the cached OpenAPI checkout relative to the project.
+- **Balance Control**: Updated the hand-written wrapper for the regenerated v2 surface.
 
 ## [0.3.0] - 2026-01-15
 
