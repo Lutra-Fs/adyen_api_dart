@@ -24,6 +24,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- **Testing**: Consolidated Checkout version proof at the resolved request
+  boundary and removed duplicate API-key, method, and mock-status assertions
+  following the OpenClaw test-audit authoring and retention rules.
 - **Adyen API Specs**: Regenerated all 35 configured APIs and webhook clients
   from upstream commit `2c1f3ab1e0385815899db9364a95e5aa5cf5568a`
   (2026-10-22), including Checkout v72 and refreshed public model exports.

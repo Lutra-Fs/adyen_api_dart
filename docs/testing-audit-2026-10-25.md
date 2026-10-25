@@ -15,7 +15,8 @@ Added nine request tests in `test/services/new_api_groups_test.dart`, covering
 the new managed payout, recurring top-up, client certificate, donation campaign,
 four terminal theme scopes, and cash-out clients. They check the HTTP method,
 full URL, API key, and expected response; cash-out also checks request
-serialization and response deserialization. All 459 tests pass after this change.
+serialization and response deserialization. The initial addition passed 459 tests. After consolidating overlapping proof under
+OpenClaw test-audit, the final suite contains 458 passing tests.
 
 ### Standards
 
@@ -32,8 +33,9 @@ The specification refresh, Checkout v72 endpoint, and relocated sweep calls
 match the requested maintenance work. This follow-up adds tests and documentation;
 the runtime implementation and specification lock are unchanged. No remaining
 merge-blocking implementation issue was found in the handwritten diff.
-The attempted parallel review could not start because the configured model was
-unsupported by the subagent tool; this was a single-reviewer audit.
+The initial parallel-review tool was unavailable. The final owner batch is
+submitted to the canonical independent autoreview helper; its outcome is reported
+with the PR rather than implied by the local audit.
 
 ## Line coverage
 
@@ -43,7 +45,7 @@ shown separately here. Files absent from the VM report are not silently counted
 as covered: these include constant/interface-only files, the web SNI stub, and
 the currently unused `http/headers/header_utils.dart` helper.
 
-| Scope | Baseline | After nine request tests |
+| Scope | Baseline | Final consolidated suite |
 |---|---:|---:|
 | Reported handwritten code | 1088/1303 (83.50%) | 1088/1303 (83.50%) |
 | Changed handwritten executable lines | 22/22 (100%) | 22/22 (100%) |
@@ -70,12 +72,14 @@ distinct behavior even though two add no unique handwritten line hits.
 ## Fault-injection experiments
 
 Each mutation was applied separately to an isolated project copy and then
-restored. Every run used the whole suite. The UK mutation was applied and
+restored. The initial before/after experiments used all 450/459 tests. After
+consolidation, each mutant was rechecked at its primary owning test file, and
+the unmodified complete 458-test suite passed separately. The UK mutation was applied and
 restored through a temporary script under `tool/codegen/`, preserving the rule
 against manual edits to generated clients. All observed failures were runtime
 test failures, not compiler errors.
 
-| Deliberate regression | Original 450 tests | Strengthened 459 tests |
+| Deliberate regression | Original 450 tests | Final owning tests |
 |---|---|---|
 | Header version 0.3.0 → 0.0.1 | Detected: 1 failure | Detected: 1 failure |
 | Checkout URL v72 → v71 | Detected: 1 failure | Detected: 1 failure |
@@ -83,13 +87,64 @@ test failures, not compiler errors.
 | Remove managed payout client initialization | Missed | Detected: 1 failure |
 | Remove terminal-level theme client initialization | Missed | Detected: 1 failure |
 | Accept every HMAC signature | Detected: 3 failures | Detected: 3 failures |
-| Omit the X-API-Key header | Missed | Detected: 9 failures |
+| Omit the X-API-Key header | Missed | Detected: 1 failure |
 | Set the UK mandate discriminator to an empty string | Detected: 1 failure | Detected: 1 failure |
 
 Detection improved from 4/8 to 8/8 for this deliberately selected sample. This
 does not estimate a whole-project mutation score. The unchanged handwritten
 line percentage alongside improved detection demonstrates why line coverage
 alone was insufficient for assessing the new clients.
+
+## OpenClaw test-audit refinement
+
+Scope: the changed PR test owners and their overlapping proof, not a whole-repo
+purge. Applied the [test-audit skill](https://github.com/openclaw/openclaw/blob/main/.agents/skills/test-audit/SKILL.md),
+its candidate-evidence checklist, request-boundary guide, and proof/cost policy.
+Full owners, callers, siblings, history, CI routing, and the adapter dependency
+were inspected before the owner batch was edited.
+
+- Removed the configuration-only Checkout version probe after moving its
+  independent `/v72/paymentMethods` expectation into the existing real request
+  test. The v71 mutant still fails, now at the resolved network request boundary.
+- Removed `_expectRequest`, mock-supplied status assertions, and repeated method
+  assertions: the inspected `UrlRequestMatcher(matchMethod: true)` already guards
+  methods and relative paths. It does **not** guard the resolved base URL, so each
+  distinct public route retains its independent full-URI expectation.
+- Centralized shared API-key proof in the cash-out request. Nine duplicate header
+  failures became one primary-owner failure, while the omission is still caught.
+- Renamed the package metadata test to match what it observes. Retained it as an
+  independent package/release contract against pubspec, not an implementation
+  source grep. Retained the fixed external UK JSON golden plus subtype decode;
+  its round-trip assertion is not the only oracle.
+- No production hook, export, flag, wrapper, or injection seam was added for tests.
+  No production API was deleted merely because local callers were absent.
+
+Relative to `deab5eb`, this refinement changes 48 added/70 removed test lines
+(net -22), with **zero production LOC changed**. The independent contracts remain;
+there was no deletion quota. No Dart dead-code cleanup was unlocked. OpenClaw's
+pnpm/Vitest/deadcode commands are repository-specific and were replaced with
+this repository's FVM analysis, tests, formatting, and workflow checks.
+
+### Measured test cost
+
+Warm-cache local macOS/Dart 3.13.7 measurements include FVM startup and test loading.
+Each file ran separately with `fvm dart test <file> --concurrency=1 --reporter expanded`;
+no worker setting was changed in CI. Each runner-reported test duration was below
+one second. No live calls, sleeps, or real timers were added.
+
+| File | Tests | Wall seconds |
+|---|---:|---:|
+| new_api_groups_test.dart | 9 | 2.153 |
+| checkout_test.dart | 37 | 1.630 |
+| library_constants_test.dart | 1 | 1.368 |
+| generated_discriminator_test.dart (retained sibling) | 1 | 1.487 |
+| http_client_test.dart (retained sibling) | 8 | 1.613 |
+
+On the earlier 459-test CI head `deab5eb`, the coverage-test steps took 163 seconds
+(Dart 3.10.3) and 223 seconds (stable); whole jobs took 216 and 289 seconds.
+Those broad instrumented runs do not provide isolated per-file CI timings and
+are not comparable to the warm local file measurements. Final-head CI is checked
+separately before merge. Live Adyen/TLS/browser proof remains outside this audit.
 
 ## Reproduction
 

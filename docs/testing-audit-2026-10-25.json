@@ -5,9 +5,10 @@
   "test_counts": {
     "baseline": 450,
     "without_three_regressions": 447,
-    "after": 459
+    "initial_strengthening": 459,
+    "final": 458
   },
-  "new_test_sha256": "35c5dd7d5e010ab355f7962598a7bb13b451225977f65544ab8a894da2f22894",
+  "new_test_sha256": "0cc0a43bf6143e1baf3d0ce24e6687143069d93b9578d5ba3c2cb8ddd09b7807",
   "coverage": {
     "baseline": {
       "hit": 1088,
@@ -32,64 +33,96 @@
       "before_detected": true,
       "before_failing_tests": 1,
       "after_detected": true,
-      "after_failing_tests": 1,
-      "compile_error": false
+      "compile_error": false,
+      "initial_strengthening_failing_tests": 1,
+      "final_failing_tests": 1,
+      "final_scope": [
+        "test/core/library_constants_test.dart"
+      ]
     },
     {
       "mutation": "checkout-v71",
       "before_detected": true,
       "before_failing_tests": 1,
       "after_detected": true,
-      "after_failing_tests": 1,
-      "compile_error": false
+      "compile_error": false,
+      "initial_strengthening_failing_tests": 1,
+      "final_failing_tests": 1,
+      "final_scope": [
+        "test/services/checkout_test.dart"
+      ]
     },
     {
       "mutation": "cash-out-unwired",
       "before_detected": false,
       "before_failing_tests": 0,
       "after_detected": true,
-      "after_failing_tests": 1,
-      "compile_error": false
+      "compile_error": false,
+      "initial_strengthening_failing_tests": 1,
+      "final_failing_tests": 1,
+      "final_scope": [
+        "test/services/new_api_groups_test.dart"
+      ]
     },
     {
       "mutation": "managed-payout-unwired",
       "before_detected": false,
       "before_failing_tests": 0,
       "after_detected": true,
-      "after_failing_tests": 1,
-      "compile_error": false
+      "compile_error": false,
+      "initial_strengthening_failing_tests": 1,
+      "final_failing_tests": 1,
+      "final_scope": [
+        "test/services/new_api_groups_test.dart"
+      ]
     },
     {
       "mutation": "terminal-theme-unwired",
       "before_detected": false,
       "before_failing_tests": 0,
       "after_detected": true,
-      "after_failing_tests": 1,
-      "compile_error": false
+      "compile_error": false,
+      "initial_strengthening_failing_tests": 1,
+      "final_failing_tests": 1,
+      "final_scope": [
+        "test/services/new_api_groups_test.dart"
+      ]
     },
     {
       "mutation": "hmac-accept-all",
       "before_detected": true,
       "before_failing_tests": 3,
       "after_detected": true,
-      "after_failing_tests": 3,
-      "compile_error": false
+      "compile_error": false,
+      "initial_strengthening_failing_tests": 3,
+      "final_failing_tests": 3,
+      "final_scope": [
+        "test/core/hmac_validator_test.dart"
+      ]
     },
     {
       "mutation": "omit-api-key",
       "before_detected": false,
       "before_failing_tests": 0,
       "after_detected": true,
-      "after_failing_tests": 9,
-      "compile_error": false
+      "compile_error": false,
+      "initial_strengthening_failing_tests": 9,
+      "final_failing_tests": 1,
+      "final_scope": [
+        "test/services/new_api_groups_test.dart"
+      ]
     },
     {
       "mutation": "uk-empty-discriminator",
       "before_detected": true,
       "before_failing_tests": 1,
       "after_detected": true,
-      "after_failing_tests": 1,
-      "compile_error": false
+      "compile_error": false,
+      "initial_strengthening_failing_tests": 1,
+      "final_failing_tests": 1,
+      "final_scope": [
+        "test/core/generated_discriminator_test.dart"
+      ]
     }
   ],
   "removed_regression_tests": [
@@ -105,5 +138,38 @@
       "mutation": "uk-empty-discriminator-without-new",
       "exit_code": 0
     }
-  ]
+  ],
+  "focused_cost": [
+    {
+      "file": "test/services/new_api_groups_test.dart",
+      "wall_seconds": 2.153,
+      "exit_code": 0,
+      "summary": "00:00 +9: All tests passed!"
+    },
+    {
+      "file": "test/services/checkout_test.dart",
+      "wall_seconds": 1.63,
+      "exit_code": 0,
+      "summary": "00:00 +37: All tests passed!"
+    },
+    {
+      "file": "test/core/library_constants_test.dart",
+      "wall_seconds": 1.368,
+      "exit_code": 0,
+      "summary": "00:00 +1: All tests passed!"
+    },
+    {
+      "file": "test/core/generated_discriminator_test.dart",
+      "wall_seconds": 1.487,
+      "exit_code": 0,
+      "summary": "00:00 +1: All tests passed!"
+    },
+    {
+      "file": "test/core/http_client_test.dart",
+      "wall_seconds": 1.613,
+      "exit_code": 0,
+      "summary": "00:00 +8: All tests passed!"
+    }
+  ],
+  "test_audit_skill_sha256": "1390c61901a1b9ec46778901ebd24f96b201989977d7b8dea2f05b7e593ab025"
 }
